@@ -9,7 +9,7 @@ Muse is personal. Conjure makes it social.
 Muse Conjure is a feature concept for Meta's Muse agent, built as a private prototype: a working
 copy of Messenger and Facebook with Conjure inside. It is not a Meta product. Five cast members
 are the team (Aditya, Calvin, Arun, Tsai Lin, Will Li), with their permission; everyone and
-everything else is made up. Never hosted publicly. There is no login screen, and a small
+everything else is made up. There is no login screen, and a small
 "Prototype" label stays on screen.
 
 Words used here:
@@ -59,9 +59,17 @@ Which model does what (Meta's Muse API; no other provider is in the tree):
 
 | Job | Model |
 |---|---|
-| Pick a library tool, decide how to change a Mini, read a page for an Idea | `muse-ember-1.0` |
-| Fill a tool from the chat, build a new one, change and edit Minis | `muse-spark-1.3-contributor` |
+| Pick a library tool, decide how to change a Mini, read a page for an Idea | `muse-ember-1.0` (router at minimal effort) |
+| Fill a tool from the chat, a post or a page; write the new params of a change | `muse-ember-1.0` at minimal effort first, then low, then `muse-spark-1.3-contributor` at minimal when a fill does not hold up |
+| Build a new tool, edit a tool's code | `muse-spark-1.3-contributor` |
 | No key on the machine | `replay`: recorded answers, no model |
+
+An ordinary ask in a chat, measured on 16 asks in four seeded chats, 3 runs each, no cache
+(`bun packages/factory/eval/speed.ts`): about 5.0 s from the ask to a checked Mini (median; worst
+26.7 s when a fill falls through to the larger model), against 19.9 s (worst 57.8 s) when the larger
+model filled every ask. A post draft in the composer fills three tools in about 4 s, against 23 to 32 s.
+Stage by stage: router 1.9 s, fill 1.6 s, check 1.1 s; the "is this a change?" decision (1.3 s) runs
+beside routing and is skipped for asks that plainly do not touch the Mini in the chat.
 
 Without a key the demo still starts. The keyword lane (like "pick for us") and every seeded chat
 work; other asks get one line saying Muse needs a connection.

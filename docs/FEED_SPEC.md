@@ -850,7 +850,7 @@ File: `apps/shell/src/surfaces/data.ts` STORIES (order as listed). Story tools l
 
 | # | id | By | Caption | Picture | Tool | Seen by / reply |
 |---|---|---|---|---|---|---|
-| S1 | `s-me` | Tsai Lin | (none) | drawn tone 2, "Trail sign at Sibley ridge" | Story poll MY_POLL "beach or hike sat?", ended, hike 9 to 5 (piece; no lab tool yet, see E) | Seen by 23 · Maya replied "hike but i'm bringing snacks" |
+| S1 | `s-dev-poll` | Aditya | (none) | drawn tone 2, "Trail sign at Sibley ridge" | Story poll DEV_POLL "beach or hike sat?", ended, hike 9 to 5 (piece; no lab tool yet, see E) | Seen by 23 · Maya replied "hike but i'm bringing snacks" |
 | S2 | `s-maya` | Maya | "library szn" | drawn tone 3, "Desk lamp over a stack of books" | none | Seen by 31 · Will replied "3rd floor or nothing" |
 | S3 | `s-dev` | Aditya | "up at 6 for no reason" | drawn tone 1, "Sunrise over Dwight Way" | none | Seen by 18 · Calvin replied "gym?" |
 | S4 | `s-trip` | Aditya | "1 year ago today: big sur" | drawn tone 2, "Bixby Bridge from the road" | **trip-story** `t-cat-story-trip`, params as F20 | Seen by 27 · Maya and Will tapped "I'm in" on the last card |
@@ -1198,7 +1198,7 @@ File: `apps/shell/src/surfaces/data.ts` NOTIFS (replaces the four). Newest first
 | N3 | `nt-door` | "**Calvin Karthik** added you to the door list for **Will's 21st**" | 2h | yes | event | event `will21` |
 | N4 | `nt-seat` | "**Maya Chen** has 2 seats left in her car for **Juniper Hale live**" | 5h | no | event | event `juniper` |
 | N5 | `nt-tab` | "**Hana Ito** settled **Joshua Tree tab**. You pay Hana $229" | 1d | no | share | post `p-jt` |
-| N6 | `nt-story` | "Your story poll ended. **hike** won 9 to 5" | 2h | yes | story | story `s-me` |
+| N6 | `nt-story` | "**Maya Chen** and 13 others voted on your story poll. **hike** won 9 to 5" (Aditya only) | 2h | yes | story | story `s-dev-poll` |
 | N7 | `nt-memory` | "You have a memory with **Aditya Kapoor**, **Maya Chen** and **Will Li** from 1 year ago" | 3h | no | story | post `p-memory` |
 | N8 | `nt-lena` | "**Lena Ortiz** posted in **Eastfield sublets and housing**: subletting my room jun-aug" | 5h | no | group | group `sublets` |
 | N9 | `nt-crag` | "**Zoe Achebe** invited you to **Castle Rock crag day**" | 1d | no | event | event `crag` |
@@ -1428,7 +1428,7 @@ in F. Shares reuse the source's photo (F08 uses E1, F13 uses R4, F19 uses M2, F3
 
 | Slot | Brief |
 |---|---|
-| S1 `s-me` | wooden trail sign at a ridge trailhead, morning light, portrait, eager, no people |
+| S1 `s-dev-poll` | wooden trail sign at a ridge trailhead, morning light, portrait, eager, no people |
 | S2 `s-maya` | desk lamp over a stack of library books and a coffee cup, night, portrait, cozy |
 | S3 `s-dev` | empty residential street at sunrise from a second-floor window, portrait, sleepy calm |
 | S4 `s-trip` | coastal highway curving along cliffs over the ocean, golden hour, portrait, nostalgic |

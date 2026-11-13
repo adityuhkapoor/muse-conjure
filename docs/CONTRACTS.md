@@ -313,7 +313,8 @@ interface ModelClient { complete(req: { system: string; messages: Msg[]; json?: 
 
 `POST /generate` takes `{ ask, chat: { title?, messages: [{ from, text }] }, members: [{ id, name }],
 surface, chatId?, model?, piece?, params?, recentPieces? }` and answers `text/event-stream`: `progress`
-events, then one of `done` (the tool: `source`, `code`, `name`, `summary`, `path`, `piece`,
+events (`routed` carries the lab Mini's `name` once it is picked, before its check ends, so the card
+can say which one it is setting up), then one of `done` (the tool: `source`, `code`, `name`, `summary`, `path`, `piece`,
 `attempts`, `timings`, `ms`, and `suggested` when a fill made options up), `reply` `{ text, code,
 chip? }` (no Mini, with a reason code: `answer`, `cant_act`, `wont`, `greet`, `needs_model`,
 `too_slow`, `failed`, or `change` for a redirect, below; `chip` `{ id, name }` is a lab Mini offered
@@ -423,4 +424,8 @@ to 1,000 characters, at most 500 comments in the room), `comment-like { id }` (a
 `post-like { id }`: a toggle per person on a seeded Home post, keyed by the post's id. State is
 `postLikes: Record<postId, personId[]>`. A post's count is its written count plus the people in that
 list; invalid ids and other garbage leave the state unchanged.
+
+People in seed data (shell surfaces, `muse/seed.ts`, `store/fake-data.ts`, `services/demo`) are wire ids only; the seeded world's main character is Aditya (`dev`), the default viewer.
+`"me"` exists only as the store's name for whoever is viewing, at render time; it never appears in seed data.
+"Everyone" and "everyone but the viewer" come from `src/store/cast.ts` (`CAST_IDS`, `othersOf`, `castWithViewerFirst`), never a literal list; `scripts/seed-ids.ts` (in `bun run check`) enforces both.
 
