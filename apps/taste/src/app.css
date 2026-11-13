@@ -1,0 +1,83 @@
+/* Meta's product chrome: Facebook light and dark tokens (packages/app theme values). */
+:root {
+  --wash: #f0f2f5;
+  --card: #ffffff;
+  --text: #080809;
+  --secondary: #65686c;
+  --divider: #d0d3d7;
+  --primary: #0866ff;
+  --on-primary: #ffffff;
+  --link: #0064d1;
+  --secondary-button: #e2e5e9;
+  --hover: rgba(0, 0, 0, 0.05);
+  --pressed: rgba(70, 72, 75, 0.15);
+  --positive: #24832c;
+  --negative: #dd2334;
+  --love: #e41e3f;
+  --toast: #242526;
+  --on-toast: #ffffff;
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.1), 0 4px 16px rgba(0, 0, 0, 0.06);
+  --font: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --wash: #18191a;
+    --card: #242526;
+    --text: #e4e6eb;
+    --secondary: #b0b3b8;
+    --divider: #3e4042;
+    --link: #6eb1ff;
+    --secondary-button: #3a3b3c;
+    --hover: rgba(255, 255, 255, 0.1);
+    --pressed: rgba(255, 255, 255, 0.3);
+    --positive: #31a24c;
+    --negative: #ff6b81;
+    --love: #ff6b81;
+    --toast: #3e4042;
+    --on-toast: #e4e6eb;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.4), 0 4px 16px rgba(0, 0, 0, 0.3);
+    color-scheme: dark;
+  }
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: var(--wash);
+  color: var(--text);
+  font: 15px/20px var(--font);
+  -webkit-font-smoothing: antialiased;
+  -webkit-tap-highlight-color: transparent;
+  overflow-x: clip;
+}
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+button:focus-visible,
+[tabindex]:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition-duration: 0ms !important;
+    animation-duration: 0ms !important;
+  }
+}

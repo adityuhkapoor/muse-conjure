@@ -1,0 +1,43 @@
+/* Shared pieces of the Facebook surfaces. Every value is a token (src/tokens/tokens.css, "surfaces" block). */
+
+/* A feed card: white, r12, card shadow on desktop; flat with a band between posts on the phone (IOS). */
+.fb-card {
+  background: var(--c-bg);
+  border-bottom: var(--fb-feed-sep-h) solid var(--c-fb-feed-sep);
+}
+:root[data-layout="desktop"] .fb-card {
+  border-bottom: 0;
+  border-radius: var(--r-card);
+  box-shadow: var(--sh-card);
+  overflow: hidden;
+}
+
+.fb-name { font-size: var(--fs-fb-name); line-height: var(--lh-fb-name); font-weight: var(--fw-semibold); color: var(--c-text); }
+.fb-meta { font-size: var(--fs-fb-meta); line-height: var(--lh-fb-meta); color: var(--c-text-2); }
+.fb-body { font-size: var(--fs-fb-body); line-height: var(--lh-fb-body); color: var(--c-text); overflow-wrap: anywhere; }
+.fb-h2 { font-size: var(--fs-fb-h2); line-height: var(--lh-fb-h2); font-weight: var(--fw-bold); }
+.fb-section { font-size: var(--fs-fb-section); line-height: var(--lh-fb-section); font-weight: var(--fw-semibold); }
+.fb-bar-title { font-size: var(--fs-bar-title); line-height: var(--lh-bar-title); font-weight: var(--fw-bold); }
+
+/* Media placeholder: made-up photos are tinted panels with a label for screen readers. */
+.fb-media { display: block; width: 100%; aspect-ratio: 3 / 2; background: linear-gradient(160deg, var(--c-ph-1), var(--c-ph-3)); }
+.fb-media.t2 { background: linear-gradient(160deg, var(--c-ph-3), var(--c-ph-2)); }
+.fb-media.t3 { background: linear-gradient(160deg, var(--c-ph-2), var(--c-ph-1)); }
+
+/* Round icon button (header, close). */
+.fb-round {
+  width: var(--sp-40);
+  height: var(--sp-40);
+  border-radius: var(--r-round);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--c-btn-secondary);
+  color: var(--c-text);
+  --icon-size: var(--sp-20);
+  flex: none;
+}
+
+/* Phone pushed page: back bar like the event page. */
+.fb-page { position: relative; display: flex; flex-direction: column; height: 100%; min-height: 0; background: var(--c-bg); }
+.fb-scroll { flex: 1; min-height: 0; overflow-y: auto; overflow-x: hidden; -webkit-overflow-scrolling: touch; }

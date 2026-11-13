@@ -1,0 +1,90 @@
+/* Muse Sans for the phone looks (design/fonts/README.md, Apply). Before the token sheet. */
+@import "../../../design/fonts/fonts.css";
+@import "./tokens/tokens.css";
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html, body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+  background: var(--c-bg);
+  color: var(--c-text);
+  font-family: var(--font);
+  font-size: var(--fs-body);
+  line-height: var(--lh-body);
+  -webkit-font-smoothing: antialiased;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+html[data-layout="desktop"] body { background: var(--c-wash); }
+
+#app { position: fixed; inset: 0; }
+
+button {
+  font: inherit;
+  color: inherit;
+  background: none;
+  border: 0;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  touch-action: manipulation;
+}
+button:focus-visible, textarea:focus-visible, input:focus-visible {
+  outline: var(--sp-2) solid var(--c-accent);
+  outline-offset: 1px;
+}
+textarea, input { font: inherit; color: inherit; }
+ul, ol { list-style: none; margin: 0; padding: 0; }
+h1, h2, h3, p { margin: 0; }
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation-duration: var(--dur-none) !important; transition-duration: var(--dur-none) !important; }
+}
+
+/* Buttons (DS: 36 high, r8, 15 semibold, 1-2 word verbs). Blue is the one primary action per card. */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--sp-6);
+  height: var(--btn-h);
+  min-width: var(--btn-h);
+  padding: 0 var(--sp-12);
+  border-radius: var(--r-button);
+  background: var(--c-btn-secondary);
+  color: var(--c-text);
+  font-size: var(--fs-btn);
+  line-height: var(--lh-btn);
+  font-weight: var(--fw-semibold);
+  white-space: nowrap;
+  --icon-size: var(--sp-16);
+}
+.btn.primary { background: var(--c-primary); color: var(--c-white); }
+.btn.soft { background: var(--c-btn-soft); color: var(--c-btn-soft-text); }
+.btn:disabled { opacity: 0.5; cursor: default; }
+:root[data-layout="desktop"] .btn:not(.primary):hover { filter: brightness(0.95); }
+
+/* Controls that are drawn for fidelity but do nothing in this prototype: no pointer, no hover or
+   pressed state, a "Not in this prototype" title. They are drawn at full strength, as in the real
+   apps: a faded control reads as broken. */
+[aria-disabled="true"] { cursor: default; -webkit-tap-highlight-color: transparent; }
+[aria-disabled="true"]:hover,
+[aria-disabled="true"]:active { background: transparent !important; box-shadow: none !important; }
+
+/* Layer-mode frames (Safari) are drawn over their slots from a layer at the end of <body>, so an
+   open sheet or reaction menu would sit under them: hide the layer while one is open. */
+:root[data-frames="layer"] body:has([data-sheet], [data-reaction-menu]) > div[aria-hidden="true"] { opacity: 0; pointer-events: none; }

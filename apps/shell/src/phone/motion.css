@@ -1,0 +1,103 @@
+/*
+ * Motion for the phone look (layout "phone": narrow windows as well as phones). Every duration, curve and
+ * distance is a --m-* token; desktop gets instant versions of the same tokens (tokens.css). Only transform and
+ * opacity move. The page transitions themselves live in App.svelte; sheets in Sheet.svelte and below.
+ */
+
+/* --- pressed states: the reference's three kinds. Highlight on touch down, release eases out. --- */
+:root[data-layout="phone"] :where(button, a[href], [role="button"], [role="tab"], summary):not(:disabled, [aria-disabled="true"]) {
+  -webkit-tap-highlight-color: transparent;
+  transition: transform var(--m-press-dur) var(--m-press-curve), opacity var(--m-press-dur) ease, box-shadow var(--m-press-bg-dur) ease;
+}
+/* soft (default): buttons, chips, bars */
+:root[data-layout="phone"] :where(button, a[href], [role="button"], [role="tab"], summary):not(:disabled, [aria-disabled="true"]):active {
+  transform: scale(var(--m-press-soft-scale));
+  opacity: var(--m-press-soft-opacity);
+  transition-duration: var(--m-press-in-dur);
+}
+/* icon: a button that is only a glyph */
+:root[data-layout="phone"] :where(button):has(> svg:only-child):not(:disabled, [aria-disabled="true"]):active {
+  transform: scale(var(--m-press-icon-scale));
+  opacity: var(--m-press-icon-opacity);
+}
+/* row: list rows and cells highlight their background at once, nothing scales */
+:root[data-layout="phone"] :where(button.row, .tool-row, .chat, .pin, .activity, .row-btn, [data-row]):not(:disabled, [aria-disabled="true"]):active {
+  transform: none;
+  opacity: 1;
+  box-shadow: inset 0 0 0 100vmax var(--c-press);
+  transition-duration: 0ms;
+}
+
+/* --- sheets: rise on the spring, the dim comes in step on its own layer, never fade the sheet itself --- */
+:root[data-layout="phone"] [data-sheet] {
+  background: none;
+  -webkit-backdrop-filter: none;
+  backdrop-filter: none;
+  animation: none;
+  isolation: isolate;
+}
+:root[data-layout="phone"] [data-sheet]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--c-scrim);
+  opacity: var(--dim, 1);
+  animation: m-dim var(--m-sheet-dur) var(--m-sheet-ease) both;
+}
+:root[data-layout="phone"] [data-sheet] > .panel { animation: m-sheet-up var(--m-sheet-dur) var(--m-sheet-ease) both; will-change: transform; }
+:root[data-layout="phone"] [data-sheet].closing::before { animation: m-dim-out var(--m-sheet-out-dur) var(--m-sheet-out-ease) both; }
+:root[data-layout="phone"] [data-sheet].closing > .panel { animation: m-sheet-down var(--m-sheet-out-dur) var(--m-sheet-out-ease) both; }
+:root[data-layout="phone"] [data-sheet] .handle { position: relative; touch-action: none; }
+:root[data-layout="phone"] [data-sheet] .handle::before { content: ""; position: absolute; inset: calc(var(--sp-12) * -1) calc(var(--sp-48) * -1); }
+:root[data-layout="phone"] [data-sheet] > .panel[data-fit] { touch-action: none; }
+@keyframes m-sheet-up { from { transform: translate3d(0, 100%, 0); } to { transform: translate3d(0, 0, 0); } }
+@keyframes m-sheet-down { from { transform: translate3d(0, 0, 0); } to { transform: translate3d(0, 100%, 0); } }
+@keyframes m-dim { from { opacity: 0; } to { opacity: var(--dim, 1); } }
+@keyframes m-dim-out { from { opacity: var(--dim, 1); } to { opacity: 0; } }
+
+/* --- long-press: the bubble lifts, the reaction bar springs out of it, the background dims in step; release reverses --- */
+:root[data-layout="phone"] [data-reaction-menu] { background: none; -webkit-backdrop-filter: none; backdrop-filter: none; animation: none; isolation: isolate; }
+:root[data-layout="phone"] [data-reaction-menu]::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--c-scrim);
+  -webkit-backdrop-filter: blur(var(--blur-glass));
+  backdrop-filter: blur(var(--blur-glass));
+  animation: m-dim var(--m-menu-in-dur) var(--m-menu-in-ease) both;
+}
+:root[data-layout="phone"] [data-reaction-menu] .ghost { animation: m-lift var(--m-menu-in-dur) var(--m-menu-in-ease) both; transform-origin: 50% 60%; will-change: transform; }
+:root[data-layout="phone"] [data-reaction-menu] .bar { animation: m-bar-in var(--m-menu-in-dur) var(--m-menu-in-ease) both; transform-origin: 50% 100%; will-change: transform; }
+:root[data-layout="phone"] [data-reaction-menu] .bar button { animation: m-bar-btn var(--m-menu-in-dur) var(--m-menu-in-ease) both; animation-delay: calc(var(--i) * var(--m-menu-stagger)); }
+:root[data-layout="phone"] [data-reaction-menu].closing::before { animation: m-dim-out var(--m-menu-out-dur) var(--m-menu-out-ease) both; }
+:root[data-layout="phone"] [data-reaction-menu].closing .ghost { animation: m-lift-out var(--m-menu-out-dur) var(--m-menu-out-ease) both; }
+:root[data-layout="phone"] [data-reaction-menu].closing .bar { animation: m-bar-out var(--m-menu-out-dur) var(--m-menu-out-ease) both; }
+:root[data-layout="phone"] [data-reaction-menu].closing .bar button { animation: none; }
+@keyframes m-lift { from { transform: none; } to { transform: scale(var(--m-lift-scale)); } }
+@keyframes m-lift-out { from { transform: scale(var(--m-lift-scale)); } to { transform: none; } }
+@keyframes m-bar-in { from { transform: translate3d(0, var(--sp-12), 0) scale(0.3); opacity: 0; } 25% { opacity: 1; } to { transform: none; opacity: 1; } }
+@keyframes m-bar-out { from { transform: none; opacity: 1; } to { transform: translate3d(0, var(--sp-8), 0) scale(0.6); opacity: 0; } }
+@keyframes m-bar-btn { from { transform: scale(0); } to { transform: none; } }
+
+/* --- typing dots: the reference's pulse, 160 ms apart --- */
+:root[data-layout="phone"] .typing span { animation-name: m-dots; animation-duration: var(--m-dots-dur); animation-timing-function: ease-in-out; }
+:root[data-layout="phone"] .typing span:nth-child(2) { animation-delay: var(--m-dots-gap); }
+:root[data-layout="phone"] .typing span:nth-child(3) { animation-delay: calc(var(--m-dots-gap) * 2); }
+@keyframes m-dots { 0%, 60%, 100% { transform: translateY(0); opacity: 0.55; } 30% { transform: translateY(calc(var(--sp-2) * -1.5)); opacity: 1; } }
+
+/* --- new bubbles: grow from the composer into place on the spring, no fade --- */
+:root[data-layout="phone"] .row .stack.fresh { animation: m-pop-in var(--m-send-dur) var(--m-send-ease) both; }
+:root[data-layout="phone"] .row.out .stack.fresh { animation-name: m-pop-out; }
+@keyframes m-pop-in { from { transform: translate3d(0, var(--sp-24), 0) scale(0.9); } to { transform: none; } }
+@keyframes m-pop-out { from { transform: translate3d(0, var(--sp-48), 0) scale(0.6); } to { transform: none; } }
+
+/* --- the scroll-to-bottom button springs in --- */
+:root[data-layout="phone"] .jump { animation: m-jump var(--m-send-dur) var(--m-send-ease) both; }
+@keyframes m-jump { from { transform: translate3d(0, var(--sp-12), 0) scale(0.7); opacity: 0; } 30% { opacity: 1; } to { transform: none; opacity: 1; } }
+
+/* --- desktop: the web has no such motion --- */
+:root[data-layout="desktop"] [data-sheet], :root[data-layout="desktop"] [data-sheet] > .panel,
+:root[data-layout="desktop"] [data-reaction-menu], :root[data-layout="desktop"] [data-reaction-menu] *,
+:root[data-layout="desktop"] .row .stack.fresh { animation: none !important; }

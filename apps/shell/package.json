@@ -1,0 +1,34 @@
+{
+  "name": "@muse/shell",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "vite build",
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "lint:tokens": "bun scripts/lint-tokens.ts",
+    "check": "bun scripts/check.ts",
+    "shots": "bun scripts/shots.ts",
+    "perf:phone": "bun scripts/phone-perf.ts",
+    "check:motion": "bun scripts/motion-check.ts",
+    "check:phone": "bun scripts/conn-test.ts && bun scripts/phone-check.ts && bun scripts/motion-check.ts"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "7.3.1",
+    "@types/node": "^24.0.0",
+    "axe-core": "4.14.0",
+    "playwright": "1.65.0",
+    "svelte": "5.57.3",
+    "svelte-check": "4.7.8",
+    "typescript": "~6.0.0",
+    "vite": "8.3.8",
+    "@typescript/native": "npm:typescript@7.0.2"
+  },
+  "dependencies": {
+    "@muse/app": "workspace:*",
+    "@muse/assets": "workspace:*",
+    "@muse/protocol": "workspace:*",
+    "@muse/sandbox": "workspace:*",
+    "@muse/sync": "workspace:*"
+  }
+}

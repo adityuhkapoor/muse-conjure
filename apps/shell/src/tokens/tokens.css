@@ -1,0 +1,676 @@
+
+
+
+:root {
+  color-scheme: light;
+
+  
+  --sp-2: 2px; 
+  --sp-3: 3px; 
+  --sp-4: 4px; 
+  --sp-5: 5px; 
+  --sp-6: 6px; 
+  --sp-8: 8px; 
+  --sp-10: 10px; 
+  --sp-12: 12px; 
+  --sp-14: 14px; 
+  --sp-16: 16px; 
+  --sp-18: 18px; 
+  --sp-20: 20px; 
+  --sp-24: 24px; 
+  --sp-28: 28px; 
+  --sp-32: 32px; 
+  --sp-36: 36px; 
+  --sp-40: 40px; 
+  --sp-44: 44px; 
+  --sp-48: 48px; 
+  --sp-56: 56px; 
+  --sp-60: 60px; 
+  --sp-64: 64px; 
+  --sp-80: 80px; 
+  --hit: 44px; 
+  --safe-top: max(env(safe-area-inset-top, 0px), var(--sim-safe-top, 0px)); 
+  --safe-bottom: max(env(safe-area-inset-bottom, 0px), var(--sim-safe-bottom, 0px), var(--proto-strip)); 
+  --proto-strip: 20px; 
+  --inbox-header-h: 45px; 
+  --tabbar-h: 48px; 
+  --header-h: 45px; 
+  --avatar-row: 60px; 
+  --avatar-note: 64px; 
+  --avatar-header: 36px; 
+  --avatar-msg: 28px; 
+  --avatar-seen: 14px; 
+  --avatar-info: 80px; 
+  --dot-active: 14px; 
+  --dot-active-ring: 2px; 
+  --dot-unread: 8px; 
+  --dot-typing: 7px; 
+  --row-min-h: 76px; 
+  --search-h: 37px; 
+  --note-w: 88px; 
+  --tab-icon: 26px; 
+  --header-icon: 24px; 
+  --composer-icon: 24px; 
+  --composer-field-h: 40px; 
+  --composer-max-h: 120px; 
+  --composer-btn: 44px; 
+  --bubble-pad-y: 10px; 
+  --bubble-pad-x: 13px; 
+  --bubble-max: 75%; 
+  --msg-pad: 16px; 
+  --msg-gap-same: 2px; 
+  --msg-gap-group: 8px; 
+  --avatar-col: 36px; 
+  --stamp-pad-y: 12px; 
+  --react-overlap: 12px; 
+  --react-pill-h: 22px; 
+  --react-bar-btn: 44px; 
+  --photo-w: 220px; 
+  --photo-h: 280px; 
+  --link-img-h: 120px; 
+  --muse-body-h: 300px; 
+  --muse-max: 85%; 
+  --muse-mark: 20px; 
+  --muse-mark-row: 28px; 
+  --note-bubble-max-w: 88px; 
+  --nav-w: 120px; 
+  --edge-swipe: 24px; 
+  --pin-h: 44px; 
+  --chip-h: 36px; 
+  --sheet-max-w: 420px; 
+  --sheet-handle-w: 36px; 
+  --sheet-handle-h: 5px; 
+  --sheet-max-h: 86%; 
+  --avatar-facepile: 32px; 
+  --avatar-facepile-sm: 20px; 
+  --btn-h: 36px; 
+  --event-cover-h: 414px; 
+  --event-cover-w: 100%; 
+  --event-tile: 80px; 
+  --event-tile-strip: 20px; 
+  --event-col-w: 1031px; 
+  --event-card-w: 590px; 
+  --event-row-h: 36px; 
+  --tab-row-h: 60px; 
+  --sheet-card-body: 232px; 
+  --topbar-h: 0px; 
+  --list-w: 100%; 
+  --info-w: 0px; 
+  --gutter: 0px; 
+  --safe-top-iphone: 62px; 
+  --safe-top-messenger: 56px; 
+  --safe-bottom-iphone: 34px; 
+  --fb-header-h: 52px; 
+  --tabbar-float-w: 366px; 
+  --tabbar-float-h: 52px; 
+  --tabbar-float-bottom: 21px; 
+  --tabbar-float-inset-x: 18px; 
+  --row-pad-left: 24px; 
+  --row-text-gap: 12px; 
+  --note-row-h: 123px; 
+  --fb-post-avatar: 40px; 
+  --composer-field-btn: 36px; 
+  --composer-bar-h: 56px; 
+  --fb-composer-row-h: 64px; 
+  --stamp-row-h: 45px; 
+  --inbox-chip-h: 29px; 
+  --chip-gap: 8px; 
+  --story-w: 118px; 
+  --story-h: 211px; 
+  --story-gap: 4px; 
+  --story-tray-h: 229px; 
+  --fb-feed-sep-h: 2px; 
+  --event-cover-aspect: 427 / 440; 
+  --event-card-border-w: 1px; 
+  --fling-tau: 270ms; 
+
+  
+  --r-bubble: 18.1px; 
+  --r-bubble-inner: 4px; 
+  --r-card: 12px; 
+  --r-rich-card: 20px; 
+  --r-button: 8px; 
+  --r-input: 20px; 
+  --r-pill: 255px; 
+  --r-round: 50%; 
+  --r-note: 16px; 
+  --r-search: 10px; 
+  --r-chip: 18px; 
+  --r-story: 12px; 
+  --r-tabbar-float: 14.5px; 
+
+  
+  --font: system-ui, -apple-system, "system-ui", ".SFNSText-Regular", sans-serif; 
+  --fw-regular: 400; 
+  --fw-medium: 500; 
+  --fw-semibold: 600; 
+  --fw-bold: 700; 
+  --fs-wordmark: 28px; 
+  --lh-wordmark: 32px; 
+  --fs-title: 17px; 
+  --lh-title: 22px; 
+  --fs-body: 15px; 
+  --lh-body: 19px; 
+  --fs-row-name: 17px; 
+  --lh-row-name: 22px; 
+  --fs-row-sub: 15px; 
+  --lh-row-sub: 19px; 
+  --fs-meta: 13px; 
+  --lh-meta: 16px; 
+  --fs-caption: 12px; 
+  --lh-caption: 17px; 
+  --fs-tab: 11px; 
+  --lh-tab: 13px; 
+  --fs-search: 17px; 
+  --lh-search: 22px; 
+  --fs-emoji-react: 14px; 
+  --fs-emoji-bar: 28px; 
+  --fs-emoji-big: 44px; 
+  --lh-emoji-big: 52px; 
+  --fs-chats-title: 24px; 
+  --lh-chats-title: 28px; 
+  --fs-proto: 11px; 
+  --lh-proto: 14px; 
+  --fs-card: 15px; 
+  --lh-card: 20px; 
+  --fs-section: 20px; 
+  --lh-section: 24px; 
+  --fs-btn: 15px; 
+  --lh-btn: 20px; 
+  --fs-event-title: 24px; 
+  --lh-event-title: 28px; 
+  --fs-date-line: 13px; 
+  --lh-date-line: 16px; 
+
+  
+  --c-white: #FFFFFF; 
+  --c-bg: #FFFFFF; 
+  --c-wash: #F2F4F7; 
+  --c-surface: #FFFFFF; 
+  --c-text: #080809; 
+  --c-text-2: #65686C; 
+  --c-text-3: #B0B3B8; 
+  --c-accent: #0866FF; 
+  --c-accent-icon: #0068FF; 
+  --c-link: #0064D1; 
+  --c-divider: #D0D3D7; 
+  --c-hairline: rgba(0, 0, 0, 0.1); 
+  --c-badge: #DD2334; 
+  --c-active: #30A13A; 
+  --c-bubble-in: #F2F4F7; 
+  --c-bubble-in-text: #080809; 
+  --c-bubble-out: #006FFF; 
+  --c-bubble-out-text: #FFFFFF; 
+  --c-field: #F2F4F7; 
+  --c-btn-secondary: #E2E5E9; 
+  --c-hover: rgba(0, 0, 0, 0.05); 
+  --c-pressed: rgba(70, 72, 75, 0.15); 
+  --c-header-glass: rgba(255, 255, 255, 0.94); 
+  --c-scrim: rgba(255, 255, 255, 0.45); 
+  --c-react-pill: #ffffff; 
+  --c-typing-dot: #64686c; 
+  --c-note-bubble: #ffffff; 
+  --c-proto-bg: rgba(8, 8, 9, 0.72); 
+  --c-proto-text: #ffffff; 
+  --c-reply-quote: #e2e5e9; 
+  --c-reply-quote-text: #65686c; 
+  --c-wash-link-card: #F8F9FB; 
+  --c-selected: #EBF5FF; 
+  --c-nav-inactive: #65686C; 
+  --c-av-1: #6558f0; 
+  --c-av-2: #0c8068; 
+  --c-av-3: #c42f87; 
+  --c-av-4: #9c5f00; 
+  --c-av-5: #2f6fc8; 
+  --c-av-6: #be430d; 
+  --c-av-text: #ffffff; 
+  --c-ph-1: #b9c6d6; 
+  --c-ph-2: #8795a8; 
+  --c-ph-3: #d8c8b4; 
+  --c-ai-1: #0365ec; 
+  --c-ai-2: #b377ee; 
+  --c-ai-3: #eb81ed; 
+  --c-ai-4: #20fbeb; 
+  --c-date-line: #dd2334; 
+  --c-date-line-tint: #c81e2f; 
+  --c-date-strip: #dd2334; 
+  --c-primary: #0866FF; 
+  --c-btn-soft: #DDEDFE; 
+  --c-btn-soft-text: #0064D1; 
+  --c-cover-1: #b9c6d6; 
+  --c-cover-2: #d8c8b4; 
+  --c-chip: #f2f4f7; 
+  --c-flash: #EBF5FF; 
+  --c-fb-header: #FFFFFF; 
+  --c-tabbar-float: rgba(234, 235, 240, 0.9); 
+  --c-tabbar: var(--c-bg); 
+  --c-positive: #24832C; 
+  --c-negative: #DD2334; 
+  --c-warning: #AF8F00; 
+  --c-unread-dot: #0866FF; 
+  --c-fb-tab-selected: #0866FF; 
+  --c-fb-tab-idle: #080809; 
+  --c-fb-feed-sep: #A1A4A9; 
+
+  
+  --sh-card: 0 1px 2px rgba(0, 0, 0, 0.2); 
+  --sh-header: 0 0 4px rgba(0, 0, 0, 0.2); 
+  --sh-pill: 0 1px 4px rgba(0, 0, 0, 0.25); 
+  --sh-float: 0 4px 24px rgba(0, 0, 0, 0.18); 
+  --sh-page-edge: -4px 0 16px rgba(0, 0, 0, 0.12); 
+  --blur-glass: 20px; 
+  --blur-sheet: 8px; 
+  --sh-sheet: 0 -2px 24px rgba(0, 0, 0, 0.18); 
+  --sh-event-card: none; 
+
+  
+  --dur-none: 0.01ms; 
+  --dur-xxs: 100ms; 
+  --dur-xs: 150ms; 
+  --dur-xs-in: 200ms; 
+  --dur-short-in: 280ms; 
+  --dur-medium: 350ms; 
+  --dur-xl: 1000ms; 
+  --dur-long: 500ms; 
+  --dur-typing: 1200ms; 
+  --ease-move: cubic-bezier(0.17, 0.17, 0, 1); 
+  --ease-enter: cubic-bezier(0.14, 1, 0.34, 1); 
+  --ease-press: cubic-bezier(0.5, 2, 1, 1); 
+  --ease-linear: cubic-bezier(0, 0, 1, 1); 
+  --dur-spin: 900ms; 
+  --ease-exit: cubic-bezier(0.45, 0.1, 0.2, 1); 
+  --dur-page-open: 200ms; 
+  --ease-page-open: cubic-bezier(0.24, 0.56, 0.86, 0.56); 
+  --dur-tab-switch: 0ms; 
+  --dur-drawer: 160ms; 
+  --ease-drawer: cubic-bezier(0.52, 0.05, 0.77, 1.46); 
+}
+
+
+:root[data-layout="desktop"] {
+
+  
+  --topbar-h: 56px; 
+  --list-w: 360px; 
+  --info-w: 368px; 
+  --gutter: 16px; 
+  --header-h: 64px; 
+  --avatar-header: 40px; 
+  --avatar-row: 56px; 
+  --avatar-note: 56px; 
+  --row-min-h: 72px; 
+  --search-h: 40px; 
+  --bubble-max: 564px; 
+  --msg-pad: 14px; 
+  --avatar-col: 36px; 
+  --stamp-pad-y: 15px; 
+  --composer-btn: 36px; 
+  --composer-icon: 20px; 
+  --header-icon: 20px; 
+  --composer-field-h: 36px; 
+  --safe-top: 0px; 
+  --safe-bottom: 0px; 
+  --muse-max: 500px; 
+  --event-cover-h: 350px; 
+  --event-cover-w: 665px; 
+  --pin-h: 40px; 
+  --note-w: 96px; 
+  --row-pad-left: 8px; 
+  --dot-unread: 12px; 
+  --bubble-pad-y: 8px; 
+  --bubble-pad-x: 12px; 
+  --event-cover-aspect: 665 / 350; 
+  --event-card-border-w: 0px; 
+
+  
+  --r-bubble: 18px; 
+  --r-search: 255px; 
+
+  
+  --fs-event-title: 28px; 
+  --lh-event-title: 32px; 
+  --fs-date-line: 15px; 
+  --lh-date-line: 20px; 
+  --fs-title: 17px; 
+  --lh-title: 20px; 
+  --fs-body: 15px; 
+  --lh-body: 20px; 
+  --fs-row-name: 15px; 
+  --lh-row-name: 20px; 
+  --fs-row-sub: 13px; 
+  --lh-row-sub: 16px; 
+  --fs-meta: 13px; 
+  --lh-meta: 16px; 
+  --fs-caption: 12px; 
+  --lh-caption: 16px; 
+  --fs-search: 15px; 
+  --lh-search: 20px; 
+
+  
+  --c-bubble-in: #F0F0F0; 
+  --c-bubble-out: #0866FF; 
+  --c-accent-icon: #0070F6; 
+  --c-field: #F0F2F5; 
+  --c-header-glass: #FFFFFF; 
+  --c-unread-dot: #0064D1; 
+
+  
+  --sh-event-card: 0 1px 2px rgba(0, 0, 0, 0.2); 
+  --sh-header: 0 0 4px rgba(0, 0, 0, 0.2); 
+
+  
+  --ease-icon: cubic-bezier(0.08, 0.52, 0.52, 1); 
+}
+
+
+:root[data-theme="dark"] {
+  color-scheme: dark;
+
+  
+  --c-bg: #252728; 
+  --c-wash: #1C1C1D; 
+  --c-surface: #252728; 
+  --c-text: #E2E5E9; 
+  --c-text-2: #B0B3B8; 
+  --c-text-3: #6F7276; 
+  --c-accent-icon: #126DFF; 
+  --c-link: #5AA7FF; 
+  --c-divider: #46484B; 
+  --c-hairline: rgba(255, 255, 255, 0.05); 
+  --c-active: #45D658; 
+  --c-bubble-in: #303030; 
+  --c-bubble-in-text: #E2E5E9; 
+  --c-bubble-out: #0866FF; 
+  --c-field: #333334; 
+  --c-btn-secondary: #3A3B3C; 
+  --c-hover: rgba(255, 255, 255, 0.1); 
+  --c-pressed: rgba(255, 255, 255, 0.2); 
+  --c-header-glass: rgba(0, 0, 0, 0.9); 
+  --c-scrim: rgba(0, 0, 0, 0.55); 
+  --c-react-pill: #3a3b3c; 
+  --c-typing-dot: #b0b3b8; 
+  --c-note-bubble: #303233; 
+  --c-reply-quote: #3a3b3c; 
+  --c-reply-quote-text: #b0b3b8; 
+  --c-wash-link-card: rgba(255, 255, 255, 0.1); 
+  --c-selected: rgba(29, 133, 252, 0.1); 
+  --c-nav-inactive: #B0B3B8; 
+  --c-ph-1: #4a5566; 
+  --c-ph-2: #323b48; 
+  --c-ph-3: #5b5245; 
+  --c-btn-soft: #233A52; 
+  --c-btn-soft-text: #75B6FF; 
+  --c-cover-1: #4a5566; 
+  --c-cover-2: #5b5245; 
+  --c-chip: #303233; 
+  --c-flash: rgba(29, 133, 252, 0.1); 
+  --c-date-line: #ff6b81; 
+  --c-date-line-tint: #ff6b81; 
+  --c-positive: #3FBB46; 
+  --c-negative: #FF7C74; 
+
+  
+  --sh-header: 0 0 4px rgba(0, 0, 0, 0.6); 
+  --sh-pill: 0 1px 4px rgba(0, 0, 0, 0.6); 
+  --sh-float: 0 4px 24px rgba(0, 0, 0, 0.6); 
+  --sh-page-edge: -4px 0 16px rgba(0, 0, 0, 0.5); 
+  --sh-sheet: 0 -2px 24px rgba(0, 0, 0, 0.6); 
+}
+
+
+:root[data-layout="desktop"][data-theme="dark"] {
+
+  
+  --c-bg: #242526; 
+  --c-accent-icon: #0866FF; 
+  --c-header-glass: #242526; 
+  --c-divider: #65686C; 
+  --c-unread-dot: #5AA7FF; 
+
+  
+  --sh-event-card: 0 1px 2px rgba(0, 0, 0, 0.2); 
+}
+
+
+:root[data-theme="dark"]:not([data-layout="desktop"]):not([data-dark="meta"]) {
+
+  
+  --c-surface: #252728; 
+  --c-bg: #000000; 
+  --c-wash: #000000; 
+  --c-field: #333334; 
+  --c-tabbar: #000000; 
+  --c-bubble-in: #333334; 
+}
+
+
+:root {
+  
+  --fs-body: 17px;
+  --lh-body: 22px;
+  
+  --bubble-max: min(70vw, 588px); 
+  
+  --r-bubble-inner: 4.5px;
+  
+  --muse-max: min(85%, 588px);
+  
+  --msg-gap-same: 2.5px;
+  
+  --react-pill-h: 22.6px;
+  --react-overlap: 18.5px;
+  --react-ring: 2px;
+  --react-inset: 2px;
+  --react-after: 30px;
+  --fs-emoji-react: 15px;
+  --sh-pill: none;
+  
+  --inbox-chip-w-min: 51px;
+  --inbox-chip-pad-x: 14px;
+  
+  --sh-note: 0 1px 4px rgba(0, 0, 0, 0.25);
+
+  
+  --theme-default-top: #2F6DF8;
+  --theme-default-bottom: #4A5DF9;
+  --theme-berry-top: #AA00FF;
+  --theme-berry-bottom: #0070F6;
+  --theme-dune-top: #F03001;
+  --theme-dune-bottom: #D81B00;
+
+  
+  --font-phone: var(--font-muse);
+  --line-phone: var(--font-muse-line);
+  --font: var(--font-phone);
+
+  
+  --page-open-shift: 24px;
+}
+
+:root[data-layout="desktop"] {
+  
+  --font: system-ui, -apple-system, "system-ui", ".SFNSText-Regular", sans-serif;
+  
+  --bubble-max: 588px;
+  
+  --muse-max: 588px;
+  --inbox-chip-pad-x: 12px;
+  
+  --stamp-row-h: 40px;
+}
+
+:root[data-theme="dark"] {
+  
+  --c-fb-header: var(--c-bg);
+}
+
+
+:root {
+  --fb-header-btn: 52px;          
+  --fb-menu-btn-w: 44px;          
+  --fb-wordmark-h: 32px;          
+  --fs-fb-wordmark: 28px;         
+  --blur-tabbar: 20px;            
+  --sh-tabbar-float: 0 2px 12px rgba(0, 0, 0, 0.12); 
+  --fb-tab-icon: 24px;            
+  --fb-action-h: 45px;            
+  --story-ring: 4px;              
+  --c-media-scrim: rgba(0, 0, 0, 0.4); 
+  --c-media-dark: #000000;        
+  --c-on-media: #ffffff;          
+  --c-on-media-2: rgba(255, 255, 255, 0.8); 
+  --c-media-chip: rgba(0, 0, 0, 0.5); 
+  --fs-fb-name: 15px;  --lh-fb-name: 20px;   
+  --fs-fb-meta: 12px;  --lh-fb-meta: 16px;   
+  --fs-fb-body: 15px;  --lh-fb-body: 20px;   
+  --fs-fb-composer: 15px; --lh-fb-composer: 20px; 
+  --fs-bar-title: 24px; --lh-bar-title: 28px;     
+  --fs-fb-h2: 20px; --lh-fb-h2: 24px;        
+  --fs-fb-section: 17px; --lh-fb-section: 20px; 
+  --fs-price: 17px; --lh-price: 20px;        
+  --fs-story-name: 13px; --lh-story-name: 16px; 
+  --group-avatar: 36px;           
+  --r-group-avatar: 8px;          
+  --group-poster-avatar: 24px;    
+  --r-mp-thumb: 6px;              
+  --mp-card-w: 266px;             
+  --mp-gap: 8px;                  
+  --mp-info-w: 381px;             
+  --notif-avatar: 56px;           
+  --notif-badge: 28px;            
+  --dot-notif: 12px;              
+  --c-notif-unread: #e7f3ff;      
+  --fb-card-w: 680px;             
+  --fb-card-gap: 12px;            
+  --fb-rail-w: 360px;             
+  --group-cover-h: 180px;         
+  --group-cover-h-desk: 360px;    
+  --reel-w: 393px;                
+  --reel-side-h: 264px;           
+  --game-tile-art-h: 140px;       
+  --c-game-1: #005cb8;            
+  --c-game-2: #6b3fa0;            
+  --c-game-3: #0c6e5a;            
+  --c-fb-live: #e42645;           
+  --c-fb-photo: #31a24c;          
+  --c-fb-feeling: #e9710f;        
+  --c-poll-fill: rgba(8, 102, 255, 0.16); 
+  --c-toast: #242526;             
+  --c-reel-1: #3b2a5c;            
+  --c-reel-2: #b4553a;            
+  --c-reel-3: #1d4f6e;            
+  --c-reel-4: #7a8b3a;            
+  --mark-row: 20px;               
+}
+:root[data-theme="dark"] {
+  --c-tabbar-float: rgba(36, 37, 38, 0.9); 
+  --sh-tabbar-float: 0 2px 12px rgba(0, 0, 0, 0.6); 
+  --c-fb-tab-idle: #e4e6eb;       
+  --c-fb-feed-sep: #3e4042;       
+  --c-notif-unread: rgba(45, 136, 255, 0.16); 
+  --c-toast: #3a3b3c;             
+}
+:root[data-layout="desktop"] {
+  --story-w: 110px;               
+  --story-h: 160px;               
+  --story-gap: 8px;               
+  --r-story: 10px;                
+  --fb-action-h: 42px;            
+  --fs-fb-meta: 13px; --lh-fb-meta: 16px; 
+  --fs-fb-composer: 17px; --lh-fb-composer: 22px; 
+}
+:root[data-layout="desktop"][data-theme="dark"] {
+}
+
+
+
+:root {
+  --c-press: rgba(0, 0, 0, 0.06);          
+  --c-toast: #242526;                      
+  --c-toast-text: #ffffff;                 
+  --toast-h: 44px;                         
+  --jump-size: 36px;                       
+  --kb: 0px;                               
+
+  
+  
+  --m-push-k: 243;
+  --m-push-c: 31;
+  --m-push-m: 1;
+  --m-push-dur: 600ms;
+  --m-push-ease: linear(0, 0.081, 0.241, 0.41, 0.56, 0.68, 0.772, 0.841, 0.89, 0.925, 0.949, 0.966, 0.977, 0.985, 0.99, 0.993, 0.996, 0.997, 0.998, 0.999, 1);
+  
+  --m-pop-k: 350;
+  --m-pop-c: 37.4;
+  --m-pop-m: 1;
+  --m-pop-dur: 460ms;
+  --m-pop-ease: linear(0, 0.07, 0.213, 0.37, 0.513, 0.634, 0.729, 0.803, 0.858, 0.899, 0.928, 0.95, 0.965, 0.976, 0.983, 0.988, 0.992, 0.995, 0.996, 0.997, 1);
+  
+  --m-send-dur: 250ms;
+  --m-send-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  
+  --m-menu-in-dur: 330ms;
+  --m-menu-in-ease: linear(0, 0.061, 0.198, 0.36, 0.518, 0.656, 0.769, 0.855, 0.917, 0.96, 0.987, 1.003, 1.012, 1.015, 1.015, 1.013, 1.011, 1.008, 1.006, 1.004, 1);
+  
+  --m-menu-out-dur: 200ms;
+  --m-menu-out-ease: cubic-bezier(0.42, 0, 0.58, 1);
+  --m-menu-stagger: 20ms;                  
+  --m-lift-scale: 1.04;                    
+  --m-under-shift: -30%;                   
+  --m-under-dim: 0.1;                      
+  --c-black: #000000;                      
+  --c-edge-shadow: rgba(0, 0, 0, 0.18);    
+  --m-commit-dist: 0.35;                   
+  --m-commit-vel: 500;                     
+  --edge-swipe: 20px;                      
+  --m-sheet-dur: var(--m-push-dur);        
+  --m-sheet-ease: var(--m-push-ease);
+  --m-sheet-out-dur: 300ms;                
+  --m-sheet-out-ease: cubic-bezier(0.22, 1, 0.36, 1); 
+  
+  --m-press-curve: cubic-bezier(0.22, 1, 0.36, 1); 
+  --m-press-dur: 180ms;                    
+  --m-press-bg-dur: 120ms;                 
+  --m-press-in-dur: 60ms;                  
+  --m-press-icon-scale: 0.86;              
+  --m-press-icon-opacity: 0.55;            
+  --m-press-soft-scale: 0.97;              
+  --m-press-soft-opacity: 0.75;            
+  --m-dots-dur: 1200ms;                    
+  --m-dots-gap: 160ms;                     
+
+  
+  --m-story-seg: 5000ms;                   
+  --m-story-hold: 220ms;                   
+  --m-story-resume: 3000ms;                
+  --m-story-slide-dur: 280ms;              
+  --m-story-slide-ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --m-story-close-dur: 220ms;              
+  --m-story-cube: 28deg;                   
+  --m-story-slop: 10px;                    
+  --m-story-paused-opacity: 0.55;          
+  --m-kb-scale: 1.06;                      
+  --m-kb-drift: 10px;                      
+  --m-react-dur: 900ms;                    
+  --m-reel-drift-dur: 14s;                 
+  --m-reel-scale: 1.12;
+  --m-reel-drift: 18px;
+  --m-reel-tap: 280ms;                     
+  --m-reel-glyph-dur: 650ms;               
+  --m-reel-heart-dur: 800ms;               
+  --m-reel-disc-dur: 6s;                   
+  --m-reel-swipe-slop: 12px;               
+}
+:root[data-theme="dark"] {
+  --c-press: rgba(255, 255, 255, 0.1);     
+  --c-toast: #3a3b3c;                      
+}
+
+:root[data-layout="desktop"] {
+  --m-sheet-dur: 0.01ms;
+  --m-sheet-out-dur: 0ms;
+  --m-menu-in-dur: 0.01ms;
+  --m-menu-out-dur: 0ms;
+  --m-send-dur: 0.01ms;
+}
+

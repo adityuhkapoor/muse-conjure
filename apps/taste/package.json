@@ -1,0 +1,33 @@
+{
+  "name": "@muse/taste-app",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "taste": "bun server.ts",
+    "build": "vite build",
+    "typecheck": "svelte-check --tsconfig ./tsconfig.json --threshold error",
+    "check": "bun run typecheck && bun test",
+    "test": "bun test",
+    "shots": "bun scripts/shots.ts",
+    "taste:score": "bun ../../packages/taste/src/cli.ts score",
+    "taste:summary": "bun ../../packages/taste/src/cli.ts summary"
+  },
+  "dependencies": {
+    "@muse/app": "workspace:*",
+    "@muse/protocol": "workspace:*",
+    "@muse/sandbox": "workspace:*",
+    "@muse/sync": "workspace:*",
+    "@muse/taste": "workspace:*"
+  },
+  "devDependencies": {
+    "@sveltejs/vite-plugin-svelte": "7.3.1",
+    "@types/bun": "^1.3.0",
+    "axe-core": "4.14.0",
+    "playwright": "1.65.0",
+    "svelte": "5.57.3",
+    "svelte-check": "4.7.8",
+    "typescript": "~6.0.0",
+    "vite": "8.3.8"
+  }
+}
