@@ -1,0 +1,10 @@
+{
+ "calls": [
+  {
+   "key": "9725ebe2512b2dd88dd14f56",
+   "label": "route",
+   "reply": "{\"people\":[],\"content\":[\"Dishes\",\"Trash\",\"Bathroom\",\"Vacuuming\",\"Fridge\"],\"job\":\"Randomly assign the chores to the 4 roommates\",\"path\":\"reuse\",\"piece\":\"assign\",\"why\":\"A chore wheel with named chores fits assign as it is.\",\"params_json\":\"{\\\"title\\\":\\\"Chores this week\\\",\\\"tasks\\\":[\\\"Dishes\\\",\\\"Trash\\\",\\\"Bathroom\\\",\\\"Vacuuming\\\",\\\"Fridge\\\"]}\",\"change\":\"\"}",
+   "match": "The ask: \"muse make a chore wheel\""
+  }
+ ]
+}

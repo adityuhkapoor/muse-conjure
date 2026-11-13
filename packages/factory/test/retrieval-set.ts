@@ -1,0 +1,36 @@
+// 30 asks, written the way college friends text, each mapped to the piece that should rank first.
+
+export type RetrievalCase = { ask: string; chat: string[]; want: string };
+
+export const RETRIEVAL_SET: RetrievalCase[] = [
+  { ask: "muse make a poll for dinner", chat: ["thai or pho", "or that pizza place"], want: "poll" },
+  { ask: "ok everyone vote on the movie", chat: ["dune 2??", "past lives is better"], want: "poll" },
+  { ask: "muse which theme should the party be", chat: ["70s", "y2k", "cowboy"], want: "poll" },
+  { ask: "where should we go for spring break, vote", chat: ["miami", "nashville", "cancun"], want: "poll" },
+  { ask: "muse pick for us", chat: ["idk", "thai? sushi?", "i dont care"], want: "wheel" },
+  { ask: "just spin for where we eat", chat: ["chipotle", "halal cart"], want: "wheel" },
+  { ask: "muse who drives tonight", chat: ["not me i drove last time"], want: "wheel" },
+  { ask: "flip a coin for who goes first", chat: ["me", "no me"], want: "wheel" },
+  { ask: "idk u pick muse", chat: ["burgers or tacos"], want: "wheel" },
+  { ask: "whos in for sza saturday", chat: ["tickets are 90", "i need 4 people to get the block"], want: "lock" },
+  { ask: "muse are we doing the cabin trip or not, need 5", chat: ["im down", "maybe"], want: "lock" },
+  { ask: "headcount for the bonfire", chat: ["friday at 9", "who's coming"], want: "lock" },
+  { ask: "rsvp for the formal pregame", chat: ["at leo's"], want: "lock" },
+  { ask: "count me in, who else is down for the game", chat: ["need 3 more for the ticket deal"], want: "lock" },
+  { ask: "muse whos bringing what to the potluck", chat: ["i can do chips", "someone get drinks"], want: "claims" },
+  { ask: "split up the chores for the week", chat: ["dishes are disgusting", "trash day is tuesday"], want: "claims" },
+  { ask: "packing list for the camping trip", chat: ["tent", "cooler", "speaker"], want: "claims" },
+  { ask: "muse make a chore wheel for apt 4b", chat: ["bathroom", "vacuum", "spin for it"], want: "assign" },
+  { ask: "who's grabbing what for the bbq", chat: ["buns", "charcoal"], want: "claims" },
+  { ask: "muse who's riding with who", chat: ["i have 4 seats", "leo's car fits 3"], want: "slots" },
+  { ask: "call your beds for the airbnb", chat: ["2 queens and a bunk"], want: "slots" },
+  { ask: "sign up for a shift at the bake sale", chat: ["10-12, 12-2, 2-4"], want: "slots" },
+  { ask: "dibs on seats for the concert section", chat: ["we got row f seats 1-6"], want: "slots" },
+  { ask: "when is everyone free this weekend", chat: ["sat works", "sun afternoon maybe"], want: "overlap" },
+  { ask: "muse find a time for the study group", chat: ["mon or wed night", "tue morning"], want: "overlap" },
+  { ask: "what day works for dinner next week", chat: ["not thursday"], want: "overlap" },
+  { ask: "muse who owes who", chat: ["i paid 84.50 for dinner", "venmo me"], want: "split" },
+  { ask: "split the uber", chat: ["it was $32.40"], want: "split" },
+  { ask: "how much do i owe for groceries", chat: ["leo paid", "eggs 4.99 oat milk 5.49"], want: "split" },
+  { ask: "muse make a bracket for best late night food", chat: ["halal cart", "insomnia", "taco bell", "dollar pizza"], want: "bracket" },
+];

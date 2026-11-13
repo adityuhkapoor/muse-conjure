@@ -1,0 +1,10 @@
+{
+ "calls": [
+  {
+   "key": "38ff33d5c962f070b3a007c9",
+   "label": "route",
+   "reply": "{\"people\":[\"Priya\",\"Sam\",\"Nora\"],\"content\":[\"SZA\",\"Kia Forum\",\"Sat Mar 14, 8 PM\",\"Presale is Friday 10 AM\",\"About $95 each if 4 get group tickets together\",\"Need 4 for the group tix\",\"Sam is down\",\"Nora maybe, has a midterm that Monday\"],\"job\":\"Count who is in for SZA and lock the plan when 4 are going\",\"path\":\"reuse\",\"piece\":\"lock\",\"why\":\"A headcount for one event with a threshold of 4 is exactly what the threshold lock does.\",\"params_json\":\"{\\\"title\\\":\\\"SZA at Kia Forum\\\",\\\"detail\\\":\\\"Kia Forum · Sat Mar 14, 8 PM · presale Fri 10 AM · about $95 each\\\",\\\"need\\\":4}\",\"change\":\"\"}",
+   "match": "The ask: \"whos actually in, need 4 to get the group tix\""
+  }
+ ]
+}

@@ -1,0 +1,10 @@
+{
+ "calls": [
+  {
+   "key": "b7e9df023fedacd8353427d8",
+   "label": "route",
+   "reply": "{\"people\":[\"Bryan\"],\"content\":[\"Dinner\",\"Bryan paid the whole thing: $142.60 with tip\",\"4 people in the chat\"],\"job\":\"Split the dinner bill evenly and show who owes Bryan.\",\"path\":\"reuse\",\"piece\":\"split\",\"why\":\"One person paid a known total and the group pays them back, which is what split does.\",\"params_json\":\"{\\\"title\\\":\\\"Dinner\\\",\\\"payer\\\":\\\"Bryan\\\",\\\"mode\\\":\\\"even\\\",\\\"totalCents\\\":14260,\\\"items\\\":[]}\",\"change\":\"\"}",
+   "match": "The ask: \"muse who owes who\""
+  }
+ ]
+}

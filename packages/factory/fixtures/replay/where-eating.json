@@ -1,0 +1,10 @@
+{
+ "calls": [
+  {
+   "key": "0cefe7007adab9426631b1b8",
+   "label": "route",
+   "reply": "{\"people\":[],\"content\":[\"Thai Basil\",\"Sushi Ko\",\"Taco truck on College Ave (open til 11)\"],\"job\":\"Pick where to eat tonight from 3 places\",\"path\":\"reuse\",\"piece\":\"wheel\",\"why\":\"The group asked Muse to pick at random among places named in the chat, which is what the wheel does.\",\"params_json\":\"{\\\"title\\\":\\\"Where are we eating?\\\",\\\"options\\\":[\\\"Thai Basil\\\",\\\"Sushi Ko\\\",\\\"Taco truck on College Ave\\\"],\\\"noRepeat\\\":false}\",\"change\":\"\"}",
+   "match": "The ask: \"muse pick for us\""
+  }
+ ]
+}

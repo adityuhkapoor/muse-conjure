@@ -1,0 +1,26 @@
+{
+  "name": "@muse/factory",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "test": "bun test",
+    "eval": "bun src/eval.ts",
+    "serve": "bun src/serve.ts",
+    "probe": "bun src/probe-muse.ts",
+    "retrieval": "bun src/retrieval-report.ts",
+    "look": "bun src/look/cli.ts"
+  },
+  "dependencies": {
+    "@muse/app": "workspace:*",
+    "@muse/library": "workspace:*",
+    "@muse/verify": "workspace:*",
+    "@muse/sandbox": "workspace:*"
+  },
+  "devDependencies": {
+    "@types/bun": "^1.3.0"
+  }
+}
