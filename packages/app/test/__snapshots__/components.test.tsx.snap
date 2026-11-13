@@ -1,0 +1,31 @@
+// Bun Snapshot v1, https://bun.sh/docs/test/snapshots
+
+exports[`Button 1`] = `"<button type="button" class="m-btn p">Vote</button>"`;
+
+exports[`Button 2`] = `"<button type="button" class="m-btn">I'm in</button>"`;
+
+exports[`Button 3`] = `"<button type="button" class="m-btn d w" disabled="">Join</button>"`;
+
+exports[`Avatar and Facepile 1`] = `"<span class="m-av" title="Maya" style="width: 32px; height: 32px; font-size: 14px; background: #00796B;">M</span>"`;
+
+exports[`Avatar and Facepile 2`] = `"<span class="m-av" title="Zed" style="width: 24px; height: 24px; font-size: 11px; background: #00728F;"><img src="data:image/png;base64,AA" alt=""></span>"`;
+
+exports[`Avatar and Facepile 3`] = `"<span class="m-fp" style="--s: 20px;" aria-label="Maya, Theo, Dani, Priya, Sam"><span class="m-av" title="Maya" style="width: 20px; height: 20px; font-size: 9px; background: #00796B;">M</span><span class="m-av" title="Theo" style="width: 20px; height: 20px; font-size: 9px; background: #0866FF;">T</span><span class="m-av" title="Dani" style="width: 20px; height: 20px; font-size: 9px; background: #B04F00;">D</span><span class="m-more">+2</span></span>"`;
+
+exports[`OptionRow 1`] = `"<button type="button" class="m-opt on" aria-pressed="true"><span class="m-sel"><svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6.2 5 8.6l4.5-5"></path></svg></span><span><span class="m-row"><b>Thai Basil</b><span class="m-fp" style="--s: 20px;" aria-label="Maya, Theo"><span class="m-av" title="Maya" style="width: 20px; height: 20px; font-size: 9px; background: #00796B;">M</span><span class="m-av" title="Theo" style="width: 20px; height: 20px; font-size: 9px; background: #0866FF;">T</span></span><em>2</em></span><div class="m-pg" role="progressbar" aria-label="2 of 4" aria-valuenow="2" aria-valuemax="4"><i style="width: 50%;"></i></div></span></button>"`;
+
+exports[`OptionRow 2`] = `"<button type="button" class="m-opt" aria-pressed="false"><span class="m-sel"></span><span><span class="m-row"><b>Tacos</b><em>0</em></span><div class="m-pg" role="progressbar" aria-label="0 of 4" aria-valuenow="0" aria-valuemax="4"><i style="width: 0%;"></i></div></span></button>"`;
+
+exports[`Progress, CardHeader, Rsvp, Toast, SystemLine, Canvas 1`] = `"<div style="display: grid; gap: 6px;"><div class="m-pg" role="progressbar" aria-label="$250 of $300 · 6 chipped in" aria-valuenow="250" aria-valuemax="300"><i style="width: 83.33333333333334%;"></i></div><span class="m-meta">$250 of $300 · 6 chipped in</span></div>"`;
+
+exports[`Progress, CardHeader, Rsvp, Toast, SystemLine, Canvas 2`] = `"<div class="m-pg" role="progressbar" aria-label="5 of 0" aria-valuenow="5" aria-valuemax="0"><i style="width: 0%;"></i></div>"`;
+
+exports[`Progress, CardHeader, Rsvp, Toast, SystemLine, Canvas 3`] = `"<div class="m-ch"><span class="m-mark" aria-hidden="true"></span><div><b>Weekend plan</b><span class="m-meta">4 going</span></div><button type="button" class="m-hit" aria-label="More">···</button></div>"`;
+
+exports[`Progress, CardHeader, Rsvp, Toast, SystemLine, Canvas 4`] = `"<div class="m-rsvp" role="group"><button type="button" class="on" aria-pressed="true"><i><svg width="16" height="16" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2.5 6.2 5 8.6l4.5-5"></path></svg></i>Going · 4</button><button type="button" aria-pressed="false"><i><svg width="16" height="16" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.3 4.4a1.8 1.8 0 1 1 2.4 1.7c-.5.2-.7.6-.7 1.1v.3M6 9.4v.1"></path></svg></i>Maybe</button><button type="button" aria-pressed="false"><i><svg width="16" height="16" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3l6 6M9 3 3 9"></path></svg></i>Can't go</button></div>"`;
+
+exports[`Progress, CardHeader, Rsvp, Toast, SystemLine, Canvas 5`] = `"<div class="m-tw" role="status"><div><div class="m-toast">You're in</div></div></div>"`;
+
+exports[`Progress, CardHeader, Rsvp, Toast, SystemLine, Canvas 6`] = `"<p class="m-sys"><b>Muse</b> built Weekend plan for this chat</p>"`;
+
+exports[`Progress, CardHeader, Rsvp, Toast, SystemLine, Canvas 7`] = `"<canvas class="m-cv" style="height: 200px;" role="img" aria-label="Wheel"></canvas>"`;
