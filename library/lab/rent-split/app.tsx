@@ -517,6 +517,7 @@ export default defineApp<State, Action, Local>({
       const showFine = roomH >= 70;
       const showTags = roomH >= 58;
       const shareSize = roomH < 58 ? 20 : 26;
+      const shareText = money(sh[i]!); // cents show when the share is not whole dollars, so the shares add up to the rent
       const label = room.user ? nameOf(room) : room.name ? `${room.name} · Open` : "Open";
       const water = Math.min(1, sh[i]! / ((state.rent / Math.max(1, N)) * 1.33)) * 0.5;
       const tagged = room.bath || room.parking;
@@ -585,8 +586,8 @@ export default defineApp<State, Action, Local>({
                 minWidth: 0,
               }}
             >
-              <div style={{ fontSize: shareSize, lineHeight: `${shareSize + 2}px`, fontWeight: 700, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", color: c.text }}>
-                {moneyWhole(sh[i]!)}
+              <div style={{ fontSize: shareText.length > 6 ? Math.min(shareSize, 17) : shareSize, lineHeight: `${shareSize + 2}px`, fontWeight: 700, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis", color: c.text }}>
+                {shareText}
               </div>
               {showFine ? <div style={{ fontSize: 12, lineHeight: "14px", color: c.secondaryText, whiteSpace: "nowrap", overflow: "hidden", textOverflow: "ellipsis" }}>{vsEven(i)}</div> : null}
             </div>
@@ -827,7 +828,7 @@ export default defineApp<State, Action, Local>({
     };
 
     const roomNames = state.rooms
-      .map((room) => `${room.user ? nameOf(room) : room.name || "Open"} ${moneyWhole(sh[state.rooms.indexOf(room)] ?? 0)}`)
+      .map((room) => `${room.user ? nameOf(room) : room.name || "Open"} ${money(sh[state.rooms.indexOf(room)] ?? 0)}`)
       .join(", ");
 
     return (

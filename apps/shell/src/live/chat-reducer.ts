@@ -27,12 +27,30 @@ export type WireTool = {
   room?: string;
   /** set while Muse is changing the tool; people can keep using it */
   changing?: { by: string; ask: string; at: number };
+  /** the library piece or lab tool it was built from, when there was one ("lab:trivia-night") */
+  piece?: string;
+};
+
+/** A real product from a real store, found by web search when Marketplace has none (services/demo/kit.ts). */
+export type WireOnline = { store: string; title: string; price: number | null; url: string; image: string | null };
+
+/** What a plan needs, from Marketplace (services/demo/kit.ts): each need with its listing or a real store product. */
+export type WireKit = {
+  title: string;
+  /** how many it is split between */
+  people: number;
+  items: { need: string; qty: number; why: string; listing: string | null; online: WireOnline | null; unit: number | null; cost: number; covered: string | null }[];
+  total: number;
+  each: number;
+  /** the Bring List and the split made from it, once someone asked */
+  claims?: string;
+  split?: string;
 };
 
 export type WireMsg = {
   id: string;
   from: string;
-  kind: "text" | "photo" | "link" | "muse" | "system";
+  kind: "text" | "photo" | "link" | "muse" | "system" | "kit";
   text?: string;
   at: number;
   replyTo?: string;
@@ -42,6 +60,8 @@ export type WireMsg = {
   tool?: WireTool;
   /** a Mini Muse offers with a reply (tool-failed with chip): tapping it makes that Mini */
   chip?: { id: string; name: string };
+  /** kind "kit": absent while Muse is working it out (`text` is then the ask) */
+  kit?: WireKit;
 };
 
 /** One activity line: who acted, when, and the app's summary right after (or a line the seeder wrote). */
@@ -77,7 +97,15 @@ export type ChatAction =
   | { t: "read"; msg: string; as?: string; at?: number }
   | { t: "join"; who: string[] }
   | { t: "tool-pending"; id: string; title: string; ask: string }
-  | { t: "tool"; id: string; name: string; summary: string; code: string; by?: string; as?: string; at?: number }
+  | { t: "tool"; id: string; name: string; summary: string; code: string; by?: string; as?: string; at?: number; piece?: string }
+  /** anyone in the chat removes a tool; its card becomes one line */
+  | { t: "tool-remove"; id: string; /** the actor's first name, for the line */ name?: string; as?: string }
+  /** the person who started a game ends it: the same tool starts over in a fresh room, open to everyone */
+  | { t: "tool-restart"; id: string; name?: string; as?: string }
+  | { t: "kit-pending"; id: string; ask: string }
+  | { t: "kit"; id: string; kit: WireKit }
+  | { t: "kit-failed"; id: string; text: string }
+  | { t: "kit-link"; id: string; claims?: string; split?: string }
   | { t: "tool-failed"; id: string; /** Muse's one-line reply when it made no tool on purpose */ text?: string; /** a Mini offered with the reply */ chip?: { id: string; name: string }; /** why (the factory's reason code; the cast reacts to failed builds) */ code?: string }
   | { t: "tool-changing"; id: string; ask: string; as?: string }
   | { t: "tool-update"; id: string; name: string; summary: string; code: string; room?: string }
@@ -104,6 +132,30 @@ function when(a: Record<string, unknown>, meta: Meta): number {
   return meta.user === SEED_USER && typeof a.at === "number" && Number.isFinite(a.at) ? a.at : meta.time;
 }
 const mapMsg = (s: ChatState, id: string, fn: (m: WireMsg) => WireMsg): ChatState => ({ ...s, messages: s.messages.map((m) => (m.id === id ? fn(m) : m)) });
+/** The name a system line shows for whoever acted: the first name they sent, else their id. */
+const actor = (a: Record<string, unknown>, meta: Meta) => (str(a.name, 40) ? a.name : who(a, meta));
+const num = (v: unknown, max: number) => (typeof v === "number" && Number.isFinite(v) && v >= 0 && v <= max ? v : 0);
+const cut = (v: unknown, max: number) => (typeof v === "string" ? v.slice(0, max) : "");
+
+/** A kit as it may be stored: bounded strings and numbers, at most 15 items, http(s) links only. */
+function cleanKit(v: unknown): WireKit | null {
+  if (!isObj(v) || !str(v.title, 120) || !Array.isArray(v.items)) return null;
+  const url = (u: unknown) => (typeof u === "string" && /^https?:\/\//i.test(u) && u.length <= 1000 ? u : null);
+  const items = v.items.slice(0, 15).filter(isObj).map((it) => {
+    const o = isObj(it.online) && url(it.online.url) ? it.online : null;
+    return {
+      need: cut(it.need, 80) || "item",
+      qty: Math.max(1, Math.round(num(it.qty, 99))),
+      why: cut(it.why, 200),
+      listing: str(it.listing, 80) ? it.listing : null,
+      online: o ? { store: cut(o.store, 60), title: cut(o.title, 160), price: typeof o.price === "number" && o.price > 0 && o.price < 10_000 ? o.price : null, url: url(o.url)!, image: url(o.image) } : null,
+      unit: typeof it.unit === "number" && it.unit > 0 && it.unit < 10_000 ? it.unit : null,
+      cost: num(it.cost, 100_000),
+      covered: str(it.covered, 80) ? it.covered : null,
+    };
+  });
+  return { title: v.title, people: Math.max(1, Math.round(num(v.people, 99))), items, total: num(v.total, 1_000_000), each: num(v.each, 1_000_000) };
+}
 
 export function reduceChat(s: ChatState, action: unknown, meta: Meta): ChatState {
   if (!isObj(action) || typeof action.t !== "string") return s;
@@ -172,7 +224,7 @@ export function reduceChat(s: ChatState, action: unknown, meta: Meta): ChatState
       // A finished tool is final: a second "tool" or a late failure never replaces it.
       if (existing && !existing.tool?.building) return s;
       const by = existing?.tool?.by ?? (str(a.by) ? a.by : who(a, meta));
-      const tool: WireTool = { id: a.id, name: a.name, code: a.code, by };
+      const tool: WireTool = { id: a.id, name: a.name, code: a.code, by, ...(str(a.piece, 80) ? { piece: a.piece } : {}) };
       const at = existing?.at ?? when(a, meta);
       const msg: WireMsg = { id: a.id, from: "muse", kind: "muse", at, reactions: existing?.reactions ?? [], tool };
       const tools = { ...s.tools, [a.id]: { summary: typeof a.summary === "string" ? a.summary.slice(0, 200) : "", last: { by, at } } };
@@ -191,7 +243,7 @@ export function reduceChat(s: ChatState, action: unknown, meta: Meta): ChatState
       const existing = s.messages.find((m) => m.id === a.id);
       if (!existing?.tool || existing.tool.building) return s;
       const prev = existing.tool;
-      const tool: WireTool = { id: prev.id, name: a.name, code: a.code, by: prev.by, rev: (prev.rev ?? 0) + 1 };
+      const tool: WireTool = { id: prev.id, name: a.name, code: a.code, by: prev.by, rev: (prev.rev ?? 0) + 1, ...(prev.piece ? { piece: prev.piece } : {}) };
       const room = str(a.room) ? a.room : prev.room;
       if (room) tool.room = room;
       const live = s.tools[a.id];
@@ -216,6 +268,59 @@ export function reduceChat(s: ChatState, action: unknown, meta: Meta): ChatState
         return mapMsg(s, a.id, (m) => ({ id: m.id, from: "muse", kind: "text", text: a.text as string, at: m.at, reactions: [], ...(chip ? { chip } : {}) }));
       }
       return mapMsg(s, a.id, (m) => ({ id: m.id, from: "system", kind: "system", text: FAILED_TEXT, at: m.at, reactions: [] }));
+    }
+    case "tool-remove": {
+      // Anyone in the chat can take a tool out; what it was stays as one line, so the chat still reads.
+      if (!str(a.id) || !s.members.includes(who(a, meta))) return s;
+      const existing = s.messages.find((m) => m.id === a.id);
+      if (!existing?.tool?.code || existing.tool.building) return s;
+      const { [a.id]: _, ...tools } = s.tools;
+      const text = `**${actor(a, meta)}** removed ${existing.tool.name}`;
+      // a kit that pointed at it offers to make it again
+      const messages = s.messages.map((m) => {
+        if (m.id === a.id) return { id: m.id, from: "system", kind: "system" as const, text, at: m.at, reactions: [] };
+        if (m.kit && (m.kit.claims === a.id || m.kit.split === a.id)) {
+          const { claims, split, ...rest } = m.kit;
+          return { ...m, kit: { ...rest, ...(claims && claims !== a.id ? { claims } : {}), ...(split && split !== a.id ? { split } : {}) } };
+        }
+        return m;
+      });
+      return { ...s, tools, messages };
+    }
+    case "tool-restart": {
+      // Only whoever started the game ends it. The tool stays; its state starts over in a fresh room,
+      // so everyone (late joiners too) can play again.
+      if (!str(a.id)) return s;
+      const existing = s.messages.find((m) => m.id === a.id);
+      const t = existing?.tool;
+      if (!t?.code || t.building || t.by !== who(a, meta)) return s;
+      const rev = (t.rev ?? 0) + 1;
+      const tool: WireTool = { ...t, rev, room: `${toolRoom(t.id)}~${rev}` };
+      delete tool.changing;
+      const line: WireMsg = { id: `end-${t.id}-${rev}`, from: "system", kind: "system", text: `**${actor(a, meta)}** ended ${t.name}. Anyone can play again`, at: meta.time, reactions: [] };
+      const next = mapMsg(s, a.id, (m) => ({ ...m, tool }));
+      return { ...next, tools: { ...s.tools, [a.id]: { summary: "", last: null } }, messages: [...next.messages, line] };
+    }
+    case "kit-pending": {
+      if (!str(a.id) || s.messages.some((m) => m.id === a.id) || !str(a.ask, 500)) return s;
+      return { ...s, messages: [...s.messages, { id: a.id, from: "muse", kind: "kit", text: a.ask, at: meta.time, reactions: [] }] };
+    }
+    case "kit": {
+      const existing = s.messages.find((m) => m.id === a.id);
+      const kit = cleanKit(a.kit);
+      if (!existing || existing.kind !== "kit" || existing.kit || !kit) return s;
+      return mapMsg(s, a.id as string, (m) => ({ ...m, kit }));
+    }
+    case "kit-failed": {
+      const existing = s.messages.find((m) => m.id === a.id);
+      if (!existing || existing.kind !== "kit" || existing.kit) return s;
+      return mapMsg(s, a.id as string, (m) => ({ id: m.id, from: "muse", kind: "text", text: str(a.text, 300) ? a.text : FAILED_TEXT, at: m.at, reactions: [] }));
+    }
+    case "kit-link": {
+      const existing = s.messages.find((m) => m.id === a.id);
+      if (!existing?.kit) return s;
+      const link = { ...(str(a.claims) ? { claims: a.claims } : {}), ...(str(a.split) ? { split: a.split } : {}) };
+      return mapMsg(s, a.id as string, (m) => ({ ...m, kit: { ...m.kit!, ...link } }));
     }
     case "tool-summary": {
       if (!str(a.id) || typeof a.text !== "string" || !s.tools[a.id]) return s;

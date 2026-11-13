@@ -4,7 +4,7 @@
 // quiet card on Home and a row in Notifications, never as a message in a chat.
 
 import { store } from "../store";
-import { MY_POLL, STORIES } from "../surfaces/data";
+import { pollResult, STORIES } from "../surfaces/data";
 import { eventContext, storyContext } from "./context";
 import { nameOf, viewer } from "./page";
 import { catalyst } from "./catalyst.svelte";
@@ -36,17 +36,19 @@ export function timedOffers(quiet: string[]): Timed[] {
       });
     }
   }
-  const trip = STORIES.find((s) => s.id === TRIP.storyId);
+  // a year since the trip: only for the people who went
+  const trip = TRIP.people.includes(viewer()) ? STORIES.find((s) => s.id === TRIP.storyId) : undefined;
   if (trip) {
     const c = storyContext(trip, { nameOf });
     // the reader, with the unprompted bar (the rules while it is off or still reading)
     const [again] = catalyst.suggest(c, 1, { unprompted: true });
     if (again) out.push({ ...again, id: "timed:story-again", label: `1 year since ${TRIP.name}`, detail: again.offer ? again.label : `Do it again with ${TRIP.people.length - 1} friends`, ctx: c, when: "A year ago", go: "run" });
   }
-  const mine = STORIES.find((s) => s.id === "s-me");
-  if (mine?.poll?.ended) {
-    const win = [...MY_POLL.options].sort((a, b) => b.voters.length + b.others - (a.voters.length + a.others))[0]!;
-    const c = storyContext(mine, { nameOf, poll: { question: MY_POLL.question, winner: win.label, voters: win.voters, place: MY_POLL.place, when: MY_POLL.when, ended: true } });
+  // the viewer's own ended poll, if they posted one
+  const mine = STORIES.find((s) => s.by === viewer() && s.poll?.ended);
+  if (mine?.poll) {
+    const win = { label: pollResult(mine.poll).winner };
+    const c = storyContext(mine, { nameOf });
     const [plan] = catalyst.suggest(c, 1, { unprompted: true });
     if (plan) out.push({ ...plan, id: "timed:story-plan", label: `Your poll ended: ${win.label} won`, detail: plan.offer ? plan.label : "Make it a plan", ctx: c, when: "Today", go: "run" });
   }

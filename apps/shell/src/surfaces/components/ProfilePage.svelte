@@ -10,6 +10,9 @@
   import PageBar from "./PageBar.svelte";
   import PostCard from "./PostCard.svelte";
   import ProfileMuse from "./ProfileMuse.svelte";
+  import { scrollHide } from "../../lib/scrollHide";
+
+  let scrollEl = $state<HTMLElement | undefined>(undefined);
 
   /**
    * A profile (Facebook iOS and desktop profile layouts): cover, large avatar over it, name, a
@@ -215,15 +218,17 @@
   </section>
 {:else}
   <section class="fb-page" aria-label={`${pr.person.name}'s profile`} data-profile={key}>
-    {#if tab}
-      <header class="tbar"><h1 class="tt">{pr.person.name}</h1></header>
-    {:else}
+    {#if !tab}
       <PageBar title={pr.person.name} />
     {/if}
-    <div class="fb-scroll" class:padtab={tab}>
+    <div class="fb-scroll" class:padtab={tab} class:tab-pad={tab} bind:this={scrollEl}>
       <div class="phead fb-card">{@render head()}</div>
       <div class="feed">{@render body()}</div>
     </div>
+    {#if tab && scrollEl}
+      <div class="safe-strip" aria-hidden="true"></div>
+      <header class="tbar" use:scrollHide={scrollEl}><h1 class="tt">{pr.person.name}</h1></header>
+    {/if}
   </section>
 {/if}
 
@@ -270,9 +275,26 @@
   .pt { aspect-ratio: 1; overflow: hidden; background: var(--c-field); }
   .rgrid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: var(--sp-4); }
   .rt { display: block; width: 100%; aspect-ratio: 9 / 16; overflow: hidden; border-radius: var(--r-button); background: var(--c-media-dark); }
-  .tbar { flex: none; display: flex; align-items: center; justify-content: center; height: calc(var(--fb-header-h) + var(--safe-top)); padding: var(--safe-top) var(--sp-16) 0; background: var(--c-fb-header); }
+  .safe-strip { position: absolute; z-index: 4; top: 0; left: 0; right: 0; height: var(--safe-top); background: var(--c-fb-header); }
+  .tbar {
+    position: absolute;
+    z-index: 3;
+    top: var(--safe-top);
+    left: 0;
+    right: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: var(--fb-header-h);
+    padding: 0 var(--sp-16);
+    background: var(--c-fb-header);
+    transform: translateY(0);
+    transition: transform var(--m-push-dur) var(--m-push-ease);
+  }
+  .tbar:global([data-hide]) { transform: translateY(-100%); }
   .tt { font-size: var(--fs-title); line-height: var(--lh-title); font-weight: var(--fw-semibold); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
   .padtab { padding-bottom: calc(var(--tabbar-float-h) + var(--tabbar-float-bottom) + var(--sp-24)); }
+  .tab-pad { padding-top: calc(var(--fb-header-h) + var(--safe-top)); }
 
   /* Desktop: the measured 1031 column (as the event and group pages), intro left, posts right at the measured 590. */
   .desk { height: 100%; overflow-y: auto; background: var(--c-wash); }

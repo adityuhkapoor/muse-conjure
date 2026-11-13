@@ -4,6 +4,7 @@
   import Gaming from "./Gaming.svelte";
   import GroupPage from "./GroupPage.svelte";
   import ListingPage from "./ListingPage.svelte";
+  import OnlinePage from "./OnlinePage.svelte"; // kit
   import StoryViewer from "./StoryViewer.svelte";
   import FbSearch from "./FbSearch.svelte";
   import CreatePost from "./CreatePost.svelte"; // compose
@@ -17,6 +18,8 @@
 
 {#if page.name === "listing"}
   <ListingPage id={page.id} />
+{:else if page.name === "online"}
+  <OnlinePage item={page.item} /><!-- kit -->
 {:else if page.name === "group"}
   <GroupPage id={page.id} />
 {:else if page.name === "groups"}

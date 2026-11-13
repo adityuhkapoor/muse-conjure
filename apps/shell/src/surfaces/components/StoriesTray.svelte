@@ -4,14 +4,15 @@
   import Icon from "../../components/Icon.svelte";
   import { store } from "../../store";
   import { nav } from "../../lib/nav.svelte";
-  import { STORIES as ALL_STORIES } from "../data";
+  import { storyChains } from "../data";
   import { viewerId, realPerson } from "../../lib/media";
   import { avatarFor } from "@muse/assets";
   import { who } from "../flows.svelte";
   import { seen } from "../seen.svelte";
 
-  // your own story is the "me" one; a story by the same person under their own id is not shown twice
-  const STORIES = ALL_STORIES.filter((s) => s.by !== viewerId());
+  // one card per person: the viewer's own stories first as "Your story" (only if they posted one),
+  // then everyone else's; nobody's story is hidden from other viewers
+  const chains = storyChains(viewerId());
   // The viewer's own photo fills the top of the Create story tile: ask for a file sized to the photo's
   // height (about 150 px), not an avatar's width, so a 2x or 3x screen does not scale up a small one.
   const mine = $derived(realPerson(store.me.id));
@@ -34,14 +35,17 @@
         <span class="clab">Create story</span>
       </button>
     </li>
-    {#each STORIES as s (s.id)}
-      {@const p = who(s.by)}
+    {#each chains as chain (chain[0]!.id)}
+      {@const s = chain[0]!}
+      {@const own = s.by === viewerId()}
+      {@const p = own ? store.me : who(s.by)}
+      {@const done = chain.every((x) => seen.has(x.id))}
       <li>
-        <button class="card t{s.tone}" aria-label={s.by === "me" ? "Your story" : `${p?.first}'s story`} onclick={() => nav.go({ kind: "fb", page: { name: "story", id: s.id } })}>
+        <button class="card t{s.tone}" aria-label={own ? "Your story" : `${p?.first}'s story`} onclick={() => nav.go({ kind: "fb", page: { name: "story", id: s.id } })}>
           <span class="bg"><Cover id={s.asset} width={118} alt="" /></span>
-          <span class="ring" class:seen={seen.has(s.id)} data-seen={seen.has(s.id)}><Avatar person={p} size="var(--sp-32)" /></span>
-          {#if s.poll}<span class="sticker" aria-hidden="true"><Icon name="fbs_poll" /></span>{/if}
-          <span class="name">{s.by === "me" ? "Your story" : p?.first}</span>
+          <span class="ring" class:seen={done} data-seen={done}><Avatar person={p} size="var(--sp-32)" /></span>
+          {#if chain.some((x) => x.poll)}<span class="sticker" aria-hidden="true"><Icon name="fbs_poll" /></span>{/if}
+          <span class="name">{own ? "Your story" : p?.first}</span>
         </button>
       </li>
     {/each}

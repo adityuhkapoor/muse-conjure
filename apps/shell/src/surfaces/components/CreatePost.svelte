@@ -309,7 +309,8 @@
   .dlg { position: relative; width: min(100%, calc(var(--sp-80) * 6.25)); max-height: calc(100% - var(--sp-32)); display: flex; flex-direction: column; background: var(--c-bg); color: var(--c-text); border-radius: var(--r-card); box-shadow: var(--sh-sheet); outline: none; overflow: hidden; animation: pop var(--dur-short-in) var(--ease-enter) both; }
   .dh { position: relative; flex: none; display: flex; align-items: center; justify-content: center; height: var(--sp-60); border-bottom: 1px solid var(--c-divider); }
   .dh .x { position: absolute; right: var(--sp-16); top: 50%; transform: translateY(-50%); }
-  .db { padding: var(--sp-16); overflow-y: auto; }
+  .db { padding: var(--sp-16); overflow-y: auto; scrollbar-width: none; }
+  .db::-webkit-scrollbar { display: none; }
   .dlg .text { min-height: calc(var(--sp-80) * 1.25); }
   .wide { width: 100%; margin-top: var(--sp-16); }
   @keyframes pop { from { opacity: 0; transform: scale(0.96); } to { opacity: 1; transform: none; } }

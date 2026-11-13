@@ -3,10 +3,11 @@
   import { nav } from "../../lib/nav.svelte";
   import { fb, type FbTab } from "../fbnav.svelte";
   import { waitingOnMe } from "../flows.svelte";
-  import { NOTIFS } from "../data";
+  import { notifsFor } from "../data";
+  import { viewerId } from "../../lib/media";
 
   /** IOS: floating frosted bar 366 x 52, 21 above the bottom; Home, Reels, Friends, Marketplace, Notifications, Profile; 61 x 52 each. */
-  const unseen = $derived(NOTIFS.filter((n) => n.unread).length + waitingOnMe().length);
+  const unseen = $derived(notifsFor(viewerId()).filter((n) => n.unread).length + waitingOnMe().length);
   const tabs: { id: FbTab | null; icon: string; on?: string; label: string }[] = [
     { id: "home", icon: "nav_home", on: "nav_home_active", label: "Home" },
     { id: "reels", icon: "nav_reels", label: "Reels" },

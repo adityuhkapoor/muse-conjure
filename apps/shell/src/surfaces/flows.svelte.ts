@@ -8,10 +8,12 @@ import { ME, type Chat, type Message, type Person } from "../store/types";
 import { nav } from "../lib/nav.svelte";
 import { names } from "../lib/format";
 import { fb } from "./fbnav.svelte";
-import { GROUPS, LISTINGS, MY_POLL, STRANGERS, SUBLET_ITEMS, money, type Game, type Listing, type Reel } from "./data";
+import { GROUPS, LISTINGS, STRANGERS, SUBLET_ITEMS, money, type Game, type Listing, type Reel } from "./data";
 import { SOURCE_PREFIX, type LandSpec, type SurfaceName } from "./types";
 import { MOMENTS } from "./moments";
 import { EASTFIELD_MAP } from "../muse/seed";
+import { castWithViewerFirst } from "../store/cast";
+import { viewerId } from "../lib/media";
 
 /** Anyone on a surface: the cast first, then strangers who post in groups and on Marketplace. */
 export function who(id: string): Person | undefined {
@@ -19,6 +21,16 @@ export function who(id: string): Person | undefined {
 }
 
 const me = () => store.me.first;
+
+/** The first names of a chat's members, the viewer first (the people a split or a vote is between). */
+const firstsIn = (chatId: string) => [ME, ...(store.chat(chatId)?.members ?? []).filter((m) => m !== ME)].map((m) => who(m)?.first).filter((x): x is string => !!x);
+
+/** Who brings it home: Aditya has the car, when he is in the chat. */
+function pickupIn(chatId: string): string {
+  if (viewerId() === "dev") return "Sun · your hatchback";
+  if (store.chat(chatId)?.members.includes("dev")) return `Sun · ${who("dev")?.first}'s hatchback`;
+  return "Sun · pickup";
+}
 
 // ---------------------------------------------------------------- the chat picker
 
@@ -85,7 +97,7 @@ export function openFinder(groupId: string) {
   const g = GROUPS.find((x) => x.id === groupId);
   if (!g?.match) return;
   store.landPiece({
-    newChat: { key: g.backingKey, name: g.name, members: ["maya", "dev", "jonah", "priya", "theo"] },
+    newChat: { key: g.backingKey, name: g.name, members: castWithViewerFirst() },
     ...MOMENTS.groupFinder,
     // lab sublet-finder (MOMENTS.groupFinder): the group's sublet posts on its map, budgets from them
     params: { group: g.name, posts: SUBLET_ITEMS.length, swiped: 3, budgets: [80000, 100000, 125000], listings: SUBLET_ITEMS.map((x, i) => ({ hood: x.title, city: "Eastfield", priceCents: x.cents, dates: x.detail.split(" · ")[0] ?? "", perk: x.detail.split(" · ")[1] ?? "", via: "", viaWho: "", mutuals: i % 3, view: i % 5, x: 0.15 + ((i * 0.23) % 0.7), y: 0.15 + ((i * 0.31) % 0.7) })), people: [{ name: "Maya", saved: [SUBLET_ITEMS[0]?.title ?? ""], passed: [] }], labels: EASTFIELD_MAP },
@@ -136,7 +148,7 @@ export function decideWithRoommates(l: Listing) {
         chatId,
         ...MOMENTS.marketplaceDecide,
         // lab group-buy (MOMENTS.marketplaceDecide): the saved listings, and a first vote from me
-        params: { title: `${l.kind[0]!.toUpperCase()}${l.kind.slice(1)} hunt · apt 4b`, listings: list.map((x) => ({ name: x.title.slice(0, 24), priceCents: x.price * 100, where: x.where, style: /sectional/i.test(x.title) ? "sectional" : /velvet/i.test(x.title) ? "velvet" : "other", color: "mustard", quote: "" })), votes: [{ name: me(), listing: 0 }], wins: 3, pickup: "Sun · Aditya's hatchback" },
+        params: { title: `${l.kind[0]!.toUpperCase()}${l.kind.slice(1)} hunt · ${store.chat(chatId)?.name ?? "the chat"}`, listings: list.map((x) => ({ name: x.title.slice(0, 24), priceCents: x.price * 100, where: x.where, style: /sectional/i.test(x.title) ? "sectional" : /velvet/i.test(x.title) ? "velvet" : "other", color: "mustard", quote: "" })), votes: [{ name: me(), listing: 0 }], wins: 3, pickup: pickupIn(chatId) },
         title,
         ask: `muse make a shortlist of the ${l.kinds} to decide which to get`,
         summary: `${list.length} ${l.kinds} · save or skip`,
@@ -156,7 +168,7 @@ export function splitIt(l: Listing) {
         chatId,
         ...MOMENTS.marketplaceSplit,
         // lab split-purchase (MOMENTS.marketplaceSplit)
-        params: { title: `Split the ${l.title.toLowerCase()}`.slice(0, 40), item: l.title, priceCents: l.price * 100, seller: `from ${who(l.seller)?.first ?? "the seller"} · ${l.where}`, owners: [me(), "Maya", "Will", "Aditya"], weeks: [], holders: [], pickup: "Sun · Aditya drives", note: "" },
+        params: { title: `Split the ${l.title.toLowerCase()}`.slice(0, 40), item: l.title, priceCents: l.price * 100, seller: `from ${who(l.seller)?.first ?? "the seller"} · ${l.where}`, owners: firstsIn(chatId), weeks: [], holders: [], pickup: pickupIn(chatId), note: "" },
         title,
         ask: `muse split ${money(l.price)} for the ${l.title.toLowerCase()}`,
         summary: "add what you paid",
@@ -215,40 +227,6 @@ export function addToTry(chatId: string, msg: Message, r: Reel) {
     summary: `${places.length} ${places.length === 1 ? "place" : "places"} · vote`,
     source: { surface: "Reels", id: madeId(msg.id), text: `**${me()}** added ${what} to **${TRY_TITLE}**` },
   });
-}
-
-// ---------------------------------------------------------------- Stories
-
-/** Your own finished story poll: the people who voted for the winner get a who's in. */
-export function makePlan() {
-  const win = [...MY_POLL.options].sort((a, b) => b.voters.length + b.others - (a.voters.length + a.others))[0]!;
-  const title = `${win.label[0]!.toUpperCase()}${win.label.slice(1)} sat`;
-  const seats = [ME, ...win.voters];
-  // The params follow the piece in MOMENTS.storyPlan: trip-lock (lab) or lock.
-  const params =
-    MOMENTS.storyPlan.piece === "trip-lock"
-      ? {
-          title,
-          sub: `Muse plan · ${seats.length} voted ${win.label}`,
-          date: "Sat at 9:00 AM",
-          from: "Campus",
-          to: MY_POLL.place,
-          details: `${MY_POLL.when} · meet at the north gate · free`,
-          deadline: "Headcount Fri at 9:00 PM",
-          seats: seats.map((id, k) => ({ code: `1${"ABCDEF"[k] ?? "F"}`, who: id === ME ? me() : "" })).slice(0, 6),
-          lockAt: Math.min(4, seats.length),
-        }
-      : { title, detail: `${MY_POLL.place} · ${MY_POLL.when}`, need: 0 };
-  const chatId = landInChat({
-    newChat: { key: `story:${MY_POLL.question}`, name: `${win.label} sat`, members: win.voters },
-    ...MOMENTS.storyPlan,
-    params,
-    title,
-    ask: `muse make a who's in for ${win.label} on saturday`,
-    summary: `1 of ${win.voters.length + 1} in`,
-    source: { surface: "Stories", text: `**${me()}**'s story poll: **${win.label}** won` },
-  });
-  return chatId;
 }
 
 // ---------------------------------------------------------------- Gaming

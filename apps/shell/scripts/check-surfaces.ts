@@ -23,11 +23,13 @@ export async function surfaceChecks(c: Ctx) {
   const { browser, url, axe, overflow, expect, ok, step, failures } = c;
   const fails0 = () => failures.length;
 
+  /** The checks sit in Tsai Lin's seat unless a query names another viewer. */
+  const seat = (query: string) => (/[?&]as=/.test(query) ? "" : "&as=tsai");
   async function phone(query: string, theme: "light" | "dark" = "light", width = PHONE.width) {
     const ctx = await browser.newContext({ viewport: { width, height: PHONE.height }, deviceScaleFactor: 1, hasTouch: true, isMobile: true, colorScheme: theme });
     const page = await ctx.newPage();
     page.on("pageerror", (e) => failures.push(`surfaces page error: ${e.message}`));
-    await page.goto(`${url}?safe=1&theme=${theme}${query}`);
+    await page.goto(`${url}?safe=1&theme=${theme}${seat(query)}${query}`);
     await page.waitForTimeout(350);
     return { ctx, page };
   }
@@ -35,7 +37,7 @@ export async function surfaceChecks(c: Ctx) {
     const ctx = await browser.newContext({ viewport: DESKTOP, colorScheme: theme });
     const page = await ctx.newPage();
     page.on("pageerror", (e) => failures.push(`surfaces page error: ${e.message}`));
-    await page.goto(`${url}?theme=${theme}${query}`);
+    await page.goto(`${url}?theme=${theme}${seat(query)}${query}`);
     await page.waitForTimeout(400);
     return { ctx, page };
   }
@@ -76,7 +78,7 @@ export async function surfaceChecks(c: Ctx) {
     ["fb group climbing club", "&app=facebook&fb=group:climb", async () => {}],
     ["fb reels", "&app=facebook&fb=reels", async () => {}],
     ["fb reel share sheet", "&app=facebook&fb=reels", shareReel],
-    ["fb own story poll", "&app=facebook&fb=story:s-me", async () => {}],
+    ["fb own story poll", "&as=aditya&app=facebook&fb=story:s-dev-poll", async () => {}],
     ["fb friend's story", "&app=facebook&fb=story:s-maya", async () => {}],
     ["fb gaming", "&app=facebook&fb=gaming", async () => {}],
     ["fb notifications", "&app=facebook&fb=notifications", async () => {}],
@@ -126,7 +128,7 @@ export async function surfaceChecks(c: Ctx) {
     ["fb group sublets, option", "&app=facebook&fb=group:sublets", async (p) => { await p.getByRole("textbox", { name: "Write something" }).fill("summer sublet near campus jun-aug, 2br ok"); await wait(p); }],
     ["fb group climbing club", "&app=facebook&fb=group:climb", async () => {}],
     ["fb reels", "&app=facebook&fb=reels", async () => {}],
-    ["fb own story poll", "&app=facebook&fb=story:s-me", async () => {}],
+    ["fb own story poll", "&as=aditya&app=facebook&fb=story:s-dev-poll", async () => {}],
     ["fb gaming", "&app=facebook&fb=gaming", async () => {}],
     ["fb notifications", "&app=facebook&fb=notifications", async () => {}],
     ["fb menu", "&app=facebook&fb=menu", async () => {}],
@@ -234,7 +236,10 @@ export async function surfaceChecks(c: Ctx) {
         const src = (loc: ReturnType<typeof f.page.locator>) => loc.first().evaluate((e) => (e as HTMLImageElement).currentSrc || (e as HTMLImageElement).src).catch(() => "");
         const composer = picture(await src(f.page.locator(".fb-card:has([data-compose-open]) .avatar img.face")));
         const tile = picture(await src(f.page.locator(".tray .create .avatar img.face")));
-        const mine = picture(await src(f.page.locator('.tray button[aria-label="Your story"] .avatar img.face')));
+        // "Your story" only for someone who posted one (Tsai Lin has none: the Create story tile alone)
+        const own = await f.page.locator('.tray button[aria-label="Your story"]').count();
+        if (own !== (real === "tsai" ? 0 : 1)) bad.push(`as=${id}: ${own} "Your story" cards`);
+        const mine = own ? picture(await src(f.page.locator('.tray button[aria-label="Your story"] .avatar img.face'))) : want;
         const dup = await f.page.locator(".tray button", { hasText: new RegExp(`^${real === "tsai" ? "Tsai Lin" : real[0]!.toUpperCase() + real.slice(1)}$`) }).count();
         const g = await phone(`&as=${id}`);
         const head = picture(await src(g.page.locator(".notes .note.me .avatar img.face")));
@@ -320,7 +325,7 @@ export async function surfaceChecks(c: Ctx) {
     await wait(p, 1900);
     expect((await p.locator('.pinned [data-muse-card][aria-label="Sublets that match"]').count()) === 1, "surfaces: the finder did not pin");
     expect((await p.locator('article[aria-label^="Post by"]').count()) === posts, "surfaces: the finder posted the draft");
-    await p.goto(`${url}?safe=1&app=facebook&fb=group:climb`);
+    await p.goto(`${url}?as=tsai&safe=1&app=facebook&fb=group:climb`);
     await wait(p);
     expect((await p.getByText("Pinned by admins").count()) === 1 && (await p.locator('[data-surface-tool="t-s-gear-signup"]').count()) === 1, "surfaces: the club has no admin-pinned sign-up");
     expect((await p.locator('[data-surface-tool="t-s-meet"]').count()) === 1, "surfaces: the meeting post is not a tool");
@@ -395,14 +400,14 @@ export async function surfaceChecks(c: Ctx) {
 
   // Stories: your finished poll, Make it a plan, a who's in with the people who voted for the winner.
   {
-    const { ctx, page: p } = await phone("&app=facebook&fb=story:s-me");
+    const { ctx, page: p } = await phone("&as=aditya&app=facebook&fb=story:s-dev-poll");
     expect((await top(p).locator(".sticker").count()) === 1, "surfaces: your story has no poll");
     await btn(p, "Make it a plan").click();
     await wait(p, 2200);
     const t = top(p).locator('.thread[aria-label="Chat with hike sat"]');
     expect((await t.count()) === 1, "surfaces: Make it a plan did not make the chat");
     expect((await t.locator('[data-muse-card][aria-label="Hike sat"]').count()) === 1, "surfaces: Make it a plan did not land a who's in");
-    await p.goto(`${url}?safe=1&app=facebook&fb=story:s-maya`);
+    await p.goto(`${url}?as=tsai&safe=1&app=facebook&fb=story:s-maya`);
     await wait(p);
     expect((await p.getByRole("button", { name: "Make it a plan" }).count()) === 0, "surfaces: a friend's story offers Make it a plan");
     await ctx.close();
@@ -465,7 +470,7 @@ export async function surfaceChecks(c: Ctx) {
     await wait(p, 1200);
     expect((await p.locator(".story").count()) === 0, "surfaces: swiping down did not close the story");
     // a Muse story: working the tool stops the bar; it runs again 3 s after the last touch
-    await p.goto(`${url}?safe=1&theme=dark&app=facebook&fb=story:s-muse`);
+    await p.goto(`${url}?as=tsai&safe=1&theme=dark&app=facebook&fb=story:s-muse`);
     await wait(p, 700);
     await p.locator(".story .offers").dispatchEvent("pointerdown");
     await wait(p, 200);
@@ -496,7 +501,7 @@ export async function surfaceChecks(c: Ctx) {
     const ctx = await browser.newContext({ viewport: { width: 430, height: PHONE.height }, hasTouch: true, isMobile: true, colorScheme: "dark", reducedMotion: "reduce" });
     const p = await ctx.newPage();
     p.on("pageerror", (e) => failures.push(`surfaces page error: ${e.message}`));
-    await p.goto(`${url}?safe=1&theme=dark&app=facebook&fb=story:s-maya`);
+    await p.goto(`${url}?as=tsai&safe=1&theme=dark&app=facebook&fb=story:s-maya`);
     await wait(p, 600);
     const r = await p.evaluate(() => ({ kb: getComputedStyle(document.querySelector(".kb")!).animationName, dur: getComputedStyle(document.querySelector(".b.cur .f")!).animationDuration, seg: document.querySelector(".story")!.getAttribute("data-seg") }));
     expect(r.kb === "none" && r.dur === "5s" && r.seg === "0", `surfaces: reduced motion ${JSON.stringify(r)}; expected no drift and a 5 s bar`);

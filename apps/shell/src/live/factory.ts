@@ -34,7 +34,7 @@ export const LINES = {
   change_failed: "Muse couldn't change it. Try again",
 } as const;
 
-export type Built = { /** no tool: Muse says this one line in the chat instead (docs/CONTRACTS.md section 6) */ reply?: string; /** why there is no Mini: the reason code (answer, cant_act, wont, greet, change, busy, failed, ...) */ why?: string; /** a Mini offered with the reply */ chip?: { id: string; name: string }; name: string; summary: string; code: string; path: string; ms: number; /** the pre-made tool used ("lab:move-in-day"), for a retry from the next choice */ piece?: string };
+export type Built = { /** no tool: Muse says this one line in the chat instead (docs/CONTRACTS.md section 6) */ reply?: string; /** why there is no Mini: the reason code (answer, cant_act, wont, greet, change, busy, failed, ...) */ why?: string; /** a Mini offered with the reply */ chip?: { id: string; name: string }; name: string; summary: string; code: string; path: string; ms: number; /** the pre-made tool used ("lab:move-in-day"), for a retry from the next choice */ piece?: string; /** the Mini's code as text: its own title is its one name */ source?: string };
 
 export async function generate(url: string, body: GenerateBody, onProgress: (p: { t: string; [k: string]: unknown }) => void, signal?: AbortSignal): Promise<Built> {
   const t0 = performance.now();
@@ -72,7 +72,7 @@ export async function generate(url: string, body: GenerateBody, onProgress: (p: 
       if (event === "progress") onProgress(d);
       else if (event === "done") {
         if (typeof d.code !== "string" || !d.code) throw new Error("factory sent no code");
-        return { name: d.name, summary: d.summary ?? "", code: d.code, path: d.path ?? "", ms: performance.now() - t0, ...(typeof d.piece === "string" ? { piece: d.piece } : {}) };
+        return { name: d.name, summary: d.summary ?? "", code: d.code, path: d.path ?? "", ms: performance.now() - t0, ...(typeof d.piece === "string" ? { piece: d.piece } : {}), ...(typeof d.source === "string" ? { source: d.source } : {}) };
       } else if (event === "reply") {
         return { reply: String(d.text ?? ""), ...(typeof d.code === "string" ? { why: d.code } : {}), ...(d.chip && typeof d.chip.id === "string" ? { chip: { id: d.chip.id, name: String(d.chip.name ?? d.chip.id) } } : {}), name: "", summary: "", code: "", path: "reply", ms: performance.now() - t0 };
       } else if (event === "error") throw new BuildError(typeof d.message === "string" && d.message ? d.message : LINES.failed, typeof d.code === "string" ? d.code : "failed");

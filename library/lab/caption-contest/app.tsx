@@ -359,6 +359,7 @@ export default defineApp<State, Action, Local>({
       if (won && winC) {
         const who = name(winC.by);
         const mine = voteOf(photo, me);
+        if (winC.by === me) return "You win.";
         return !mine ? `${who} wins.` : mine.caption === winC.id ? `${who} wins. Your vote sealed it.` : `${who} wins. You were outvoted.`;
       }
       if (v === 0 && !captions.length) return "";

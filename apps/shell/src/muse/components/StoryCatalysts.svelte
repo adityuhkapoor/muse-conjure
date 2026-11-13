@@ -13,11 +13,7 @@
    * viewer's bottom bar.
    */
   let { s, part }: { s: Story; part: "offers" | "ask" } = $props();
-  const ctx = $derived.by(() => {
-    const p = s.poll;
-    const win = p ? [...p.options].sort((a, b) => b.voters.length + b.others - (a.voters.length + a.others))[0] : undefined;
-    return storyContext(s, { nameOf, ...(p && win ? { poll: { question: p.question, winner: win.label, voters: win.voters, place: p.place, when: p.when, ended: p.ended } } : {}) });
-  });
+  const ctx = $derived(storyContext(s, { nameOf }));
   const offers = $derived(catalyst.suggest(ctx));
 </script>
 

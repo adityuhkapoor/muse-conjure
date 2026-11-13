@@ -1,10 +1,18 @@
 // Made-up content for the Facebook surfaces. People are the cast from store/fake-data.ts plus a few
 // strangers who post in groups and on Marketplace. Written the way college students post.
+//
+// The rule for every seed file (this one, comments.ts, backing.ts, profile-data.ts, muse/seed.ts,
+// store/fake-data.ts, services/demo): people are wire ids only (dev is Aditya, the seeded world's
+// main character; jonah, theo, noa, priya, maya). "me" never appears in seed data: it is only the
+// store's name for whoever is viewing, at render time. "Everyone" and "everyone but the viewer"
+// come from store/cast.ts (CAST_IDS, othersOf, castWithViewerFirst), never a literal list.
+// `bun run check` fails on a "me" here.
 
 import type { Person } from "../store/types";
 import { DINING_TIERS } from "./backing";
 import { EXTRA_PEOPLE } from "../store/extras";
-import { PEOPLE } from "../store/fake-data";
+import { CHAT_MEMBERS, PEOPLE } from "../store/fake-data";
+import { othersOf } from "../store/cast";
 import { MOMENTS } from "./moments";
 import { captionTile, dayOf, lobbyTile, movieTile, nightTile, puzzleTile, quizTile, tierTile, truthsTile } from "./game-lines";
 
@@ -176,13 +184,14 @@ export const POSTS: Post[] = FEED.filter((x): x is Post => !isModule(x));
 /** Pages that post (not people): their id is `pg-<x>`. */
 export const isPage = (id: string) => id.startsWith("pg-");
 
-export type Story = { id: string; by: string; caption: string; tone: 1 | 2 | 3; /** background photo (assets/manifest.json id) */ asset?: string; poll?: StoryPoll; /** a story that is a live Muse tool (its page room, seeded in services/demo/seed-catalysts.ts) */ tool?: boolean };
+export type Story = { id: string; by: string; caption: string; tone: 1 | 2 | 3; /** background photo (assets/manifest.json id) */ asset?: string; poll?: StoryPoll; /** a story that is a live Muse tool (its page room, seeded in services/demo/seed-catalysts.ts) */ tool?: boolean; /** posted this long ago, as the header says it (3h when not set) */ ago?: string };
 export type StoryPoll = { question: string; options: { label: string; voters: string[]; others: number }[]; ended: boolean; place: string; when: string };
 
-export const MY_POLL: StoryPoll = {
+/** Aditya's story poll (s-dev-poll). It ended: hike won 9 to 5. Voters are his friends, never Aditya. */
+export const DEV_POLL: StoryPoll = {
   question: "beach or hike sat?",
   options: [
-    { label: "hike", voters: ["maya", "dev", "priya", "theo"], others: 5 },
+    { label: "hike", voters: ["maya", "noa", "priya", "theo"], others: 5 },
     { label: "beach", voters: ["jonah"], others: 4 },
   ],
   ended: true,
@@ -190,17 +199,37 @@ export const MY_POLL: StoryPoll = {
   when: "Sat 9 AM",
 };
 
+/** A poll's result as every view of it says it: the winner, who voted for it by name, and its count. */
+export function pollResult(poll: StoryPoll) {
+  const count = (o: StoryPoll["options"][number]) => o.voters.length + o.others;
+  const win = [...poll.options].sort((a, b) => count(b) - count(a))[0]!;
+  return { question: poll.question, winner: win.label, voters: win.voters, votes: count(win), total: poll.options.reduce((n, o) => n + count(o), 0), place: poll.place, when: poll.when, ended: poll.ended };
+}
+
+/** Each person's stories sit together, oldest first: one chain and one card in the tray. */
 export const STORIES: Story[] = [
-  { id: "s-me", by: "me", caption: "", tone: 2, asset: "story-trail-sign", poll: MY_POLL },
   { id: "s-muse", by: "muse", caption: "", tone: 1, tool: true }, // catalysts: a Muse story, the live face drop fills the viewer
   { id: "s-maya", by: "maya", caption: "library szn", tone: 3, asset: "story-library-lamp" },
+  { id: "s-dev-poll", by: "dev", caption: "", tone: 2, asset: "story-trail-sign", poll: DEV_POLL, ago: "20h" },
+  { id: TRIP.storyId, by: TRIP.by, caption: TRIP.caption, tone: 2, asset: "gen-coast-road", ago: "13h" }, // catalysts: a trip a year ago (trip-story, the feed's p-trip-story room)
   { id: "s-dev", by: "dev", caption: "up at 6 for no reason", tone: 1, asset: "story-sunrise-street" },
-  { id: TRIP.storyId, by: TRIP.by, caption: TRIP.caption, tone: 2, asset: "gen-coast-road" }, // catalysts: a trip a year ago (trip-story, the feed's p-trip-story room)
   { id: "s-theo", by: "theo", caption: "the den has a theme song now", tone: 2, asset: "story-record-player" }, // story-beat t-f-beat (feed p-beat)
   { id: "s-priya", by: "priya", caption: "fall '26 so far", tone: 3, asset: "gen-campus-autumn" }, // semester-wrapped t-f-wrapped (feed p-wrapped)
   { id: "s-jonah", by: "jonah", caption: "🫡", tone: 1, asset: "story-rooftop-lights" },
   { id: "s-nico", by: "nico", caption: "7th juniper hale show tomorrow. rail or nothing", tone: 3, asset: "story-concert" },
 ];
+
+/** One person's stories, oldest first. */
+export const storiesBy = (by: string) => STORIES.filter((s) => s.by === by);
+
+/**
+ * The tray's chains, in the story viewer's order: the viewer's own first ("Your story"), when they
+ * have one, then each other person once. Nobody's story is hidden from anyone else.
+ */
+export function storyChains(viewer: string): Story[][] {
+  const people = [...new Set(STORIES.map((s) => s.by))];
+  return [viewer, ...people.filter((b) => b !== viewer)].map(storiesBy).filter((c) => c.length > 0);
+}
 
 // ---------------------------------------------------------------- Groups
 
@@ -307,8 +336,18 @@ export const LISTINGS: Listing[] = [
   { id: "l-books", title: "Intro econ textbooks", price: 30, kind: "book", kinds: "books", tone: 1, asset: "listing-textbooks", where: "Eastfield", ago: "2 weeks ago", seller: "lena", condition: "Used - good", description: "4 books, some highlighting. the course still uses them" },
   { id: "l-projector", title: "Projector and 100 in screen", price: 240, kind: "projector", kinds: "projectors", tone: 1, asset: "listing-projector", where: "Eastfield", ago: "1 day ago", seller: "sam", condition: "Used - like new", description: "1080p, screen pulls down from a stand. selling bc my wall is too small lol" },
   { id: "l-harness", title: "Climbing harness, size M", price: 35, kind: "harness", kinds: "harnesses", tone: 2, asset: "listing-harness", where: "Eastfield", ago: "3 days ago", seller: "bea", condition: "Used - good", description: "2 seasons, no falls on it worth mentioning. club inspected" },
-  { id: "l-bookshelf", title: "Bookshelf", price: 25, kind: "shelf", kinds: "shelves", tone: 1, asset: "listing-bookshelf", where: "Eastfield", ago: "1 day ago", seller: "noa", condition: "Used - good", description: "5 shelves, white, a little wobbly if you lean on it" },
-  { id: "l-mirror", title: "Full length mirror", price: 15, kind: "mirror", kinds: "mirrors", tone: 3, asset: "listing-mirror", where: "Eastfield", ago: "1 day ago", seller: "noa", condition: "Used - good", description: "no cracks. comes with a hook" },
+  { id: "l-bookshelf", title: "Bookshelf", price: 25, kind: "shelf", kinds: "shelves", tone: 1, asset: "listing-bookshelf", where: "Eastfield", ago: "1 day ago", seller: "dev", condition: "Used - good", description: "5 shelves, white, a little wobbly if you lean on it" },
+  { id: "l-mirror", title: "Full length mirror", price: 15, kind: "mirror", kinds: "mirrors", tone: 3, asset: "listing-mirror", where: "Eastfield", ago: "1 day ago", seller: "dev", condition: "Used - good", description: "no cracks. comes with a hook" },
+  // kit: camping and party things, so a plan can be priced on Marketplace (services/demo/kit.ts). Photos are the owner's.
+  { id: "l-tent", title: "4-person dome tent, Black Diamond", price: 120, kind: "tent", kinds: "tents", tone: 1, asset: "listing-tent", where: "Eastfield", ago: "2 days ago", seller: "marco", condition: "Used - good", description: "sleeps 4, rainfly and stakes included. used it twice, no holes" },
+  { id: "l-camp-table", title: "Folding camp table with cup holders", price: 25, kind: "table", kinds: "tables", tone: 2, asset: "listing-camp-table", where: "North Eastfield", ago: "4 days ago", seller: "kofi", condition: "Used - good", description: "round folding table, 4 cup holders, packs into its own bag" },
+  { id: "l-sleeping-bag", title: "Flannel-lined sleeping bag", price: 35, kind: "sleeping bag", kinds: "sleeping bags", tone: 3, asset: "listing-sleeping-bag", where: "Eastfield", ago: "1 week ago", seller: "cami", condition: "Used - like new", description: "cabela's, rated to 30F, washed. selling 1" },
+  { id: "l-cookware", title: "Camp cookware set for 4", price: 40, kind: "cookware", kinds: "cookware", tone: 1, asset: "listing-cookware", where: "Eastfield", ago: "3 days ago", seller: "sam", condition: "Used - good", description: "2 pots, a pan, lids, all nest together. feeds 4" },
+  { id: "l-camp-pillow", title: "Camp pillow, forest print", price: 15, kind: "pillow", kinds: "pillows", tone: 2, asset: "listing-camp-pillow", where: "Eastfield", ago: "5 days ago", seller: "lena", condition: "Used - like new", description: "squishes small, owl print. selling 1" },
+  { id: "l-megaphone", title: "Gold party megaphone", price: 12, kind: "megaphone", kinds: "megaphones", tone: 3, asset: "listing-megaphone", where: "Eastfield", ago: "2 days ago", seller: "ines", condition: "Used - like new", description: "for announcements, birthdays, being annoying" },
+  { id: "l-tableware", title: "Red party tableware kit (serves 20)", price: 18, kind: "tableware", kinds: "tableware", tone: 1, asset: "listing-tableware", where: "Eastfield", ago: "1 day ago", seller: "ruth", condition: "New", description: "plates, cups, napkins and forks for 20. never opened" },
+  { id: "l-party-hats", title: "Rainbow party hats (4)", price: 5, kind: "party hats", kinds: "party hats", tone: 2, asset: "listing-party-hats", where: "Eastfield", ago: "6 hours ago", seller: "cami", condition: "New", description: "4-pack, elastic straps" },
+  { id: "l-balloons", title: "Gold HAPPY BIRTHDAY balloons", price: 10, kind: "balloons", kinds: "balloons", tone: 3, asset: "listing-balloons", where: "Eastfield", ago: "3 days ago", seller: "ines", condition: "Used - like new", description: "foil letter banner, reusable, comes with a straw to fill it" },
 ];
 
 export const listing = (id: string) => LISTINGS.find((l) => l.id === id);
@@ -461,17 +500,54 @@ export const GAMES: Game[] = [
 
 // ---------------------------------------------------------------- Notifications
 
-export type Notif = { id: string; by: string; html: string; ago: number; unread: boolean; badge: "comment" | "event" | "group" | "share" | "story"; go: { kind: "post" | "event" | "group" | "story"; id: string } };
+export type Notif = {
+  id: string;
+  by: string;
+  html: string;
+  ago: number;
+  unread: boolean;
+  badge: "comment" | "event" | "group" | "share" | "story";
+  /** what tapping it opens; a chat Mini opens in its chat */
+  go: { kind: "post" | "event" | "group" | "story"; id: string } | { kind: "chat"; id: string; tool: string };
+  /** who it is true for (wire ids). Never its own actor (`by`). */
+  for: string[];
+};
 
+const full = (id: string) => PEOPLE.find((x) => x.id === id)?.name ?? id;
+const MEMORY = FEED.find((x) => x.id === "p-memory") as Extract<Post, { kind: "memory" }>;
+const POLL_END = pollResult(DEV_POLL);
+
+/** Tsai Lin's big sur memory, as each person tagged in it hears about it. */
+const memory = (viewer: string): Notif => {
+  const [a, b] = MEMORY.with.filter((x) => x !== viewer).map(full);
+  return { id: `nt-memory-${viewer}`, by: MEMORY.by, html: `**${full(MEMORY.by)}** shared a memory with you, **${a}** and **${b}** from 1 year ago`, ago: 3 * H, unread: false, badge: "story", go: { kind: "post", id: MEMORY.id }, for: [viewer] };
+};
+
+/**
+ * Notifications, written from seeded events: who commented on whose post, who is up in which Mini,
+ * whose poll ended. Each says who it is for; Aditya's (dev) are the seeded world's main set, and every
+ * other cast member gets 4 to 6 that are true for them. `notifsFor` is the only way to read them.
+ */
 export const NOTIFS: Notif[] = [
-  { id: "nt-veto", by: "theo", html: "**Arun Vaithianathan** vetoed **Pier Pizza** in **After Juniper food**", ago: 7 * M, unread: true, badge: "share", go: { kind: "post", id: "p-veto" } },
-  { id: "nt-draft", by: "priya", html: "**Will Li** took **Fridge** in **Chore draft**. You're up", ago: 10 * M, unread: true, badge: "share", go: { kind: "post", id: "p-den" } },
-  { id: "nt-door", by: "jonah", html: "**Calvin Karthik** added you to the door list for **Will's 21st**", ago: 2 * H, unread: true, badge: "event", go: { kind: "post", id: "p-21st" } },
-  { id: "nt-story", by: "me", html: "Your story poll ended. **hike** won 9 to 5", ago: 2 * H, unread: true, badge: "story", go: { kind: "story", id: "s-me" } },
-  { id: "nt-seat", by: "maya", html: "**Maya Chen** has 2 seats left in her car for **Juniper Hale live**", ago: 5 * H, unread: false, badge: "event", go: { kind: "event", id: "juniper" } },
-  { id: "nt-tab", by: "hana", html: "**Hana Ito** settled **Joshua Tree tab**", ago: 1 * D, unread: false, badge: "share", go: { kind: "post", id: "p-jt" } },
-  { id: "nt-memory", by: "noa", html: "You have a memory with **Tsai Lin**, **Maya Chen** and **Will Li** from 1 year ago", ago: 3 * H, unread: false, badge: "story", go: { kind: "post", id: "p-memory" } },
-  { id: "nt-lena", by: "lena", html: "**Lena Ortiz** posted in **Eastfield sublets and housing**: SUMMER SUBLET 🌞 1 room in a 2br on dwight", ago: 5 * H, unread: false, badge: "group", go: { kind: "group", id: "sublets" } },
-  { id: "nt-crag", by: "zoe", html: "**Zoe Achebe** invited you to **Castle Rock crag day**", ago: 1 * D, unread: false, badge: "event", go: { kind: "group", id: "climb" } },
-  { id: "nt-event", by: "maya", html: "**Juniper Hale live** is tomorrow. **Maya** and 2 friends are going", ago: 1 * D, unread: false, badge: "event", go: { kind: "event", id: "juniper" } },
+  { id: "nt-veto", by: "theo", html: "**Arun Vaithianathan** vetoed **Pier Pizza** in **After Juniper food**", ago: 7 * M, unread: true, badge: "share", go: { kind: "chat", id: "boys", tool: "t-veto" }, for: ["dev", "jonah", "noa"] },
+  { id: "nt-draft", by: "priya", html: "**Will Li** took **Fridge** in **Chore draft**. Tsai Lin is up", ago: 10 * M, unread: true, badge: "share", go: { kind: "chat", id: "apt4b", tool: "t-wheel" }, for: ["dev", "maya"] },
+  { id: "nt-draft-noa", by: "priya", html: "**Will Li** took **Fridge** in **Chore draft**. You're up", ago: 10 * M, unread: true, badge: "share", go: { kind: "chat", id: "apt4b", tool: "t-wheel" }, for: ["noa"] },
+  { id: "nt-door", by: "jonah", html: "**Calvin Karthik** added you to the door list for **Will's 21st**", ago: 2 * H, unread: true, badge: "event", go: { kind: "post", id: "p-21st" }, for: ["dev", "noa"] },
+  { id: "nt-story", by: POLL_END.voters[0]!, html: `**${full(POLL_END.voters[0]!)}** and ${POLL_END.total - 1} others voted on your story poll. **${POLL_END.winner}** won ${POLL_END.votes} to ${POLL_END.total - POLL_END.votes}`, ago: 2 * H, unread: true, badge: "story", go: { kind: "story", id: "s-dev-poll" }, for: ["dev"] },
+  { id: "nt-seat", by: "maya", html: "**Maya Chen** has 2 seats left in her car for **Juniper Hale live**", ago: 5 * H, unread: false, badge: "event", go: { kind: "event", id: "juniper" }, for: othersOf("maya") },
+  { id: "nt-tab", by: "hana", html: "**Hana Ito** settled **Joshua Tree tab**", ago: 1 * D, unread: false, badge: "share", go: { kind: "post", id: "p-jt" }, for: ["noa", "theo", "maya"] },
+  ...MEMORY.with.map(memory),
+  { id: "nt-lena", by: "lena", html: "**Lena Ortiz** posted in **Eastfield sublets and housing**: SUMMER SUBLET 🌞 1 room in a 2br on dwight", ago: 5 * H, unread: false, badge: "group", go: { kind: "group", id: "sublets" }, for: ["maya"] },
+  { id: "nt-crag", by: "zoe", html: "**Zoe Achebe** invited you to **Castle Rock crag day**", ago: 1 * D, unread: false, badge: "event", go: { kind: "group", id: "climb" }, for: ["noa", "theo", "maya"] },
+  { id: "nt-event", by: "maya", html: "**Juniper Hale live** is tomorrow. **Maya** and 2 friends are going", ago: 1 * D, unread: false, badge: "event", go: { kind: "event", id: "juniper" }, for: ["jonah"] },
+  // comments on their own posts (surfaces/comments.ts), and a Mini in their own chat
+  { id: "nt-den", by: "maya", html: "**Maya Chen** commented on your post: arun took bathrooms first. a hero", ago: 2 * H, unread: true, badge: "comment", go: { kind: "post", id: "p-den" }, for: ["jonah"] },
+  { id: "nt-tahoe", by: "wes", html: "**Wes Duarte** commented on your post: asked. i can cook", ago: 9 * H, unread: false, badge: "comment", go: { kind: "post", id: "p-tahoe" }, for: ["jonah"] },
+  { id: "nt-dining", by: "jonah", html: "**Calvin Karthik** commented on your post: lupe's at 1am is a religious experience", ago: 6 * H, unread: true, badge: "comment", go: { kind: "post", id: "p-dining" }, for: ["theo"] },
+  { id: "nt-brunch", by: "maya", html: "**Maya Chen** commented on your post: the french toast changed me", ago: 22 * H, unread: false, badge: "comment", go: { kind: "post", id: "p-priya" }, for: ["priya"] },
+  { id: "nt-wrapped", by: "jonah", html: "**Calvin Karthik** commented on your post: they're called podcasts", ago: 10 * H, unread: true, badge: "comment", go: { kind: "post", id: "p-wrapped" }, for: ["priya"] },
+  { id: "nt-truths", by: "noa", html: "**Tsai Lin** started a round in **Two truths**", ago: 1 * H, unread: true, badge: "share", go: { kind: "chat", id: "priya", tool: "t-truths" }, for: ["priya"] },
 ];
+
+/** The viewer's notifications, newest first: only the ones true for them, never one they did themselves. */
+export const notifsFor = (viewer: string) => NOTIFS.filter((n) => n.for.includes(viewer) && n.by !== viewer).sort((a, b) => a.ago - b.ago);

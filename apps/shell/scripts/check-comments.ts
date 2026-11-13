@@ -24,7 +24,7 @@ export async function commentChecks(c: Ctx) {
     const ctx = await browser.newContext(desk ? { viewport: DESKTOP, colorScheme: theme } : { viewport: PHONE, deviceScaleFactor: 1, hasTouch: true, isMobile: true, colorScheme: theme });
     const page = await ctx.newPage();
     page.on("pageerror", (e) => failures.push(`comments page error: ${e.message}`));
-    await page.goto(`${url}?theme=${theme}${desk ? "" : "&safe=1"}&app=facebook`);
+    await page.goto(`${url}?as=tsai&theme=${theme}${desk ? "" : "&safe=1"}&app=facebook`);
     await page.waitForSelector("[data-post]");
     return { ctx, page };
   }

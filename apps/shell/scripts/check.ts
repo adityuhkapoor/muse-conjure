@@ -34,6 +34,8 @@ run("feed numbers self-test (broken fixtures must fail)", process.execPath, [joi
 run("feed numbers (counts and comment ages recomputed from the lists)", process.execPath, [join(root, "scripts/feed-numbers.ts")]);
 run("unit tests (chat reducer: activity lines)", process.execPath, ["test", join(root, "test")]);
 
+run("seed ids: no \"me\" in seed data, no literal cast list (fixture must fail)", process.execPath, [join(root, "scripts/seed-ids.ts")]);
+
 if (failures.length === 0) {
   step("build");
   await buildApp();
@@ -48,7 +50,7 @@ if (failures.length === 0) {
     const ctx = await browser.newContext({ viewport: { width, height: PHONE.height }, deviceScaleFactor: 1, hasTouch: true, isMobile: true, colorScheme: theme });
     const page = await ctx.newPage();
     page.on("pageerror", (e) => failures.push(`page error: ${e.message}`));
-    await page.goto(`${server.url}?safe=1&theme=${theme}`);
+    await page.goto(`${server.url}?as=tsai&safe=1&theme=${theme}`);
     await page.waitForTimeout(250);
     return [ctx, page];
   }
@@ -56,7 +58,7 @@ if (failures.length === 0) {
     const ctx = await browser.newContext({ viewport: DESKTOP, colorScheme: theme });
     const page = await ctx.newPage();
     page.on("pageerror", (e) => failures.push(`page error: ${e.message}`));
-    await page.goto(`${server.url}?theme=${theme}${query}`);
+    await page.goto(`${server.url}?as=tsai&theme=${theme}${query}`);
     await page.waitForTimeout(350);
     return [ctx, page];
   }
@@ -206,15 +208,15 @@ if (failures.length === 0) {
     ["thread senior week (suggestion chip)", async (p) => { await openRow(p, "senior week"); }],
     ["building card", async (p) => { await openRow(p, "senior week"); await p.locator(".chip .go").click(); await p.waitForTimeout(500); }],
     ["mention in composer", async (p) => { await openRow(p, "the boys"); await msgBox(p).fill("@Muse make a bracket"); await p.waitForTimeout(200); }],
-    ["event", async (p) => { await p.goto(`${server.url}?safe=1&event=juniper&theme=${await p.evaluate(() => document.documentElement.dataset.theme)}`); await p.waitForTimeout(600); }],
+    ["event", async (p) => { await p.goto(`${server.url}?as=tsai&safe=1&event=juniper&theme=${await p.evaluate(() => document.documentElement.dataset.theme)}`); await p.waitForTimeout(600); }],
     ["event, interested", async (p) => {
-      await p.goto(`${server.url}?safe=1&event=juniper&theme=${await p.evaluate(() => document.documentElement.dataset.theme)}`);
+      await p.goto(`${server.url}?as=tsai&safe=1&event=juniper&theme=${await p.evaluate(() => document.documentElement.dataset.theme)}`);
       await p.waitForTimeout(500);
       await p.getByRole("button", { name: "Interested" }).click();
       await p.waitForTimeout(800);
     }],
     ["event chat (who's in card)", async (p) => {
-      await p.goto(`${server.url}?safe=1&event=juniper&theme=${await p.evaluate(() => document.documentElement.dataset.theme)}`);
+      await p.goto(`${server.url}?as=tsai&safe=1&event=juniper&theme=${await p.evaluate(() => document.documentElement.dataset.theme)}`);
       await p.waitForTimeout(500);
       await p.getByRole("button", { name: "Interested" }).click();
       await p.getByRole("button", { name: "Go together" }).click();
@@ -272,7 +274,7 @@ if (failures.length === 0) {
   for (const scheme of ["dark", "light"] as const) {
     const ctx = await browser.newContext({ viewport: PHONE, colorScheme: scheme });
     const p = await ctx.newPage();
-    await p.goto(server.url);
+    await p.goto(`${server.url}?as=tsai`);
     const t = await p.evaluate(() => document.documentElement.dataset.theme);
     if (t !== scheme) failures.push(`prefers-color-scheme ${scheme} gave data-theme=${t}`);
     else console.log(`prefers-color-scheme ${scheme}: ok`);
@@ -288,8 +290,8 @@ if (failures.length === 0) {
       ["thread the boys", async (p) => { await openRow(p, "the boys"); }],
       ["thread senior week", async (p) => { await openRow(p, "senior week"); }],
       ["search", async (p) => { await p.getByRole("button", { name: "Ask Meta AI or search" }).click(); await p.waitForTimeout(700); }],
-      ["event", async (p) => { await p.goto(`${server.url}?safe=1&event=juniper`); await p.waitForTimeout(600); }],
-      ["event, interested", async (p) => { await p.goto(`${server.url}?safe=1&event=juniper`); await p.waitForTimeout(500); await p.getByRole("button", { name: "Interested" }).click(); await p.waitForTimeout(800); }],
+      ["event", async (p) => { await p.goto(`${server.url}?as=tsai&safe=1&event=juniper`); await p.waitForTimeout(600); }],
+      ["event, interested", async (p) => { await p.goto(`${server.url}?as=tsai&safe=1&event=juniper`); await p.waitForTimeout(500); await p.getByRole("button", { name: "Interested" }).click(); await p.waitForTimeout(800); }],
     ];
     for (const [label, setup] of screens) {
       const [ctx, p] = await phoneCtx("light", width);
@@ -540,7 +542,7 @@ if (failures.length === 0) {
     for (const [safe, top] of [["?safe=1", 59], ["?", 0]] as const) {
       const ctx = await browser.newContext({ viewport: PHONE, hasTouch: true, isMobile: true });
       const p = await ctx.newPage();
-      await p.goto(`${server.url}${safe}&chat=maya`);
+      await p.goto(`${server.url}${safe}&as=tsai&chat=maya`);
       await p.waitForTimeout(600);
       bad.push(...(await headerProblems(p, top + 45, `Maya Chen ${safe}`)));
       // messages start right under it at the top of the list
@@ -551,12 +553,12 @@ if (failures.length === 0) {
         return first - document.querySelector<HTMLElement>(".page.push .top")!.getBoundingClientRect().bottom;
       });
       if (gap < 0 || gap > 16) bad.push(`Maya Chen ${safe}: first message ${gap.toFixed(1)} px below the header`);
-      await p.goto(`${server.url}${safe}&chat=boys`);
+      await p.goto(`${server.url}${safe}&as=tsai&chat=boys`);
       await p.waitForTimeout(900);
       bad.push(...(await headerProblems(p, top + 45, `the boys, card on screen ${safe}`)));
       // Safari's layer mode: the list starts under the bar
       await p.evaluate(() => (document.documentElement.dataset.frames = "layer"));
-      await p.goto(`${server.url}${safe}&chat=maya`);
+      await p.goto(`${server.url}${safe}&as=tsai&chat=maya`);
       await p.evaluate(() => (document.documentElement.dataset.frames = "layer"));
       await p.waitForTimeout(300);
       const lm = await p.evaluate(() => {
@@ -574,7 +576,7 @@ if (failures.length === 0) {
     if (!bad.length) ok("thread header is exactly the bar: 104 with ?safe=1, 45 without, 64 on desktop; messages start under it");
     // the check can fail: the old header kept a stepped-aside pinned bar's 44 px
     const [c2, p2] = await phoneCtx("light");
-    await p2.goto(`${server.url}?safe=1&chat=boys`);
+    await p2.goto(`${server.url}?as=tsai&safe=1&chat=boys`);
     await p2.waitForTimeout(900);
     await p2.addStyleTag({ content: ".pin.away { height: var(--pin-h) !important }" });
     expect((await headerProblems(p2, 104, "self-test")).length > 0, "header self-test: a 44 px blank band was not caught");
@@ -585,7 +587,7 @@ if (failures.length === 0) {
   {
     const [ctx, p] = await phoneCtx("light");
     const colours = async (chat: string) => {
-      await p.goto(`${server.url}?safe=1&chat=${chat}`);
+      await p.goto(`${server.url}?as=tsai&safe=1&chat=${chat}`);
       await p.waitForTimeout(500);
       return p.evaluate(() => ({ head: getComputedStyle(document.querySelector(".page.push .back")!).color, composer: getComputedStyle(document.querySelector(".page.push .composer .end")!).color }));
     };
@@ -626,7 +628,7 @@ if (failures.length === 0) {
     await ctx.close();
     const wide = await browser.newContext({ viewport: { width: 1000, height: 800 } });
     const w = await wide.newPage();
-    await w.goto(`${server.url}?chat=boys`);
+    await w.goto(`${server.url}?as=tsai&chat=boys`);
     await w.waitForTimeout(600);
     const mid = await cardW(w);
     const tooWide = (ws: number[]) => !ws.length || ws.some((x) => x > 588.5);
@@ -868,7 +870,7 @@ if (failures.length === 0) {
     await d.waitForTimeout(800);
     expect((await d.locator('.panel .thread[aria-label="Chat with Juniper Hale live"]').count()) === 1, "desktop Go together did not open the new chat");
     // link bubble on desktop
-    await d.goto(`${server.url}?chat=boys`);
+    await d.goto(`${server.url}?as=tsai&chat=boys`);
     await d.waitForTimeout(500);
     await d.locator(".bubble.link.event").click();
     await d.waitForTimeout(500);
@@ -889,7 +891,7 @@ if (failures.length === 0) {
     await d.locator(".pin").click();
     await d.waitForTimeout(500);
     expect((await d.locator('.row.flash[data-tool-id="t-juniper"]').count()) === 1, "desktop pinned bar did not jump to the card");
-    await d.goto(`${server.url}?chat=senior`);
+    await d.goto(`${server.url}?as=tsai&chat=senior`);
     await d.waitForTimeout(500);
     await d.locator(".chip .go").click();
     await d.waitForTimeout(2300);
@@ -918,7 +920,7 @@ if (failures.length === 0) {
           mo.disconnect();
         }).observe(document, { childList: true, subtree: true });
       });
-      await p.goto(`${server.url}?safe=1&theme=${theme}`);
+      await p.goto(`${server.url}?as=tsai&safe=1&theme=${theme}`);
       await p.evaluate(() => document.fonts.ready);
       await p.waitForTimeout(400);
       const r = await p.evaluate(() => ({

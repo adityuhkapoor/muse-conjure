@@ -7,7 +7,7 @@
 // With the fake store (no server) comments stay on this phone.
 
 import type { Person } from "../store/types";
-import { ME } from "../store/types";
+import { viewerId } from "../lib/media";
 import { store } from "../store";
 import { EXTRA_PEOPLE } from "../store/extras";
 import { ui } from "../lib/ui.svelte";
@@ -55,14 +55,13 @@ export function cleanComment(text: string): string {
 /** Top-level comments shown before "View more comments", and added by each press. */
 export const PAGE = 7;
 
-const myWire = () => (store as unknown as { myId?: string }).myId ?? "noa";
-// A typed comment keeps its sender's own id. "me" is only the seeded comments' author (Tsai Lin), so mapping the viewer to it showed every viewer's comments as hers.
+const myWire = () => (store as unknown as { myId?: string }).myId ?? viewerId();
+// A comment keeps its author's wire id, seeded or typed; `who` shows the viewer's own as theirs.
 const toView = (w: string) => w;
 const hash = (s: string) => [...s].reduce((h, c) => (Math.imul(h ^ c.charCodeAt(0), 16777619) >>> 0), 2166136261);
 
-/** Anyone who can write a comment: the cast, the strangers, the extras. `me` in the written threads is Tsai Lin. */
+/** Anyone who can write a comment: the cast, the strangers, the extras (wire ids). */
 export function commenter(id: string): Person | undefined {
-  if (id === "me") return store.person("noa") ?? store.person(ME);
   return who(id) ?? EXTRA_PEOPLE.find((p) => p.id === id);
 }
 

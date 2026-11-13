@@ -21,6 +21,10 @@ html[data-phone] textarea, html[data-phone] input, html[data-phone] [contentedit
 }
 html[data-phone] img { -webkit-user-drag: none; user-drag: none; }
 html[data-phone] ::selection { background: transparent; }
+/* No scrollbar chrome anywhere on the phone: touch/trackpad scrolling needs no visible track,
+   and this covers live-generated card content too, not just our own components. */
+html[data-phone] * { scrollbar-width: none; }
+html[data-phone] *::-webkit-scrollbar { display: none; width: 0; height: 0; }
 html[data-phone] textarea::selection, html[data-phone] input::selection { background: var(--c-btn-soft); }
 /* Inner lists keep native momentum and do not hand their overscroll to the page. */
 html[data-phone] :is(.list, .panel, [data-scroll]) { overscroll-behavior-y: contain; -webkit-overflow-scrolling: touch; }

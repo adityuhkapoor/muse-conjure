@@ -10,22 +10,27 @@
   import { nav } from "../lib/nav.svelte";
   import type { Note } from "../store/types";
   import NeedsYou from "../surfaces/components/NeedsYou.svelte"; // surfaces
+  import { scrollHide } from "../lib/scrollHide";
 
   let open = $state<Note | null>(null);
+  let scrollEl = $state<HTMLElement | undefined>(undefined);
   const notes = $derived(store.notes);
   const unreadCount = $derived(store.chats.filter((c) => c.unread).length);
 </script>
 
 <div class="inbox">
-  <div class="scroll">
-    <header class="top">
+  {#if scrollEl}
+    <!-- Covers the safe-top strip permanently, so a hidden header can't expose scrolled content there. -->
+    <div class="safe-strip" aria-hidden="true"></div>
+    <header class="top" use:scrollHide={scrollEl}>
       <h1 class="wordmark">messenger</h1>
       <div class="actions">
         <button aria-disabled="true" title="Not in this prototype" aria-label="New message"><Icon name="new_message_compose" /></button>
         <button aria-label="Facebook" onclick={() => nav.toFacebook()}><Icon name="facebook_f_circle" /></button><!-- surfaces: was "Not in this prototype" -->
       </div>
     </header>
-
+  {/if}
+  <div class="scroll" bind:this={scrollEl}>
     <div class="search-wrap">
       <button class="search" aria-label="Ask Meta AI or search" onclick={() => nav.go({ kind: "search" })}>
         <MuseMark size="var(--sp-20)" />
@@ -82,14 +87,27 @@
 
 <style>
   .inbox { position: relative; display: flex; flex-direction: column; height: 100%; background: var(--c-bg); }
-  .scroll { flex: 1; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; padding-top: var(--safe-top); }
+  .scroll { flex: 1; min-height: 0; overflow-y: auto; -webkit-overflow-scrolling: touch; padding-top: calc(var(--inbox-header-h) + var(--safe-top)); scrollbar-width: none; }
+  .scroll::-webkit-scrollbar { display: none; }
+  .safe-strip { position: absolute; z-index: 4; top: 0; left: 0; right: 0; height: var(--safe-top); background: var(--c-bg); }
   .top {
+    position: absolute;
+    z-index: 3;
+    top: var(--safe-top);
+    left: 0;
+    right: 0;
     height: var(--inbox-header-h);
     padding: 0 var(--sp-16);
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background: var(--c-bg);
+    transform: translateY(0);
+    transition: transform var(--m-push-dur) var(--m-push-ease);
   }
+  /* data-hide is set by the scrollHide action, not the template; :global() keeps Svelte from
+     pruning the rule as "unused". */
+  .top:global([data-hide]) { transform: translateY(-100%); }
   .wordmark {
     font-size: var(--fs-wordmark);
     line-height: var(--lh-wordmark);

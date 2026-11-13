@@ -8,8 +8,8 @@
 // its parent (scripts/feed-numbers.ts checks it).
 //
 // People are ids (the cast, then the made-up extras in surfaces/data.ts and store/extras.ts); a name
-// inside a comment is written `{@id}` and shown as the person's name by the people helpers. `me` is
-// Tsai Lin, the viewer's seat.
+// inside a comment is written `{@id}` and shown as the person's name by the people helpers. Authors
+// are wire ids (never "me"): the viewer's own comments show as theirs at render time.
 
 /** [author, text, age, likes, replies] */
 export type Raw = [by: string, text: string, age: string, likes?: number, replies?: Raw[]];
@@ -25,7 +25,7 @@ const T: Record<string, Raw[]> = {
   ],
   "p-maya": [
     ["priya", "sleep is for after friendsgiving", "50m", 6],
-    ["me", "proud of u. also you have 4 dishes in the sink", "48m", 14, [["maya", "the dishes can wait. i cannot", "40m", 3], ["dev", "i'll do them, i owe you for the oat milk", "38m", 2]]],
+    ["noa", "proud of u. also you have 4 dishes in the sink", "48m", 14, [["maya", "the dishes can wait. i cannot", "40m", 3], ["dev", "i'll do them, i owe you for the oat milk", "38m", 2]]],
     ["jonah", "legend", "45m", 4],
     ["theo", "finally", "30m", 2],
     ["dev", "{@maya} nap first, celebrate after. i'm making the pasta", "25m", 3],
@@ -53,7 +53,7 @@ const T: Record<string, Raw[]> = {
     ["dev", "record player is wrapped. don't ask what song", "1h", 12],
     ["omar", "i'll be on the roof by 11:30 with the speaker", "1h", 2],
     ["jules", "gerald says happy birthday", "50m", 7],
-    ["me", "9 pm, den, bring a jacket. the roof is cold", "45m", 10],
+    ["noa", "9 pm, den, bring a jacket. the roof is cold", "45m", 10],
     ["nico", "happy birthday will!!", "30m", 1],
     ["ava", "it's tonight?? i thought saturday", "20m", 0, [["jonah", "tonight ava. tonight", "15m", 4]]],
     ["bea", "cake?", "10m", 1],
@@ -79,11 +79,11 @@ const T: Record<string, Raw[]> = {
     ["tess", "300 words on the tea hut milk tea incoming", "1h", 9],
     ["zoe", "who ranked bubble lab in S. confess", "50m", 6],
     ["kev", "i have strong feelings and a 4 am voice memo about this", "40m", 3],
-    ["me", "dragged the truck up to A. consensus says i'm wrong", "30m", 4],
+    ["dev", "dragged the truck up to A. consensus says i'm wrong", "30m", 4],
     ["leo", "chili oil boba when", "20m", 1],
   ],
   "p-hana": [
-    ["me", "framing this", "3h", 5],
+    ["dev", "framing this", "3h", 5],
     ["bea", "is that the bell tower or a ghost", "3h", 6, [["hana", "both", "3h", 12]]],
     ["maya", "the fog stole the show", "2h", 3],
     ["kofi", "what film", "1h", 0],
@@ -105,7 +105,7 @@ const T: Record<string, Raw[]> = {
     ["jonah", "truck has 3 seats and a heater that works sometimes", "4h", 11, [["maya", "sometimes is generous", "4h", 4]]],
     ["dev", "jeep leaves last, street parking, cheap", "3h", 5],
     ["kofi", "my car has 3 seats too. i can take two", "3h", 2],
-    ["me", "i'll take the sunday shift if someone drives back", "2h", 1],
+    ["noa", "i'll take the sunday shift if someone drives back", "2h", 1],
   ],
   "p-rent": [
     ["omar", "worth it for the spot", "7h", 6],
@@ -139,7 +139,7 @@ const T: Record<string, Raw[]> = {
   "p-wrapped": [
     ["jonah", "they're called podcasts", "10h", 14],
     ["maya", "212 hours in the library and i'm not proud", "10h", 18],
-    ["me", "the 4:12 am card is a cry for help", "10h", 20, [["priya", "that was one night. one", "9h", 8], ["dev", "it was three nights", "9h", 15]]],
+    ["noa", "the 4:12 am card is a cry for help", "10h", 20, [["priya", "that was one night. one", "9h", 8], ["dev", "it was three nights", "9h", 15]]],
     ["theo", "my gym card is the only honest one", "9h", 6],
     ["omar", "where's my 6 am card", "8h", 3],
     ["jules", "gerald got a card. he is in the top 5 of the den", "8h", 11],
@@ -156,7 +156,7 @@ const T: Record<string, Raw[]> = {
     ["theo", "pans have their own shelf now. it's serious", "5h", 7],
   ],
   "p-ines-sale": [
-    ["me", "the climbing club is not ready", "11h", 16],
+    ["noa", "the climbing club is not ready", "11h", 16],
     ["kofi", "crash pad is mine. i'll pick up saturday", "11h", 8],
     ["ines", "bring a dolly, i'm on the 2nd floor", "11h", 6, [["kofi", "no dolly, i have a car with 3 seats and a lot of faith", "10h", 5]]],
     ["bea", "who gets the rope bag", "10h", 3],
@@ -171,13 +171,13 @@ const T: Record<string, Raw[]> = {
   "p-chatdle": [
     ["priya", "5 for me. i blame the word", "50m", 4],
     ["maya", "haven't played yet don't spoil it", "45m", 2],
-    ["me", "9 day streak on the line", "40m", 6],
+    ["dev", "9 day streak on the line", "40m", 6],
     ["ava", "40 day streak and still no mercy", "30m", 15],
     ["dev", "{@theo} you owe me a guess", "20m", 1],
   ],
   "p-memory": [
     ["dev", "same time next year?", "100m", 9],
-    ["maya", "nepenthe again or i riot", "95m", 11, [["me", "nepenthe again. i'll book it", "90m", 7]]],
+    ["maya", "nepenthe again or i riot", "95m", 11, [["noa", "nepenthe again. i'll book it", "90m", 7]]],
     ["priya", "i posted 11 stories that weekend and i regret nothing", "80m", 14],
     ["rae", "this is the trip i keep hearing about", "70m", 3],
     ["jonah", "the short hike twice. nobody asked for a third", "60m", 5],
@@ -193,7 +193,7 @@ const T: Record<string, Raw[]> = {
   "p-trip-story": [
     ["priya", "the costs slide is violent", "12h", 9],
     ["maya", "mvp is correct", "12h", 6],
-    ["me", "do it again in december", "12h", 12],
+    ["dev", "do it again in december", "12h", 12],
     ["jonah", "312 miles. you're a legend {@dev}", "11h", 4],
     ["theo", "who made the playlist slide. credit them", "11h", 3, [["dev", "it was a vote. you lost", "10h", 5]]],
     ["tess", "i teared up at nepenthe", "10h", 2],
@@ -203,7 +203,7 @@ const T: Record<string, Raw[]> = {
   "p-jt": [
     ["theo", "i don't make the rules", "20h", 14],
     ["bea", "paid. hana you're a saint for booking", "20h", 7],
-    ["me", "sending tonight i promise", "19h", 8],
+    ["noa", "sending tonight i promise", "19h", 8],
     ["kofi", "9 ious became 4 payments is witchcraft", "18h", 10],
     ["maya", "i owe 6 dollars and a shirt", "18h", 4, [["hana", "keep the shirt, send the 6", "17h", 6]]],
   ],
@@ -212,7 +212,7 @@ const T: Record<string, Raw[]> = {
     ["rae", "jealous. 6 hours till i'm there", "22h", 19, [["priya", "I KNOW", "21h", 8], ["rae", "bring the brunch to the airport", "21h", 5]]],
     ["jonah", "i'll go again tomorrow", "22h", 6],
     ["dev", "{@priya} the syrup is mine and you know it", "21h", 5],
-    ["me", "best table we've ever had", "21h", 9],
+    ["dev", "best table we've ever had", "21h", 9],
     ["theo", "who ordered 3 of the same thing", "20h", 3],
     ["tess", "omg", "20h", 0],
     ["zoe", "invite me next time", "19h", 1],
@@ -239,7 +239,7 @@ const T: Record<string, Raw[]> = {
     ["jonah", "390 and i stand by my answers", "12h", 12],
     ["priya", "the fire drill question is a core memory", "12h", 16],
     ["theo", "who writes a question about the deposit", "11h", 5, [["maya", "me. it's a good question", "11h", 8]]],
-    ["me", "i got 700. i'm fine", "11h", 6],
+    ["noa", "i got 700. i'm fine", "11h", 6],
     ["tess", "does anybody know where the cayucos house is on a map", "10h", 1],
     ["bea", "the mattress question was cruel", "10h", 3],
     ["rae", "i got 2 right and one was my name", "9h", 7],
@@ -250,7 +250,7 @@ const T: Record<string, Raw[]> = {
     ["maya", "sectional. we fit all 4 for movie night", "5h", 12],
     ["ruth", "the loveseat is still available :)", "5h", 5, [["dev", "ruth we love you, it's 4 votes for the sectional", "4h", 6]]],
     ["priya", "the futon has a character arc", "4h", 8],
-    ["me", "sectional but only if marco throws in the pillows", "4h", 4],
+    ["dev", "sectional but only if marco throws in the pillows", "4h", 4],
     ["marco", "pillows are $10 extra. i'm not a monster", "3h", 6],
     ["theo", "the old couch. rest in peace. the spring that got me last week", "3h", 7],
     ["tess", "does the sectional come with the loveseat's optimism", "2h", 2],
@@ -279,7 +279,7 @@ const T: Record<string, Raw[]> = {
   ],
   "p-bea-link": [
     ["maya", "thesis break spot secured", "20h", 5],
-    ["me", "i'll pin it in the group", "20h", 4],
+    ["noa", "i'll pin it in the group", "20h", 4],
     ["kofi", "finally", "19h", 1],
   ],
   "p-tahoe": [
@@ -295,7 +295,7 @@ const T: Record<string, Raw[]> = {
   "p-beat": [
     ["jonah", "legend legend legend", "15h", 16],
     ["jules", "gerald is on the off beat", "15h", 12],
-    ["me", "this is going in the pregame", "14h", 9],
+    ["dev", "this is going in the pregame", "14h", 9],
     ["omar", "my voice at 6 am. that's me", "14h", 5],
     ["kev", "I'M IN THIS", "13h", 14],
   ],
@@ -306,7 +306,7 @@ const T: Record<string, Raw[]> = {
     ["marco", "i'll be in portland by then, sending pizza", "4h", 1],
   ],
   "p-challenge": [
-    ["me", "in. the wall is open till 10 for finals", "7h", 6],
+    ["noa", "in. the wall is open till 10 for finals", "7h", 6],
     ["theo", "in. gym then wall then sleep", "7h", 7],
     ["bea", "logging it in a spreadsheet obviously", "7h", 8],
     ["ines", "can i count my last 30 days of packing as climbing", "6h", 14],
@@ -328,7 +328,7 @@ const T: Record<string, Raw[]> = {
   "p-ramen": [
     ["priya", "obsessed. adding", "3h", 5],
     ["dev", "5 stars for mr. bao still stands", "3h", 4],
-    ["me", "after juniper is a yes", "3h", 7],
+    ["dev", "after juniper is a yes", "3h", 7],
     ["dani", "they have a spicy miso. get the spicy miso", "2h", 6],
     ["tess", "who's driving", "2h", 0, [["jonah", "truck seats 3. ramen seats 8", "2h", 5]]],
   ],
@@ -336,13 +336,13 @@ const T: Record<string, Raw[]> = {
     ["theo", "ribs and the pudding were me. no regrets", "1d", 7],
     ["hana", "claimed", "1d", 2],
     ["bea", "5 things left and 7 people", "1d", 6],
-    ["me", "the cornbread was me. everyone else is guessing", "1d", 4],
+    ["noa", "the cornbread was me. everyone else is guessing", "1d", 4],
   ],
   "p-zoe-portraits": [
     ["priya", "booked for friday morning, pray for me", "22h", 9],
     ["jonah", "is the gown provided", "22h", 5],
     ["zoe", "gowns at the table, just show up", "22h", 11],
-    ["me", "the light by the union at 3 is the one", "21h", 8],
+    ["dev", "the light by the union at 3 is the one", "21h", 8],
     ["maya", "who's doing hair. i'm not above asking", "21h", 2],
     ["theo", "bring a jacket is advice i'm taking", "20h", 3],
     ["dev", "i'll go at 10 before the line", "20h", 4],
@@ -353,7 +353,7 @@ const T: Record<string, Raw[]> = {
   "p-potluck": [
     ["maya", "what was last year's surprise", "1d", 11],
     ["tess", "lime jello. it had grapes in it", "1d", 22, [["maya", "no", "1d", 14], ["tess", "yes. uncle t called it 'salad'", "1d", 31]]],
-    ["me", "3 pies for 14 people is correct actually", "1d", 9],
+    ["noa", "3 pies for 14 people is correct actually", "1d", 9],
     ["dev", "i'll bring the stuffing and a second stuffing", "1d", 6],
     ["priya", "who signed up for 'bread' twice", "1d", 4],
     ["jonah", "legend", "1d", 2],
@@ -370,7 +370,7 @@ const T: Record<string, Raw[]> = {
   ],
   "p-kofi": [
     ["maya", "the ridge hike is back on", "20h", 8],
-    ["me", "saturday 9am, my story poll said so", "20h", 7],
+    ["dev", "saturday 9am, my story poll said so", "20h", 7],
     ["kofi", "bring gloves", "19h", 9],
     ["cami", "34 degrees... i'm in", "19h", 3],
   ],
@@ -386,7 +386,7 @@ const T: Record<string, Raw[]> = {
     ["nico", "december 11 is finals week, who did this", "1d", 31],
     ["zoe", "one more free on jan 22 and it locks", "1d", 18],
     ["bea", "i'm free jan 22. i'm free every date. i'm a treasurer", "1d", 12],
-    ["me", "free on the 22nd, not free on the 11th", "1d", 9],
+    ["noa", "free on the 22nd, not free on the 11th", "1d", 9],
     ["priya", "i'd go to a formal in a parking lot", "1d", 6, [["zoe", "noted for the parking lot committee", "1d", 8]]],
     ["maya", "is the venue the same as last year", "1d", 3],
     ["dev", "ok i'm free", "23h", 1],
@@ -396,7 +396,7 @@ const T: Record<string, Raw[]> = {
     ["kofi", "free", "21h", 0],
   ],
   "p-weekend": [
-    ["me", "i have a plan. it's called the library", "35m", 8],
+    ["noa", "i have a plan. it's called the library", "35m", 8],
     ["priya", "{@maya} you're in 2 of those", "34m", 4],
     ["dev", "the 3rd plan is a brunch. that counts", "30m", 3, [["maya", "that's the one you're in none of, aditya", "28m", 6]]],
     ["jonah", "juniper on friday, tahoe the weekend after", "25m", 5],
@@ -414,7 +414,7 @@ const T: Record<string, Raw[]> = {
     ["jonah", "tickets bought", "45m", 2],
     ["tess", "omg", "40m", 0],
     ["zoe", "student tickets at the box office today, id", "35m", 5],
-    ["me", "balcony, row c. i'm saving a seat for {@maya}", "30m", 6],
+    ["dev", "balcony, row c. i'm saving a seat for {@maya}", "30m", 6],
   ],
   "p-bday": [
     ["priya", "do not make it a thing", "3h", 12, [["jonah", "it's already a thing", "3h", 9]]],
@@ -422,7 +422,7 @@ const T: Record<string, Raw[]> = {
     ["rae", "i'm flying in. don't tell him", "3h", 15],
     ["dev", "cake from the good bakery. i know a guy", "2h", 4],
     ["theo", "i'm on the door, you're on the list", "2h", 6],
-    ["me", "9 pm friday? i'll host the pregame at 4b", "2h", 5],
+    ["noa", "9 pm friday? i'll host the pregame at 4b", "2h", 5],
     ["omar", "i'll bring ice", "1h", 1],
   ],
   "p-remix": [
@@ -442,7 +442,7 @@ const T: Record<string, Raw[]> = {
     ["hana", "omg", "7h", 1],
     ["leo", "bring hot sauce to the finals", "7h", 5],
     ["ava", "5 votes already. i'm shaking", "6h", 1],
-    ["me", "voting with my stomach", "5h", 3],
+    ["dev", "voting with my stomach", "5h", 3],
   ],
   // ---- posts that had a count and no thread: a campus page, an ad, a short question, a photo, a venue
   "p-dining-hall": [

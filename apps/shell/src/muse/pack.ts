@@ -10,7 +10,9 @@
 // Facts only: titles, items and numbers come from the page (muse/seed.ts, surfaces/data.ts).
 // Muse writes no jokes or banter for anyone.
 
-import { CHAT_FACTS, EASTFIELD_MAP, EVENT_FACTS, FEED_POSTS, FRIEND_SCORE, GROUP_FACTS, LISTING_FACTS, MY_LISTINGS, REEL_FACTS, ROOM_4B, SUBLET_FACTS, TRIP } from "./seed";
+import { castFirst } from "../store/cast";
+import { viewerId } from "../lib/media";
+import { factQuestion, CHAT_FACTS, EASTFIELD_MAP, EVENT_FACTS, FEED_POSTS, FRIEND_SCORE, GROUP_FACTS, LISTING_FACTS, MY_LISTINGS, REEL_FACTS, ROOM_4B, SUBLET_FACTS, TRIP } from "./seed";
 import type { PageContext, Scenario } from "./types";
 import { RICH } from "./rich";
 import { RICH_LAB } from "./rich-lab";
@@ -659,7 +661,7 @@ export const PACK: Scenario[] = [
         tool: "lab:trip-lock",
         params: (c) => ({
           title: `${cap(str(c, "winner"))} sat`,
-          sub: `Muse plan · ${c.people.length} voted ${str(c, "winner")}`,
+          sub: `Muse plan · ${num(c, "votes")} voted ${str(c, "winner")}`,
           date: str(c, "when"),
           from: "Campus",
           to: str(c, "place"),
@@ -679,7 +681,7 @@ export const PACK: Scenario[] = [
     summary: () => "tap what works",
     template: "poll",
     asks: ["do it again", "let's go back", "same trip again", "again this year", "plan it again"],
-    chat: () => ({ key: `story:${TRIP.storyId}:again`, name: `${TRIP.name} again`, members: TRIP.people.filter((p) => p !== "me") }),
+    chat: () => ({ key: `story:${TRIP.storyId}:again`, name: `${TRIP.name} again`, members: TRIP.people.filter((p) => p !== viewerId()) }),
     tools: [
       {
         tool: "lab:date-swipe",
@@ -703,7 +705,7 @@ export const PACK: Scenario[] = [
     summary: () => `${TRIP.facts.length} cards`,
     template: "poll",
     asks: ["recap", "make a recap", "trip recap", "remember this trip", "wrapped"],
-    chat: () => ({ key: `story:${TRIP.storyId}:recap`, name: TRIP.name, members: TRIP.people.filter((p) => p !== "me") }),
+    chat: () => ({ key: `story:${TRIP.storyId}:recap`, name: TRIP.name, members: TRIP.people.filter((p) => p !== viewerId()) }),
     tools: [],
   },
 
@@ -766,7 +768,7 @@ export const PACK: Scenario[] = [
           title: "How well do you know apt 4b?",
           by: nm(c, "me"),
           plays: 0,
-          questions: (CHAT_FACTS.apt4b ?? []).map((q) => ({ about: "the chat", q: q.question, options: q.options, answer: q.options.indexOf(q.answer) })),
+          questions: (CHAT_FACTS.apt4b ?? []).map((q) => factQuestion(q, (id) => castFirst(id) ?? id)),
           played: [],
         }),
       },

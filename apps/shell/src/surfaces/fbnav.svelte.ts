@@ -9,6 +9,8 @@ export type FbPage =
   | { name: "marketplace" }
   | { name: "notifications" }
   | { name: "listing"; id: string }
+  /** a real store product a plan's kit found online (Marketplace had none); `item` is the kit row */
+  | { name: "online"; item: import("../live/chat-reducer").WireKit["items"][number] & { online: import("../live/chat-reducer").WireOnline } }
   | { name: "groups" }
   | { name: "group"; id: string }
   | { name: "gaming" }
@@ -23,7 +25,7 @@ type PageTab = Exclude<FbTab, "profile">; // the Profile tab is a page with an i
 export const TABS: PageTab[] = ["home", "reels", "marketplace", "notifications", "friends"];
 export const isTab = (p: FbPage): p is { name: PageTab } => (TABS as string[]).includes(p.name);
 
-/** `?app=facebook&fb=marketplace`, `fb=group:sublets`, `fb=listing:l-futon`, `fb=story:s-me`... */
+/** `?app=facebook&fb=marketplace`, `fb=group:sublets`, `fb=listing:l-futon`, `fb=story:s-dev-poll`... */
 export function fbFromUrl(params: URLSearchParams): FbPage | null {
   const raw = params.get("fb");
   if (!raw) return params.get("app") === "facebook" ? { name: "home" } : null;

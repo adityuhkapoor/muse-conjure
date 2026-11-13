@@ -44,7 +44,7 @@ One-time browser install: `bunx playwright install chromium-headless-shell`.
 - Theme: `prefers-color-scheme`, `?theme=dark|light`, and the "Dark/Light" control next to the Prototype label.
 - Query flags: `?chat=<id>` opens a chat (add `&tool=<id>` to scroll to a tool), `?event=<id>` opens the event page,
   `?screen=search` opens search, `?safe=1` simulates iPhone 16 Pro insets (59 top, 34 bottom).
-- Cast: Tsai Lin (`noa`, you in the fake store), Maya (made up), Aditya (`dev`), Calvin (`jonah`), Will Li (`priya`), Arun (`theo`). The five team members show their own photos; everyone else is a drawn face (see Pictures). The fake store has five chats: apt 4b, the boys, Maya, senior week, Will. The live demo seeds 15 (`services/demo/chats/`).
+- Cast: Aditya (`dev`, the viewer when no `?as=` is given), Tsai Lin (`noa`), Maya (made up), Calvin (`jonah`), Will Li (`priya`), Arun (`theo`). The five team members show their own photos; everyone else is a drawn face (see Pictures). The fake store seeds five chats (apt 4b, the boys, Maya, senior week, Will) and shows the viewer the ones they are in. The live demo seeds 15 (`services/demo/chats/`).
 - Facebook: `?app=facebook` or the Facebook button in the inbox header (see Facebook surfaces below).
 
 ### Where tools show up (Part 2)
@@ -58,6 +58,8 @@ All driven by `tools` on the store (each has chat, name, one-line summary, who a
 5. Suggestion chip: "Pick for us" above the composer when the last messages look stuck (`looksStuck` in `src/lib/muse.ts`: a question, then two hand-backs like "idk u pick" and "no u pick"). Seeded in senior week. Dismiss or taking it means it does not come back for that chat.
 6. Asking by name: a leading "muse" or "@Muse" is highlighted in the composer and the bubble; sending it builds a card. In the live demo the ask goes to the gateway's `/generate`, where Muse picks a lab tool and fills it from the chat. In the fake store (no server) the tool is picked by keyword (`inferTemplate`) from a few templates.
 7. Search: the pill opens a screen whose empty state has "In your chats" and "Make something".
+8. Mini options (live store): a "⋯" next to "Tell Muse what to change" under each Mini opens a sheet with "Tell Muse what to change", "End game" and, at the bottom, "Delete" (confirmed once). Anyone in the chat can delete a Mini; its card becomes one line ("Tsai Lin removed Bring List"). "End game" shows only to whoever started a game (lab games in `src/lib/kit.ts` `GAMES`, or a Mini whose name says it is one) and starts it over in a fresh room (`a:<id>~<rev>`), so anyone can play again. Reducer actions `tool-remove` and `tool-restart` in `src/live/chat-reducer.ts`; a Mini now records the `piece` it was built from.
+9. Plan kits (Marketplace as context): a mention that plans something that needs stuff ("@Muse we want to go camping, what do we need?", `isKitAsk` in `src/lib/kit.ts`) gets a kit card instead of a Mini, and a chat talking about such a plan (camping, a party, a hike, climbing...) shows a "What do we need?" chip. The gateway's `POST /kit` (`services/demo/kit.ts`) works out what the group needs, matches each need to a Marketplace listing, prices the rest at a real store online, and splits the total. `KitCard.svelte` (same card as MuseCard) shows each need with its count first, where it comes from ("From Marketplace", "Found online", "Marketplace + online") and the per-person cost. A Marketplace row opens `ListingPage`; an online row opens `OnlinePage` (`fb=online`: photo, price, store, what the plan needs it for, "View on <store>"). "Who brings what" builds the `claims` piece from the kit and "Split" the `split` piece; the card then opens them. Reducer actions `kit-pending`, `kit`, `kit-failed`, `kit-link`; a kit is stored bounded, with http(s) links only. Deleting the Bring List or split lets the kit make it again.
 
 The building state is the same `MuseCard` with `building` set, mutated in place by the store, so it has exactly the final card's size.
 
@@ -124,7 +126,7 @@ row 40, a dark Facebook header, and `--font` (Muse Sans on a phone, system stack
 ## Facebook surfaces (Part 5)
 
 Everything is in `src/surfaces/` (components, data, flows); shared files only carry small hooks marked `surfaces`.
-Messenger stays the landing screen. `?app=facebook` opens Facebook Home; `&fb=marketplace|reels|notifications|gaming|menu|groups`, `&fb=group:sublets|group:climb`, `&fb=listing:<id>`, `&fb=story:s-me` open a screen directly. `&fb=friends` opens Friends; `&fb=profile&id=<person>` (wire id or a teammate's first name, `fb=profile:<id>` too; no id is your own) opens a profile.
+Messenger stays the landing screen. `?app=facebook` opens Facebook Home; `&fb=marketplace|reels|notifications|gaming|menu|groups`, `&fb=group:sublets|group:climb`, `&fb=listing:<id>`, `&fb=story:s-dev-poll` open a screen directly. `&fb=friends` opens Friends; `&fb=profile&id=<person>` (wire id or a teammate's first name, `fb=profile:<id>` too; no id is your own) opens a profile.
 
 - Phone: the Facebook header (52 tall, menu, wordmark, search, Messenger) scrolls with Home; the floating frosted tab bar (366 x 52, 21 above the bottom) has Home, Reels, Friends, Marketplace, Notifications, Profile, all working. The header's Messenger button goes to Messenger; the inbox's Facebook button comes back. Menu leads to Groups, Gaming and Events.
 - Desktop: the top bar's Home, Friends, Reels, Marketplace, Groups and Gaming slots work; the avatar and the rail's name open your profile; the logo opens Home; the bell opens Notifications; Messenger returns to the three panes.
@@ -141,6 +143,7 @@ The rule: Muse never builds while you scroll. A moment rides on something the pe
 | Reels | Share a reel to a chat; under it in the thread, "Add to our to-try list" makes the chat's list or adds to it | `reel-to-try`, the reel's places; later reels add through the tool's own room (`store.toolAct`) |
 | Stories | Your ended story poll: "Make it a plan" makes a chat with the people who voted for the winner | `trip-lock` |
 | Gaming | Games groups made with Muse, each group's standing, "Play with a group" | `bracket-post`, `feed-tier-list`, `movie-bracket` |
+| Marketplace (in chats) | A plan in a chat: the kit card prices what it needs from Marketplace, the rest from real stores online (see Part 2, item 9). Listings include camping and party things with the owner's photos (`listing-tent`, `listing-balloons`...) | `claims`, `split`, from the kit |
 | Notifications, inbox | "Needs you": a tool made from a surface that waits on you | from the chat log |
 | Profile | "Made with Muse" row of the person's live tools; on a friend's profile a Muse field and one offer from what you share, in your one-to-one chat | `settle-up`, `bday-pool`, `ticket-split`, `event-carpool` (lab) |
 | Friends | "Plan something for Will" under his birthday, in a new group chat | `bday-pool` else `gift-pool` (lab) |

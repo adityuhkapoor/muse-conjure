@@ -150,7 +150,8 @@
   .back { --icon-size: var(--sp-28); }
   .sharebtn { --icon-size: var(--sp-24); }
   .bar-title { flex: 1; text-align: center; font-size: var(--fs-title); line-height: var(--lh-title); font-weight: var(--fw-semibold); }
-  .scroll { flex: 1; min-height: 0; overflow-y: auto; padding-bottom: calc(var(--safe-bottom) + var(--sp-16)); }
+  .scroll { flex: 1; min-height: 0; overflow-y: auto; padding-bottom: calc(var(--safe-bottom) + var(--sp-16)); scrollbar-width: none; }
+  .scroll::-webkit-scrollbar { display: none; }
   .inner { padding: var(--sp-12) var(--sp-16) 0; display: flex; flex-direction: column; gap: var(--sp-12); }
 
   /* ANDROID_FINDINGS: the phone cover is about 1:1 (427 x 440); desktop 665 x 350. */

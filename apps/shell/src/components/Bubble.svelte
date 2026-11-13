@@ -8,6 +8,7 @@
   import Avatar from "./Avatar.svelte";
   import Icon from "./Icon.svelte";
   import MuseCard from "./MuseCard.svelte";
+  import KitCard from "./KitCard.svelte"; // kit
   import MuseMark from "./MuseMark.svelte";
   import { splitMention } from "../lib/muse";
   import { haptic } from "../phone/touch"; // phone
@@ -31,10 +32,15 @@
     flash?: boolean;
     /** "Tell Muse what to change" under a live tool (live store only) */
     onchangetool?: (msg: Message) => void;
+    /** the tool's options (change it, end a game, delete), live store only */
+    ontoolmenu?: (msg: Message) => void;
+    /** kit: the chat it is in, and jumping to a tool it made */
+    chatId?: string;
+    ontool?: (toolId: string) => void;
     /** a Mini Muse offered with a reply: make it */
     onchip?: (msg: Message) => void;
   };
-  let { msg, pos, senderLabel, showAvatar, gapBefore, sender, quoted, quotedSender, fresh, resolve, onmenu, onheart, onlink, flash = false, onchangetool, onchip }: Props =
+  let { msg, pos, senderLabel, showAvatar, gapBefore, sender, quoted, quotedSender, fresh, resolve, onmenu, onheart, onlink, flash = false, onchangetool, ontoolmenu, chatId = "", ontool, onchip }: Props =
     $props();
 
   const mention = $derived(msg.kind === "text" && msg.text ? splitMention(msg.text) : null);
@@ -43,7 +49,7 @@
 
   const chipLabel = $derived(msg.chip ? `Make ${"aeiou".includes(msg.chip.name[0]?.toLowerCase() ?? "") ? "an" : "a"} ${msg.chip.name.toLowerCase()}` : "");
   const out = $derived(msg.from === ME);
-  const isMuse = $derived(msg.kind === "muse");
+  const isMuse = $derived(msg.kind === "muse" || msg.kind === "kit");
   const emojiOnly = $derived(msg.kind === "text" && !!msg.text && /^(\p{Extended_Pictographic}️?\s*){1,3}$/u.test(msg.text));
   const total = $derived(msg.reactions.reduce((n, r) => n + r.by.length, 0));
   const mine = $derived(msg.reactions.find((r) => r.by.includes(ME))?.emoji);
@@ -119,8 +125,13 @@
         {#if msg.muse.live && msg.muse.changing}
           <p class="tool-change changing" role="status" data-tool-changing><MuseMark size="var(--sp-16)" spin />Muse is changing this…</p>
         {:else if msg.muse.live && onchangetool}
-          <button class="tool-change" data-tool-change onclick={() => onchangetool(msg)}>Tell Muse what to change</button>
+          <span class="tool-actions">
+            <button class="tool-change" data-tool-change onclick={() => onchangetool(msg)}>Tell Muse what to change</button>
+            {#if ontoolmenu}<button class="tool-change more" data-tool-menu aria-haspopup="dialog" aria-label={`Options for ${msg.muse.title}`} onclick={() => ontoolmenu(msg)}><span style:--icon-size="var(--sp-16)"><Icon name="more_dots" /></span></button>{/if}
+          </span>
         {/if}
+      {:else if msg.kind === "kit"}
+        <div class="muse-wrap"><KitCard {msg} {chatId} {ontool} /></div>
       {:else if msg.kind === "photo" && msg.photo}
         <div
           class="bubble photo"
@@ -273,6 +284,8 @@
     color: var(--c-text-2);
   }
   button.tool-change:hover { color: var(--c-text); }
+  .tool-actions { display: flex; align-items: center; justify-content: space-between; width: 100%; }
+  .tool-change.more { width: var(--sp-44); justify-content: center; padding: 0; }
   .tool-change.changing { font-weight: var(--fw-regular, 400); }
 
   .quote {

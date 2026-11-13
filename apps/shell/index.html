@@ -43,7 +43,15 @@
     </style>
     <title>Muse Conjure (prototype)</title>
     <script>
-      // Resolve theme before first paint: ?theme=dark|light wins, else prefers-color-scheme.
+      // ?rec=1: transparent page background, for compositing several phones over one shared
+      // backdrop (services/demo/links.ts's recording layout for /multi).
+      if (new URLSearchParams(location.search).get("rec") === "1") {
+        document.documentElement.style.background = "transparent";
+        document.addEventListener("DOMContentLoaded", function () {
+          document.body.style.background = "transparent";
+        });
+      }
+      // Resolve theme before first paint: ?theme=dark|light wins, else the device's own setting.
       (function () {
         var q = new URLSearchParams(location.search).get("theme");
         var dark = q ? q === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;

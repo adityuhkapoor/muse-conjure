@@ -31,11 +31,13 @@ export async function catalystChecks(c: Ctx) {
   for (const x of plainTools()) failures.push(`catalysts: ${x}`);
   expect(labOnlyFixture(), "catalysts: the lab-only check did not catch a plain piece in its fixture");
 
+  /** The checks sit in Tsai Lin's seat unless a query names another viewer. */
+  const seat = (query: string) => (/[?&]as=/.test(query) ? "" : "&as=tsai");
   async function open(query: string, theme: "light" | "dark" = "light", width = PHONE.width, desk = false) {
     const ctx = await browser.newContext(desk ? { viewport: DESKTOP, colorScheme: theme } : { viewport: { width, height: PHONE.height }, deviceScaleFactor: 1, hasTouch: true, isMobile: true, colorScheme: theme });
     const page = await ctx.newPage();
     page.on("pageerror", (e) => failures.push(`catalysts page error: ${e.message}`));
-    await page.goto(`${url}?theme=${theme}${desk ? "" : "&safe=1"}${query}`);
+    await page.goto(`${url}?theme=${theme}${desk ? "" : "&safe=1"}${seat(query)}${query}`);
     await page.waitForTimeout(400);
     return { ctx, page };
   }
@@ -81,7 +83,7 @@ export async function catalystChecks(c: Ctx) {
     ["home, timed card", "&app=facebook&unprompted=1", scrollTo("[data-unprompted]")],
     ["reel share sheet, recipe", "&app=facebook&fb=reels", shareNoodles],
     ["story, trip a year ago", "&app=facebook&fb=story:s-trip", async () => {}],
-    ["story, own poll ended", "&app=facebook&fb=story:s-me", async () => {}],
+    ["story, own poll ended", "&as=aditya&app=facebook&fb=story:s-dev-poll", async () => {}],
     ["gaming, offers and Muse field", "&app=facebook&fb=gaming", async () => {}],
     ["search, Ask Muse row", "&app=facebook", async (p) => { await p.getByRole("button", { name: "Search" }).first().click(); await wait(p); await p.getByRole("searchbox", { name: "Search" }).fill("plan a beach day"); await wait(p, 200); }],
     ["notifications, timed rows", "&app=facebook&fb=notifications&unprompted=1", async () => {}],

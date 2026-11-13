@@ -33,6 +33,8 @@ const CLOCK_MS = 30000;
 const MAX_DRAFTERS = 8;
 const inChat = (ctx: Ctx, id: string) => ctx.members.some((m) => m.id === id);
 const same = (a: unknown, b: unknown) => JSON.stringify(a) === JSON.stringify(b);
+/** The last chore this phone tried to draft, so a tap that never lands can say so. */
+let tried: { chore: number; at: number } | null = null;
 
 const whoAt = (s: State, k: number): string => {
   const n = s.order.length;
@@ -192,8 +194,11 @@ export default defineApp<State, Action, Local>({
     const rows = Math.min(4, Math.max(1, Math.ceil(s.chores.length / 2)));
     const draft = (i: number) => {
       if (s.picks.length + 1 === s.chores.length) haptic("success");
+      tried = { chore: i, at: clock.value };
       dispatch({ t: "pick", chore: i });
     };
+    // A tap that is still not a pick after a moment: say so, once, instead of staying silent.
+    const noPick = !!tried && myTurn && !done && isFree(s, tried.chore) && clock.value - tried.at > 1500 && clock.value - tried.at < 8000;
 
     const cell = (ch: Chore, i: number) => {
       const p = pickMap.get(i);
@@ -224,7 +229,7 @@ export default defineApp<State, Action, Local>({
       );
       const style = { display: "flex", alignItems: "center", gap: 10, height: 48, boxSizing: "border-box", paddingTop: 4, borderBottom: lastInCol ? "none" : `1px solid ${c.divider}`, minWidth: 0 } as const;
       return canTap ? (
-        <button key={i} aria-label={`Draft ${ch.name}, ${ch.pts} pts`} onClick={() => draft(i)} style={{ ...style, border: "none", borderBottom: style.borderBottom, background: "none", padding: "4px 0 0", font: "inherit", color: "inherit", cursor: "pointer", width: "100%" }}>
+        <button key={i} aria-label={`Draft ${ch.name}, ${ch.pts === 1 ? "1 pt" : `${ch.pts} pts`}`} onClick={() => draft(i)} style={{ ...style, border: "none", borderBottom: style.borderBottom, background: "none", padding: "4px 0 0", font: "inherit", color: "inherit", cursor: "pointer", width: "100%" }}>
           {body}
         </button>
       ) : (
@@ -266,7 +271,7 @@ export default defineApp<State, Action, Local>({
           ) : (
             <>
               <div style={{ flex: 1, minWidth: 0, fontSize: 13, lineHeight: "16px", color: c.secondaryText, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
-                {!clk ? "Waiting for roommates" : myTurn ? (
+                {noPick ? `${s.chores[tried!.chore]?.name ?? "That chore"} didn't go through. Tap it again` : !clk ? "Waiting for roommates" : myTurn ? (
                   <><b>You're up</b>{` · tap a chore to draft it${ss > 0 ? ` · 0:${String(ss).padStart(2, "0")}` : ""}`}</>
                 ) : (
                   <><b>{nameOf(clk)}</b>{` is picking${snake ? " · snake turn, picks twice" : ""}`}</>

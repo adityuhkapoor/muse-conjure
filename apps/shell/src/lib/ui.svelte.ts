@@ -26,6 +26,7 @@ class Ui {
     if (params.get("safe") === "1") {
       document.documentElement.style.setProperty("--sim-safe-top", "59px");
       document.documentElement.style.setProperty("--sim-safe-bottom", "34px");
+      document.documentElement.style.setProperty("--proto-lift", "13px");
     }
   }
 

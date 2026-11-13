@@ -6,6 +6,8 @@
   import { nav } from "../../lib/nav.svelte";
   import { fb } from "../fbnav.svelte";
   import { listing, money } from "../data";
+  import { store } from "../../store";
+  import { viewerId } from "../../lib/media";
   import { decideWithRoommates, saved, sendListing, shortlistFor, splitIt, who } from "../flows.svelte";
   import MuseOption from "./MuseOption.svelte";
   import PageBar from "./PageBar.svelte";
@@ -19,7 +21,9 @@
    */
   let { id }: { id: string } = $props();
   const l = $derived(listing(id)!);
-  const seller = $derived(who(l.seller));
+  // your own listing: you are the seller, so no Message button and "You" under Seller information
+  const mine = $derived(l.seller === viewerId());
+  const seller = $derived(mine ? store.me : who(l.seller));
   const isSaved = $derived(saved.has(l.id));
   const sameKind = $derived(saved.sameKind(l));
   let share = $state(false);
@@ -32,7 +36,7 @@
     <p class="price">{money(l.price)}</p>
     <p class="listed">Listed {l.ago} in {l.where}</p>
     <div class="actions">
-      <button class="btn msg" onclick={() => fb.say("Not in this prototype")}><Icon name="top_messenger" />Message</button>
+      {#if !mine}<button class="btn msg" onclick={() => fb.say("Not in this prototype")}><Icon name="top_messenger" />Message</button>{/if}
       <button class="btn ib" class:soft={isSaved} aria-pressed={isSaved} aria-label={isSaved ? "Saved" : "Save"} onclick={() => saved.toggle(l.id)}><Icon name={isSaved ? "bookmark_save" : "fbs_bookmark"} /></button>
       <button class="btn ib" aria-label="Share" aria-haspopup="dialog" onclick={() => (share = true)}><Icon name="share_arrow" /></button>
       <button class="btn ib" aria-disabled="true" title="Not in this prototype" aria-label="More"><Icon name="more_dots" /></button>
@@ -48,7 +52,7 @@
       <h2 class="fb-section">Seller information</h2>
       <div class="seller">
         <Avatar person={seller} size="var(--sp-48)" />
-        <span class="sn">{seller?.name}</span>
+        <span class="sn">{mine ? "You" : seller?.name}</span>
       </div>
     </section>
   </div>

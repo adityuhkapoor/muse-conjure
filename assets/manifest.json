@@ -2593,6 +2593,240 @@
    "placeholder": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoQAAwABABoJQBOgCKRNVXkZgAA/vd9EgeQsRsDag79uS0UmXHPvm5Gl6KHL9IiWVvteKThZp5n/vq+Cyxpckn0fWAAAA==",
    "source": "Pexels",
    "credit": "lucas-agustin (Pexels) on Pexels"
+  },
+  "listing-tent": {
+   "id": "listing-tent",
+   "kind": "photo",
+   "slot": "listing",
+   "who": "4-person dome tent",
+   "alt": "Black Diamond 4-person dome tent pitched on grass",
+   "ratio": "1:1",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 360,
+     "bytes": 4722,
+     "path": "img/photo/listing-tent-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 720,
+     "bytes": 10224,
+     "path": "img/photo/listing-tent-720.webp"
+    }
+   ],
+   "color": "#f8f8f8",
+   "placeholder": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAADwAQCdASoQABAAA4BaJZQAAujGn40RQAAA/vISKZjngbKto3px7LC0Re8QuWlUdiEQla4sG8hW7PO/OZOT/5UTSAYAAA==",
+   "source": "owner",
+   "credit": "Owner's photo"
+  },
+  "listing-camp-table": {
+   "id": "listing-camp-table",
+   "kind": "photo",
+   "slot": "listing",
+   "who": "Folding camp table",
+   "alt": "Round folding camp table with cup holders",
+   "ratio": "1:1",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 360,
+     "bytes": 10668,
+     "path": "img/photo/listing-camp-table-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 720,
+     "bytes": 31400,
+     "path": "img/photo/listing-camp-table-720.webp"
+    }
+   ],
+   "color": "#f8f8f8",
+   "placeholder": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAACwAgCdASoQABAAA4BaJYwCdH8AgpTBNfFIlqKYS0AA/mjF2jTVyGH/Zg8R3u1aH1NUrzyj5WIldizr9vgn2uLbthZez97ub6jMROk93W586naoF3OmF6Svpu/k14HxJ2B1I+8BMcNmBDhFDzU+ulV6kbVpJvRPSm4H+FlhYAA=",
+   "source": "owner",
+   "credit": "Owner's photo"
+  },
+  "listing-sleeping-bag": {
+   "id": "listing-sleeping-bag",
+   "kind": "photo",
+   "slot": "listing",
+   "who": "Flannel sleeping bag",
+   "alt": "Rolled sleeping bag with a flannel lining",
+   "ratio": "1:1",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 360,
+     "bytes": 18778,
+     "path": "img/photo/listing-sleeping-bag-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 720,
+     "bytes": 40310,
+     "path": "img/photo/listing-sleeping-bag-720.webp"
+    }
+   ],
+   "color": "#483828",
+   "placeholder": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAADQAQCdASoQABAAA4BaJYwCdAEPAKkvgAD+wqVEEevMMDdh7OwUiGmn12O/HmMLlwmfVDoQEBsoxVALQ5bnCU9tzhliEPwra6YQR2dQC/VO31YAAAA=",
+   "source": "owner",
+   "credit": "Owner's photo"
+  },
+  "listing-cookware": {
+   "id": "listing-cookware",
+   "kind": "photo",
+   "slot": "listing",
+   "who": "Camp cookware set",
+   "alt": "Nesting camp cookware set: pots, pans and lids",
+   "ratio": "1:1",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 360,
+     "bytes": 10702,
+     "path": "img/photo/listing-cookware-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 720,
+     "bytes": 25248,
+     "path": "img/photo/listing-cookware-720.webp"
+    }
+   ],
+   "color": "#f8f8f8",
+   "placeholder": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAABwAgCdASoQABAAA4BaJbACdAYstn1QxzS34x+wAP7yjGHI9i2A7xs8/slVU/mTm4l/YjwoI5G/ifO6kwuWW/l31qKxHRVidSlZ9ldIApFTCnXrAXNk/OATTCiJibh6f97VHpfnM37KT3DV2/hSWM+JN7L3AX6vpOw1MR6Gp8KDwyMvIAA=",
+   "source": "owner",
+   "credit": "Owner's photo"
+  },
+  "listing-camp-pillow": {
+   "id": "listing-camp-pillow",
+   "kind": "photo",
+   "slot": "listing",
+   "who": "Camp pillow",
+   "alt": "Small camp pillow with a forest and owl print",
+   "ratio": "1:1",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 360,
+     "bytes": 12622,
+     "path": "img/photo/listing-camp-pillow-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 720,
+     "bytes": 31138,
+     "path": "img/photo/listing-camp-pillow-720.webp"
+    }
+   ],
+   "color": "#f8f8f8",
+   "placeholder": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAAAwAgCdASoQABAAA4BaJYwCw7EQA9nsN9v34AD+aMFVkWD7MnwYJnY6b1ZuOojlFNJ6rrAet+n7IFaBmspJoxwbTkEJ/If7jkUWgC2vG6cAAA==",
+   "source": "owner",
+   "credit": "Owner's photo"
+  },
+  "listing-megaphone": {
+   "id": "listing-megaphone",
+   "kind": "photo",
+   "slot": "listing",
+   "who": "Party megaphone",
+   "alt": "Gold party megaphone",
+   "ratio": "1:1",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 360,
+     "bytes": 10700,
+     "path": "img/photo/listing-megaphone-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 720,
+     "bytes": 25112,
+     "path": "img/photo/listing-megaphone-720.webp"
+    }
+   ],
+   "color": "#f8f8f8",
+   "placeholder": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAwAgCdASoQABAAA4BaJbACdAYtBbMmmfbiqAD9AqJRrqy+ZZ3LWgGa+JXZUuon8qDc/2xPvuexeOjoLkoL2lp3rh3t9DVkHl6YEcOhFBHj3lBSGP9OH67GF/iifhjKg9zTfSxf3rRKwCEAAAA=",
+   "source": "owner",
+   "credit": "Owner's photo"
+  },
+  "listing-tableware": {
+   "id": "listing-tableware",
+   "kind": "photo",
+   "slot": "listing",
+   "who": "Red party tableware",
+   "alt": "Red party tableware kit: plates, cups, napkins",
+   "ratio": "1:1",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 360,
+     "bytes": 12006,
+     "path": "img/photo/listing-tableware-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 720,
+     "bytes": 33984,
+     "path": "img/photo/listing-tableware-720.webp"
+    }
+   ],
+   "color": "#f8f8f8",
+   "placeholder": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAABwAgCdASoQABAAA4BaJbACdDBEyIlLf8yKaKIAAP74ubtYAIU7qcLOvVs7IV+zR9T8dmrgAU6NOeI7bQ4j21+eCEXw4X492oXrxcEvVzGTRV5kGvC42Uzur5QmG1zWT/Nm6n589DUcaBOomSM1Ujv9mwMJFN5Ov9N3XzgodU7ni/Up0HMuTUmZxfTAGfgA",
+   "source": "owner",
+   "credit": "Owner's photo"
+  },
+  "listing-party-hats": {
+   "id": "listing-party-hats",
+   "kind": "photo",
+   "slot": "listing",
+   "who": "Party hats",
+   "alt": "Four rainbow party hats",
+   "ratio": "1:1",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 360,
+     "bytes": 11196,
+     "path": "img/photo/listing-party-hats-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 720,
+     "bytes": 22936,
+     "path": "img/photo/listing-party-hats-720.webp"
+    }
+   ],
+   "color": "#f8f8f8",
+   "placeholder": "data:image/webp;base64,UklGRsIAAABXRUJQVlA4ILYAAADQAgCdASoQABAAA4BaJbACdH8D2GCISKVjmN2ZFcQAAP73XDKJ7j692Fl43tX6qx6C9FbynSy5ue0N9ItzumAemXLE9vEVV0la4CvdgNa733XOoLl2+NtBbnFWbYPOKUsiRaDVvqEDc8bwehGhC8u0QLMCoBA/JTXbd/gwqEnsCd746kbzV/BZH3ROoB2d7ey91eJuss/rPm4APYE0IAkhElehWKtTeK64erLl/X/P2QYeyAAAAA==",
+   "source": "owner",
+   "credit": "Owner's photo"
+  },
+  "listing-balloons": {
+   "id": "listing-balloons",
+   "kind": "photo",
+   "slot": "listing",
+   "who": "Birthday balloons",
+   "alt": "Gold foil balloons spelling HAPPY BIRTHDAY",
+   "ratio": "1:1",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 360,
+     "bytes": 6838,
+     "path": "img/photo/listing-balloons-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 720,
+     "bytes": 14964,
+     "path": "img/photo/listing-balloons-720.webp"
+    }
+   ],
+   "color": "#e8e8e8",
+   "placeholder": "data:image/webp;base64,UklGRlQAAABXRUJQVlA4IEgAAAAQAgCdASoQABAAA4BaJYgCdH8AGBqkpfTAAP701nmtyhMiCgx4qCa17IdV9ZjUKurhwSz4T602HH5B9tZKiA8cG5OPl2GAAAA=",
+   "source": "owner",
+   "credit": "Owner's photo"
   }
  },
  "map": {

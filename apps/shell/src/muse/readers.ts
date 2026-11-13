@@ -238,7 +238,7 @@ export const RULES: Rule[] = [
   { scenario: "reel-rank", surface: "reel", when: (c) => did(c, "shared") && list(c, "reelsInChat").length >= 3, score: () => 0.6, label: (c) => `Rank this week's ${list(c, "reelsInChat").length} reels`, detail: () => "Head to head in the chat", why: "this chat shared several reels this week" },
 
   // ---------------------------------------------------------------- Stories
-  { scenario: "story-plan", surface: "story", when: (c) => f(c, "pollEnded") === true && f(c, "mine") === true, score: () => 0.95, label: () => "Make it a plan", detail: (c) => `${list(c, "voted").length} voted ${f(c, "winner")}`, faces: friendsOf, why: "your poll ended" },
+  { scenario: "story-plan", surface: "story", when: (c) => f(c, "pollEnded") === true && f(c, "mine") === true, score: () => 0.95, label: () => "Make it a plan", detail: (c) => `${f(c, "votes")} voted ${f(c, "winner")}`, faces: friendsOf, why: "your poll ended" },
   { scenario: "story-again", surface: "story", when: (c) => f(c, "yearAgo") === true, score: () => 0.85, label: () => "Do it again", detail: (c) => `Same ${list(c, "with").length} people`, faces: friendsOf, why: "a trip from a year ago" },
   { scenario: "story-recap", surface: "story", when: (c) => f(c, "yearAgo") === true, score: () => 0.7, label: () => "Recap the trip", detail: (c) => `${list(c, "tripFacts").length} facts from it`, why: "a trip from a year ago" },
 

@@ -9,15 +9,8 @@
   /** Marketplace grid (MP section 4: card 266, image r6 with a hairline, price 17/20 w600, title 15/20, place 13/16). */
 </script>
 
-<section class="mp" aria-label="Marketplace">
+<section class="mp" class:top-pad={!ui.desktop} aria-label="Marketplace">
   {#if !ui.desktop}
-    <header class="top" style:padding-top="var(--safe-top)">
-      <h1 class="fb-bar-title">Marketplace</h1>
-      <div class="icons">
-        <button class="fb-round" aria-disabled="true" title="Not in this prototype" aria-label="Your account"><Icon name="fbs_profile" /></button>
-        <button class="fb-round" aria-disabled="true" title="Not in this prototype" aria-label="Search Marketplace"><Icon name="searchOutline" /></button>
-      </div>
-    </header>
     <div class="chips" data-hscroll>
       <button class="chip" aria-disabled="true" title="Not in this prototype">Sell</button>
       <button class="chip on" aria-current="page">For you</button>
@@ -48,8 +41,7 @@
 
 <style>
   .mp { padding: 0 var(--sp-12) var(--sp-16); }
-  .top { display: flex; align-items: center; justify-content: space-between; min-height: calc(var(--fb-header-h) + var(--safe-top)); }
-  .icons { display: flex; gap: var(--sp-8); }
+  .mp.top-pad { padding-top: calc(var(--fb-header-h) + var(--safe-top)); }
   .chips { display: flex; gap: var(--sp-8); padding: var(--sp-4) 0 var(--sp-12); overflow-x: auto; scrollbar-width: none; }
   .chip { flex: none; height: var(--btn-h); padding: 0 var(--sp-12); border-radius: var(--r-pill); background: var(--c-btn-secondary); font-size: var(--fs-btn); line-height: var(--lh-btn); font-weight: var(--fw-semibold); }
   .chip.on { background: var(--c-btn-soft); color: var(--c-btn-soft-text); }

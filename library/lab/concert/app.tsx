@@ -384,6 +384,48 @@ export default defineApp<State, Action, Local>({
       return <g key={sect.id}>{parts}</g>;
     });
 
+    // A real button over each section (an SVG shape inside a picture is not reachable by keyboard or
+    // screen reader): transparent, at least 44 px each way, with the section's own label.
+    const hits = state.sections.map((sect) => {
+      const g = geoOf(sect.id);
+      const mid = (g.a0 + g.a1) / 2;
+      const xs: number[] = [];
+      const ys: number[] = [];
+      for (const rad of [g.ri * k, g.ro * k]) {
+        for (const a of [g.a0, mid, g.a1]) {
+          const [x, y] = pt(cx, cy, rad, a);
+          xs.push(x);
+          ys.push(y);
+        }
+      }
+      const w = Math.max(44, Math.max(...xs) - Math.min(...xs));
+      const hh = Math.max(44, Math.max(...ys) - Math.min(...ys));
+      const x = (Math.min(...xs) + Math.max(...xs)) / 2 - w / 2;
+      const y = (Math.min(...ys) + Math.max(...ys)) / 2 - hh / 2;
+      return (
+        <button
+          key={`hit-${sect.id}`}
+          type="button"
+          aria-label={`${sect.id === "floor" ? "Floor" : `Section ${sect.label}`}, ${usd(sect.price)} each${sect.id === state.claimed ? ", your group's section" : ""}`}
+          aria-pressed={sect.id === selectedId}
+          onClick={() => setLocal({ selected: sect.id })}
+          style={{
+            position: "absolute",
+            left: `${r1((x / W) * 100)}%`,
+            top: `${r1((y / H) * 100)}%`,
+            width: `${r1((w / W) * 100)}%`,
+            height: `${r1((hh / H) * 100)}%`,
+            background: "none",
+            border: 0,
+            padding: 0,
+            borderRadius: 8,
+            cursor: "pointer",
+            zIndex: sect.id === selectedId ? 1 : 0,
+          }}
+        />
+      );
+    });
+
     art.push(
       <rect key="stage" x={r1(cx - 62)} y={3} width={124} height={26} rx={8} fill={c.text} />,
       <text
@@ -444,6 +486,7 @@ export default defineApp<State, Action, Local>({
         </div>
 
         <Scene height={H} label={mapLabel} art={art}>
+          {hits}
           {seated.map((m, slot) => {
             const [x, y] = fly(slot);
             return <Placed key={m.id} user={m.id} x={x / W} y={y / H} size={16} me={me} move={false} />;

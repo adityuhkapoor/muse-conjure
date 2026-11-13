@@ -2,6 +2,7 @@
 // server). The live demo seeds the same ones as real tools (services/demo/seed-catalysts.ts).
 
 import type { Chat, Message, Tool } from "../store/types";
+import { CAST_IDS } from "../store/cast";
 
 export const MADE_ON_PAGES = [
   { key: "surface:page:event:juniper", page: "Juniper Hale live", id: "t-cat-event-carpool", name: "Rides to Meridian Hall", by: "maya", summary: "Maya is driving · 3 seats open", template: "poll" },
@@ -18,7 +19,7 @@ export function fakePageTools(at: number): { chats: Chat[]; tools: Tool[] } {
   const tools: Tool[] = [];
   for (const m of MADE_ON_PAGES) {
     const msg: Message = { id: `${m.id}-m`, from: "muse", kind: "muse", at, reactions: [], muse: { appId: m.template, title: m.name, subtitle: "Made with Muse", toolId: m.id } };
-    chats.push({ id: `cat-${m.id}`, name: m.page, kind: "group", members: ["me", "maya", "dev", "jonah", "priya", "theo"], messages: [msg], unread: false, typing: [], seenBy: [], activeNow: false, key: m.key });
+    chats.push({ id: `cat-${m.id}`, name: m.page, kind: "group", members: [...CAST_IDS], messages: [msg], unread: false, typing: [], seenBy: [], activeNow: false, key: m.key });
     tools.push({ id: m.id, chat: `cat-${m.id}`, appId: m.template, name: m.name, summary: m.summary, last: { by: m.by, did: "made it", at }, needsMe: false, cardId: msg.id });
   }
   return { chats, tools };

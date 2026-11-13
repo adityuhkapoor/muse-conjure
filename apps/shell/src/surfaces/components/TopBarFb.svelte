@@ -1,12 +1,13 @@
 <script lang="ts">
   import Icon from "../../components/Icon.svelte";
-  import { NOTIFS } from "../data";
+  import { notifsFor } from "../data";
+  import { viewerId } from "../../lib/media";
   import { waitingOnMe } from "../flows.svelte";
   import Notifications from "./Notifications.svelte";
 
   /** The top bar's bell: count badge and the Notifications panel (LC 7.3: popover 360 wide). */
   let open = $state(false);
-  const count = $derived(NOTIFS.filter((n) => n.unread).length + waitingOnMe().length);
+  const count = $derived(notifsFor(viewerId()).filter((n) => n.unread).length + waitingOnMe().length);
   function key(e: KeyboardEvent) {
     if (e.key === "Escape") open = false;
   }

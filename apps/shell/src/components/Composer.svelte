@@ -66,9 +66,9 @@
   {:else}
     <div class="tools">
       <button type="button" aria-label="Conjure a Mini" onclick={ontools} aria-disabled={ontools ? undefined : "true"}><Icon name="plusCircle" /></button>
-      <button aria-disabled="true" title="Not in this prototype" type="button" aria-label="Camera"><Icon name="camera" /></button>
-      <button aria-disabled="true" title="Not in this prototype" type="button" aria-label="Photos"><Icon name="msgr_gallery_attach" /></button>
-      <button aria-disabled="true" title="Not in this prototype" type="button" aria-label="Voice message"><Icon name="msgr_mic_voice_clip" /></button>
+      <button aria-disabled="true" title="Not in this prototype" type="button" class="secondary" aria-label="Camera"><Icon name="camera" /></button>
+      <button aria-disabled="true" title="Not in this prototype" type="button" class="secondary" aria-label="Photos"><Icon name="msgr_gallery_attach" /></button>
+      <button aria-disabled="true" title="Not in this prototype" type="button" class="secondary" aria-label="Voice message"><Icon name="msgr_mic_voice_clip" /></button>
     </div>
   {/if}
 
@@ -126,7 +126,11 @@
     background: var(--c-bg);
     --icon-size: var(--composer-icon);
     color: var(--c-accent-icon);
+    container-type: inline-size;
   }
+  /* On a narrow phone (320 wide) the camera, photos and voice buttons would squeeze the field below
+     a usable width: the field keeps at least 140 px, and those three give way (the plus stays). */
+  @container (max-width: 379px) { .tools .secondary { display: none; } }
   :global(:root[data-layout="desktop"]) .composer { min-height: 0; padding: var(--sp-12) var(--sp-4); }
   .tools { display: flex; flex: none; }
   button {

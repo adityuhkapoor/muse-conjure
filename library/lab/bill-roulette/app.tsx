@@ -73,7 +73,7 @@ function pickWith(s: State, seed: number): { i: number; offset: number } {
   return { i, offset: 0.3 + 0.4 * g.next() };
 }
 const shown = (s: State, id: string) => (s.crew.find((c) => c.id === id)?.paid ?? 0) + (s.spin?.winner === id ? s.bill : 0);
-const dollars = (c: number) => `$${Math.round(c / 100)}`;
+const dollars = (c: number) => (c % 100 === 0 ? `$${c / 100}` : `$${Math.floor(c / 100)}.${String(Math.round(c) % 100).padStart(2, "0")}`);
 const winnerIndex = (s: State) => (s.spin ? s.crew.findIndex((c) => c.id === s.spin!.winner) : -1);
 
 export default defineApp<State, Action, Local>({

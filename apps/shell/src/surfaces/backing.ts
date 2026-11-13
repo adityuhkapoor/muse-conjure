@@ -1,10 +1,11 @@
 // Chats that back a surface: a friend's tool post, a bracket post, a group's pinned tools. Their
 // key starts with "surface:", so Messenger never lists them. Shared by the fake store, the live
 // store and the demo seed (services/demo/seed-surfaces.ts), which fills them with real library
-// pieces and a few first moves from friends. People use fake ids ("me" is Tsai Lin).
+// pieces and a few first moves from friends. People are wire ids; the stores map the viewer.
 
 import { MOMENTS } from "./moments";
 import { PEOPLE } from "../store/fake-data";
+import { CAST_IDS } from "../store/cast";
 
 /** A cast member's first name as the shell shows it, so renames follow. */
 const first = (id: string) => PEOPLE.find((p) => p.id === id)?.first ?? id;
@@ -23,7 +24,7 @@ export type BackingTool = {
 
 export type Backing = { key: string; id: string; name: string; members: string[]; tools: BackingTool[] };
 
-const EVERYONE = ["me", "maya", "dev", "jonah", "priya", "theo"];
+const EVERYONE = [...CAST_IDS];
 
 export const CHORE_TASKS = ["Dishes", "Trash", "Bathroom", "Floors"];
 /** The den's chore wheel (lab chore-wheel), shared as a post: slices sized by fights, two of the three already spun. */

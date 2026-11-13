@@ -266,7 +266,7 @@ try {
     { where: "Marketplace", q: "&app=facebook&fb=marketplace" },
     { where: `Listing: ${LISTINGS[0]!.title}`, q: `&app=facebook&fb=listing:${LISTINGS[0]!.id}` },
     { where: "Gaming", q: "&app=facebook&fb=gaming" },
-    { where: `Story viewer: ${STORIES.find((s) => s.id !== "s-me")!.id}`, q: `&app=facebook&fb=story:${STORIES.find((s) => s.id !== "s-me")!.id}` },
+    { where: `Story viewer: ${STORIES.find((s) => !s.poll)!.id}`, q: `&app=facebook&fb=story:${STORIES.find((s) => !s.poll)!.id}` },
     { where: "Event page: juniper", q: "&event=juniper", wait: 'section[aria-label="Event"]' },
   ];
   for (const sc of screens) {

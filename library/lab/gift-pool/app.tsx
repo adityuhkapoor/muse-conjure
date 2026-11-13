@@ -423,7 +423,7 @@ export default defineApp<State, Action, Local>({
             }}
           >
             <span style={{ position: "relative", width: 30, height: 30, display: "block", filter: paid ? undefined : "grayscale(1)", transform: `translateY(${hop}px)` }}>
-              <Avatar user={{ id: p.id, name: p.name }} size={30} />
+              <Avatar user={p.member ? p.id : { id: p.id, name: p.name }} size={30} />
               {paid ? (
                 <span
                   style={{

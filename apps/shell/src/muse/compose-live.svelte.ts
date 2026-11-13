@@ -8,6 +8,8 @@
 
 import { store } from "../store";
 import { ME, type PersonId } from "../store/types";
+import { castWithViewerFirst, othersOf } from "../store/cast";
+import { viewerId } from "../lib/media";
 import { liveConfig, wsUrl } from "../live/config";
 import { openSocket, rid, type Socket } from "../live/socket";
 import { openRoom, type Room } from "../live/rooms";
@@ -22,7 +24,6 @@ import { readDraft, type DraftCtx, type DraftRead, type Offer } from "./compose"
 export const SLOW_S = 40;
 export const FEED_ROOM = "t:feed-home";
 export const postKey = (id: string) => `surface:page:post:${id}`;
-const EVERYONE: PersonId[] = [ME, "maya", "dev", "jonah", "priya", "theo"];
 
 /** Lab tools a page served without the gateway treats as there (screenshots, checks). */
 const FAKE_LAB = ["bracket-post", "feed-tier-list", "tier-list", "after-vote", "pregame-vote", "friends-plans", "squad-lock", "gift-pool", "move-out-sale", "move-in-day", "public-challenge", "gym", "daily-puzzle", "trip-story", "semester-wrapped", "wrapped", "hinge-rate", "setlist-bingo", "squad-constellation"];
@@ -30,7 +31,7 @@ const FAKE_LAB = ["bracket-post", "feed-tier-list", "tier-list", "after-vote", "
 export type HomePost = { id: string; by: PersonId; text: string; at: number; likes: PersonId[]; pending: boolean };
 
 /** The viewer's wire id. */
-const myWire = () => (store as unknown as { myId?: string }).myId ?? "noa";
+const myWire = () => (store as unknown as { myId?: string }).myId ?? viewerId();
 const toView = (w: string) => (w === myWire() ? ME : w);
 
 class Compose {
@@ -98,7 +99,7 @@ class Compose {
 
   ctx(): DraftCtx {
     const tools = this.#tools ?? {};
-    const friends = EVERYONE.filter((p) => p !== ME).map((id) => ({ id, first: store.person(id)?.first ?? id }));
+    const friends = othersOf(myWire()).map((id) => ({ id, first: store.person(id)?.first ?? id }));
     return { me: store.me.first, friends, has: (t) => t.startsWith("lab:") && t.slice(4) in tools, nameOf: (id) => tools[id] };
   }
 
@@ -119,7 +120,7 @@ class Compose {
   async route(text: string, o: { fill?: number; signal?: AbortSignal; onpicks?: (picks: { id: string; name: string; reason: string }[], nothingFits: boolean, reply: string) => void; onfilled?: (offer: Offer) => void; onunfilled?: (id: string) => void }): Promise<{ available: boolean; nothingFits: boolean; offers: Offer[] }> {
     const out = { available: false, nothingFits: false, offers: [] as Offer[] };
     if (!store.live || !text.trim()) return out;
-    const friends = EVERYONE.filter((p) => p !== ME).map((id) => store.person(id)?.first ?? id);
+    const friends = othersOf(myWire()).map((id) => store.person(id)?.first ?? id);
     try {
       const r = await fetch(`${location.origin}/compose/route`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ text, me: store.me.first, friends, fill: o.fill ?? 3 }), ...(o.signal ? { signal: o.signal } : {}) });
       if (!r.body || !(r.headers.get("content-type") ?? "").includes("event-stream")) return out;
@@ -188,8 +189,8 @@ class Compose {
     this.#now = Date.now();
     this.making = { postId, stage: "Reading your post", done: false, error: null, startedAt: Date.now() };
     this.#tick(true);
-    const friends = EVERYONE.filter((p) => p !== ME).map((id) => store.person(id)?.first ?? id);
-    const members = EVERYONE.map((id) => (id === ME ? myWire() : id));
+    const friends = othersOf(myWire()).map((id) => store.person(id)?.first ?? id);
+    const members = [myWire(), ...othersOf(myWire())];
     try {
       const r = await fetch(`${location.origin}/compose/new`, { method: "POST", headers: { "content-type": "application/json" }, body: JSON.stringify({ postId, text, me: store.me.first, friends, viewer: myWire(), members }) });
       if (!r.body) throw new Error("no answer");
@@ -279,7 +280,7 @@ class Compose {
   #land(postId: string, offer: Offer) {
     const leave = offer.leaveOut ?? [];
     store.landPiece({
-      newChat: { key: postKey(postId), name: `${store.me.first}'s post`, members: EVERYONE.filter((p) => !leave.includes(p)) },
+      newChat: { key: postKey(postId), name: `${store.me.first}'s post`, members: castWithViewerFirst(myWire()).filter((p) => !leave.includes(p)) },
       piece: "",
       params: {},
       title: offer.title,
@@ -357,7 +358,7 @@ class Compose {
 
   /** Members for a preview frame, with wire ids. */
   previewMembers() {
-    return EVERYONE.map((id) => ({ id: id === ME ? myWire() : id, name: store.person(id)?.first ?? id }));
+    return castWithViewerFirst(myWire()).map((id) => ({ id: id === ME ? myWire() : id, name: store.person(id)?.first ?? id }));
   }
   get me() {
     return myWire();

@@ -2,8 +2,10 @@
 // piece). Same shape as rich.ts; these go above rich.ts's entries for the same scenario. Display
 // names come from the cast (`F`), so a rename in store/fake-data.ts follows here.
 
-import { PEOPLE } from "../store/fake-data";
-import { MY_POLL, REELS, STRANGERS } from "../surfaces/data";
+import { CHAT_MEMBERS, PEOPLE } from "../store/fake-data";
+import { CAST_IDS } from "../store/cast";
+import { viewerId } from "../lib/media";
+import { DEV_POLL, REELS, STRANGERS } from "../surfaces/data";
 import { EVENT_FACTS, FRIEND_SCORE, MY_LISTINGS, TRIP } from "./seed";
 import type { PageContext, ToolChoice } from "./types";
 
@@ -275,8 +277,9 @@ export const RICH_LAB: (ToolChoice & { scenario: string })[] = [
       chores: ["Dishes", "Trash", "Bathroom", "Floors"],
       groups: [
         { name: "The den", short: "Original", badge: "DN", members: [F("jonah"), F("theo"), F("dev")], note: `${F("jonah")}, ${F("theo")} +1 spin it weekly` },
-        { name: "Apt 4B", short: "Apt 4B", badge: "4B", members: [F("me"), F("maya"), F("priya"), F("dev")], note: "Your apartment · 4 people" },
-        { name: "Climbing house", short: "Climb house", badge: "CH", members: [F("ines"), F("kofi"), F("cami")], note: "Your club house · 3 people" },
+        // Apt 4B is whoever is in the apt 4b chat; "Your apartment" only for someone who lives there
+        { name: "Apt 4B", short: "Apt 4B", badge: "4B", members: CHAT_MEMBERS.apt4b!.map(F), note: `${CHAT_MEMBERS.apt4b!.includes(viewerId()) ? "Your apartment" : "Apartment"} · ${CHAT_MEMBERS.apt4b!.length} people` },
+        { name: "Climbing house", short: "Climb house", badge: "CH", members: [F("ines"), F("kofi"), F("cami")], note: "Club house · 3 people" },
       ],
       base: 46,
       remixers: [F("dev"), F("maya"), F("kofi")],
@@ -368,20 +371,20 @@ export const RICH_LAB: (ToolChoice & { scenario: string })[] = [
     scenario: "story-plan",
     tool: "lab:story-poll-plan",
     params: (c) => {
-      const voters = (label: string) => (MY_POLL.options.find((o) => o.label === label)?.voters ?? []).map((id) => nm(c, id));
+      const voters = (label: string) => (DEV_POLL.options.find((o) => o.label === label)?.voters ?? []).map((id) => nm(c, id));
       return {
-        author: me(c),
+        author: str(c, "by") || me(c), // the poll's author, whoever makes the plan
         ago: "20h",
         caption: "",
-        question: cap(MY_POLL.question),
+        question: cap(DEV_POLL.question),
         closeAt: 6,
         options: [
           {
             label: "Hike",
             art: "hike",
             title: "Hike it is",
-            when: MY_POLL.when.replace(/^Sat /, "Sat · "),
-            place: MY_POLL.place,
+            when: DEV_POLL.when.replace(/^Sat /, "Sat · "),
+            place: DEV_POLL.place,
             rows: [["Trail", "3.2 mi loop · 1.5 hrs"], ["Carpool", `${F("dev")}'s car, 4 seats · 8:30`], ["After", "Brunch on College Ave"]],
             alt: "beach next weekend?",
             voters: voters("hike"),
@@ -403,7 +406,7 @@ export const RICH_LAB: (ToolChoice & { scenario: string })[] = [
   {
     scenario: "story-face-drop",
     tool: "lab:face-drop",
-    params: () => ({ names: ["maya", "dev", "jonah", "priya", "theo", "me"].map(F) }),
+    params: () => ({ names: CAST_IDS.map(F) }),
   },
   {
     scenario: "story-recap",
@@ -418,7 +421,7 @@ export const RICH_LAB: (ToolChoice & { scenario: string })[] = [
         { name: F("priya"), sent: 611 },
         { name: F("maya"), sent: 540 },
         { name: F("dev"), sent: 402 },
-        { name: F("me"), sent: 289 },
+        { name: F("noa"), sent: 289 },
       ],
       top: { kind: "skull", emoji: "💀", count: 214, note: `Mostly replying to ${F("dev")}'s driving` },
       runners: [{ kind: "sob", emoji: "😭", count: 96, label: "96" }, { kind: "other", emoji: "🌊", count: 71, label: "71" }],

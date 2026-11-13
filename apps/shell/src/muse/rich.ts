@@ -3,7 +3,8 @@
 // tool list (pack.ts), so it is the first choice; the older entries stay below as fallbacks.
 // The made-up friends talk like a college group chat.
 
-import { CHAT_FACTS, EASTFIELD_MAP, EVENT_FACTS, GROUP_FACTS, LISTING_FACTS, MY_LISTINGS, ROOM_4B, SUBLET_FACTS, TRIP } from "./seed";
+import { castFirst } from "../store/cast";
+import { factQuestion, CHAT_FACTS, EASTFIELD_MAP, EVENT_FACTS, GROUP_FACTS, LISTING_FACTS, MY_LISTINGS, ROOM_4B, SUBLET_FACTS, TRIP } from "./seed";
 import type { PageContext, ToolChoice } from "./types";
 
 const nm = (c: PageContext, id: string) => c.names[id] ?? id;
@@ -485,7 +486,7 @@ export const RICH: (ToolChoice & { scenario: string })[] = [
       by: "Maya",
       plays: 14,
       questions: [
-        ...(CHAT_FACTS.apt4b ?? []).map((q) => ({ about: "the chat", q: q.question, options: q.options, answer: q.options.indexOf(q.answer) })),
+        ...(CHAT_FACTS.apt4b ?? []).map((q) => factQuestion(q, (id) => castFirst(id) ?? id)),
         { about: "Aditya", q: "What does Aditya say every time?", options: ["i'll replace it", "not me", "idk u pick", "on my way"], answer: 0 },
         { about: "Maya", q: "What did Maya call the sink?", options: ["a crime scene", "a biohazard", "a swamp", "fine actually"], answer: 1 },
       ],

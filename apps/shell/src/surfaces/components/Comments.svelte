@@ -113,7 +113,8 @@
   .rx + .rx { margin-left: calc(var(--sp-4) * -1); }
   .n { font-size: var(--fs-fb-meta); line-height: var(--lh-fb-meta); color: var(--c-text-2); }
   .all { margin-left: auto; font-size: var(--fs-fb-meta); line-height: var(--lh-fb-meta); color: var(--c-text-2); }
-  .list { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: var(--sp-12) var(--sp-12) var(--sp-8); }
+  .list { flex: 1; min-height: 0; overflow-y: auto; overscroll-behavior: contain; padding: var(--sp-12) var(--sp-12) var(--sp-8); scrollbar-width: none; }
+  .list::-webkit-scrollbar { display: none; }
   .more { display: flex; align-items: center; justify-content: space-between; padding: var(--sp-8) var(--sp-4) var(--sp-4); }
   .mv { font-size: var(--fs-fb-meta); line-height: var(--lh-fb-meta); font-weight: var(--fw-semibold); color: var(--c-text-2); padding: var(--sp-4) 0; }
   .of { font-size: var(--fs-fb-meta); line-height: var(--lh-fb-meta); color: var(--c-text-2); }

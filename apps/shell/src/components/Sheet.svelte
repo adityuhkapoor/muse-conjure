@@ -89,7 +89,9 @@
     padding: var(--sp-8) var(--sp-16) calc(var(--sp-16) + var(--safe-bottom));
     outline: none;
     animation: rise var(--dur-short-in) var(--ease-enter) both;
+    scrollbar-width: none;
   }
+  .panel::-webkit-scrollbar { display: none; }
   .panel.tall {
     display: flex;
     flex-direction: column;

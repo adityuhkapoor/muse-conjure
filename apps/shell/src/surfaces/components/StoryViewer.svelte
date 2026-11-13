@@ -5,8 +5,9 @@
   import Avatar from "../../components/Avatar.svelte";
   import Icon from "../../components/Icon.svelte";
   import { nav } from "../../lib/nav.svelte";
-  import { STORIES as ALL_STORIES } from "../data";
+  import { pollResult, storyChains, type Story } from "../data";
   import { viewerId } from "../../lib/media";
+  import { store } from "../../store";
   import { who } from "../flows.svelte";
   import { openProfile } from "../profile-data";
   import { tokenMs } from "../../phone/motion";
@@ -16,9 +17,10 @@
   import StoryCatalysts from "../../muse/components/StoryCatalysts.svelte"; // catalysts
 
   /**
-   * Story viewer (DS: full-bleed 9:16, author and time on dark, stickers over media). Your own story
-   * carries a poll sticker; once the poll has ended, one option under the result: "Make it a plan",
-   * which makes a chat with the people who voted for the winner and a who's in.
+   * Story viewer (DS: full-bleed 9:16, author and time on dark, stickers over media). Each person's
+   * stories play as one chain (one bar per picture across all of them), the viewer's own first. A
+   * poll story carries its sticker; once the poll has ended, its author gets "Make it a plan", which
+   * makes a chat with the people who voted for the winner and a who's in.
    *
    * It behaves like the real one with no video: segmented bars fill over --m-story-seg and advance on
    * their own (a CSS animation; its end is the clock), the still drifts and zooms a little over the
@@ -26,17 +28,30 @@
    * to the next or previous person. A tool story stops the clock while the viewer works the tool and
    * restarts it --m-story-resume after the last touch. Only the current story is mounted.
    */
-  const STORIES = ALL_STORIES.filter((s) => s.by !== viewerId());
+  const CHAINS = storyChains(viewerId());
+  /** A chain's pictures in order, each with the story it belongs to. */
+  const segsOf = (c: Story[]) => c.flatMap((st) => framesOf(st).map((frame) => ({ st, frame })));
   let { id }: { id: string } = $props();
+  /** Where a link to this story starts; null when no such story exists (nothing else is shown instead). */
   // svelte-ignore state_referenced_locally
-  let i = $state(Math.max(0, STORIES.findIndex((s) => s.id === id)));
-  let seg = $state(0);
+  const start = (() => {
+    for (const [ci, c] of CHAINS.entries()) {
+      const k = segsOf(c).findIndex((x) => x.st.id === id);
+      if (k >= 0) return { ci, k };
+    }
+    if (import.meta.env.DEV) console.warn(`Story ${id} is not in the tray`);
+    return null;
+  })();
+  let i = $state(start?.ci ?? 0);
+  let seg = $state(start?.k ?? 0);
   /** bumped on every move, so the bars and the picture restart their animation */
   let epoch = $state(0);
-  const s = $derived(STORIES[i]!);
-  const by = $derived(who(s.by));
-  const frames = $derived(framesOf(s));
-  const total = $derived(s.poll ? s.poll.options.reduce((n, o) => n + o.voters.length + o.others, 0) : 0);
+  const segs = $derived(segsOf(CHAINS[i] ?? []));
+  const s = $derived(segs[seg]?.st ?? CHAINS[0]![0]!);
+  const own = $derived(s.by === viewerId());
+  const by = $derived(own ? store.me : who(s.by));
+  const frames = $derived(segs.map((x) => x.frame));
+  const total = $derived(s.poll ? pollResult(s.poll).total : 0);
 
   let held = $state(false); // finger down and still, or dragging
   let tool = $state(false); // working a tool, until --m-story-resume after the last touch
@@ -50,7 +65,7 @@
   const kb = $derived(KB[(i + seg) % KB.length]!);
 
   $effect(() => {
-    seen.mark(s.id);
+    if (start) seen.mark(s.id);
   });
 
   const restart = () => (epoch += 1);
@@ -78,7 +93,7 @@
   async function person(dir: 1 | -1, from = 0) {
     if (busy || !card) return;
     const j = i + dir;
-    if (j >= STORIES.length) return void leave();
+    if (j >= CHAINS.length) return void leave();
     if (j < 0) return restart();
     busy = true;
     const W = card.clientWidth || 1;
@@ -162,7 +177,7 @@
     const W = card.clientWidth || 1;
     if (t.mode === "x") {
       const far = Math.abs(t.dx) > W * 0.25 || Math.abs(t.vx) > 0.5;
-      if (far && (t.dx < 0 ? i < STORIES.length - 1 : i > 0)) {
+      if (far && (t.dx < 0 ? i < CHAINS.length - 1 : i > 0)) {
         card.style.transform = "";
         void person(t.dx < 0 ? 1 : -1, t.dx);
       } else settle(t.dx, 0);
@@ -219,7 +234,17 @@
   }
 </script>
 
-<section class="story" aria-label={s.by === "me" ? "Your story" : `${by?.first}'s story`} data-paused={paused} data-seg={seg} data-segs={frames.length}>
+{#if !start}
+  <section class="story" aria-label="Story">
+    <div class="stage">
+      <div class="card gone">
+        <p class="cap">This story isn't available</p>
+        <button class="x shut" aria-label="Close" onclick={() => nav.back()}><Icon name="close" /></button>
+      </div>
+    </div>
+  </section>
+{:else}
+<section class="story" aria-label={own ? "Your story" : `${by?.first}'s story`} data-paused={paused} data-seg={seg} data-segs={frames.length}>
   <div class="stage">
     <div class="card" bind:this={card}>
       {#key epoch}
@@ -241,11 +266,11 @@
           {/key}
         </div>
         <div class="head">
-          <button class="who" aria-label={`${s.by === "me" ? "Your" : `${by?.name}'s`} profile`} onclick={() => openProfile(s.by)}>
+          <button class="who" aria-label={`${own ? "Your" : `${by?.name}'s`} profile`} onclick={() => openProfile(s.by)}>
             <Avatar person={by} size="var(--sp-32)" />
-            <span class="nm">{s.by === "me" ? "Your story" : by?.name}</span>
+            <span class="nm">{own ? "Your story" : by?.name}</span>
           </button>
-          <span class="tm">{s.by === "me" ? "20h" : "3h"}</span>
+          <span class="tm">{s.ago ?? "3h"}</span>
           <button class="x" aria-label="More" aria-disabled="true" title="Not in this prototype"><Icon name="more_dots" /></button>
           <button class="x" aria-label="Close" onclick={() => nav.back()}><Icon name="close" /></button>
         </div>
@@ -292,6 +317,7 @@
     </div>
   </div>
 </section>
+{/if}
 
 <style>
   .story { position: relative; height: 100%; overflow: hidden; background: var(--c-media-dark); color: var(--c-on-media); }
@@ -328,6 +354,7 @@
   .nm { font-size: var(--fs-fb-name); line-height: var(--lh-fb-name); font-weight: var(--fw-semibold); }
   .tm { flex: 1; font-size: var(--fs-meta); line-height: var(--lh-meta); color: var(--c-on-media-2); }
   .x { width: var(--hit); height: var(--hit); display: inline-flex; align-items: center; justify-content: center; color: var(--c-on-media); --icon-size: var(--sp-24); }
+  .shut { position: absolute; z-index: 1; top: var(--sp-16); right: var(--sp-8); }
   .cap { text-shadow: 0 1px var(--sp-4) var(--c-media-scrim); position: absolute; z-index: 1; left: var(--sp-16); right: var(--sp-16); top: 45%; text-align: center; font-size: var(--fs-section); line-height: var(--lh-section); font-weight: var(--fw-bold); pointer-events: none; }
   .sticker { position: absolute; z-index: 2; left: 50%; top: 30%; transform: translateX(-50%); width: min(calc(100% - var(--sp-48)), var(--sheet-max-w)); padding: var(--sp-16); border-radius: var(--r-rich-card); background: var(--c-bg); color: var(--c-text); box-shadow: var(--sh-float); display: flex; flex-direction: column; gap: var(--sp-8); }
   .q { text-align: center; font-size: var(--fs-title); line-height: var(--lh-title); font-weight: var(--fw-bold); }
@@ -340,7 +367,8 @@
   .on { position: relative; font-size: var(--fs-meta); line-height: var(--lh-meta); font-weight: var(--fw-semibold); color: var(--c-text-2); min-width: var(--sp-16); text-align: right; }
   .end { text-align: center; font-size: var(--fs-meta); line-height: var(--lh-meta); color: var(--c-text-2); }
   .plan { width: 100%; }
-  .offers { position: absolute; z-index: 2; left: var(--sp-16); right: var(--sp-16); top: calc(var(--safe-top) + var(--sp-64)); bottom: calc(var(--safe-bottom) + var(--sp-64) + var(--sp-48)); overflow-y: auto; display: flex; flex-direction: column; gap: var(--sp-8); pointer-events: none; }
+  .offers { position: absolute; z-index: 2; left: var(--sp-16); right: var(--sp-16); top: calc(var(--safe-top) + var(--sp-64)); bottom: calc(var(--safe-bottom) + var(--sp-64) + var(--sp-48)); overflow-y: auto; display: flex; flex-direction: column; gap: var(--sp-8); pointer-events: none; scrollbar-width: none; }
+  .offers::-webkit-scrollbar { display: none; }
   .offers > :global(:first-child) { margin-top: auto; } /* bottom-aligned when short, scrolls from the top when tall */ /* catalysts: the story's tool and offers */
   .offers > :global(*) { pointer-events: auto; flex: none; }
   /* a Mini in a story: the white holder has the Mini card's own radius and no padding around it, so no white corners show behind the rounded card (light and dark); the credit lines keep their own padding */

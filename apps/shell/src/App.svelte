@@ -286,7 +286,11 @@
     position: fixed;
     z-index: 100;
     left: var(--sp-8);
-    bottom: var(--sp-2);
+    /* Clear a real home indicator (and the mobile preview frame's simulated one): both sit roughly
+       8-13px off the true bottom edge, inside --proto-strip's 20px reservation but low enough to
+       collide with this pill's own 2px offset. Only with ?safe=1 (ui.svelte.ts); elsewhere it would
+       sit on the Facebook tab bar. */
+    bottom: calc(var(--sp-2) + var(--proto-lift, 0px));
     display: flex;
     align-items: center;
     gap: var(--sp-4);

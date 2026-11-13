@@ -84,7 +84,8 @@
   .field input { flex: 1; min-width: 0; border: 0; background: none; outline: none; font-size: var(--fs-search); line-height: var(--lh-search); color: var(--c-text); }
   .field input::placeholder { color: var(--c-text-2); opacity: 1; }
   .field:focus-within { box-shadow: 0 0 0 1px var(--c-accent-icon); }
-  .scroll { flex: 1; min-height: 0; overflow-y: auto; padding-bottom: var(--safe-bottom); }
+  .scroll { flex: 1; min-height: 0; overflow-y: auto; padding-bottom: var(--safe-bottom); scrollbar-width: none; }
+  .scroll::-webkit-scrollbar { display: none; }
   .sec { padding: var(--sp-16) var(--sp-16) var(--sp-4); font-size: var(--fs-row-sub); line-height: var(--lh-row-sub); font-weight: var(--fw-semibold); color: var(--c-text); }
   .row { width: 100%; display: flex; align-items: center; gap: var(--sp-12); min-height: var(--sp-60); padding: var(--sp-8) var(--sp-16); text-align: left; }
   .row:active { background: var(--c-hover); }

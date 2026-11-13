@@ -6,7 +6,7 @@
 
 import { store } from "../store";
 import { ME, type Chat, type Person } from "../store/types";
-import { EVENT, PEOPLE } from "../store/fake-data";
+import { CHAT_MEMBERS, EVENT } from "../store/fake-data";
 import { knownAs, viewerId } from "../lib/media";
 import { names } from "../lib/format";
 import { ALIASES } from "../live/config";
@@ -29,13 +29,11 @@ export const REAL = ["noa", "dev", "jonah", "theo", "priya"];
 /** `?id=` or a tapped id to a profile id: "me" is the viewer, first names of the team work too. */
 export function profileKey(raw: string): string {
   const r = raw.toLowerCase();
-  if (r === "me") return viewerId();
+  if (r === ME) return viewerId();
   return ALIASES[r] ?? r;
 }
 /** The id components and the store use for this person ("me" for the viewer). */
 export const compId = (key: string) => (key === viewerId() ? ME : key);
-/** The id the seeded surface data uses ("me" there is Tsai Lin). */
-const seedId = (key: string) => (key === "noa" ? ME : key);
 export const isViewer = (key: string) => key === viewerId();
 
 /** People from the spec's extras who are not in the shared people list yet. */
@@ -60,8 +58,7 @@ const EXTRAS: Person[] = [
 export function personOf(key: string): Person | undefined {
   if (isViewer(key)) return store.me;
   const c = compId(key);
-  const tsai = key === "noa" ? PEOPLE.find((p) => p.id === ME) : undefined;
-  return store.person(c) ?? who(c) ?? (tsai ? { ...tsai, id: "noa" } : undefined) ?? EXTRAS.find((p) => p.id === key);
+  return store.person(c) ?? who(c) ?? EXTRAS.find((p) => p.id === key);
 }
 
 /** Opens anyone's profile from a name or avatar (a component id: "me", "maya", "lena"...). */
@@ -70,7 +67,7 @@ export function openProfile(id: string) {
   const key = knownAs(id);
   // already on that profile (a name in one of its own posts): stay
   const top = nav.layers.filter((l) => !l.leaving).at(-1)?.route;
-  const cur = document.documentElement.dataset.layout === "desktop" ? nav.desktopFb : top?.kind === "fb" ? top.page : !top && nav.app === "facebook" && fb.tab === "profile" ? { name: "profile" as const, id: "me" } : null;
+  const cur = document.documentElement.dataset.layout === "desktop" ? nav.desktopFb : top?.kind === "fb" ? top.page : !top && nav.app === "facebook" && fb.tab === "profile" ? { name: "profile" as const, id: ME } : null;
   if (cur?.name === "profile" && profileKey(cur.id) === key) return;
   nav.go({ kind: "fb", page: { name: "profile", id: key } });
 }
@@ -155,7 +152,7 @@ export function profile(key: string): Profile | undefined {
 }
 
 /** Cover: the person's own story picture where they have one, else a drawn cover from the id. */
-const COVER: Record<string, string> = Object.fromEntries(STORIES.filter((s) => s.asset).map((s) => [s.by === ME ? "noa" : s.by, s.asset!]));
+const COVER: Record<string, string> = Object.fromEntries(STORIES.filter((s) => s.asset).map((s) => [s.by, s.asset!]));
 
 // ---------------------------------------------------------------- friends
 
@@ -219,20 +216,21 @@ export const BIRTHDAYS: { key: string; when: string; turning: number }[] = [{ ke
 
 /** The person's own posts from the feed, in feed order (tool posts included). */
 export function postsBy(key: string): Post[] {
-  const id = isViewer(key) && key !== "noa" ? [key] : [seedId(key)];
+  // seeded posts carry wire ids; what the viewer wrote here carries "me"
+  const id = isViewer(key) ? [key, ME] : [key];
   return withFeedPosts(POSTS).filter((p) => id.includes(p.by));
 }
 
 /** Pictures for the Photos tab: their posts' and stories' pictures. */
 export function photosOf(key: string): { id: string; label: string }[] {
-  const by = seedId(key);
+  const by = key;
   const out: { id: string; label: string }[] = [];
-  for (const p of POSTS) if (p.by === by && p.kind === "text" && p.media?.asset) out.push({ id: p.media.asset, label: p.media.label });
+  for (const p of POSTS) if (p.by === by && (p.kind === "text" || p.kind === "memory") && p.media?.asset) out.push({ id: p.media.asset, label: p.media.label });
   for (const g of GROUPS) for (const p of g.posts) if (p.by === by && p.media?.asset) out.push({ id: p.media.asset, label: p.media.label });
   for (const s of STORIES) if (s.by === by && s.asset) out.push({ id: s.asset, label: s.caption || "Story" });
   return out;
 }
-export const reelsBy = (key: string) => REELS.filter((r) => r.by === seedId(key));
+export const reelsBy = (key: string) => REELS.filter((r) => r.by === key);
 
 // ---------------------------------------------------------------- Made with Muse
 
@@ -248,7 +246,7 @@ const goFb = (page: Parameters<typeof nav.go>[0]) => () => nav.go(page);
 function pages(): { key: string; where: string; open: () => void }[] {
   const pk = (kind: string, id: string) => `surface:page:${kind}:${id}`;
   return [
-    ...FEED_POSTS.map((p) => ({ key: pk("post", p.id), where: `On ${personOf(p.by === ME ? "noa" : p.by)?.first ?? "a friend"}'s post`, open: () => openPost(p.id) })),
+    ...FEED_POSTS.map((p) => ({ key: pk("post", p.id), where: `On ${personOf(p.by)?.first ?? "a friend"}'s post`, open: () => openPost(p.id) })),
     ...LISTINGS.map((l) => ({ key: pk("listing", l.id), where: `On ${l.title.toLowerCase()}`, open: goFb({ kind: "fb", page: { name: "listing", id: l.id } }) })),
     ...[EVENT.id, POTLUCK.id, BDAY21.id].map((id) => ({ key: pk("event", id), where: `On ${store.event(id)?.title ?? "an event"}`, open: goFb({ kind: "event", id }) })),
     ...STORIES.map((s) => ({ key: pk("story", s.id), where: "On a story", open: goFb({ kind: "fb", page: { name: "story", id: s.id } }) })),
@@ -259,8 +257,7 @@ function pages(): { key: string; where: string; open: () => void }[] {
 
 /** Tools this person made or took part in, live where the store has them. Read inside a $derived. */
 export function museItems(key: string): MuseItem[] {
-  const sid = seedId(key);
-  const ids = new Set([key, sid, compId(key)]);
+  const ids = new Set([key, compId(key)]);
   const out: MuseItem[] = [];
   const push = (x: MuseItem) => {
     if (!out.some((o) => o.backingKey === x.backingKey && (o.toolId ?? o.name) === (x.toolId ?? x.name))) out.push(x);
@@ -269,15 +266,15 @@ export function museItems(key: string): MuseItem[] {
   for (const p of POSTS) {
     if (!("backingKey" in p)) continue; // posts with a tool (surfaces/data.ts FEED)
     const tool = backing(p.backingKey)?.tools.find((t) => t.id === p.toolId);
-    const joined = (tool?.acts ?? []).some((a) => ids.has(a.user)) || (p.kind === "bracket" && p.voters.includes(sid));
-    if (p.by === sid || joined) push({ id: `${p.backingKey}/${p.toolId}`, backingKey: p.backingKey, toolId: p.toolId, name: tool?.name ?? (p.kind === "tool" || p.kind === "live" ? say(p.headline) : "Bracket"), role: p.by === sid ? "made" : "joined", where: `On ${p.by === sid ? "their" : `${personOf(p.by)?.first}'s`} post`, open: () => openPost(p.id) });
+    const joined = (tool?.acts ?? []).some((a) => ids.has(a.user)) || (p.kind === "bracket" && p.voters.includes(key));
+    if (p.by === key || joined) push({ id: `${p.backingKey}/${p.toolId}`, backingKey: p.backingKey, toolId: p.toolId, name: tool?.name ?? (p.kind === "tool" || p.kind === "live" ? say(p.headline) : "Bracket"), role: p.by === key ? "made" : "joined", where: `On ${p.by === key ? "their" : `${personOf(p.by)?.first}'s`} post`, open: () => openPost(p.id) });
   }
   // groups: pinned tools, posts that became tools, and tools friends used there
   for (const g of GROUPS) {
     const tools = backing(g.backingKey)?.tools ?? [];
     const open = goFb({ kind: "fb", page: { name: "group", id: g.id } });
-    for (const pin of g.pinned) if (pin.by === sid) push({ id: `${g.backingKey}/${pin.toolId}`, backingKey: g.backingKey, toolId: pin.toolId, name: tools.find((t) => t.id === pin.toolId)?.name ?? "Pinned Mini", role: "made", where: `In ${g.name}`, open });
-    for (const p of g.posts) if (p.toolId && p.by === sid) push({ id: `${g.backingKey}/${p.toolId}`, backingKey: g.backingKey, toolId: p.toolId, name: tools.find((t) => t.id === p.toolId)?.name ?? "Mini", role: "made", where: `In ${g.name}`, open });
+    for (const pin of g.pinned) if (pin.by === key) push({ id: `${g.backingKey}/${pin.toolId}`, backingKey: g.backingKey, toolId: pin.toolId, name: tools.find((t) => t.id === pin.toolId)?.name ?? "Pinned Mini", role: "made", where: `In ${g.name}`, open });
+    for (const p of g.posts) if (p.toolId && p.by === key) push({ id: `${g.backingKey}/${p.toolId}`, backingKey: g.backingKey, toolId: p.toolId, name: tools.find((t) => t.id === p.toolId)?.name ?? "Mini", role: "made", where: `In ${g.name}`, open });
     for (const t of tools) if (t.acts.some((a) => ids.has(a.user))) push({ id: `${g.backingKey}/${t.id}`, backingKey: g.backingKey, toolId: t.id, name: t.name, role: "joined", where: `In ${g.name}`, open });
   }
   // tools made on pages (live: seeded by services/demo/seed-catalysts.ts, credited with who made them)
@@ -291,8 +288,8 @@ export function museItems(key: string): MuseItem[] {
 
 export type Offer = { id: string; label: string; detail: string; faces: string[]; title: string; summary: string; tool: string; params: Record<string, unknown> };
 
-const APT_4B = ["noa", "maya", "priya", "dev"];
-const BOYS = ["noa", "dev", "jonah", "theo"];
+const APT_4B = CHAT_MEMBERS.apt4b!;
+const BOYS = CHAT_MEMBERS.boys!;
 const CLIMB = ["noa", "ines", "bea", "kofi", "cami", "maya", "theo"];
 const firstOf = (k: string) => personOf(k)?.first ?? k;
 const concertDay = () => new Date(EVENT.start).toLocaleDateString("en-US", { weekday: "short", month: "short", day: "numeric" });

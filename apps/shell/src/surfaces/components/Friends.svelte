@@ -48,12 +48,8 @@
   <span class="mpile" aria-hidden="true">{#each mutual(me, k).slice(0, 2) as m (m)}<Avatar person={personOf(m)} size="var(--avatar-facepile-sm)" ring />{/each}</span>
 {/snippet}
 
-<section class="friends" class:desk={ui.desktop} aria-label="Friends" data-friends>
+<section class="friends" class:desk={ui.desktop} class:top-pad={!ui.desktop} aria-label="Friends" data-friends>
   {#if !ui.desktop}
-    <header class="top">
-      <h1 class="fb-bar-title">Friends</h1>
-      <button class="fb-round" aria-disabled="true" title="Not in this prototype" aria-label="Search friends"><Icon name="search_magnifier" /></button>
-    </header>
     <div class="chips">
       <a class="chip" href="#suggestions">Suggestions</a>
       <a class="chip" href="#your-friends">Your friends</a>
@@ -159,7 +155,7 @@
 
 <style>
   .friends { display: flex; flex-direction: column; background: var(--c-bg); }
-  .top { display: flex; align-items: center; justify-content: space-between; height: calc(var(--fb-header-h) + var(--safe-top)); padding: var(--safe-top) var(--sp-16) 0; }
+  .friends.top-pad { padding-top: calc(var(--fb-header-h) + var(--safe-top)); }
   .chips { display: flex; gap: var(--sp-8); padding: 0 var(--sp-16) var(--sp-12); }
   .chip { display: inline-flex; align-items: center; height: var(--btn-h); padding: 0 var(--sp-12); border-radius: var(--r-pill); background: var(--c-btn-secondary); color: var(--c-text); font-size: var(--fs-btn); line-height: var(--lh-btn); font-weight: var(--fw-semibold); text-decoration: none; }
   .sec { display: flex; flex-direction: column; gap: var(--sp-12); padding: var(--sp-12) var(--sp-16) var(--sp-16); border-top: 1px solid var(--c-divider); scroll-margin-top: var(--sp-16); }

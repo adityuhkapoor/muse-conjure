@@ -11,6 +11,7 @@
   import GroupPage from "./GroupPage.svelte";
   import Home from "./Home.svelte";
   import ListingPage from "./ListingPage.svelte";
+  import OnlinePage from "./OnlinePage.svelte"; // kit
   import Marketplace from "./Marketplace.svelte";
   import Notifications from "./Notifications.svelte";
   import Reels from "./Reels.svelte";
@@ -50,6 +51,8 @@
   <div class="two">{@render rail("Friends")}<div class="main"><Friends /></div></div><!-- profile -->
 {:else if page.name === "listing"}
   <ListingPage id={page.id} />
+{:else if page.name === "online"}
+  <OnlinePage item={page.item} /><!-- kit -->
 {:else if page.name === "group" || page.name === "groups"}
   <GroupPage id={page.name === "group" ? page.id : GROUPS[0]!.id} />
 {:else if page.name === "reels"}

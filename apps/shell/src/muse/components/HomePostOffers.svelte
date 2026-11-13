@@ -1,6 +1,7 @@
 <script lang="ts">
   import { store } from "../../store";
   import { ME, type PersonId } from "../../store/types";
+  import { castWithViewerFirst } from "../../store/cast";
   import { catalyst } from "../catalyst.svelte";
   import { nameOf } from "../page";
   import type { PageContext } from "../types";
@@ -12,9 +13,8 @@
    * nothing; nothing shows then.
    */
   let { post }: { post: { id: string; by: PersonId; text: string; likes: PersonId[] } } = $props();
-  const EVERYONE: PersonId[] = ["me", "maya", "dev", "jonah", "priya", "theo"];
   const ctx = $derived.by((): PageContext => {
-    const people = EVERYONE;
+    const people = castWithViewerFirst();
     return {
       surface: "feed",
       object: { kind: "post", id: post.id },

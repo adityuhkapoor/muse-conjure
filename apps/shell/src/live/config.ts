@@ -2,7 +2,7 @@
 // and `?live=0` is not set. A plain static server or the Vite dev server gets the fake store.
 
 import { PEOPLE } from "../store/fake-data";
-import { ME, type Person } from "../store/types";
+import type { Person } from "../store/types";
 
 /** `framePath`: the same frame document on this origin, used when the frame port cannot be reached. */
 /** `start`: changes with every start of the demo (see `reloadOnRestart`). */
@@ -59,9 +59,8 @@ export const frameUrl = (c: LiveConfig) => `${location.protocol}//${location.hos
 /** Where tool frames load from, in order: the frame port, then this origin's fallback path. */
 export const frameUrls = (c: LiveConfig) => [frameUrl(c), ...(c.framePath ? [location.origin + c.framePath] : [])];
 
-/** The cast, with wire ids. Tsai Lin is "me" in the fake data; on the wire she is "noa". */
-export const CAST: Person[] = PEOPLE.map((p) => (p.id === ME ? { ...p, id: "noa" } : { ...p }));
-export const wireId = (fakeId: string) => (fakeId === ME ? "noa" : fakeId);
+/** The cast, with wire ids (the seed uses wire ids only). */
+export const CAST: Person[] = PEOPLE.map((p) => ({ ...p }));
 
 /** The five team members also answer to their first names: `?as=aditya` is `dev`. */
 export const ALIASES: Record<string, string> = { aditya: "dev", calvin: "jonah", arun: "theo", tsai: "noa", will: "priya" };

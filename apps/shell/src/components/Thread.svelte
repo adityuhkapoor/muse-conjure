@@ -79,6 +79,16 @@
   const chips = $derived(store.suggestions ? store.suggestions(chatId) : ((s) => (s ? [s] : []))(store.suggestion(chatId)));
   let addSheet = $state(false);
   let toolSheet = $state(false);
+  /** The tool's options sheet: change it, end the game (whoever started it), delete (at the bottom, confirmed). */
+  let toolMenu = $state<{ msg: Message; confirm: boolean } | null>(null);
+  function endGame() {
+    if (toolMenu?.msg.muse?.toolId) store.restartTool?.(toolMenu.msg.muse.toolId);
+    toolMenu = null;
+  }
+  function removeTool() {
+    if (toolMenu?.msg.muse?.toolId) store.removeTool?.(toolMenu.msg.muse.toolId);
+    toolMenu = null;
+  }
   let flashId = $state<string | null>(null);
   let flashTimer: ReturnType<typeof setTimeout> | undefined;
 
@@ -248,7 +258,7 @@
   </header>
   {#if pinTool}
     <button class="pin" class:away={pinAway} inert={pinAway} onclick={pinTap} aria-haspopup={tools.length > 1 ? "dialog" : undefined}>
-      <span class="pt"><strong>{pinTool.name}</strong> · {pinTool.summary}</span>
+      <span class="pt"><strong class="pn">{pinTool.name}</strong><span class="ps">&nbsp;· {pinTool.summary}</span></span>
       {#if tools.length > 1}<span class="count">{tools.length}<span class="sr-only"> Minis in this chat</span></span>{/if}
       <span class="chev"><Icon name="chevronRight" /></span>
     </button>
@@ -294,6 +304,9 @@
           flash={flashId === row.msg.id}
           onchangetool={store.live ? startChange : undefined}
           onchip={store.live ? (m) => m.chip && store.buildTool(chatId, m.chip.id, { title: m.chip.name, lab: true }): undefined}
+          ontoolmenu={store.removeTool ? (m) => (toolMenu = { msg: m, confirm: false }) : undefined}
+          {chatId}
+          ontool={(id) => toTool(id)}
         />
         {#if row.msg.link?.shared}<ReelShareOption {chatId} msg={row.msg} />{/if}<!-- surfaces -->
       {/if}
@@ -382,6 +395,43 @@
           </li>
         {/each}
       </ul>
+    </Sheet>
+  {/if}
+
+  {#if toolMenu}
+    {@const t = toolMenu.msg.muse}
+    <Sheet label={`${t?.title ?? "Mini"} options`} onclose={() => (toolMenu = null)}>
+      <h2 class="sheet-title">{t?.title}</h2>
+      {#if toolMenu.confirm}
+        <p class="confirm">Delete {t?.title} for everyone in this chat? This can't be undone.</p>
+        <div class="confirm-actions">
+          <button class="btn soft" onclick={() => (toolMenu = toolMenu && { ...toolMenu, confirm: false })}>Cancel</button>
+          <button class="btn danger" data-tool-delete-confirm onclick={removeTool}>Delete</button>
+        </div>
+      {:else}
+        <ul class="tool-list">
+          <li>
+            <button class="tool-row" onclick={() => { const m = toolMenu!.msg; toolMenu = null; startChange(m); }}>
+              <MuseMark size="var(--sp-28)" />
+              <span class="tr-text"><span class="tr-name">Tell Muse what to change</span><span class="tr-sub">Change how it works, or fix something</span></span>
+            </button>
+          </li>
+          {#if t?.game && t.mine}
+            <li>
+              <button class="tool-row" data-tool-end onclick={endGame}>
+                <span class="tr-icon"><Icon name="close" /></span>
+                <span class="tr-text"><span class="tr-name">End game</span><span class="tr-sub">It starts over, and anyone can play again</span></span>
+              </button>
+            </li>
+          {/if}
+          <li class="sep">
+            <button class="tool-row danger" data-tool-delete onclick={() => (toolMenu = toolMenu && { ...toolMenu, confirm: true })}>
+              <span class="tr-icon"><Icon name="close" /></span>
+              <span class="tr-text"><span class="tr-name">Delete</span><span class="tr-sub">Removes it for everyone in this chat</span></span>
+            </button>
+          </li>
+        </ul>
+      {/if}
     </Sheet>
   {/if}
 
@@ -477,8 +527,11 @@
   .pin { transition: opacity var(--dur-xxs) var(--ease-linear); }
   /* Stepped aside while its card is on screen: no height, so the header is only the bar. */
   .pin.away { height: 0; border-top-width: 0; overflow: hidden; opacity: 0; pointer-events: none; }
-  .pt { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  /* The name stays whole (up to 60%); the summary after it gives way first, so a narrow phone still shows which Mini this is. */
+  .pt { flex: 1; min-width: 0; display: flex; white-space: nowrap; }
   .pt strong { font-weight: var(--fw-semibold); color: var(--c-text); }
+  .pn { flex: 0 1 auto; max-width: 60%; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
+  .ps { flex: 1 1 0; min-width: 0; overflow: hidden; text-overflow: ellipsis; }
   .count {
     flex: none;
     min-width: var(--sp-20);
@@ -537,7 +590,9 @@
     padding-top: calc(var(--header-h) + var(--safe-top) + var(--sp-8));
     padding-bottom: var(--sp-8);
     outline: none;
+    scrollbar-width: none;
   }
+  .list::-webkit-scrollbar { display: none; }
   /* Constant while the bar steps aside, so the messages never jump; it only matters at the very top. */
   .has-pin .list { padding-top: calc(var(--header-h) + var(--safe-top) + var(--pin-h) + var(--sp-8)); }
   /*
@@ -627,6 +682,14 @@
   .tr-text { flex: 1; min-width: 0; display: flex; flex-direction: column; }
   .tr-name { font-size: var(--fs-row-name); line-height: var(--lh-row-name); font-weight: var(--fw-medium); }
   .tr-sub { font-size: var(--fs-meta); line-height: var(--lh-meta); color: var(--c-text-2); }
+  /* tool options: delete sits at the bottom, apart, and asks once */
+  .tr-icon { width: var(--sp-28); height: var(--sp-28); flex: none; display: inline-flex; align-items: center; justify-content: center; --icon-size: var(--sp-20); color: var(--c-text-2); }
+  .sep { margin-top: var(--sp-8); padding-top: var(--sp-8); border-top: 1px solid var(--c-divider); }
+  .tool-row.danger .tr-name, .tool-row.danger .tr-icon { color: var(--c-negative); }
+  .confirm { font-size: var(--fs-row-sub); line-height: var(--lh-row-sub); text-align: center; color: var(--c-text-2); margin-bottom: var(--sp-16); }
+  .confirm-actions { display: flex; gap: var(--sp-8); }
+  .confirm-actions .btn { flex: 1; }
+  .btn.danger { background: var(--c-negative); color: var(--c-white); }
 
   .dock {
     flex: none;

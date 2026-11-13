@@ -14,7 +14,8 @@
 import { store } from "../store";
 import { readInput, readerKey, type ReaderAnswer, type ReaderOffer, type ReaderPick } from "./reader";
 import { readerInput } from "./reader-text";
-import type { PersonId } from "../store/types";
+import { castWithViewerFirst } from "../store/cast";
+import { viewerId } from "../lib/media";
 import { nav } from "../lib/nav.svelte";
 import { picker } from "../surfaces/flows.svelte";
 import type { LandSpec, SurfaceName } from "../surfaces/types";
@@ -23,8 +24,6 @@ import { match } from "./match";
 import { scenario as getScenario } from "./pack";
 import { read } from "./readers";
 import type { CatSurface, Land, PageContext, PathRecord, Scenario, Situation } from "./types";
-
-const EVERYONE: PersonId[] = ["me", "maya", "dev", "jonah", "priya", "theo"];
 
 const SOURCE: Record<CatSurface, SurfaceName> = { event: "Events", group: "Groups", marketplace: "Marketplace", feed: "Home", reel: "Reels", story: "Stories", gaming: "Gaming", search: "Home" };
 const WHERE: Record<CatSurface, string> = { event: "**Events**", group: "a **group**", marketplace: "**Marketplace**", feed: "a post on **Home**", reel: "**Reels**", story: "a **story**", gaming: "**Gaming**", search: "**Search**" };
@@ -38,6 +37,8 @@ export function pageKey(c: Pick<PageContext, "object">): string {
 const PAGE_SURFACES: CatSurface[] = ["event", "group", "marketplace", "feed"];
 
 const params = new URLSearchParams(location.search);
+/** Dismissed offers and switches are per viewer: two people on one browser do not share them. */
+const STORE_KEY = () => `muse.catalysts.${viewerId()}`;
 
 class Catalyst {
   /** dismissed suggestion ids, per viewer, kept across reloads */
@@ -55,7 +56,7 @@ class Catalyst {
 
   constructor() {
     try {
-      const raw = JSON.parse(localStorage.getItem("muse.catalysts") ?? "{}") as { dismissed?: string[]; unprompted?: boolean; quiet?: string[] };
+      const raw = JSON.parse(localStorage.getItem(STORE_KEY()) ?? "{}") as { dismissed?: string[]; unprompted?: boolean; quiet?: string[] };
       this.dismissed = raw.dismissed ?? [];
       this.quiet = raw.quiet ?? [];
       this.unprompted = !!raw.unprompted;
@@ -70,7 +71,7 @@ class Catalyst {
 
   #save() {
     try {
-      localStorage.setItem("muse.catalysts", JSON.stringify({ dismissed: this.dismissed, unprompted: this.unprompted, quiet: this.quiet }));
+      localStorage.setItem(STORE_KEY(), JSON.stringify({ dismissed: this.dismissed, unprompted: this.unprompted, quiet: this.quiet }));
     } catch {}
   }
 
@@ -274,7 +275,7 @@ class Catalyst {
     const source = { surface: SOURCE[c.surface], text: text.slice(0, 200) };
     if (land === "page") {
       const key = pageKey(c);
-      store.landPiece({ ...base, newChat: { key, name: c.title.slice(0, 60), members: EVERYONE }, source: null });
+      store.landPiece({ ...base, newChat: { key, name: c.title.slice(0, 60), members: castWithViewerFirst() }, source: null });
       this.justMade = { key, n: ++this.#n };
       return;
     }

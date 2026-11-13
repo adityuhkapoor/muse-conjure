@@ -45,7 +45,9 @@
     padding: calc(var(--safe-top) + var(--sp-24)) var(--sp-16) var(--sp-24);
     background: var(--c-bg);
     color: var(--c-text);
+    scrollbar-width: none;
   }
+  .picker::-webkit-scrollbar { display: none; }
   .h { font-size: var(--fs-wordmark); line-height: var(--lh-wordmark); font-weight: var(--fw-bold); }
   .sub { margin-top: var(--sp-8); font-size: var(--fs-meta); line-height: var(--lh-meta); color: var(--c-text-2); }
   .list { margin-top: var(--sp-16); }

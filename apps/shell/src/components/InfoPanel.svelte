@@ -55,7 +55,8 @@
 </aside>
 
 <style>
-  .info { height: 100%; overflow-y: auto; padding: var(--sp-24) var(--sp-8) var(--sp-16); }
+  .info { height: 100%; overflow-y: auto; padding: var(--sp-24) var(--sp-8) var(--sp-16); scrollbar-width: none; }
+  .info::-webkit-scrollbar { display: none; }
   .hero { display: flex; flex-direction: column; align-items: center; padding: 0 var(--sp-8); }
   .name { margin-top: var(--sp-12); font-size: var(--fs-title); line-height: var(--lh-title); font-weight: var(--fw-semibold); text-align: center; }
   .status { font-size: var(--fs-meta); line-height: var(--lh-meta); color: var(--c-text-2); }

@@ -51,7 +51,7 @@ export const OBJECT_PHOTOS: ReadonlySet<string> = new Set([
 const REAL: Record<string, string> = { dev: "aditya", jonah: "calvin", theo: "arun", noa: "tsai", priya: "will", aditya: "aditya", calvin: "calvin", arun: "arun", tsai: "tsai", will: "will" };
 /** The photo id (`avatarFor` key) for a real team member, else undefined. */
 /** The wire id of the person holding this phone (`dev`, `noa`...); "me" in components is this person. */
-let viewer = "noa";
+let viewer = "dev";
 export const setViewer = (wireId: string) => { viewer = wireId; };
 export const viewerId = () => viewer;
 /** The id a person is known by outside the store: "me" is the viewer, so their photo and drawn face match everywhere. */
