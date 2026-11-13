@@ -248,7 +248,9 @@ export function makeServer(opts: ServerOptions = {}) {
           send("error", { message: CHANGE_DOWN, code: "failed", detail: "the change did not finish" });
           logMiss({ chat: req.chat.title ?? "", ask: req.ask, code: "failed", exit: `change threw: ${(e as Error).message.slice(0, 120)}` });
         }
-        ctl.close();
+        try {
+          ctl.close();
+        } catch {} // the client left
       },
     });
     return new Response(stream, { headers: { "content-type": "text/event-stream", "cache-control": "no-cache" } });
@@ -316,7 +318,9 @@ export function makeServer(opts: ServerOptions = {}) {
           } finally {
             if (req.chatId) busy.delete(req.chatId);
           }
-          ctl.close();
+          try {
+            ctl.close();
+          } catch {} // the client left
         },
       });
       return new Response(stream, { headers: { "content-type": "text/event-stream", "cache-control": "no-cache" } });
@@ -327,6 +331,9 @@ export function makeServer(opts: ServerOptions = {}) {
 if (import.meta.main) {
   // The gate's worker threads keep the process alive; leave promptly when asked to.
   for (const sig of ["SIGTERM", "SIGINT", "SIGHUP"] as const) process.on(sig, () => process.exit(0));
+  // A phone leaving mid-build must never end the service: log the error with its stack and keep serving.
+  process.on("unhandledRejection", (e) => console.error(`factory: unhandled rejection: ${(e as Error)?.stack ?? e}`));
+  process.on("uncaughtException", (e) => console.error(`factory: uncaught exception: ${(e as Error)?.stack ?? e}`));
   await warm();
   const s = makeServer();
   console.log(`factory listening on http://${s.hostname}:${s.port} (default ${process.env.MUSE_DEFAULT ?? "auto"}, live model ${process.env.MUSE_MODEL ?? DEFAULT_MODEL})`);

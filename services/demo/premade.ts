@@ -13,6 +13,7 @@ import { join, resolve } from "node:path";
 import { fill, piece as getPiece } from "@muse/library";
 import { compileApp } from "@muse/sandbox/compile";
 import { leaks, overShape } from "../../packages/factory/src/leak.ts";
+import { sseStream } from "./sse.ts";
 
 const ROOT = resolve(import.meta.dir, "../..");
 const LAB = join(ROOT, "library", "lab");
@@ -117,45 +118,43 @@ export async function premadeResponse(req: Request): Promise<Response> {
   }
   const choices = Array.isArray(body.premade?.choices) ? body.premade!.choices : [];
   const scenario = String(body.premade?.scenario ?? "");
-  const enc = new TextEncoder();
-  const stream = new ReadableStream({
-    async start(ctl) {
-      const send = (event: string, data: unknown) => ctl.enqueue(enc.encode(`event: ${event}\ndata: ${JSON.stringify(data)}\n\n`));
-      const t0 = performance.now();
-      try {
-        send("progress", { t: "understanding" });
-        let use = choices;
-        let name = "";
-        const first = pick(choices);
-        if (body.premade?.refill && first?.tool.startsWith("lab:")) {
-          // "Use for my group": the same tool and idea, refilled from this chat by the reader
-          const { refillForChat } = await import("./reader.ts");
-          const r = await refillForChat({ tool: first.tool, idea: String(body.premade.refill.idea ?? body.title ?? ""), chat: body.chat ?? { messages: [] }, members: body.members ?? [] });
-          if ("params" in r) {
-            use = [{ tool: first.tool, params: r.params }];
-            // the tool is named for this chat's question, not the page it came from
-            if (typeof r.params.title === "string" && r.params.title.trim()) name = r.params.title.trim().slice(0, 80);
-          }
-          else if (r.error === "the reader is off") console.warn(`premade: no model for the refill of ${first.tool}; using the page's own fill`);
-          else {
-            // never start a chat's tool with another page's votes and names: the empty skeleton is honest
-            console.warn(`premade: refill for ${first.tool} failed (${r.error}); starting it empty`);
-            use = [{ tool: first.tool, params: {} }];
-          }
+  const stream = sseStream(async ({ send, signal }) => {
+    const t0 = performance.now();
+    try {
+      send("progress", { t: "understanding" });
+      let use = choices;
+      let name = "";
+      const first = pick(choices);
+      if (body.premade?.refill && first?.tool.startsWith("lab:")) {
+        // "Use for my group": the same tool and idea, refilled from this chat by the reader
+        const { refillForChat } = await import("./reader.ts");
+        const r = await refillForChat({ tool: first.tool, idea: String(body.premade.refill.idea ?? body.title ?? ""), chat: body.chat ?? { messages: [] }, members: body.members ?? [] });
+        if ("params" in r) {
+          use = [{ tool: first.tool, params: r.params }];
+          // the tool is named for this chat's question, not the page it came from
+          if (typeof r.params.title === "string" && r.params.title.trim()) name = r.params.title.trim().slice(0, 80);
         }
-        const b = await build(use, body.chat, body.members);
-        send("progress", { t: "routed", path: "premade", piece: b.tool, why: `scenario ${scenario}` });
-        send("progress", { t: "ready", name, summary: "" });
-        const wait = BEAT_MS - (performance.now() - t0);
-        if (wait > 0) await Bun.sleep(wait);
-        send("done", { name, summary: "", code: b.code, source: b.source, path: "premade", piece: b.tool, scenario, ms: Math.round(performance.now() - t0) });
-        console.log(`premade: ${scenario} with ${b.tool} in ${Math.round(performance.now() - t0)} ms`);
-      } catch (e) {
-        console.warn(`premade: failed ${scenario}: ${(e as Error).message}`);
-        send("error", { message: "Muse couldn't build this one", detail: (e as Error).message });
+        else if (r.error === "the reader is off") console.warn(`premade: no model for the refill of ${first.tool}; using the page's own fill`);
+        else {
+          // never start a chat's tool with another page's votes and names: the empty skeleton is honest
+          console.warn(`premade: refill for ${first.tool} failed (${r.error}); starting it empty`);
+          use = [{ tool: first.tool, params: {} }];
+        }
       }
-      ctl.close();
-    },
+      if (signal.aborted) return;
+      const b = await build(use, body.chat, body.members);
+      if (signal.aborted) return;
+      send("progress", { t: "routed", path: "premade", piece: b.tool, why: `scenario ${scenario}` });
+      send("progress", { t: "ready", name, summary: "" });
+      const wait = BEAT_MS - (performance.now() - t0);
+      if (wait > 0) await Bun.sleep(wait);
+      if (signal.aborted) return;
+      send("done", { name, summary: "", code: b.code, source: b.source, path: "premade", piece: b.tool, scenario, ms: Math.round(performance.now() - t0) });
+      console.log(`premade: ${scenario} with ${b.tool} in ${Math.round(performance.now() - t0)} ms`);
+    } catch (e) {
+      console.warn(`premade: failed ${scenario}: ${(e as Error).message}`);
+      send("error", { message: "Muse couldn't build this one", detail: (e as Error).message });
+    }
   });
   return new Response(stream, { headers: { "content-type": "text/event-stream", "cache-control": "no-cache" } });
 }

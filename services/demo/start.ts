@@ -3,12 +3,17 @@
 //
 //   bun run demo [--model auto|replay|muse[:model]] [--port 4380] [--db ./data/demo.sqlite] [--fresh] [--no-build] [--unprompted]
 
-import { existsSync, mkdirSync, readFileSync, rmSync, writeFileSync } from "node:fs";
+import { existsSync, mkdirSync, readFileSync, renameSync, rmSync, writeFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { ROOT, startStack } from "./stack.ts";
 import { privateHosts } from "./gateway.ts";
 import { SEED_VERSION } from "./seed.ts";
 import { MUSE_KEY_HELP, museKeyAvailable } from "../../packages/factory/src/models/muse.ts";
+
+// A phone leaving mid-request (or a friend's bad move) must never end the demo for everyone: log the
+// error with its stack and keep serving. This covers the gateway, the cast and the posts in this process.
+process.on("unhandledRejection", (e) => console.error(`demo: unhandled rejection: ${(e as Error)?.stack ?? e}`));
+process.on("uncaughtException", (e) => console.error(`demo: uncaught exception: ${(e as Error)?.stack ?? e}`));
 
 const args = process.argv.slice(2);
 const opt = (name: string, def: string) => {
@@ -68,7 +73,13 @@ const cast = castOn
     }
   : false;
 const stack = await startStack({ port, framePort: port + 1, db, model, hosts, build: !args.includes("--no-build"), echo, cast, unprompted: args.includes("--unprompted") }); // catalysts: --unprompted
-writeFileSync(PIDS, JSON.stringify({ pids: [process.pid, ...stack.pids()], ports: [stack.gateway.port, stack.gateway.framePort, stack.serverPort, stack.factoryPort, ...(stack.cast ? [stack.cast.control.port] : [])] }));
+const writePids = () => {
+  // written beside and renamed, so `demo:stop` never reads a half-written file
+  writeFileSync(PIDS + ".tmp", JSON.stringify({ pids: [process.pid, ...stack.pids()], ports: [stack.gateway.port, stack.gateway.framePort, stack.serverPort, stack.factoryPort, ...(stack.cast ? [stack.cast.control.port] : [])] }));
+  renameSync(PIDS + ".tmp", PIDS);
+};
+writePids();
+setInterval(writePids, 3000).unref(); // a restarted child has a new pid; `demo:stop` must find it
 
 const lan = hosts.filter((h) => h !== "127.0.0.1" && h !== ts && !h.startsWith("100."));
 const vpn = hosts.filter((h) => h !== ts && h.startsWith("100."));

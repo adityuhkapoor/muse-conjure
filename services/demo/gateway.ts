@@ -13,6 +13,7 @@ import { networkInterfaces } from "node:os";
 import type { Server, ServerWebSocket } from "bun";
 import { CSP, frameHtml } from "@muse/sandbox";
 import { linkKind, linkPage } from "./links.ts";
+import { splitBody } from "./sse.ts";
 import { premadeResponse } from "./premade.ts"; // catalysts
 import { configureReader, readerResponse } from "./reader.ts"; // reader: model-first reading of pages
 import { composeResponse } from "./posts.ts"; // compose: posting from Home
@@ -123,9 +124,9 @@ export function startGateway(o: GatewayOptions & { frameJs: string }): Gateway {
       title = typeof j.title === "string" ? j.title : "";
     } catch {}
     if (!body || !toolId) return body;
-    const [a, b] = body.tee();
-    void tapBuild(b, o.dataDir ?? DEFAULT_DATA, toolId, title || "Tool");
-    return a;
+    const { client, tap } = splitBody(body);
+    void tapBuild(tap, o.dataDir ?? DEFAULT_DATA, toolId, title || "Tool");
+    return client;
   };
   // reader: the factory's default model says whether to read live ("replay" reads stored answers only)
   configureReader({
@@ -159,9 +160,9 @@ export function startGateway(o: GatewayOptions & { frameJs: string }): Gateway {
           .then((r) => {
             let out = r.body;
             if (out && Object.keys(recent).length) {
-              const [a, b] = out.tee();
-              out = a;
-              void tapRedirect(b, (piece) => recent[piece] && changeInPlace({ chatId: String(j.chatId), toolId: recent[piece]!, ask: String(j.ask ?? ""), as: typeof j.as === "string" ? j.as : "", ...(typeof j.model === "string" ? { model: j.model } : {}) }, dirs));
+              const { client, tap } = splitBody(out);
+              out = client;
+              void tapRedirect(tap, (piece) => recent[piece] && changeInPlace({ chatId: String(j.chatId), toolId: recent[piece]!, ask: String(j.ask ?? ""), as: typeof j.as === "string" ? j.as : "", ...(typeof j.model === "string" ? { model: j.model } : {}) }, dirs));
             }
             return new Response(keep(out, text), { status: r.status, headers: { "content-type": r.headers.get("content-type") ?? "text/plain", "cache-control": "no-cache" } });
           })

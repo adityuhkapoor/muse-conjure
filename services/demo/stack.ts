@@ -33,6 +33,8 @@ export const buildServer = (log: Log = console.log) => run(["cargo", "build", "-
 export class Child {
   proc: Subprocess<"ignore", "pipe", "pipe">;
   lines: string[] = [];
+  /** set when we stop it ourselves, so the supervisor does not bring it back */
+  intentional = false;
   #waiters: { re: RegExp; res: (m: RegExpMatchArray) => void }[] = [];
   constructor(readonly name: string, cmd: string[], env: Record<string, string>, cwd: string, echo: Log | null) {
     this.proc = Bun.spawn(cmd, { cwd, env: { ...process.env, ...env }, stdin: "ignore", stdout: "pipe", stderr: "pipe" });
@@ -74,6 +76,7 @@ export class Child {
     return this.proc.pid;
   }
   async kill(signal: NodeJS.Signals = "SIGTERM") {
+    this.intentional = true;
     if (this.proc.exitCode !== null || this.proc.signalCode) return;
     this.proc.kill(signal);
     const t = setTimeout(() => this.proc.kill("SIGKILL"), 3000);
@@ -148,12 +151,40 @@ export async function startStack(o: StackOptions): Promise<Stack> {
   const model = o.model ?? "auto";
   // asks that ended without a Mini, next to the database (packages/factory/src/misses.ts)
   o = { ...o, factoryEnv: { MUSE_MISSES: join(dirname(o.db), "misses.jsonl"), ...(o.factoryEnv ?? {}) } };
+  let stopping = false;
   let rust = await startRust({ port: o.serverPort ?? 0, db: o.db, echo: o.echo ?? null });
+  const bringUpRust = async () => {
+    rust = await startRust({ port: rust.port, db: o.db, echo: o.echo ?? null });
+    supervise("sync server", rust.child, bringUpRust);
+  };
+  supervise("sync server", rust.child, bringUpRust);
   let factory: { child: Child; port: number } | null = null;
+  let factoryEnv: Record<string, string> | undefined = o.factoryEnv;
+  /** A child that exits on its own comes back on the same port after a short backoff, with one log line. */
+  function supervise(name: string, child: Child, restart: () => Promise<void>, tries = 0): void {
+    void child.proc.exited.then(async (code) => {
+      if (stopping || child.intentional) return;
+      const wait = Math.min(5000, 300 * 2 ** tries);
+      log(`${name} exited (${code}); restarting in ${wait} ms`);
+      await Bun.sleep(wait);
+      if (stopping) return;
+      try {
+        await restart();
+      } catch (e) {
+        log(`${name} did not restart: ${(e as Error).message.split("\n")[0]}`);
+        if (!stopping) supervise(name, child, restart, tries + 1);
+      }
+    });
+  }
+  const bringUpFactory = async () => {
+    factory = await startFactory({ port: factory!.port, model, ...(factoryEnv ? { env: factoryEnv } : {}), echo: o.echo ?? null });
+    supervise("factory", factory.child, bringUpFactory);
+  };
   let gateway: Gateway;
   let hosts: string[];
   try {
     factory = await startFactory({ port: o.factoryPort ?? 0, model, ...(o.factoryEnv ? { env: o.factoryEnv } : {}), echo: o.echo ?? null });
+    supervise("factory", factory.child, bringUpFactory);
     const result = await seed(`ws://127.0.0.1:${rust.port}/ws`, log);
     if (result === "already") log("chats already seeded");
     await seedSurfaces(`ws://127.0.0.1:${rust.port}/ws`, log); // surfaces: chats behind posts and groups
@@ -186,6 +217,7 @@ export async function startStack(o: StackOptions): Promise<Stack> {
     },
     async startRust() {
       rust = await startRust({ port: serverPort, db: o.db, echo: o.echo ?? null });
+      supervise("sync server", rust.child, bringUpRust);
     },
     async restartRust() {
       await stack.killRust();
@@ -195,11 +227,14 @@ export async function startStack(o: StackOptions): Promise<Stack> {
       await factory!.child.kill("SIGKILL");
     },
     async startFactory(env) {
-      factory = await startFactory({ port: factoryPort, model, env: { ...(o.factoryEnv ?? {}), ...(env ?? {}) }, echo: o.echo ?? null });
+      factoryEnv = { ...(o.factoryEnv ?? {}), ...(env ?? {}) };
+      factory = await startFactory({ port: factoryPort, model, env: factoryEnv, echo: o.echo ?? null });
+      supervise("factory", factory.child, bringUpFactory);
     },
     pids: () => [rust.child.pid, factory!.child.pid],
     cast: null,
     async stop() {
+      stopping = true;
       stack.cast?.stop();
       posts?.stop(); // compose
       gateway.stop();
