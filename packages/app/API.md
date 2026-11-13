@@ -152,6 +152,8 @@ the same subject the same way every time. A tool pays only for the pieces it imp
 <Placed user={id} x={0.3} y={0.5} me={me} size?={24} badge? dim? move?={false} />  // a face in the picture; springs to a new spot
 <Chip tone?="neutral" | "primary" | "positive" | "negative" | "card" maxWidth?>$145 airbnb</Chip>   <More n={3} />
 <Thumb kind={thumbKind("Marufuku Ramen")} seed="Marufuku Ramen" size?={44} label?="" />  // drawn stand-in for a photo; kinds in THUMB_KINDS
+// On a Canvas: a plush food character with a face, sitting on (x, y), about 2r tall; kinds in PLUSH_KINDS, plushKind(kind, label) maps anything else
+drawPlush(g, plushKind("cheesesteak", "Pat's"), x, y, r, { seed: "Pat's", sx?, sy?, tilt?, mood?: "happy" | "squeeze" | "oops" | "dizzy" | "meh" })
 <SeatMap zones={[{ id, label: "104", seats: [id | null] }]} me={me} layout?="arena" | "rows" stage? selected? onZone?={(id) => {}} onSeat?={(zone, i) => {}} label? height? />  // rows closer than 44 px take one tap per row
 <Graph nodes={ids} me={me} label threads?={[{ from, to, label }]} edges?={[{ from, to, label, done }]} t={0} side?={(id) => -1 | 0 | 1} onEdge?={(i) => {}} tappable? edgeName? height? />
   // t = 0: a tangle of threads on a ring; t = 1: people in columns with clean arrows. An arrow whose label finds no room takes no tap
@@ -229,6 +231,6 @@ export default defineApp<State, Action>({
 
 ## Index
 
-Exports: `at`, `Avatar`, `AvatarBars`, `BingoGrid`, `Burst`, `Button`, `CalendarStrip`, `Canvas`, `CardHeader`, `Changed`, `Chip`, `circle`, `clock`, `Clusters`, `color`, `computed`, `crowd`, `defineApp`, `easings`, `effect`, `ellipse`, `Expand`, `Facepile`, `fitText`, `Fragment`, `Graph`, `h`, `haptic`, `HeatGrid`, `innerWidth`, `line`, `Locked`, `MapStrip`, `Meter`, `mix`, `More`, `OptionRow`, `pal`, `path`, `Placed`, `PlayingCard`, `Progress`, `Receipt`, `rect`, `Ring`, `rng`, `Rsvp`, `running`, `Scene`, `SeatMap`, `seedOf`, `signal`, `Sparkline`, `spring`, `springs`, `Stars`, `Strip`, `Summary`, `SystemLine`, `textWidth`, `Thumb`, `THUMB_KINDS`, `thumbKind`, `Ticket`, `Timeline`, `Toast`, `tween`, `userColor`.
+Exports: `at`, `Avatar`, `AvatarBars`, `BingoGrid`, `Burst`, `Button`, `CalendarStrip`, `Canvas`, `CardHeader`, `Changed`, `Chip`, `circle`, `clock`, `Clusters`, `color`, `computed`, `crowd`, `defineApp`, `easings`, `effect`, `ellipse`, `Expand`, `Facepile`, `fitText`, `Fragment`, `Graph`, `h`, `haptic`, `HeatGrid`, `innerWidth`, `line`, `Locked`, `MapStrip`, `Meter`, `mix`, `More`, `OptionRow`, `pal`, `path`, `Placed`, `PlayingCard`, `Progress`, `Receipt`, `rect`, `Ring`, `rng`, `Rsvp`, `running`, `Scene`, `SeatMap`, `seedOf`, `signal`, `Sparkline`, `spring`, `springs`, `Stars`, `Strip`, `Summary`, `SystemLine`, `textWidth`, `Thumb`, `THUMB_KINDS`, `thumbKind`, `drawPlush`, `plushKind`, `PLUSH_KINDS`, `Ticket`, `Timeline`, `Toast`, `tween`, `userColor`.
 
-Types: `AppDef`, `Bezier`, `Child`, `ColorName`, `Component`, `Ctx`, `Draw`, `DrawFrame`, `Edge`, `Fit`, `InitCtx`, `Json`, `Measurer`, `Member`, `Meta`, `Motion`, `Pin`, `PointerInfo`, `ReadonlySignal`, `Rng`, `RsvpValue`, `Signal`, `Theme`, `Thread`, `ThumbKind`, `ViewProps`, `VNode`, `Zone`.
+Types: `AppDef`, `Bezier`, `Child`, `ColorName`, `Component`, `Ctx`, `Draw`, `DrawFrame`, `Edge`, `Fit`, `InitCtx`, `Json`, `Measurer`, `Member`, `Meta`, `Motion`, `Pin`, `PlushKind`, `PlushLook`, `PlushMood`, `PointerInfo`, `ReadonlySignal`, `Rng`, `RsvpValue`, `Signal`, `Theme`, `Thread`, `ThumbKind`, `ViewProps`, `VNode`, `Zone`.

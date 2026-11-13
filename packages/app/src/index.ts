@@ -21,11 +21,11 @@ export { Button, OptionRow, Facepile, Avatar, Progress, CardHeader, Rsvp, Toast,
 // The art kit (see API.md, "Make it look made for this moment").
 export {
   Scene, Placed, More, Chip, at, crowd, mix, pal, seedOf, innerWidth, circle, rect, ellipse, line, path, fitText, textWidth,
-  Thumb, thumbKind, THUMB_KINDS, SeatMap, Graph, MapStrip, Clusters,
+  Thumb, thumbKind, THUMB_KINDS, drawPlush, plushKind, PLUSH_KINDS, SeatMap, Graph, MapStrip, Clusters,
   Ring, Meter, Sparkline, Stars, AvatarBars, Timeline, CalendarStrip, HeatGrid,
   Ticket, Receipt, PlayingCard, BingoGrid, Burst, Changed, Locked, Summary, Expand, Strip,
 } from "./art/index.ts";
-export type { ThumbKind, Zone, Edge, Thread, Pin, Fit, Measurer } from "./art/index.ts";
+export type { ThumbKind, PlushKind, PlushMood, PlushLook, Zone, Edge, Thread, Pin, Fit, Measurer } from "./art/index.ts";
 
 /** Declare an app. Returns `def` unchanged; the type parameters check every part against State, Action and Local. */
 export function defineApp<S extends Json, A extends Json, L extends object = Record<string, Json>>(def: AppDef<S, A, L>): AppDef<S, A, L> {

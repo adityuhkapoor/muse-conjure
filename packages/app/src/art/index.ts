@@ -3,6 +3,7 @@
 export { Scene, Placed, More, Chip, at, crowd, mix, pal, seedOf, innerWidth, circle, rect, ellipse, line, path } from "./paint.ts";
 export { fitText, textWidth, type Fit, type Measurer } from "./text.ts";
 export { Thumb, thumbKind, THUMB_KINDS, type ThumbKind } from "./thumb.ts";
+export { drawPlush, plushKind, PLUSH_KINDS, type PlushKind, type PlushMood, type PlushLook } from "./plush.ts";
 export { SeatMap, type Zone } from "./seats.ts";
 export { Graph, type Edge, type Thread } from "./graph.ts";
 export { MapStrip, Clusters, type Pin } from "./places.ts";
