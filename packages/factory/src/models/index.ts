@@ -2,7 +2,7 @@
 
 import { CachedClient } from "../cache.ts";
 import type { ModelClient } from "../types.ts";
-import { MuseClient } from "./muse.ts";
+import { MuseClient, reportCall } from "./muse.ts";
 import { ReplayClient } from "./replay.ts";
 
 export { MuseClient, ReplayClient };
@@ -26,7 +26,22 @@ export function makeModel(config: string = process.env.MUSE_MODEL ?? DEFAULT_MOD
     const path = process.env.MUSE_LOCAL_MODELS;
     const make = path ? (require(path) as { providers?: Record<string, (name?: string) => ModelClient> }).providers?.[kind] : undefined;
     if (!make) throw new Error(`unknown model config "${config}"; use muse or replay`);
-    client = make(name);
+    const inner = make(name);
+    // timed here so measurements see every provider the same way
+    client = {
+      get id() {
+        return inner.id;
+      },
+      async complete(req) {
+        const t0 = performance.now();
+        try {
+          return await inner.complete(req);
+        } finally {
+          reportCall({ label: req.label ?? "-", model: inner.id, effort: req.effort ?? "-", ms: Math.round(performance.now() - t0), input: 0, cached: 0, output: 0, reasoning: 0 });
+        }
+      },
+    };
   }
-  return opts.cache === false ? client : new CachedClient(client);
+  // MUSE_NO_CACHE=1: every call goes to the model (speed measurements)
+  return opts.cache === false || process.env.MUSE_NO_CACHE ? client : new CachedClient(client);
 }

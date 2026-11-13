@@ -4,6 +4,7 @@
 // read this file without cycles.
 
 import type { PersonId } from "../store/types";
+import { CHAT_MEMBERS } from "../store/fake-data";
 
 const H = 60 * 60_000;
 const D = 24 * H;
@@ -110,7 +111,7 @@ export const GROUP_FACTS: Record<string, GroupFacts> = {
   climb: {
     kind: "club",
     repeated: { question: "where do you get cheap used shoes?", times: 6, answers: ["Thursday gear swap", "REI used", "Sports Basement", "Eastfield Outdoor"] },
-    admins: ["ines", "me"],
+    admins: ["ines", "noa"],
     newMembers: ["kofi", "cami"],
     dues: { label: "Spring dues", cents: 2000, paid: 31, of: 52 },
     welcome: [
@@ -165,10 +166,13 @@ export const ROOM_4B = {
     { name: "Window wall", inches: 80 },
     { name: "By the door", inches: 62 },
   ],
-  roommates: ["maya", "priya", "dev"] as PersonId[],
+  /** who lives there: the apt 4b chat's own member list */
+  get members(): readonly string[] {
+    return CHAT_MEMBERS.apt4b!;
+  },
 };
 
-/** What Tsai Lin is selling, for a move-out sale. */
+/** What Aditya is selling, for a move-out sale. */
 export const MY_LISTINGS = [
   { title: "Bookshelf", price: 25 },
   { title: "Desk lamp", price: 10 },
@@ -233,7 +237,7 @@ export const TRIP = {
   by: "dev" as PersonId,
   caption: "1 year ago today: big sur",
   name: "Big Sur",
-  people: ["dev", "maya", "priya", "me"] as PersonId[],
+  people: ["dev", "maya", "priya", "noa"] as PersonId[],
   facts: [
     { label: "Days away", value: "3", line: "4 of us in Aditya's car, Nov 10 to 12" },
     { label: "Miles", value: "312", line: "Eastfield to Big Sur and back on Highway 1" },
@@ -247,13 +251,17 @@ export const TRIP = {
 // ---------------------------------------------------------------- Gaming
 
 /** Facts from a chat that trivia may use: each one is in that chat's seeded messages or tools. */
-export const CHAT_FACTS: Record<string, { question: string; answer: string; options: string[] }[]> = {
+/** `people`: the options and answer are wire ids, named where they are shown. */
+export const CHAT_FACTS: Record<string, { question: string; answer: string; options: string[]; people?: boolean }[]> = {
   apt4b: [
-    { question: "Who ate Will's oat milk?", answer: "Aditya", options: ["Maya", "Aditya", "Tsai Lin"] },
+    { question: "Who ate Will's oat milk?", answer: "dev", options: ["maya", "dev", "noa"], people: true },
     { question: "How much was everyone's share of the groceries?", answer: "$18", options: ["$12", "$18", "$24"] },
   ],
   senior: [{ question: "How many does Aditya's beach house sleep?", answer: "8", options: ["6", "8", "10"] }],
 };
+
+/** A chat fact as a trivia question: people options shown by first name. */
+export const factQuestion = (q: (typeof CHAT_FACTS)[string][number], nameOf: (id: string) => string) => ({ about: "the chat", q: q.question, options: q.people ? q.options.map(nameOf) : q.options, answer: q.options.indexOf(q.answer) });
 
 /** A friend's score to answer. */
 export const FRIEND_SCORE = { by: "theo" as PersonId, game: "Daily puzzle", score: "3 guesses", chatId: "boys" };

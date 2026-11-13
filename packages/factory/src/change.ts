@@ -22,10 +22,12 @@ import type { Report } from "@muse/verify";
 import { repairAll } from "./compose.ts";
 import { applyEdits, EDIT_INSTRUCTIONS } from "./edits.ts";
 import { appName, extractCode, NEEDS_MODEL } from "./generate.ts";
+import { miniName } from "../../protocol/src/mini-name.ts";
 import { groundOf, honestStart, problems } from "./ground.ts";
 import { apiText } from "./prompts.ts";
+import { mayBeChange } from "./change-gate.ts";
 import { catalog, fillLab, pickLab, route, shaped } from "./router.ts";
-import type { GenerateRequest, Member, ModelClient, ReplyCode } from "./types.ts";
+import type { Effort, GenerateRequest, Member, ModelClient, ReplyCode } from "./types.ts";
 
 export type LogEntry = { user: string; action: unknown };
 export type ChangeRequest = {
@@ -270,11 +272,9 @@ function decideUser(req: ChangeRequest, params: Record<string, unknown> | null, 
     .join("\n");
 }
 
-/** The card's name after a change: the tool's own top-level title (or where, or name) when it has one, else the name it had. */
+/** The Mini's name after a change: the same one name everywhere (the Mini's own title, sentence case; packages/protocol/src/mini-name.ts). */
 export function nameOf(source: string, fallback: string): string {
-  const top = paramsOf(source) ?? {};
-  const own = [top.title, top.where, top.name].find((v): v is string => typeof v === "string" && !!v.trim());
-  return (own ?? fallback).trim().slice(0, 80);
+  return miniName(source, fallback).trim().slice(0, 80);
 }
 
 const parse = <T>(text: string): T => JSON.parse(text.trim().replace(/^```(?:json)?\s*|\s*```$/g, "")) as T;
@@ -394,6 +394,12 @@ export async function change(req: ChangeRequest, deps: ChangeDeps): Promise<Chan
     return r === "same" ? cantHere() : (r ?? { t: "reply", text: CANT_CHANGE, code: "failed", ms: ms() });
   }
 
+  // a plain ask that plainly does not touch this Mini is a new one: no model call to say so (change-gate.ts)
+  if (!req.explicit && !mayBeChange(req.ask, { name: req.tool.name, piece: req.tool.piece }, params, req.members.map((m) => m.name))) {
+    emit({ t: "decided", tier: "new", why: "the ask does not touch this Mini" });
+    return { t: "new", ms: ms() };
+  }
+
   type D = { tier: Tier | "cant" | "new"; params_json: string; note: string; reply: string; why: string };
   let d: D;
   try {
@@ -426,23 +432,44 @@ export async function change(req: ChangeRequest, deps: ChangeDeps): Promise<Chan
       const v = JSON.parse(d.params_json) as unknown;
       if (v && typeof v === "object" && !Array.isArray(v)) next = v as Record<string, unknown>;
     } catch {}
-    // The fast model decided; the main model writes the params when there is one (MUSE_CHANGE_PARAMS=fast keeps the fast model's).
-    if (deps.main && deps.main !== deps.fast && process.env.MUSE_CHANGE_PARAMS !== "fast") {
+    // MUSE_CHANGE_PARAMS: "net" (default) takes the fast model's own params from the decision and, when they
+    // do not hold up, asks the fast model again at low effort and then the main model at minimal effort;
+    // "fast" takes the fast model's params with no second try; "main" has the main model write them (the old way).
+    const mode = process.env.MUSE_CHANGE_PARAMS === "fast" ? "fast" : process.env.MUSE_CHANGE_PARAMS === "main" ? "main" : "net";
+    const askParams = async (m: ModelClient, effort: Effort, again?: string): Promise<{ next: Record<string, unknown>; note: string } | null> => {
       try {
-        const m = parse<D>(await deps.main.complete({ label: "change-params", system: decideSystem(req.explicit), messages: [{ role: "user", content: decideUser(req, params, folded) }], json: { name: "change", schema: DECIDE_SCHEMA }, effort: process.env.MUSE_CHANGE_EFFORT === "medium" ? "medium" : "low" }));
-        const v = m.tier === "params" ? (JSON.parse(m.params_json) as unknown) : null;
-        if (v && typeof v === "object" && !Array.isArray(v)) {
-          next = v as Record<string, unknown>;
-          d.note = m.note || d.note;
-        }
+        const user = decideUser(req, params, folded) + (again ? `\n\nYour last answer ${again}. Answer again with the whole new params.` : "");
+        const out = parse<D>(await m.complete({ label: "change-params", system: decideSystem(req.explicit), messages: [{ role: "user", content: user }], json: { name: "change", schema: DECIDE_SCHEMA }, effort }));
+        const v = out.tier === "params" ? (JSON.parse(out.params_json) as unknown) : null;
+        return v && typeof v === "object" && !Array.isArray(v) ? { next: v as Record<string, unknown>, note: out.note } : null;
       } catch (e) {
-        console.warn(`change: params on the main model failed (${(e as Error).message.slice(0, 120)}); using the fast model's`);
+        console.warn(`change: params on ${m.id} failed (${(e as Error).message.slice(0, 120)})`);
+        return null;
+      }
+    };
+    if (mode === "main" && deps.main && deps.main !== deps.fast) {
+      const m = await askParams(deps.main, process.env.MUSE_CHANGE_EFFORT === "medium" ? "medium" : "low");
+      if (m) {
+        next = m.next;
+        d.note = m.note || d.note;
       }
     }
+    let r: Awaited<ReturnType<typeof finishParams>> = null;
     if (next) {
-      const r = await finishParams(next, d.note);
+      r = await finishParams(next, d.note);
       if (r && r !== "same") return r;
       sameParams = r === "same";
+    }
+    if (mode === "net") {
+      const why = !next ? "was not usable" : r === "same" ? "changed nothing a person could see" : "did not pass its check";
+      for (const [m, effort] of [[deps.fast, "low"], [deps.main, "minimal"]] as [ModelClient | null, Effort][]) {
+        if (!m) continue;
+        const a = await askParams(m, m.id.startsWith("muse") ? effort : "low", why);
+        if (!a) continue;
+        const rr = await finishParams(a.next, a.note || d.note);
+        if (rr && rr !== "same") return rr;
+        sameParams ||= rr === "same";
+      }
     }
     // params that did not hold up or changed nothing: try the code path, which can still do it
     d.tier = "code";

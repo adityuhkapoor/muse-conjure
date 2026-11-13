@@ -82,6 +82,13 @@ export interface ChatStore {
   mountTool?(el: HTMLElement, toolId: string, opts: { dark: boolean; width: number; onSize: (h: number) => void; onError?: (m: string, fatal: boolean) => void; onEvicted?: (wait: (cb: () => void, visible?: () => boolean) => () => void) => void; visible?: () => boolean }): MountedTool;
   /** catalysts: a tool that did not open is rebuilt in place from its next pre-made choice; false when there is none. */
   retryTool?(toolId: string): Promise<boolean>;
+  /** Anyone in the chat takes a tool out; its card becomes one line. */
+  removeTool?(toolId: string): void;
+  /** Whoever started a game ends it; it starts over, fresh, for everyone. */
+  restartTool?(toolId: string): void;
+  /** A kit's "Who brings what" and "Split": the library's claim list and bill split, made from it. */
+  kitClaims?(chatId: string, msgId: string): void;
+  kitSplit?(chatId: string, msgId: string): void;
 }
 
 export type MountedTool = { setTheme(dark: boolean, width: number): void; destroy(): void };

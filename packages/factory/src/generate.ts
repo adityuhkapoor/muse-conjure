@@ -5,6 +5,7 @@ import { coerce, fill, labPiece, piece as getPiece, type Piece } from "@muse/lib
 import { verify, type Report } from "@muse/verify";
 import { adaptUser, draftUser, type Facts, planUser, repairUser, routeSystem, routeUser, systemPrompt } from "./prompts.ts";
 import { fastLabs, labChoices } from "./lab.ts";
+import { fillNet, fillSpec, judge, netOn } from "./fillnet.ts";
 import { fillLab, logChosen, route as routeLab, routerChoices, routerModelFor, type Decision, shaped } from "./router.ts";
 import { retrieve } from "./retrieve.ts";
 import { groundOf, honestStart, problems, strip, type Problem } from "./ground.ts";
@@ -150,7 +151,7 @@ export async function generate(req: GenerateRequest, model: ModelClient, opts: G
     const params = o.trusted ? raw : honestStart(lab.id, raw, req);
     const ps = o.trusted ? [] : problems(lab.id, params, groundOf(req, o.suggested));
     markSuggested(params, o.suggested ?? [], lab.id);
-    emit({ t: "routed", path: "reuse", piece: lab.id, why });
+    emit({ t: "routed", path: "reuse", piece: lab.id, why, name: lab.name });
     emit({ t: "checking", candidate: 0, attempt: o.attempt ?? 0 });
     const source = fill(lab, params);
     const s = now();
@@ -175,11 +176,13 @@ export async function generate(req: GenerateRequest, model: ModelClient, opts: G
     if (router || opts.onlyPick) {
       // routing on the fast model, filling on the main one (contributor Spark under Muse)
       const filler = router ? (model.id === "replay" ? router : model) : null;
+      // the fast model fills first with a safety net (fillnet.ts); routing then does not fill
+      const net = !opts.onlyPick && !!router && netOn(router, model);
       const s = now();
       const d: Decision =
         opts.onlyPick || !router
           ? { picks: [{ id: opts.onlyPick ?? "", reason: "Spun from the chat" }], nothingFits: false, wantsNew: false, reply: "", confidence: 1, params: filler ? null : {}, suggested: [], ms: 0, cached: false, model: model.id }
-          : await routeLab(req, router, { filler: filler! });
+          : await routeLab(req, router, { filler: filler!, fill: !net });
       timings.router = secs(now() - s);
       // The ladder (router.ts): a Mini is the default. A reply needs a named reason.
       if (d.outcome && d.outcome !== "mini" && d.outcome !== "new_mini") {
@@ -196,7 +199,21 @@ export async function generate(req: GenerateRequest, model: ModelClient, opts: G
       let buildExit = "build";
       for (const c of routerChoices(d)) {
         let last: Record<string, unknown> | null = null;
-        const first = c.params ? { params: c.params, suggested: d.suggested } : filler ? await fillLab(req, c.id, filler) : null;
+        let netStep = 0;
+        // the router's own fill (one call) is taken when it holds up; otherwise the fill goes on as if it had not filled
+        const inline = c.params && (!net || judge(req, c.id, { params: shaped(c.id, c.params), suggested: d.suggested }, d.hasContent === true).ok) ? { params: c.params, suggested: d.suggested } : null;
+        const first = inline
+          ? inline
+          : net
+            ? await (async () => {
+                const n = await fillNet(req, c.id, { fast: router!, main: model }, { expectContent: d.hasContent === true });
+                netStep = n.step;
+                if (n.step) console.log(`factory: fill ${c.id}: ${n.tried.join(" > ")}`);
+                return n.fill;
+              })()
+            : filler
+              ? await fillLab(req, c.id, filler)
+              : null;
         if (first) {
           const firstParams = shaped(c.id, first.params);
           let r = await tryLab(c.lab, firstParams, c.why, c.why, { suggested: first.suggested });
@@ -206,7 +223,13 @@ export async function generate(req: GenerateRequest, model: ModelClient, opts: G
           }
           last = strip(r.params, r.ps);
           // one repair, with the reasons named
-          const again = filler ? await fillLab(req, c.id, filler, { params: r.params, errors: r.errors }) : null;
+          // (the net has already tried the main model once: a fill it could not mend goes straight to stripping)
+          const again =
+            filler && !(net && netStep === 3)
+              ? net
+                ? (await fillNet(req, c.id, { fast: router!, main: model }, { expectContent: d.hasContent === true, repair: { params: r.params, errors: r.errors } })).fill
+                : await fillLab(req, c.id, filler, { params: r.params, errors: r.errors })
+              : null;
           if (again) {
             r = await tryLab(c.lab, shaped(c.id, again.params), c.why, c.why, { suggested: again.suggested, attempt: 1 });
             if ("result" in r) {

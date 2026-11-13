@@ -7,17 +7,18 @@
 // port first and falls back to this path; the frame keeps sandbox="allow-scripts" without
 // allow-same-origin, so its origin is opaque either way, and it carries the same CSP.
 
-import { existsSync, readFileSync } from "node:fs";
-import { join, normalize } from "node:path";
+import { existsSync, readFileSync, statSync } from "node:fs";
+import { join, normalize, sep } from "node:path";
 import { networkInterfaces } from "node:os";
 import type { Server, ServerWebSocket } from "bun";
 import { CSP, frameHtml } from "@muse/sandbox";
-import { linkKind, linkPage } from "./links.ts";
+import { isMultiPath, linkKind, linkPage, multiPage } from "./links.ts";
 import { splitBody } from "./sse.ts";
 import { premadeResponse } from "./premade.ts"; // catalysts
 import { configureReader, readerResponse } from "./reader.ts"; // reader: model-first reading of pages
 import { composeResponse } from "./posts.ts"; // compose: posting from Home
 import { changeInPlace, changeResponse, recentMinis, tapBuild, tapRedirect } from "./change.ts"; // change: change a tool by talking
+import { kitResponse } from "./kit.ts"; // kit: Marketplace as context for a plan
 
 export const SHELL_DIST = join(import.meta.dir, "../../apps/shell/dist");
 /** assets/img (object photos) and assets/people (the three team members), served at /media/ (assets/ADOPT.md). /assets/ is the shell build. */
@@ -114,6 +115,25 @@ export function startGateway(o: GatewayOptions & { frameJs: string }): Gateway {
   const config = { framePort, framePath: FRAME_PATH, start, ...(o.model ? { model: o.model } : {}), ...(o.unprompted ? { unprompted: true } : {}) }; // catalysts: unprompted
   const indexHtml = readFileSync(join(SHELL_DIST, "index.html"), "utf8").replace("<head>", `<head><script>window.__MUSE_LIVE__=${JSON.stringify(config)}</script>`);
   const live = new Set<ServerWebSocket<Data>>();
+  const quiet = (s: ReadableStream<Uint8Array>): ReadableStream<Uint8Array> => {
+    const r = s.getReader();
+    return new ReadableStream<Uint8Array>({
+      async pull(c) {
+        try {
+          const { done, value } = await r.read();
+          if (done) c.close();
+          else c.enqueue(value);
+        } catch {
+          try {
+            c.close();
+          } catch {}
+        }
+      },
+      cancel() {
+        r.cancel().catch(() => {});
+      },
+    });
+  };
   /** change: pass a build's stream on, and keep the source it ends with under the body's toolId. */
   const keep = (body: ReadableStream<Uint8Array> | null, reqText: string): ReadableStream<Uint8Array> | null => {
     let toolId = "";
@@ -158,7 +178,9 @@ export function startGateway(o: GatewayOptions & { frameJs: string }): Gateway {
         } catch {}
         return fetch(o.factory + "/generate", { method: req.method, headers: { "content-type": "application/json" }, body, signal: req.signal })
           .then((r) => {
+            // a caller that hangs up mid-stream (the shell drops a speculative ask) ends this stream quietly; splitBody already does
             let out = r.body;
+            if (out && !Object.keys(recent).length) out = quiet(out);
             if (out && Object.keys(recent).length) {
               const { client, tap } = splitBody(out);
               out = client;
@@ -177,6 +199,7 @@ export function startGateway(o: GatewayOptions & { frameJs: string }): Gateway {
       });
     }
     if (url.pathname === "/change" && req.method === "POST") return changeResponse(req, { factory: o.factory, ws: o.upstreamWs, dataDir: o.dataDir ?? DEFAULT_DATA, ...(o.model ? { model: o.model } : {}) }); // change: change a tool by talking
+    if (url.pathname === "/kit" && req.method === "POST") return kitResponse(req); // kit: what a plan needs, from Marketplace
     if (url.pathname.startsWith("/reader/") && req.method === "POST") return readerResponse(req); // reader: offers read from the page
     if (url.pathname.startsWith("/compose/")) return composeResponse(req, o.factory); // compose: the composer's tools, preview and pick
     const kind = linkKind(url.pathname);
@@ -188,24 +211,30 @@ export function startGateway(o: GatewayOptions & { frameJs: string }): Gateway {
         return new Response(null, { status: 204 });
       });
     }
+    if (isMultiPath(url.pathname)) return new Response(multiPage(url.search), { headers: { "content-type": "text/html; charset=utf-8", "cache-control": "no-cache" } });
     // `start` changes with every start of the demo: a tab left open across a restart reloads itself (live/config.ts).
     if (url.pathname === "/health") return Response.json({ ok: true, start }, { headers: { "cache-control": "no-store" } });
     if (url.pathname === FRAME_PATH) return frameResponse();
     if (url.pathname.startsWith("/media/")) {
       // Year-long caching is safe: every URL carries ?v=<manifest version>, which changes with any image.
       const file = join(MEDIA, normalize(decodeURIComponent(url.pathname.slice(7))));
-      if ((file.startsWith(MEDIA + "/img/") || file.startsWith(MEDIA + "/people/")) && existsSync(file)) {
+      // join(), not string concatenation: MEDIA already has the OS separator (backslash on Windows),
+      // so "MEDIA + \"/img/\"" never matches there.
+      if ((file.startsWith(join(MEDIA, "img") + sep) || file.startsWith(join(MEDIA, "people") + sep)) && existsSync(file)) {
         return new Response(Bun.file(file), { headers: { "content-type": "image/webp", "cache-control": "public, max-age=31536000, immutable" } });
       }
       return new Response("not found", { status: 404 });
     }
     const path = normalize(decodeURIComponent(url.pathname)).replace(/^(\.\.[/\\])+/, "");
     const file = join(SHELL_DIST, path);
-    if (path !== "/" && file.startsWith(SHELL_DIST) && existsSync(file) && !file.endsWith("/")) {
+    // normalize() is platform-native: on Windows, normalize("/") is "\\", not "/", so neither path
+    // nor file can be compared against a literal "/" here. isFile() is the one check that is both
+    // correct (a directory, e.g. the root, falls through to indexHtml below) and platform-neutral.
+    if (file.startsWith(SHELL_DIST) && existsSync(file) && statSync(file).isFile()) {
       const ext = file.slice(file.lastIndexOf("."));
       // Hashed build files never change; icons and launch images (not hashed) are cached for a day; the page and manifest are always checked.
-      const immutable = path.startsWith("/assets/");
-      const artwork = /\.(png|svg|ico)$/.test(path);
+      const immutable = url.pathname.startsWith("/assets/"); // url.pathname is always forward-slashed; path (normalize()'d) is not on Windows
+      const artwork = /\.(png|svg|ico)$/.test(url.pathname);
       const cache = immutable ? "public, max-age=31536000, immutable" : artwork ? "public, max-age=86400" : "no-cache";
       return new Response(Bun.file(file), { headers: { "content-type": TYPES[ext] ?? "application/octet-stream", "cache-control": cache, "x-content-type-options": "nosniff" } });
     }

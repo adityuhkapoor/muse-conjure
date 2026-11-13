@@ -18,6 +18,7 @@ import { readdirSync, readFileSync } from "node:fs";
 import { join, resolve } from "node:path";
 import { createReplica, sharedSocket } from "../../packages/sync/src/index.ts";
 import { available, build, type Choice } from "./premade.ts";
+import { miniName } from "@muse/protocol";
 import { chatIdForKey, chatReducer, chatRoom, INDEX_ROOM, indexReducer, SEED_USER, type ChatState } from "../../apps/shell/src/live/chat-reducer.ts";
 
 const LAB = join(resolve(import.meta.dir, "../.."), "library", "lab");
@@ -158,12 +159,12 @@ function startJob(b: NewBody, factory: string): Job {
           const chunk = buf.slice(0, i);
           buf = buf.slice(i + 2);
           const event = /^event: (.*)$/m.exec(chunk)?.[1];
-          const data = JSON.parse(/^data: (.*)$/m.exec(chunk)?.[1] ?? "{}") as { stage?: string; code?: string; name?: string; message?: string };
+          const data = JSON.parse(/^data: (.*)$/m.exec(chunk)?.[1] ?? "{}") as { stage?: string; code?: string; name?: string; source?: string; message?: string };
           if (event === "stage" && data.stage) {
             job.stage = data.stage;
             beat();
             tell("stage", { stage: data.stage });
-          } else if (event === "done" && data.code) built = { code: data.code, name: data.name ?? "Something for this post" };
+          } else if (event === "done" && data.code) built = { code: data.code, name: miniName(data.source ?? "", data.name ?? "Something for this post") };
           else if (event === "error") throw new Error(data.message ?? "the build failed");
         }
       }

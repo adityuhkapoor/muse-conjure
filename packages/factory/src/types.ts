@@ -15,6 +15,9 @@ export type GenerateRequest = { ask: string; chat: ChatSample; members: Member[]
 export type Msg = { role: "user" | "assistant"; content: string };
 export type JsonSchema = Record<string, unknown>;
 
+/** How much the model thinks before it answers: less is faster. */
+export type Effort = "minimal" | "low" | "medium" | "high";
+
 export type CompleteRequest = {
   system: string;
   messages: Msg[];
@@ -23,7 +26,7 @@ export type CompleteRequest = {
   images?: string[];
   /** Short tag for logs and recordings: "route", "plan", "draft", "repair". */
   label?: string;
-  effort?: "low" | "medium" | "high";
+  effort?: Effort;
   /** Separates cache entries for parallel candidates with the same prompt. Not sent to the model. */
   nonce?: number;
 };
@@ -38,7 +41,7 @@ export type Path = "reuse" | "adapt" | "build";
 
 export type ProgressEvent =
   | { t: "understanding" }
-  | { t: "routed"; path: Path; piece: string | null; why: string }
+  | { t: "routed"; path: Path; piece: string | null; why: string; /** the Mini's name, when it is a lab Mini: the card says which one it is setting up */ name?: string }
   | { t: "drafting"; candidate: number }
   | { t: "checking"; candidate: number; attempt: number }
   | { t: "repairing"; candidate: number; attempt: number; rule: string; message: string }

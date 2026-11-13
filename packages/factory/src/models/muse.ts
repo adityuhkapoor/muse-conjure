@@ -1,7 +1,7 @@
 // Muse: a Responses-style API at api.meta.ai. The key is read from the macOS Keychain
 // at run time, held in memory only, and scrubbed from every error message.
 
-import type { CompleteRequest, ModelClient } from "../types.ts";
+import type { CompleteRequest, Effort, ModelClient } from "../types.ts";
 
 export const MUSE_BASE = "https://api.meta.ai/v1";
 export const MUSE_MODELS = ["muse-spark-1.3-contributor", "muse-spark-1.3", "muse-ember-1.0"] as const;
@@ -35,7 +35,24 @@ export function scrub(text: string): string {
   return key ? text.split(key).join("[key]") : text;
 }
 
-export type MuseOptions = { model?: string; effort?: "low" | "medium" | "high"; timeoutMs?: number; retries?: number };
+export type MuseOptions = { model?: string; effort?: Effort; timeoutMs?: number; retries?: number };
+
+/** One finished call, as `onCall` listeners hear it (the harness counts tokens and seconds from these). */
+export type CallStat = { label: string; model: string; effort: string; ms: number; input: number; cached: number; output: number; reasoning: number };
+const listeners = new Set<(s: CallStat) => void>();
+/** Hear every Muse call as it finishes. Returns the way to stop listening. */
+export function onCall(fn: (s: CallStat) => void): () => void {
+  listeners.add(fn);
+  return () => void listeners.delete(fn);
+}
+/** Report a call that did not go through MuseClient (another provider plugged in with the hook): seconds only. */
+export function reportCall(s: CallStat) {
+  for (const fn of listeners) fn(s);
+}
+function statOf(label: string, model: string, effort: string, ms: number, json: unknown): CallStat {
+  const u = (json as { usage?: { input_tokens?: number; input_tokens_details?: { cached_tokens?: number }; output_tokens?: number; output_tokens_details?: { reasoning_tokens?: number } } } | null)?.usage ?? {};
+  return { label, model, effort, ms, input: u.input_tokens ?? 0, cached: u.input_tokens_details?.cached_tokens ?? 0, output: u.output_tokens ?? 0, reasoning: u.output_tokens_details?.reasoning_tokens ?? 0 };
+}
 
 export class MuseError extends Error {
   constructor(
@@ -92,7 +109,9 @@ export class MuseClient implements ModelClient {
     for (let attempt = 0; ; attempt++) {
       const r = await this.raw(this.body(req)).catch((e: MuseError) => ({ status: -1, json: null, text: e.message, ms: 0 }));
       if (r.status === 200) {
-        if (process.env.MUSE_LOG_CALLS) console.log(`factory: muse-call ${req.label ?? "-"} ${this.opts.model ?? "muse-spark-1.3"} ${req.effort ?? this.opts.effort ?? "medium"} ${r.ms} ms`);
+        const stat = statOf(req.label ?? "-", this.opts.model ?? "muse-spark-1.3", req.effort ?? this.opts.effort ?? "medium", r.ms, r.json);
+        for (const fn of listeners) fn(stat);
+        if (process.env.MUSE_LOG_CALLS) console.log(`factory: muse-call ${stat.label} ${stat.model} ${stat.effort} ${r.ms} ms in ${stat.input} (${stat.cached} cached) out ${stat.output} (${stat.reasoning} thinking)`);
         return outputText(r.json);
       }
       const retryable = r.status === -1 || r.status === 429 || r.status >= 500;

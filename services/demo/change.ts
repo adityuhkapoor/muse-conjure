@@ -13,6 +13,7 @@ import { join } from "node:path";
 import { chatReducer, chatRoom, roomOfTool, SEED_USER, toolRoom, type ChatAction, type ChatState, type WireMsg } from "../../apps/shell/src/live/chat-reducer.ts";
 import { RoomClient } from "./proto.ts";
 import { firstName, seededSource } from "./seed.ts";
+import { miniName } from "@muse/protocol";
 
 export type ToolRecord = { source: string; piece: string | null; name: string; /** the message's tool.rev this source is for */ rev?: number };
 
@@ -61,7 +62,7 @@ export async function tapBuild(stream: ReadableStream<Uint8Array>, dataDir: stri
         const data = /^data: (.*)$/m.exec(block)?.[1];
         if (!data) continue;
         const d = JSON.parse(data) as { source?: string; piece?: string | null; name?: string };
-        if (typeof d.source === "string" && d.source) writeRecord(dataDir, toolId, { source: d.source, piece: typeof d.piece === "string" ? d.piece.replace(/^lab:/, "") : null, name: d.name || fallbackName });
+        if (typeof d.source === "string" && d.source) writeRecord(dataDir, toolId, { source: d.source, piece: typeof d.piece === "string" ? d.piece.replace(/^lab:/, "") : null, name: miniName(d.source, d.name || fallbackName) });
       }
     }
   } catch {

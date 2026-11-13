@@ -3,6 +3,7 @@ import { CLOCK_BASE, MUSE, PEOPLE, seedChats, seedEvents, seedNotes, seedTools }
 import { BUILD_MS, inferTemplate, isMention, looksStuck, template, TEMPLATES } from "../lib/muse";
 import type { Chat, ChatSpec, EventInfo, Message, Note, Person, PersonId, Rsvp, Suggestion, Tool } from "./types";
 import { ME } from "./types";
+import { viewerId } from "../lib/media";
 // surfaces (src/surfaces)
 import { BACKING, isSurfaceKey } from "../surfaces/backing";
 import { REELS } from "../surfaces/data";
@@ -16,23 +17,23 @@ const ANSWER_DELAY_MS = 500;
 
 /** In-memory ChatStore. Replace with the sync-backed store behind the same interface. */
 export class FakeStore implements ChatStore {
-  #chats = $state<Chat[]>(seedChats());
-  #tools = $state<Tool[]>(seedTools(this.#chats));
-  #notes = $state<Note[]>(seedNotes());
-  #events = $state<EventInfo[]>(seedEvents());
+  #seed = viewerSeed();
+  #chats = $state<Chat[]>(this.#seed.chats);
+  #tools = $state<Tool[]>(this.#seed.tools);
+  #notes = $state<Note[]>(forViewer(seedNotes()).filter((n) => n.by !== ME));
+  #events = $state<EventInfo[]>(forViewer(seedEvents()).map((e) => ({ ...e, friends: e.friends.filter((f) => f !== ME) })));
   #rsvp = $state<Record<string, Rsvp | null>>({});
   #dismissed = $state<string[]>([]);
   #started = performance.now();
   #seq = 1000;
-  readonly #people = new Map<string, Person>([...PEOPLE, MUSE, SYSTEM].map((x) => [x.id, x]));
-
-  /** `as`: a cast id from `?as=`; "me" then carries that person's name (the seeded chats stay Tsai Lin's). */
-  constructor(private readonly as: string | null = null) {}
+  /** The cast by wire id, plus the viewer again under "me" (the seed has no "me"; the store maps the viewer to it). */
+  readonly #people = new Map<string, Person>([
+    ...[...PEOPLE, MUSE, SYSTEM].map((x) => [x.id, x] as const),
+    ...PEOPLE.filter((p) => p.id === viewerId()).map((p) => [ME, { ...p, id: ME }] as const),
+  ]);
 
   get me(): Person {
-    const me = this.#people.get(ME)!;
-    const who = this.as ? PEOPLE.find((p) => p.id === (this.as === "noa" ? ME : this.as)) : undefined;
-    return who ? { ...me, name: who.name, first: who.first, initials: who.initials, tone: who.tone } : me;
+    return this.#people.get(ME)!;
   }
 
   get chats(): readonly Chat[] {
@@ -180,7 +181,7 @@ export class FakeStore implements ChatStore {
       id,
       name: "late night",
       kind: "group",
-      members: [ME, note.by, "jonah", "dev"],
+      members: [ME, ...new Set([note.by, "jonah", "dev"].filter((x) => x !== viewerId()))],
       messages: [],
       unread: false,
       typing: [],
@@ -246,8 +247,8 @@ export class FakeStore implements ChatStore {
 
   // ==== surfaces (src/surfaces): Facebook Home, Groups, Marketplace, Reels, Gaming. Additive block. ====
   /** Chats that back a surface (key "surface:..."): never in `chats`, so Messenger never lists them. */
-  #hidden = $state<Chat[]>([...fakeBacking().chats, ...fakePageTools(CLOCK_BASE - 5 * 60 * 60_000).chats]); // catalysts: tools already on pages
-  #hiddenTools = $state<Tool[]>([...fakeBacking().tools, ...fakePageTools(CLOCK_BASE - 5 * 60 * 60_000).tools]);
+  #hidden = $state<Chat[]>(forViewer([...fakeBacking().chats, ...fakePageTools(CLOCK_BASE - 5 * 60 * 60_000).chats])); // catalysts: tools already on pages
+  #hiddenTools = $state<Tool[]>(forViewer([...fakeBacking().tools, ...fakePageTools(CLOCK_BASE - 5 * 60 * 60_000).tools]));
   #surfaceSeeded = this.#seedSurfaceDemo();
 
   /** Will already used a reel: his to-try list in your chat with him waits on you. */
@@ -348,6 +349,28 @@ export class FakeStore implements ChatStore {
     }
     msg.reactions = msg.reactions.filter((r) => r.by.length > 0);
   }
+}
+
+/** Fields that name a person by id: the viewer's wire id in them becomes "me". */
+const ID_KEYS = new Set(["from", "by", "members", "typing", "seenBy", "friends", "user"]);
+
+/** Seed data (wire ids only) as this store shows it: the viewer is "me". */
+function forViewer<T>(x: T, v: string = viewerId()): T {
+  const walk = (o: unknown, key?: string): unknown => {
+    if (typeof o === "string") return key && ID_KEYS.has(key) && o === v ? ME : o;
+    if (Array.isArray(o)) return o.map((e) => walk(e, key));
+    if (o && typeof o === "object") return Object.fromEntries(Object.entries(o).map(([k, val]) => [k, walk(val, k)]));
+    return o;
+  };
+  return walk(x) as T;
+}
+
+/** The seeded chats the viewer is in, and their tools (built once: message ids come from a counter). */
+function viewerSeed(): { chats: Chat[]; tools: Tool[] } {
+  const all = forViewer(seedChats());
+  const chats = all.filter((c) => c.members.includes(ME));
+  const ids = new Set(chats.map((c) => c.id));
+  return { chats, tools: forViewer(seedTools(all)).filter((t) => ids.has(t.chat)) };
 }
 
 const lastAt = (c: Chat) => c.messages.filter((m) => m.kind !== "system" && m.kind !== "activity").at(-1)?.at ?? 0;

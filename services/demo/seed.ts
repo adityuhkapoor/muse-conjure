@@ -6,9 +6,11 @@
 // chat's people and facts, compiled, and friends' moves replayed into each tool room so the
 // activity lines have someone behind them. Loaded the way the pre-made path loads them.
 
+import { mkdtempSync, rmSync, writeFileSync } from "node:fs";
+import { join } from "node:path";
 import { sourceOf } from "./premade.ts";
 import { compileApp } from "@muse/sandbox/compile";
-import type { Member } from "@muse/protocol";
+import { miniName, type Member } from "@muse/protocol";
 import { seedChats } from "../../apps/shell/src/store/fake-data.ts";
 import type { Chat } from "../../apps/shell/src/store/types.ts";
 import { chatRoom, INDEX_ROOM, SEED_USER, toolRoom, type ChatAction } from "../../apps/shell/src/live/chat-reducer.ts";
@@ -20,8 +22,7 @@ import { RoomClient } from "./proto.ts";
 
 const CLIENT = "seed-v1";
 /** Bump when the fake chats change: `bun run demo` then starts a new database instead of mixing them. */
-export const SEED_VERSION = "5";
-const wire = (id: string) => (id === "me" ? "noa" : id);
+export const SEED_VERSION = "9"; // 8: one name per Mini, members only; 9: seed people are wire ids only, Aditya is the main character
 const FIRST: Record<string, string> = { noa: "Tsai Lin", maya: "Maya", dev: "Aditya", jonah: "Calvin", priya: "Will", theo: "Arun", ...Object.fromEntries(EXTRA_PEOPLE.map((p) => [p.id, p.first])) };
 
 /**
@@ -140,10 +141,12 @@ export const TOOLS: Record<string, SeedTool> = {
       when: "Fri, 8 PM",
       venue: "Meridian Hall",
     },
-    renames: { Maya: "Calvin", Ana: "Aditya", Jess: "Aditya" },
-    // Arun is the one who says yes, below
+    renames: { Maya: "Calvin", Ana: "Aditya", Jess: "Aditya", Rae: "Tsai Lin" },
+    // Arun is the one who says yes, below; only the chat's four are on the list (Tsai Lin is a maybe)
     tweak: (p) => {
-      p.people = p.people.filter((x: { name: string }) => x.name !== "Leo" && !(x.name === "Aditya" && x.status === "maybe"));
+      p.people = p.people
+        .filter((x: { name: string }) => x.name !== "Leo" && x.name !== "Sam" && !(x.name === "Aditya" && x.status === "maybe"))
+        .map((x: { name: string; status: string }) => (x.name === "Tsai Lin" ? { ...x, status: "maybe" } : x));
     },
     acts: [{ user: "theo", action: { t: "rsvp", value: "in" } }],
   },
@@ -217,9 +220,9 @@ export const TOOLS: Record<string, SeedTool> = {
       quote: "i would die for a record player tbh",
       quoteDate: "Sep 14",
       goalCents: 18000,
-      shareCents: 2000,
-      crew: ["Tsai Lin", "Aditya", "Calvin", "Arun", "Maya", "Rae", "Jules", "Hana", "Omar"],
-      paid: ["Maya", "Rae", "Jules"],
+      shareCents: 4500,
+      crew: ["Tsai Lin", "Aditya", "Calvin", "Arun"],
+      paid: [],
     },
     acts: [
       { user: "jonah", action: { t: "chip" } },
@@ -233,11 +236,31 @@ export const TOOLS: Record<string, SeedTool> = {
     name: "Two truths",
     summary: "Two truths and a lie · Tsai Lin's round · 1 of 1 guessed",
     line: "Will guessed",
-    renames: { Theo: "Arun", Dev: "Aditya", Jonah: "Calvin" },
-    params: { chat: "senior week" },
-    // the first round waits on the two of you
-    tweak: (p) => {
-      p.rounds[0].guesses = p.rounds[0].guesses.filter((g: { name: string }) => g.name !== "Will" && g.name !== "Tsai Lin");
+    // two people: a round about each, the first one waiting on Will
+    params: {
+      chat: "you two",
+      rounds: [
+        {
+          about: "Tsai Lin",
+          lie: 2,
+          facts: [
+            { claim: "Locked herself out of her car 3 times in one week", receipt: "Tsai Lin, Sep 12: “ok who has a coat hanger. again.”" },
+            { claim: "Cried during the Ratatouille rewatch", receipt: "Will: “Tsai Lin u good?” Tsai Lin: “onions”" },
+            { claim: "Is lactose intolerant", receipt: "Tsai Lin, every Friday: “large pie, extra cheese”" },
+          ],
+          guesses: [],
+        },
+        {
+          about: "Will",
+          lie: 0,
+          facts: [
+            { claim: "Has never lost to Tsai Lin in FIFA", receipt: "Tsai Lin, Oct 2: “Will 0, Tsai Lin 5. Screenshot this”" },
+            { claim: "Got carded buying a Lunchable", receipt: "Will, Aug 30: “cashier said ‘nice try little man’”" },
+            { claim: "Knows every word of Mamma Mia", receipt: "Tsai Lin, Jul 4: “he did the harmonies. All of them.”" },
+          ],
+          guesses: [],
+        },
+      ],
     },
     acts: [{ user: "priya", action: { t: "guess", fact: 1 } }],
   },
@@ -310,12 +333,10 @@ export const TOOLS: Record<string, SeedTool> = {
       baseCents: 2200,
       toppingCents: 125,
       tipPercent: 20,
-      wings: { label: "10 wings", cents: 1300, note: "Rae asked twice" },
+      wings: { label: "10 wings", cents: 1300, note: "Will asked twice" },
       crew: [
         { name: "Will", quote: "mush + olive. no pepp", toppings: [], whatever: false },
-        { name: "Rae", quote: "pineapple. don't @ me", toppings: ["pineapple"], whatever: false },
-        { name: "Maya", quote: "whatever", toppings: [], whatever: true },
-        { name: "Tsai Lin", quote: "", toppings: [], whatever: false },
+        { name: "Tsai Lin", quote: "pineapple. don't @ me", toppings: ["pineapple"], whatever: false },
       ],
     },
     acts: [
@@ -342,6 +363,29 @@ export async function paramsOf(t: SeedTool): Promise<Record<string, unknown>> {
   return out;
 }
 
+/**
+ * The summary a seeded tool shows once its friends' moves are in: the tool's own `summary` over the
+ * folded state, so the chat list, the pinned bar and search never disagree with the card (a summary
+ * typed by hand drifts from the tool's real numbers). Falls back to the typed one.
+ */
+async function summaryOf(toolId: string, t: SeedTool, code: string): Promise<string> {
+  const dir = mkdtempSync(join(import.meta.dir, ".sum-"));
+  try {
+    const file = join(dir, `${toolId}.js`);
+    writeFileSync(file, code);
+    const app = ((await import(file)) as { default: { init: (c: unknown) => unknown; reduce: (s: unknown, a: unknown, m: unknown, c: unknown) => unknown; summary?: (s: unknown, c: unknown) => string } }).default;
+    const ctx = { room: `tool:${toolId}`, members: chatMembers(toolId) };
+    let s = app.init(ctx);
+    for (const [i, a] of t.acts.entries()) s = app.reduce(s, a.action, { seq: i + 1, user: a.user, time: 1_700_000_000_000 + i * 60_000, seed: 7 + i }, ctx);
+    const text = app.summary?.(s, ctx);
+    return typeof text === "string" && text.trim() ? text.trim().slice(0, 200) : t.summary;
+  } catch {
+    return t.summary;
+  } finally {
+    rmSync(dir, { recursive: true, force: true });
+  }
+}
+
 /** The chats as the inbox loads them: three weeks of history each (services/demo/chats). */
 const allChats = (): Chat[] => historyChats(seedChats());
 
@@ -359,7 +403,7 @@ export async function seed(wsUrl: string, log: (s: string) => void = console.log
 
   const clients: RoomClient[] = [index];
   for (const c of chats) {
-    const members = c.members.map(wire);
+    const members = c.members;
     const memberList: Member[] = members.map((m) => ({ id: m, name: FIRST[m] ?? m }));
     const actions: ChatAction[] = [{ t: "create", name: c.name, kind: c.kind, members }];
     const toolIds: string[] = [];
@@ -367,18 +411,22 @@ export async function seed(wsUrl: string, log: (s: string) => void = console.log
     const idOf = (mid: string) => (mid.startsWith("!") ? mid.slice(1) : `${c.id}-${mid}`);
     for (const [i, m] of c.messages.entries()) {
       const id = idOf(m.id);
-      const as = wire(m.from);
+      const as = m.from;
       if (m.kind === "activity") continue; // derived live from the tool's own log
       if (m.kind === "muse") {
         const t = m.muse?.toolId ? TOOLS[m.muse.toolId] : undefined;
         if (!t || !m.muse?.toolId) continue;
         // the line before the card, unless the history wrote one
+        // one name per Mini: the Mini's own title, in the card, the pinned bar, this line and search
+        const src = await sourceOf({ tool: t.tool, params: await paramsOf(t) });
+        const name = miniName(src, t.name);
         if (c.messages[i - 1]?.kind !== "system") {
-          const sys = t.sys ?? { id: `${c.id}-${m.id}-built`, text: `**Muse** conjured **${t.name}** for this chat` };
+          const sys = t.sys ?? { id: `${c.id}-${m.id}-built`, text: `**Muse** conjured **${name}** for this chat` };
           actions.push({ t: "msg", id: sys.id, kind: "system", at: m.at, text: sys.text });
         }
-        const code = compileApp(await sourceOf({ tool: t.tool, params: await paramsOf(t) })).code;
-        actions.push({ t: "tool", id: m.muse.toolId, name: t.name, summary: t.summary, code, by: "muse", at: m.at } as ChatAction);
+        const code = compileApp(src).code;
+        t.summary = await summaryOf(m.muse.toolId, t, code);
+        actions.push({ t: "tool", id: m.muse.toolId, name, summary: t.summary, code, by: "muse", at: m.at } as ChatAction);
         toolIds.push(m.muse.toolId);
         continue;
       }
@@ -387,13 +435,13 @@ export async function seed(wsUrl: string, log: (s: string) => void = console.log
       else if (m.kind === "photo") actions.push({ ...base, t: "msg", kind: "photo", photo: m.photo! });
       else if (m.kind === "link") actions.push({ ...base, t: "msg", kind: "link", link: m.link!.site.startsWith("Reel ·") ? { ...m.link!, description: "Reels", shared: { kind: "reel", id: REELS[0]!.id } } : m.link! });
       else actions.push({ ...base, t: "msg", text: m.text ?? "" });
-      for (const r of m.reactions) for (const who of r.by) actions.push({ t: "react", msg: id, emoji: r.emoji, once: true, as: wire(who) });
+      for (const r of m.reactions) for (const who of r.by) actions.push({ t: "react", msg: id, emoji: r.emoji, once: true, as: who });
     }
     // Read receipts: who has seen the end of the chat.
     const last = [...c.messages].reverse().find((m) => m.kind !== "system" && m.kind !== "activity");
     if (last) {
       // everyone has read the end of the chat except the ones with an unread dot (UNREAD), who wrote it or not
-      const readers = members.filter((m) => m === wire(last.from) || !(UNREAD[c.id] ?? []).includes(m));
+      const readers = members.filter((m) => m === last.from || !(UNREAD[c.id] ?? []).includes(m));
       const lastId = last.kind === "muse" ? last.muse!.toolId! : idOf(last.id);
       for (const r of readers) actions.push({ t: "read", msg: lastId, as: r, at: last.at });
     }
@@ -445,12 +493,13 @@ export const firstName = (id: string) => FIRST[id] ?? id;
 export async function seededSource(toolId: string): Promise<{ source: string; piece: string; name: string } | null> {
   const t = TOOLS[toolId];
   if (!t) return null;
-  return { source: await sourceOf({ tool: t.tool, params: await paramsOf(t) }), piece: t.tool.replace(/^lab:/, ""), name: t.name };
+  const src = await sourceOf({ tool: t.tool, params: await paramsOf(t) });
+  return { source: src, piece: t.tool.replace(/^lab:/, ""), name: miniName(src, t.name) };
 }
 
 /** The members of the chat a seeded tool lives in, as its tool room sees them (checks). */
 export function chatMembers(toolId: string): Member[] {
   const chats = allChats();
   const c = chats.find((x) => x.messages.some((m) => m.muse?.toolId === toolId));
-  return (c?.members ?? []).map(wire).map((m) => ({ id: m, name: FIRST[m] ?? m }));
+  return (c?.members ?? []).map((m) => ({ id: m, name: FIRST[m] ?? m }));
 }

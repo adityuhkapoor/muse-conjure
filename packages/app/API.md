@@ -82,7 +82,8 @@ type Theme = {
 type ColorName = "primary" | "onPrimary" | "link" | "text" | "secondaryText" | "disabledText" | "card"
   | "wash" | "input" | "divider" | "secondaryButton" | "secondaryButtonText" | "deemphasizedButton"
   | "deemphasizedButtonText" | "track" | "selected" | "hover" | "pressed" | "positive" | "negative"
-  | "warning" | "toast" | "onToast" | "series1" | "series2" | "series3" | "series4" | "series5" | "series6";
+  | "warning" | "toast" | "onToast" | "onPositive" | "onNegative" | "onWarning"
+  | "series1" | "series2" | "series3" | "series4" | "series5" | "series6";
 function userColor(member: string | Member, theme: Theme): string; // distinct per person in this chat (12)
 ```
 Take every color from `theme.color` or `userColor` (inline styles and Canvas alike); CSS can use
@@ -91,6 +92,12 @@ Take every color from `theme.color` or `userColor` (inline styles and Canvas ali
 are pre-styled. Height at rest: 420 px or less in a chat, 600 in a story. Text must fit its box
 at width 320: let it wrap, or give it `overflow: hidden; text-overflow: ellipsis; white-space: nowrap`.
 Tap targets are at least 44 px; the components already are.
+
+For text or an icon drawn on a filled background, pair it with that fill's own "on" color:
+`onPrimary` on `primary`, `onPositive` on `positive`, `onNegative` on `negative`, `onWarning` on
+`warning`. `theme.color.text` reads only on `card`, `wash` or `input`. Series colors
+(`series1`-`series6`) are for a small mark, dot, avatar ring or stroke only, never the fill
+behind a label or button: most of them fail AA contrast with any single text color.
 
 ## Components (props)
 

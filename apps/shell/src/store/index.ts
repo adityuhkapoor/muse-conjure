@@ -9,8 +9,9 @@ import { chosenIdentity, liveConfig, urlIdentity } from "../live/config";
  * an identity chosen: the server-backed store. Otherwise the in-memory fake (screenshots, checks).
  */
 const as = liveConfig ? chosenIdentity() : null;
-setViewer(as ?? urlIdentity() ?? "noa");
-export const store: ChatStore = as ? new LiveStore(as) : new FakeStore(urlIdentity());
+// With no one chosen, the seeded world's main character is the viewer: Aditya (dev).
+setViewer(as ?? urlIdentity() ?? "dev");
+export const store: ChatStore = as ? new LiveStore(as) : new FakeStore();
 /** Live mode, but nobody picked who they are yet: main.ts shows "Continue as". */
 export const needsIdentity = !!liveConfig && !as;
 export type { ChatStore };

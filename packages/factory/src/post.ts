@@ -19,7 +19,8 @@ import { compose, type ComposeEvent } from "./compose.ts";
 import { labExample } from "./lab.ts";
 import { GROUNDING_RULE, groundQuotes } from "./leak.ts";
 import { catalog, catalogText } from "./router.ts";
-import type { ModelClient } from "./types.ts";
+import { contentAtoms, fillSpec } from "./fillnet.ts";
+import type { Effort, ModelClient } from "./types.ts";
 
 export type PostInput = {
   text: string;
@@ -69,8 +70,9 @@ function pickSystem(): string {
     "Give the author real choices: the 3 picks should do different things (for example a vote on something in the post, a guessing game for friends, a recap or map of a trip, a list friends add recommendations to), not three versions of one idea.",
     "Good picks use what the post is about, so friends answer about it: a vote or bracket over things in the post or things like them, a guessing game about where, what or who, a trip story or recap, a list friends add recommendations to, a challenge, a sign-up or claim list. Avoid tools that ignore the post's content (random pickers, face toys, generic bets).",
     "Pick tools whose content can be written for this post. A tool made for a chat or an event can still fit a post when friends can play it from the feed.",
-    "Set nothing_fits to true, with no picks, only when no tool in the catalog could be filled for this post in a way its friends would enjoy.",
-    "reply: when nothing fits, one plain sentence to the author, in sentence case with no exclamation mark, saying what the post is and that nothing ready-made suits it, so Muse can make something new (for example \"A broken chain is a fix, not a game, so nothing ready-made fits.\"). Empty when you picked tools.",
+    "A tool is the default. A post that only shares a mood, a thought or a one-liner (for example \"im feeling funny\", \"bored\", \"long day\") still gets picks: tools that let friends answer the author, such as a caption or joke contest, a guessing game about the author, a vote on what they should do next, a dare or a ranking. Write the reason so it names the mood or line in the post.",
+    "Set nothing_fits to true, with no picks, only when a game or tool would be wrong for the post: grief, an emergency, a serious health or safety matter, or a request for something harmful. Never because the post is short or vague.",
+    "reply: when nothing fits, one plain sentence to the author, in sentence case with no exclamation mark, saying why a tool does not suit this post. Empty when you picked tools.",
     "",
     "Catalog:",
     catalogText(),
@@ -96,9 +98,10 @@ function fillSystem(): string {
   ].join("\n");
 }
 
-function fillUser(p: PostInput, id: string, reason: string): string {
+function fillUser(p: PostInput, id: string, reason: string, again?: string): string {
   const meta = readFileSync(join(LAB_DIR, id, "meta.json"), "utf8");
-  return `Tool: ${id}\nWhy it was picked: ${reason}\nmeta.json:\n${meta}\n\nexample params (shape only, someone else's content):\n${JSON.stringify(labExample(id))}\n\n${postLines(p)}`;
+  const base = `Tool: ${id}\nWhy it was picked: ${reason}\nmeta.json:\n${meta}\n\nexample params (shape only, someone else's content):\n${JSON.stringify(labExample(id))}\n\n${postLines(p)}`;
+  return again ? `${base}\n\nYour last answer was turned down: ${again}. Write the whole fill again without that problem.` : base;
 }
 
 const parse = <T>(text: string): T => JSON.parse(text.trim().replace(/^```(?:json)?\s*|\s*```$/g, "")) as T;
@@ -145,6 +148,48 @@ export function leaks(id: string, params: Record<string, unknown>, allowed: stri
   return [...new Set(strings(params).filter((s) => ex.has(s.trim().toLowerCase())))];
 }
 
+/** One fill of one pick on one model at one effort. Throws when it does not hold up (malformed, empty, or the example's words kept). */
+async function fillOnce(p: PostInput, pick: PostPick, model: ModelClient, effort: Effort, again?: string): Promise<PostFilled> {
+  const raw = parse<{ title: string; read: string; params_json: string; suggested: string[] }>(
+    await model.complete({ label: "post-fill", system: fillSystem(), messages: [{ role: "user", content: fillUser(p, pick.id, pick.reason, again) }], json: { name: "post_fill", schema: FILL_SCHEMA }, effort }),
+  );
+  const obj = JSON.parse(raw.params_json) as unknown;
+  if (!obj || typeof obj !== "object" || Array.isArray(obj)) throw new Error("params_json is not an object");
+  const params = groundQuotes(complete(obj as Record<string, unknown>, labExample(pick.id)), [p.text, p.photo ?? "", p.me, ...p.friends].join("\n")).params;
+  const leaked = leaks(pick.id, params, [p.me, ...p.me.split(" "), ...p.friends]);
+  if (leaked.length) throw new Error(`kept the example's ${leaked.slice(0, 3).map((s) => `"${s}"`).join(", ")}`);
+  if (contentAtoms(params) === 0) throw new Error("the fill is empty: write the tool's content for this post");
+  const inParams = new Set(strings(params));
+  return { id: pick.id, name: pick.name, title: String(raw.title ?? pick.name).slice(0, 80), read: String(raw.read ?? "").slice(0, 120), params, suggested: (raw.suggested ?? []).filter((s) => inParams.has(s) && s.length <= 28 && s !== p.me && !p.friends.includes(s)).slice(0, 12) };
+}
+
+/**
+ * Fill a pick. With a fast model and a larger one (Muse: Ember, then contributor Spark) the fast
+ * model goes first at minimal effort and the net of fillnet.ts applies: a fill that does not hold
+ * up is retried on the fast model at low effort with the reason, then on the larger one at minimal.
+ * MUSE_FILL=spark: the larger model alone at low effort, as before.
+ */
+export async function fillPick(p: PostInput, pick: PostPick, models: { router: ModelClient; filler: ModelClient }): Promise<PostFilled | { why: string }> {
+  const spec = fillSpec();
+  const net = spec.mode === "net" && models.router !== models.filler && models.router.id.startsWith("muse") && models.filler.id.startsWith("muse");
+  const steps: { model: ModelClient; effort: Effort }[] = net
+    ? [
+        { model: models.router, effort: spec.firstEffort },
+        { model: models.router, effort: spec.retryEffort },
+        { model: models.filler, effort: spec.fallbackEffort },
+      ]
+    : [{ model: models.filler, effort: spec.sparkEffort }];
+  let why = "";
+  for (const s of steps) {
+    try {
+      return await fillOnce(p, pick, s.model, s.effort, why || undefined);
+    } catch (e) {
+      why = (e as Error).message.slice(0, 200);
+    }
+  }
+  return { why };
+}
+
 const picksCache = new Map<string, { picks: PostPick[]; nothingFits: boolean; reply: string }>();
 const fillCache = new Map<string, PostFilled | { why: string }>();
 
@@ -167,22 +212,9 @@ export async function routePost(p: PostInput, models: { router: ModelClient; fil
   await Promise.all(
     decided.picks.slice(0, o.fill ?? 3).map(async (pick) => {
       const fk = `${key}:${pick.id}:${models.filler.id}`;
-      let f = fillCache.get(fk);
+      let f = process.env.MUSE_NO_CACHE ? undefined : fillCache.get(fk);
       if (!f) {
-        try {
-          const raw = parse<{ title: string; read: string; params_json: string; suggested: string[] }>(
-            await models.filler.complete({ label: "post-fill", system: fillSystem(), messages: [{ role: "user", content: fillUser(p, pick.id, pick.reason) }], json: { name: "post_fill", schema: FILL_SCHEMA }, effort: "low" }),
-          );
-          const obj = JSON.parse(raw.params_json) as unknown;
-          if (!obj || typeof obj !== "object" || Array.isArray(obj)) throw new Error("params_json is not an object");
-          const params = groundQuotes(complete(obj as Record<string, unknown>, labExample(pick.id)), [p.text, p.photo ?? "", p.me, ...p.friends].join("\n")).params;
-          const leaked = leaks(pick.id, params, [p.me, ...p.me.split(" "), ...p.friends]);
-          if (leaked.length) throw new Error(`kept the example's ${leaked.slice(0, 3).map((s) => `"${s}"`).join(", ")}`);
-          const inParams = new Set(strings(params));
-          f = { id: pick.id, name: pick.name, title: String(raw.title ?? pick.name).slice(0, 80), read: String(raw.read ?? "").slice(0, 120), params, suggested: (raw.suggested ?? []).filter((s) => inParams.has(s) && s.length <= 28 && s !== p.me && !p.friends.includes(s)).slice(0, 12) };
-        } catch (e) {
-          f = { why: (e as Error).message.slice(0, 200) };
-        }
+        f = await fillPick(p, pick, models);
         fillCache.set(fk, f);
       }
       if ("why" in f) emit({ t: "unfilled", id: pick.id, why: f.why });

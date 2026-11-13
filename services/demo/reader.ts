@@ -27,9 +27,11 @@ import { CACHE_DIR, hashOf } from "../../packages/factory/src/cache.ts";
 import { labExample } from "../../packages/factory/src/lab.ts";
 import { GROUNDING_RULE, groundQuotes, leaks, overShape, strings } from "../../packages/factory/src/leak.ts";
 import { makeModel } from "../../packages/factory/src/models/index.ts";
+import { contentAtoms, fillSpec } from "../../packages/factory/src/fillnet.ts";
 import { catalog, catalogText } from "../../packages/factory/src/router.ts";
-import type { ModelClient } from "../../packages/factory/src/types.ts";
+import type { Effort, ModelClient } from "../../packages/factory/src/types.ts";
 import { available } from "./premade.ts";
+import { ME } from "../../apps/shell/src/store/types.ts";
 
 export type Person = { id: string; name: string };
 
@@ -115,7 +117,7 @@ export function canon(text: string, people: Person[]): string {
 
 export function uncanon(text: string, people: Person[]): string {
   const by = new Map(people.map((p) => [p.id, p.name]));
-  return text.replace(/⟨([^⟩]+)⟩/g, (m, id: string) => by.get(id) ?? (id === "me" ? "You" : id));
+  return text.replace(/⟨([^⟩]+)⟩/g, (m, id: string) => by.get(id) ?? (id === ME ? "You" : id));
 }
 
 const mapStrings = (v: unknown, f: (s: string) => string): unknown =>
@@ -243,27 +245,55 @@ const parse = <T>(text: string): T => JSON.parse(text.trim().replace(/^```(?:jso
 /** Everything a filled tool may draw from. */
 export const contextText = (i: Pick<ReadInput, "page" | "people" | "ask">) => [i.page, i.ask ?? "", ...i.people.map((p) => p.name)].join("\n");
 
-/** Fill one tool for a page: one retry when example strings leak, then null. */
-export async function fillTool(model: ModelClient, i: ReadInput, o: { tool: string; label: string; read: string; fresh?: boolean }): Promise<{ params: Record<string, unknown>; retried: boolean; leaked: string[] } | { why: string; leaked: string[] }> {
+/**
+ * Fill one tool for a page. With a fast model beside the main one (Muse: Ember, contributor Spark)
+ * the fast model goes first at minimal effort, then once more at low effort with what went wrong
+ * named, then the main model at minimal effort (the net of packages/factory/src/fillnet.ts): a fill
+ * is turned down when it is malformed, empty, or keeps the example's strings. MUSE_FILL=spark: the
+ * main model alone at low effort with one retry for leaked strings, as before.
+ */
+export async function fillTool(model: ModelClient, i: ReadInput, o: { tool: string; label: string; read: string; fresh?: boolean; /** the fast model that fills first */ fast?: ModelClient }): Promise<{ params: Record<string, unknown>; retried: boolean; leaked: string[] } | { why: string; leaked: string[] }> {
   const id = o.tool.replace(/^lab:/, "");
   const example = labExample(id);
   const ctx = contextText(i);
+  const spec = fillSpec();
+  const net = spec.mode === "net" && !!o.fast && o.fast !== model && o.fast.id.startsWith("muse") && model.id.startsWith("muse");
+  const steps: { m: ModelClient; effort: Effort }[] = net
+    ? [
+        { m: o.fast!, effort: spec.firstEffort },
+        { m: o.fast!, effort: spec.retryEffort },
+        { m: model, effort: spec.fallbackEffort },
+      ]
+    : [
+        { m: model, effort: spec.sparkEffort },
+        { m: model, effort: spec.sparkEffort },
+      ];
   let leaked: string[] = [];
-  for (let attempt = 0; attempt < 2; attempt++) {
+  let why = "";
+  for (const [attempt, step] of steps.entries()) {
     let obj: unknown;
     try {
-      const r = parse<{ params_json: string }>(await model.complete({ label: "reader-fill", system: fillSystem(o.fresh), messages: [{ role: "user", content: fillUser(i, o, leaked) }], json: { name: "reader_fill", schema: FILL_SCHEMA }, effort: "low", ...(attempt ? { nonce: 1 } : {}) } as Parameters<ModelClient["complete"]>[0]));
+      const r = parse<{ params_json: string }>(await step.m.complete({ label: "reader-fill", system: fillSystem(o.fresh), messages: [{ role: "user", content: fillUser(i, o, leaked) }], json: { name: "reader_fill", schema: FILL_SCHEMA }, effort: step.effort, ...(attempt ? { nonce: attempt } : {}) } as Parameters<ModelClient["complete"]>[0]));
       obj = JSON.parse(r.params_json);
     } catch (e) {
-      return { why: `fill failed: ${(e as Error).message.slice(0, 160)}`, leaked };
+      why = `fill failed: ${(e as Error).message.slice(0, 160)}`;
+      if (!net) return { why, leaked };
+      continue;
     }
-    if (!obj || typeof obj !== "object" || Array.isArray(obj)) return { why: "params_json is not an object", leaked };
+    if (!obj || typeof obj !== "object" || Array.isArray(obj)) {
+      why = "params_json is not an object";
+      if (!net) return { why, leaked };
+      continue;
+    }
     const params = groundQuotes(overShape(example, obj as Record<string, unknown>), ctx).params;
     const now = leaks(id, params, ctx);
-    if (!now.length) return { params, retried: attempt > 0, leaked };
-    leaked = now;
+    if (!now.length && !(net && contentAtoms(params) === 0)) return { params, retried: attempt > 0, leaked };
+    if (now.length) {
+      leaked = now;
+      why = `kept the example's ${leaked.slice(0, 4).map((s) => `"${s}"`).join(", ")}`;
+    } else why = "the fill is empty";
   }
-  return { why: `kept the example's ${leaked.slice(0, 4).map((s) => `"${s}"`).join(", ")}`, leaked };
+  return { why: why || `kept the example's ${leaked.slice(0, 4).map((s) => `"${s}"`).join(", ")}`, leaked };
 }
 
 // ---------------------------------------------------------------- reading
@@ -319,7 +349,7 @@ async function readLive(i: ReadInput, key: string, m: NonNullable<Models>, onPic
   }
   const pickMs = ms();
   onPicks?.(picks);
-  const fills = await Promise.all(picks.map((p) => fillTool(m.fill, i, p)));
+  const fills = await Promise.all(picks.map((p) => fillTool(m.fill, i, { ...p, fast: m.pick })));
   const offers: Offer[] = [];
   const leakLog: { tool: string; leaked: string[]; retried: boolean; dropped: boolean }[] = [];
   for (const [n, p] of picks.entries()) {
@@ -352,7 +382,7 @@ export async function refillForChat(b: { tool: string; idea: string; chat: { tit
   if (!available(`lab:${id}`)) return { error: `no lab tool ${id}` };
   const page = [`Group chat: ${b.chat.title ?? "a group chat"}`, `Members: ${b.members.map((x) => x.name).join(", ")}`, "Recent messages:", ...b.chat.messages.slice(-30).map((x) => `${x.from}: ${x.text}`)].join("\n");
   const i: ReadInput = { surface: "chat", object: { kind: "chat", id: "chat" }, page, did: ["use for my group"], people: b.members };
-  const f = await fillTool(m.fill, i, { tool: id, label: b.idea, read: `the same idea, made for ${b.chat.title ?? "this chat"}`, fresh: true });
+  const f = await fillTool(m.fill, i, { tool: id, label: b.idea, read: `the same idea, made for ${b.chat.title ?? "this chat"}`, fresh: true, fast: m.pick });
   const ms = Math.round(performance.now() - t0);
   log({ refill: id, idea: b.idea, chat: b.chat.title ?? null, ok: !("why" in f), leak: f.leaked, ms, model: m.fill.id });
   return "why" in f ? { error: f.why } : { params: f.params, ms };
@@ -370,7 +400,7 @@ function parseInput(b: Record<string, unknown>): ReadInput | null {
     object: { kind: obj.kind.slice(0, 20), id: obj.id.slice(0, 120) },
     page,
     did: (Array.isArray(b.did) ? b.did : []).filter((x): x is string => typeof x === "string").slice(-6).map((x) => x.slice(0, 120)),
-    people: people.length ? people : [{ id: "me", name: "You" }],
+    people: people.length ? people : [{ id: ME, name: "You" }],
     ...(typeof b.ask === "string" && b.ask.trim() ? { ask: b.ask.trim().slice(0, 300) } : {}),
     ...(b.unprompted === true ? { unprompted: true } : {}),
   };

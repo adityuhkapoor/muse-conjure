@@ -5,6 +5,8 @@ import type { Chat, ChatSpec, EventInfo, Message, Note, Person, PersonId, Rsvp, 
 import { ME } from "./types";
 import { EXTRA_PEOPLE } from "./extras";
 import { looksStuck } from "../lib/muse";
+import { isGame, isKitAsk, planIn, usd } from "../lib/kit";
+import { listing } from "../surfaces/data";
 import {
   chatIdForKey,
   chatReducer,
@@ -19,12 +21,14 @@ import {
   type IndexState,
   type WireMsg,
 } from "../live/chat-reducer";
-import { CAST, frameUrls, generateUrl, liveConfig, reloadOnRestart, wireId, wsUrl } from "../live/config";
+import { CAST, frameUrls, generateUrl, liveConfig, reloadOnRestart, wsUrl } from "../live/config";
 import { BuildError, generate, LINES, type GenerateBody } from "../live/factory";
 import { initFrames, mountTool, type Mounted } from "../live/frames";
 import { openRoom, type Room } from "../live/rooms";
 import { openSocket, rid, type Socket } from "../live/socket";
 import { toolAvatar, whenPhotosReady } from "../lib/tool-avatar";
+import { youRest } from "../lib/you";
+import { miniName } from "@muse/protocol";
 // surfaces (src/surfaces)
 import { isSurfaceKey } from "../surfaces/backing";
 import type { ContextWire, PremadeWire } from "../muse/types"; // catalysts
@@ -68,6 +72,9 @@ const BLANK_PIECE: Record<string, { piece: string; params: (title: string) => Re
 };
 
 type Live = { state: ChatState; confirmed: ChatState };
+
+/** The chip that prices a plan on Marketplace (not a template: buildTool turns it into a kit). */
+const KIT_CHIP = "muse-kit";
 
 /**
  * ChatStore backed by the server. Each chat is a `@muse/sync` replica of room `t:<id>` folding
@@ -227,7 +234,7 @@ export class LiveStore implements ChatStore {
           chat: c.id,
           appId: "live",
           name: m.tool.name,
-          summary: stripName(live?.summary ?? "", m.tool.name),
+          summary: stripName(live?.summary ?? "", m.tool.name, st.name),
           last: last ? { by: this.#v(last.by), did: last.at === m.at ? "made it" : "used it", at: last.at } : null,
           needsMe: !!last && last.by !== this.myId && last.at > myRead,
           cardId: m.id,
@@ -248,7 +255,12 @@ export class LiveStore implements ChatStore {
       const t = m.tool;
       if (!t?.code) continue;
       for (const e of st.tools[t.id]?.log ?? []) {
-        const first = this.#people.get(e.by)?.first ?? "Someone";
+        const first = this.#people.get(e.by)?.first;
+        if (!first) {
+          // a log entry from someone the cast does not know: show nothing rather than "Someone"
+          if (import.meta.env.DEV) console.warn(`activity line: no person ${e.by}`);
+          continue;
+        }
         const text = activityLine(e.text, t.name, first, e.by === this.myId);
         const act: Message = { id: `act-${t.id}-${e.at}-${e.by}`, from: "system", kind: "activity", text, at: e.at, reactions: [], activity: { toolId: t.id } };
         const i = messages.findIndex((x) => x.at > e.at);
@@ -282,13 +294,14 @@ export class LiveStore implements ChatStore {
     if (m.photo) base.photo = m.photo;
     if (m.link) base.link = m.link;
     if (m.chip) base.chip = m.chip;
+    if (m.kit) base.kit = m.kit;
     if (pending && m.from === this.myId) base.pending = true;
     if (m.tool) {
       const t = m.tool;
       const stage = this.#building[t.id]?.stage;
       base.muse = t.building
         ? { appId: "live", title: t.name, subtitle: stage || "Made with Muse", building: true }
-        : { appId: "live", title: t.name, subtitle: "Made with Muse", toolId: t.id, live: true, rev: t.rev ?? 0, ...(t.changing ? { changing: true } : {}) };
+        : { appId: "live", title: t.name, subtitle: "Made with Muse", toolId: t.id, live: true, rev: t.rev ?? 0, ...(t.changing ? { changing: true } : {}), ...(isGame(t) ? { game: true } : {}), ...(t.by === this.myId ? { mine: true } : {}) };
     }
     return base;
   }
@@ -320,6 +333,8 @@ export class LiveStore implements ChatStore {
     if (opts.changeTool && !target && all.some((m) => m.tool?.id === opts.changeTool && m.tool?.building)) return void this.#dispatch(chatId, { t: "msg", id: rid("m-"), kind: "system", text: "Still conjuring that one. Try again in a moment" });
     if (target) return void this.#change(chatId, body, target.tool!.id);
     if (!isMention(body)) return;
+    // A plan that needs stuff ("we want to go camping, what do we need?"): Marketplace, not a tool.
+    if (isKitAsk(body)) return void this.#kit(chatId, body);
     // A "muse ..." in a chat that has a tool may be about that tool: Muse decides, else builds anew.
     const st = this.#chatStates[chatId]?.state;
     // a second ask while Muse is still making the first waits its turn, then goes through the same way
@@ -419,8 +434,8 @@ export class LiveStore implements ChatStore {
   }
   get notes(): readonly Note[] {
     return seedNotes()
-      .filter((n) => wireId(n.by) !== this.myId)
-      .map((n) => ({ ...n, by: this.#v(wireId(n.by)) }));
+      .filter((n) => n.by !== this.myId)
+      .map((n) => ({ ...n, by: this.#v(n.by) }));
   }
 
   suggestion(chatId: string): Suggestion | null {
@@ -433,13 +448,21 @@ export class LiveStore implements ChatStore {
   suggestions(chatId: string): Suggestion[] {
     const chat = this.chat(chatId);
     if (!chat || this.#dismissed.includes(chatId)) return [];
-    return labChips(chat.messages).map((t) => ({ chatId, templateId: t.id, label: t.name }));
+    // A plan in the chat that usually needs stuff: Muse offers to price it on Marketplace first.
+    const plan = planIn(chat.name, chat.messages);
+    const kit: Suggestion[] = plan ? [{ chatId, templateId: KIT_CHIP, label: "What do we need?" }] : [];
+    return [...kit, ...labChips(chat.messages).map((t) => ({ chatId, templateId: t.id, label: t.name }))].slice(0, 3);
   }
   dismissSuggestion(chatId: string): void {
     if (!this.#dismissed.includes(chatId)) this.#dismissed.push(chatId);
   }
 
   buildTool(chatId: string, templateId: string, opts: { title?: string; blank?: boolean; lab?: boolean } = {}): void {
+    if (templateId === KIT_CHIP) {
+      const chat = this.chat(chatId);
+      const plan = chat ? planIn(chat.name, chat.messages) : null;
+      return void this.#kit(chatId, `muse what do we need for the ${plan ?? "plan"}?`);
+    }
     // a chip Muse offered names any lab Mini by id, not only the menu's
     const lab = labItem(templateId) ?? (opts.lab ? { id: templateId, name: opts.title ?? templateId } : undefined);
     if (lab) {
@@ -510,7 +533,7 @@ export class LiveStore implements ChatStore {
       const body: GenerateBody & { premade?: PremadeWire } = { ...r.body, premade: { ...r.body.premade!, choices: rest } };
       const b = await generate(generateUrl().replace(/\/generate$/, "/premade"), body, () => {});
       r.tried.push(b.piece ?? rest[0]!.tool);
-      room.dispatch({ t: "tool", id: toolId, name: r.name, summary: b.summary, code: b.code, by: this.myId } satisfies ChatAction);
+      room.dispatch({ t: "tool", id: toolId, name: miniName(b.source ?? "", r.name), summary: b.summary, code: b.code, by: this.myId } satisfies ChatAction);
       await until(() => this.#chatStates[r.chatId]?.state.messages.find((m) => m.tool?.id === toolId)?.tool?.code === b.code, 5000);
       return true;
     } catch (e) {
@@ -553,21 +576,26 @@ export class LiveStore implements ChatStore {
       ...(liveConfig?.model ? { model: liveConfig.model } : {}),
     };
     let isNew = false;
+    // the ask may turn out to be a change to a Mini already here: routing starts at once and is dropped then
+    const speculative = new AbortController();
     const once = () =>
       generate(o.premade ? generateUrl().replace(/\/generate$/, "/premade") : generateUrl(), body, (p) => {
         // a new Mini (not one from the library) takes about a minute: say so while it is made
         if (p.t === "routed" && p.path === "build") isNew = true;
-        const stage = isNew && p.t !== "ready" ? NEW_STAGE : (STAGES[p.t] ?? this.#building[id]?.stage ?? "");
+        // the Mini is known before its check ends: the card says which one it is setting up
+        const stage = isNew && p.t !== "ready" ? NEW_STAGE : p.t === "routed" && typeof p.name === "string" && p.name ? `Setting up ${p.name}` : (STAGES[p.t] ?? this.#building[id]?.stage ?? "");
         this.#building = { ...this.#building, [id]: { stage, at: Date.now() } };
         room.eph("building", { id, stage });
-      });
+      }, speculative.signal);
     // two asks at once (someone else's build in this chat): wait a moment and try once more, silently
     const run = () => once().catch(async (e) => {
       if (!(e instanceof BuildError) || e.code !== "busy") throw e;
       await new Promise((r) => setTimeout(r, 8000));
       return once();
     });
-    (o.decide ? o.decide.then((changed) => (changed ? null : run())) : run())
+    const routing = o.decide ? run() : null;
+    routing?.catch(() => {});
+    (o.decide ? o.decide.then((changed) => (changed ? (speculative.abort(), null) : routing!)) : run())
       .then((b) => {
         if (!b) {
           room.dispatch({ t: "tool-failed", id, text: "Changing that Mini" } satisfies ChatAction);
@@ -578,8 +606,10 @@ export class LiveStore implements ChatStore {
           room.dispatch({ t: "tool-failed", id, text: b.reply || LINES.failed, code: b.why ?? "failed", ...(b.chip ? { chip: b.chip } : {}) } satisfies ChatAction);
           return;
         }
-        room.dispatch({ t: "tool", id, name: b.name || o.title, summary: b.summary, code: b.code, by: this.myId } satisfies ChatAction);
-        if (o.premade) this.#premades.set(id, { chatId, body, name: b.name || o.title, tried: [b.piece ?? o.premade.choices[0]?.tool ?? ""] }); // catalysts: for a retry
+        // one name per Mini: its own title, never the chat's name or a line from the chat
+        const name = miniName(b.source ?? "", b.name || o.title);
+        room.dispatch({ t: "tool", id, name, summary: b.summary, code: b.code, by: this.myId, ...(b.piece ? { piece: b.piece } : o.piece ? { piece: o.piece } : {}) } satisfies ChatAction);
+        if (o.premade) this.#premades.set(id, { chatId, body, name, tried: [b.piece ?? o.premade.choices[0]?.tool ?? ""] }); // catalysts: for a retry
         (window as unknown as { __museBuilt?: unknown[] }).__museBuilt?.push({ id, path: b.path, ms: b.ms });
       })
       .catch((e) => {
@@ -592,6 +622,74 @@ export class LiveStore implements ChatStore {
         room.eph("building", null);
       });
     return id;
+  }
+
+  // --- tool menu: delete, end game -----------------------------------------------------------
+
+  #chatOfTool(toolId: string) {
+    return Object.entries(this.#chatStates).find(([, l]) => l.state.messages.some((m) => m.tool?.id === toolId))?.[0];
+  }
+  #myFirst() {
+    return this.#people.get(this.myId)?.first ?? this.myId;
+  }
+  /** Anyone in the chat takes a tool out; its card becomes one line. */
+  removeTool(toolId: string): void {
+    const chatId = this.#chatOfTool(toolId);
+    if (chatId) this.#dispatch(chatId, { t: "tool-remove", id: toolId, name: this.#myFirst() });
+  }
+  /** Whoever started a game ends it; it starts over, fresh, for everyone. */
+  restartTool(toolId: string): void {
+    const chatId = this.#chatOfTool(toolId);
+    if (chatId) this.#dispatch(chatId, { t: "tool-restart", id: toolId, name: this.#myFirst() });
+  }
+
+  // --- kit: what a plan needs, from Marketplace (services/demo/kit.ts) ------------------------
+
+  #kit(chatId: string, ask: string): void {
+    const live = this.#chatStates[chatId];
+    const room = this.#room(chatId);
+    if (!live || !room || live.state.messages.some((m) => m.kind === "kit" && !m.kit)) return;
+    const id = rid("k-");
+    room.dispatch({ t: "kit-pending", id, ask } satisfies ChatAction);
+    const name = (w: string) => this.#people.get(w)?.first ?? w;
+    const st = live.state;
+    const said = st.messages.filter((m) => m.kind === "text" && m.from !== "system").map((m) => ({ from: m.from === "muse" ? "Muse" : name(m.from), text: m.text ?? "" }));
+    fetch(generateUrl().replace(/\/generate$/, "/kit"), {
+      method: "POST",
+      headers: { "content-type": "application/json" },
+      body: JSON.stringify({ ask, chat: { title: st.name, messages: said.slice(-40) }, members: st.members.map((m) => ({ id: m, name: name(m) })) }),
+    })
+      .then(async (res) => {
+        const r = (await res.json()) as { kit?: unknown; error?: string };
+        if (r.kit) room.dispatch({ t: "kit", id, kit: r.kit as never } satisfies ChatAction);
+        else room.dispatch({ t: "kit-failed", id, text: r.error ?? "Muse couldn't price that out right now" } satisfies ChatAction);
+      })
+      .catch(() => room.dispatch({ t: "kit-failed", id, text: "Muse couldn't price that out right now" } satisfies ChatAction));
+  }
+
+  /** "Who brings what": the library's claim list, one row per need nobody covers yet. */
+  kitClaims(chatId: string, msgId: string): void {
+    const m = this.#chatStates[chatId]?.state.messages.find((x) => x.id === msgId);
+    if (!m?.kit || m.kit.claims) return;
+    const items = m.kit.items.filter((i) => !i.covered);
+    // Rows are keyed by label in the piece, so two needs with the same name get what each one is.
+    const base = items.map((i) => (i.qty > 1 ? `${i.need} ×${i.qty}` : i.need));
+    const labels = base.map((t, k) => {
+      if (base.indexOf(t) === base.lastIndexOf(t)) return t;
+      const it = items[k]!;
+      const what = it.listing ? listing(it.listing)?.title : it.online?.title;
+      return what ? `${t}: ${what}` : `${t} (${base.slice(0, k + 1).filter((x) => x === t).length})`;
+    });
+    const id = this.#build(chatId, { ask: `muse who's bringing what for ${m.kit.title}`, title: `${m.kit.title}: who brings what`, piece: "claims", params: { title: `${m.kit.title}: who brings what`, items: labels.map((label) => ({ label: label.slice(0, 60), need: 1 })), perPerson: 0, allowAdd: true, checkable: false } });
+    if (id) this.#dispatch(chatId, { t: "kit-link", id: msgId, claims: id });
+  }
+
+  /** "Split": the library's bill split, even, for the kit's total. */
+  kitSplit(chatId: string, msgId: string): void {
+    const m = this.#chatStates[chatId]?.state.messages.find((x) => x.id === msgId);
+    if (!m?.kit || m.kit.split || !m.kit.total) return;
+    const id = this.#build(chatId, { ask: `muse split ${usd(m.kit.total)} for ${m.kit.title}`, title: m.kit.title, piece: "split", params: { title: m.kit.title, payer: this.#myFirst(), mode: "even", totalCents: Math.round(m.kit.total * 100), items: [] } });
+    if (id) this.#dispatch(chatId, { t: "kit-link", id: msgId, split: id });
   }
 
   #chatOfPending(id: string): string | undefined {
@@ -702,21 +800,34 @@ export class LiveStore implements ChatStore {
 
   landPiece(spec: LandSpec): string {
     let chatId = spec.chatId;
+    /** a chat someone already made from the same thing (same key): this viewer may not be in it yet */
+    let existing = false;
     if (!chatId && spec.newChat) {
       const nc = spec.newChat;
       const found = this.#indexState.chats.find((c) => c.key === nc.key);
       chatId = found?.id ?? chatIdForKey(nc.key);
+      existing = !!found;
       if (!found) {
         this.#index.dispatch({ t: "chat", id: chatId, key: nc.key });
-        this.#open(chatId).dispatch({ t: "create", name: nc.name, kind: "group", members: nc.members.map(this.#w), key: nc.key } satisfies ChatAction);
+        this.#open(chatId).dispatch({ t: "create", name: nc.name, kind: "group", members: [...new Set([this.myId, ...nc.members.map(this.#w)])], key: nc.key } satisfies ChatAction);
       }
     }
     if (!chatId) throw new Error("landPiece: no chat");
     const id = chatId;
     const room = this.#open(id);
     const go = () => {
+      const st = room.state;
+      if (existing && !st.members.includes(this.myId)) {
+        // join it rather than open a chat this viewer is not in; its tools hear about the new member
+        room.dispatch({ t: "join", who: [this.myId] } satisfies ChatAction);
+        for (const m of st.messages) if (m.tool?.code) this.#mounted.get(m.tool.id)?.setMembers(this.#membersOf(id, [this.myId]));
+      }
+      // made once per key: a second person asking for the same thing opens the one already there
+      if (existing && st.messages.some((m) => m.kind === "muse" && m.tool?.name === spec.title)) return;
       if (spec.source && !spec.premade?.refill) room.dispatch({ t: "msg", id: spec.source.id ?? rid(`${SOURCE_PREFIX}${spec.source.surface.toLowerCase()}-`), kind: "system", text: spec.source.text } satisfies ChatAction);
-      this.#build(id, { ask: spec.ask, title: spec.title, ...(spec.premade?.refill ? { sent: `**${this.#people.get(this.myId)?.first ?? "Someone"}** sent a Mini · ${spec.title}` } : {}), piece: spec.piece, params: spec.params, ...(spec.premade ? { premade: spec.premade } : {}), ...(spec.context ? { context: spec.context } : {}), ...(spec.surface ? { surface: spec.surface } : {}) }); // catalysts: premade and context
+      const sender = this.#people.get(this.myId)?.first;
+      if (!sender && import.meta.env.DEV) console.warn(`landPiece: no name for ${this.myId}`);
+      this.#build(id, { ask: spec.ask, title: spec.title, ...(spec.premade?.refill && sender ? { sent: `**${sender}** sent a Mini · ${spec.title}` } : {}), piece: spec.piece, params: spec.params, ...(spec.premade ? { premade: spec.premade } : {}), ...(spec.context ? { context: spec.context } : {}), ...(spec.surface ? { surface: spec.surface } : {}) }); // catalysts: premade and context
     };
     if (this.#chatStates[id]?.state.created) go();
     else until(() => !!this.#chatStates[id]?.state.created, 20_000).then(go);
@@ -768,8 +879,8 @@ export class LiveStore implements ChatStore {
     return this.events.find((e) => e.id === id);
   }
   #eventView(e: EventInfo): EventInfo {
-    const all = ["noa", ...e.friends.map(wireId)];
-    return { ...e, friends: all.filter((w) => w !== this.myId).slice(0, 3).map(this.#v) };
+    // the seeded friends who are interested, never the viewer (seed ids are wire ids)
+    return { ...e, friends: e.friends.filter((w) => w !== this.myId).slice(0, 3).map(this.#v) };
   }
   rsvp(id: string): Rsvp | null {
     return this.#rsvp[id] ?? null;
@@ -787,10 +898,11 @@ export const EVENT_ASK = (e: EventInfo = EVENT) => `muse make a who's in for ${e
 const lastAt = (c: Chat) => c.messages.filter((m) => m.kind !== "system" && m.kind !== "activity").at(-1)?.at ?? 0;
 
 /** "Chore wheel: Dishes: Maya." -> "Dishes: Maya." when it starts with the tool's own name. */
-function stripName(summary: string, name: string): string {
+function stripName(summary: string, name: string, place = ""): string {
   const s = summary.trim();
-  const pres = [name + ": ", name + " · ", name + ". ", name + " "];
-  for (const pre of pres) if (s.toLowerCase().startsWith(pre.toLowerCase())) return s.slice(pre.length);
+  // the Mini's own name, or the place it was made for (a Mini whose title param is the chat's name)
+  for (const pre of [name + ": ", name + " · ", name + ". ", name + " "]) if (s.toLowerCase().startsWith(pre.toLowerCase())) return s.slice(pre.length);
+  if (place) for (const pre of [place + ": ", place + " · "]) if (s.toLowerCase().startsWith(pre.toLowerCase()) && s.length > pre.length) return s.slice(pre.length);
   return s;
 }
 
@@ -802,7 +914,10 @@ function stripName(summary: string, name: string): string {
 export function activityLine(summary: string, toolName: string, first: string, mine: boolean): string {
   const who = mine ? "You" : first;
   const lead = stripName(summary, toolName).split(/(?<=[.!?])\s+/)[0]!.replace(/[.!?]+$/, "").trim();
-  if (lead.toLowerCase().startsWith(first.toLowerCase() + " ") && lead.length > first.length + 1) return `**${who}** ${lead.slice(first.length + 1)}`;
+  if (lead.toLowerCase().startsWith(first.toLowerCase() + " ") && lead.length > first.length + 1) {
+    const rest = lead.slice(first.length);
+    return `**${who}**${mine ? youRest(rest) : rest}`;
+  }
   return `**${who}** updated **${toolName}**`;
 }
 

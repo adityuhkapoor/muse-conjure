@@ -2360,6 +2360,35 @@
   "model": "muse:muse-ember-1.0:medium + muse:muse-spark-1.3-contributor:medium",
   "at": "2026-11-13T13:12:32.588Z"
  },
+ "79d577aa904ca056e63364aa": {
+  "offers": [
+   {
+    "tool": "squad-lock",
+    "label": "See who else is going",
+    "read": "juniper hale on friday from maya's post",
+    "confidence": 0.72,
+    "params": {
+     "title": "Go with friends",
+     "sub": "Juniper Hale · Friday",
+     "date": "FRIDAY",
+     "tickets": "",
+     "host": "⟨maya⟩",
+     "threshold": 2,
+     "going": [
+      {
+       "name": "⟨maya⟩",
+       "note": ""
+      }
+     ],
+     "maybe": []
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "muse:muse-ember-1.0:medium + muse:muse-spark-1.3-contributor:medium",
+  "at": "2026-11-13T18:05:44.224Z"
+ },
  "7b4a9fc6227ad6b419579080": {
   "offers": [
    {
@@ -3581,6 +3610,105 @@
   "model": "recorded",
   "at": "2026-11-13T07:16:18.737Z"
  },
+ "b288b426644142333cd7b606": {
+  "offers": [
+   {
+    "tool": "friends-plans",
+    "label": "Join a weekend plan",
+    "read": "maya's 3 weekend plans you're in none of them",
+    "confidence": 0.85,
+    "params": {
+     "sub": "This weekend",
+     "days": [
+      {
+       "day": "Fri",
+       "date": ""
+      },
+      {
+       "day": "Sat",
+       "date": ""
+      },
+      {
+       "day": "Sun",
+       "date": ""
+      }
+     ],
+     "plans": [
+      {
+       "day": 0,
+       "title": "Evening walk near the river",
+       "meta": "⟨maya⟩'s plan",
+       "icon": "hike",
+       "host": "⟨maya⟩",
+       "going": [
+        "⟨noa⟩",
+        "⟨jonah⟩"
+       ],
+       "cap": 0,
+       "seat": "spot",
+       "reply": ""
+      },
+      {
+       "day": 1,
+       "title": "Lunch in the park",
+       "meta": "⟨maya⟩'s plan",
+       "icon": "picnic",
+       "host": "⟨maya⟩",
+       "going": [
+        "⟨priya⟩",
+        "⟨theo⟩"
+       ],
+       "cap": 0,
+       "seat": "spot",
+       "reply": ""
+      },
+      {
+       "day": 2,
+       "title": "Tacos downtown",
+       "meta": "⟨maya⟩'s plan",
+       "icon": "taco",
+       "host": "⟨maya⟩",
+       "going": [
+        "⟨noa⟩",
+        "⟨priya⟩"
+       ],
+       "cap": 0,
+       "seat": "spot",
+       "reply": ""
+      }
+     ]
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "muse:muse-ember-1.0:medium + muse:muse-spark-1.3-contributor:medium",
+  "at": "2026-11-13T18:05:43.511Z"
+ },
+ "b3720e8854b32381cb7a564d": {
+  "offers": [
+   {
+    "tool": "squad-lock",
+    "label": "See who's going Friday",
+    "read": "maya's juniper hale friday post",
+    "confidence": 0.78,
+    "params": {
+     "title": "See who's going Friday",
+     "sub": "juniper hale · friday · 0 interested",
+     "date": "FRIDAY",
+     "tickets": "",
+     "host": "⟨maya⟩",
+     "threshold": 3,
+     "going": [],
+     "maybe": []
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "muse:muse-ember-1.0:medium + muse:muse-spark-1.3-contributor:medium",
+  "at": "2026-11-13T18:05:43.018Z"
+ },
  "b9efaf1c4a82d63bf273e436": {
   "offers": [
    {
@@ -3704,6 +3832,72 @@
   "nothing": true,
   "model": "recorded",
   "at": "2026-11-13T07:17:30.810Z"
+ },
+ "ca8b623b30f4bb290e60d1ab": {
+  "offers": [
+   {
+    "tool": "friends-plans",
+    "label": "Join a weekend plan",
+    "read": "the 3 plans this weekend maya posted",
+    "confidence": 0.88,
+    "params": {
+     "sub": "This weekend",
+     "days": [
+      {
+       "day": "Fri",
+       "date": ""
+      },
+      {
+       "day": "Sat",
+       "date": ""
+      },
+      {
+       "day": "Sun",
+       "date": ""
+      }
+     ],
+     "plans": [
+      {
+       "day": 0,
+       "title": "⟨maya⟩'s weekend plan",
+       "meta": "",
+       "icon": "picnic",
+       "host": "⟨maya⟩",
+       "going": [],
+       "cap": 0,
+       "seat": "spot",
+       "reply": ""
+      },
+      {
+       "day": 1,
+       "title": "⟨maya⟩'s weekend plan",
+       "meta": "",
+       "icon": "hike",
+       "host": "⟨maya⟩",
+       "going": [],
+       "cap": 0,
+       "seat": "spot",
+       "reply": ""
+      },
+      {
+       "day": 2,
+       "title": "⟨maya⟩'s weekend plan",
+       "meta": "",
+       "icon": "taco",
+       "host": "⟨maya⟩",
+       "going": [],
+       "cap": 0,
+       "seat": "spot",
+       "reply": ""
+      }
+     ]
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "muse:muse-ember-1.0:medium + muse:muse-spark-1.3-contributor:medium",
+  "at": "2026-11-13T18:05:44.317Z"
  },
  "cc6a72f6e97bf5c0903604c7": {
   "offers": [
@@ -4586,6 +4780,87 @@
   "nothing": false,
   "model": "recorded",
   "at": "2026-11-13T07:17:33.349Z"
+ },
+ "f64d4ee6c02ad02f6eda827a": {
+  "offers": [
+   {
+    "tool": "feed-tier-list",
+    "label": "Rank the boba spots",
+    "read": "the six boba shops maya listed",
+    "confidence": 0.88,
+    "params": {
+     "title": "Rank the boba spots",
+     "author": "⟨maya⟩",
+     "items": [
+      {
+       "name": "Tea Hut",
+       "votes": [
+        0,
+        0,
+        0,
+        0,
+        0
+       ]
+      },
+      {
+       "name": "Boba Bliss",
+       "votes": [
+        0,
+        0,
+        0,
+        0,
+        0
+       ]
+      },
+      {
+       "name": "Milk & Moon",
+       "votes": [
+        0,
+        0,
+        0,
+        0,
+        0
+       ]
+      },
+      {
+       "name": "Bubble Lab",
+       "votes": [
+        0,
+        0,
+        0,
+        0,
+        0
+       ]
+      },
+      {
+       "name": "Union cafe boba",
+       "votes": [
+        0,
+        0,
+        0,
+        0,
+        0
+       ]
+      },
+      {
+       "name": "Kiki's Tea Truck",
+       "votes": [
+        0,
+        0,
+        0,
+        0,
+        0
+       ]
+      }
+     ],
+     "people": []
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "muse:muse-ember-1.0:medium + muse:muse-spark-1.3-contributor:medium",
+  "at": "2026-11-13T18:05:43.263Z"
  },
  "f69d816487c4375da95b8a89": {
   "offers": [

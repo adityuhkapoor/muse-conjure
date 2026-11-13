@@ -26,12 +26,12 @@ const MAIN: Record<string, Message[]> = { apt4b, boys, maya, senior, priya };
 const EXTRA: Omit<Chat, "unread" | "typing" | "seenBy" | "activeNow">[] = [
   { id: "latenight", name: "late night", kind: "group", members: ["theo", "jonah", "dev"], messages: latenight },
   // from Tsai Lin's seat
-  { id: "dm-calvin", name: "Calvin Karthik", kind: "dm", members: ["me", "jonah"], messages: dmCalvin },
-  { id: "dm-arun", name: "Arun Vaithianathan", kind: "dm", members: ["me", "theo"], messages: dmArun },
-  { id: "dm-aditya", name: "Aditya Kapoor", kind: "dm", members: ["me", "dev"], messages: dmAditya },
-  { id: "dm-hana", name: "Hana Ito", kind: "dm", members: ["me", "hana"], messages: dmHana },
-  { id: "econ140", name: "econ 140 final", kind: "group", members: ["me", "tess", "zoe", "kev", "ava", "omar"], messages: econ140 },
-  { id: "lin-family", name: "lin family", kind: "group", members: ["me", "lin-mom", "lin-dad", "lin-eric"], messages: linFamily },
+  { id: "dm-calvin", name: "Calvin Karthik", kind: "dm", members: ["noa", "jonah"], messages: dmCalvin },
+  { id: "dm-arun", name: "Arun Vaithianathan", kind: "dm", members: ["noa", "theo"], messages: dmArun },
+  { id: "dm-aditya", name: "Aditya Kapoor", kind: "dm", members: ["noa", "dev"], messages: dmAditya },
+  { id: "dm-hana", name: "Hana Ito", kind: "dm", members: ["noa", "hana"], messages: dmHana },
+  { id: "econ140", name: "econ 140 final", kind: "group", members: ["noa", "tess", "zoe", "kev", "ava", "omar"], messages: econ140 },
+  { id: "lin-family", name: "lin family", kind: "group", members: ["noa", "lin-mom", "lin-dad", "lin-eric"], messages: linFamily },
   // from Aditya's seat (the spec's one-to-ones are written from Tsai Lin's; Tsai Lin is dm-aditya)
   { id: "dm-dev-calvin", name: "Calvin Karthik", kind: "dm", members: ["dev", "jonah"], messages: dmDevCalvin },
   { id: "dm-dev-arun", name: "Arun Vaithianathan", kind: "dm", members: ["dev", "theo"], messages: dmDevArun },

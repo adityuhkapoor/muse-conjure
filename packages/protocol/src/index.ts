@@ -32,3 +32,4 @@ export interface Reducer<S> {
   init(ctx: InitCtx): S;
   reduce(state: S, action: unknown, meta: Meta): S;
 }
+export { miniName, sentenceCase } from "./mini-name.ts";

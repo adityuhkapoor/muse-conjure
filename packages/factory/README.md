@@ -23,8 +23,8 @@ Meta's Muse API is the only provider (`src/models/muse.ts`, Responses API at
 
 | Model | Job |
 |---|---|
-| `muse-ember-1.0` | pick a lab tool, decide how to change a tool, read a page (router, change decision, reader) |
-| `muse-spark-1.3-contributor` | fill a tool from the chat, build a new tool, edit a tool's code (the default main model, `MUSE_DEFAULT` in `src/models/index.ts`) |
+| `muse-ember-1.0` | pick a lab tool (minimal effort), decide how to change a tool, read a page, and fill first at minimal effort (router, change decision, reader, composer) |
+| `muse-spark-1.3-contributor` | build a new tool, edit a tool's code, and the last step of the fill net (the default main model, `MUSE_DEFAULT` in `src/models/index.ts`) |
 | `replay` | recordings in `fixtures/replay/`; used when there is no key |
 
 The key comes from `MUSE_API_KEY` or the macOS Keychain item `meta-muse-api-key`, at run time. It is
@@ -41,7 +41,14 @@ Environment switches the code reads:
 - `MUSE_POST_MODEL`, `MUSE_POST_ROUTER`, `MUSE_POST_FILL`: models for Home posts.
 - `MUSE_CHANGE_PARAMS=fast` and `MUSE_CHANGE_EFFORT=medium`: change decisions on the fast model, or
   at medium effort.
-- `MUSE_LOG_CALLS`: print one line per model call. `MUSE_DELAY_MS`: add a delay (demos of slow
+- Speed (defaults are the measured winners, below): `MUSE_FILL=spark` fills on the main model alone at
+  low effort (the old path); `MUSE_FILL_EFFORT` (minimal), `MUSE_FILL_RETRY_EFFORT` (low),
+  `MUSE_FILL_FALLBACK_EFFORT` (minimal), `MUSE_FILL_SPARK_EFFORT` (low, for `MUSE_FILL=spark`);
+  `MUSE_FILL_NET=0` no retry and no fallback; `MUSE_ROUTER_EFFORT` (minimal; low is the old setting);
+  `MUSE_CATALOG=compact` short catalog cards (off: it cost 4 routing hits); `MUSE_ONE_CALL=1` the router
+  fills simple Minis itself (off: no faster); `MUSE_CHANGE_SKIP=0` always run the "is this a change?"
+  decision; `MUSE_CHANGE_PARAMS=net|fast|main` (net); `MUSE_NO_CACHE=1` no disk or decision cache.
+- `MUSE_LOG_CALLS`: print one line per model call, with tokens in, cached, out and thinking. `MUSE_DELAY_MS`: add a delay (demos of slow
   paths). `PORT`, `HOST`: where the service listens (loopback by default).
 
 ## Flow: an ask in a chat (`src/generate.ts`)
@@ -53,7 +60,7 @@ Environment switches the code reads:
    to three picks), `new_mini`, then replies that each name a reason: `answer` (one or two
    sentences, maybe a chip), `cant_act`, `wont`, `greet` (a mention with no ask, decided without a
    model).
-3. Fill: the main model fills the first pick's parameters from the chat only. No person, amount,
+3. Fill (`src/fillnet.ts`, `src/fillprompt.ts`): the fast model fills the first pick's parameters from the chat only, at minimal effort, from the Mini's own `type Params` with its doc comments. A fill that is malformed, ungrounded, or empty where the router said the chat has the content is tried again on the fast model at low effort with the reasons, then on the main model at minimal effort. No person, amount,
    date or place may come from anywhere else; the tool's example is a shape, never content. Options
    the model made up are marked as suggested.
 4. Checks: `src/ground.ts` and `src/leak.ts` reject anything the chat did not say; the gate checks
@@ -146,3 +153,23 @@ without changing this repo:
 
 Nothing sent to the browser names a provider or a model, so the product looks the same whichever
 one is plugged in.
+
+## Speed (`bun eval/speed.ts`)
+
+16 asks (4 seeded chats x decide, money, schedule, game), 3 runs each, live Muse, every cache off,
+real router, fill, grounding and light check. Seconds are medians; total is per ask, from the ask to a
+checked Mini. Usefulness is 1 to 5 from reading the fills against the chat (`eval/speed.ts` header).
+
+| Configuration | Router | Fill | Check | Total median | Total worst | Grounded | Empty | Usefulness |
+|---|---|---|---|---|---|---|---|---|
+| Main model fills at low effort (before) | 2.7 | 16.2 | 1.0 | 19.9 | 57.8 | 43 of 48 | 3 | 3.67 |
+| Fast model fills at minimal, no net | 2.4 | 1.5 | 1.1 | 5.3 | 15.6 | 43 | 3 | 3.96 |
+| Fast model at minimal with the net | 2.4 | 1.6 | 1.0 | 5.4 | 11.2 | 43 | 0 | 4.19 |
+| Net, router at minimal (the default) | 1.9 | 1.6 | 1.1 | 5.0 | 26.7 | 46 | 0 | 4.06 |
+
+Five or fewer of the 48 end without a Mini (the router answers instead); the rest of the figures count
+those as 1. Router at minimal scores 99 of 104 on `eval/routing.ts` (98 at low); the compact catalog
+scores 94. The router reads 29,759 input tokens a call; the API caches that prefix by itself, with
+no change in seconds. A fill call is about 1,200 tokens in and 430 out (290 thinking) on the fast
+model at minimal. Streaming works but text arrives in one burst after the thinking, so it saves
+about 0.2 s: not used. A change of the Mini's params takes 3.6 s (9.5 s when the main model wrote them).

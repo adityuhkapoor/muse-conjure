@@ -73,6 +73,11 @@ export function paintCanvases(now = clock.peek()): void {
 }
 
 export function memberOf(user: string | Member): Member {
-  if (typeof user !== "string") return user;
+  if (typeof user !== "string") {
+    // a Mini that builds `{ id, name }` itself still gets the member's photo the host passed
+    if (user.avatar) return user;
+    const known = ctx.members.find((m) => m.id === user.id);
+    return known?.avatar ? { ...user, avatar: known.avatar } : user;
+  }
   return ctx.members.find((m) => m.id === user) ?? { id: user, name: user };
 }

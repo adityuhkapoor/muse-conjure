@@ -1,5 +1,4 @@
 import type { Chat, ChatTheme, EventInfo, Message, Note, Person, Tool } from "./types";
-import { ME } from "./types";
 import { BDAY21, POTLUCK } from "../muse/seed"; // catalysts
 
 /** Fixed morning so screenshots do not drift: "now" is 9:41 am local today. */
@@ -24,7 +23,7 @@ const p = (id: string, name: string, tone: number, active = false, first = name.
 });
 
 export const PEOPLE: Person[] = [
-  p(ME, "Tsai Lin", 5, true, "Tsai Lin"),
+  p("noa", "Tsai Lin", 5, true, "Tsai Lin"),
   p("maya", "Maya Chen", 3, true),
   p("dev", "Aditya Kapoor", 2),
   p("jonah", "Calvin Karthik", 6),
@@ -58,6 +57,15 @@ export const EVENT: EventInfo = {
   friends: ["maya", "theo", "priya"],
 };
 
+/** Who is in each seeded chat (wire ids). The chat's own member list: read it here, never retype it. */
+export const CHAT_MEMBERS: Record<string, readonly string[]> = {
+  apt4b: ["noa", "maya", "priya", "dev"],
+  boys: ["noa", "dev", "jonah", "theo"],
+  maya: ["noa", "maya"],
+  senior: ["noa", "maya", "dev", "jonah", "priya", "theo"],
+  priya: ["noa", "priya"],
+};
+
 let n = 0;
 const m = (
   from: string,
@@ -78,7 +86,7 @@ function apt4b(): Chat {
   const ua = m("maya", at(-1, 21, 2), "electric bill came. $142??");
   const ub = m("dev", at(-1, 21, 3), "who is running the ac 24/7");
   const uc = m("priya", at(-1, 21, 4), "its 90 degrees in my room ok", { reactions: [{ emoji: "😆", by: ["dev"] }] });
-  const ud = m("me", at(-1, 21, 5), "then you get the overage lol");
+  const ud = m("noa", at(-1, 21, 5), "then you get the overage lol");
   const us0 = m("system", at(-1, 21, 6), "**Muse** conjured **October utilities** for this chat", { kind: "system" });
   const us1 = m("muse", at(-1, 21, 6), undefined, {
     kind: "muse",
@@ -89,12 +97,12 @@ function apt4b(): Chat {
   const c = m("maya", at(-1, 23, 21), "not me i literally cant have it");
   const d = m("dev", at(-1, 23, 23), "ok it was me");
   const e = m("dev", at(-1, 23, 23), "i'll replace it");
-  const f = m("me", at(-1, 23, 24), "he says that every time", {
+  const f = m("noa", at(-1, 23, 24), "he says that every time", {
     reactions: [{ emoji: "😆", by: ["priya", "maya"] }],
   });
   const g = m("priya", at(-1, 23, 26), "you said that about the tupperware", {
     replyTo: e.id,
-    reactions: [{ emoji: "😆", by: ["dev", "me"] }],
+    reactions: [{ emoji: "😆", by: ["dev", "noa"] }],
   });
   const gx = m("priya", at(-1, 23, 38), "also we have 1 egg and no tp. we need a real run");
   const bs0 = m("system", at(-1, 23, 40), "**Muse** conjured **Groceries** for this chat", { kind: "system" });
@@ -107,10 +115,10 @@ function apt4b(): Chat {
   const j = m("maya", at(0, 9, 13), undefined, {
     kind: "photo",
     photo: { tone: 1, label: "Photo of the kitchen sink piled with dirty dishes", asset: "place-apt-sink" },
-    reactions: [{ emoji: "😮", by: ["me", "dev"] }],
+    reactions: [{ emoji: "😮", by: ["noa", "dev"] }],
   });
-  const k = m("me", at(0, 9, 15), "thats not even mine");
-  const l = m("me", at(0, 9, 15), "thats adityas pan from sunday");
+  const k = m("noa", at(0, 9, 15), "thats not even mine");
+  const l = m("noa", at(0, 9, 15), "thats adityas pan from sunday");
   const o = m("dev", at(0, 9, 16), "allegedly", { reactions: [{ emoji: "😆", by: ["maya"] }] });
   const q = m("priya", at(0, 9, 20), "lease says shared stuff is on all of us btw");
   const r = m("priya", at(0, 9, 20), undefined, {
@@ -126,13 +134,13 @@ function apt4b(): Chat {
     kind: "muse",
     muse: { appId: "chore-draft", title: "Chore draft", subtitle: "Made with Muse", toolId: "t-wheel" },
   });
-  const u = m("me", at(0, 9, 30), "ok fine draft it", { reactions: [{ emoji: "❤️", by: ["maya"] }] });
+  const u = m("noa", at(0, 9, 30), "ok fine draft it", { reactions: [{ emoji: "❤️", by: ["maya"] }] });
   const v = m("system", at(0, 9, 31), "**Will** took Fridge", { kind: "activity", activity: { toolId: "t-wheel" } });
   return {
     id: "apt4b",
     name: "apt 4b",
     kind: "group",
-    members: ["me", "maya", "priya", "dev"],
+    members: [...CHAT_MEMBERS.apt4b!],
     messages: [ua, ub, uc, ud, us0, us1, a, b, c, d, e, f, g, gx, bs0, bs1, h, i, j, k, l, o, q, r, s, t, u, v],
     unread: false,
     typing: ["priya"],
@@ -166,13 +174,13 @@ function boys(): Chat {
     id: "boys",
     name: "the boys",
     kind: "group",
-    members: ["me", "dev", "jonah", "theo"],
+    members: [...CHAT_MEMBERS.boys!],
     messages: [
       m("jonah", at(-1, 18, 2), "anyone going to the game friday"),
       m("theo", at(-1, 18, 3), "depends who's driving"),
       m("theo", at(-1, 18, 3), "not me"),
       m("dev", at(-1, 18, 5), "i can drive if someone covers gas"),
-      m("me", at(-1, 18, 6), "ill cover gas"),
+      m("noa", at(-1, 18, 6), "ill cover gas"),
       m("jonah", at(-1, 18, 6), "legend"),
       m("jonah", at(-1, 21, 40), "whos on tonight, new season dropped"),
       m("dev", at(-1, 21, 41), "9 to 11 then im out"),
@@ -195,20 +203,20 @@ function mayaDm(): Chat {
     id: "maya",
     name: "Maya Chen",
     kind: "dm",
-    members: ["me", "maya"],
+    members: [...CHAT_MEMBERS.maya!],
     messages: [
       m("maya", at(-1, 20, 40), "did u finish the bio problem set"),
-      m("me", at(-1, 20, 44), "half. stuck on 4"),
+      m("noa", at(-1, 20, 44), "half. stuck on 4"),
       m("maya", at(-1, 20, 44), "same lol. library tmrw?"),
-      m("me", at(-1, 20, 50), "yeah 2?"),
+      m("noa", at(-1, 20, 50), "yeah 2?"),
       m("maya", at(0, 8, 55), "see you at 2"),
       m("maya", at(0, 8, 55), "bring the charger pls"),
       m("maya", at(0, 8, 57), "movie after? i have dune, paddington 2, past lives, shrek 2..."),
-      m("me", at(0, 8, 58), "bracket it"),
+      m("noa", at(0, 8, 58), "bracket it"),
       m("system", at(0, 8, 58), "**Muse** conjured **Movie night** for this chat", { kind: "system" }),
       m("muse", at(0, 8, 58), undefined, { kind: "muse", muse: { appId: "movie-bracket", title: "Movie night", subtitle: "Made with Muse", toolId: "t-movies" } }),
       m("maya", at(0, 9, 2), "also wills bday is sat. the headphones he keeps sending?"),
-      m("me", at(0, 9, 3), "yes. split it with the boys"),
+      m("noa", at(0, 9, 3), "yes. split it with the boys"),
       m("system", at(0, 9, 3), "**Muse** conjured **Will's birthday** for this chat", { kind: "system" }),
       m("muse", at(0, 9, 3), undefined, { kind: "muse", muse: { appId: "gift-pool", title: "Will's birthday", subtitle: "Made with Muse", toolId: "t-gift" } }),
     ],
@@ -224,12 +232,12 @@ function priyaDm(): Chat {
     id: "priya",
     name: "Will Li",
     kind: "dm",
-    members: ["me", "priya"],
+    members: [...CHAT_MEMBERS.priya!],
     messages: [
-      m("me", at(-5, 21, 10), "did you get the email from the registrar"),
+      m("noa", at(-5, 21, 10), "did you get the email from the registrar"),
       m("priya", at(-5, 21, 12), "ya its fine, just a form"),
       m("priya", at(-5, 21, 12), "ill send it"),
-      m("me", at(-5, 21, 20), "ok bring the charger tmrw"),
+      m("noa", at(-5, 21, 20), "ok bring the charger tmrw"),
       m("priya", at(-1, 22, 10), "ok i made a two truths about the senior week people"),
       m("priya", at(-1, 22, 10), "you will never get calvins"),
       m("system", at(-1, 22, 11), "**Muse** conjured **Two truths** for this chat", { kind: "system" }),
@@ -247,7 +255,7 @@ function seniorWeek(): Chat {
     id: "senior",
     name: "senior week",
     kind: "group",
-    members: ["me", "maya", "dev", "jonah", "priya", "theo"],
+    members: [...CHAT_MEMBERS.senior!],
     messages: [
       m("maya", at(-3, 14, 5), "ok so are we actually doing the beach thing"),
       m("jonah", at(-3, 14, 9), "if there is a house yes"),

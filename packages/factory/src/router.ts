@@ -15,9 +15,10 @@ import { CACHE_DIR, hashOf } from "./cache.ts";
 import { labExample } from "./lab.ts";
 import { GROUNDING_RULE, groundQuotes, overShape } from "./leak.ts";
 import { makeModel } from "./models/index.ts";
-import type { GenerateRequest, ModelClient } from "./types.ts";
+import { compactFillSystem, compactFillUser, FILL_RULES, shapeOf } from "./fillprompt.ts";
+import type { Effort, GenerateRequest, ModelClient } from "./types.ts";
 
-export type Card = { id: string; name: string; surface: string; summary: string; use: string[]; dont: string[]; example: string; height: number };
+export type Card = { id: string; name: string; surface: string; summary: string; use: string[]; dont: string[]; example: string; height: number; /** the params as an empty skeleton, one line (one-call routing, fillprompt.ts) */ skeleton: string; /** the top-level param names */ keys: string[] };
 
 const short = (v: unknown, n: number) => (typeof v === "string" ? v.replace(/\s+/g, " ").trim().slice(0, n) : "");
 
@@ -55,6 +56,8 @@ export function catalog(): Card[] {
         dont: ((m.dontUseWhen ?? m.dont_use_when ?? []) as string[]).slice(0, 2).map((s) => short(s, 70)),
         example: exampleLine(labExample(id)),
         height: Number(m.height) || 0,
+        skeleton: JSON.stringify(shapeOf(labExample(id) ?? {})),
+        keys: Object.keys(labExample(id) ?? {}).slice(0, 8),
       });
     } catch {
       // a half-written port: leave it out
@@ -66,26 +69,38 @@ export function catalog(): Card[] {
 
 const SURFACE: Record<string, string> = { chat: "messenger", event: "event", group: "group", feed: "feed", marketplace: "marketplace", gaming: "gaming", story: "story" };
 
-export function catalogText(cards = catalog()): string {
-  return cards.map((c) => `- ${c.id} [${c.surface}] ${c.summary} Use: ${c.use.join("; ")}. Not: ${c.dont.join("; ")}. Example: ${c.example}`).join("\n");
+/** MUSE_CATALOG=compact: one short card per Mini (summary, first use-when line, param names); full: the whole card (default). */
+export const catalogMode = (): "full" | "compact" => (process.env.MUSE_CATALOG === "compact" ? "compact" : "full");
+/** A Mini whose params are a few plain fields: the router may fill it in the same call (MUSE_ONE_CALL=1). */
+export const SIMPLE_MAX = 170;
+export const oneCall = () => process.env.MUSE_ONE_CALL === "1";
+/** The router effort: minimal by default (routing accuracy 99 of 104 vs 98 at low); MUSE_ROUTER_EFFORT=low is the slower setting. */
+export const routerEffort = (model?: ModelClient): Effort => (["minimal", "low", "medium"].includes(process.env.MUSE_ROUTER_EFFORT ?? "") ? (process.env.MUSE_ROUTER_EFFORT as Effort) : model && !model.id.startsWith("muse") ? "low" : "minimal"); // minimal is a Muse setting; another provider keeps low
+
+export function catalogText(cards = catalog(), mode = catalogMode()): string {
+  const params = (c: Card) => (oneCall() && c.skeleton.length <= SIMPLE_MAX ? ` Params: ${c.skeleton}` : "");
+  if (mode === "compact") return cards.map((c) => `- ${c.id} [${c.surface}] ${c.summary.slice(0, 120)} Use: ${c.use[0] ?? ""}.${oneCall() ? params(c) : ` Params: ${c.keys.join(", ")}`}`).join("\n");
+  return cards.map((c) => `- ${c.id} [${c.surface}] ${c.summary} Use: ${c.use.join("; ")}. Not: ${c.dont.join("; ")}. Example: ${c.example}${params(c)}`).join("\n");
 }
 
 /** What the router can decide. A Mini is the default; every other outcome names its reason. */
 export const OUTCOMES = ["mini", "new_mini", "answer", "cant_act", "wont", "greet"] as const;
 export type Outcome = (typeof OUTCOMES)[number];
 
-const PICK_SCHEMA = {
-  type: "object",
-  properties: {
-    outcome: { type: "string", enum: [...OUTCOMES] },
-    reply: { type: "string" },
-    chip: { type: "string" },
-    confidence: { type: "number" },
-    picks: { type: "array", items: { type: "object", properties: { id: { type: "string" }, reason: { type: "string" } }, required: ["id", "reason"], additionalProperties: false } },
-  },
-  required: ["outcome", "reply", "chip", "confidence", "picks"],
-  additionalProperties: false,
+const PICK_PROPS = {
+  outcome: { type: "string", enum: [...OUTCOMES] },
+  reply: { type: "string" },
+  chip: { type: "string" },
+  confidence: { type: "number" },
+  chat_has_content: { type: "boolean" },
+  picks: { type: "array", items: { type: "object", properties: { id: { type: "string" }, reason: { type: "string" } }, required: ["id", "reason"], additionalProperties: false } },
 };
+const PICK_REQUIRED = ["outcome", "reply", "chip", "confidence", "chat_has_content", "picks"];
+/** One-call routing (MUSE_ONE_CALL=1) adds the first pick's params and what was made up in them. */
+const pickSchema = () =>
+  oneCall()
+    ? { type: "object", properties: { ...PICK_PROPS, params_json: { type: "string" }, suggested: { type: "array", items: { type: "string" } } }, required: [...PICK_REQUIRED, "params_json", "suggested"], additionalProperties: false }
+    : { type: "object", properties: PICK_PROPS, required: PICK_REQUIRED, additionalProperties: false };
 const FILL_SCHEMA = {
   type: "object",
   properties: { params_json: { type: "string" }, suggested: { type: "array", items: { type: "string" } } },
@@ -107,6 +122,13 @@ export function routerSystem(cards: Card[] = catalog()): string {
     "reply: empty for mini and new_mini. Otherwise one or two short sentences, sentence case, plain words, no exclamation marks, no apology padding, under 220 characters. Never list what Muse can make as a fallback.",
     "chip: a catalog id or an empty string. Only for answer and cant_act.",
     "confidence is 0 to 1: how sure you are of the outcome (and of the first pick, for mini).",
+    "chat_has_content: true when the recent chat already names things the first pick needs (options, places, people, times, amounts); false when it names none or the outcome is not mini.",
+    ...(oneCall()
+      ? [
+          "params_json and suggested: only when the outcome is mini, your confidence in the first pick is at least 0.8 and its catalog line shows a Params skeleton: fill the first pick's params from the chat as a JSON string with the skeleton's keys and shapes, and list in suggested what you made up. Otherwise params_json is an empty string and suggested is empty.",
+          ...FILL_RULES,
+        ]
+      : []),
     "",
     "Catalog:",
     catalogText(cards),
@@ -152,10 +174,16 @@ export const oneItemList = (p: Record<string, unknown>): boolean => Object.entri
  * Fill one lab tool's params from the chat (the fill model: the main model, not the router's fast
  * one). With `repair`, the last fill and why it was turned down. Null when the model gives nothing usable.
  */
-export async function fillLab(req: Pick<GenerateRequest, "ask" | "chat" | "members" | "surface">, id: string, model: ModelClient, repair?: { params: Record<string, unknown>; errors: string[] }): Promise<Fill | null> {
+export async function fillLab(req: Pick<GenerateRequest, "ask" | "chat" | "members" | "surface">, id: string, model: ModelClient, repair?: { params: Record<string, unknown>; errors: string[] }, o: { effort?: Effort; /** the short prompt for the fast model (fillprompt.ts) */ compact?: boolean; label?: string } = {}): Promise<Fill | null> {
   try {
     const f = parse<{ params_json: string; suggested?: string[] }>(
-      await model.complete({ label: repair ? "router-refill" : "router-fill", system: fillSystem(), messages: [{ role: "user", content: fillUser(req, id, repair) }], json: { name: "fill", schema: FILL_SCHEMA }, effort: "low" }),
+      await model.complete({
+        label: o.label ?? (repair ? "router-refill" : "router-fill"),
+        system: o.compact ? compactFillSystem() : fillSystem(),
+        messages: [{ role: "user", content: o.compact ? compactFillUser(req, id, repair) : fillUser(req, id, repair) }],
+        json: { name: "fill", schema: FILL_SCHEMA },
+        effort: o.effort ?? "low",
+      }),
     );
     const p = JSON.parse(f.params_json) as unknown;
     if (!p || typeof p !== "object" || Array.isArray(p)) return null;
@@ -181,6 +209,10 @@ export type Decision = {
   /** nothing fits: Muse's one-line reply */
   reply: string;
   confidence: number;
+  /** the router said the recent chat names what the first pick needs (a fill that comes back empty is then suspect) */
+  hasContent?: boolean;
+  /** the router filled the first pick's params in the same call (MUSE_ONE_CALL=1) */
+  inline?: boolean;
   params: Record<string, unknown> | null;
   suggested: string[];
   ms: number;
@@ -207,7 +239,7 @@ export async function route(req: Pick<GenerateRequest, "ask" | "chat" | "members
   const filler = opts.filler ?? model;
   const cards = opts.cards ?? catalog();
   const key = hashOf({ cards: opts.cards ? opts.cards.map((c) => `${c.id}:${c.use.join("|")}:${c.dont.join("|")}:${c.summary}`) : undefined, ask: req.ask, chat: req.chat.messages.slice(-30), members: req.members.map((m) => m.name), surface: req.surface, model: model.id, filler: filler.id, fill: opts.fill !== false });
-  const hit = decisions.get(key);
+  const hit = process.env.MUSE_NO_CACHE ? undefined : decisions.get(key);
   if (hit) return { ...hit, cached: true, ms: 0 };
   const t0 = performance.now();
   const known = new Set(cards.map((c) => c.id));
@@ -221,8 +253,8 @@ export async function route(req: Pick<GenerateRequest, "ask" | "chat" | "members
     return d;
   }
   try {
-    const r = parse<{ outcome: Outcome; reply?: string; chip?: string; confidence: number; picks: RouterPick[] }>(
-      await model.complete({ label: "router", system: routerSystem(cards), messages: [{ role: "user", content: routerUser(req) }], json: { name: "router", schema: PICK_SCHEMA }, effort: "low" }),
+    const r = parse<{ outcome: Outcome; reply?: string; chip?: string; confidence: number; chat_has_content?: boolean; params_json?: string; suggested?: string[]; picks: RouterPick[] }>(
+      await model.complete({ label: "router", system: routerSystem(cards), messages: [{ role: "user", content: routerUser(req) }], json: { name: "router", schema: pickSchema() }, effort: routerEffort(model) }),
     );
     let outcome: Outcome = OUTCOMES.includes(r.outcome) ? r.outcome : "mini";
     const picks = (r.picks ?? []).filter((p) => known.has(p.id)).slice(0, 3);
@@ -236,7 +268,20 @@ export async function route(req: Pick<GenerateRequest, "ask" | "chat" | "members
     d.reply = outcome === "mini" || outcome === "new_mini" ? "" : cleanReply(String(r.reply ?? "")) || REPLY_LINE[outcome];
     d.chip = (outcome === "answer" || outcome === "cant_act") && r.chip && known.has(r.chip) ? r.chip : "";
     d.confidence = Number(r.confidence) || 0;
-    if (d.picks[0] && opts.fill !== false) {
+    d.hasContent = r.chat_has_content === true;
+    // one call: the router filled the first pick's params itself (a simple Mini, high confidence)
+    const first = cards.find((c) => c.id === d.picks[0]?.id);
+    if (oneCall() && d.picks[0] && first && first.skeleton.length <= SIMPLE_MAX && d.confidence >= 0.8 && r.params_json?.trim()) {
+      try {
+        const p = JSON.parse(r.params_json) as unknown;
+        if (p && typeof p === "object" && !Array.isArray(p)) {
+          d.params = groundQuotes(p as Record<string, unknown>, `${req.chat.title ?? ""}\n${lines(req)}\n${req.ask}\n${req.members.map((m) => m.name).join("\n")}`).params;
+          d.suggested = (r.suggested ?? []).filter((x) => typeof x === "string" && x.trim()).slice(0, 12);
+          d.inline = true;
+        }
+      } catch {}
+    }
+    if (d.picks[0] && opts.fill !== false && !d.params) {
       const f = await fillLab(req, d.picks[0].id, filler);
       d.params = f?.params ?? null;
       d.suggested = f?.suggested ?? [];

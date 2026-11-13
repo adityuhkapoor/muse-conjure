@@ -6,18 +6,22 @@
 
 import { compileApp } from "@muse/sandbox/compile";
 import { sourceOf, toolSource } from "./premade.ts";
+import { miniName } from "@muse/protocol";
 import { BACKING } from "../../apps/shell/src/surfaces/backing.ts";
 import { PRIYA_TRY, REELS } from "../../apps/shell/src/surfaces/data.ts";
 import { chatRoom, INDEX_ROOM, SEED_USER, toolRoom, type ChatAction } from "../../apps/shell/src/live/chat-reducer.ts";
 import { RoomClient } from "./proto.ts";
 
 const CLIENT = "seed-surfaces-v1";
-const wire = (id: string) => (id === "me" ? "noa" : id);
 const FIRST: Record<string, string> = { noa: "Tsai Lin", maya: "Maya", dev: "Aditya", jonah: "Calvin", priya: "Will", theo: "Arun" };
 
 async function code(id: string, params: Record<string, unknown>): Promise<string> {
   // library/pieces or a ported lab tool (library/lab, through its own params block)
   return compileApp(await toolSource(id, params)).code;
+}
+/** The Mini's own name (one name per Mini: the card, the pinned bar, the chat list and search read it). */
+async function nameOfTool(id: string, params: Record<string, unknown>, fallback: string): Promise<string> {
+  return miniName(await toolSource(id, params), fallback);
 }
 
 /** Members first, then each first move as its own user. Returns the last entry's user and time. */
@@ -27,7 +31,7 @@ async function toolLog(ws: string, toolId: string, members: string[], acts: { us
   await sys.sendAll([{ t: "@members", members: members.map((m) => ({ id: m, name: FIRST[m] ?? m })) }]);
   let last: { user: string; time: number } | null = null;
   for (const a of acts) {
-    const rc = await new RoomClient(ws, toolRoom(toolId), `${CLIENT}-${a.user}`, wire(a.user)).join();
+    const rc = await new RoomClient(ws, toolRoom(toolId), `${CLIENT}-${a.user}`, a.user).join();
     clients.push(rc);
     // a user can act more than once: send all of theirs from one client
     const mineActs = acts.filter((x) => x.user === a.user);
@@ -50,9 +54,9 @@ export async function seedSurfaces(ws: string, log: (s: string) => void = consol
   await index.sendAll(BACKING.map((b) => ({ t: "chat", id: b.id, key: b.key })));
 
   for (const b of BACKING) {
-    const members = b.members.map(wire);
+    const members = b.members;
     const actions: ChatAction[] = [{ t: "create", name: b.name, kind: "group", members, key: b.key }];
-    for (const t of b.tools) actions.push({ t: "tool", id: t.id, name: t.name, summary: t.summary, code: await code(t.piece, t.params), by: "muse", at: t0 } as ChatAction);
+    for (const t of b.tools) actions.push({ t: "tool", id: t.id, name: await nameOfTool(t.piece, t.params, t.name), summary: t.summary, code: await code(t.piece, t.params), by: "muse", at: t0 } as ChatAction);
     const room = await new RoomClient(ws, chatRoom(b.id), CLIENT, SEED_USER).join();
     clients.push(room);
     await room.sendAll(actions);
@@ -72,11 +76,12 @@ export async function seedSurfaces(ws: string, log: (s: string) => void = consol
   const at = Date.now() - 11 * 60 * 60_000;
   const priya = await new RoomClient(ws, chatRoom("priya"), `${CLIENT}-dm`, SEED_USER).join();
   clients.push(priya);
+  const tryCode = await sourceOf({ tool: "lab:reel-to-try", params: priyaTry(r) });
   await priya.sendAll([
     { t: "msg", id: "sx-reel", kind: "link", as: "priya", at, link: { site: `Reel · ${r.handle}`, title: r.caption, description: "Reels", shared: { kind: "reel", id: r.id } } },
     { t: "msg", id: "sx-wait", as: "priya", at: at + 60_000, text: "we need to go to all 3" },
-    { t: "msg", id: "src-reels-tt-sx-reel", kind: "system", at: at + 120_000, text: "**Will** added 3 places to **To try**" },
-    { t: "tool", id: "t-sx-try", name: "To try", summary: TRY_SUMMARY, code: compileApp(await sourceOf({ tool: "lab:reel-to-try", params: priyaTry(r) })).code, by: "priya", at: at + 120_000 },
+    { t: "msg", id: "src-reels-tt-sx-reel", kind: "system", at: at + 120_000, text: `**Will** added 3 places to **${miniName(tryCode, "To try")}**` },
+    { t: "tool", id: "t-sx-try", name: miniName(tryCode, "To try"), summary: TRY_SUMMARY, code: compileApp(tryCode).code, by: "priya", at: at + 120_000 },
   ]);
   // as rich as the lab example: one spot they went to with ratings, one they want, and Will adds the reel's
   const last = await toolLog(ws, "t-sx-try", ["noa", "priya"], [{ user: "priya", action: { t: "add" } }], clients);
@@ -100,8 +105,8 @@ export function priyaTry(r: (typeof REELS)[number]): Record<string, unknown> {
   return {
     reel: { from: "Will", note: "we need to go to all 3", account: r.handle, caption: r.caption, likes: `${Math.round(r.likes / 1000)}K`, place: first, area: "Chinatown" },
     spots: [
-      { name: second, area: "Chinatown", tried: "Oct 3", ratings: [{ by: "Will", stars: 4 }, { by: "Maya", stars: 5 }], want: [] },
-      { name: third, area: "Sunset", tried: "", ratings: [], want: ["Will", "Aditya"] },
+      { name: second, area: "Chinatown", tried: "Oct 3", ratings: [{ by: "Will", stars: 4 }, { by: "Tsai Lin", stars: 5 }], want: [] },
+      { name: third, area: "Sunset", tried: "", ratings: [], want: ["Will", "Tsai Lin"] },
     ],
     compact: true, // lands in a chat: 420 px, not the reel's 600
   };

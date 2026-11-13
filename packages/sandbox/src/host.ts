@@ -183,11 +183,18 @@ export function createPool(o: PoolOpts): Pool {
       frame.contentWindow?.postMessage({ t: "port" }, "*", [ch.port2]);
     });
     let onStaleFrame: (() => void) | null = null;
+    let loaded = false;
     const attempt = (i: number, round = 0): Promise<void> =>
       new Promise<void>((res, rej) => {
         onReady = res;
         onStaleFrame = () => rej(new Error("Frame is from another start of the demo"));
-        frame.src = urls[i]!;
+        // A frame already in the page that navigates again adds an entry to the tab's history, so the
+        // app's back would step back inside the frame instead. The first load sets src (it replaces the
+        // initial about:blank); every retry and fallback replaces the frame's document instead.
+        if (loaded && frame.contentWindow) frame.contentWindow.location.replace(urls[i]!);
+        else frame.src = urls[i]!;
+        loaded = true;
+        frame.dataset.url = urls[i]!; // the URL in use (src keeps the first one after a replace)
         // A busy machine or a background tab can take far longer than the first wait; later rounds give every URL 15 s.
         setTimeout(() => rej(new Error(i < urls.length - 1 ? "fallback" : "Frame did not get ready")), round > 0 ? 15_000 : i < urls.length - 1 ? (o.fallbackMs ?? 1500) : 10_000);
       }).then(

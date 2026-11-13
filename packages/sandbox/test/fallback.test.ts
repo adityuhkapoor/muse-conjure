@@ -63,6 +63,7 @@ test("a blocked first URL falls back to the next one within the time given, and 
   const page = await openPage();
   const r = await page.evaluate(async (list) => {
     const said: string[] = [];
+    const before = history.length;
     const t0 = performance.now();
     const pool = (window as any).createPool({ size: 2, frameUrls: list, fallbackMs: 1500, onFallback: (u: string) => said.push(u) });
     await pool.ready();
@@ -77,10 +78,12 @@ test("a blocked first URL falls back to the next one within the time given, and 
       h.onError(() => res(true));
       setTimeout(() => res(false), 4000);
     });
-    const srcs = [...document.querySelectorAll("iframe")].map((f) => [f.getAttribute("src"), f.getAttribute("sandbox")]);
-    return { ms, said, srcs, sized };
+    const srcs = [...document.querySelectorAll("iframe")].map((f) => [f.dataset.url ?? f.getAttribute("src"), f.getAttribute("sandbox")]);
+    return { ms, said, srcs, sized, added: history.length - before };
   }, urls());
   expect(r.sized).toBe(true);
+  // falling back never adds to the tab's history (the app's back would go back inside a frame)
+  expect(r.added).toBe(0);
   expect(r.said).toEqual([urls()[1]!]);
   expect(r.ms).toBeLessThan(4000);
   expect(r.srcs.slice(0, 2)).toEqual([

@@ -12,6 +12,7 @@ export type ColorName =
   | "primary" | "onPrimary" | "link" | "text" | "secondaryText" | "disabledText" | "card" | "wash" | "input"
   | "divider" | "secondaryButton" | "secondaryButtonText" | "deemphasizedButton" | "deemphasizedButtonText"
   | "track" | "selected" | "hover" | "pressed" | "positive" | "negative" | "warning" | "toast" | "onToast"
+  | "onPositive" | "onNegative" | "onWarning"
   | "series1" | "series2" | "series3" | "series4" | "series5" | "series6";
 
 export type Theme = {
@@ -53,6 +54,9 @@ const lightColor: Record<ColorName, string> = {
   warning: "#AF8F00", // warning (the same value in both themes; 3.1:1 on white, so icons and fills, not body text)
   toast: "#FFFFFF", // toast-background (light); the toast carries a shadow, not a fill
   onToast: "#1C2B33", // toast-text
+  onPositive: "#FFFFFF", // text or an icon drawn on a positive fill
+  onNegative: "#FFFFFF", // text or an icon drawn on a negative fill
+  onWarning: "#080809", // text or an icon drawn on a warning fill (warning is a mid-brightness yellow; dark text clears AA, white does not)
   series1: "#0866FF", // reaction colors, then base-grape
   series2: "#F7B928",
   series3: "#31A24C",
@@ -87,6 +91,8 @@ const darkColor: Record<ColorName, string> = {
   warning: "#AF8F00", // warning (same in both themes)
   toast: "#242526", // toast-background dark
   onToast: "#FFFFFF", // toast-text dark
+  onPositive: "#080809", // dark text clears AA on the brighter dark-mode green; onWarning inherits light's dark text
+  onNegative: "#080809", // dark text clears AA on the pale dark-mode coral
 };
 
 // Assumed: 12 hues, white initials on each are at least 4.8:1.

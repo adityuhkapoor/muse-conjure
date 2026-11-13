@@ -12,7 +12,7 @@ export type Person = {
 
 export type Reaction = { emoji: string; by: PersonId[] };
 
-export type MessageKind = "text" | "photo" | "link" | "muse" | "system" | "activity";
+export type MessageKind = "text" | "photo" | "link" | "muse" | "system" | "activity" | "kit";
 
 export type Message = {
   id: string;
@@ -28,7 +28,9 @@ export type Message = {
   /** `eventId` makes the preview open the event page; `site` is then the date line. */
   link?: { site: string; title: string; description: string; eventId?: string; /* surfaces: a shared reel or listing */ shared?: import("../surfaces/types").SharedRef };
   /** `toolId` links the card to a Tool; `building` is the "Muse is building" state of the same card. */
-  muse?: { appId: string; title: string; subtitle: string; toolId?: string; building?: boolean; /** a real app the store can mount (live store) */ live?: boolean; /** bumped by each change in place: the frame remounts */ rev?: number; /** Muse is changing it (people can keep using it) */ changing?: boolean };
+  muse?: { appId: string; title: string; subtitle: string; toolId?: string; building?: boolean; /** a real app the store can mount (live store) */ live?: boolean; /** bumped by each change in place: the frame remounts */ rev?: number; /** Muse is changing it (people can keep using it) */ changing?: boolean; /** a game: whoever started it (`mine`) can end it and start it over */ game?: boolean; mine?: boolean };
+  /** kind "kit": what a plan needs from Marketplace; absent while Muse works it out (`text` is the ask) */
+  kit?: import("../live/chat-reducer").WireKit;
   /** kind "activity": a tappable centred line about a tool ("Maya spun the wheel"). `text` uses **bold** markers. */
   activity?: { toolId: string };
   /** a Mini Muse offers with a reply: tapping it makes that Mini (live store) */

@@ -6,12 +6,15 @@
 // any fails. `--all` also gates each scenario's other available choices (the fallbacks). The
 // must-fail fixtures (--self-test): params that break a piece, and a lab tool that throws as it opens.
 
-import { EVENT, PEOPLE, seedEvents } from "../../apps/shell/src/store/fake-data.ts";
+import { CHAT_MEMBERS, EVENT, PEOPLE, seedEvents } from "../../apps/shell/src/store/fake-data.ts";
 import { eventContext, gamingContext, groupContext, listingContext, postContext, reelContext, storyContext } from "../../apps/shell/src/muse/context.ts";
 import { PACK } from "../../apps/shell/src/muse/pack.ts";
 import { BDAY21, FEED_POSTS, POTLUCK, RECIPE_REEL, TRIP } from "../../apps/shell/src/muse/seed.ts";
 import type { PageContext, Scenario } from "../../apps/shell/src/muse/types.ts";
-import { GROUPS, LISTINGS, MY_POLL, REELS, STRANGERS } from "../../apps/shell/src/surfaces/data.ts";
+import { ME } from "../../apps/shell/src/store/types.ts";
+import { viewerId } from "../../apps/shell/src/lib/media.ts";
+import { GROUPS, LISTINGS, REELS, STORIES, STRANGERS } from "../../apps/shell/src/surfaces/data.ts";
+import { CAST_IDS } from "../../apps/shell/src/store/cast.ts";
 import { available, sourceOf, type Choice } from "./premade.ts";
 import { closeMountCheck, mountCheck } from "./mount-check.ts";
 import { plainTools } from "../../apps/shell/scripts/lab-only.ts";
@@ -21,13 +24,13 @@ const args = process.argv.slice(2);
 const all = args.includes("--all");
 const only = args.find((a) => a.startsWith("--only="))?.slice(7).split(",");
 const NAMES: Record<string, string> = Object.fromEntries([...PEOPLE, ...STRANGERS].map((p) => [p.id, p.first]));
-const nameOf = (id: string) => NAMES[id] ?? id;
+// contexts name the viewer "me" (the store's name for whoever views); here that is the default viewer
+const nameOf = (id: string) => NAMES[id === ME ? viewerId() : id] ?? id;
 
-/** The cast as the shell sends them to a tool: wire ids ("me" is noa) and first names. */
-const wire = (id: string) => (id === "me" ? "noa" : id);
-const CAST = ["me", "maya", "dev", "jonah", "priya", "theo"].map((id) => ({ id: wire(id), name: nameOf(id) }));
+/** The cast as the shell sends them to a tool: wire ids and first names. */
+const CAST = CAST_IDS.map((id) => ({ id, name: nameOf(id) }));
 /** A post's author, as a viewer: the author is offered the tool for their own post. */
-const authorOf = (c: PageContext) => (c.object.kind === "post" ? [wire(FEED_POSTS.find((p) => p.id === c.object.id)?.by ?? "me")] : []);
+const authorOf = (c: PageContext) => (c.object.kind === "post" ? [FEED_POSTS.find((p) => p.id === c.object.id)?.by ?? viewerId()] : []);
 
 /** The seeded page each scenario is made from. */
 export function pageFor(s: Scenario): PageContext {
@@ -37,7 +40,7 @@ export function pageFor(s: Scenario): PageContext {
   const loveseat = LISTINGS.find((l) => l.id === "l-loveseat")!;
   const post = (kind: string) => FEED_POSTS.find((p) => p.kind === kind)!;
   const reel = (id: string) => [...REELS, RECIPE_REEL].find((r) => r.id === id)!;
-  const shared = { chatId: "apt4b", chatName: "apt 4b", members: ["me", "maya", "priya", "dev"], reelsInChat: REELS.map((r) => ({ id: r.id, caption: r.caption })), nameOf };
+  const shared = { chatId: "apt4b", chatName: "apt 4b", members: [...CHAT_MEMBERS.apt4b!], reelsInChat: REELS.map((r) => ({ id: r.id, caption: r.caption })), nameOf };
   switch (s.surface) {
     case "event":
       if (s.id === "event-host") return eventContext(seedEvents().find((e) => e.id === BDAY21.id)!, { rsvp: "going", now: EVENT.start, nameOf });
@@ -54,12 +57,12 @@ export function pageFor(s: Scenario): PageContext {
     case "reel":
       return reelContext(reel({ "reel-cook-night": "r-noodles", "reel-hike": "r-hike" }[s.id] ?? "r-dumplings"), shared);
     case "story": {
-      const st = s.id === "story-plan" ? { id: "s-me", by: "me", caption: "", tone: 2 as const } : { id: TRIP.storyId, by: TRIP.by, caption: TRIP.caption, tone: 1 as const };
-      const win = MY_POLL.options[0]!;
-      return storyContext(st, { nameOf, ...(s.id === "story-plan" ? { poll: { question: MY_POLL.question, winner: win.label, voters: win.voters, place: MY_POLL.place, when: MY_POLL.when, ended: true } } : {}) });
+      // the plan is made by the poll's author (Aditya), from his own story
+      const st = s.id === "story-plan" ? STORIES.find((x) => x.poll)! : { id: TRIP.storyId, by: TRIP.by, caption: TRIP.caption, tone: 1 as const };
+      return storyContext(st, { nameOf, viewer: st.by });
     }
     default:
-      return gamingContext({ nameOf, chats: [{ id: "apt4b", name: "apt 4b", members: ["me", "maya", "priya", "dev"] }] });
+      return gamingContext({ nameOf, chats: [{ id: "apt4b", name: "apt 4b", members: CHAT_MEMBERS.apt4b! }] });
   }
 }
 

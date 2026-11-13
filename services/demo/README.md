@@ -29,6 +29,10 @@ Files:
   `font-src data:` only). Binds to loopback and private addresses only (10/8, 172.16/12,
   192.168/16, 100.64/10), never 0.0.0.0. Nothing is made public. Routes are listed in
   `docs/CONTRACTS.md` section 6.
+- `sse.ts`: streams that survive a phone leaving at any moment (`sseStream`, `splitBody`). Every
+  streaming route uses them; a throw out of a stream callback would end the whole process. `start.ts`
+  also logs `unhandledRejection` and `uncaughtException` with their stack and keeps serving, and
+  `stack.ts` brings a child (sync server, factory) that exits back on the same port.
 - `change.ts`: "Tell Muse what to change". `POST /change` reads the chat and the tool's room, asks
   the factory's `/change`, and writes `tool-changing`, then `tool-update` on the same message and
   one line from Muse. Each tool's source is kept per message in `data/tools/<id>.json`
@@ -42,6 +46,16 @@ Files:
 - `posts.ts`: the Home composer's three routes (`/compose/*`) and the cast's part in posts.
 - `premade.ts`: `/premade`, a scenario's tool choices filled from the page and compiled without a
   model.
+- `kit.ts`: Marketplace as context for a plan. `POST /kit` with `{ ask, chat, members, event? }`
+  returns a kit: what the plan needs, each need matched to a listing in `apps/shell/src/surfaces/data.ts`
+  (`LISTINGS`), the rest priced at a real store online, and the per-person split. Guardrails: the plan
+  call can only name catalog ids, a second call (Ember) drops any match that is not really that kind of
+  item, and needs Marketplace can't fill go to web search (Spark, one call per need, in parallel). A
+  store link is kept only if it loads (a 404, 410 or failed DNS drops it; a stall from one of a few big
+  stores that block bots, such as REI, counts as up); a photo only if its URL serves an image (the
+  result's, the store page's `og:image`, or the maker's page's). Prices, counts and the split are
+  computed in code. Needs the Muse key (503 without it); about 13 s on Marketplace alone, 40 to 50 s
+  with store lookups.
 - `seed.ts`: the fake chats through the normal protocol, with real tools from `library/lab`.
   Idempotent (fixed client ids and cseqs, a `seeded` marker in `t:index`). `SEED_VERSION` is written
   next to the database; when the fake chats change, `bun run demo` starts a new database once.

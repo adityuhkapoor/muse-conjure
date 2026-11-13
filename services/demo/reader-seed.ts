@@ -13,13 +13,15 @@ import { eventContext, groupContext, listingContext, postContext, reelContext, s
 import { readerInput } from "../../apps/shell/src/muse/reader-text.ts";
 import { FEED_POSTS } from "../../apps/shell/src/muse/seed.ts";
 import type { PageContext } from "../../apps/shell/src/muse/types.ts";
+import { ME } from "../../apps/shell/src/store/types.ts";
+import { viewerId } from "../../apps/shell/src/lib/media.ts";
 import { PEOPLE, seedEvents } from "../../apps/shell/src/store/fake-data.ts";
 import { GROUPS, LISTINGS, REELS, STORIES, STRANGERS } from "../../apps/shell/src/surfaces/data.ts";
 import { loadSeedAnswers, readerConfigs, readKey, readPage, saveSeedAnswers, storedKeys, storedOf, type ReadInput } from "./reader.ts";
 
-const wire = (id: string) => (id === "me" ? "noa" : id);
-const FIRST: Record<string, string> = Object.fromEntries([...PEOPLE, ...STRANGERS].map((p) => [wire(p.id), p.first]));
-const nameOf = (id: string) => FIRST[wire(id)] ?? id;
+const FIRST: Record<string, string> = Object.fromEntries([...PEOPLE, ...STRANGERS].map((p) => [p.id, p.first]));
+// contexts name the viewer "me" (the store's name for whoever views); here that is the default viewer
+const nameOf = (id: string) => FIRST[id === ME ? viewerId() : id] ?? id;
 
 /** Every seeded page object in the states the shell reads it in. */
 export function seededContexts(now = Date.now()): PageContext[] {
@@ -33,9 +35,7 @@ export function seededContexts(now = Date.now()): PageContext[] {
   }
   for (const r of REELS) out.push(reelContext(r, { nameOf }));
   for (const s of STORIES) {
-    const p = s.poll;
-    const win = p ? [...p.options].sort((a, b) => b.voters.length + b.others - (a.voters.length + a.others))[0] : undefined;
-    out.push(storyContext(s, { nameOf, ...(p && win ? { poll: { question: p.question, winner: win.label, voters: win.voters, place: p.place, when: p.when, ended: p.ended } } : {}) }));
+    out.push(storyContext(s, { nameOf }));
   }
   return out;
 }

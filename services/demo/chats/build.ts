@@ -2,10 +2,10 @@
 // The lines are transcribed from docs/FEED_SPEC.md section F; change the spec first.
 //
 // A line is [id, day offset from today, "HH:MM", sender, text, extras?].
-//   sender: a wire-style person id ("me" is Tsai Lin), "system", or "TOOL" (text = the seeded tool id).
+//   sender: a wire id ("noa" is Tsai Lin; seed files never say "me"), "system", or "TOOL" (text = the seeded tool id).
 //   text:   plain text; "[photo: brief]" is a photo (any text after the bracket is a second message);
 //           "[link: site | title]" is a link card.
-//   extras: { re: "😆 maya,me" } reactions (groups split by ";"), { reply: "006" } reply to a line.
+//   extras: { re: "😆 maya,noa" } reactions (groups split by ";"), { reply: "006" } reply to a line.
 // An id that starts with "!" is used as is (no chat prefix), for messages another seeder also writes.
 
 import type { Message } from "../../../apps/shell/src/store/types.ts";
