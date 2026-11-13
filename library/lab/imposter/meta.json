@@ -1,0 +1,11 @@
+{
+  "id": "imposter",
+  "name": "Imposter",
+  "origin": { "crate": "apps8", "id": "imposter" },
+  "surface": "messenger",
+  "summary": "A party game: everyone gets the same secret word but one, drops a one-word clue, then votes out the faker.",
+  "useWhen": ["the chat is bored and wants a quick game everyone can play from their phone", "'game night', 'play imposter', 'who's the spy'"],
+  "dontUseWhen": ["fewer than 3 people in the chat", "trivia about the group (use friend-trivia-pub)", "a real decision (use a poll)"],
+  "params": { "crew": "what the chat calls itself in copy, e.g. 'girls'", "pairs": "1-6 x {word, odd, hints[3], oddHints[3]}: the crowd's word, the imposter's word, clue suggestions for each", "imposter": "member name who has the odd word in round 1", "clues": "{by, text}[]: round 1 clues already in the chat" },
+  "height": 354
+}

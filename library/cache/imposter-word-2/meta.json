@@ -1,0 +1,77 @@
+{
+ "id": "imposter-word-2",
+ "ask": "run it",
+ "kind": "imposter-word",
+ "family": "game",
+ "surface": "chat",
+ "sentence": "A social deduction word game where everyone except one hidden imposter is dealt a secret Netflix show, players give one short clue per round for two rounds, then vote on who the imposter is.",
+ "use_when": [
+  "A group wants a quick party game in the chat",
+  "Someone asks to play imposter or a spot-the-faker word game",
+  "People want a Netflix or TV show themed guessing game",
+  "A group wants to bluff and vote on who is faking"
+ ],
+ "dont_use_when": [
+  "Only two people are present, since it needs at least 3 players",
+  "The group wants a different theme or custom word list",
+  "The group wants a simple poll or a vote on a decision rather than a game"
+ ],
+ "keywords": [
+  "imposter",
+  "word game",
+  "party game",
+  "social deduction",
+  "netflix",
+  "tv shows",
+  "bluffing",
+  "clues",
+  "vote",
+  "guessing game",
+  "hidden role",
+  "group game"
+ ],
+ "members": {
+  "min": 3,
+  "max": 12,
+  "original": 7
+ },
+ "mutation_score": 1,
+ "height": 204,
+ "params": {
+  "names": [],
+  "options": [
+   "Stranger Things",
+   "Love Is Blind",
+   "Squid Game",
+   "The Bear",
+   "Wednesday",
+   "Bridgerton"
+  ],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "austin road trip",
+  "members": [
+   "Marcus",
+   "Kev",
+   "Rohan",
+   "Tess",
+   "Jalen",
+   "Ravi",
+   "Maya"
+  ],
+  "text": "3 more hrs til we hit the airbnb\ncar game time. imposter?\nyes pls. everyone gets the word but one person\nimposter has to bluff a clue without knowing it\ntheme = netflix shows imo\nok shows: stranger things, love is blind, squid game, the bear, wednesday, bridgerton\nadd one piece\nthats 7 shows, 7 of us lol\nonly 1 gets used tho\nim driving so someone has to read mine to me ngl\nwe just need it to tell us our word privately\nand imposter just gets like 'you're the imposter'\n2 rounds then vote?\nya one clue each round then vote\nmuse run it"
+ },
+ "seconds": 260.5,
+ "attempts": 1,
+ "created": "2026-11-13T03:55:36.669Z",
+ "second_look": {
+  "endStep": 27,
+  "endReason": "reached phase = done",
+  "controls": 1,
+  "restHash": "bf957878850fc468",
+  "playedHash": "833b7fa1a534c85a"
+ }
+}

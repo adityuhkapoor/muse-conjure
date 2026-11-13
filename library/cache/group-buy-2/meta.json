@@ -1,0 +1,80 @@
+{
+ "id": "group-buy-2",
+ "ask": "ok muse do your thing",
+ "kind": "group-buy",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Tracks a group shirt order by size, color and quantity against a minimum count, with sure or maybe flags and a running price total.",
+ "use_when": [
+  "A group is ordering custom shirts and needs to reach a minimum quantity",
+  "Everyone needs to add their size, color and count in one place",
+  "The group wants to see how many shirts are sure versus maybe and the total cost"
+ ],
+ "dont_use_when": [
+  "Splitting a bill or tracking who owes whom",
+  "Voting on a design or choosing between options",
+  "Ordering items with many different products or custom prices"
+ ],
+ "keywords": [
+  "shirt order",
+  "group buy",
+  "bulk order",
+  "minimum order",
+  "sizes",
+  "t-shirts",
+  "merch",
+  "order tracker",
+  "headcount",
+  "color choice",
+  "quantity",
+  "running total"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 4
+ },
+ "mutation_score": 1,
+ "height": 304,
+ "params": {
+  "names": [
+   "Bryan",
+   "Hana",
+   "Tyler",
+   "Eli"
+  ],
+  "options": [
+   "girlfriend",
+   "dorm"
+  ],
+  "blanks": [],
+  "numbers": [
+   15,
+   1400,
+   1200,
+   12,
+   9
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "cs club shirts",
+  "members": [
+   "Bryan",
+   "Hana",
+   "Tyler",
+   "Eli"
+  ],
+  "text": "so the shirt guy emailed back. 15 shirts minimum or its a no\nwe only have like 9 right\ni got 4 people from my dorm interested, maybe 5\ni want one but only if its the black one not the gray one\nblack is 14 each, gray is 12. same min\ni'm L black. and my girlfriend would take an S\nmy dorm ppl are 2 M, 1 L, and one guy said XL but idk if hes serious\ni'm S black. so thats me, bryan x2, tyler, eli's 4\nM black\nwait are we counting sizes or total, i lost it\nok muse do your thing"
+ },
+ "seconds": 363.1,
+ "attempts": 2,
+ "created": "2026-11-13T05:00:20.916Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 2,
+  "restHash": "bf953bb008629d0f",
+  "playedHash": "bb953fb118e2910e"
+ }
+}

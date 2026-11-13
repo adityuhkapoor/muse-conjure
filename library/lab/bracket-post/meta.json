@@ -1,0 +1,24 @@
+{
+  "id": "bracket-post",
+  "name": "Bracket post",
+  "origin": { "crate": "apps12", "id": "bracket-post" },
+  "surface": "feed",
+  "summary": "An 8-spot bracket in a feed post where friends vote the semis and final and crown a champ.",
+  "useWhen": ["a post asking for the best of something with many contenders", "'best late night food in SF', 'best boba near campus, bracket style'"],
+  "dontUseWhen": ["a simple pick among 2-4 options (use a poll)", "ranking everything into tiers (use feed-tier-list)"],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "e.g. 'Best late night food in SF'" },
+      "left": { "type": "string", "description": "Time left in the round, e.g. '3h left'" },
+      "teams": { "type": "array", "description": "8 entries in bracket order: name, plus food (burrito, taco, donut, shake, pizza, burger, curry, fries) only when every entry is a food; leave food out for anything else (teams, bands, places) and they get initials", "items": { "type": "object" } },
+      "kind": { "type": "string", "enum": ["food", "initials"], "description": "food draws food icons; initials (default unless every entry names a food) draws a coloured disc with initials" },
+      "quarters": { "type": "array", "items": { "type": "integer" }, "description": "Round 1 winners: for each of the 4 pairs, 0 (first) or 1 (second)" },
+      "semis": { "type": "array", "description": "Votes from outside this chat for each semi: [[first, second], [first, second]]", "items": { "type": "array", "items": { "type": "integer" } } },
+      "final": { "type": "array", "items": { "type": "integer" }, "description": "Outside votes for the final, [first, second]" },
+      "people": { "type": "array", "description": "Chat members' semi votes by team name", "items": { "type": "object" } }
+    },
+    "required": ["title", "teams"]
+  },
+  "height": 416
+}

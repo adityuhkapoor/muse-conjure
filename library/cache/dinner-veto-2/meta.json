@@ -1,0 +1,79 @@
+{
+ "id": "dinner-veto-2",
+ "ask": "mkae a veto thing for dinnr plz",
+ "kind": "dinner-veto",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Each person gets one veto to strike a restaurant from a short list, and the last place left is picked for the group meal.",
+ "use_when": [
+  "A group can't agree on where to eat and wants to narrow a list by elimination",
+  "Everyone should have an equal say by striking one option they dislike",
+  "Picking a restaurant for a planned dinner or outing from a few candidates",
+  "A quick way to decide among up to 8 options without a long debate"
+ ],
+ "dont_use_when": [
+  "The group wants to rank or score options or count votes for a favorite (use a poll)",
+  "Only one or two people are deciding, or there are not enough vetoes to reach a single winner",
+  "The choices are not a fixed list and people need to suggest new options as they go"
+ ],
+ "keywords": [
+  "veto",
+  "dinner",
+  "restaurant",
+  "where to eat",
+  "elimination",
+  "group decision",
+  "pick a place",
+  "decide",
+  "last one standing",
+  "food",
+  "vote out",
+  "tiebreaker"
+ ],
+ "members": {
+  "min": 3,
+  "max": 8,
+  "original": 8
+ },
+ "mutation_score": 1,
+ "height": 356,
+ "params": {
+  "names": [
+   "Mia"
+  ],
+  "options": [
+   "Kura Sushi",
+   "Seoul BBQ House",
+   "Olive Garden",
+   "La Monarca",
+   "Ippudo"
+  ],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "mia's bday dinner",
+  "members": [
+   "Ravi",
+   "Ty",
+   "Tess",
+   "Felix",
+   "Mia",
+   "Maya",
+   "Leo",
+   "Sofia"
+  ],
+  "text": "my bday dinner sat!! who's coming\nme\nobviously\nme, can we not do somewhere with a 2 hr wait\nin\nin but i have to leave by 9\nok places i like: kura sushi, seoul bbq house, olive garden, la monarca, ippudo\nolive garden?? lol\nunlimited breadsticks dont judge\nkura is fun the conveyor belt\nbbq is like 35 a person tho\nla monarca is cheap and close to campus\nippudo is my vote but the wait lol\nok so five: kura, seoul bbq, olive garden, la monarca, ippudo\ni cant decide at all\nsame\ni dont want to pick my own bday place and have ppl mad\ndo a veto thing? everybody bans one\nyes each person one veto and last one left wins\nthats fair\ni already know im vetoing olive garden sorry mia\nlol its fine\nthen the rest fight\nwe have 6 ppl 5 places so someone gets no veto lol\nstop when theres one left\nok\nmuse mkae a veto thing for dinnr plz"
+ },
+ "seconds": 83.8,
+ "attempts": 1,
+ "created": "2026-11-13T05:05:28.664Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 5,
+  "restHash": "9e3821f12df81e27",
+  "playedHash": "9f0eb9c13b380f31"
+ }
+}

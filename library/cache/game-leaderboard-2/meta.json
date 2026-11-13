@@ -1,0 +1,89 @@
+{
+ "id": "game-leaderboard-2",
+ "ask": "muse can u make a leaderboard of everyones trivia scores",
+ "kind": "game-leaderboard",
+ "family": "recap",
+ "surface": "chat",
+ "sentence": "A shared ranked scoreboard where each person sets or clears their own score for a quiz night, with bars, a per-night switcher and the option to add new nights.",
+ "use_when": [
+  "Everyone in the chat wants a ranked list of trivia or quiz scores",
+  "Keeping a running score table across several game nights",
+  "Each person needs to enter or fix their own points",
+  "Showing who leads tonight's quiz"
+ ],
+ "dont_use_when": [
+  "Asking quiz questions or running the trivia game itself",
+  "Splitting money or tracking who owes what",
+  "Voting on options or scheduling a time"
+ ],
+ "keywords": [
+  "leaderboard",
+  "trivia",
+  "scores",
+  "scoreboard",
+  "quiz night",
+  "ranking",
+  "points",
+  "game night",
+  "standings",
+  "tally",
+  "high scores",
+  "score tracker"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 8
+ },
+ "mutation_score": 1,
+ "height": 228,
+ "params": {
+  "names": [
+   "June",
+   "Marcus",
+   "Sam",
+   "Cleo",
+   "Omar",
+   "Theo",
+   "Maya",
+   "Wren"
+  ],
+  "options": [],
+  "blanks": [],
+  "numbers": [
+   14,
+   11,
+   9,
+   17,
+   13,
+   12,
+   15,
+   8
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "trivia night @ the rusty nail",
+  "members": [
+   "June",
+   "Marcus",
+   "Sam",
+   "Cleo",
+   "Omar",
+   "Theo",
+   "Maya",
+   "Wren"
+  ],
+  "text": "that was such a fun trivia night\nwe lost to the nursing kids again\nok but individually who got the most right\ni counted mine, 14 right\ni got 11, mostly sports\n9. the movie round ruined me\ni got 17 which i think is a record for me\n13 and i guessed like four of them\ni got 12\ni got 15, i knew the geography ones\ni only got 8 lol i was on my phone\nmaya 17 is crazy\nthe harry potter round carried me\nwe should do this every month and keep a running board\nyes pls so i can improve\nfirst one is tonights scores obv\nmuse can u make a leaderboard of everyones trivia scores"
+ },
+ "seconds": 155.9,
+ "attempts": 1,
+ "created": "2026-11-13T04:30:07.902Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 3,
+  "restHash": "9f398870330f68af",
+  "playedHash": "af25e0da9b92982d"
+ }
+}

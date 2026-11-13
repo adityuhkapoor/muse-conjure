@@ -1,0 +1,38 @@
+{
+  "id": "trip-lock",
+  "name": "Trip lock",
+  "origin": { "crate": "apps2", "id": "trip-lock" },
+  "surface": "messenger",
+  "summary": "A trip card with seats that fill as people commit; it locks once enough are in.",
+  "useWhen": ["a trip or plan that only happens if enough people commit", "'senior trip or never', 'need 4 to book the Airbnb', 'who's actually in for Nashville'"],
+  "dontUseWhen": ["a simple yes or no RSVP with no minimum (use an RSVP)", "picking dates (use a date poll)", "splitting the cost (use a bill split)"],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Senior yr or never'" },
+      "sub": { "type": "string", "description": "Airline and size line, e.g. 'Muse Air · trip for 6'" },
+      "date": { "type": "string", "description": "Event date in sentence case, e.g. 'Fri, Mar 13 at 8:00 AM'" },
+      "from": { "type": "string", "description": "Where the trip leaves from, e.g. 'Campus'" },
+      "to": { "type": "string", "description": "Where the trip is going, e.g. 'Nashville'" },
+      "details": { "type": "string", "description": "Dates, fare and meeting place, e.g. 'Mar 13–16 · ~$140 each · gate: the chat'" },
+      "deadline": { "type": "string", "description": "When the headcount is final, e.g. 'Final headcount Fri at 5:00 PM'" },
+      "seats": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "code": { "type": "string", "description": "Seat code, up to 4 characters: '1A'" },
+            "who": { "type": "string", "description": "Member name or id already in this seat, empty when open" }
+          },
+          "required": ["code", "who"],
+          "additionalProperties": false
+        },
+        "description": "Seats in order, 2 to 8"
+      },
+      "lockAt": { "type": "integer", "description": "How many people in the chat lock the trip" }
+    },
+    "required": ["title", "sub", "date", "from", "to", "details", "deadline", "seats", "lockAt"],
+    "additionalProperties": false
+  },
+  "height": 300
+}

@@ -1,0 +1,40 @@
+{
+  "id": "poll-map",
+  "name": "Poll map",
+  "surface": "story",
+  "summary": "A finished story poll about places drawn as a campus map from above, each spot a pin sized by its votes with friends' faces where they voted; a sticker invites everyone to meet at the winner and tapping it hops your face to the winning pin.",
+  "useWhen": [
+    "my story poll on best study spot got 212 votes, show it on a map",
+    "turn the poll results into a meetup at the winner thursday",
+    "which dining hall won the story poll, and who's coming",
+    "story poll results for places but make it a map",
+    "everyone who voted for larkin should just come to fenwick lol"
+  ],
+  "dontUseWhen": [
+    "the poll is still open or has no places (use story-poll-plan or after-vote)",
+    "picking a time rather than a place (use meeting-time)",
+    "a poll between two plans with details (use story-poll-plan)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "author": { "type": "string", "description": "Whose story the poll is on" },
+      "ago": { "type": "string", "description": "How long ago the story went up, e.g. '5h'" },
+      "question": { "type": "string", "description": "The poll question" },
+      "options": {
+        "type": "array",
+        "description": "2 to 4 places with final vote counts and where each sits on the map in thousandths (x left to right, y top to bottom, 80 to 920)",
+        "items": { "type": "object", "properties": { "label": { "type": "string" }, "votes": { "type": "integer" }, "kind": { "type": "string", "enum": ["library", "basement", "cafe", "lawn", "spot"], "description": "Which little drawing marks the pin" }, "x": { "type": "integer" }, "y": { "type": "integer" } }, "required": ["label", "votes"] }
+      },
+      "when": { "type": "string", "description": "When everyone meets at the winner, e.g. 'Thursday 7pm'" },
+      "friends": {
+        "type": "array",
+        "description": "Friends in the chat, the spot they picked (0-based index into options) and an optional line in their own words",
+        "items": { "type": "object", "properties": { "who": { "type": "string" }, "pick": { "type": "integer" }, "note": { "type": "string" } }, "required": ["who", "pick"] }
+      },
+      "going": { "type": "array", "items": { "type": "string" }, "description": "Names already going to the winner" }
+    },
+    "required": ["question", "options"]
+  },
+  "height": 556
+}

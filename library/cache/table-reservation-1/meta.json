@@ -1,0 +1,84 @@
+{
+ "id": "table-reservation-1",
+ "ask": "track this",
+ "kind": "table-reservation",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Tracks a headcount for a group dinner reservation, where chat members reply in, maybe or out, guests outside the chat are added and followed up, diets are noted, and the host sends a final count.",
+ "use_when": [
+  "Counting who is coming to a group dinner before a reservation",
+  "Tracking outside guests that different people are following up with",
+  "Collecting dietary needs for a restaurant booking",
+  "Host needs to lock and send a final head count by a deadline"
+ ],
+ "dont_use_when": [
+  "Choosing between several restaurants or times, which needs a poll",
+  "Splitting a bill or collecting payment after the meal",
+  "Booking a table directly with a restaurant"
+ ],
+ "keywords": [
+  "headcount",
+  "rsvp",
+  "dinner",
+  "reservation",
+  "table booking",
+  "guest list",
+  "who is coming",
+  "birthday",
+  "diet",
+  "final count",
+  "attendance",
+  "restaurant",
+  "track guests"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 4
+ },
+ "mutation_score": 1,
+ "height": 396,
+ "params": {
+  "names": [
+   "Maya",
+   "Theo",
+   "Ravi",
+   "Lily"
+  ],
+  "options": [
+   "Gen BBQ",
+   "Dani",
+   "Jess",
+   "Priya"
+  ],
+  "blanks": [
+   "Said yes"
+  ],
+  "numbers": [
+   7,
+   30,
+   3200
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "lily's bday dinner",
+  "members": [
+   "Maya",
+   "Theo",
+   "Ravi",
+   "Lily"
+  ],
+  "text": "ok so gen bbq for lily's bday saturday, i called and they'll hold the table till thursday 5pm for final headcount\naw stop you didnt have to\nshut up yes i did. 7:30 sat\nim in obviously\nin. is it the all you can eat tho\nyeah its 32 each ill put it on my card and you venmo me\nwait is dani coming\ndani said yes yesterday\njess and priya too i think\npriya is a maybe she has a lab thing\ni cant eat pork btw so need the beef and chicken only on my side of the grill lol\nnoted ravi no pork\njess is vegetarian i think? she said something about tofu\nyeah jess is veg, and dani is allergic to shellfish\nok shellfish dani, veg jess, no pork ravi\nso far thats me maya ravi lily dani jess = 6\n+ priya maybe = 7\ndid jess actually confirm tho\nshe liked the msg but thats not a yes\nugh yeah. i need names by thursday 5 or they give the table away\ni can ask priya in lab tmrw\nand ill text jess\nmuse track this"
+ },
+ "seconds": 355.4,
+ "attempts": 1,
+ "created": "2026-11-13T03:16:32.470Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 13,
+  "restHash": "9b1eb4e1f1940e1e",
+  "playedHash": "cb4ab4b4b1b44b5a"
+ }
+}

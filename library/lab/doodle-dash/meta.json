@@ -1,0 +1,29 @@
+{
+  "id": "doodle-dash",
+  "name": "Doodle dash",
+  "surface": "messenger",
+  "summary": "A drawing and guessing game in the chat: one person draws a prompt from the chat on a little sketchbook page in 20 seconds while sand runs out, everyone else types guesses that pop up as bubbles, the fastest right guess scores, and every page goes into a gallery.",
+  "useWhen": [
+    "game night but none of us own a board game",
+    "pictionary in the gc?",
+    "bored, someone start a drawing game",
+    "draw arun's rice cooker, i bet nobody gets it",
+    "quick game while we wait for the pizza"
+  ],
+  "dontUseWhen": [
+    "making one shared drawing or poster together (use a creative tool)",
+    "a word game with typing only (use word-bomb or letter-sprint)",
+    "trivia about the group (use friend-trivia-pub)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title" },
+      "rounds": { "type": "array", "items": { "type": "object", "properties": { "prompt": { "type": "string", "description": "What to draw, taken from the chat" }, "answer": { "type": "string", "description": "The word or words a right guess must contain" }, "drawer": { "type": "string", "description": "Who draws it (a name in the chat)" } }, "required": ["prompt", "answer"] }, "description": "Up to 6 rounds in order" },
+      "gallery": { "type": "array", "items": { "type": "object", "properties": { "strokes": { "type": "array", "items": { "type": "array", "items": { "type": "integer" } } }, "winner": { "type": "string" } } }, "description": "Pages already finished, in round order: strokes as flat x,y lists in thousandths of the page, and who guessed it" },
+      "live": { "type": "object", "properties": { "strokes": { "type": "array", "items": { "type": "array", "items": { "type": "integer" } } }, "guesses": { "type": "array", "items": { "type": "object", "properties": { "who": { "type": "string" }, "text": { "type": "string" } } } } }, "description": "The page being drawn now: strokes so far and wrong guesses already in, in people's own words" }
+    },
+    "required": ["rounds"]
+  },
+  "height": 360
+}

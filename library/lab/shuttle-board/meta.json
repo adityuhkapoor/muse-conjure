@@ -1,0 +1,31 @@
+{
+  "id": "shuttle-board",
+  "name": "Shuttle board",
+  "surface": "group",
+  "summary": "A split-flap departures board pinned to the group, built from the official shuttle schedule: each run flaps its day, time, stop and seats left, the last run blinks, and members tap a run and say they're on it to see who they're riding with.",
+  "useWhen": [
+    "when does the airport shuttle run before break",
+    "is there a bus to the airport friday",
+    "what time is the last shuttle",
+    "who's taking the 1:40 shuttle",
+    "can someone post the break shuttle times again"
+  ],
+  "dontUseWhen": [
+    "carpooling in friends' cars (use event-carpool or carpool)",
+    "a one-off ride to pick someone up (use pickup-run)",
+    "booking flights or splitting a cab fare"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Airport shuttle'" },
+      "group": { "type": "string", "description": "Group name" },
+      "to": { "type": "string", "description": "Where the shuttle goes, short, e.g. 'BDL airport'" },
+      "asked": { "type": "integer", "description": "How many times it was asked in the group" },
+      "runs": { "type": "array", "description": "Up to 6 runs from the official schedule, in order", "items": { "type": "object", "properties": { "day": { "type": "string", "description": "Three-letter day, e.g. 'Fri'" }, "time": { "type": "string", "description": "Short time, e.g. '3:40p'" }, "stop": { "type": "string", "description": "Pickup stop, e.g. 'Lot C'" }, "seats": { "type": "integer", "description": "Seats on the run" }, "outside": { "type": "integer", "description": "Riders already booked from outside the chat" }, "riders": { "type": "array", "items": { "type": "string" }, "description": "Chat members on this run, by name" }, "last": { "type": "boolean", "description": "True for the last run before break" } }, "required": ["time", "stop"] } },
+      "said": { "type": "array", "description": "What riders said, in their words", "items": { "type": "object", "properties": { "name": { "type": "string", "description": "Who said it" }, "text": { "type": "string", "description": "Their words" } } } }
+    },
+    "required": ["runs"]
+  },
+  "height": 410
+}

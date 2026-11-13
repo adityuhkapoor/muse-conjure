@@ -1,0 +1,43 @@
+{
+  "id": "scantron-sprint",
+  "name": "Scantron sprint",
+  "surface": "messenger",
+  "summary": "A two-minute memory game on a drawn bubble sheet: peek and the answer key fills in pencil for a few seconds then erases, fill the bubbles from memory and turn it in, and it comes back graded in red pen with your score circled; everyone gets the same key, so the chat's scores line up on the side like returned tests.",
+  "useWhen": [
+    "need a 2 min study break game",
+    "bet i can beat ur memory",
+    "something dumb to play between study sessions",
+    "quick game for the group chat during finals",
+    "who has the best memory in here"
+  ],
+  "dontUseWhen": [
+    "actually quizzing course material (use exam-quiz or flashcard-relay)",
+    "a long game night (use trivia-night)",
+    "picking where to eat"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Scantron sprint'" },
+      "sheet": { "type": "string", "description": "Printed at the top of the sheet, e.g. 'PSYCH 110 · practice midterm'" },
+      "round": { "type": "string", "description": "Round name; a new round makes a new answer key" },
+      "questions": { "type": "integer", "description": "Number of questions, 5 to 9" },
+      "peek": { "type": "integer", "description": "Seconds the key shows, 1 to 8" },
+      "scores": {
+        "type": "array",
+        "description": "Scores already turned in",
+        "items": {
+          "type": "object",
+          "properties": {
+            "who": { "type": "string", "description": "Name in the chat" },
+            "score": { "type": "integer", "description": "How many they got right" },
+            "said": { "type": "string", "description": "What they said about it, in their words" }
+          },
+          "required": ["who", "score"]
+        }
+      }
+    },
+    "required": ["questions"]
+  },
+  "height": 364
+}

@@ -1,0 +1,86 @@
+{
+ "id": "rent-split-2",
+ "ask": "can u work out what each of us owes, rent is 1900 and utils 140, and make sure it adds up",
+ "kind": "rent-split",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Splits a fixed monthly rent across rooms and shares utilities equally, shows what each person owes, and checks that the total matches rent plus utilities.",
+ "use_when": [
+  "Housemates need to work out what each person owes for rent and utilities",
+  "Rent differs by room and people want to move amounts between rooms until it feels fair",
+  "A group wants a check that individual shares add up to the full bill",
+  "People want to pick their own room and opt in or out of utilities"
+ ],
+ "dont_use_when": [
+  "Splitting a one-off restaurant or trip bill with itemised expenses",
+  "Tracking who paid whom over time or settling running balances",
+  "Splitting by percentages or income rather than fixed room rents"
+ ],
+ "keywords": [
+  "rent split",
+  "split rent",
+  "utilities",
+  "who owes what",
+  "roommates",
+  "housemates",
+  "room rent",
+  "shared bills",
+  "monthly rent",
+  "bill splitter",
+  "adds up",
+  "household costs"
+ ],
+ "members": {
+  "min": 2,
+  "max": 8,
+  "original": 8
+ },
+ "mutation_score": 0.94,
+ "height": 276,
+ "params": {
+  "names": [
+   "Sam",
+   "Noor",
+   "Priya",
+   "Rhea"
+  ],
+  "options": [
+   "What each of us owes",
+   "Big room",
+   "The den"
+  ],
+  "blanks": [],
+  "numbers": [
+   190000,
+   14000,
+   90000,
+   60000,
+   40000
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "the den apartment",
+  "members": [
+   "Sam",
+   "Noor",
+   "Priya",
+   "Rhea",
+   "Marcus",
+   "Kofi",
+   "Mina",
+   "Ines"
+  ],
+  "text": "ok real talk we need to figure out rent before the 1st\nyes pls. its 1900 for the apt and utils are like 140 w wifi and electric\nme and sam are in the big room so we can pay together\ni'm in the den and it has no door, just a curtain lol so i feel like i should pay least\nagree, thats fair\nmy room is tiny but it has a door and a window so more than rhea\nwhat if big room is 900 for both of us, so 450 each\ni can do 400 for the den\nthen i'd be 600\n900 + 600 + 400 is 1900 nice\nutils per person tho, not per room. there's 4 of us\nmuse can u work out what each of us owes, rent is 1900 and utils 140, and make sure it adds up"
+ },
+ "seconds": 230.3,
+ "attempts": 1,
+ "created": "2026-11-13T04:18:53.087Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 1,
+  "restHash": "8339bc94b82b43ee",
+  "playedHash": "8339bf969494313b"
+ }
+}

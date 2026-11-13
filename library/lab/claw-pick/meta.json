@@ -1,0 +1,10 @@
+{
+  "id": "claw-pick",
+  "name": "Claw pick",
+  "surface": "messenger",
+  "summary": "A claw machine full of plush food, each plush as big as the number of friends who pushed for it; steer the claw, drop it, and whatever lands in the chute is dinner.",
+  "useWhen": ["endless 'idk where do u wanna eat' and someone needs to just pick", "a few places floated in the chat, some with fans, one vetoed: 'not rook's again'"],
+  "dontUseWhen": ["one place already agreed (use an event)", "a fair vote is wanted (use a poll or after-vote)", "picking a person, not a place (use decider-potato)"],
+  "params": { "title": "string", "sub": "the moment, e.g. 41 messages of “idk where do u wanna eat”", "when": "dinner time, e.g. 7:30", "crew": "names in on dinner", "prizes": "2-6 x {label, kind: dumpling|taco|ramen|slice|onigiri|cup, voters: names, glued: veto line or ''}", "tried": "{name, slipped: prize label} a drop that already slipped, or empty" },
+  "height": 378
+}

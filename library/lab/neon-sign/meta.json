@@ -1,0 +1,31 @@
+{
+  "id": "neon-sign",
+  "name": "Neon sign",
+  "surface": "messenger",
+  "summary": "A shared neon sign on a night brick wall: the title glows in big tubes and each friend bends one line under it with a few words, a tube colour and a little doodle; new lines flicker on and anyone can flip the switch.",
+  "useWhen": [
+    "make 412 pine a neon sign everyone adds a line to",
+    "something creative the whole chat can make together",
+    "a sign for our door with everyone's motto",
+    "group art thing for the apartment chat",
+    "let everyone write one line about the house"
+  ],
+  "dontUseWhen": [
+    "house rules people need to agree on (use host-board or signup-board)",
+    "a poll or vote (use after-vote)",
+    "a flyer for an event (use flyer-wall)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "The big top line, up to 14 characters, e.g. '412 PINE'" },
+      "lines": {
+        "type": "array",
+        "description": "Lines already hung, one per friend, up to six: a few words (22 characters at most), a tube colour 0 to 5 (pink, yellow, blue, green, purple, orange) and a doodle 0 to 5 (none, heart, star, arrow, moon, cactus)",
+        "items": { "type": "object", "properties": { "who": { "type": "string" }, "text": { "type": "string" }, "color": { "type": "integer" }, "doodle": { "type": "integer" } }, "required": ["who", "text"] }
+      }
+    },
+    "required": ["title"]
+  },
+  "height": 380
+}

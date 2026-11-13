@@ -1,0 +1,11 @@
+{
+  "id": "remix-card",
+  "name": "Remix a tool",
+  "origin": { "crate": "apps12", "id": "remix-card" },
+  "surface": "feed",
+  "summary": "A chore wheel another group made, shown in the feed as a live preview that rebuilds itself with your group's names when you remix it.",
+  "useWhen": ["a feed post sharing a tool another group made: a chore wheel, a rota", "'we should do this for our place', 'steal this for our suite'"],
+  "dontUseWhen": ["running a chore rota in your own chat (use chore-wheel or chore-draft)", "a plain post with nothing to reuse"],
+  "params": { "chores": "2-6 chore names", "groups": "first the group that made it, then up to 3 groups of yours: {name, short, badge (1-3 chars), members (names), note}", "base": "remixes so far from outside the chat", "remixers": "up to 3 names shown in the proof row" },
+  "height": 410
+}

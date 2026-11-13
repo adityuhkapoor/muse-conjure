@@ -1,0 +1,11 @@
+{
+  "id": "kings-cup",
+  "name": "King's cup",
+  "origin": { "crate": "apps2", "id": "kings-cup" },
+  "surface": "messenger",
+  "summary": "A shared deck for King's Cup with the group's own rule for every card, taking turns to draw.",
+  "useWhen": ["a drinking card game night with house rules", "'kings tonight?', 'apt 4b rules', 'what's 7 again'"],
+  "dontUseWhen": ["a card game with hands or betting (use a game tool)", "picking one person (use a wheel)"],
+  "params": { "title": "string", "sub": "string", "rules": "13 x {title, rule} for A..K", "drawn": "{card: '9d', name}[] already drawn" },
+  "height": 382
+}

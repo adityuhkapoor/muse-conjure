@@ -1,0 +1,23 @@
+{
+  "id": "signup-board",
+  "name": "Signup board",
+  "origin": { "crate": "apps11", "id": "signup-board" },
+  "surface": "group",
+  "summary": "A grid of jobs by shifts where each slot fills with a volunteer's face and you claim one with a tap.",
+  "useWhen": ["a group needs volunteers for shifts: move-in day, a booth, a cleanup", "'who can do check-in at 10', 'sign up for a shift'"],
+  "dontUseWhen": ["one list of things to bring (use bring-list)", "finding one meeting time (use meeting-time)"],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "e.g. 'Move-in day signups'" },
+      "group": { "type": "string", "description": "e.g. 'Unit 2 Volunteers'" },
+      "date": { "type": "string", "description": "e.g. 'Sat, Aug 23'" },
+      "meet": { "type": "string", "description": "Where volunteers meet, e.g. 'Unit 2 lobby'" },
+      "shifts": { "type": "array", "items": { "type": "string" }, "description": "1 to 3 shift labels, e.g. ['8–10am', '10–12', '12–2pm']" },
+      "roles": { "type": "array", "description": "1 to 4 jobs: label, icon (cart, clipboard, water, elevator), cap per shift 1-4, and names of group members already signed up per shift", "items": { "type": "object" } },
+      "people": { "type": "array", "description": "Chat members already signed up: name, role label, shift label", "items": { "type": "object" } }
+    },
+    "required": ["shifts", "roles"]
+  },
+  "height": 396
+}

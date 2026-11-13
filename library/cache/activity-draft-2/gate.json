@@ -1,0 +1,92 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"while the draft runs, someone in the order is on turn\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the host is in the chat\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"only the host can reset, and reset clears the board\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the title and limit never change\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.4,
+  "typecheck": 85.5,
+  "static": 3.3,
+  "determinism": 60.4,
+  "invariants": 246.4,
+  "mutation": 352.8,
+  "render": 937.5,
+  "copy": 2.2,
+  "render.browser": 0,
+  "render.mount": 62,
+  "render.taps": 285,
+  "render.lint": 892,
+  "render.axe": 931,
+  "render.total": 937,
+  "total": 1004.3
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 13,
+  "inert": 3,
+  "killed": 11,
+  "score": 0.85,
+  "threshold": 0.8,
+  "kills": {
+   "pos equals the number of picks and never passes the limit": 1,
+   "picks come only from people in the order, and none before the start": 3,
+   "the order has no repeats, is in the chat, and exists exactly when started": 1,
+   "while the draft runs, someone in the order is on turn": 0,
+   "ids and labels are unique, at most 8 items, labels 1 to 40 characters": 1,
+   "the host is in the chat": 0,
+   "a pick is made by whoever is on turn, takes one free item and moves one step": 1,
+   "start draws the order once, from the seed, with two or more people and something to pick": 2,
+   "only the host can reset, and reset clears the board": 0,
+   "a reset by the host on a started or picked board clears it": 1,
+   "add appends one free item, only before the start": 2,
+   "the title and limit never change": 0,
+   "only people in the chat change the draft": 2
+  },
+  "survivors": [
+   {
+    "op": "flip-logic",
+    "line": 87,
+    "before": "&&",
+    "after": "||"
+   },
+   {
+    "op": "off-by-one",
+    "line": 91,
+    "before": "2",
+    "after": "3"
+   }
+  ]
+ },
+ "weak": [
+  "while the draft runs, someone in the order is on turn",
+  "the host is in the chat",
+  "only the host can reset, and reset clears the board",
+  "the title and limit never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

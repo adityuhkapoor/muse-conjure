@@ -1,0 +1,29 @@
+{
+  "id": "rent-mailbox",
+  "name": "Rent mailbox",
+  "surface": "messenger",
+  "summary": "One roommate fronts the rent and everyone pays them back: a curbside mailbox where each roommate's envelope (their share by room) flies in when they mark it sent; the flag goes up when all are in, and stragglers get a request in one tap.",
+  "useWhen": [
+    "rent is due and one roommate pays the landlord: 'rent's due the 1st, arun's fronting it'",
+    "uneven room shares: '$825, $825, $760 for the small room, $890 with the bathroom'",
+    "chasing roommates who haven't sent their rent share"
+  ],
+  "dontUseWhen": [
+    "working out what each room should cost (use rent-split)",
+    "monthly utilities or subscriptions (use utilities-split)",
+    "a one-off shared purchase (use a bill split)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "home": { "type": "string", "description": "The apartment, e.g. '412 Pine'" },
+      "month": { "type": "string", "description": "Which rent, e.g. 'Dec rent'" },
+      "due": { "type": "string", "description": "When it's due, e.g. 'the 1st'" },
+      "fronter": { "type": "string", "description": "Who pays the landlord and gets paid back" },
+      "shares": { "type": "array", "items": { "type": "object", "properties": { "who": { "type": "string" }, "cents": { "type": "integer" }, "room": { "type": "string" } }, "required": ["who", "cents"] }, "description": "2 to 6 roommates and their share in cents" },
+      "sent": { "type": "array", "items": { "type": "string" }, "description": "Roommates who already paid the fronter back" }
+    },
+    "required": ["fronter", "shares"]
+  },
+  "height": 380
+}

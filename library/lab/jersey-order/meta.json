@@ -1,0 +1,32 @@
+{
+  "id": "jersey-order",
+  "name": "Jersey order",
+  "surface": "group",
+  "summary": "A team jersey that spins to show your name and number as you pick them, beside a rack of everyone's jerseys on hangers; taken numbers are skipped, ordering hangs yours on the rack, and at the target count the order closes and everyone pays their share.",
+  "useWhen": [
+    "the team's ordering jerseys, deadline friday",
+    "pick your jersey number and size",
+    "club hoodie order, $40 each, need 25 to place it",
+    "who still needs to order a jersey",
+    "is 7 taken for the jerseys?"
+  ],
+  "dontUseWhen": [
+    "splitting one shared purchase (use split-purchase)",
+    "a group buy of different products (use group-buy)",
+    "collecting club dues (use club-dues)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Jersey order'" },
+      "team": { "type": "string", "description": "Team name, printed on the front, e.g. 'Eastfield Ultimate'" },
+      "priceCents": { "type": "integer", "description": "Price per jersey in cents, e.g. 3500" },
+      "need": { "type": "integer", "description": "The order closes at this many jerseys" },
+      "deadline": { "type": "string", "description": "Deadline, as said, e.g. 'Fri'" },
+      "sizes": { "type": "array", "items": { "type": "string" }, "description": "Up to 5 short sizes, e.g. ['S','M','L','XL']" },
+      "orders": { "type": "array", "description": "Orders already in", "items": { "type": "object", "properties": { "name": { "type": "string", "description": "Name; chat members are matched by name" }, "number": { "type": "integer", "description": "Jersey number 0-99" }, "size": { "type": "string", "description": "One of the sizes" }, "said": { "type": "string", "description": "What they said about it, in their words" } }, "required": ["name", "number"] } }
+    },
+    "required": ["team", "priceCents", "need"]
+  },
+  "height": 377
+}

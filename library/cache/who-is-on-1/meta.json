@@ -1,0 +1,82 @@
+{
+ "id": "who-is-on-1",
+ "ask": "ok sort this out lol",
+ "kind": "who-is-on",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A shared grid of evening hours where each person taps the times they are free, with the best hour highlighted and a quick vote between watching a movie or playing Mario Kart.",
+ "use_when": [
+  "A group needs to find which hour tonight works for most people",
+  "Friends are deciding between a movie and Mario Kart",
+  "Someone wants to see at a glance who is free and when",
+  "Plans for tonight are vague and need a quick check"
+ ],
+ "dont_use_when": [
+  "Scheduling across several days or weeks",
+  "Choosing between many custom options that need a general poll",
+  "Splitting costs or assigning tasks for the evening"
+ ],
+ "keywords": [
+  "free time",
+  "availability",
+  "who is free",
+  "tonight",
+  "schedule",
+  "time grid",
+  "hangout",
+  "plans",
+  "movie night",
+  "mario kart",
+  "activity vote",
+  "best time",
+  "when free"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 8
+ },
+ "mutation_score": 0.93,
+ "height": 290,
+ "params": {
+  "names": [
+   "Ana"
+  ],
+  "options": [
+   "Movie",
+   "Mario Kart"
+  ],
+  "blanks": [
+   "Movie at 7:30 was mentioned · Mario Kart is in Ana's dorm"
+  ],
+  "numbers": [
+   7,
+   30
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "thursday night hangout",
+  "members": [
+   "Ana",
+   "Theo",
+   "Jess",
+   "Mia",
+   "Bryan",
+   "Sam",
+   "Abby",
+   "Jake"
+  ],
+  "text": "ok who's actually doing something tn\nim free after 6 i got lab till then\ni have a study group 7-9 at bobst then free\nfree all night but i need to eat first\nworking at the dining hall til 8 sadly\ni can do 8 onwards\nwait for what tho\nidk movie? or just hang in my dorm and play mario kart\ni can do 9 ish, got a gym thing at 7\nwait is it 6 or 7 for the movie\ni said nothing about a time lol\nsomeone said 7:30 earlier\ni'm out 5-7 for club meeting then free\nwait so who is free at 9\nme\nme\ni get out at 8 so also me\nme too\nyeah\ni can do 9 but maybe not past 11 i got class at 8am\nok but jess is 9 on?\nyeah study group ends 9 i'll be there 9:15\nok but then 6-8 is who? only mia and abby after 7\nand me i said all night\ni lost track of everything\nsame lol every time\nmuse ok sort this out lol"
+ },
+ "seconds": 59.3,
+ "attempts": 1,
+ "created": "2026-11-13T02:29:06.852Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 8,
+  "restHash": "be373cb5266c806a",
+  "playedHash": "8eb6bc05f62c827a"
+ }
+}

@@ -1,0 +1,35 @@
+{
+  "id": "tank-pals",
+  "name": "Tank pals",
+  "surface": "messenger",
+  "summary": "An ambient shared fish tank for a group chat with one fish per friend in their colour; fish nobody has fed for a day sink low and slow, anyone can tap a fish to drop flakes and watch it dart up to eat, and each friend can put one thing on the gravel.",
+  "useWhen": [
+    "we should get a group pet for the chat",
+    "make a little fish tank for 412 pine that we all take care of",
+    "something cute that just lives in the chat",
+    "a tamagotchi thing for the six",
+    "remind people to check in on each other but make it fish"
+  ],
+  "dontUseWhen": [
+    "real chores or a rota (use chore-wheel or chore-draft)",
+    "a game with a winner (use rock-skip or trivia-night)",
+    "a real pet's feeding schedule (use signup-board)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "home": { "type": "string", "description": "Whose tank, e.g. '412 Pine'" },
+      "fish": {
+        "type": "array",
+        "description": "One fish per friend in the chat: its name, hours since someone last fed it (0 to 72), and who did",
+        "items": { "type": "object", "properties": { "owner": { "type": "string" }, "name": { "type": "string" }, "fedHoursAgo": { "type": "integer" }, "fedBy": { "type": "string" } }, "required": ["owner", "name"] }
+      },
+      "decor": {
+        "type": "array",
+        "description": "Things already on the gravel, one per friend",
+        "items": { "type": "object", "properties": { "by": { "type": "string" }, "kind": { "type": "string", "enum": ["castle", "shell", "diver", "cooker", "car", "plant"] } }, "required": ["by", "kind"] }
+      }
+    }
+  },
+  "height": 396
+}

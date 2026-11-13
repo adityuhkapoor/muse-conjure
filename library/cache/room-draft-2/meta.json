@@ -1,0 +1,79 @@
+{
+ "id": "room-draft-2",
+ "ask": "can u set the pick order for the rooms, master goes to the first pick",
+ "kind": "room-draft",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Draws a random pick order for a shared house's rooms, then lets each person or pair in turn claim one open room with no switching afterward.",
+ "use_when": [
+  "A group needs a fair, random order to choose bedrooms in a shared rental or vacation house",
+  "Everyone should take turns claiming one room each from a fixed list",
+  "Two people sharing a room should count as one pick",
+  "A group wants a visible record of who picked which room"
+ ],
+ "dont_use_when": [
+  "The group wants to vote on or rank preferences instead of picking in turns",
+  "The room list or the pairs sharing a room must be set up differently from the built-in list",
+  "Rooms need to be traded, swapped, or assigned by a person instead of picked",
+  "The order is for something other than rooms, such as chores or seating"
+ ],
+ "keywords": [
+  "pick order",
+  "room draft",
+  "room picking",
+  "bedroom assignment",
+  "random order",
+  "draw order",
+  "turn order",
+  "beach house",
+  "shared rooms",
+  "who picks first",
+  "room selection",
+  "trip planning",
+  "lottery",
+  "take turns"
+ ],
+ "members": {
+  "min": 2,
+  "max": 8,
+  "original": 6
+ },
+ "mutation_score": 0.88,
+ "height": 388,
+ "params": {
+  "names": [
+   "Amir",
+   "June"
+  ],
+  "options": [
+   "Master",
+   "Bunk room",
+   "Downstairs room"
+  ],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": false,
+ "origin": {
+  "title": "outer banks beach week",
+  "members": [
+   "Eli",
+   "Amir",
+   "June",
+   "Naomi",
+   "Maya",
+   "Leo"
+  ],
+  "text": "ok outer banks house is locked in. 5 bedrooms\nWAIT show me\nmaster is oceanfront w a king and its own bathroom. then two queen rooms, a bunk room, and a little room downstairs w a full bed\nbunk room is giving camp counselor\ni will take the bunk room honestly i dont care\nliar\nme and june are sharing so we only need one room tho\nok so thats 5 rooms for 5 groups. nice\nbut master tho\ni paid the deposit so i say i get master\nlol absolutely not\ndeposit was 50 bucks eli\n...fine\nok what if we pick in turns, whoever goes first gets master and it goes down from there\nand june and i count as one pick\nfine but who goes first\nrock paper scissors\n5 groups no\nalso no switching after, once u pick ur stuck\nagreed. no trading\nlast pick gets the downstairs room i guess\nits fine its the quiet one\nmuse can u set the pick order for the rooms, master goes to the first pick"
+ },
+ "seconds": 152.6,
+ "attempts": 1,
+ "created": "2026-11-13T05:01:53.555Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 1,
+  "restHash": "8f917a946b9c1c63",
+  "playedHash": "972af815aa3eaa54"
+ }
+}

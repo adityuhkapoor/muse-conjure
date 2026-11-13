@@ -1,0 +1,85 @@
+{
+ "id": "plans-so-far-2",
+ "ask": "can u make a checklist of everything we decided so far and who suggested each",
+ "kind": "plans-so-far",
+ "family": "recap",
+ "surface": "chat",
+ "sentence": "A shared checklist of group decisions where each item shows who suggested it, anyone can tick items off or add new ones, and a progress bar shows how many are done.",
+ "use_when": [
+  "The group wants a list of what has been decided so far, with who proposed each item",
+  "People need to tick off plans or tasks as they get done",
+  "Anyone in the chat should be able to add an item or remove one they suggested",
+  "Wrapping up trip or event planning into one summary list"
+ ],
+ "dont_use_when": [
+  "The group needs to vote between options before deciding",
+  "Costs need to be split or tracked between people",
+  "Tasks must be assigned to specific people with due dates"
+ ],
+ "keywords": [
+  "checklist",
+  "decisions",
+  "plans so far",
+  "to-do list",
+  "who suggested",
+  "trip planning",
+  "tick off",
+  "progress",
+  "summary",
+  "shared list",
+  "task list",
+  "event plan"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 8
+ },
+ "mutation_score": 1,
+ "height": 368,
+ "params": {
+  "names": [
+   "Lena",
+   "Dani",
+   "Lily",
+   "Ty",
+   "Tess",
+   "Luis",
+   "Gabe"
+  ],
+  "options": [
+   "Drinks and the speaker"
+  ],
+  "blanks": [],
+  "numbers": [
+   10,
+   64,
+   12
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "maya's lake bday",
+  "members": [
+   "Maya",
+   "Lena",
+   "Dani",
+   "Lily",
+   "Ty",
+   "Tess",
+   "Luis",
+   "Gabe"
+  ],
+  "text": "ok lake weekend for maya's bday, i say we go oct 3-5\nomg yes. wait i have a midterm that fri\nok oct 10-12 then\nperfect\ni can drive, i got the subaru fits 5\ni'll drive too, 3 more seats\ncool so 8 of us 2 cars works\ncabin on airbnb the one with the hot tub!! $64 each i think\n64 is fine\nhot tub in october yesss\ntess u book it and we venmo u\nok doing it\ni'll handle grilling, burgers and veggie skewers for lily\nluis ily\ni'll get drinks and the speaker\nno gifts pls\ntoo late lol. i'm making a cake tho, funfetti\nwe leaving friday 4pm from the parking lot behind the library\n4 is too early i have lab till 5\nok 5:30 then\nand i said we do a bonfire night w smores\nyes\ni literally lost track of everything\nmuse can u make a checklist of everything we decided so far and who suggested each"
+ },
+ "seconds": 134.7,
+ "attempts": 1,
+ "created": "2026-11-13T04:13:41.600Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 8,
+  "restHash": "bf99502393323d1e",
+  "playedHash": "97917a2bbb720554"
+ }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "slot-machine",
+  "name": "Plan slot machine",
+  "origin": { "crate": "apps2", "id": "slot-machine" },
+  "surface": "messenger",
+  "summary": "Three reels pick where to go, what to drink and when to leave, never landing on what the chat vetoed.",
+  "useWhen": ["nobody can decide tonight's plan: 'idk u pick', 'you choose'", "a few options per part of the night and some ruled out in the chat"],
+  "dontUseWhen": ["one choice to vote on (use a poll)", "picking a person (use a wheel)", "a plan already agreed"],
+  "params": { "title": "string", "why": "string", "reels": "1-3 x {name, options: {label, vetoed}[] (2-8)}", "rules": "{text, who}[]", "rest": "number[] (start index per reel)" },
+  "height": 306
+}

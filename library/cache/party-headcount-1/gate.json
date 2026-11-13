@@ -1,0 +1,72 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"each person appears at most once\" caught none of 17 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a guests action never changes an existing status\" caught none of 17 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the title and time never change\" caught none of 17 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.4,
+  "typecheck": 63.5,
+  "static": 3.1,
+  "determinism": 43.6,
+  "invariants": 132.3,
+  "mutation": 170.5,
+  "render": 1157.8,
+  "copy": 2.3,
+  "render.browser": 0,
+  "render.mount": 40,
+  "render.taps": 310,
+  "render.lint": 924,
+  "render.axe": 1127,
+  "render.total": 1158,
+  "total": 1207.7
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 17,
+  "inert": 2,
+  "killed": 17,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "each person appears at most once": 0,
+   "everyone answering is in the chat": 4,
+   "guests are whole numbers from 0 to the limit": 5,
+   "no one who said no has guests": 2,
+   "the total is people going plus their guests only": 4,
+   "an rsvp sets the actor's status and keeps their guests unless it is no": 7,
+   "a guests action sets the actor's own guests to the count asked": 1,
+   "a guests action never changes an existing status": 0,
+   "nobody changes another person's entry": 2,
+   "only people in the chat change anything": 2,
+   "the title and time never change": 0
+  },
+  "survivors": []
+ },
+ "weak": [
+  "each person appears at most once",
+  "a guests action never changes an existing status",
+  "the title and time never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

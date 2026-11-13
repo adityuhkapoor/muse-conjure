@@ -1,0 +1,27 @@
+{
+  "id": "price-check",
+  "name": "Price check",
+  "origin": { "crate": "apps13", "id": "price-check" },
+  "surface": "marketplace",
+  "summary": "Is the asking price fair? Friends pin their guesses against sold prices nearby and settle an offer.",
+  "useWhen": ["someone asks if a Marketplace price is fair before making an offer", "'is $350 fair for this bike', 'what should I offer', 'help me lowball this'"],
+  "dontUseWhen": ["choosing between several listings (use group-buy)", "no comparable prices known", "selling your own things (use move-out-sale)"],
+  "params": {
+    "type": "object",
+    "properties": {
+      "item": { "type": "string", "description": "'Trek FX 2'" },
+      "listed": { "type": "string", "description": "'listed 12 days ago'" },
+      "seller": { "type": "string", "description": "Seller's first name: 'Gary'" },
+      "askCents": { "type": "integer" },
+      "comps": { "type": "array", "maxItems": 5, "items": { "type": "object", "properties": { "label": { "type": "string" }, "cents": { "type": "integer" } }, "required": ["label", "cents"], "additionalProperties": false }, "description": "Sold nearby: 'FX 1' $260" },
+      "fairLowCents": { "type": "integer" },
+      "fairHighCents": { "type": "integer" },
+      "pins": { "type": "array", "items": { "type": "object", "properties": { "name": { "type": "string" }, "cents": { "type": "integer" } }, "required": ["name", "cents"], "additionalProperties": false }, "description": "Friends' guesses from the chat" },
+      "quote": { "type": "string", "description": "'Dev: “offer 300”' or empty" },
+      "pickup": { "type": "string", "description": "'today 6pm' or empty" }
+    },
+    "required": ["item", "listed", "seller", "askCents", "comps", "fairLowCents", "fairHighCents", "pins", "quote", "pickup"],
+    "additionalProperties": false
+  },
+  "height": 402
+}

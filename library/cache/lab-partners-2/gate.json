@@ -1,0 +1,77 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "float-money",
+   "message": "fractional constant 0.5 in reduce: keep money and scores in integers",
+   "line": 37
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"there are no rounds or the full set for the roster size\" caught none of 8 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"no pair of partners repeats across rounds\" caught none of 8 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a redo happens only after a draw, keeps the roster and records the actor and time\" caught none of 8 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.9,
+  "typecheck": 45.5,
+  "static": 1.9,
+  "determinism": 30.3,
+  "invariants": 108.5,
+  "mutation": 172.6,
+  "render": 887.8,
+  "copy": 1.2,
+  "render.browser": 0,
+  "render.mount": 49,
+  "render.taps": 239,
+  "render.lint": 845,
+  "render.axe": 882,
+  "render.total": 888,
+  "total": 921.7
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 8,
+  "inert": 6,
+  "killed": 8,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "there are no rounds or the full set for the roster size": 0,
+   "each round is two equal teams using every player once": 1,
+   "no pair of partners repeats across rounds": 0,
+   "the roster is empty exactly when there are no rounds, else 2 or 4 different people": 2,
+   "everyone in the draw is in the chat": 1,
+   "drawnBy is set exactly when teams are drawn": 1,
+   "a draw happens only from an empty state and records the actor and time": 2,
+   "a redo happens only after a draw, keeps the roster and records the actor and time": 0,
+   "the teams are exactly what the seed gives": 1,
+   "only people in the chat change anything": 2,
+   "only a draw or a redo ever changes the rounds": 3
+  },
+  "survivors": []
+ },
+ "weak": [
+  "there are no rounds or the full set for the roster size",
+  "no pair of partners repeats across rounds",
+  "a redo happens only after a draw, keeps the roster and records the actor and time"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

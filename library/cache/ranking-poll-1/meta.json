@@ -1,0 +1,71 @@
+{
+ "id": "ranking-poll-1",
+ "ask": "mkae a pol for top 3 dinnr spots",
+ "kind": "ranking-poll",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A ranked-choice poll where each person picks up to three options from a fixed list of restaurants, with points for first, second and third place and a live leaderboard.",
+ "use_when": [
+  "A group needs to choose a place to eat and wants a top 3 ranking instead of one vote",
+  "Several people want to show a first, second and third preference",
+  "Picking between a small fixed list of options and seeing which leads",
+  "Settling on dinner plans for a specific night"
+ ],
+ "dont_use_when": [
+  "People only need a single-choice yes or no vote",
+  "The group needs to add their own options to the list",
+  "Splitting a bill or tracking who owes what",
+  "Scheduling a time rather than choosing a place"
+ ],
+ "keywords": [
+  "ranking poll",
+  "ranked choice",
+  "top 3",
+  "dinner poll",
+  "restaurant vote",
+  "group vote",
+  "where to eat",
+  "leaderboard",
+  "preference poll",
+  "points voting",
+  "pick spots",
+  "food decision"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 7
+ },
+ "mutation_score": 1,
+ "height": 328,
+ "params": {
+  "names": [],
+  "options": [],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": false,
+ "origin": {
+  "title": "friday dinner crew",
+  "members": [
+   "Kev",
+   "Theo",
+   "Bea",
+   "Luis",
+   "Hugo",
+   "Ty",
+   "Ravi"
+  ],
+  "text": "ok so where are we eating friday\nramen at menya?\ni had ramen tuesday lol\ntacos at el güero, the $2 tuesday thing is over but still cheap\nwings at buffalo wild wings, they have the game on\ni could do any of those honestly\nthai at siam garden?? ive been craving pad see ew\nok thats 4 options then. menya, el güero, bww, siam garden\ni like siam and tacos but not wings fr\ni cant pick just one tbh i like like 3 of them\nsame, one vote is dumb here\nmuse mkae a pol for dinnr, rank top 3 plz"
+ },
+ "seconds": 52.7,
+ "attempts": 1,
+ "created": "2026-11-13T03:04:17.267Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 4,
+  "restHash": "bf3ec026e6c3c164",
+  "playedHash": "9e36e0ad8dfc9302"
+ }
+}

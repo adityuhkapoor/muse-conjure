@@ -1,0 +1,119 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"every player is in the chat\" caught none of 8 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"round 2 and the vote begin only after every clue is in\" caught none of 8 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the vote stays open until everyone has voted\" caught none of 8 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the verdict matches the votes\" caught none of 8 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"seen has each player once\" caught none of 8 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a vote changes only the actor's entry\" caught none of 8 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"seen adds only the actor\" caught none of 8 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"only the host can reset\" caught none of 8 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the phase only moves forward or back to the lobby\" caught none of 8 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the show list never changes\" caught none of 8 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"only people in the chat change the game\" caught none of 8 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.6,
+  "typecheck": 98.6,
+  "static": 3.6,
+  "determinism": 77.8,
+  "invariants": 150.2,
+  "mutation": 267.6,
+  "render": 939.2,
+  "copy": 2.9,
+  "render.browser": 0,
+  "render.mount": 55,
+  "render.taps": 270,
+  "render.lint": 884,
+  "render.axe": 931,
+  "render.total": 939,
+  "total": 1024.5
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 8,
+  "inert": 4,
+  "killed": 8,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "every player is in the chat": 0,
+   "the lobby holds no game": 2,
+   "a game has 3 or more players, an imposter, a show from the list and a host": 2,
+   "one clue per player per round, from players, no later than this round": 3,
+   "round 2 and the vote begin only after every clue is in": 0,
+   "votes go from a player to a different player, one each": 1,
+   "the vote stays open until everyone has voted": 0,
+   "the verdict matches the votes": 0,
+   "seen has each player once": 0,
+   "a start deals the members in with the imposter and show the seed gives": 2,
+   "a clue adds one entry for the actor in this round and changes nothing else": 1,
+   "next moves forward only when every player has a clue": 1,
+   "a vote changes only the actor's entry": 0,
+   "seen adds only the actor": 0,
+   "only the host can reset": 0,
+   "the phase only moves forward or back to the lobby": 0,
+   "the show list never changes": 0,
+   "only people in the chat change the game": 0
+  },
+  "survivors": []
+ },
+ "weak": [
+  "every player is in the chat",
+  "round 2 and the vote begin only after every clue is in",
+  "the vote stays open until everyone has voted",
+  "the verdict matches the votes",
+  "seen has each player once",
+  "a vote changes only the actor's entry",
+  "seen adds only the actor",
+  "only the host can reset",
+  "the phase only moves forward or back to the lobby",
+  "the show list never changes",
+  "only people in the chat change the game"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

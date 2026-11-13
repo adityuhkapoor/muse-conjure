@@ -1,0 +1,98 @@
+{
+  "id": "team-game-scoreboard",
+  "name": "Team Game Scoreboard",
+  "use_when": [
+    "A group wants to keep score of a head-to-head game like beer pong, darts, or ping pong between two teams of one or two players, played as first-to-N games.",
+    "Players want to tap a side each time it wins a game and see a live score, with a running tally across several rematches in one night.",
+    "The chat wants a shared scoreboard that only the named players can update, with undo for mis-taps and a rematch button once someone wins.",
+    "Unlike a poll or a split-the-bill tool, the chat needs a scoreboard that tracks wins to a fixed target."
+  ],
+  "dont_use_when": [
+    "The group wants to vote on options or choose where to go; use a poll tool instead.",
+    "The group needs a bracket for many teams or a multi-round tournament schedule; use a tournament bracket tool instead.",
+    "People want to track money owed, bets, or splitting costs; use an expense splitter or a wager tracker instead.",
+    "More than two teams, teams larger than two players, or per-point scoring (such as to 21) are needed; this tool only counts whole game wins."
+  ],
+  "keywords": [
+    "scoreboard",
+    "beer pong",
+    "score",
+    "rematch",
+    "first to",
+    "teams",
+    "series",
+    "tally",
+    "darts",
+    "ping pong",
+    "game night",
+    "undo"
+  ],
+  "guarantees": [
+    "Only players on one of the two teams can log wins, undo, or start a rematch.",
+    "A team can never exceed the target number of wins, and no wins are accepted once a series is decided.",
+    "Undo removes only the most recent game, and rematch is only possible after a team has reached the target.",
+    "Teams and target never change after the app is created.",
+    "Finished series are recorded with the final score, keeping at most the last 12."
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "appName": {
+        "type": "string"
+      },
+      "title": {
+        "type": "string"
+      },
+      "activity": {
+        "type": "string"
+      },
+      "seriesLabel": {
+        "type": "string"
+      },
+      "teamA": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 2
+      },
+      "teamB": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "maxItems": 2
+      },
+      "target": {
+        "type": "integer",
+        "minimum": 1
+      }
+    },
+    "required": [
+      "appName",
+      "title",
+      "activity",
+      "seriesLabel",
+      "teamA",
+      "teamB",
+      "target"
+    ],
+    "additionalProperties": false
+  },
+  "examples": [
+    {
+      "appName": "Dart score",
+      "title": "Darts · Thursday league",
+      "activity": "Darts",
+      "seriesLabel": "League night",
+      "teamA": [
+        "Priya",
+        "Jon"
+      ],
+      "teamB": [
+        "Tessa"
+      ],
+      "target": 5
+    }
+  ]
+}

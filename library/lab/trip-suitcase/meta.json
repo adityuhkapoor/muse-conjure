@@ -1,0 +1,27 @@
+{
+  "id": "trip-suitcase",
+  "name": "Trip suitcase",
+  "surface": "messenger",
+  "summary": "What a trip costs each: an open suitcase packed with the trip's costs as drawn things sized by price, and a luggage tag with the per-person number; tap a cost to take it out and watch the tag drop, then pin the number.",
+  "useWhen": [
+    "'ok but how much is this actually gonna cost' before a group trip",
+    "trip costs in the chat: 'airbnb $612, gas $160, groceries $90, the fancy dinner $240'",
+    "deciding what to cut to bring the per-person cost down"
+  ],
+  "dontUseWhen": [
+    "splitting costs after the trip is paid (use settle-up)",
+    "choosing where to go or when (use trip-lock or a poll)",
+    "paying back one person for gas (use gas-pump)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "trip": { "type": "string", "description": "The trip, e.g. 'spring break'" },
+      "ask": { "type": "object", "properties": { "who": { "type": "string" }, "line": { "type": "string" } }, "description": "The question from the chat and who asked it" },
+      "going": { "type": "array", "items": { "type": "string" }, "description": "Who is going, 2 to 12" },
+      "items": { "type": "array", "items": { "type": "object", "properties": { "label": { "type": "string" }, "cents": { "type": "integer" }, "out": { "type": "string", "description": "who already took it out" }, "quip": { "type": "string", "description": "a line shown when it is taken out" } }, "required": ["label", "cents"] }, "description": "1 to 6 costs" }
+    },
+    "required": ["going", "items"]
+  },
+  "height": 390
+}

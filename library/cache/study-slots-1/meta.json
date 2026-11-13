@@ -1,0 +1,84 @@
+{
+ "id": "study-slots-1",
+ "ask": "can u make a poll for this so we can each pick a room + slot",
+ "kind": "study-slots",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A two-part poll where each person can pick any of two library rooms and any of four weekly time slots, with live vote counts, voter faces and a leading choice shown.",
+ "use_when": [
+  "A group needs to choose a study room and a time slot together",
+  "Everyone should be able to pick several options that work for them",
+  "You want to see which room and slot are winning before deciding",
+  "Planning one or two study sessions with a short fixed list of choices"
+ ],
+ "dont_use_when": [
+  "The options are open-ended and people need to add their own choices",
+  "You need a single-choice vote where each person picks only one option",
+  "You need to book an exact calendar time or split tasks between people"
+ ],
+ "keywords": [
+  "poll",
+  "study group",
+  "study session",
+  "room pick",
+  "time slot",
+  "availability",
+  "multi-select vote",
+  "library room",
+  "schedule",
+  "meeting time",
+  "group vote",
+  "when to meet"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 8
+ },
+ "mutation_score": 0.87,
+ "height": 330,
+ "params": {
+  "names": [],
+  "options": [
+   "Bird Library",
+   "Mon 4-6",
+   "Tues 10-12",
+   "Wed 2-4",
+   "Fri 1-3"
+  ],
+  "blanks": [
+   "304 has a whiteboard",
+   "212 is quieter, no whiteboard"
+  ],
+  "numbers": [
+   304,
+   212,
+   10
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "orgo final grind",
+  "members": [
+   "Theo",
+   "Ty",
+   "Omar",
+   "Ana",
+   "Marcus",
+   "Gabe",
+   "Tess",
+   "Cleo"
+  ],
+  "text": "ok orgo final is next thurs we need to actually study together\nyes pls i cant do it alone in my dorm\nlibrary has group rooms, i looked. Bird library 3rd floor room 304 and 2nd floor room 212\n304 has a whiteboard tho thats the one\n212 is quieter but no whiteboard\nslots are 2 hrs max i think\ni can do mon 4-6 or tues 10-12\ni have lab tues morning. wed 2-4 or mon 4-6 works\nwed 2-4 works for me too\ni can only do mon 4-6 and fri 1-3\nfri 1-3 is fine for me, mon is a no\ni work wed so mon or fri\nanything but tues morning lol\nmon 4-6 in 304 would be ideal fr\nbut then omar misses it\nwe could do two sessions maybe? idk who books what\nok muse can u make a poll for this so we can each pick a room + slot"
+ },
+ "seconds": 50.8,
+ "attempts": 1,
+ "created": "2026-11-13T02:59:32.979Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 7,
+  "restHash": "bfb1942ea2373d40",
+  "playedHash": "ba36c12de5321a5b"
+ }
+}

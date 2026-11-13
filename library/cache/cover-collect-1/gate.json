@@ -1,0 +1,66 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"the price is a positive whole number of cents\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the price and the Venmo handle never change\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.8,
+  "typecheck": 41.7,
+  "static": 2.2,
+  "determinism": 28.2,
+  "invariants": 84.4,
+  "mutation": 126.4,
+  "render": 927.7,
+  "copy": 1.2,
+  "render.browser": 0,
+  "render.mount": 51,
+  "render.taps": 256,
+  "render.lint": 872,
+  "render.axe": 920,
+  "render.total": 928,
+  "total": 959.7
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 16,
+  "inert": 4,
+  "killed": 16,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "no one is in the paid list twice": 1,
+   "everyone who paid is in the chat": 2,
+   "spots belong to people in the chat, each 1 to 4": 7,
+   "paid plus still owed equals every spot times the price": 1,
+   "the price is a positive whole number of cents": 0,
+   "marking paid adds the actor to the paid list and changes nothing else": 2,
+   "undoing removes only the actor from the paid list": 4,
+   "setting spots changes only the actor's own spots, and only before they paid": 4,
+   "only people in the chat change anything": 2,
+   "the price and the Venmo handle never change": 0
+  },
+  "survivors": []
+ },
+ "weak": [
+  "the price is a positive whole number of cents",
+  "the price and the Venmo handle never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

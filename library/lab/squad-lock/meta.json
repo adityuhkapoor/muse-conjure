@@ -1,0 +1,11 @@
+{
+  "id": "squad-lock",
+  "name": "Go with friends",
+  "origin": { "crate": "apps10", "id": "squad-lock" },
+  "surface": "event",
+  "summary": "Friends interested in an event say Going, Maybe or Can't go; the squad locks when enough are going, then anyone can remind everyone before tickets drop.",
+  "useWhen": ["turning 'interested' into a real headcount for one event", "'who's actually going to Khruangbin', 'we need 4 to get the table', 'lock it at 4'"],
+  "dontUseWhen": ["buying the tickets once people are in (use ticket-split)", "a plan with outsiders asking to join (use open-spots)"],
+  "params": { "title": "string", "sub": "event · venue · interest count", "date": "event date line in capitals, e.g. SAT, OCT 4 AT 7 PM", "tickets": "one line about the ticket sale", "host": "name", "threshold": "2-12", "going": "[{name, note}]", "maybe": "names" },
+  "height": 402
+}

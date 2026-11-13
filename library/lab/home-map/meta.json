@@ -1,0 +1,42 @@
+{
+  "id": "home-map",
+  "name": "Home map",
+  "surface": "story",
+  "summary": "Over a break, a map of the country with each friend's face on their hometown from their stories; friends close enough to meet pulse between pins with the drive time and the first day both are home, and one tap suggests a meetup in the town halfway.",
+  "useWhen": [
+    "everyone's home for winter break, who's close to who",
+    "arun is in jersey and calvin is in philly, can they meet up",
+    "map of where everyone is over the holidays from our stories",
+    "summer break, who lives near each other",
+    "find a halfway spot for me and will over break"
+  ],
+  "dontUseWhen": [
+    "planning a trip everyone takes together (use trip-draft or trip-lock)",
+    "finding a time on one calendar (use meeting-time)",
+    "rides to one shared event (use event-carpool)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Story title, e.g. 'Winter break'" },
+      "homes": {
+        "type": "array",
+        "description": "Where each friend is: town name, latitude and longitude in the lower 48 states, and the days they are home as 'Dec 20'",
+        "items": { "type": "object", "properties": { "who": { "type": "string" }, "town": { "type": "string" }, "lat": { "type": "number" }, "lon": { "type": "number" }, "from": { "type": "string", "description": "First day home, 'Mon D'" }, "to": { "type": "string", "description": "Last day home, 'Mon D'" }, "said": { "type": "string", "description": "A line from their story" } }, "required": ["who", "town", "lat", "lon"] }
+      },
+      "stops": {
+        "type": "array",
+        "description": "Towns Muse may suggest as a halfway point, with latitude and longitude",
+        "items": { "type": "object", "properties": { "name": { "type": "string" }, "lat": { "type": "number" }, "lon": { "type": "number" } }, "required": ["name", "lat", "lon"] }
+      },
+      "near": { "type": "integer", "description": "Friends within this many miles get a pulse, 20 to 1500" },
+      "meetups": {
+        "type": "array",
+        "description": "Meetups already suggested: the two friends, who suggested it and who else is in",
+        "items": { "type": "object", "properties": { "a": { "type": "string" }, "b": { "type": "string" }, "by": { "type": "string" }, "inn": { "type": "array", "items": { "type": "string" } } }, "required": ["a", "b", "by"] }
+      }
+    },
+    "required": ["homes"]
+  },
+  "height": 556
+}

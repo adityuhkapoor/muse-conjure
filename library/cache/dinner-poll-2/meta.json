@@ -1,0 +1,79 @@
+{
+ "id": "dinner-poll-2",
+ "ask": "help",
+ "kind": "dinner-poll",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A single-choice vote on where to eat, where each person gets one vote, can change it, and anyone can add a new place (up to six).",
+ "use_when": [
+  "A group needs to pick a place to eat together",
+  "Everyone should get one vote on a short list of options",
+  "People may want to suggest extra places while voting",
+  "A quick decision is needed with a visible leader or tie"
+ ],
+ "dont_use_when": [
+  "People need to pick several options at once, such as a multi-choice poll",
+  "A time or date must be chosen with availability for each person",
+  "Costs need to be split or tracked after the meal"
+ ],
+ "keywords": [
+  "dinner poll",
+  "food vote",
+  "where to eat",
+  "restaurant vote",
+  "single choice",
+  "poll",
+  "group decision",
+  "lunch",
+  "vote",
+  "add option",
+  "road trip",
+  "meal pick"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 7
+ },
+ "mutation_score": 1,
+ "height": 332,
+ "params": {
+  "names": [],
+  "options": [
+   "Rosie's",
+   "Wegmans",
+   "Culver's"
+  ],
+  "blanks": [
+   "Be in Buffalo by 6 · It's 2:15 now"
+  ],
+  "numbers": [
+   6,
+   15
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "road trip to buffalo",
+  "members": [
+   "Dani",
+   "Jalen",
+   "Ines",
+   "Lily",
+   "Kev",
+   "Maya",
+   "Leo"
+  ],
+  "text": "ok we're like 20 min from the exit\ni need real food not gas station\nwegmans has the market cafe thing\nwegmans is elite\nwegmans always takes forever tho\nwhat else is at that exit\ntheres a panera and a culvers\nand that diner w the giant pancakes, rosies\nrosies!!\nrosies is sit down tho, we have to be in buffalo by 6\nits 2:15 rn\nok so we got time\ni could do culvers, butter burger\ni had culvers last trip lol\npanera is boring but fast\ni refuse panera on a road trip\nwegmans then. sushi bar\nsushi from a grocery store at a rest stop lol\nits good!!\ni just want pancakes honestly\npancakes at 2pm is valid\nok i dont care just not panera\nso rosies, wegmans, culvers\npanera is dead\nfine panera is dead\nwait is rosies cash only\ni think they take cards\nwe're gonna miss the exit\nok 7 ppl 3 places someone do something\nmuse help"
+ },
+ "seconds": 41.2,
+ "attempts": 1,
+ "created": "2026-11-13T04:16:12.629Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 5,
+  "restHash": "9f913139c439c747",
+  "playedHash": "9f1a31ada52d1e1a"
+ }
+}

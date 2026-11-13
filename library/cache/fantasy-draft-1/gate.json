@@ -1,0 +1,86 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"nobody has more picks than allowed and pickers are in the order\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"start only happens from setup and draws the order from the seed\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"picks each never changes\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.3,
+  "typecheck": 69.6,
+  "static": 2.9,
+  "determinism": 71.2,
+  "invariants": 168.5,
+  "mutation": 253.4,
+  "render": 882.7,
+  "copy": 2.3,
+  "render.browser": 0,
+  "render.mount": 47,
+  "render.taps": 229,
+  "render.lint": 839,
+  "render.axe": 878,
+  "render.total": 883,
+  "total": 938.6
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 12,
+  "inert": 5,
+  "killed": 10,
+  "score": 0.83,
+  "threshold": 0.8,
+  "kills": {
+   "each movie appears once across the pool and the picks": 1,
+   "at most 16 movies, each 1 to 40 characters": 2,
+   "the order has each person once, all in the chat, and is empty only in setup": 1,
+   "nobody has more picks than allowed and pickers are in the order": 0,
+   "picks follow the snake order": 1,
+   "the phase matches the picks": 1,
+   "a pick moves one movie from the pool to the end of the picks, for the actor": 1,
+   "only the person whose turn it is picks": 1,
+   "start only happens from setup and draws the order from the seed": 0,
+   "an add appends one movie in setup and leaves the order and picks alone": 3,
+   "picks each never changes": 0,
+   "only people in the chat change the draft": 2
+  },
+  "survivors": [
+   {
+    "op": "flip-logic",
+    "line": 93,
+    "before": "||",
+    "after": "&&"
+   },
+   {
+    "op": "flip-comparison",
+    "line": 92,
+    "before": "===",
+    "after": "!=="
+   }
+  ]
+ },
+ "weak": [
+  "nobody has more picks than allowed and pickers are in the order",
+  "start only happens from setup and draws the order from the seed",
+  "picks each never changes"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

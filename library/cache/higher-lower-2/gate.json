@@ -1,0 +1,111 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"every streak is a whole number from 0 to the goal\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the current item exists and item ids are unique\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a winner has the goal streak and no open guesses\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"with no winner nobody has reached the goal\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"every guess is higher or lower, and the last reveal ends on the current item\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a reveal moves to another item chosen by the seed and clears guesses\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"after a win only a new game changes anything\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a new game needs a winner and clears every streak\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.5,
+  "typecheck": 76.9,
+  "static": 2.9,
+  "determinism": 96.9,
+  "invariants": 271.7,
+  "mutation": 361,
+  "render": 912.6,
+  "copy": 1.9,
+  "render.browser": 0,
+  "render.mount": 32,
+  "render.taps": 244,
+  "render.lint": 856,
+  "render.axe": 906,
+  "render.total": 913,
+  "total": 975.2
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 12,
+  "inert": 2,
+  "killed": 10,
+  "score": 0.83,
+  "threshold": 0.8,
+  "kills": {
+   "every streak is a whole number from 0 to the goal": 0,
+   "everyone in guesses, streaks and results is in the chat": 3,
+   "the current item exists and item ids are unique": 0,
+   "a winner has the goal streak and no open guesses": 0,
+   "with no winner nobody has reached the goal": 0,
+   "every guess is higher or lower, and the last reveal ends on the current item": 0,
+   "a guess sets the actor's own guess and nothing else": 1,
+   "a reveal moves to another item chosen by the seed and clears guesses": 0,
+   "after a reveal right adds one, wrong resets and others keep their streak": 6,
+   "after a win only a new game changes anything": 0,
+   "a new game needs a winner and clears every streak": 0,
+   "only people in the chat change the game": 2
+  },
+  "survivors": [
+   {
+    "op": "negate-condition",
+    "line": 93,
+    "before": "a.t === \"reveal\"",
+    "after": "!(a.t === \"reveal\")"
+   },
+   {
+    "op": "off-by-one",
+    "line": 95,
+    "before": "0",
+    "after": "1"
+   }
+  ]
+ },
+ "weak": [
+  "every streak is a whole number from 0 to the goal",
+  "the current item exists and item ids are unique",
+  "a winner has the goal streak and no open guesses",
+  "with no winner nobody has reached the goal",
+  "every guess is higher or lower, and the last reveal ends on the current item",
+  "a reveal moves to another item chosen by the seed and clears guesses",
+  "after a win only a new game changes anything",
+  "a new game needs a winner and clears every streak"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

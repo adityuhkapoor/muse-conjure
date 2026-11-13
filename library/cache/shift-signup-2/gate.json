@@ -1,0 +1,64 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"the seven shifts keep their ids and needs\" caught none of 9 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"times, needs and notes never change\" caught none of 9 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.7,
+  "typecheck": 44.1,
+  "static": 1.5,
+  "determinism": 119.4,
+  "invariants": 283.1,
+  "mutation": 322.5,
+  "render": 999.6,
+  "copy": 0.9,
+  "render.browser": 0,
+  "render.mount": 40,
+  "render.taps": 316,
+  "render.lint": 942,
+  "render.axe": 991,
+  "render.total": 1000,
+  "total": 1030.4
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 9,
+  "inert": 8,
+  "killed": 9,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "no shift has more people than it needs": 1,
+   "no one is on a shift twice": 1,
+   "everyone on a shift is in the chat": 4,
+   "the seven shifts keep their ids and needs": 0,
+   "a join adds the actor to that open shift and changes no other shift": 4,
+   "a leave removes the actor from that shift and changes no other shift": 1,
+   "only people in the chat change a shift": 2,
+   "times, needs and notes never change": 0
+  },
+  "survivors": []
+ },
+ "weak": [
+  "the seven shifts keep their ids and needs",
+  "times, needs and notes never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

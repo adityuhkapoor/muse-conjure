@@ -1,0 +1,28 @@
+{
+  "id": "dare-dice",
+  "name": "Dare dice",
+  "surface": "messenger",
+  "summary": "Two big dice on a felt tray: one with six faces from the chat, one with six gentle dares the chat came up with; roll and they tumble and land, the person rolled does the dare or passes (a pass costs a point), best of six rolls.",
+  "useWhen": [
+    "we're boring, someone dare me",
+    "truth or dare but just dares",
+    "something dumb and fun for tonight",
+    "roll for who has to text their mom",
+    "party game for the six of us"
+  ],
+  "dontUseWhen": [
+    "picking who does a real chore or pays (use chore-wheel or bill-roulette)",
+    "anything risky, mean or embarrassing about one person",
+    "a plain random pick (use a spinner)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title" },
+      "dares": { "type": "array", "items": { "type": "object", "properties": { "text": { "type": "string", "description": "A gentle, kind dare in sentence case" }, "icon": { "type": "string", "enum": ["phone", "music", "mic", "heart", "food", "star"], "description": "The picture on the dare die" } }, "required": ["text", "icon"] }, "description": "Exactly six gentle dares from the chat" },
+      "rolls": { "type": "array", "items": { "type": "object", "properties": { "who": { "type": "string" }, "dare": { "type": "integer" }, "did": { "type": "boolean" } }, "required": ["who", "dare", "did"] }, "description": "Rolls so far: who got rolled, which dare (0 to 5), and whether they did it" }
+    },
+    "required": ["dares"]
+  },
+  "height": 380
+}

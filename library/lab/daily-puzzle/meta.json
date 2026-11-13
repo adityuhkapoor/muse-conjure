@@ -1,0 +1,45 @@
+{
+  "id": "daily-puzzle",
+  "name": "Chatdle",
+  "origin": { "crate": "apps14", "id": "daily-puzzle" },
+  "surface": "gaming",
+  "summary": "A daily five-letter word from the group chat: everyone guesses, streaks sit side by side, grids unlock when you finish.",
+  "useWhen": [
+    "the group wants a daily word game built from its own chat",
+    "someone asks for a Wordle of the chat"
+  ],
+  "dontUseWhen": [
+    "trivia about people (use friend-trivia-pub)",
+    "no word from the chat was given"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "word": { "type": "string", "description": "5 letters, a word said in the chat" },
+      "said": { "type": "integer", "description": "How many times it was said" },
+      "chat": { "type": "string", "description": "Chat name" },
+      "no": { "type": "integer", "description": "Puzzle number" },
+      "day": { "type": "string", "description": "e.g. Thu" },
+      "source": {
+        "type": "object",
+        "description": "The message it came from: who, text, when",
+        "properties": { "who": { "type": "string" }, "text": { "type": "string" }, "when": { "type": "string" } },
+        "required": ["who", "text", "when"],
+        "additionalProperties": false
+      },
+      "streaks": {
+        "type": "array",
+        "description": "Names and current streak days",
+        "items": { "type": "object", "properties": { "who": { "type": "string" }, "days": { "type": "integer" } }, "required": ["who", "days"], "additionalProperties": false }
+      },
+      "played": {
+        "type": "array",
+        "description": "People who already finished today: name and marks per row as '01020' (0 miss, 1 near, 2 hit)",
+        "items": { "type": "object", "properties": { "who": { "type": "string" }, "marks": { "type": "array", "items": { "type": "string" } } }, "required": ["who", "marks"], "additionalProperties": false }
+      }
+    },
+    "required": ["word", "said", "chat", "no", "day", "source", "streaks", "played"],
+    "additionalProperties": false
+  },
+  "height": 414
+}

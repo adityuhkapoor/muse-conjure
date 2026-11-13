@@ -1,0 +1,11 @@
+{
+  "id": "gym",
+  "name": "Gym streaks",
+  "origin": { "crate": "apps4", "id": "gym" },
+  "surface": "messenger",
+  "summary": "A week of gym check-ins as a row of flames per person, with streaks, nudges for anyone who hasn't gone today, and the week's loser buying smoothies.",
+  "useWhen": ["a group keeping each other going to the gym, running or any daily habit", "'did you go today', 'streak check', 'loser buys smoothies'", "a weekly challenge in a chat"],
+  "dontUseWhen": ["a one-off plan to go together (use a poll or a plan card)", "ranking who's best at a game (use smash-elo)", "a public challenge on a feed post (use public-challenge)"],
+  "params": { "title": "string", "today": "0-6, Monday = 0", "roast": "one line of chat lore about the slacker", "cheer": "{name, text}: what someone said about your streak", "people": "{name, week: 0|1 per day Mon..today, before: streak carried in, nudge?: text}[]" },
+  "height": 398
+}

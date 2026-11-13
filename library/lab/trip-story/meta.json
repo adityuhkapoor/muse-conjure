@@ -1,0 +1,11 @@
+{
+  "id": "trip-story",
+  "name": "Trip story",
+  "origin": { "crate": "apps15", "id": "trip-story" },
+  "surface": "story",
+  "summary": "A tap-through recap story of a group trip: cover, route, best moment, MVP, costs, and who's in for next year.",
+  "useWhen": ["after a group trip, with real facts from the chat: where, when, stops, costs", "someone asks for a recap of the trip"],
+  "dontUseWhen": ["planning a trip that has not happened", "no costs or stops were given: never invent them"],
+  "params": { "city": "", "days": "e.g. 4", "dates": "e.g. Mar 13-16", "stops": "2 to 6 places in visit order, label + map position x,y in 0..1", "miles": "text", "milesNote": "one fact", "moment": "caption of the moment the group picked", "mvp": "name + up to 4 facts", "costs": "categories with cents", "next": "name of next year's trip" },
+  "height": 580
+}

@@ -1,0 +1,68 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"there are always the same slots with the same labels\" caught none of 9 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"slot labels and details never change\" caught none of 9 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.2,
+  "typecheck": 71.9,
+  "static": 3.3,
+  "determinism": 54.2,
+  "invariants": 141.7,
+  "mutation": 192.3,
+  "render": 928.4,
+  "copy": 2,
+  "render.browser": 0,
+  "render.mount": 43,
+  "render.taps": 262,
+  "render.lint": 881,
+  "render.axe": 922,
+  "render.total": 928,
+  "total": 988.6
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 9,
+  "inert": 4,
+  "killed": 9,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "each person holds at most one slot": 1,
+   "every driver is in the chat and in the pool": 2,
+   "the pool has no repeats and everyone in it is in the chat": 2,
+   "there are always the same slots with the same labels": 0,
+   "an open slot has no spin time and a filled slot has one": 1,
+   "the spin record points at a real slot": 1,
+   "a spin fills only the named open slot with the driver the seed picks": 2,
+   "a release opens only the named slot and only for its driver": 2,
+   "a join adds only the actor to the pool": 1,
+   "a drop removes only the actor, and only when they hold no slot": 2,
+   "slot labels and details never change": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "there are always the same slots with the same labels",
+  "slot labels and details never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

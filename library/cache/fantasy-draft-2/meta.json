@@ -1,0 +1,91 @@
+{
+ "id": "fantasy-draft-2",
+ "ask": "draft this",
+ "kind": "fantasy-draft",
+ "family": "game",
+ "surface": "chat",
+ "sentence": "A snake draft where the host starts a random pick order, then everyone takes turns choosing snacks from a shared list, with the order reversing each round.",
+ "use_when": [
+  "A group wants to split up a shared list of items by taking turns picking",
+  "Choosing who brings which snacks for a game night or party",
+  "Running a fair draft where the pick order reverses each round",
+  "Picking from a fixed list where each item can only be taken once"
+ ],
+ "dont_use_when": [
+  "The group just wants to vote on one option or find a favorite (use a poll)",
+  "Items need to be assigned by chance with no choice (use a random picker)",
+  "Players need to bid or trade for items (use an auction)"
+ ],
+ "keywords": [
+  "snake draft",
+  "draft",
+  "snacks",
+  "take turns",
+  "pick order",
+  "game night",
+  "party food",
+  "split items",
+  "random order",
+  "turn-based picks",
+  "fantasy draft",
+  "shared list"
+ ],
+ "members": {
+  "min": 2,
+  "max": 5,
+  "original": 5
+ },
+ "mutation_score": 0.83,
+ "height": 376,
+ "params": {
+  "names": [
+   "Jake"
+  ],
+  "options": [
+   "Hot Cheetos",
+   "Takis",
+   "Hummus",
+   "Pita chips",
+   "Oreos",
+   "Clementines",
+   "Trader Joe's dumplings",
+   "Mochi",
+   "Popcorn",
+   "Sour Patch",
+   "Pigs in a blanket",
+   "Guac",
+   "Tortilla chips",
+   "Cheez-Its",
+   "Rice Krispie treats",
+   "KitKats",
+   "Pretzels",
+   "Grapes",
+   "Cold brew",
+   "Gummy worms"
+  ],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": false,
+ "origin": {
+  "title": "sunday snack draft",
+  "members": [
+   "Amir",
+   "Jake",
+   "Ty",
+   "Paige",
+   "June"
+  ],
+  "text": "game night snacks are gonna be chaos again\nlast time we had 4 bags of hot cheetos and nothing else\nthat was ty\nit was a good call\nlets draft the snacks so its fair\nya snake draft, each of us gets 4 snacks to bring\n5 of us so 20 snacks total\nlist rn: hot cheetos, takis, hummus, pita chips, oreos, clementines, trader joes dumplings, mochi, popcorn, sour patch\nalso chicken tenders from raising canes\nu cant bring canes cold lol\nok then no. add pigs in a blanket\nalso guac, tortilla chips, cheez its, rice krispie treats\nthats 15 w pigs, need 5 more\nkitkats, pretzels, grapes, cold brew, gummy worms\nok 20. also no repeats, first come first served\nand turn order random pls, not alphabetical\nyes and reverse every round\ni go last if its random i swear\nmuse draft this"
+ },
+ "seconds": 154.6,
+ "attempts": 1,
+ "created": "2026-11-13T04:54:40.770Z",
+ "second_look": {
+  "endStep": 20,
+  "endReason": "summary says \"Game night snack draft · done · 16 snacks picked\"",
+  "controls": 1,
+  "restHash": "bb903b913f91e072",
+  "playedHash": "bb3b91b09c6cc4cc"
+ }
+}

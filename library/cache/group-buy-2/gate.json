@@ -1,0 +1,77 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"line ids are unique and there are at most 12 lines\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the minimum is 15 and the prices are 1400 and 1200\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"labels are trimmed and at most 20 characters\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the minimum and prices never change\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.2,
+  "typecheck": 78.6,
+  "static": 3,
+  "determinism": 54.7,
+  "invariants": 159,
+  "mutation": 212.8,
+  "render": 971.3,
+  "copy": 2,
+  "render.browser": 0,
+  "render.mount": 56,
+  "render.taps": 305,
+  "render.lint": 925,
+  "render.axe": 966,
+  "render.total": 971,
+  "total": 1031.5
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 16,
+  "inert": 3,
+  "killed": 16,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "every line has a real size, color and a quantity from 1 to 9": 5,
+   "line ids are unique and there are at most 12 lines": 0,
+   "every line's owner is in the chat": 3,
+   "the minimum is 15 and the prices are 1400 and 1200": 0,
+   "labels are trimmed and at most 20 characters": 0,
+   "an add appends one line, last, owned by the actor, and leaves the rest alone": 4,
+   "a remove deletes only the named line, and only its owner can": 3,
+   "a quantity change touches only that line's quantity, and only its owner can": 2,
+   "a sure or maybe flip touches only that line's flag, and only its owner can": 2,
+   "only people in the chat change the order": 1,
+   "the minimum and prices never change": 0
+  },
+  "survivors": []
+ },
+ "weak": [
+  "line ids are unique and there are at most 12 lines",
+  "the minimum is 15 and the prices are 1400 and 1200",
+  "labels are trimmed and at most 20 characters",
+  "the minimum and prices never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

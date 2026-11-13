@@ -1,0 +1,78 @@
+{
+ "id": "who-is-on-2",
+ "ask": "mkae a quick board of who's free tn plz",
+ "kind": "who-is-on",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A shared board where each member sets the hours they are free this evening in half-hour steps, and it shows the longest window when everyone who answered is free.",
+ "use_when": [
+  "The group wants to find a time tonight that works for everyone",
+  "Planning a same-evening meal, call, or hangout",
+  "Someone asks who is free and when, for a short window of one evening"
+ ],
+ "dont_use_when": [
+  "Picking a date across several days or weeks",
+  "Choosing between options like restaurants or movies, which needs a poll",
+  "Splitting a bill or tracking who owes what"
+ ],
+ "keywords": [
+  "who's free",
+  "free tonight",
+  "availability",
+  "schedule",
+  "find a time",
+  "time window",
+  "evening plans",
+  "availability board",
+  "meetup",
+  "when works",
+  "overlap",
+  "free hours"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 5
+ },
+ "mutation_score": 0.94,
+ "height": 290,
+ "params": {
+  "names": [
+   "Nora",
+   "Sam",
+   "Gabe",
+   "Bryan",
+   "Lena"
+  ],
+  "options": [],
+  "blanks": [
+   "Thinking of ordering Thai"
+  ],
+  "numbers": [
+   30,
+   10
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "apt 4b",
+  "members": [
+   "Nora",
+   "Sam",
+   "Gabe",
+   "Bryan",
+   "Lena"
+  ],
+  "text": "anyone around tn? thinking of ordering thai\ni have a quiz tmrw so i can only do like 7 to 9\nim at work til 6 then free\ni can do after 8, got practice\nfree from 7:30 on\nim free all evening\nwait lena u said 6 or 7\n6 but i need to shower so 6:45\nand i might bail at 10\nok i cant keep track of this\nlol same\nmuse mkae a quick board of who's free tn plz"
+ },
+ "seconds": 148.4,
+ "attempts": 1,
+ "created": "2026-11-13T03:42:13.484Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 3,
+  "restHash": "8df01ffc4996b049",
+  "playedHash": "8bf097dc4931f262"
+ }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "utilities-split",
+  "name": "Utilities split",
+  "origin": { "crate": "apps7", "id": "utilities-split" },
+  "surface": "messenger",
+  "summary": "Split a month's utility bills between roommates, shift one person's overage onto them, and track who has been asked and who has paid.",
+  "useWhen": ["roommates splitting electric, wifi, water and gas for a month, one person fronted it", "'Theo ran the AC all month', 'utilities are in, I'll request everyone'"],
+  "dontUseWhen": ["one restaurant bill (use split)", "many IOUs between many people (use settle-up)"],
+  "params": { "title": "string", "due": "string", "bills": "1-4 of {name, cents, usage, level 0-1}", "people": "names", "payer": "name who fronted it", "heavy": "{name, note, overageCents} or null", "agree": "names", "paid": "[{name, cents}]" },
+  "height": 410
+}

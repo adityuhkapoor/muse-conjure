@@ -1,0 +1,21 @@
+{
+  "id": "flyer-wall",
+  "name": "Flyer maker",
+  "origin": { "crate": "apps11", "id": "flyer-wall" },
+  "surface": "group",
+  "summary": "Make a paper flyer for the group's corkboard; members tear off tabs to say they want it.",
+  "useWhen": ["someone in a big group is giving away, selling, looking for or announcing something", "'free couch, who wants it', 'lost my airpods', 'pickup soccer sunday'"],
+  "dontUseWhen": ["a sale with prices and several items (use move-out-sale)", "an event with a date people RSVP to"],
+  "params": {
+    "type": "object",
+    "properties": {
+      "group": { "type": "string", "description": "Group name, e.g. 'Cal Class of '28'" },
+      "size": { "type": "string", "description": "Group size as shown, e.g. '6.2K'" },
+      "heads": { "type": "array", "description": "1 to 4 flyer texts to cycle: head (short, any case, e.g. 'FREE COUCH') and sub (one line of detail)", "items": { "type": "object" } },
+      "board": { "type": "array", "description": "Up to 3 flyers already on the board: head, paper (0-7), by (name)", "items": { "type": "object" } },
+      "week": { "type": "object", "description": "Flyers pinned and tabs torn in the group this week, e.g. { flyers: 38, tabs: 212 }" }
+    },
+    "required": ["heads"]
+  },
+  "height": 402
+}

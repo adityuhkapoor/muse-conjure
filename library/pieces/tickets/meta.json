@@ -1,0 +1,82 @@
+{
+  "id": "tickets",
+  "name": "Group ticket buy (tier, who covers, cost each, seats together)",
+  "use_when": [
+    "one person buys tickets for the group on one order and the others pay them back",
+    "'group ticket buy', 'which tier', 'who's covering the tickets', 'how much each for tickets', 'get seats together'",
+    "ticket tiers or prices are in the chat: floor $189, lower bowl $129, GA $95 with fees"
+  ],
+  "dont_use_when": [
+    "only a headcount for the plan, no buying yet (use lock)",
+    "people calling specific seats in a section already bought (use slots)",
+    "many people paid for many things (use settle)",
+    "a restaurant bill (use split)"
+  ],
+  "keywords": [
+    "ticket",
+    "tickets",
+    "tier",
+    "tiers",
+    "covering",
+    "cover",
+    "buy",
+    "buying",
+    "order",
+    "presale",
+    "ticketmaster",
+    "stubhub",
+    "ga",
+    "pit",
+    "floor",
+    "bowl",
+    "deck",
+    "upper",
+    "lower",
+    "fees",
+    "together"
+  ],
+  "guarantees": [
+    "all money is integer cents: each seat is its ticket and fees plus an even part of the order fee, the first seats pay the leftover cents, and the seats add up to the order total",
+    "one tier vote per person; only the buyer buys, and the buy takes the leading tier (ties go to the cheaper tier) with one seat for everyone in, all in one block",
+    "the order never holds more than the site's limit; the buyer is always in",
+    "a paid back mark is made by that person or the buyer, once",
+    "someone who leaves after the buy leaves a spare the buyer covers, and a late joiner can take it"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "The show or game, e.g. 'SZA at Chase Center'" },
+      "buyer": { "type": "string", "description": "Who is covering the order, exactly as in the members list, or empty" },
+      "tiers": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string", "description": "Tier, e.g. 'Lower bowl'" },
+            "cents": { "type": "integer", "description": "Face price per ticket in cents" },
+            "feeCents": { "type": "integer", "description": "Fees per ticket in cents, 0 if unknown" }
+          },
+          "required": ["name", "cents", "feeCents"],
+          "additionalProperties": false
+        },
+        "description": "Tiers from the chat, 1 to 4"
+      },
+      "orderFeeCents": { "type": "integer", "description": "One fee per order in cents, 0 if none" },
+      "limit": { "type": "integer", "description": "Most tickets per order, 1 to 10" }
+    },
+    "required": ["title", "buyer", "tiers", "orderFeeCents", "limit"],
+    "additionalProperties": false
+  },
+  "examples": [
+    {
+      "title": "Warriors vs Lakers",
+      "buyer": "Leo",
+      "tiers": [
+        { "name": "Upper deck", "cents": 4800, "feeCents": 925 },
+        { "name": "Lower corner", "cents": 14500, "feeCents": 2610 }
+      ],
+      "orderFeeCents": 599,
+      "limit": 8
+    }
+  ]
+}

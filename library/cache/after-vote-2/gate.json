@@ -1,0 +1,70 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"no one appears twice on a place\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"there are three places with unique ids and labels\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"places never change\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.6,
+  "typecheck": 32.7,
+  "static": 1.2,
+  "determinism": 46.4,
+  "invariants": 145,
+  "mutation": 167.6,
+  "render": 914.8,
+  "copy": 0.6,
+  "render.browser": 0,
+  "render.mount": 46,
+  "render.taps": 253,
+  "render.lint": 868,
+  "render.axe": 908,
+  "render.total": 915,
+  "total": 937.7
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 13,
+  "inert": 3,
+  "killed": 13,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "no one appears twice on a place": 0,
+   "each person has at most one vote": 5,
+   "voters are in the chat": 3,
+   "there are three places with unique ids and labels": 0,
+   "a vote flips the actor on that place and touches no one else": 7,
+   "a vote that adds the actor leaves them on that place only": 3,
+   "a vote that removes the actor leaves them on no place": 2,
+   "places never change": 0,
+   "only people in the chat change the vote": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "no one appears twice on a place",
+  "there are three places with unique ids and labels",
+  "places never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

@@ -1,0 +1,31 @@
+{
+  "id": "plant-sitter",
+  "name": "Plant sitter",
+  "surface": "messenger",
+  "summary": "The apartment's plants on a drawn windowsill, living on real time: each droops and yellows as days pass its watering schedule, tap one and water it and the can tips over it, and before summer each plant gets someone to take it home.",
+  "useWhen": [
+    "'who watered the basil last, it looks sad'",
+    "the plants are dying again lol",
+    "who's taking the plants home for the summer",
+    "keeping the apartment plants alive between roommates",
+    "a reminder that the monstera exists"
+  ],
+  "dontUseWhen": [
+    "a rotating chore schedule for the whole apartment (use chore-wheel)",
+    "a grocery list (use grocery)",
+    "dividing up shared things when the lease ends (use lease-divvy)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "place": { "type": "string", "description": "Where the sill is, short" },
+      "plants": {
+        "type": "array",
+        "description": "1 to 5 plants: name, kind (monstera, pothos, basil, cactus, snake), water every n days, days since last watered, who watered it, who is taking it for the summer, and a short line",
+        "items": { "type": "object", "properties": { "name": { "type": "string" }, "kind": { "type": "string" }, "everyDays": { "type": "integer" }, "daysAgo": { "type": "integer" }, "wateredBy": { "type": "string" }, "keeper": { "type": "string" }, "said": { "type": "string" } }, "required": ["name", "kind", "everyDays", "daysAgo"] }
+      }
+    },
+    "required": ["plants"]
+  },
+  "height": 362
+}

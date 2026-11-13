@@ -1,0 +1,42 @@
+{
+  "id": "costume-runway",
+  "name": "Costume runway",
+  "surface": "story",
+  "summary": "Halloween costume stories walk a drawn runway one by one as illustrated characters; viewers heart the looks they love, and the final walk lines everyone up, crowns the most-hearted costume and hands out the group's categories.",
+  "useWhen": [
+    "everyone post ur costumes, we're voting",
+    "halloween costume contest for the six",
+    "who had the best costume this year",
+    "runway for our halloween fits",
+    "calvin's cardboard robot deserves an award"
+  ],
+  "dontUseWhen": [
+    "a caption contest on one photo (use caption-contest)",
+    "ranking things in tiers (use tier-list)",
+    "picking a group costume theme before the party (use plan-spinner)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Story title, e.g. 'Halloween runway'" },
+      "where": { "type": "string", "description": "Small line under the title, e.g. '412 Pine · Oct 31'" },
+      "looks": {
+        "type": "array",
+        "description": "2 to 8 costumes in walking order",
+        "items": {
+          "type": "object",
+          "properties": {
+            "by": { "type": "string", "description": "Who wore it, by first name" },
+            "costume": { "type": "string", "description": "What they called it, lowercase, e.g. 'cardboard robot'" },
+            "kind": { "type": "string", "enum": ["robot", "ghost", "pumpkin", "witch", "vampire", "cat", "dino", "astronaut"], "description": "Which drawn character walks" },
+            "category": { "type": "string", "description": "The group's award for it, e.g. 'most structural'" },
+            "hearts": { "type": "array", "items": { "type": "string" }, "description": "Who already hearted it, by first name" }
+          },
+          "required": ["by", "costume", "kind"]
+        }
+      }
+    },
+    "required": ["looks"]
+  },
+  "height": 530
+}

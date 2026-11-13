@@ -1,0 +1,33 @@
+{
+  "id": "thrift-rack",
+  "name": "Thrift rack",
+  "surface": "reel",
+  "summary": "A thrift haul reel becomes a clothes rack where each friend hangs a wishlist tag in their own words with the thing drawn on the hanger, a car below takes riders for the trip, and afterwards every tag gets stamped found or not found.",
+  "useWhen": [
+    "take me thrifting (six comments on a haul reel)",
+    "who wants to come to the thrift store saturday and what are you looking for",
+    "wishlist for the goodwill run",
+    "i'll look for stuff for you guys at the vintage market",
+    "thrift trip, who needs a ride"
+  ],
+  "dontUseWhen": [
+    "selling your own stuff (use move-out-sale)",
+    "a grocery run (use grocery)",
+    "rides with no shopping (use carpool)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "store": { "type": "string", "description": "The thrift store" },
+      "day": { "type": "string", "description": "When the trip is" },
+      "from": { "type": "string", "description": "Who posted the haul reel" },
+      "car": { "type": "string", "description": "The car, e.g. 'the Sube'" },
+      "driver": { "type": "string", "description": "Who drives" },
+      "seats": { "type": "integer", "description": "Seats besides the driver, 1 to 6" },
+      "tags": { "type": "array", "description": "Wishlist tags already on the rack, up to 6", "items": { "type": "object", "properties": { "who": { "type": "string", "description": "Name" }, "text": { "type": "string", "description": "What they want, in their words; jacket, lamp, jeans, hat, mug, dress, shoes or sweater words pick the drawing" } }, "required": ["who", "text"] } },
+      "riders": { "type": "array", "items": { "type": "string" }, "description": "Who already called a seat" }
+    },
+    "required": ["store", "tags"]
+  },
+  "height": 470
+}

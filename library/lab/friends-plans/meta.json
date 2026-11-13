@@ -1,0 +1,11 @@
+{
+  "id": "friends-plans",
+  "name": "Friends' plans this weekend",
+  "origin": { "crate": "apps12", "id": "friends-plans" },
+  "surface": "feed",
+  "summary": "Up to three plans friends locked for the weekend, one per day, with who's going and spots left; tap to join one.",
+  "useWhen": ["friends already have plans and others could tag along", "'who's doing what this weekend', 'anyone can come to the taco crawl'"],
+  "dontUseWhen": ["the group is still deciding what to do (use a poll or plan-spinner)", "one event with RSVPs (use an event)", "seats in cars (use carpool)"],
+  "params": { "sub": "e.g. 'This weekend'", "days": "3 x {day: 'Fri', date: '14'}", "plans": "1-3 x {day 0-2, title, meta, icon: taco|hike|picnic, host, going: names, cap (0 = no cap), seat: spot|seat, reply}" },
+  "height": 392
+}

@@ -1,0 +1,78 @@
+{
+ "id": "chore-claims-2",
+ "ask": "can u mkae a chore pikcer so evryone claims one",
+ "kind": "chore-claims",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A shared list of chores where each person claims one spot, can switch or drop it, and the card shows who has what and how many people still need a chore.",
+ "use_when": [
+  "A group wants to split weekly household chores so each person takes one",
+  "Everyone should pick a task from a fixed list with limited spots",
+  "You want to see at a glance who has claimed what and who is left",
+  "Roommates or family need a quick sign-up for shared tasks"
+ ],
+ "dont_use_when": [
+  "The group needs a vote to decide between options, not to assign tasks",
+  "Tasks need due dates, reminders, or repeating schedules",
+  "Chores should be assigned automatically or by rotation instead of chosen"
+ ],
+ "keywords": [
+  "chore picker",
+  "chores",
+  "claim",
+  "sign up",
+  "task split",
+  "household",
+  "roommates",
+  "assign tasks",
+  "who does what",
+  "chore list",
+  "family chores",
+  "volunteer"
+ ],
+ "members": {
+  "min": 2,
+  "max": 10,
+  "original": 8
+ },
+ "mutation_score": 1,
+ "height": 408,
+ "params": {
+  "names": [],
+  "options": [
+   "Dishes",
+   "Trash + recycling",
+   "Bathroom",
+   "Sweep",
+   "Wipe counters",
+   "Water plants"
+  ],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": false,
+ "origin": {
+  "title": "suite 4b",
+  "members": [
+   "Gabe",
+   "Mina",
+   "Abby",
+   "Lily",
+   "Sofia",
+   "Rhea",
+   "Theo",
+   "Ravi"
+  ],
+  "text": "guys the suite is disgusting we need a chore thing for this week\nlol true theres a pan from monday\nthat was sofia\nit was NOT ok maybe\nchores i can think of: dishes, trash+recycling, bathroom, sweep, wipe counters, water plants, litter box\nwait whose litter box\nmy cat mochi but yall said youd help this week since im stuck in midterms\nfair ill do litter, cats are chill\ni can do plants, i like them\nnot trash i literally did it 3 times\nok gabe not trash\ni'll do sweep\ni'll do dishes to make up for the pan\nlol ok. i'll do counters\nso left is trash and bathroom\ni can do trash on my way to class\nok i'll do bathroom then\nwait so what do i do\nnothing left gabe lol\nthats not fair i wanna help\ntheres 7 chores 8 people\noh true, someone can double up on bathroom w mina\nill help mina w bathroom\nok but nobody is gonna remember who has what\nmuse can u mkae a chore pikcer so evryone claims one"
+ },
+ "seconds": 57.7,
+ "attempts": 1,
+ "created": "2026-11-13T04:32:21.840Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 7,
+  "restHash": "9f1b188e333938dc",
+  "playedHash": "9e138c8eb139e8ad"
+ }
+}

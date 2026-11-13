@@ -1,0 +1,70 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"spot ids are unique and caps are 1 to 8\" caught none of 11 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the spots and their caps match the plan\" caught none of 11 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"labels, caps, title and notes never change\" caught none of 11 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.8,
+  "typecheck": 39.9,
+  "static": 1.5,
+  "determinism": 86.1,
+  "invariants": 218.5,
+  "mutation": 216.8,
+  "render": 1028.2,
+  "copy": 1.1,
+  "render.browser": 0,
+  "render.mount": 53,
+  "render.taps": 357,
+  "render.lint": 974,
+  "render.axe": 1022,
+  "render.total": 1028,
+  "total": 1056.5
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 11,
+  "inert": 8,
+  "killed": 11,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "no spot has more people than its cap": 1,
+   "no one is listed twice on a spot": 1,
+   "everyone on a spot is in the chat": 3,
+   "spot ids are unique and caps are 1 to 8": 0,
+   "the spots and their caps match the plan": 0,
+   "a join adds the actor last on a spot that had room and changes nothing else": 4,
+   "a leave removes only the actor from that spot": 4,
+   "labels, caps, title and notes never change": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "spot ids are unique and caps are 1 to 8",
+  "the spots and their caps match the plan",
+  "labels, caps, title and notes never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

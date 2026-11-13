@@ -1,0 +1,40 @@
+{
+  "id": "late-cart",
+  "name": "Late cart",
+  "surface": "messenger",
+  "summary": "A late night group delivery order drawn as a scooter with a crate on the back: everyone taps dishes to drop them in as little boxes, a road meter fills toward the free delivery minimum and the headlight comes on when it's met. One person places it and each face shows what they owe.",
+  "useWhen": [
+    "12:48am 'i'm so hungry i could cry', who wants to order",
+    "group food delivery order, everyone add what you want",
+    "we need $25 for free delivery, who's adding something",
+    "splitting a late night takeout order between roommates",
+    "doordash run for the apartment, drop your order in"
+  ],
+  "dontUseWhen": [
+    "splitting a bill after you already paid (use settle-up or tab-claim)",
+    "groceries for the week (use grocery)",
+    "deciding where to eat (use dinner-veto)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Late night order'" },
+      "shop": { "type": "string", "description": "The place that's open, e.g. 'Golden Lantern'" },
+      "minCents": { "type": "integer", "description": "Free delivery minimum in cents, e.g. 2500" },
+      "feeCents": { "type": "integer", "description": "Delivery fee under the minimum in cents, split evenly" },
+      "menu": {
+        "type": "array",
+        "description": "Up to 8 things people can add, with price in cents and kind one of box, cup, bag, tray (how it's drawn)",
+        "items": { "type": "object", "properties": { "label": { "type": "string" }, "cents": { "type": "integer" }, "kind": { "type": "string" } }, "required": ["label", "cents", "kind"] }
+      },
+      "cart": {
+        "type": "array",
+        "description": "Already in the cart: who added which menu item (by its label)",
+        "items": { "type": "object", "properties": { "who": { "type": "string" }, "item": { "type": "string" } }, "required": ["who", "item"] }
+      },
+      "said": { "type": "object", "description": "The line that started it, shown under the title", "properties": { "who": { "type": "string" }, "said": { "type": "string" } } }
+    },
+    "required": ["menu"]
+  },
+  "height": 416
+}

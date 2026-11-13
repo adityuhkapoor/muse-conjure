@@ -1,0 +1,71 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"each note is at most 40 characters\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"an add puts one new item last with the cleaned label and the actor as owner\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the title never changes\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.1,
+  "typecheck": 51.6,
+  "static": 2.5,
+  "determinism": 89.2,
+  "invariants": 260.2,
+  "mutation": 322.5,
+  "render": 957,
+  "copy": 1.7,
+  "render.browser": 0,
+  "render.mount": 52,
+  "render.taps": 283,
+  "render.lint": 909,
+  "render.axe": 950,
+  "render.total": 957,
+  "total": 997.6
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 13,
+  "inert": 7,
+  "killed": 13,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "item ids are unique and labels are unique ignoring case": 2,
+   "at most 12 items, each label 1 to 40 characters and trimmed": 1,
+   "every owner is open or in the chat": 2,
+   "each note is at most 40 characters": 0,
+   "a claim gives one open item to the actor and changes nothing else": 4,
+   "a drop opens one item the actor owned and changes nothing else": 2,
+   "an add puts one new item last with the cleaned label and the actor as owner": 0,
+   "a remove deletes one item the actor owned or that was open, and nothing else": 2,
+   "only people in the chat change the list": 2,
+   "the title never changes": 0
+  },
+  "survivors": []
+ },
+ "weak": [
+  "each note is at most 40 characters",
+  "an add puts one new item last with the cleaned label and the actor as owner",
+  "the title never changes"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

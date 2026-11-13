@@ -1,0 +1,69 @@
+{
+ "id": "room-draft-1",
+ "ask": "randmoize who picks frist plz",
+ "kind": "room-draft",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Randomly shuffles everyone in the chat into a final pick order once, then lets each person in turn claim one of four fixed rooms.",
+ "use_when": [
+  "A group needs a fair random order to choose rooms or beds on a trip",
+  "Someone asks who gets to pick first",
+  "People want to claim rooms one at a time in a set order"
+ ],
+ "dont_use_when": [
+  "You need a yes or no vote or a poll on options",
+  "You need to pick just one random winner or flip a coin",
+  "The things to choose are not the four built-in rooms, or people should trade after picking"
+ ],
+ "keywords": [
+  "pick order",
+  "who goes first",
+  "randomize order",
+  "shuffle",
+  "room draft",
+  "room picking",
+  "bedroom assignment",
+  "trip rooms",
+  "turn order",
+  "random draw",
+  "claim room",
+  "draft order"
+ ],
+ "members": {
+  "min": 2,
+  "max": 8,
+  "original": 5
+ },
+ "mutation_score": 1,
+ "height": 210,
+ "params": {
+  "names": [],
+  "options": [
+   "Queen room"
+  ],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": false,
+ "origin": {
+  "title": "gatlinburg thanksgiving cabin",
+  "members": [
+   "Sam",
+   "Sofia",
+   "Ines",
+   "Dre",
+   "Lena"
+  ],
+  "text": "ok airbnb booked for gatlinburg thanksgiving weekend\nLETS GOOO\nhow many rooms\n4 bedrooms. master has a king + own bathroom + hot tub on the balcony\nok i call master\nlol no\nrest is a queen room, a room w two twins, and a loft w a pullout couch\nloft sounds kinda sad ngl\npullout is cursed\n5 of us tho so two ppl share the twin room\nthats fine i dont mind the twins\nso we need a fair way to do it\nwhoever picks first gets master then it goes down the line\ni dont wanna pick last and get the pullout\nsame lol\njust do random order so nobody can argue\nyea the order is the order, no trading\ndeal\nmuse randmoize who picks frist plz"
+ },
+ "seconds": 103.3,
+ "attempts": 1,
+ "created": "2026-11-13T03:25:49.722Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 1,
+  "restHash": "bf917b90816bc46a",
+  "playedHash": "b733d33830e3ecc0"
+ }
+}

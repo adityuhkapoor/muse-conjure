@@ -1,0 +1,21 @@
+{
+  "id": "pickup-run",
+  "name": "Pickup run",
+  "origin": { "crate": "apps13", "id": "pickup-run" },
+  "surface": "marketplace",
+  "summary": "Plan the run to pick up something big: whose car it fits in, which time most people are free, and who lifts.",
+  "useWhen": ["something bought on Marketplace needs picking up: 'who has a car for the couch', 'we need two people to carry it'", "a few friends' cars, a couple of times, a route"],
+  "dontUseWhen": ["people riding to an event (use carpool)", "splitting what the item cost (use split-purchase)", "deciding whether to buy it (use group-buy)"],
+  "params": {
+    "title": "e.g. 'Couch pickup run'",
+    "sub": "item and catch, e.g. '84″ couch · 3rd floor walk-up'",
+    "item": "couch",
+    "route": "{from, to, dist}",
+    "cars": "1-3 x {driver, car, kind: hatch|wagon|truck, fits: 0 no|1 roof|2 bed, seats}",
+    "slots": "1-3 x {label, free: names}",
+    "crew": "how many people the free counts are out of",
+    "lifting": "names already lifting",
+    "need": "lifters needed, 1-4"
+  },
+  "height": 346
+}

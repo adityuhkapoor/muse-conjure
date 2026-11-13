@@ -1,0 +1,11 @@
+{
+  "id": "challenge-friend",
+  "name": "Beat my time",
+  "origin": { "crate": "apps14", "id": "challenge-friend" },
+  "surface": "gaming",
+  "summary": "A stop-at-10.00 stopwatch dare that goes blind at 3 seconds, with a head-to-head ladder you climb by beating a friend's time.",
+  "useWhen": ["someone dares the chat to beat their score: 'beat my 9.87', 'bet you can't'", "a running head-to-head ladder between friends"],
+  "dontUseWhen": ["a full arcade game starring the chat (use inside-joke-game)", "logging real match results (use smash-elo)"],
+  "params": { "title": "ladder name, e.g. 'Unit 7 ladder'", "from": "who sent the dare (a ladder name)", "when": "when it was sent, e.g. '2h ago'", "tried": "names who already tried today", "ladder": "top to bottom, up to 8: {name, cs (time in hundredths, 0 if none), w, l, note}", "joinAt": "rank index where chat members not on the ladder are slotted (0-based)" },
+  "height": 416
+}

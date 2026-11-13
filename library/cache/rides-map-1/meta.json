@@ -1,0 +1,84 @@
+{
+ "id": "rides-map-1",
+ "ask": "map rides",
+ "kind": "rides-map",
+ "family": "recap",
+ "surface": "chat",
+ "sentence": "Shows each car with its driver and seats so group members can claim an open seat, take an empty driver spot, or leave, and see who still has no ride.",
+ "use_when": [
+  "A group needs to sort out who drives and who rides in which car for a trip or event",
+  "Members want to pick their own seat in a car",
+  "Someone asks who still needs a ride",
+  "Planning carpools with a set number of cars and seats"
+ ],
+ "dont_use_when": [
+  "Splitting gas or trip costs between people",
+  "Choosing a time or place for the event",
+  "Tracking live location or directions while driving"
+ ],
+ "keywords": [
+  "carpool",
+  "rides",
+  "ride map",
+  "car seats",
+  "who drives",
+  "driver",
+  "seat picker",
+  "transport",
+  "trip planning",
+  "need a ride",
+  "car assignment",
+  "open seats"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 7
+ },
+ "mutation_score": 0.93,
+ "height": 406,
+ "params": {
+  "names": [
+   "Sam",
+   "Bryan",
+   "Ana",
+   "Sofia",
+   "Luis",
+   "Zoe",
+   "Jake"
+  ],
+  "options": [
+   "RAV4",
+   "Civic",
+   "Truck"
+  ],
+  "blanks": [
+   "Stop at Trader Joe's first"
+  ],
+  "numbers": []
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "cabin weekend",
+  "members": [
+   "Sam",
+   "Bryan",
+   "Ana",
+   "Sofia",
+   "Luis",
+   "Zoe",
+   "Jake"
+  ],
+  "text": "ok cabin sat, leaving the dorm lot at 4\ni can drive the rav4, fits me + 4\ni need a ride, my car's in the shop til monday\ncivic fits me + 3\ntruck only has room for 1 passenger lol\ncan i go w ana? giant bag of snacks, need trunk space\nyes zoe obv\ni wanna ride w luis he has the good playlists\nlol ok sofia's in the truck\ni'll go w bryan but we gotta stop at trader joes first\nfine just be quick\ncan i go w ana too\nyeah thats me, zoe, sam\nwait sam you owe me for gas last time\nill venmo you at the cabin\nso civic is just me and jake? kinda empty\ni can switch to bryan if luis wants the truck to himself\nnah keep sofia, i need someone to navigate\nok so locked in then\nwait who's in whose car again i already forgot\nsame lol\nmuse map rides"
+ },
+ "seconds": 66.8,
+ "attempts": 1,
+ "created": "2026-11-13T02:39:41.051Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 9,
+  "restHash": "bf39f31b38453023",
+  "playedHash": "bf3ce119f10e3603"
+ }
+}

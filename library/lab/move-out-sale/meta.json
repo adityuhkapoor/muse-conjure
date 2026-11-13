@@ -1,0 +1,36 @@
+{
+  "id": "move-out-sale",
+  "name": "Move-out sale",
+  "origin": { "crate": "apps13", "id": "move-out-sale" },
+  "surface": "marketplace",
+  "summary": "Friends claim a mover's things before the sale goes public, then hold their haul for pickup.",
+  "useWhen": ["someone in the chat is moving out and selling furniture and things to friends first", "'I'm selling everything before I move', 'dibs on the couch', 'friends first, then Marketplace'"],
+  "dontUseWhen": ["the group buying one listing together (use group-buy)", "a single item price question (use price-check)", "giving things away for free with no pickup (use a claim list)"],
+  "params": {
+    "type": "object",
+    "properties": {
+      "seller": { "type": "string", "description": "Who is moving, exactly as in the members list" },
+      "items": {
+        "type": "array",
+        "maxItems": 6,
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string", "description": "'Velvet couch'" },
+            "priceCents": { "type": "integer" },
+            "kind": { "type": "string", "enum": ["couch", "desk", "lamp", "bike", "fridge", "plant", "other"] },
+            "claimedBy": { "type": "string", "description": "Who already called it, by name, or empty" }
+          },
+          "required": ["name", "priceCents", "kind", "claimedBy"],
+          "additionalProperties": false
+        }
+      },
+      "publicWhen": { "type": "string", "description": "When it goes on Marketplace: 'tomorrow 9am'" },
+      "pickup": { "type": "string", "description": "'Sat 10–12 · 2nd floor'" },
+      "note": { "type": "string", "description": "A line from the seller: 'bring a dolly lol', or empty" }
+    },
+    "required": ["seller", "items", "publicWhen", "pickup", "note"],
+    "additionalProperties": false
+  },
+  "height": 402
+}

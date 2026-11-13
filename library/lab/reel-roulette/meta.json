@@ -1,0 +1,33 @@
+{
+  "id": "reel-roulette",
+  "name": "Reel roulette",
+  "surface": "reel",
+  "summary": "Every 'we should do this' reel the chat saved runs as a film strip through a little projector; spin and it stops one on the screen, spending your one veto stamps it and spins again, and locking makes it the weekend plan.",
+  "useWhen": [
+    "we have like 20 saved reels and never do any of them",
+    "pick one of the reels we saved for saturday",
+    "spin for what we do this weekend from the chat's saved stuff",
+    "someone pick a reel plan already, i'm tired of deciding",
+    "random reel from the ones we sent each other, make it the plan"
+  ],
+  "dontUseWhen": [
+    "one reel that should become a plan (use reel-to-try)",
+    "ranking reels by how funny they were (use reel-rank)",
+    "a bucket list of everything the group wants to do (use reel-bucket)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title" },
+      "chat": { "type": "string", "description": "The group chat's name" },
+      "saved": { "type": "integer", "description": "How many reels were saved in total" },
+      "since": { "type": "string", "description": "When the saving started, e.g. 'September'" },
+      "day": { "type": "string", "description": "The day the landed reel becomes the plan for" },
+      "vetoes": { "type": "integer", "description": "Vetoes each person gets, 0 to 3" },
+      "reels": { "type": "array", "description": "3 to 10 reels on the strip", "items": { "type": "object", "properties": { "title": { "type": "string", "description": "What the reel is" }, "where": { "type": "string", "description": "The place" }, "mins": { "type": "integer", "description": "Minutes away, 0 for at home" }, "by": { "type": "string", "description": "Who saved it" }, "kind": { "type": "string", "description": "Drawing: ramen, pizza, burger, taco, boba, coffee, cocktail, icecream, cake, park, venue, campus, house, storefront and the other thumb kinds" } }, "required": ["title"] } },
+      "history": { "type": "array", "description": "Spins already done, oldest first; every one but the last must have a veto", "items": { "type": "object", "properties": { "by": { "type": "string", "description": "Who spun" }, "reel": { "type": "integer", "description": "Index into reels" }, "vetoBy": { "type": "string", "description": "Who vetoed it" }, "note": { "type": "string", "description": "The vetoer's words" } }, "required": ["by", "reel"] } }
+    },
+    "required": ["reels"]
+  },
+  "height": 520
+}

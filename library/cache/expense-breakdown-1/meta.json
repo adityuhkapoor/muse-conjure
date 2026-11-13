@@ -1,0 +1,102 @@
+{
+ "id": "expense-breakdown-1",
+ "ask": "breakdown?",
+ "kind": "expense-breakdown",
+ "family": "recap",
+ "surface": "chat",
+ "sentence": "Tracks shared trip expenses paid by different people, splits them evenly in whole cents, and shows the fewest payments needed to settle up, with each person marking their own payments as sent.",
+ "use_when": [
+  "A group wants to split costs from a trip or weekend away",
+  "Several people paid for different things and need to know who owes whom",
+  "Someone asks for a breakdown of expenses and the fewest payments to settle",
+  "People want to add an expense or mark a payment as sent"
+ ],
+ "dont_use_when": [
+  "A single bill needs splitting by item or by uneven percentages",
+  "A one-off money request or payment to one person with no shared expenses",
+  "A poll or vote on where to go or what to do"
+ ],
+ "keywords": [
+  "expense split",
+  "trip costs",
+  "settle up",
+  "who owes",
+  "breakdown",
+  "shared expenses",
+  "split bill",
+  "group expenses",
+  "payments",
+  "balances",
+  "trip split",
+  "reimbursement"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 7
+ },
+ "mutation_score": 1,
+ "height": 276,
+ "params": {
+  "names": [
+   "Amir",
+   "Maya",
+   "Paige",
+   "Dev",
+   "Rohan",
+   "Mia",
+   "Mina"
+  ],
+  "options": [
+   "Airbnb",
+   "Uber from Broadway",
+   "Groceries",
+   "Ryman tickets",
+   "Pedal tavern"
+  ],
+  "blanks": [],
+  "numbers": [
+   64000,
+   8500,
+   4000,
+   6200,
+   11800,
+   7600,
+   2300,
+   1900,
+   3000,
+   9700,
+   5400,
+   9000,
+   14000,
+   13400,
+   2000,
+   3100,
+   40
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "nashville weekend",
+  "members": [
+   "Amir",
+   "Maya",
+   "Paige",
+   "Dev",
+   "Rohan",
+   "Mia",
+   "Mina"
+  ],
+  "text": "ok nashville receipts time before i forget everything\nairbnb was 640 total for the 3 nights\ngas for the van was 85 there and 40 on the way back\nhattie b's was 62 for all of us lol\nhonky tonk night i put 118 on my card for drinks\nuber from broadway back to the airbnb was 23 and another 19 friday\nparking at the airbnb was 30 for the weekend\nbrunch sat at biscuit love was 97\noh and i grabbed snacks and breakfast stuff, groceries 54\nryman tickets were 45 each but i only paid for mine and dev's so 90\nyea i owe you for that\nbro the 118 was friday only\nsaturday we did another 76 at the bar\nlol the 76 was the bar with the mechanical bull\nworth it\ndid anyone do the pedal tavern thing\nyes 140 for the group, i put it on venmo\nalso forgot, the 62 was lunch, dinner sat was 134 at the pizza place\nok thats a lot of numbers\nmy head hurts\nwe also tipped the airbnb cleaner 20\ni paid the ride to the airport 31\nthat was an uber right not lyft\nyeah uber whatever\ntotal is gonna be wild\ni cant add this in my head\nsame lol\nmuse breakdown?"
+ },
+ "seconds": 304,
+ "attempts": 1,
+ "created": "2026-11-13T03:28:55.859Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 1,
+  "restHash": "8331fe7727fcc008",
+  "playedHash": "8331fe7627fc8109"
+ }
+}

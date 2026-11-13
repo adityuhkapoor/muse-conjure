@@ -1,0 +1,28 @@
+{
+  "id": "coffee-punch",
+  "name": "Coffee punch cards",
+  "surface": "messenger",
+  "summary": "Whose turn it is to buy the coffee round: a café punch card per friend, stacked by the rounds they bought this month; the thinnest stack is up next with the order on its card, and buying thunks a stamp on yours.",
+  "useWhen": [
+    "a regular coffee or boba run where people take turns buying: 'whose turn is it at kettle & crumb'",
+    "someone keeps dodging their round: 'calvin you said i'll get the next one 4 times'",
+    "keeping score of who bought rounds this month"
+  ],
+  "dontUseWhen": [
+    "splitting one bill right now (use a bill split)",
+    "settling debts across many expenses (use settle-up)",
+    "picking where to get coffee (use a poll)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "place": { "type": "string", "description": "The café, e.g. 'Kettle & Crumb'" },
+      "run": { "type": "string", "description": "What the run is called, e.g. 'fenwick grind'" },
+      "people": { "type": "array", "items": { "type": "object", "properties": { "who": { "type": "string" }, "rounds": { "type": "integer", "description": "rounds bought this month, 0 to 9" } }, "required": ["who", "rounds"] }, "description": "2 to 8 people on the run" },
+      "order": { "type": "array", "items": { "type": "string" }, "description": "This round's order, 1 to 4 lines, e.g. 'Arun's chai'" },
+      "joke": { "type": "object", "properties": { "who": { "type": "string" }, "line": { "type": "string" }, "times": { "type": "integer" } }, "description": "The running excuse and how many times it was said" }
+    },
+    "required": ["people", "order"]
+  },
+  "height": 410
+}

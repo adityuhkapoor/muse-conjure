@@ -1,0 +1,77 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"no one is listed twice in an hour or an activity\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the six hours and two activities keep their ids and labels\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"hour and activity labels and ids never change\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.2,
+  "typecheck": 77.9,
+  "static": 2.9,
+  "determinism": 118.8,
+  "invariants": 334.2,
+  "mutation": 373.8,
+  "render": 1018.4,
+  "copy": 1.7,
+  "render.browser": 0,
+  "render.mount": 71,
+  "render.taps": 338,
+  "render.lint": 965,
+  "render.axe": 1011,
+  "render.total": 1018,
+  "total": 1069
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 14,
+  "inert": 4,
+  "killed": 13,
+  "score": 0.93,
+  "threshold": 0.8,
+  "kills": {
+   "no one is listed twice in an hour or an activity": 0,
+   "everyone listed is in the chat": 3,
+   "each person votes for at most one activity": 2,
+   "the six hours and two activities keep their ids and labels": 0,
+   "a toggle flips only the actor in that hour and changes nothing else": 4,
+   "a vote leaves the actor on that activity only, or off all, and moves no one else": 4,
+   "a clear removes the actor from every hour and changes no one else": 2,
+   "only people in the chat change anything": 2,
+   "hour and activity labels and ids never change": 0
+  },
+  "survivors": [
+   {
+    "op": "negate-condition",
+    "line": 80,
+    "before": "action.t === \"clear\"",
+    "after": "!(action.t === \"clear\")"
+   }
+  ]
+ },
+ "weak": [
+  "no one is listed twice in an hour or an activity",
+  "the six hours and two activities keep their ids and labels",
+  "hour and activity labels and ids never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

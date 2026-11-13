@@ -1,0 +1,82 @@
+{
+ "id": "plans-so-far-1",
+ "ask": "recap waht we decided pls",
+ "kind": "plans-so-far",
+ "family": "recap",
+ "surface": "chat",
+ "sentence": "Shows a recap of what a group decided for an event: who is bringing each item, what is left for later, and one open question the group can vote on and settle.",
+ "use_when": [
+  "Someone asks to recap what the group decided for a get-together",
+  "The group needs to see who is bringing what and what is still unclaimed",
+  "One open choice is left and people should vote on it",
+  "Members want to claim, release or tick off their own items"
+ ],
+ "dont_use_when": [
+  "The group needs a new poll from scratch with no plan around it",
+  "The request is for a shared calendar or picking a date and time",
+  "The group wants to split costs or track who owes money"
+ ],
+ "keywords": [
+  "recap",
+  "decisions",
+  "plans so far",
+  "who brings what",
+  "potluck",
+  "dinner plan",
+  "event summary",
+  "claim items",
+  "vote",
+  "task list",
+  "group plan",
+  "gathering"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 4
+ },
+ "mutation_score": 1,
+ "height": 298,
+ "params": {
+  "names": [
+   "Eli",
+   "Bryan",
+   "Wren",
+   "Theo"
+  ],
+  "options": [
+   "Drinks",
+   "Turkey",
+   "Mac and cheese",
+   "Rolls",
+   "Mashed potatoes",
+   "Cards Against Humanity",
+   "Elf"
+  ],
+  "blanks": [],
+  "numbers": [
+   15
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "friendsgiving planning",
+  "members": [
+   "Eli",
+   "Bryan",
+   "Wren",
+   "Theo"
+  ],
+  "text": "ok friendsgiving updates, we doing it at my apt sat the 21st\nwait i thought we said 22nd\nsat is the 21st bryan lol\nyeah 21st works for me, i have work till 4 tho\nfine by me. i can do the drinks tho, i have the big cooler\nnice theo thats locked then, you do drinks\ni'll do the turkey. small one from trader joes\nbryan have you ever cooked a turkey\nno but youtube exists\nlol ok. i'll do mac and cheese and the rolls\nwren's mac is elite fr\ni'll do mashed potatoes and plates/cups\noh also we should do secret santa, 15 dollar limit\nehh maybe later, too much rn\nnah i like it, but do it at the december one instead\nok fine december\ncan we get pie from that bakery on 5th, mama's? i'll pick it up fri\nyes pumpkin and pecan\nalso ngl i vote elf for the movie after\nelf is perfect\nok but thats not decided, eli said bring a game too\nya bring cards against humanity if u have it, bryan u have it right\nyep i got it\nok my brain is mush\nsame i forgot who said what\nya its a lot of stuff\nmuse recap waht we decided pls"
+ },
+ "seconds": 197.5,
+ "attempts": 1,
+ "created": "2026-11-13T02:54:41.006Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 2,
+  "restHash": "ae2eb52d2524dad2",
+  "playedHash": "9aa13f522d255aad"
+ }
+}

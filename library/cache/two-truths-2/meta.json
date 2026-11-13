@@ -1,0 +1,84 @@
+{
+ "id": "two-truths-2",
+ "ask": "2 truths 1 lie",
+ "kind": "two-truths",
+ "family": "game",
+ "surface": "chat",
+ "sentence": "One person at a time writes two true statements and one lie, the others guess which is the lie, then the author reveals it and points are tallied.",
+ "use_when": [
+  "A group wants to play two truths and a lie in chat",
+  "People want to guess which of three statements is false",
+  "A group wants a quick icebreaker with a running score",
+  "Friends want to swap stories about a shared event as a game"
+ ],
+ "dont_use_when": [
+  "A group needs a yes/no or multiple choice poll with no right answer",
+  "Two people want a head-to-head board or strategy game",
+  "A group wants a trivia quiz with fixed questions and answers"
+ ],
+ "keywords": [
+  "two truths one lie",
+  "two truths and a lie",
+  "guessing game",
+  "icebreaker",
+  "party game",
+  "bluffing",
+  "spot the lie",
+  "group game",
+  "scoreboard",
+  "turn based",
+  "statements",
+  "fib game"
+ ],
+ "members": {
+  "min": 3,
+  "max": 12,
+  "original": 6
+ },
+ "mutation_score": 0.88,
+ "height": 140,
+ "params": {
+  "names": [
+   "Sam",
+   "Ines",
+   "Theo",
+   "Abby",
+   "Luis"
+  ],
+  "options": [
+   "Luis slept the whole ride to the field",
+   "We lost 21-14 in the semis",
+   "Chick-fil-A after, 12 nuggets for Luis",
+   "The team name was the Sleepy Otters"
+  ],
+  "blanks": [],
+  "numbers": [
+   21,
+   14,
+   12
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "sleepy otters flag football",
+  "members": [
+   "Sam",
+   "Wren",
+   "Ines",
+   "Theo",
+   "Abby",
+   "Luis"
+  ],
+  "text": "we really made semis lol\ntheo with 3 tds against the chem majors\nand i still have a bruise from it\ni got a flag penalty for holding, ref was so dramatic\nabby it was your 2nd one\nok yes\ni did the bus playlist, 90s throwbacks only\nluis slept the whole ride to the field\ni was up til 3 doing a lab report\nyou missed ines doing mr brightside karaoke\nit was incredible and you know it\nwe lost 21-14 in the semis btw\ni dropped the last pass in the endzone\nsam stop its fine\nwe got chick-fil-a after, 12 nuggets for luis\ni earned them\nand the team name was the sleepy otters\nlol from my sticker\nwe should play a game with all this\ntwo truths one lie\nonly real stuff from today tho\nand the lie has to sound real\nno making me look bad tho\nlol u make urself look bad\nmuse 2 truths 1 lie"
+ },
+ "seconds": 171.1,
+ "attempts": 1,
+ "created": "2026-11-13T04:05:08.612Z",
+ "second_look": {
+  "endStep": 11,
+  "endReason": "reached phase = revealed",
+  "controls": 1,
+  "restHash": "9ff11f0fe00ec4c4",
+  "playedHash": "8ff893f02c03f81e"
+ }
+}

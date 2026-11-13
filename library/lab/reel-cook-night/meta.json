@@ -1,0 +1,11 @@
+{
+  "id": "reel-cook-night",
+  "name": "Cook night from a reel",
+  "origin": { "crate": "apps15", "id": "reel-cook-night" },
+  "surface": "reel",
+  "summary": "A recipe reel becomes a cook night: friends claim the ingredients, vote a night and lock it.",
+  "useWhen": ["someone shares a recipe reel and says 'we're making this'", "a potluck-style cook night where each person brings ingredients"],
+  "dontUseWhen": ["a restaurant reel (use reel-to-try)", "splitting a grocery bill after the fact"],
+  "params": { "reel": "from, note, account, title, plays", "host": "whose place", "time": "e.g. 7pm", "serves": "number", "costCents": "rough total cost in cents, 0 if unknown", "items": "3 to 9 ingredients: label and who already claimed it ('' if open)", "nights": "2 or 3 options: day, date, votes (names)" },
+  "height": 582
+}

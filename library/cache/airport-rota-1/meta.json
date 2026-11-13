@@ -1,0 +1,79 @@
+{
+ "id": "airport-rota-1",
+ "ask": "this is a mess muse fix it",
+ "kind": "airport-rota",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A signup list of airport pickups and drop-offs where each trip gets one driver, first to claim wins, and only that driver can give it back.",
+ "use_when": [
+  "A group needs to sort out who drives each airport pickup or drop-off",
+  "Each ride needs exactly one volunteer driver",
+  "People want to see which trips are still open",
+  "Riders need to add a short note like a time change to a trip"
+ ],
+ "dont_use_when": [
+  "Splitting costs or gas money between riders",
+  "Picking a time or date that works for everyone",
+  "Tracking a general chore or task list with many assignees per item"
+ ],
+ "keywords": [
+  "airport rides",
+  "ride signup",
+  "carpool",
+  "driver sign up",
+  "pickup",
+  "drop-off",
+  "rota",
+  "who is driving",
+  "claim a slot",
+  "volunteer shifts",
+  "transport",
+  "trip coverage"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 6
+ },
+ "mutation_score": 1,
+ "height": 320,
+ "params": {
+  "names": [
+   "Sam",
+   "Priya"
+  ],
+  "options": [
+   "ORD",
+   "Midway"
+  ],
+  "blanks": [],
+  "numbers": [
+   40,
+   9,
+   7
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "thanksgiving crew arrivals",
+  "members": [
+   "Jalen",
+   "Sam",
+   "Priya",
+   "Owen",
+   "Gabe",
+   "Jake"
+  ],
+  "text": "ok so who's landing when for thanksgiving\nmy flight gets into ORD tues at 4:40\ni land wed morning like 9ish at midway\ni can get someone tues but not wed, got lab\ni have the car all week i can do wed morning\nwait sam is tues 4:40 or 6?? you said 6 earlier\n4:40 now they moved it lol\ni can do the 4:40 but only if im not stuck in loop traffic\nalso need a ride BACK sun night, 7pm out of midway\ni think i said i could do sun?? idk anymore\nthis is a mess muse fix it"
+ },
+ "seconds": 70.8,
+ "attempts": 1,
+ "created": "2026-11-13T02:49:58.044Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 6,
+  "restHash": "dea5a51ea55c7052",
+  "playedHash": "8e3db53eb50ca548"
+ }
+}

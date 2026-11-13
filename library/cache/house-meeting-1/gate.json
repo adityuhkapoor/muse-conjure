@@ -1,0 +1,69 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"option ids and labels are unique\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"an added option comes last with the adder as its only voter\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"title and topic never change\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.7,
+  "typecheck": 43.8,
+  "static": 1.6,
+  "determinism": 51.2,
+  "invariants": 145.5,
+  "mutation": 156.9,
+  "render": 950.7,
+  "copy": 0.9,
+  "render.browser": 0,
+  "render.mount": 48,
+  "render.taps": 283,
+  "render.lint": 897,
+  "render.axe": 944,
+  "render.total": 951,
+  "total": 980.7
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 15,
+  "inert": 4,
+  "killed": 15,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "no one votes twice for an option": 1,
+   "voters are in the chat": 5,
+   "option ids and labels are unique": 0,
+   "at most 8 options, each 1 to 40 characters and trimmed": 3,
+   "a vote flips the voter's vote on that option and touches no one else": 7,
+   "an added option comes last with the adder as its only voter": 0,
+   "only people in the chat change the poll": 2,
+   "title and topic never change": 0
+  },
+  "survivors": []
+ },
+ "weak": [
+  "option ids and labels are unique",
+  "an added option comes last with the adder as its only voter",
+  "title and topic never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

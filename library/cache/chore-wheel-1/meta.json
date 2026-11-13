@@ -1,0 +1,78 @@
+{
+ "id": "chore-wheel-1",
+ "ask": "spin it",
+ "kind": "chore-wheel",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Runs a weighted random spin to pick one person in the chat for a chore, giving people with fewer past chores better odds, and lets the picked person accept it to add to their count.",
+ "use_when": [
+  "Someone needs to be picked for a household chore like mopping or taking out trash",
+  "The group wants a fair random pick that favors people who have done less",
+  "Chat members want to settle who does a task without arguing",
+  "A chore needs a pick that the chosen person can accept and have counted"
+ ],
+ "dont_use_when": [
+  "The group wants a plain even random pick with no history or weights",
+  "People need to vote on a choice or options rather than be assigned",
+  "The group needs a recurring rotating schedule across many weeks",
+  "Only one person is in the chat and there is nobody to pick between"
+ ],
+ "keywords": [
+  "chore wheel",
+  "spin",
+  "chore spinner",
+  "random pick",
+  "weighted random",
+  "who does it",
+  "chores",
+  "fair share",
+  "assign task",
+  "household",
+  "roommates",
+  "pick a person",
+  "mop floor"
+ ],
+ "members": {
+  "min": 2,
+  "max": 10,
+  "original": 5
+ },
+ "mutation_score": 0.85,
+ "height": 298,
+ "params": {
+  "names": [
+   "Ana",
+   "Ines",
+   "Kev",
+   "Luis",
+   "Marcus"
+  ],
+  "options": [],
+  "blanks": [],
+  "numbers": [
+   8
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "4th floor apt",
+  "members": [
+   "Ana",
+   "Ines",
+   "Kev",
+   "Luis",
+   "Marcus"
+  ],
+  "text": "ok so the bathroom is gross again\nits not me i did it last week\nkev you did it once in like october\nok we need to actually track this. ive been keeping a note in my phone\nof course u have\nsince sept 1 i have: me bathroom 2, trash 5, dishes deep clean 1\ni did bathroom 3 times and trash 2\ni did trash 4 and bathroom 1 i think\ni did trash 3, bathroom 0 lol\nok bathroom 0 is bad. i did the fridge clean out tho\nthat counts as a chore fine\nya count the fridge, it was horrifying\nso marcus fridge 1, trash 1\nmarcus has done like nothing then\ni was in the lab all october ok\nnobody is mad\nok next up is mopping the kitchen floor, needs to be done by thursday\nwhoever has done the fewest total should get it\ntotals: ines 8, ana 5, kev 5, luis 3, marcus 2\nso marcus\ni dont trust ur math\ni dont wanna argue every time tho\nya something random that picks the fewest-chores person most of the time\nlike a spinner but fair\nmarcus is gonna spin and it'll land on ines watch\nlol\nmuse spin it"
+ },
+ "seconds": 104.1,
+ "attempts": 1,
+ "created": "2026-11-13T03:08:47.260Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 1,
+  "restHash": "8f947eb43af0814b",
+  "playedHash": "83177eb038760f47"
+ }
+}

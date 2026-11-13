@@ -1,0 +1,74 @@
+{
+ "id": "poll-results-chart-1",
+ "ask": "can u make a bar chart of who voted for what",
+ "kind": "poll-results-chart",
+ "family": "recap",
+ "surface": "chat",
+ "sentence": "A group poll where each person picks one option from a fixed list, shown as bars with vote counts, voter names, and who has not voted yet.",
+ "use_when": [
+  "The group needs to choose one thing from a short list, such as a movie for tonight",
+  "Someone wants to see who voted for what as bars",
+  "Everyone should get one vote that they can change or take back",
+  "You want to see who still has not voted"
+ ],
+ "dont_use_when": [
+  "People need to pick several options at once or rank them",
+  "The options must be typed in by the group instead of fixed in advance",
+  "You need a free-text survey, a quiz, or a scheduling grid of dates and times"
+ ],
+ "keywords": [
+  "poll",
+  "vote",
+  "bar chart",
+  "voting",
+  "results",
+  "movie night",
+  "group choice",
+  "pick one",
+  "tally",
+  "who voted",
+  "survey",
+  "decide together"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 7
+ },
+ "mutation_score": 1,
+ "height": 248,
+ "params": {
+  "names": [],
+  "options": [
+   "Barbie rewatch",
+   "Challengers",
+   "The Grand Budapest"
+  ],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "friday movie night",
+  "members": [
+   "Maya",
+   "Jess",
+   "Ines",
+   "Sam",
+   "Tess",
+   "Eli",
+   "Gabe"
+  ],
+  "text": "ok movie night friday, voting rn. options are barbie rewatch, challengers, or the grand budapest\nchallengers for sure\ngrand budapest, i need something cozy\nchallengers\nbarbie rewatch lol\nchallengers\nbudapest\ni vote barbie obviously\nwait did anyone say ines budapest too? yeah ok\nyes i said it already\nmuse can u make a bar chart of who voted for what"
+ },
+ "seconds": 32.6,
+ "attempts": 1,
+ "created": "2026-11-13T02:37:18.800Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 3,
+  "restHash": "9d1f213bc67938c4",
+  "playedHash": "9a1aa53d067b3dc2"
+ }
+}

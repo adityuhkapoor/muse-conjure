@@ -1,0 +1,77 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"each person is in vetoers at most once\" caught none of 10 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"place ids and labels are unique, at most 8\" caught none of 10 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"nothing changes once a winner is set\" caught none of 10 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the title and detail never change\" caught none of 10 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.9,
+  "typecheck": 68.1,
+  "static": 2.6,
+  "determinism": 80.7,
+  "invariants": 233.4,
+  "mutation": 303.5,
+  "render": 961.6,
+  "copy": 1.4,
+  "render.browser": 0,
+  "render.mount": 53,
+  "render.taps": 299,
+  "render.lint": 912,
+  "render.axe": 955,
+  "render.total": 962,
+  "total": 1009.7
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 10,
+  "inert": 5,
+  "killed": 10,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "each person is in vetoers at most once": 0,
+   "struck places match the number of vetoers": 6,
+   "every striker is in vetoers": 2,
+   "one striker per person": 1,
+   "at least one place is left and the winner is the single place left": 2,
+   "place ids and labels are unique, at most 8": 0,
+   "a veto strikes the named place for the actor and nothing else": 4,
+   "an undo lifts only the actor's own veto": 2,
+   "nothing changes once a winner is set": 0,
+   "only people in the chat change anything": 2,
+   "the title and detail never change": 0
+  },
+  "survivors": []
+ },
+ "weak": [
+  "each person is in vetoers at most once",
+  "place ids and labels are unique, at most 8",
+  "nothing changes once a winner is set",
+  "the title and detail never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

@@ -1,0 +1,87 @@
+{
+ "id": "airport-rota-2",
+ "ask": "muse wheel it plz",
+ "kind": "airport-rota",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A spinning wheel that picks a random driver from a pool of volunteers for each open airport pickup or dropoff slot, with one slot per driver.",
+ "use_when": [
+  "A group needs to assign drivers to airport pickups and dropoffs at random",
+  "Several ride slots are open and each person should take at most one",
+  "People want a fair, visible draw instead of arguing over who drives",
+  "Drivers need to join or leave the pool and give back a slot later"
+ ],
+ "dont_use_when": [
+  "Picking one random winner or a single choice with no slots to fill",
+  "Splitting a bill or tracking who owes money",
+  "Scheduling by availability or voting on times, where people choose their own slot"
+ ],
+ "keywords": [
+  "wheel",
+  "spin",
+  "random picker",
+  "airport",
+  "pickup",
+  "dropoff",
+  "driver",
+  "rota",
+  "ride share",
+  "assign slots",
+  "carpool",
+  "random draw",
+  "schedule",
+  "volunteer pool"
+ ],
+ "members": {
+  "min": 2,
+  "max": 8,
+  "original": 8
+ },
+ "mutation_score": 1,
+ "height": 420,
+ "params": {
+  "names": [
+   "Owen",
+   "Jake",
+   "Paige",
+   "Rhea",
+   "Leo",
+   "Mia",
+   "Marcus"
+  ],
+  "options": [],
+  "blanks": [],
+  "numbers": [
+   15,
+   8,
+   11,
+   6,
+   3000
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "maddie's bday weekend pickups",
+  "members": [
+   "Jess",
+   "Owen",
+   "Jake",
+   "Paige",
+   "Rhea",
+   "Leo",
+   "Mia",
+   "Marcus"
+  ],
+  "text": "ok maddie's bday weekend, 4 ppl flying in\nim in friday 2:15 at logan\nme n leo are on the same flight sat 11am\nya sat 11 logan, we have 2 bags each lol\ni land fri 8pm, so late\ni have a car fri after 5\ni can do sat morning but only if i can sleep til 9:30\ni have a hatchback so no way 4 ppl + bags\nok so we need drivers for fri 2:15, fri 8, sat 11\nfri 2:15 i can uber if i have to\nno dont uber ill figure it out\nmia u are a saint\ni can only do ONE tho, not both fri\nfine so mia gets either 2:15 or 8\ni can do fri 2:15 if i skip econ\ndont skip econ lol\nsat 11 owen then?\nya but i need gas money\nwe'll venmo you\nok so thats owen sat, who gets fri\nhonestly just split it up fairly\ni dont care who as long as i dont wait at logan for an hr\ni like 8pm better actually, dinner first\nok then i take 2:15 if econ is chill\necon is never chill jake\nok someone just lock it in\nyeah no more back and forth pls\nalso i need a ride back sun 6am lol\nmuse mkae a slot sheet for the pickups n dropoffs so drivers can clam em"
+ },
+ "seconds": 167.4,
+ "attempts": 1,
+ "created": "2026-11-13T04:11:17.170Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 3,
+  "restHash": "9ee3731c3a316332",
+  "playedHash": "b627999c9d986625"
+ }
+}

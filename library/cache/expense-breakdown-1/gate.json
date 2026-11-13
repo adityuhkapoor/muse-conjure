@@ -1,0 +1,74 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"a shared list is null or has only people in the chat\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"ids are unique\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"no action changes an existing expense's amount, payer or shared list\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 2.7,
+  "typecheck": 107.9,
+  "static": 5.4,
+  "determinism": 173.3,
+  "invariants": 607.3,
+  "mutation": 705.6,
+  "render": 986.6,
+  "copy": 3.6,
+  "render.browser": 0,
+  "render.mount": 61,
+  "render.taps": 313,
+  "render.lint": 938,
+  "render.axe": 980,
+  "render.total": 987,
+  "total": 1067.3
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 12,
+  "inert": 1,
+  "killed": 12,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "every expense is a positive whole amount paid by someone in the chat": 5,
+   "a shared list is null or has only people in the chat": 0,
+   "every payment is between two different people in the chat for a positive amount": 6,
+   "ids are unique": 0,
+   "balances add up to zero": 1,
+   "the settle-up payments clear every balance with no extra cents": 1,
+   "at most 24 expenses and 24 payments, labels 1 to 40 characters": 1,
+   "an add appends one expense paid by the actor, shared by everyone, and changes nothing else": 1,
+   "a remove deletes one expense, only when the actor paid it": 1,
+   "a paid appends one payment from the actor to the named person for the amount asked": 1,
+   "an undo deletes one payment, only when the actor sent it": 1,
+   "no action changes an existing expense's amount, payer or shared list": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "a shared list is null or has only people in the chat",
+  "ids are unique",
+  "no action changes an existing expense's amount, payer or shared list"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

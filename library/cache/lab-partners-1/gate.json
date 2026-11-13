@@ -1,0 +1,67 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"before the draw there are no pairs, no looks and no drawer\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"pairs change only by a draw or a redraw\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.8,
+  "typecheck": 46.8,
+  "static": 1.7,
+  "determinism": 32.2,
+  "invariants": 91.1,
+  "mutation": 148.2,
+  "render": 908.1,
+  "copy": 1.1,
+  "render.browser": 0,
+  "render.mount": 50,
+  "render.taps": 242,
+  "render.lint": 863,
+  "render.axe": 903,
+  "render.total": 908,
+  "total": 941.3
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 16,
+  "inert": 0,
+  "killed": 16,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "before the draw there are no pairs, no looks and no drawer": 0,
+   "the pairs are a permutation: each person gives once and gets once": 6,
+   "nobody gets themselves": 3,
+   "Dev and Dani never get each other": 2,
+   "everyone in the pairs, the drawer and the lookers are in the chat": 6,
+   "lookers are unique givers and the drawer is a giver": 6,
+   "a draw starts from undrawn and records the actor, the time and a pair for everyone": 2,
+   "a reveal only adds the actor to the lookers": 3,
+   "only the drawer can redraw, and it returns to undrawn": 2,
+   "pairs change only by a draw or a redraw": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "before the draw there are no pairs, no looks and no drawer",
+  "pairs change only by a draw or a redraw"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

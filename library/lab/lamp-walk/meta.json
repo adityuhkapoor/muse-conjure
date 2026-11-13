@@ -1,0 +1,36 @@
+{
+  "id": "lamp-walk",
+  "name": "Lamp walk",
+  "surface": "messenger",
+  "summary": "Walking someone home over chat at night: a drawn street from where she left to her place with a row of lamp posts; each lamp lights as she passes it so the friend sees how far she is without a map, 'I'm home' lights her window, and if a stretch takes much longer than usual it quietly offers him a 'You ok?' and her an 'I'm ok'.",
+  "useWhen": [
+    "walking home, talk to me",
+    "leaving the library rn its so dark",
+    "stay on with me till i get home?",
+    "text me when you're home safe",
+    "omw back from the party, 15 min walk"
+  ],
+  "dontUseWhen": [
+    "live location sharing or a map with a route",
+    "a group getting home from a night out (several walkers)",
+    "a ride being driven (use pickup-run or carpool)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Walking home'" },
+      "walker": { "type": "string", "description": "Who's walking (a name in the chat)" },
+      "watcher": { "type": "string", "description": "Who's keeping her company (a name in the chat)" },
+      "quote": { "type": "string", "description": "What the walker said, in her words" },
+      "reply": { "type": "string", "description": "What the watcher said back, in his words; may be empty" },
+      "from": { "type": "string", "description": "Where the walk starts, e.g. 'Fenwick'" },
+      "to": { "type": "string", "description": "Where it ends, e.g. 'Maya's place'" },
+      "time": { "type": "string", "description": "When it started, as said, e.g. '1:05am'; may be empty" },
+      "lamps": { "type": "integer", "description": "Lamp posts on the way, 4 to 14" },
+      "usualMin": { "type": "integer", "description": "How many minutes the walk usually takes" },
+      "passed": { "type": "integer", "description": "Lamps already passed" }
+    },
+    "required": ["walker", "watcher", "from", "to"]
+  },
+  "height": 334
+}

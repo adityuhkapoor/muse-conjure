@@ -1,0 +1,76 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"no one hearts a memory twice\" caught none of 11 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"memory ids are unique and labels are unique ignoring case\" caught none of 11 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"at most 12 memories, each label 1 to 40 characters and each date at most 12\" caught none of 11 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the title never changes\" caught none of 11 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1,
+  "typecheck": 54.8,
+  "static": 2.3,
+  "determinism": 80.9,
+  "invariants": 261.5,
+  "mutation": 330.3,
+  "render": 964.5,
+  "copy": 1.3,
+  "render.browser": 0,
+  "render.mount": 31,
+  "render.taps": 301,
+  "render.lint": 918,
+  "render.axe": 959,
+  "render.total": 964,
+  "total": 1007
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 11,
+  "inert": 5,
+  "killed": 11,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "no one hearts a memory twice": 0,
+   "everyone who hearted is in the chat": 5,
+   "memory ids are unique and labels are unique ignoring case": 0,
+   "at most 12 memories, each label 1 to 40 characters and each date at most 12": 0,
+   "every adder entry points at an existing memory and an adder in the chat": 4,
+   "a heart flips only the actor's heart on that memory": 3,
+   "an add appends one memory last, with no hearts, and records the actor as adder": 1,
+   "a remove deletes one memory, and only one the actor added": 1,
+   "only people in the chat change anything": 2,
+   "the title never changes": 0
+  },
+  "survivors": []
+ },
+ "weak": [
+  "no one hearts a memory twice",
+  "memory ids are unique and labels are unique ignoring case",
+  "at most 12 memories, each label 1 to 40 characters and each date at most 12",
+  "the title never changes"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

@@ -1,0 +1,73 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"the champion is the final's winner\" caught none of 17 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"there are 7 matches and 8 entries, with unique ids and the seeded first round\" caught none of 17 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"entries and match ids never change\" caught none of 17 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.2,
+  "typecheck": 63.8,
+  "static": 3,
+  "determinism": 154.7,
+  "invariants": 479.6,
+  "mutation": 463.9,
+  "render": 971.2,
+  "copy": 2.2,
+  "render.browser": 0,
+  "render.mount": 55,
+  "render.taps": 303,
+  "render.lint": 924,
+  "render.axe": 965,
+  "render.total": 971,
+  "total": 1023
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 17,
+  "inert": 1,
+  "killed": 17,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "every vote is for a side of its own match, and only matches with two sides have votes": 3,
+   "voters in open matches are in the chat": 5,
+   "a winner has two sides and is the one with more votes, a tie going to the lower seed": 4,
+   "no open match has a vote from every member, since it would have closed": 5,
+   "later rounds hold exactly the winners of their feeder matches": 1,
+   "the champion is the final's winner": 0,
+   "there are 7 matches and 8 entries, with unique ids and the seeded first round": 0,
+   "a vote sets the actor's own vote in that match and changes no one else's": 4,
+   "a match closes only when every member has voted, for the side with more votes, and the winner moves on": 1,
+   "a closed match never changes": 2,
+   "only people in the chat change the bracket": 2,
+   "entries and match ids never change": 0
+  },
+  "survivors": []
+ },
+ "weak": [
+  "the champion is the final's winner",
+  "there are 7 matches and 8 entries, with unique ids and the seeded first round",
+  "entries and match ids never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

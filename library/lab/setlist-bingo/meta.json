@@ -1,0 +1,11 @@
+{
+  "id": "setlist-bingo",
+  "name": "Setlist bingo",
+  "origin": { "crate": "apps10", "id": "setlist-bingo" },
+  "surface": "event",
+  "summary": "A shared 5x5 card of songs and show moments; mark what happens, see friends' marks, first full line is bingo.",
+  "useWhen": ["friends at the same concert or show who want a game while it happens", "'setlist bingo', 'bet they open with Texas Sun', 'bingo for the show'"],
+  "dontUseWhen": ["a bingo of things that happen in the chat or on a trip (use road-bingo)", "picking which show to go to (use poll)"],
+  "params": { "title": "string", "sub": "artist · venue · when", "cells": "24 short labels, row by row, center skipped", "played": "indices 0-23 into cells already played, in order", "marks": "[{name, cells: indices 0-23}]" },
+  "height": 414
+}

@@ -1,0 +1,10 @@
+{
+  "id": "fridge-map",
+  "name": "Fridge map",
+  "surface": "messenger",
+  "summary": "The shared fridge with its door open: every item drawn on its shelf in its owner's color, old food with stink lines, a door strip showing who takes up the space; tap to claim or toss, one button clears the mystery food.",
+  "useWhen": ["roommates arguing about the fridge: 'whose rice is this', 'who keeps leaving takeout'", "a shared-kitchen clean-out where nobody admits to the old stuff"],
+  "dontUseWhen": ["a grocery run or shopping list (use grocery)", "splitting food costs (use settle-up)", "chores in general (use chore-wheel)"],
+  "params": { "title": "string", "sub": "string", "items": "up to 14 x {label, tag (short shelf tag), kind: carton|box|pot|cup|bottle|eggs|lemon|slice|jar, shelf 0-2, owner (name or '' for mystery), days (age), old (days until expired), count}" },
+  "height": 392
+}

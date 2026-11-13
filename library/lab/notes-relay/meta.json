@@ -1,0 +1,29 @@
+{
+  "id": "notes-relay",
+  "name": "Notes relay",
+  "surface": "group",
+  "summary": "The lectures before an exam as a running track, one lap per lecture: covered laps are solid with the note-taker's face, claimed laps show who's typing, gaps glow red; members take a gap, mark their notes up and the baton runs on, and a full track before the exam gets a group cheer.",
+  "useWhen": [
+    "midterm in two weeks and nobody has week 4",
+    "can we split up taking notes for econ",
+    "who has the notes from tuesday's lecture",
+    "let's do a notes rotation for the rest of the semester",
+    "missing lecture notes before the final, who can cover"
+  ],
+  "dontUseWhen": [
+    "a study session time (use meeting-time)",
+    "a quiz to review content (use exam-quiz)",
+    "splitting chores at home (use chore-wheel)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Notes relay'" },
+      "course": { "type": "string", "description": "Course, e.g. 'ECON 210'" },
+      "finish": { "type": "string", "description": "The deadline, as said, e.g. 'Midterm Thu Oct 30'" },
+      "laps": { "type": "array", "description": "4 to 16 lectures in order", "items": { "type": "object", "properties": { "when": { "type": "string", "description": "Short date, e.g. 'Wk 4 Tue'" }, "topic": { "type": "string", "description": "Lecture topic" }, "by": { "type": "string", "description": "Who took or is taking notes; empty if nobody" }, "done": { "type": "boolean", "description": "True when the notes are up" }, "said": { "type": "string", "description": "What the note-taker said, in their words" } }, "required": ["when", "topic"] } }
+    },
+    "required": ["laps"]
+  },
+  "height": 360
+}

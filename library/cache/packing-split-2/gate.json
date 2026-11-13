@@ -1,0 +1,70 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"ids are unique and labels are unique ignoring case\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the time of the last change is a whole number, never negative\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"an add appends one open item with the trimmed label and leaves the rest\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1,
+  "typecheck": 83,
+  "static": 1.9,
+  "determinism": 169.2,
+  "invariants": 474,
+  "mutation": 518.1,
+  "render": 1041.1,
+  "copy": 1.1,
+  "render.browser": 1,
+  "render.mount": 49,
+  "render.taps": 361,
+  "render.lint": 988,
+  "render.axe": 1034,
+  "render.total": 1041,
+  "total": 1090.3
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 13,
+  "inert": 5,
+  "killed": 13,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "every owner is open or in the chat": 3,
+   "ids are unique and labels are unique ignoring case": 0,
+   "at most 12 items, each label 1 to 40 characters and tidy": 2,
+   "the time of the last change is a whole number, never negative": 0,
+   "a claim gives that open item to the actor and changes no other item": 3,
+   "a release opens the actor's own item and changes no other item": 2,
+   "an add appends one open item with the trimmed label and leaves the rest": 0,
+   "a change records when it happened": 3,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "ids are unique and labels are unique ignoring case",
+  "the time of the last change is a whole number, never negative",
+  "an add appends one open item with the trimmed label and leaves the rest"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

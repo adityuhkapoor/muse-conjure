@@ -1,0 +1,36 @@
+{
+  "id": "airport-board",
+  "name": "Airport board",
+  "surface": "messenger",
+  "summary": "A split-flap departures board for a friend's early flight: flight, leave-by, pickup and airport are up and the ride row reads '????'; tap 'I'll drive' and the flaps clatter into your name, the status flips to confirmed, a little car sets off on the road to the plane, and a breakfast IOU gets stamped on the board.",
+  "useWhen": [
+    "can anyone drive me to the airport thursday, 6:40am flight",
+    "need a ride to EFD friday morning pls",
+    "who can take me to the train station at 5",
+    "flight at 6 am, i'll buy you breakfast",
+    "airport run sunday? i land at 9pm"
+  ],
+  "dontUseWhen": [
+    "a group splitting into several cars (use carpool or event-carpool)",
+    "moving furniture with a car (use pickup-run)",
+    "booking or paying for a rideshare"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Ride to the airport'" },
+      "flier": { "type": "string", "description": "Who needs the ride (a name in the chat)" },
+      "quote": { "type": "string", "description": "What they asked, in their words" },
+      "day": { "type": "string", "description": "Short day, e.g. 'Thu'" },
+      "flight": { "type": "string", "description": "Departure time, e.g. '6:40'" },
+      "leave": { "type": "string", "description": "Leave-by time, e.g. '4:55'" },
+      "from": { "type": "string", "description": "Pickup spot, up to 12 characters, e.g. '412 Pine'" },
+      "to": { "type": "string", "description": "Airport or station, up to 12 characters, e.g. 'EFD'" },
+      "remind": { "type": "string", "description": "Reminder time for both, e.g. '4:40'" },
+      "owes": { "type": "string", "description": "What the flier owes the driver, stamped on the board, e.g. 'breakfast'; may be empty" },
+      "driver": { "type": "string", "description": "Who's already driving (a name in the chat), or empty" }
+    },
+    "required": ["flier", "flight", "leave"]
+  },
+  "height": 406
+}

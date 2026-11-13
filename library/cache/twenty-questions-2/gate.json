@@ -1,0 +1,74 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"holder, secret and winner are in the chat\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"an ask adds one open question by the actor, never the holder\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.5,
+  "typecheck": 225.9,
+  "static": 4.5,
+  "determinism": 123.9,
+  "invariants": 188.5,
+  "mutation": 461.4,
+  "render": 1290.2,
+  "copy": 2.6,
+  "render.browser": 1,
+  "render.mount": 114,
+  "render.taps": 579,
+  "render.lint": 1194,
+  "render.axe": 1276,
+  "render.total": 1290,
+  "total": 1421.9
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 14,
+  "inert": 5,
+  "killed": 13,
+  "score": 0.93,
+  "threshold": 0.8,
+  "kills": {
+   "at most 20 questions, unique ids, answers are yes, no or open, and only the last is open": 2,
+   "idle means nothing is set": 2,
+   "a round has a holder who is never the secret and never asks, and questions need a secret": 2,
+   "a round ends with a winner or 20 answered questions, and only then": 1,
+   "holder, secret and winner are in the chat": 0,
+   "start makes the seed's pick the holder, with a clean round": 2,
+   "only the holder chooses the secret, and it is the person given": 1,
+   "an ask adds one open question by the actor, never the holder": 0,
+   "only the holder answers, and only that question changes": 2,
+   "a right guess wins for the actor, a wrong guess costs one question": 3,
+   "a reset goes back to idle keeping the round count, and only people in the chat change anything": 3
+  },
+  "survivors": [
+   {
+    "op": "flip-logic",
+    "line": 82,
+    "before": "||",
+    "after": "&&"
+   }
+  ]
+ },
+ "weak": [
+  "holder, secret and winner are in the chat",
+  "an ask adds one open question by the actor, never the holder"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

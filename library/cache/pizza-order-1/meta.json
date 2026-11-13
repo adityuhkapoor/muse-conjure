@@ -1,0 +1,77 @@
+{
+ "id": "pizza-order-1",
+ "ask": "split?",
+ "kind": "pizza-order",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Splits a pizza total evenly across everyone in the chat, shows each person's share, lets each person mark themselves paid, and lets one collector change the total.",
+ "use_when": [
+  "Everyone in a group chat should chip in equally for a pizza order",
+  "You want to see who has paid and who has not",
+  "One person is collecting money and needs to set or change the total",
+  "You need a quick even split with leftover cents handled"
+ ],
+ "dont_use_when": [
+  "People should pay different amounts based on what they ordered",
+  "You need to pick toppings or collect pizza choices from each person",
+  "You need to track many expenses or balances over time between friends"
+ ],
+ "keywords": [
+  "pizza split",
+  "split bill",
+  "even split",
+  "pizza budget",
+  "chip in",
+  "who paid",
+  "payment tracker",
+  "collect money",
+  "group order",
+  "share cost",
+  "food order",
+  "bill splitter"
+ ],
+ "members": {
+  "min": 2,
+  "max": 20,
+  "original": 8
+ },
+ "mutation_score": 1,
+ "height": 282,
+ "params": {
+  "names": [
+   "Dre"
+  ],
+  "options": [],
+  "blanks": [],
+  "numbers": [
+   4000,
+   1400,
+   8
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "bio exam cram pizza",
+  "members": [
+   "Dre",
+   "Dani",
+   "Mia",
+   "Bryan",
+   "Lena",
+   "Nora",
+   "Noor",
+   "Priya"
+  ],
+  "text": "ok pizza for the bio exam cram tn, who's in\nin\nin but im broke rn\nits like 14 bucks a pie at dominos w the carryout deal\nin. no mushrooms pls\npepperoni obviously\ni dont eat pork so pepperoni on half max\ni can do veg, paneer if they have it lol\nthey dont. pineapple tho\npineapple is a crime but ok i vote pepperoni\npepperoni for me too\ni vote plain cheese, cheap and safe\ncheese too\nyea pepperoni\nveggie for me, peppers and onions\nveggie same\npineapple me only lol\nok so pep 3, cheese 2, veggie 2, pineapple is just dre\nhow many pies tho, 8 ppl\ni usually eat 3 slices, large is 8 slices\ni only do 2\nbudget is like 40 total, so 5 each\nmuse split?"
+ },
+ "seconds": 65.7,
+ "attempts": 1,
+ "created": "2026-11-13T03:09:09.856Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 2,
+  "restHash": "87f81d26f81fe007",
+  "playedHash": "87f899a6f81be086"
+ }
+}

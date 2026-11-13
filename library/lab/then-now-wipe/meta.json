@@ -1,0 +1,49 @@
+{
+  "id": "then-now-wipe",
+  "name": "Then and now",
+  "surface": "reel",
+  "summary": "Freshman year and senior year of the same friends as two drawn panels with a wipe handle: drag it and each friend changes from then to now with their own then-and-now lines, or play it as a short reel that lands on a beat.",
+  "useWhen": [
+    "freshman us vs senior us",
+    "make a then and now reel of the six",
+    "2023 vs 2027 glow up post",
+    "look how much we changed since orientation",
+    "senior year throwback reel"
+  ],
+  "dontUseWhen": [
+    "a full recap of the year's chats (use wrapped)",
+    "a memory you want to plan again (use memory-redo)",
+    "one trip's story (use trip-story)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Reel title, e.g. 'Then and now'" },
+      "then": { "type": "string", "description": "The earlier year, e.g. '2023'" },
+      "now": { "type": "string", "description": "The later year, e.g. '2027'" },
+      "thenPlace": { "type": "string", "description": "Where the old photo was, e.g. 'Hollis Dining Hall · orientation'" },
+      "nowPlace": { "type": "string", "description": "Where the new photo was, e.g. 'the Quad · last week'" },
+      "people": {
+        "type": "array",
+        "description": "2 to 6 friends in the photo",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string", "description": "First name" },
+            "then": { "type": "string", "description": "Who they were then, a few words in the group's voice" },
+            "now": { "type": "string", "description": "Who they are now, a few words" }
+          },
+          "required": ["name", "then", "now"]
+        }
+      },
+      "watched": { "type": "array", "items": { "type": "string" }, "description": "Who already watched it to the end" },
+      "reacts": {
+        "type": "array",
+        "description": "Reactions already left",
+        "items": { "type": "object", "properties": { "by": { "type": "string", "description": "First name" }, "kind": { "type": "string", "enum": ["cry", "heart", "laugh"], "description": "Which reaction" } }, "required": ["by", "kind"] }
+      }
+    },
+    "required": ["people"]
+  },
+  "height": 556
+}

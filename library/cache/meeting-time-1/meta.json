@@ -1,0 +1,80 @@
+{
+ "id": "meeting-time-1",
+ "ask": "can u make a grid so we can all tap when we're free this week and see the best slot",
+ "kind": "meeting-time",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A weekly grid of days and time-of-day slots where each person taps the slots they are free, and the slot with the most people free is shown and can be pinned.",
+ "use_when": [
+  "A group needs to find a time this week when most people are free",
+  "Everyone should mark their own availability on one shared grid",
+  "The group wants to see the best slot and lock it in"
+ ],
+ "dont_use_when": [
+  "Choosing between a few fixed options like places or dishes, which needs a poll",
+  "Booking an exact clock time or a calendar invite for one person",
+  "Splitting costs or tracking tasks, which need a different tool"
+ ],
+ "keywords": [
+  "availability",
+  "free time",
+  "schedule",
+  "meeting time",
+  "when free",
+  "time grid",
+  "find a slot",
+  "best time",
+  "group schedule",
+  "week planner",
+  "pin time",
+  "when2meet"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 8
+ },
+ "mutation_score": 1,
+ "height": 288,
+ "params": {
+  "names": [],
+  "options": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Thu",
+   "Fri",
+   "Sun",
+   "Morning",
+   "Afternoon",
+   "Evening"
+  ],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "bio 214 poster group",
+  "members": [
+   "Lena",
+   "Kofi",
+   "Dre",
+   "Maya",
+   "Mina",
+   "Ty",
+   "Theo",
+   "Hana"
+  ],
+  "text": "ok so we need to actually meet for the poster before friday\nya im free tues after 4 or thurs after lab\ni work tues 5-9 at the dining hall\nwed is bad for me, i have orgo till like 6\ni can do mon or tues evening, prob 7ish\nmon i have practice till 8 ngl\ni can do anything thurs except 1-3\nthurs is good for me too, also sun afternoon\nsun is a no for me i go home lol\nwait thurs after lab is like 3:30 for me\nthurs works for me then\nthurs i have a thing at 5 tho\ni have class thurs till 4:30 ugh\ni could do thurs 5ish\nor fri morning before the deadline??\nfri morning is cutting it way too close\nagreed we're not doing that\nlibrary study rooms book up fast too\nyeah the 3rd floor ones go by like 2\ni can skip my thing if its short\nok honestly i lost track of who said what\nsame lol\nwe've been going in circles for 20 min\nsomeone just figure out the overlap\nwe have like 8 people it's impossible by text\nfr\ni just wanna know when everyone's free\nsame, a grid thing would be so much easier\nmuse can u make a grid so we can all tap when we're free this week and see the best slot"
+ },
+ "seconds": 75.9,
+ "attempts": 1,
+ "created": "2026-11-13T02:30:55.937Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 18,
+  "restHash": "bb99b81bbd0bc062",
+  "playedHash": "f2b18c5ed32934c3"
+ }
+}

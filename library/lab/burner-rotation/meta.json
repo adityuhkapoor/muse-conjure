@@ -1,0 +1,33 @@
+{
+  "id": "burner-rotation",
+  "name": "Burner rotation",
+  "surface": "messenger",
+  "summary": "A rotation of Sunday dinners drawn as a stovetop: four burners, one per Sunday, each with its cook's face and dish. Drag your face onto another burner to swap weeks, tap an open burner to take it; this Sunday's burner is lit, with a grocery list underneath anyone can tick off.",
+  "useWhen": [
+    "we should do family dinner sundays (said every semester)",
+    "take turns cooking for the house this month",
+    "who's cooking next week, can i swap with someone",
+    "rotating dinner hosts for the group, one per week",
+    "set up a cooking schedule for the apartment with groceries"
+  ],
+  "dontUseWhen": [
+    "a one-off potluck where everyone brings something (use potluck)",
+    "weekly chores that aren't cooking (use chore-wheel)",
+    "the shopping list on its own (use grocery)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Family dinner Sundays'" },
+      "sub": { "type": "string", "description": "Line under the title, e.g. the thing the chat keeps saying" },
+      "weeks": {
+        "type": "array",
+        "description": "Up to 4 dinners in order. date: short, e.g. 'Nov 16'; cook: a chat member's name or '' if open; dish: in their words; groceries: up to 6 things to buy; got: groceries already bought; done: already cooked",
+        "items": { "type": "object", "properties": { "date": { "type": "string" }, "cook": { "type": "string" }, "dish": { "type": "string" }, "groceries": { "type": "array", "items": { "type": "string" } }, "got": { "type": "array", "items": { "type": "string" } }, "done": { "type": "boolean" } }, "required": ["date", "cook", "dish", "groceries"] }
+      },
+      "current": { "type": "integer", "description": "Which week is the next dinner, counting from 0" }
+    },
+    "required": ["weeks"]
+  },
+  "height": 410
+}

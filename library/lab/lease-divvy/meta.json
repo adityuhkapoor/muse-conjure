@@ -1,0 +1,38 @@
+{
+  "id": "lease-divvy",
+  "name": "Lease divvy",
+  "surface": "messenger",
+  "summary": "Roommates split up the things they bought together when the lease ends: the shared stuff sits on a drawn kitchen table with the roommates around it, each bids, the keeper pays everyone else their share of the bid, and divvying slides each thing to its new owner with the fewest payments to settle.",
+  "useWhen": [
+    "'lease ends may 31, who's keeping the tv'",
+    "we all chipped in for the couch and air fryer, how do we split them when we move out",
+    "roommates deciding who takes the shared stuff and paying each other back",
+    "i'll buy you guys out of the rice cooker",
+    "dividing jointly owned furniture after living together"
+  ],
+  "dontUseWhen": [
+    "one person selling their own stuff (use box-sorter)",
+    "splitting rent or a bill (use rent-split or settle-up)",
+    "giving away free stuff to anyone (use curb-alert)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "place": { "type": "string", "description": "The apartment, e.g. '412 Pine'" },
+      "ends": { "type": "string", "description": "When the lease ends, e.g. 'lease ends May 31'" },
+      "roommates": { "type": "array", "items": { "type": "string" }, "description": "2 to 6 first names of the roommates who chipped in" },
+      "items": {
+        "type": "array",
+        "description": "1 to 6 shared things: name and kind (tv, couch, airfryer, cooker, lamp, rug, plant, speaker, box)",
+        "items": { "type": "object", "properties": { "name": { "type": "string" }, "kind": { "type": "string" } }, "required": ["name", "kind"] }
+      },
+      "bids": {
+        "type": "array",
+        "description": "Bids so far, in order: item index, roommate, cents (whole dollars, each higher than the last on that item), and a short line",
+        "items": { "type": "object", "properties": { "item": { "type": "integer" }, "who": { "type": "string" }, "cents": { "type": "integer" }, "said": { "type": "string" } }, "required": ["item", "who", "cents"] }
+      }
+    },
+    "required": ["roommates", "items"]
+  },
+  "height": 362
+}

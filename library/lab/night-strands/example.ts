@@ -1,0 +1,35 @@
+const example = {
+  title: "Saturday night",
+  start: "7pm",
+  end: "1am",
+  stories: [
+    { who: "Maya", at: "7:05pm", place: "Second Chapter", caption: "thrift haul before dinner" },
+    { who: "Calvin", at: "7:15pm", place: "412 Pine", caption: "nap number three" },
+    { who: "Tsai Lin", at: "7:20pm", place: "Second Chapter", caption: "found a jacket for will" },
+    { who: "Arun", at: "7:35pm", place: "412 Pine", caption: "rice cooker pregame" },
+    { who: "Will", at: "7:45pm", place: "412 Pine", caption: "25 min shower. worth it" },
+    { who: "Aditya", at: "7:50pm", place: "412 Pine" },
+    { who: "Tsai Lin", at: "8:10pm", place: "Golden Lantern" },
+    { who: "Maya", at: "8:20pm", place: "Golden Lantern", caption: "dumplings for six" },
+    { who: "Will", at: "8:25pm", place: "Golden Lantern", caption: "ordered for the table, no regrets" },
+    { who: "Aditya", at: "8:30pm", place: "Golden Lantern" },
+    { who: "Calvin", at: "8:40pm", place: "Golden Lantern", caption: "soup dumpling down" },
+    { who: "Arun", at: "8:45pm", place: "Golden Lantern", caption: "theirs is better than the rice cooker. barely" },
+    { who: "Calvin", at: "9:55pm", place: "412 Pine", caption: "alarms set for 9, 9:05 and 9:10" },
+    { who: "Arun", at: "10:15pm", place: "412 Pine", caption: "rice cooker nightcap" },
+    { who: "Tsai Lin", at: "10:35pm", place: "The Anchor", caption: "aux secured" },
+    { who: "Maya", at: "10:40pm", place: "The Anchor" },
+    { who: "Will", at: "10:50pm", place: "The Anchor", caption: "tsai lin vetoed my song" },
+    { who: "Aditya", at: "11:10pm", place: "The Anchor", caption: "lowkey best night of the semester" },
+    { who: "Tsai Lin", at: "12:05am", place: "Home" },
+    { who: "Will", at: "12:30am", place: "Rook's Pizza", caption: "late slice" },
+    { who: "Maya", at: "12:35am", place: "Rook's Pizza" },
+    { who: "Aditya", at: "12:40am", place: "Rook's Pizza" },
+  ],
+  hearts: [
+    { story: 7, who: ["Arun", "Will", "Tsai Lin"] },
+    { story: 14, who: ["Maya", "Aditya"] },
+  ],
+};
+
+export default example;

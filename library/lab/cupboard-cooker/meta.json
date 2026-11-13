@@ -1,0 +1,38 @@
+{
+  "id": "cupboard-cooker",
+  "name": "Cupboard cooker",
+  "surface": "messenger",
+  "summary": "A toy: the friend's rice cooker on the counter with the lid up. Everyone drops in one thing from the cupboard, anyone flips the switch, it steams and rattles and dings, and out comes a bowl named from whatever went in. Then empty it and go again.",
+  "useWhen": [
+    "arun's rice cooker makes everything, let's test it",
+    "what can we make with what's left in the cupboard, everyone pick one thing",
+    "bored at the apartment, something silly to do together",
+    "a chaotic dinner idea from random ingredients",
+    "cupboard roulette, what would the rice cooker make"
+  ],
+  "dontUseWhen": [
+    "an actual recipe or meal plan (use reel-cook-night)",
+    "deciding where to order from (use dinner-veto)",
+    "a shopping list (use grocery)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Arun's rice cooker'" },
+      "owner": { "type": "string", "description": "Whose rice cooker it is, by name" },
+      "pantry": {
+        "type": "array",
+        "description": "Up to 8 things in the cupboard in the chat's words, each with kind for the drawing: egg, cheese, chili, green, meat, sauce, crunch or sweet",
+        "items": { "type": "object", "properties": { "label": { "type": "string" }, "kind": { "type": "string" } }, "required": ["label", "kind"] }
+      },
+      "added": {
+        "type": "array",
+        "description": "Who already dropped what in (pantry labels), one each",
+        "items": { "type": "object", "properties": { "who": { "type": "string" }, "item": { "type": "string" } }, "required": ["who", "item"] }
+      },
+      "verdict": { "type": "string", "description": "What the owner says when it dings, in their words" }
+    },
+    "required": ["pantry"]
+  },
+  "height": 404
+}

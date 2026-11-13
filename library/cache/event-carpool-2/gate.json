@@ -1,0 +1,78 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"cars and seat counts match the plan\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a leave empties only the actor's own seat\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a drop empties only a guest seat the actor added\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"cars, drivers, times and seat counts never change in a step\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.3,
+  "typecheck": 79.8,
+  "static": 3.9,
+  "determinism": 56.6,
+  "invariants": 182.3,
+  "mutation": 232.5,
+  "render": 966.4,
+  "copy": 2.7,
+  "render.browser": 0,
+  "render.mount": 37,
+  "render.taps": 302,
+  "render.lint": 920,
+  "render.axe": 960,
+  "render.total": 966,
+  "total": 1030.5
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 16,
+  "inert": 3,
+  "killed": 16,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "each person holds at most one rider seat": 2,
+   "each person has at most one guest seat": 1,
+   "cars and seat counts match the plan": 0,
+   "seat holders and guest hosts are in the chat": 3,
+   "a driver is in the chat and does not ride in their own car": 5,
+   "the rider list matches who holds seats": 5,
+   "a take puts the actor in that open seat, frees only their old seat, and moves no one else": 4,
+   "a leave empties only the actor's own seat": 0,
+   "a guest fills one open seat with the actor's guest mark and moves no one else": 2,
+   "a drop empties only a guest seat the actor added": 0,
+   "cars, drivers, times and seat counts never change in a step": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "cars and seat counts match the plan",
+  "a leave empties only the actor's own seat",
+  "a drop empties only a guest seat the actor added",
+  "cars, drivers, times and seat counts never change in a step"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

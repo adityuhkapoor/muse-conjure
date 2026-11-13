@@ -1,0 +1,29 @@
+{
+  "id": "pong-rally",
+  "name": "Pong rally",
+  "surface": "group",
+  "summary": "A table tennis club's rally ladder: a table from above with the club's ball machine on the far side; serve, tap as the ball reaches your paddle while every return comes back faster, then post your rally and your face climbs the ladder of everyone's best.",
+  "useWhen": [
+    "ping pong club rally challenge this week",
+    "who has the longest rally",
+    "something quick to play in the club group",
+    "bet you can't beat 25",
+    "make a little game for the table tennis club"
+  ],
+  "dontUseWhen": [
+    "a real tournament bracket (use bracket-post)",
+    "tracking match results between people (use smash-elo)",
+    "scheduling table time"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Rally ladder'" },
+      "club": { "type": "string", "description": "Club name, e.g. 'Eastfield Table Tennis'" },
+      "machine": { "type": "string", "description": "What the ball machine is called, e.g. 'Spinny'" },
+      "best": { "type": "array", "description": "Best rallies so far", "items": { "type": "object", "properties": { "name": { "type": "string", "description": "Player name as in the chat" }, "n": { "type": "integer", "description": "Their best rally, in returns" }, "said": { "type": "string", "description": "What they said, in their words" } }, "required": ["name", "n"] } }
+    },
+    "required": ["club"]
+  },
+  "height": 391
+}

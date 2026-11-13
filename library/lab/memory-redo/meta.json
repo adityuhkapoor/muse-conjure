@@ -1,0 +1,11 @@
+{
+  "id": "memory-redo",
+  "name": "Memory redo",
+  "origin": { "crate": "apps15", "id": "memory-redo" },
+  "surface": "story",
+  "summary": "A one-year-ago trip memory that flips into a re-plan: the crew votes on a weekend and it locks with a countdown.",
+  "useWhen": ["an anniversary of a group trip or night out comes up", "'1 year ago today', 'we have to do this again', 'same trip next year?'"],
+  "dontUseWhen": ["a recap with costs and stops (use trip-story)", "planning a first trip with no shared memory", "a plain date poll (use meeting-time)"],
+  "params": { "place": "Nashville", "date": "Nov 12, 2025", "mural": "words on the wall in the photo", "sharedBy": "name", "crew": "2-4 names in the photo", "comments": "up to 2 x {who, text}", "price": "{was, now} in cents", "note": "right side of the price strip", "weekends": "2-4 x {dates, why, days: days until it}", "booker": "name", "votes": "{name, weekend index}[]" },
+  "height": 580
+}

@@ -1,0 +1,63 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"a remove drops exactly the named item\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.7,
+  "typecheck": 96.7,
+  "static": 4.1,
+  "determinism": 154.2,
+  "invariants": 560.4,
+  "mutation": 689.3,
+  "render": 1277.5,
+  "copy": 3,
+  "render.browser": 0,
+  "render.mount": 47,
+  "render.taps": 564,
+  "render.lint": 1196,
+  "render.axe": 1268,
+  "render.total": 1277,
+  "total": 1359.8
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 16,
+  "inert": 3,
+  "killed": 16,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "every item is on a trip day": 5,
+   "ids are unique and there are at most 24 items": 1,
+   "item text is trimmed, 1 to 60 characters, and not repeated on a day": 2,
+   "items are in day order": 1,
+   "each person has checked the plan at most once, and is in the chat": 2,
+   "item authors are in the chat": 3,
+   "an add puts one new item on the asked day with the actor as author": 1,
+   "an edit changes only the text of the named item": 1,
+   "a move changes only the day of the named item": 4,
+   "a remove drops exactly the named item": 0,
+   "a check flips only the actor and leaves the items alone": 2,
+   "only people in the chat change the timeline, and the trip days stay fixed": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "a remove drops exactly the named item"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

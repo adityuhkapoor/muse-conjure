@@ -1,0 +1,87 @@
+{
+ "id": "shift-signup-2",
+ "ask": "bracket this",
+ "kind": "shift-signup",
+ "family": "coord",
+ "surface": "event",
+ "sentence": "A shared shift signup list where each shift shows how many spots are open and members tap to join or leave a shift.",
+ "use_when": [
+  "Organizing helpers for a party or event in time slots",
+  "Filling door, music or cleanup shifts with a set number of people each",
+  "Seeing which shifts still need people",
+  "Letting people sign up and drop out themselves"
+ ],
+ "dont_use_when": [
+  "Picking one date or option that works for everyone (use a poll)",
+  "Splitting costs or tracking who owes what",
+  "Assigning tasks to specific people by a leader",
+  "Planning a full calendar with reminders"
+ ],
+ "keywords": [
+  "shift signup",
+  "sign up",
+  "volunteer",
+  "party shifts",
+  "schedule",
+  "rota",
+  "roster",
+  "time slots",
+  "staffing",
+  "helpers",
+  "event planning",
+  "join leave",
+  "open spots",
+  "sign-up sheet"
+ ],
+ "members": {
+  "min": 2,
+  "max": 20,
+  "original": 8
+ },
+ "mutation_score": 1,
+ "height": 404,
+ "params": {
+  "names": [
+   "Kev",
+   "Owen",
+   "Priya",
+   "Bryan",
+   "Zoe",
+   "Gabe"
+  ],
+  "options": [],
+  "blanks": [
+   "Throwbacks",
+   "Cups and stuff"
+  ],
+  "numbers": [
+   9,
+   11
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "ultimate frisbee end of season rager",
+  "members": [
+   "Marcus",
+   "Kev",
+   "Naomi",
+   "Owen",
+   "Priya",
+   "Bryan",
+   "Zoe",
+   "Gabe"
+  ],
+  "text": "party at the house fri 9pm, kegs are handled, we just need ppl for shifts\ni'll do door first, 9-10\ndoor needs 2 ppl tho, last time some rando from the lacrosse thing walked in\nill do door with kev\ni can dj 10-11, my spotify is mostly throwbacks tho\nthrowbacks are perfect\ni can do music 11-12, then somebody needs 12-1\ni got cleanup sat morning at 11 w/ the cups and stuff, need 2 more\ni can do cleanup, but not before noon\nok we need door 10-12, music 12-1, cleanup sat, and also who's doing door 12-close\ni'll take music 12-1 i guess\nmuse sign up?"
+ },
+ "seconds": 57.1,
+ "attempts": 1,
+ "created": "2026-11-13T05:12:30.033Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 7,
+  "restHash": "9f86bd871c1cc40f",
+  "playedHash": "9e8ea9a7bd1c880d"
+ }
+}

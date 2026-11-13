@@ -1,0 +1,31 @@
+{
+  "id": "welcome-home",
+  "name": "Welcome home",
+  "surface": "feed",
+  "summary": "A countdown to someone coming home: a dotted route from where they are to a little house, the plane however many days out, and welcome-back jobs in the yard (airport pickup, first meal, the couch) that friends claim; the porch light warms with each one.",
+  "useWhen": [
+    "home in 9 days, i miss real food",
+    "back from abroad next friday who's picking me up",
+    "countdown till im home for break",
+    "having fun in south america but home soon",
+    "plan for when calvin gets back"
+  ],
+  "dontUseWhen": [
+    "a party with a guest list and a host (use host-board)",
+    "rides for a whole group trip (use carpool)",
+    "someone who is already back (use congrats-dinner)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "author": { "type": "string", "description": "Who is coming home" },
+      "from": { "type": "string", "description": "Where they are now" },
+      "days": { "type": "integer", "minimum": 0, "description": "Days until they're home; 0 on the day" },
+      "total": { "type": "integer", "minimum": 1, "description": "How long they've been away in days, to place the plane on the route" },
+      "line": { "type": "string", "description": "The post's own line" },
+      "jobs": { "type": "array", "items": { "type": "object", "properties": { "job": { "type": "string" }, "kind": { "type": "string", "enum": ["car", "meal", "couch", "bag", "sign", "cake"] }, "who": { "type": "string" }, "said": { "type": "string" } }, "required": ["job", "kind"] }, "description": "2 to 6 welcome-back jobs with a drawing kind; who already claimed it and their words" }
+    },
+    "required": ["author", "days", "jobs"]
+  },
+  "height": 356
+}

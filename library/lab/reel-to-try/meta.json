@@ -1,0 +1,11 @@
+{
+  "id": "reel-to-try",
+  "name": "Reel to try list",
+  "origin": { "crate": "apps15", "id": "reel-to-try" },
+  "surface": "reel",
+  "summary": "A food reel someone shared becomes the group's to-try list, with stars for places you've been.",
+  "useWhen": ["someone shares a restaurant or food reel and says 'we should go'", "the group keeps a list of places to try and rates them after"],
+  "dontUseWhen": ["picking one place for tonight (use a poll or wheel)", "a recipe reel to cook together (use reel-cook-night)"],
+  "params": { "reel": "the shared reel: from (name), note, account, caption, likes, place, area", "spots": "places already on the list: name, area, tried ('Oct 3' or ''), ratings [{by, stars}], want [names]" },
+  "height": 584
+}

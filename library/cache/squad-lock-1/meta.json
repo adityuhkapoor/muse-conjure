@@ -1,0 +1,68 @@
+{
+ "id": "squad-lock-1",
+ "ask": "this is a mess muse fix it",
+ "kind": "squad-lock",
+ "family": "coord",
+ "surface": "event",
+ "sentence": "Collects going, maybe or no answers with short notes for one fixed event, shows progress toward a needed head count, and lets a going person lock the plan once enough say going.",
+ "use_when": [
+  "A group needs to confirm an outing only if enough people can come",
+  "Someone wants to see who is going, maybe or not, with a short note each",
+  "The plan should be locked once a minimum number commit",
+  "A friend group is deciding on a night out with a set time"
+ ],
+ "dont_use_when": [
+  "The group needs to vote between several different options or dates",
+  "The event details such as title or time need to be edited in chat",
+  "A split of costs or a task list is needed rather than attendance"
+ ],
+ "keywords": [
+  "rsvp",
+  "attendance",
+  "head count",
+  "going",
+  "maybe",
+  "lock plan",
+  "confirm event",
+  "night out",
+  "minimum people",
+  "who is coming",
+  "karaoke",
+  "yes no maybe",
+  "event plan"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 4
+ },
+ "mutation_score": 1,
+ "height": 336,
+ "params": {
+  "names": [],
+  "options": [],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "friday karaoke at the rusty mic",
+  "members": [
+   "Owen",
+   "Abby",
+   "Luis",
+   "Naomi"
+  ],
+  "text": "ok so karaoke fri at rusty mic, doors at 9\ngoing!! ive been practicing mr brightside\nmaybe?? i have a lab report due sat morning\ni said going on the event but i might have to work till 10 lol\nthey only hold the booth if we have 4 ppl\nso is that me, owen, naomi and luis or not\nif im a maybe do i count\nidk i clicked interested not going\nhalf of us commented and half clicked stuff, cant tell whos in\nthis is a mess muse fix it"
+ },
+ "seconds": 68.9,
+ "attempts": 1,
+ "created": "2026-11-13T03:31:14.382Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 5,
+  "restHash": "bf3c3030af5fa007",
+  "playedHash": "af0ab4b4b46acb85"
+ }
+}

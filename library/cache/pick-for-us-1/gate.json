@@ -1,0 +1,97 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "arbitrary-weak",
+   "message": "only 23 in 100 actions from arbitrary changed the state"
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"there are 3 options with unique ids and labels\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a result names an option that exists\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a result has a time and a person\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"options keep their starting ids, labels and notes\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"options never change in any step\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.7,
+  "typecheck": 34.5,
+  "static": 1.5,
+  "determinism": 27,
+  "invariants": 121.5,
+  "mutation": 121.6,
+  "render": 1092.9,
+  "copy": 1,
+  "render.browser": 0,
+  "render.mount": 48,
+  "render.taps": 407,
+  "render.lint": 1017,
+  "render.axe": 1058,
+  "render.total": 1093,
+  "total": 1116.3
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 13,
+  "inert": 5,
+  "killed": 11,
+  "score": 0.85,
+  "threshold": 0.8,
+  "kills": {
+   "there are 3 options with unique ids and labels": 0,
+   "a result names an option that exists": 0,
+   "a result has a time and a person": 0,
+   "options keep their starting ids, labels and notes": 0,
+   "a pick sets the option the seed gives, the time and the picker": 3,
+   "a pick never changes a result that exists": 2,
+   "a reset only clears the result, and only for who made it": 6,
+   "options never change in any step": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": [
+   {
+    "op": "negate-condition",
+    "line": 47,
+    "before": "action.t === \"reset\"",
+    "after": "!(action.t === \"reset\")"
+   },
+   {
+    "op": "flip-comparison",
+    "line": 47,
+    "before": "===",
+    "after": "!=="
+   }
+  ]
+ },
+ "weak": [
+  "there are 3 options with unique ids and labels",
+  "a result names an option that exists",
+  "a result has a time and a person",
+  "options keep their starting ids, labels and notes",
+  "options never change in any step"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

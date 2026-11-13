@@ -1,0 +1,29 @@
+{
+  "id": "letter-sprint",
+  "name": "Letter sprint",
+  "surface": "messenger",
+  "summary": "A two-minute word game: a letter drops with five categories (some from the group's own life), each person gets 60 seconds of sand to fill their sheet, sheets go in face down, and everyone flips together; matching answers clash and score nothing, unique ones score.",
+  "useWhen": [
+    "slow sunday, anyone want a game",
+    "scattergories but in the chat",
+    "quick word game before class",
+    "something to do while we wait for food at Tío's",
+    "categories game with our inside jokes"
+  ],
+  "dontUseWhen": [
+    "a drawing game (use doodle-dash)",
+    "a fast pass-the-bomb word game (use word-bomb)",
+    "trivia with right answers (use trivia-night)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title" },
+      "letter": { "type": "string", "description": "The letter for this round, one capital A to Z" },
+      "categories": { "type": "array", "items": { "type": "string" }, "description": "Exactly five categories, sentence case; two or more from the group's own life, e.g. 'A Hollis dish', 'A thing Will says'" },
+      "sheets": { "type": "array", "items": { "type": "object", "properties": { "who": { "type": "string" }, "words": { "type": "array", "items": { "type": "string" } } }, "required": ["who", "words"] }, "description": "Sheets already handed in face down: who, and five answers in category order, in their own words" }
+    },
+    "required": ["letter", "categories"]
+  },
+  "height": 330
+}

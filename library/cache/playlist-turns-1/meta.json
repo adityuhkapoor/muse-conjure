@@ -1,0 +1,71 @@
+{
+ "id": "playlist-turns-1",
+ "ask": "turn order",
+ "kind": "playlist-turns",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Randomly draws a turn order for everyone in the chat so each person takes a turn adding a song to a shared playlist, and tracks who has added theirs.",
+ "use_when": [
+  "A group wants a fair random order for who adds songs to a shared playlist",
+  "Everyone adds one song per round and the group needs to see who is next",
+  "People want to tick off when they have added their song",
+  "Settling who goes first in any take-turns list for the chat"
+ ],
+ "dont_use_when": [
+  "Picking one winner or one person from the group, which needs a single random pick",
+  "Voting on songs or choosing between options, which needs a poll",
+  "Playing a game with moves and scores between players"
+ ],
+ "keywords": [
+  "turn order",
+  "playlist",
+  "who goes first",
+  "shuffle",
+  "random order",
+  "take turns",
+  "add songs",
+  "draw order",
+  "queue",
+  "rotation",
+  "checklist",
+  "music"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 8
+ },
+ "mutation_score": 0.89,
+ "height": 192,
+ "params": {
+  "names": [],
+  "options": [],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "cle or bust road trip",
+  "members": [
+   "Theo",
+   "Sam",
+   "Mia",
+   "Naomi",
+   "Kev",
+   "Wren",
+   "Jake",
+   "Noor"
+  ],
+  "text": "ok so cars leave 7am saturday for the cleveland trip\nugh 7 is evil\nits a 5 hr drive sam we have to\nim in kevs car with wren\nyeah me naomi wren and noor in my car\nso me theo sam mia in theos car\nyep\nok but the playlist. last time kev played the same 3 songs for an hour\nthey were bangers\nthey were mgmt on repeat kev\n...fair\nlets just do a shared spotify one for both cars\nyes everyone adds a song\nbut one at a time or ppl will dump 15 songs\nya like one song each then loop around\ni dont want to be stuck w noors sad girl stuff for 2 hrs lol\nits called vibes theo\n8 of us so 8 songs a round\nand the aux person gets to veto one skip per round maybe\nno vetoes keep it simple\nok no veto. just order\nsomeone has to decide who goes first tho\nnot me i always go first\ni made the spotify its called \"cle or bust\"\nadd urself everyone before sat night\nok i'll add mine tn\ni need like 20 min to pick\nthis will be chaos without an order\nmuse turn order"
+ },
+ "seconds": 61.8,
+ "attempts": 1,
+ "created": "2026-11-13T02:52:57.285Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 1,
+  "restHash": "f2b5589d2742adc8",
+  "playedHash": "b319993362cccce6"
+ }
+}

@@ -1,0 +1,80 @@
+{
+ "id": "move-in-day-2",
+ "ask": "can u make a sign up sheet for the tasks and time slots",
+ "kind": "move-in-day",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A shared sign-up sheet where people pick tasks grouped by time slot, each task has a limited number of spots, and everyone can see who has signed up and drop out again.",
+ "use_when": [
+  "Sorting out who does which job at a move-in or move-out day",
+  "Filling tasks across several time slots with a set number of helpers per task",
+  "Checking which tasks still have no one signed up",
+  "Planning any group event with shifts, errands, or things to bring"
+ ],
+ "dont_use_when": [
+  "Choosing one option for the whole group, like a vote or poll",
+  "Finding a single meeting time that works for everyone",
+  "Splitting costs or tracking who owes money"
+ ],
+ "keywords": [
+  "sign up sheet",
+  "task sign-up",
+  "time slots",
+  "volunteer shifts",
+  "move-in day",
+  "move-out day",
+  "helpers",
+  "who brings what",
+  "task list",
+  "schedule",
+  "claim a task",
+  "group chores",
+  "spots",
+  "event planning"
+ ],
+ "members": {
+  "min": 2,
+  "max": 20,
+  "original": 8
+ },
+ "mutation_score": 1,
+ "height": 378,
+ "params": {
+  "names": [],
+  "options": [
+   "Morning",
+   "Truck loads",
+   "After 3",
+   "Around 5",
+   "Bring",
+   "Milk crates and tote bins"
+  ],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "nora's move-out day",
+  "members": [
+   "Lily",
+   "Omar",
+   "Ravi",
+   "Priya",
+   "Kev",
+   "Tess",
+   "Sam",
+   "Nora"
+  ],
+  "text": "ok so im moving out of the dorm annex fri the 20th, landlord wants keys by 6pm\nomg already?? ok im in\nnew place is the one on maple by the laundromat\ndo u have a truck or are we doing car trips\nmy cousin can lend his pickup but someone has to drive it, i dont trust myself w it\ni can drive it, ive done it before\nkev ur a legend\ni have a bunch of milk crates and tote bins i can bring\ni have tape and a dolly\ndolly is huge omg\nthe big things are my bed frame and the futon couch thing\nfuton is gonna be a pain, ill help w that\ni can help with the futon too if its after 3, class till 2:30\ni can do packing the books and desk stuff in the morning\ni can only do like 4-7 sorry\n4-7 is perfect for unloading\nalso im ordering food for everyone, thinking thai from siam garden\ni can pick up the food, around 5?\nso morning is packing, 1-3 truck loads, 4-7 unloading?\nyeah kinda that\nsomeone needs to like track who is doing what\nfr i will forget by thursday\nyeah this thread is gonna get buried\nmuse can u make a sign up sheet for the tasks and time slots"
+ },
+ "seconds": 75.4,
+ "attempts": 1,
+ "created": "2026-11-13T04:10:32.754Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 6,
+  "restHash": "833f3d3839f0b903",
+  "playedHash": "833f3f3039e8f083"
+ }
+}

@@ -1,0 +1,81 @@
+{
+ "id": "chore-claims-1",
+ "ask": "this is a mess fix it",
+ "kind": "chore-claims",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A shared board of eight fixed household chores where each person claims one open chore at a time, marks it done, or releases it, and everyone sees who has what.",
+ "use_when": [
+  "A group needs to split a fixed list of chores so each person takes one",
+  "Getting a shared home ready for an inspection or guests",
+  "Seeing at a glance which chores are open, taken, or done",
+  "Housemates need to sort out who does what without arguing"
+ ],
+ "dont_use_when": [
+  "The chore list needs to be edited, added to, or made custom",
+  "Chores need to repeat weekly or rotate on a schedule",
+  "One person should get several tasks or tasks are assigned by a leader",
+  "Tracking shared expenses or shopping money instead of tasks"
+ ],
+ "keywords": [
+  "chore board",
+  "chores",
+  "claim task",
+  "task split",
+  "housemates",
+  "household",
+  "cleaning",
+  "who does what",
+  "assign chores",
+  "inspection",
+  "mark done",
+  "roommates",
+  "to-do claims"
+ ],
+ "members": {
+  "min": 2,
+  "max": 8,
+  "original": 8
+ },
+ "mutation_score": 1,
+ "height": 396,
+ "params": {
+  "names": [],
+  "options": [
+   "Trash + recycling",
+   "Dishes",
+   "Bathroom",
+   "Vacuum living room",
+   "Costco run",
+   "Fridge cleanout",
+   "Towels laundry"
+  ],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": false,
+ "origin": {
+  "title": "13 elm st house",
+  "members": [
+   "Theo",
+   "Omar",
+   "Ravi",
+   "Jess",
+   "Jalen",
+   "Amir",
+   "Marcus",
+   "Ines"
+  ],
+  "text": "ok house meeting in the chat, chores for this week, landlord inspection is sunday\nugh fr\nlist is trash+recycling, dishes, bathroom, vacuum living room, mop kitchen, costco run, fridge cleanout, towels laundry\nthats 8 and theres 8 of us\ni'll take trash i have the bin thursday anyway\ni'll do costco i have the car\nnot bathroom pls i did it last time\ni did bathroom last time too lol\ni can do dishes\nwait i also wanted dishes, i hate bathroom less than vacuum tho\ni'll do fridge cleanout\nok so far ravi trash, jalen costco, ines dishes, omar fridge\nok put me on mop then\nwait does mop mean the whole kitchen or\nwhole kitchen yeah\ni'll do towels i guess\nso thats towels amir, mop jess\nthat leaves bathroom and vacuum for me and theo\ni hate vacuum, its broken-ish too\ni'll take vacuum if you do bathroom\n...fine but only if nobody switches again\nwait i said dishes but i have lab thurs night can i do the towels instead\nnooo i already claimed towels\ni lost track who has what\nsame and inspection is sunday\nmuse this is a mess fix it"
+ },
+ "seconds": 114.4,
+ "attempts": 1,
+ "created": "2026-11-13T03:04:26.345Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 8,
+  "restHash": "ae37b12de324b06c",
+  "playedHash": "ae6df1399392b049"
+ }
+}

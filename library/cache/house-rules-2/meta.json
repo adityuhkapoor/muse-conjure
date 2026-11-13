@@ -1,0 +1,75 @@
+{
+ "id": "house-rules-2",
+ "ask": "can u make a poll for this",
+ "kind": "house-rules",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A yes or no vote on each of several proposed shared-living rules, where every member votes on each rule and anyone can add a new rule.",
+ "use_when": [
+  "a group wants to agree on house or suite rules",
+  "each proposed rule needs its own yes or no from every person",
+  "members should be able to add their own rule ideas",
+  "you want to see how many people have voted on every rule"
+ ],
+ "dont_use_when": [
+  "you need to pick one option from a list, like a single winner",
+  "you need a time or date to be chosen for a meeting",
+  "you need to split costs or track chores over time"
+ ],
+ "keywords": [
+  "poll",
+  "vote",
+  "house rules",
+  "rules vote",
+  "yes no vote",
+  "roommates",
+  "suite rules",
+  "proposals",
+  "group decision",
+  "approve rules",
+  "add option",
+  "tally"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 6
+ },
+ "mutation_score": 1,
+ "height": 364,
+ "params": {
+  "names": [],
+  "options": [
+   "Whoever fills the trash takes it out",
+   "Labelled food is off limits"
+  ],
+  "blanks": [],
+  "numbers": [
+   12,
+   30
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "suite 312 trash court",
+  "members": [
+   "Eli",
+   "Felix",
+   "Gabe",
+   "Jalen",
+   "Priya",
+   "Amir"
+  ],
+  "text": "ok suite meeting, the trash situation is out of hand\nits been 4 days. the pizza boxes are alive\nproposed rule: whoever fills the trash takes it out\nno problem w that\nok but also i need no loud gaming after 1am, i have orgo exam fridays\nlol 1am is already late. i say 12:30\ni play valorant till 2 tho\nheadset only after 1 then?\nfine headset after 1 i can live\nguests rule: text the group chat if someone is sleeping over\nyes. also labelled food is off limits, i lost a whole thing of hummus\nok labelled food off limits, yes\nso rules are trash, headset after 1, text for sleepovers, labelled food\nand jalen's 12:30 vs 1am thing\nwe gotta vote each one in or out\nmuse can u make a poll for this"
+ },
+ "seconds": 80.5,
+ "attempts": 1,
+ "created": "2026-11-13T03:56:12.356Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 12,
+  "restHash": "9b3ca437b60c1b66",
+  "playedHash": "db24b426a7a98637"
+ }
+}

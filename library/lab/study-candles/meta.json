@@ -1,0 +1,43 @@
+{
+  "id": "study-candles",
+  "name": "Study candles",
+  "surface": "messenger",
+  "summary": "Something ambient to leave open during finals: a shelf with a candle for each friend in a dark room; light yours for as long as you plan to study and it burns down in real time while the room glows warmer with every lit candle, then blow it out or add wax, and burned-out candles leave a stub, a curl of smoke and how long they lasted.",
+  "useWhen": [
+    "who's studying rn",
+    "study with me tonight? virtually",
+    "locking in for 3 hours, who's in",
+    "body doubling for finals",
+    "lets all study till midnight"
+  ],
+  "dontUseWhen": [
+    "finding friends at the library in person (use fenwick-lights)",
+    "scheduling a study session for later (use meeting-time)",
+    "quizzing each other (use exam-quiz or flashcard-relay)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Study candles'" },
+      "sub": { "type": "string", "description": "Line under the title: the chat and the week" },
+      "candles": {
+        "type": "array",
+        "description": "Friends who already lit a candle",
+        "items": {
+          "type": "object",
+          "properties": {
+            "who": { "type": "string", "description": "Name in the chat" },
+            "mins": { "type": "integer", "description": "How long they planned to study, 30 to 360 minutes" },
+            "left": { "type": "integer", "description": "Minutes of wax left now" },
+            "what": { "type": "string", "description": "What they're studying, one or two words" },
+            "done": { "type": "boolean", "description": "Already blew it out" },
+            "said": { "type": "string", "description": "What they said, in their words" }
+          },
+          "required": ["who", "mins", "left"]
+        }
+      }
+    },
+    "required": ["candles"]
+  },
+  "height": 358
+}

@@ -1,0 +1,78 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"at most 3 rounds and round ids are unique\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"over is true exactly when there are 3 rounds and all are done\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the duel is empty or two different people in the chat\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a reset happens only after the match is over and clears every round\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.2,
+  "typecheck": 80.6,
+  "static": 2.9,
+  "determinism": 61.2,
+  "invariants": 104.9,
+  "mutation": 179.3,
+  "render": 906.5,
+  "copy": 2.1,
+  "render.browser": 1,
+  "render.mount": 33,
+  "render.taps": 243,
+  "render.lint": 854,
+  "render.axe": 898,
+  "render.total": 907,
+  "total": 973
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 16,
+  "inert": 1,
+  "killed": 16,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "at most 3 rounds and round ids are unique": 0,
+   "each person has one result per round, null or a whole number of ms": 1,
+   "everyone with a result is in the chat": 3,
+   "over is true exactly when there are 3 rounds and all are done": 0,
+   "only the latest round can be open": 1,
+   "the duel is empty or two different people in the chat": 0,
+   "a start adds one empty round that turns green at the seeded time": 1,
+   "a tap adds the actor's time, null if before green, and nothing else": 6,
+   "a finish only closes the latest round, after the wait, with no new results": 4,
+   "a reset happens only after the match is over and clears every round": 0,
+   "once a round is done its results never change": 2,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "at most 3 rounds and round ids are unique",
+  "over is true exactly when there are 3 rounds and all are done",
+  "the duel is empty or two different people in the chat",
+  "a reset happens only after the match is over and clears every round"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

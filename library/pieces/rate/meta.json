@@ -1,0 +1,79 @@
+{
+  "id": "rate",
+  "name": "Rate together (one score or one word each, hidden till everyone's in)",
+  "use_when": [
+    "the group judges one thing: a dating profile, a price, a dish, an outfit, a new place",
+    "'rate this out of 10', 'is this a fair price', 'everyone give a number', 'one word for him', 'what's it worth'",
+    "everyone answers on their own and sees the average and spread once all are in"
+  ],
+  "dont_use_when": [
+    "choosing between several options (use poll)",
+    "going through many listings (use shortlist)",
+    "ranking options head to head (use bracket)"
+  ],
+  "keywords": [
+    "rate",
+    "rating",
+    "ratings",
+    "score",
+    "scale",
+    "10",
+    "fair",
+    "worth",
+    "price",
+    "priced",
+    "number",
+    "hinge",
+    "profile",
+    "flag",
+    "word",
+    "honest",
+    "opinion",
+    "judge",
+    "overpriced",
+    "deal"
+  ],
+  "guarantees": [
+    "one answer per person; scores are whole numbers on the scale",
+    "answers stay hidden behind faces until everyone in the chat is in, or someone who answered reveals with 2 or more in; they never hide again",
+    "the average is shown to one decimal, rounded half up in integer math, with the lowest and highest score",
+    "a leaver's answer goes; a late joiner can answer at once"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "The subject as a short question or name, e.g. 'Is $350 fair for the West Elm couch?'" },
+      "detail": { "type": "string", "description": "One line of facts from the chat, or ''" },
+      "mode": { "type": "string", "enum": ["score", "word"], "description": "score: a number on a scale; word: one word each" },
+      "low": { "type": "integer", "description": "Score mode: bottom of the scale, 0 or 1" },
+      "high": { "type": "integer", "description": "Score mode: top of the scale, 3 to 10" },
+      "lowLabel": { "type": "string", "description": "What the low end means, e.g. 'ripoff', or ''" },
+      "highLabel": { "type": "string", "description": "What the high end means, e.g. 'steal', or ''" },
+      "words": { "type": "array", "items": { "type": "string" }, "description": "Word mode: up to 6 words to tap, from the chat; [] in score mode" }
+    },
+    "required": ["title", "detail", "mode", "low", "high", "lowLabel", "highLabel", "words"],
+    "additionalProperties": false
+  },
+  "examples": [
+    {
+      "title": "Jake from Hinge",
+      "detail": "6'2 · fish pic · 'looking for my partner in crime'",
+      "mode": "word",
+      "low": 1,
+      "high": 10,
+      "lowLabel": "",
+      "highLabel": "",
+      "words": ["green flag", "red flag", "mid", "fish pic"]
+    },
+    {
+      "title": "New stir fry station at Crossroads",
+      "detail": "Opened Monday · $11.50 a bowl",
+      "mode": "score",
+      "low": 1,
+      "high": 5,
+      "lowLabel": "skip it",
+      "highLabel": "go now",
+      "words": []
+    }
+  ]
+}

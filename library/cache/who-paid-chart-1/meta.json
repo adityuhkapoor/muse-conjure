@@ -1,0 +1,89 @@
+{
+ "id": "who-paid-chart-1",
+ "ask": "split?",
+ "kind": "who-paid-chart",
+ "family": "recap",
+ "surface": "chat",
+ "sentence": "Tracks what each person paid for a shared event, splits the total evenly across the chat, and shows the fewest payments that settle everyone up, with a way to mark each payment sent.",
+ "use_when": [
+  "A group shared costs for a meal or party and needs to know who owes whom",
+  "Someone asks to split a bill evenly among everyone in the chat",
+  "People want to add what they paid and see the fewest payments to settle up",
+  "The group wants to mark payments as sent and see when all are settled"
+ ],
+ "dont_use_when": [
+  "The split should be uneven, by percentage, or by what each person ordered",
+  "The group needs a running tally of debts over weeks or months across many events",
+  "Someone wants to actually send money or link a payment app"
+ ],
+ "keywords": [
+  "split",
+  "bill split",
+  "split costs",
+  "who owes",
+  "settle up",
+  "expenses",
+  "receipts",
+  "even split",
+  "shared costs",
+  "group payments",
+  "who paid",
+  "reimburse",
+  "dinner bill",
+  "payment plan"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 4
+ },
+ "mutation_score": 1,
+ "height": 300,
+ "params": {
+  "names": [
+   "Dani",
+   "Gabe",
+   "Amir",
+   "Jess"
+  ],
+  "options": [
+   "Drinks",
+   "Sides",
+   "Pie from the bakery on 5th",
+   "Stuffing mix",
+   "Ice",
+   "Cranberry sauce"
+  ],
+  "blanks": [],
+  "numbers": [
+   4780,
+   3245,
+   3815,
+   2400,
+   1160,
+   625,
+   940
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "friendsgiving 2026",
+  "members": [
+   "Dani",
+   "Gabe",
+   "Amir",
+   "Jess"
+  ],
+  "text": "ok friendsgiving receipts time lol\ni got the turkey from trader joes, 47.80\ni did drinks, like 32 something\n32.45 exact\ni did sides. potatoes green beans rolls came to 38.15\ni paid for the pie from the bakery on 5th, 24\nalso paper plates and cups 11.60 from target\noh and stuffing mix was separate, 6.25\nok\nwait did anyone count ice\ni got ice at the gas station 5.99\nlol ok\nand i got candles + napkins 9.40\ncranberry sauce was 3.50 i forgot that\nnah i paid for cranberry, 3.50, my card\noh right my bad\nso were splitting it even 4 ways right\nyeah 4 ways\nya\ni need to venmo whoever i owe asap bc rent lol\nsame honestly\ni just wanna see whos up and whos down\nthis was so fun tho\nbest turkey ever ngl\ngabe carried\nlol thx\nok somebody do the math pls\nmuse split?"
+ },
+ "seconds": 444.8,
+ "attempts": 2,
+ "created": "2026-11-13T03:31:52.720Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 5,
+  "restHash": "92f8afff10adf000",
+  "playedHash": "92f8adff10aff000"
+ }
+}

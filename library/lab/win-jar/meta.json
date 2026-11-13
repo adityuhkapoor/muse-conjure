@@ -1,0 +1,30 @@
+{
+  "id": "win-jar",
+  "name": "Win jar",
+  "surface": "feed",
+  "summary": "A glass jar on a shelf labelled with the poster's small win; friends drop in a coloured marble with a few words, it tumbles in and settles, and the newest words hang off the lid as tags.",
+  "useWhen": [
+    "finally finished the thesis draft",
+    "small win but i ran a whole mile today",
+    "passed my driving test!!",
+    "proud of myself ngl",
+    "first week at the new job done"
+  ],
+  "dontUseWhen": [
+    "big news worth a dinner (use congrats-dinner)",
+    "a daily challenge with streaks (use public-challenge)",
+    "someone having a rough time (use soup-drop)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "author": { "type": "string", "description": "Who posted the win" },
+      "win": { "type": "string", "description": "The win, short, for the jar's label" },
+      "line": { "type": "string", "description": "The post's own line" },
+      "others": { "type": "integer", "minimum": 0, "maximum": 40, "description": "People outside these friends who reacted; drawn as plain marbles" },
+      "marbles": { "type": "array", "items": { "type": "object", "properties": { "who": { "type": "string" }, "hue": { "type": "string", "enum": ["red", "orange", "yellow", "green", "blue", "purple"] }, "note": { "type": "string" } }, "required": ["who", "hue"] }, "description": "Friends who dropped a marble: its colour and their words" }
+    },
+    "required": ["author", "win"]
+  },
+  "height": 344
+}

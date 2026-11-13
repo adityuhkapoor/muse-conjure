@@ -1,0 +1,38 @@
+{
+  "id": "date-deck",
+  "name": "Date deck",
+  "surface": "messenger",
+  "summary": "A hand of drawn date-idea cards fanned on the table, each with its own little picture, cost and time; the one with the date and the friend helping each tap the ones they'd do, their faces land on the corners, and the first card both picked turns over into the plan for the day with a reminder to book it.",
+  "useWhen": [
+    "help i have a second date saturday and no ideas",
+    "what should we do for our anniversary, options?",
+    "first date ideas in eastfield under $30",
+    "plan a cute day for me and my gf",
+    "date night ideas pls, i'm out of them"
+  ],
+  "dontUseWhen": [
+    "a whole group picking where to go (use after-vote or plan-spinner)",
+    "rating how a date went (use date-forecast)",
+    "picking a time rather than an idea (use coffee-seat)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Second date ideas'" },
+      "asker": { "type": "string", "description": "Who has the date (a name in the chat); only they book" },
+      "helper": { "type": "string", "description": "Who's helping pick (a name in the chat)" },
+      "quote": { "type": "string", "description": "What the asker said, in their words" },
+      "day": { "type": "string", "description": "The day of the date, e.g. 'Saturday'" },
+      "bookBy": { "type": "string", "description": "When to book by for the reminder, e.g. 'Thu'; may be empty" },
+      "cards": {
+        "type": "array",
+        "description": "2 to 6 idea cards with real local places",
+        "items": { "type": "object", "properties": { "title": { "type": "string", "description": "The idea, e.g. 'Pottery night at Clay Co'" }, "cost": { "type": "string", "description": "Cost, e.g. '$28' or 'Free'" }, "time": { "type": "string", "description": "Time, e.g. '7pm'" } }, "required": ["title"] }
+      },
+      "askerPicks": { "type": "array", "items": { "type": "string" }, "description": "Card titles the asker already picked" },
+      "helperPicks": { "type": "array", "items": { "type": "string" }, "description": "Card titles the helper already picked" }
+    },
+    "required": ["asker", "helper", "cards"]
+  },
+  "height": 344
+}

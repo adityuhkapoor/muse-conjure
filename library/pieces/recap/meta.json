@@ -1,0 +1,96 @@
+{
+  "id": "recap",
+  "name": "Recap (tap-through fact cards)",
+  "use_when": [
+    "looking back on a trip, a semester or a year as a group: a few big numbers and facts from the chat, one per card",
+    "'recap the trip', 'wrapped', 'year in review', 'semester wrapped', 'our stats'",
+    "the facts (counts, times, places, amounts) can be read from the chat; nothing has to be decided"
+  ],
+  "dont_use_when": [
+    "the group has to decide or plan something (use poll, lock or overlap)",
+    "a joke, roast, caption or story about someone: Muse does not write banter about people (decline or adapt)",
+    "settling money from the trip (use settle)"
+  ],
+  "keywords": [
+    "recap",
+    "wrapped",
+    "review",
+    "year",
+    "semester",
+    "stats",
+    "story",
+    "memories",
+    "highlights",
+    "look",
+    "back",
+    "throwback",
+    "summary"
+  ],
+  "guarantees": [
+    "cards show only the facts passed in; the piece writes no captions about people",
+    "each person's progress only moves forward; a like flips only that person on that card",
+    "the cards never change once posted",
+    "a leaver's progress and likes go; a late joiner starts at the first card"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "description": "What the recap covers, e.g. 'Nashville trip · Mar 13-16'"
+      },
+      "cards": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string",
+              "description": "What is counted, sentence case, e.g. 'Steps', 'Latest night'"
+            },
+            "value": {
+              "type": "string",
+              "description": "The fact itself, 16 characters or fewer, e.g. '61,204', '2:40 AM', '$1,486'"
+            },
+            "line": {
+              "type": "string",
+              "description": "One plain sentence of fact from the chat, no jokes or opinions, e.g. 'Sam walked 14,310 on Saturday'; or empty"
+            },
+            "people": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Names the fact is about, exactly as in the members list; empty if it is about everyone"
+            }
+          },
+          "required": [
+            "label",
+            "value",
+            "line",
+            "people"
+          ],
+          "additionalProperties": false
+        },
+        "description": "2 to 8 fact cards, in the order to show them"
+      }
+    },
+    "required": [
+      "title",
+      "cards"
+    ],
+    "additionalProperties": false
+  },
+  "examples": [
+    {
+      "title": "Apt 4B fall semester",
+      "cards": [
+        { "label": "Messages", "value": "12,408", "line": "Busiest day: Oct 31, 1,140 messages", "people": [] },
+        { "label": "Most messages", "value": "3,911", "line": "Dani, mostly after midnight", "people": ["Dani"] },
+        { "label": "Parties hosted", "value": "4", "line": "The Halloween one had 63 RSVPs", "people": [] },
+        { "label": "Chore wheel spins", "value": "31", "line": "Theo got the bathroom 6 times", "people": ["Theo"] },
+        { "label": "Grocery runs", "value": "19", "line": "$1,212 at Trader Joe's, split 4 ways", "people": [] }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,76 @@
+{
+ "id": "pregame-vote-1",
+ "ask": "can u make a poll for this, options beer pong, cah, throwback playlist, kings cup, one vote each",
+ "kind": "pregame-vote",
+ "family": "coord",
+ "surface": "event",
+ "sentence": "A single-choice poll with a fixed set of options where each person gets one vote, can change or remove it, and sees live counts and who voted.",
+ "use_when": [
+  "The group needs to pick one option from a short fixed list",
+  "Deciding an activity, place, or time for an event",
+  "Each person should get exactly one vote with visible results"
+ ],
+ "dont_use_when": [
+  "People need to pick several options at once (multi-select)",
+  "Votes must be anonymous or ranked in order",
+  "The group needs to find a shared time slot across a calendar"
+ ],
+ "keywords": [
+  "poll",
+  "vote",
+  "single choice",
+  "one vote each",
+  "group decision",
+  "pick one",
+  "pregame",
+  "activity vote",
+  "event planning",
+  "live results",
+  "ballot",
+  "survey"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 5
+ },
+ "mutation_score": 1,
+ "height": 270,
+ "params": {
+  "names": [
+   "Noor"
+  ],
+  "options": [
+   "Beer pong",
+   "CAH",
+   "Throwback playlist",
+   "Kings cup"
+  ],
+  "blanks": [],
+  "numbers": [
+   9
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "sat pregame @ noor's + elm st crawl",
+  "members": [
+   "Abby",
+   "Rohan",
+   "Lily",
+   "Noor",
+   "Naomi"
+  ],
+  "text": "ok so event is 9pm at noor's then we head to the rusty nail at 11\ngoing. who's bringing what\ngoing! i can bring the speaker\ngoing, my roommate is out so we have the whole living room\nmaybe, depends if my shift ends at 8:30\nu can make it naomi dont flake\nlol ok going then\nso what are we doing tho. i vote beer pong, i have the table from last yr\ntable is so sticky tho\nwiped it!!\ni kinda want cards against humanity, we have the new expansion\ncah is good when everyone's a bit drunk tho not at 9\nok what about just a playlist and chill, i made a 2000s throwback one\nooh yes the throwback one\nmusic alone gets boring after 30 min fr\ndrinks wise im making margs, a pitcher\ni got a handle of vodka and some cran\ni can grab seltzers for the non drinkers\nty lily\nso options are beer pong, cah, or playlist only w kings maybe?\nkings cup is fine too\nok 4 options then. beer pong, cah, throwback playlist, kings cup\nwe need to actually decide lol\nyeah everyone vote and we go with whatever wins\nmuse can u make a poll for this, options beer pong, cah, throwback playlist, kings cup, one vote each"
+ },
+ "seconds": 25,
+ "attempts": 1,
+ "created": "2026-11-13T03:06:15.023Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 4,
+  "restHash": "bf252431614fd8ce",
+  "playedHash": "9e21e531210efcde"
+ }
+}

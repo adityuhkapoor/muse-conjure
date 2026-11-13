@@ -1,0 +1,78 @@
+{
+ "id": "secret-santa-2",
+ "ask": "draw names?",
+ "kind": "secret-santa",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Randomly pairs everyone in the chat into one gift-giving loop, so each person privately sees only who they buy for and nobody gets themselves.",
+ "use_when": [
+  "A group wants to draw names for a secret santa or gift swap",
+  "Each person should privately see who they are buying for",
+  "You want to track who has looked at their draw",
+  "A group needs a fair random assignment with no self-picks"
+ ],
+ "dont_use_when": [
+  "Picking one winner or one random person from the group",
+  "Splitting people into teams or groups",
+  "Collecting votes or choosing between options",
+  "Tracking a gift list, budget, or wishlist"
+ ],
+ "keywords": [
+  "secret santa",
+  "draw names",
+  "name draw",
+  "gift swap",
+  "gift exchange",
+  "white elephant",
+  "random pairs",
+  "assign giver",
+  "thrift swap",
+  "holiday gifts",
+  "who buys for who",
+  "shuffle names"
+ ],
+ "members": {
+  "min": 2,
+  "max": 30,
+  "original": 8
+ },
+ "mutation_score": 0.92,
+ "height": 276,
+ "params": {
+  "names": [
+   "Felix"
+  ],
+  "options": [],
+  "blanks": [
+   "Saturday the 6th at Felix's · $15 max · thrift store or Goodwill"
+  ],
+  "numbers": [
+   15
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "thrift swap saturday",
+  "members": [
+   "Bryan",
+   "Cam",
+   "Leo",
+   "Dani",
+   "Abby",
+   "Ravi",
+   "Lily",
+   "Felix"
+  ],
+  "text": "thrift store gift swap saturday the 6th at mine\nyesss\nbudget?\n$15 max, has to be from a thrift store or goodwill\ni found a lamp shaped like a pineapple last week lol\ndont spoil it leo\nits not for u necessarily\nok how do we pick who gets who\nnot paper slips again\nyeah last time cam got his own name and pretended he didnt\ni was confused\nneed it so nobody gets themselves\nand nobody sees anyone elses\nso just 8 of us right\nbryan cam leo dani abby ravi lily me\nyep\n8 total\nok someone do it before i forget\nngl muse can do it\nmuse draw names?"
+ },
+ "seconds": 148.6,
+ "attempts": 1,
+ "created": "2026-11-13T05:14:16.546Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 1,
+  "restHash": "bf9139911b4be06a",
+  "playedHash": "b3f819709b5a81e6"
+ }
+}

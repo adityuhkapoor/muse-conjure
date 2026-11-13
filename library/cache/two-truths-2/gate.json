@@ -1,0 +1,81 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"points are whole numbers, one entry per person\" caught none of 17 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"rounds are whole numbers and a revealed round was counted\" caught none of 17 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.4,
+  "typecheck": 89.6,
+  "static": 2.8,
+  "determinism": 57.2,
+  "invariants": 108.9,
+  "mutation": 189.9,
+  "render": 1160.4,
+  "copy": 2.3,
+  "render.browser": 0,
+  "render.mount": 71,
+  "render.taps": 501,
+  "render.lint": 1113,
+  "render.axe": 1155,
+  "render.total": 1160,
+  "total": 1223.6
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 17,
+  "inert": 3,
+  "killed": 15,
+  "score": 0.88,
+  "threshold": 0.8,
+  "kills": {
+   "statements are empty or exactly three distinct texts of 1 to 80 characters": 2,
+   "setup has no round, otherwise there is an author, a lie and three statements": 3,
+   "one guess per person, picks are 0 to 2, the author never guesses": 2,
+   "the author, guessers and scorers are in the chat": 2,
+   "points are whole numbers, one entry per person": 0,
+   "rounds are whole numbers and a revealed round was counted": 0,
+   "a start makes the actor author with the three texts shuffled by the seed": 4,
+   "a guess sets only the actor's own pick": 1,
+   "only the author can reveal or cancel": 3,
+   "a reveal gives one point per guess, to the guesser if right, else to the author": 5,
+   "a cancel returns to setup and leaves points and rounds alone": 1,
+   "only people in the chat change anything": 2
+  },
+  "survivors": [
+   {
+    "op": "off-by-one",
+    "line": 97,
+    "before": "0",
+    "after": "1"
+   },
+   {
+    "op": "drop-assignment",
+    "line": 94,
+    "before": "at: meta.time",
+    "after": "(removed)"
+   }
+  ]
+ },
+ "weak": [
+  "points are whole numbers, one entry per person",
+  "rounds are whole numbers and a revealed round was counted"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

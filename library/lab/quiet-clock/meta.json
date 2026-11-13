@@ -1,0 +1,33 @@
+{
+  "id": "quiet-clock",
+  "name": "Quiet clock",
+  "surface": "messenger",
+  "summary": "A 24-hour clock with each roommate's sleep as a ring in their color; where everyone is asleep at once the clock darkens into quiet hours. Drag the ends of your ring to fix your sleep, everyone taps Agree, and the quiet hours get pinned as the house rule.",
+  "useWhen": [
+    "roommates with clashing schedules: 6am alarms vs 1am guitar",
+    "can we set quiet hours for the apartment",
+    "someone's too loud at night, need a house rule for when to keep it down",
+    "figure out when everyone in the house is asleep",
+    "new roommate, agree on noise hours"
+  ],
+  "dontUseWhen": [
+    "finding a time to meet up (use meeting-time)",
+    "the thermostat setting (use thermostat-truce)",
+    "a morning bathroom schedule (use shower-queue)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Quiet hours'" },
+      "sub": { "type": "string", "description": "Under the title: the standoff in the chat's words" },
+      "sleep": {
+        "type": "array",
+        "description": "Up to 6 people's usual sleep, 24-hour times like '23:30' and '6:00' (15-minute steps), with a short note in their words",
+        "items": { "type": "object", "properties": { "who": { "type": "string" }, "from": { "type": "string" }, "to": { "type": "string" }, "note": { "type": "string" } }, "required": ["who", "from", "to"] }
+      },
+      "agreed": { "type": "array", "items": { "type": "string" }, "description": "Names of who already agreed to the quiet hours as they stand" }
+    },
+    "required": ["sleep"]
+  },
+  "height": 400
+}

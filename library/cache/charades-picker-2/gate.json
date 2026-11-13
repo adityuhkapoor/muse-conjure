@@ -1,0 +1,81 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"team members are in the chat\" caught none of 18 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the word bank and log stay within limits\" caught none of 18 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"adding a word appends one unused word and changes nothing else\" caught none of 18 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 120.4,
+  "typecheck": 4343.7,
+  "static": 14.1,
+  "determinism": 6426.7,
+  "invariants": 8395.6,
+  "mutation": 8998.2,
+  "render": 8359.8,
+  "copy": 149.8,
+  "render.browser": 2,
+  "render.mount": 4428,
+  "render.taps": 7084,
+  "render.lint": 8050,
+  "render.axe": 8295,
+  "render.total": 8360,
+  "total": 10643.6
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 18,
+  "inert": 1,
+  "killed": 17,
+  "score": 0.94,
+  "threshold": 0.8,
+  "kills": {
+   "nobody is on both teams and no one repeats": 1,
+   "team members are in the chat": 0,
+   "setup has no teams, and once split everyone is on a team and sizes differ by at most one": 3,
+   "scores are whole numbers within the rounds played, and the side follows the round": 3,
+   "playing needs a performer on the team up with a used word; waiting phases have no performer": 4,
+   "the word bank and log stay within limits": 0,
+   "a split puts everyone on a team in the order the seed gives": 2,
+   "a draw by the next performer picks the seeded word and starts the round": 4,
+   "a score closes the round for the team up, and only a teammate who is not acting makes it": 3,
+   "next adds one round, flips the side and moves that team's turn on, leaving score and words alone": 2,
+   "adding a word appends one unused word and changes nothing else": 0,
+   "a reset goes back to setup with no teams, no score and no used words": 1,
+   "only people in the chat change anything": 2
+  },
+  "survivors": [
+   {
+    "op": "off-by-one",
+    "line": 158,
+    "before": "1",
+    "after": "2"
+   }
+  ]
+ },
+ "weak": [
+  "team members are in the chat",
+  "the word bank and log stay within limits",
+  "adding a word appends one unused word and changes nothing else"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

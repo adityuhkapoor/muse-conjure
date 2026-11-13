@@ -1,0 +1,80 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"open rounds have no author, no statements and no guesses\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"only the author reveals, and a reveal changes only the status\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a revealed round and the title never change by an action\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 3,
+  "typecheck": 236.2,
+  "static": 6.6,
+  "determinism": 462.7,
+  "invariants": 1092.2,
+  "mutation": 1132.7,
+  "render": 1214.9,
+  "copy": 4.7,
+  "render.browser": 1,
+  "render.mount": 109,
+  "render.taps": 467,
+  "render.lint": 1096,
+  "render.axe": 1206,
+  "render.total": 1215,
+  "total": 1397.1
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 14,
+  "inert": 4,
+  "killed": 13,
+  "score": 0.93,
+  "threshold": 0.8,
+  "kills": {
+   "open rounds have no author, no statements and no guesses": 0,
+   "guessing and revealed rounds have three statements: the two truths and one lie": 2,
+   "every lie is 1 to 80 characters and not one of the truths": 3,
+   "every guess is 0 to 2, from someone in the chat who is not the author": 3,
+   "a guessing round has an author in the chat, a revealed one has one or none": 6,
+   "round ids are unique, at most 12 rounds, and no one authors two live rounds": 1,
+   "a write gives the round to the actor for guessing and touches no other round": 4,
+   "a write puts the statements in the order the seed gives": 2,
+   "a guess sets only the actor's own guess": 1,
+   "only the author reveals, and a reveal changes only the status": 0,
+   "a revealed round and the title never change by an action": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": [
+   {
+    "op": "flip-logic",
+    "line": 103,
+    "before": "&&",
+    "after": "||"
+   }
+  ]
+ },
+ "weak": [
+  "open rounds have no author, no statements and no guesses",
+  "only the author reveals, and a reveal changes only the status",
+  "a revealed round and the title never change by an action"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

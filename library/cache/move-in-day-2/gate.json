@@ -1,0 +1,70 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"every task belongs to a real slot and task ids are unique\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"every cap is a whole number from 1 to 6\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"title, slots, tasks and caps never change\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.8,
+  "typecheck": 49.5,
+  "static": 2.9,
+  "determinism": 113.8,
+  "invariants": 294,
+  "mutation": 292.5,
+  "render": 941.3,
+  "copy": 1.3,
+  "render.browser": 0,
+  "render.mount": 48,
+  "render.taps": 265,
+  "render.lint": 887,
+  "render.axe": 935,
+  "render.total": 941,
+  "total": 976.7
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 13,
+  "inert": 6,
+  "killed": 13,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "no task has more people than its cap": 1,
+   "no person appears twice on a task": 1,
+   "everyone on a task is in the chat": 3,
+   "every task belongs to a real slot and task ids are unique": 0,
+   "every cap is a whole number from 1 to 6": 0,
+   "a join adds the actor to that task only, within its cap": 4,
+   "a drop removes only the actor from that task": 6,
+   "only people in the chat change anything": 2,
+   "title, slots, tasks and caps never change": 0
+  },
+  "survivors": []
+ },
+ "weak": [
+  "every task belongs to a real slot and task ids are unique",
+  "every cap is a whole number from 1 to 6",
+  "title, slots, tasks and caps never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

@@ -1,0 +1,82 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "arbitrary-weak",
+   "message": "only 26 in 100 actions from arbitrary changed the state"
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the winner is none or one of the places\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"three places with unique ids and labels\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a spin leaves the places as they were\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the spin count never goes down\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.1,
+  "typecheck": 60.3,
+  "static": 2.3,
+  "determinism": 39.8,
+  "invariants": 110.8,
+  "mutation": 148,
+  "render": 922.8,
+  "copy": 1.7,
+  "render.browser": 0,
+  "render.mount": 52,
+  "render.taps": 263,
+  "render.lint": 868,
+  "render.axe": 916,
+  "render.total": 923,
+  "total": 966.7
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 16,
+  "inert": 2,
+  "killed": 16,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "the winner is none or one of the places": 0,
+   "there is a winner exactly when someone has spun": 2,
+   "whoever spun last is still in the chat": 5,
+   "the spinner shown is the last spinner while they are in the chat, else none": 7,
+   "spins is a whole count, and before any spin there is no spinner and no time": 1,
+   "three places with unique ids and labels": 0,
+   "a spin sets the seed's pick, the spinner, the time and one more spin": 4,
+   "only a spin changes the wheel": 3,
+   "a spin leaves the places as they were": 0,
+   "no spin starts while the wheel is still turning": 3,
+   "only people in the chat change the wheel": 2,
+   "the spin count never goes down": 0
+  },
+  "survivors": []
+ },
+ "weak": [
+  "the winner is none or one of the places",
+  "three places with unique ids and labels",
+  "a spin leaves the places as they were",
+  "the spin count never goes down"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

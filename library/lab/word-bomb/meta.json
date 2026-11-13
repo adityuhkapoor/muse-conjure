@@ -1,0 +1,31 @@
+{
+  "id": "word-bomb",
+  "name": "Word bomb",
+  "surface": "messenger",
+  "summary": "A pass-the-bomb word game: a drawn bomb with a lit fuse sits on one face in a ring, carrying three letters; the holder types a word containing them before the fuse burns down and the bomb flies on; words from the group's list score double, a pop costs a heart, last one with hearts wins.",
+  "useWhen": [
+    "study break, five minutes, no more",
+    "quick word game for the orgo gc",
+    "bored in Fenwick, game?",
+    "something fast to play between problem sets",
+    "word game where chem words count double"
+  ],
+  "dontUseWhen": [
+    "a slow game with categories (use letter-sprint)",
+    "drawing and guessing (use doodle-dash)",
+    "actual studying or flashcards"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title" },
+      "chunks": { "type": "array", "items": { "type": "string" }, "description": "Letter chunks the bomb carries, 2 to 4 capital letters each, e.g. 'ENE', 'OL'" },
+      "bonus": { "type": "array", "items": { "type": "string" }, "description": "Words that score double, e.g. vocabulary from the class the chat is studying" },
+      "hearts": { "type": "integer", "description": "Hearts each, 1 to 5" },
+      "turns": { "type": "array", "items": { "type": "object", "properties": { "who": { "type": "string" }, "word": { "type": "string" }, "popped": { "type": "boolean" } }, "required": ["who"] }, "description": "Turns so far in order: who held the bomb and the word they played, or popped: true if it blew up on them" },
+      "tries": { "type": "array", "items": { "type": "object", "properties": { "who": { "type": "string" }, "word": { "type": "string" } } }, "description": "Tries that did not count, e.g. a word already said" }
+    },
+    "required": ["chunks"]
+  },
+  "height": 340
+}

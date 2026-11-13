@@ -1,0 +1,22 @@
+{
+  "id": "inside-joke-game",
+  "name": "5 min away",
+  "origin": { "crate": "apps14", "id": "inside-joke-game" },
+  "surface": "gaming",
+  "summary": "A 25 second whack-a-mole built from the chat's running joke about the friend who's always 5 minutes away, with a crew leaderboard.",
+  "useWhen": ["a group with a running joke about one friend (always late, always 'omw')", "'make a game out of this', 'someone bonk Theo', a gaming tab for a friend group"],
+  "dontUseWhen": ["a game everyone plays at once in real time", "trivia about the group (use friend-trivia-pub)", "a head-to-head challenge (use challenge-friend)"],
+  "params": {
+    "title": "string",
+    "joke": "subtitle, e.g. Theo has said “omw” 38×",
+    "target": "the friend who pops up",
+    "early": "the friend who's already there (don't bonk)",
+    "says": "6 short lines the target says",
+    "earlySays": "2 lines",
+    "place": "sign on the awning, e.g. Brunch 11:00",
+    "group": "group name",
+    "tries": "plays so far",
+    "board": "{name, best, note}[]"
+  },
+  "height": 394
+}

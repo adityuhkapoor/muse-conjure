@@ -1,0 +1,87 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"no one appears twice in a yes list or a no list\" caught none of 10 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"rule ids and labels are unique\" caught none of 10 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"at most 8 rules, each label 1 to 40 characters\" caught none of 10 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"an add appends exactly one empty rule last and leaves votes alone\" caught none of 10 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"rule labels never change on a vote\" caught none of 10 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"adding is allowed only when the vote lets people add\" caught none of 10 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.8,
+  "typecheck": 41.2,
+  "static": 1.9,
+  "determinism": 76.4,
+  "invariants": 235.9,
+  "mutation": 269.9,
+  "render": 928,
+  "copy": 1,
+  "render.browser": 0,
+  "render.mount": 49,
+  "render.taps": 255,
+  "render.lint": 877,
+  "render.axe": 921,
+  "render.total": 928,
+  "total": 957.9
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 10,
+  "inert": 7,
+  "killed": 10,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "no one is in both yes and no for a rule": 1,
+   "no one appears twice in a yes list or a no list": 0,
+   "everyone who voted is in the chat": 5,
+   "rule ids and labels are unique": 0,
+   "at most 8 rules, each label 1 to 40 characters": 0,
+   "a vote changes only the actor's yes and no on that one rule": 1,
+   "after a vote the actor is in the chosen list only if they were not before, and not in the other": 5,
+   "an add appends exactly one empty rule last and leaves votes alone": 0,
+   "rule labels never change on a vote": 0,
+   "adding is allowed only when the vote lets people add": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "no one appears twice in a yes list or a no list",
+  "rule ids and labels are unique",
+  "at most 8 rules, each label 1 to 40 characters",
+  "an add appends exactly one empty rule last and leaves votes alone",
+  "rule labels never change on a vote",
+  "adding is allowed only when the vote lets people add"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

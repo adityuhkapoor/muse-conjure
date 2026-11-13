@@ -1,0 +1,64 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"with no turn running there is no player, pattern or progress\" caught none of 19 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.6,
+  "typecheck": 78.1,
+  "static": 3.7,
+  "determinism": 57.6,
+  "invariants": 117.5,
+  "mutation": 212.6,
+  "render": 951.6,
+  "copy": 2.3,
+  "render.browser": 0,
+  "render.mount": 59,
+  "render.taps": 295,
+  "render.lint": 907,
+  "render.axe": 947,
+  "render.total": 952,
+  "total": 1016.4
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 19,
+  "inert": 1,
+  "killed": 19,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "everyone in the game is in the chat": 2,
+   "the order and the played list have no repeats, played is in the order, and everyone in the chat has a place": 3,
+   "scores are whole numbers and exist exactly for people who played": 6,
+   "with no turn running there is no player, pattern or progress": 0,
+   "a running turn belongs to the next unplayed person and has a valid pattern": 4,
+   "a start puts the next person on a one-shape pattern": 2,
+   "the next person in the chat can always start when no turn is running": 2,
+   "a tap is the current player's: a hit moves on or grows the pattern by one, a miss ends the turn": 6,
+   "a valid tap by the current player, once the pattern is shown, always counts": 3,
+   "a skip ends the turn with the rounds finished so far, or passes the next person with 0": 2,
+   "a reset clears every score and turn and keeps the order": 2,
+   "recorded scores and the turn order only change on a reset": 2,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "with no turn running there is no player, pattern or progress"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

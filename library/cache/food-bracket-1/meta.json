@@ -1,0 +1,89 @@
+{
+ "id": "food-bracket-1",
+ "ask": "bracket this",
+ "kind": "food-bracket",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "An eight-place dinner bracket where everyone in the chat votes in head-to-head matches over three rounds until one place wins.",
+ "use_when": [
+  "A group can't decide where to eat and wants a fair vote",
+  "Choosing one option from eight by pairing them off",
+  "Settling a group pick with knockout rounds"
+ ],
+ "dont_use_when": [
+  "A single quick poll with more or fewer than eight options",
+  "Ranking or scoring options instead of picking one winner",
+  "Splitting a bill or planning a reservation"
+ ],
+ "keywords": [
+  "bracket",
+  "dinner bracket",
+  "where to eat",
+  "restaurant vote",
+  "tournament",
+  "head to head",
+  "knockout",
+  "food picker",
+  "group decision",
+  "elimination",
+  "vote",
+  "lunch"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 7
+ },
+ "mutation_score": 1,
+ "height": 310,
+ "params": {
+  "names": [],
+  "options": [
+   "Chipotle",
+   "Pho 79 on 5th",
+   "Joe's Pizza",
+   "Haidilao",
+   "Wings at BDubs",
+   "El Pollo Tacos",
+   "Lucky House",
+   "Dining hall"
+  ],
+  "blanks": [
+   "By the slice, $1.50 on Thursdays",
+   "Hot pot, about $35 each",
+   "Tuesday boneless deal",
+   "Dumplings",
+   "Seed 8"
+  ],
+  "numbers": [
+   8,
+   7,
+   79,
+   35
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "post-midterm dinner",
+  "members": [
+   "Tyler",
+   "Paige",
+   "Ines",
+   "Leo",
+   "Sam",
+   "Jess",
+   "Bryan"
+  ],
+  "text": "ok midterms are DEAD where are we eating tn\nnot chipotle again pls\nchipotle slaps tho\ni want pho. pho 79 on 5th\njoe's pizza by the slice, its 1.50 on thursdays\nhot pot?? haidilao is like 35 each tho\nwings at bdubs, tuesday boneless deal\nok thats like 5 so far\nadd el pollo tacos, the truck outside the lib\nand dumplings at lucky house\nok 7 options lol\nwe cant all just vote for our own thing\nyeah last time it took an hour and we ate cereal\nwhat if head to head rounds? two at a time winner moves on\nya like march madness\ni vote pho vs anything honestly\nlol bias\nits a good soup ok\nneed 8 for a clean bracket tho we have 7\nadd the dining hall as a joke seed 8\nlmao fine dhall is the 8 seed\neveryone has to vote each round tho no abstaining\nppl are starving hurry\nok someone start it\nmuse bracket this"
+ },
+ "seconds": 171.3,
+ "attempts": 1,
+ "created": "2026-11-13T03:11:20.618Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 8,
+  "restHash": "af13933db026fa48",
+  "playedHash": "af339313b89866c6"
+ }
+}

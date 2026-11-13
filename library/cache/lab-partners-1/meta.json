@@ -1,0 +1,76 @@
+{
+ "id": "lab-partners-1",
+ "ask": "muse mkae the pairs for secret snata plz",
+ "kind": "lab-partners",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Randomly pairs everyone in the chat so each person gives one gift and gets one, with nobody drawing themselves, and lets each person privately reveal only their own match.",
+ "use_when": [
+  "A group wants to set up a gift exchange with secret assignments",
+  "Someone asks to make Secret Santa pairs for the chat",
+  "Each person needs to see only who they give to",
+  "A holiday or office gift swap needs a fair random draw"
+ ],
+ "dont_use_when": [
+  "The group wants to split a bill or track who owes what",
+  "Teams or groups of several people are needed instead of one-to-one pairs",
+  "Fewer than three people are in the chat",
+  "The pairs should be public or chosen by hand"
+ ],
+ "keywords": [
+  "secret santa",
+  "gift exchange",
+  "gift swap",
+  "random pairs",
+  "draw names",
+  "name draw",
+  "holiday gifts",
+  "white elephant",
+  "pairing",
+  "assign partners",
+  "christmas",
+  "private reveal"
+ ],
+ "members": {
+  "min": 3,
+  "max": 30,
+  "original": 6
+ },
+ "mutation_score": 1,
+ "height": 184,
+ "params": {
+  "names": [
+   "Ana",
+   "Dev",
+   "Dani"
+  ],
+  "options": [],
+  "blanks": [],
+  "numbers": [
+   20
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "secret santa 2026",
+  "members": [
+   "Ana",
+   "Theo",
+   "Jake",
+   "Abby",
+   "Dev",
+   "Dani"
+  ],
+  "text": "ok so are we doing secret santa this year or nah\nyes fr last year was so fun\nim in. budget tho??\n20 bucks max pls im broke\n20 is fine by me\nsame, 20 max\nok so its 6 of us. me theo jake abby dev dani\ngift swap is at ana's on dec 12\nwait can we not get assigned ourselves lol\nand no couples thing but dev and dani cant get each other, they did that last yr\nlol true we got each other and it was boring\nya we wanna get someone else this time\nok so everyone gets one person and nobody gets themselves, dev and dani not each other\nand it should be secret so each person only sees their own\nyes pls dont let me see everyone elses\ni hate when someone peeks at the list lol\nok who is gonna do it\nnot me i will mess it up\nmuse mkae the pairs for secret snata plz"
+ },
+ "seconds": 68.3,
+ "attempts": 1,
+ "created": "2026-11-13T02:58:32.560Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 1,
+  "restHash": "8fb0788fc078874f",
+  "playedHash": "8338fe3801c7f8c7"
+ }
+}

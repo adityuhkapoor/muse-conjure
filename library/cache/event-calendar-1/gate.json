@@ -1,0 +1,101 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"no one is in a date twice\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"date ids are unique and there are at most 12\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"side ids are unique, at most 8, one side per person\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"only an owner removes a date, and only that date goes\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a bring appends one side by the actor and keeps the other sides\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"only the person who brings a side drops it, and only that side goes\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"no action changes the title or the away notes\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.4,
+  "typecheck": 87.4,
+  "static": 3.3,
+  "determinism": 169.9,
+  "invariants": 436.8,
+  "mutation": 482.2,
+  "render": 984.1,
+  "copy": 2.5,
+  "render.browser": 0,
+  "render.mount": 35,
+  "render.taps": 296,
+  "render.lint": 933,
+  "render.axe": 978,
+  "render.total": 984,
+  "total": 1056.5
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 13,
+  "inert": 4,
+  "killed": 12,
+  "score": 0.92,
+  "threshold": 0.8,
+  "kills": {
+   "everyone in a date, side or away note is in the chat": 6,
+   "no one is in a date twice": 0,
+   "date ids are unique and there are at most 12": 0,
+   "side ids are unique, at most 8, one side per person": 0,
+   "every date has a day and a label of 1 to 40 characters": 1,
+   "owners of a date are always in it": 2,
+   "a join flips only the actor in that date and touches nothing else": 4,
+   "an add appends one date last with the actor as owner and in it": 1,
+   "only an owner removes a date, and only that date goes": 0,
+   "a bring appends one side by the actor and keeps the other sides": 0,
+   "only the person who brings a side drops it, and only that side goes": 0,
+   "only people in the chat change anything": 2,
+   "no action changes the title or the away notes": 0
+  },
+  "survivors": [
+   {
+    "op": "remove-guard",
+    "line": 65,
+    "before": "if (s.events.some((e) => e.day.toLowerCase() === d.toLowerCase() && e.label.toLo…",
+    "after": ";"
+   }
+  ]
+ },
+ "weak": [
+  "no one is in a date twice",
+  "date ids are unique and there are at most 12",
+  "side ids are unique, at most 8, one side per person",
+  "only an owner removes a date, and only that date goes",
+  "a bring appends one side by the actor and keeps the other sides",
+  "only the person who brings a side drops it, and only that side goes",
+  "no action changes the title or the away notes"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

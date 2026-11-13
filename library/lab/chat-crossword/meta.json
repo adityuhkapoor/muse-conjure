@@ -1,0 +1,43 @@
+{
+  "id": "chat-crossword",
+  "name": "Chat crossword",
+  "surface": "gaming",
+  "summary": "A mini crossword made from the group chat: every clue is an inside reference, every square someone fills keeps their colour, wrong guesses show up gently in the log, and the finished grid shows who knew what and how long the group took.",
+  "useWhen": [
+    "make us a crossword out of the chat",
+    "monday mini but the clues are about us",
+    "a word game with our inside jokes as clues",
+    "crossword where arun's rice cooker is an answer",
+    "something to solve together this week"
+  ],
+  "dontUseWhen": [
+    "trivia with right answers about the world (use trivia-night)",
+    "guessing who said a quote (use who-said-it)",
+    "a quick poll or decision (use plan-spinner)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'The six mini'" },
+      "sub": { "type": "string", "description": "Line under the title, e.g. 'Monday · every clue is from the chat'" },
+      "rows": { "type": "array", "items": { "type": "string" }, "description": "The solved grid, 3 to 5 rows of equal length (3 to 5 letters); every across and down run must be a real word; '#' is a black square" },
+      "clues": {
+        "type": "array",
+        "description": "One clue per across and down word, by standard number and direction, written from the chat",
+        "items": { "type": "object", "properties": { "num": { "type": "integer" }, "dir": { "type": "string", "enum": ["across", "down"] }, "text": { "type": "string" } }, "required": ["num", "dir", "text"] }
+      },
+      "solved": {
+        "type": "array",
+        "description": "Words friends already filled: who and which answer",
+        "items": { "type": "object", "properties": { "name": { "type": "string" }, "answer": { "type": "string" } }, "required": ["name", "answer"] }
+      },
+      "misses": {
+        "type": "array",
+        "description": "Wrong tries already made: who, what they typed, and for which clue",
+        "items": { "type": "object", "properties": { "name": { "type": "string" }, "guess": { "type": "string" }, "num": { "type": "integer" }, "dir": { "type": "string", "enum": ["across", "down"] } }, "required": ["name", "guess", "num", "dir"] }
+      }
+    },
+    "required": ["rows", "clues"]
+  },
+  "height": 390
+}

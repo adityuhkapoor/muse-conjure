@@ -1,0 +1,91 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"item amounts add up to the receipt total\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"every item is a positive whole number of cents\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"personal shares add up to the items that have sharers\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"total, payer and item amounts never change by an action\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.6,
+  "typecheck": 109.2,
+  "static": 3.1,
+  "determinism": 101.2,
+  "invariants": 380.5,
+  "mutation": 425.4,
+  "render": 1041.9,
+  "copy": 3,
+  "render.browser": 0,
+  "render.mount": 67,
+  "render.taps": 347,
+  "render.lint": 987,
+  "render.axe": 1033,
+  "render.total": 1042,
+  "total": 1114.8
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 15,
+  "inert": 2,
+  "killed": 13,
+  "score": 0.87,
+  "threshold": 0.8,
+  "kills": {
+   "item amounts add up to the receipt total": 0,
+   "every item is a positive whole number of cents": 0,
+   "no one shares an item twice": 1,
+   "sharers, payer and paid people are in the chat": 8,
+   "the payer is never in the paid list": 1,
+   "personal shares add up to the items that have sharers": 0,
+   "a toggle flips only the actor on that one item": 1,
+   "all puts every member on that item, or clears it when everyone was on": 1,
+   "paid flips only the actor, and never the payer": 1,
+   "total, payer and item amounts never change by an action": 0,
+   "a change records its time": 2,
+   "only people in the chat change anything": 2
+  },
+  "survivors": [
+   {
+    "op": "negate-condition",
+    "line": 86,
+    "before": "action.t === \"paid\"",
+    "after": "!(action.t === \"paid\")"
+   },
+   {
+    "op": "flip-comparison",
+    "line": 86,
+    "before": "===",
+    "after": "!=="
+   }
+  ]
+ },
+ "weak": [
+  "item amounts add up to the receipt total",
+  "every item is a positive whole number of cents",
+  "personal shares add up to the items that have sharers",
+  "total, payer and item amounts never change by an action"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

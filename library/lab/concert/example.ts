@@ -1,0 +1,30 @@
+export default {
+  title: "SZA · SOS Tour",
+  when: "Fri, Apr 24",
+  venue: "Capital One Arena",
+  floor: { priceCents: 26500, together: 12 },
+  lower: [
+    { label: "101", priceCents: 12900, together: 6 },
+    { label: "102", priceCents: 14800, together: 4 },
+    { label: "103", priceCents: 17500, together: 8 },
+    { label: "104", priceCents: 14800, together: 6 },
+    { label: "105", priceCents: 12900, together: 5 },
+  ],
+  upper: [
+    { label: "201", priceCents: 7200, together: 10 },
+    { label: "202", priceCents: 8400, together: 8 },
+    { label: "203", priceCents: 9500, together: 6 },
+    { label: "204", priceCents: 8400, together: 8 },
+    { label: "205", priceCents: 7200, together: 10 },
+  ],
+  claimed: "104",
+  people: [
+    { name: "Maya", status: "in" },
+    { name: "Ana", status: "in" },
+    { name: "Leo", status: "in" },
+    { name: "Jess", status: "maybe" },
+    { name: "Rae", status: "out" },
+    { name: "Sam", status: "maybe" },
+  ],
+  note: { who: "Jess", text: "if it's <$150" },
+};

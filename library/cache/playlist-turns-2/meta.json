@@ -1,0 +1,73 @@
+{
+ "id": "playlist-turns-2",
+ "ask": "this is a mess fix it",
+ "kind": "playlist-turns",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Members take turns adding a few songs each to a shared playlist, with the turn passing around the group in order until the list is full.",
+ "use_when": [
+  "a group wants to build a shared playlist for a party or dinner",
+  "everyone should get a fair turn picking songs",
+  "you want to limit how many songs each person adds at once",
+  "you need a simple running list of songs and who added them"
+ ],
+ "dont_use_when": [
+  "the group wants to vote on or rank options, which needs a poll",
+  "you need to play music or link to a streaming service",
+  "you want free-for-all adding with no turn order"
+ ],
+ "keywords": [
+  "playlist",
+  "song turns",
+  "music",
+  "take turns",
+  "shared playlist",
+  "party music",
+  "song list",
+  "turn order",
+  "add songs",
+  "dinner playlist",
+  "group playlist",
+  "song picks"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 6
+ },
+ "mutation_score": 0.93,
+ "height": 252,
+ "params": {
+  "names": [
+   "Ana"
+  ],
+  "options": [],
+  "blanks": [],
+  "numbers": [
+   40
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "friendsgiving at ana's",
+  "members": [
+   "Leo",
+   "Ana",
+   "Priya",
+   "Rhea",
+   "Jake",
+   "Nora"
+  ],
+  "text": "friendsgiving saturday at my place, playlist is a disaster\nwho keeps adding 40 songs at once\nnot me i added 2\njake added like 12 country songs\nthey're good!!\ni added a sad song and got roasted\nok so basically 6 of us and its all jake and leo rn\ni only added 9\nwe need everyone to get a turn\nyeah like me nora and priya barely got anything in\ndinner at 6 people start coming at 5\nok ok i'll stop\nthis is a mess muse fix it"
+ },
+ "seconds": 125.3,
+ "attempts": 1,
+ "created": "2026-11-13T04:18:28.416Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 3,
+  "restHash": "bf36a7b5a46a6a00",
+  "playedHash": "b77e06a4b4856672"
+ }
+}

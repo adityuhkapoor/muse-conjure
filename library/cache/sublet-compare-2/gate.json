@@ -1,0 +1,82 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"no one keeps an empty score entry\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"every vote names a real sublet\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"vote counts add up to the number of voters\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"there are always 3 sublets and 4 criteria with unique ids\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the sublets and criteria never change\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.1,
+  "typecheck": 79.3,
+  "static": 2.9,
+  "determinism": 73.1,
+  "invariants": 233.3,
+  "mutation": 330.5,
+  "render": 963.1,
+  "copy": 1.9,
+  "render.browser": 0,
+  "render.mount": 47,
+  "render.taps": 284,
+  "render.lint": 909,
+  "render.axe": 955,
+  "render.total": 963,
+  "total": 1011.2
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 13,
+  "inert": 5,
+  "killed": 13,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "every score is a whole number from 1 to 5 on a real sublet and criterion": 5,
+   "no one keeps an empty score entry": 0,
+   "everyone with scores or a vote is in the chat": 4,
+   "every vote names a real sublet": 0,
+   "vote counts add up to the number of voters": 0,
+   "there are always 3 sublets and 4 criteria with unique ids": 0,
+   "a score sets the actor's own entry and changes no one else's score or any vote": 1,
+   "a vote sets or removes only the actor's own vote and changes no score": 2,
+   "a clear removes only the actor's scores and leaves votes alone": 1,
+   "only people in the chat change anything": 2,
+   "the sublets and criteria never change": 0
+  },
+  "survivors": []
+ },
+ "weak": [
+  "no one keeps an empty score entry",
+  "every vote names a real sublet",
+  "vote counts add up to the number of voters",
+  "there are always 3 sublets and 4 criteria with unique ids",
+  "the sublets and criteria never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

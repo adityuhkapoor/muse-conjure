@@ -1,0 +1,86 @@
+{
+  "id": "spots",
+  "name": "Open spots (ask to join, host accepts)",
+  "use_when": [
+    "a plan already exists and has a few open spots that people outside the core group can ask for",
+    "'open it up', 'we have 2 extra spots', 'room for 3 more', 'let people request to join', 'plus ones'",
+    "someone (the host) decides who gets each spot: accept or decline each request"
+  ],
+  "dont_use_when": [
+    "everyone in the chat is invited and the question is who is in (use lock)",
+    "first come first served seats or beds with no host deciding (use slots)",
+    "shifts or tasks people sign up for (use shifts)"
+  ],
+  "keywords": [
+    "open",
+    "spots",
+    "extra",
+    "request",
+    "requests",
+    "join",
+    "room",
+    "more",
+    "plus",
+    "invite",
+    "accept",
+    "approve",
+    "post",
+    "public",
+    "friends",
+    "people"
+  ],
+  "guarantees": [
+    "accepted people never outnumber the open spots; a spot never holds two people",
+    "only a host accepts or declines, and only a waiting ask; hosts never ask",
+    "one ask per person; withdrawing frees the spot; a declined ask stays declined",
+    "a leaver's spot opens again; if every host leaves, the first person in the chat becomes host; a late joiner can ask at once"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "description": "The plan, e.g. 'Tahoe cabin weekend'"
+      },
+      "detail": {
+        "type": "string",
+        "description": "One plain line with where, when, cost from the chat, e.g. 'Fri Jan 17 - Sun 19 · $85 each', or empty"
+      },
+      "spots": {
+        "type": "integer",
+        "description": "Open spots on offer, 1 to 10"
+      },
+      "hosts": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Names of the people running the plan, exactly as in the members list; empty means the first person in the chat"
+      }
+    },
+    "required": [
+      "title",
+      "detail",
+      "spots",
+      "hosts"
+    ],
+    "additionalProperties": false
+  },
+  "examples": [
+    {
+      "title": "Dinner at Nopa",
+      "detail": "Thu 8:15 · table for 8 · about $45 each",
+      "spots": 3,
+      "hosts": [
+        "Leo",
+        "Maya"
+      ]
+    },
+    {
+      "title": "Mt Tam sunrise hike",
+      "detail": "Sat 5:40 AM from the Pantoll lot",
+      "spots": 8,
+      "hosts": []
+    }
+  ]
+}

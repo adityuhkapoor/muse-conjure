@@ -1,0 +1,83 @@
+{
+ "id": "grocery-claims-1",
+ "ask": "can u make a poll for who's bringing what, we keep going back and forth",
+ "kind": "grocery-claims",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A shared list of items where each person taps an open item to claim it or taps their own to give it back, and anyone can add more items.",
+ "use_when": [
+  "A group is planning who brings what to a cookout, party, or potluck",
+  "People keep going back and forth about who covers which item",
+  "You need a claim list where each item has only one owner",
+  "The group wants to see which items are still open"
+ ],
+ "dont_use_when": [
+  "The group needs to vote on options or pick a winner",
+  "Costs need to be split or tracked between people",
+  "Tasks need due dates, reminders, or several owners per item"
+ ],
+ "keywords": [
+  "who brings what",
+  "claim list",
+  "sign up",
+  "potluck",
+  "cookout",
+  "party planning",
+  "grocery list",
+  "shopping list",
+  "bring list",
+  "assign items",
+  "open items",
+  "group checklist",
+  "food list"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 4
+ },
+ "mutation_score": 1,
+ "height": 398,
+ "params": {
+  "names": [
+   "Jake",
+   "Leo",
+   "Eli",
+   "Dre"
+  ],
+  "options": [
+   "Who's bringing what?",
+   "Grill and charcoal",
+   "Buns",
+   "Cheese slices",
+   "Chips",
+   "Watermelon",
+   "Hot dogs",
+   "Drinks",
+   "Ice"
+  ],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "sunday tailgate cookout",
+  "members": [
+   "Jake",
+   "Leo",
+   "Eli",
+   "Dre"
+  ],
+  "text": "ok so cookout sunday before the game at my place\nbet. what are we even grilling\nburgers and hot dogs, i can get the grill and charcoal\ni'll grab buns and the cheese slices from trader joes\ni dont have a car tho so i cant do anything heavy lol\ni can do the patties, like 3 lbs of ground beef from costco\nstill need drinks, chips, ketchup n stuff, and ice\ni said buns already dont put me down for 5 things\ni can carry chips and maybe a watermelon, its light enough\nwait who has the ice, that was gonna be you jake no\nnah i got grill + charcoal thats it. ice and drinks are open\nmuse can u make a poll for who's bringing what, we keep going back and forth"
+ },
+ "seconds": 107.3,
+ "attempts": 1,
+ "created": "2026-11-13T02:56:37.954Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 12,
+  "restHash": "ae3c9991f1382e4b",
+  "playedHash": "aeb9c448b1b13b33"
+ }
+}

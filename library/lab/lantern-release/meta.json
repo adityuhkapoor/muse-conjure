@@ -1,0 +1,41 @@
+{
+  "id": "lantern-release",
+  "name": "Lantern release",
+  "surface": "messenger",
+  "summary": "A night sky over the lake where each friend lets a paper lantern go with one wish for next year; lanterns drift and glow on their own, tap one to read its wish and warm it, or write yours and watch it rise off the shore.",
+  "useWhen": [
+    "last night of the semester, everyone say one wish for next year",
+    "new year wishes for the group",
+    "something calm for the end of finals",
+    "what do we want for 2027",
+    "let's do wishes before everyone goes home"
+  ],
+  "dontUseWhen": [
+    "new year plans with times and places (use midnight-route)",
+    "a recap of the year (use plans-map or wrapped)",
+    "goals with tracking and check-ins (use public-challenge)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Wishes for next year'" },
+      "place": { "type": "string", "description": "Line under the title, e.g. 'Lake Wren · last night of the semester'" },
+      "lanterns": {
+        "type": "array",
+        "description": "Lanterns already up",
+        "items": {
+          "type": "object",
+          "properties": {
+            "by": { "type": "string", "description": "First name" },
+            "wish": { "type": "string", "description": "Their wish in their words, 36 characters or fewer" },
+            "warmed": { "type": "array", "items": { "type": "string" }, "description": "Who already warmed it" }
+          },
+          "required": ["by", "wish"]
+        }
+      },
+      "hint": { "type": "string", "description": "Placeholder wish; used if someone lets go without typing" }
+    },
+    "required": ["lanterns"]
+  },
+  "height": 414
+}

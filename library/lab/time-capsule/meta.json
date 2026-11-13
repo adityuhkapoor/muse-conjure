@@ -1,0 +1,30 @@
+{
+  "id": "time-capsule",
+  "name": "Time capsule",
+  "surface": "messenger",
+  "summary": "A drawn time capsule for the chat: each friend drops in one sealed prediction about someone else, the capsule gets buried under a flag with the dig date, and on dig day it comes back up so everyone can mark each prediction came true or not.",
+  "useWhen": [
+    "where do you think we'll be in may",
+    "first night of junior year, predictions for the semester",
+    "let's write stuff to open at graduation",
+    "bet you'll still be single by spring, write it down",
+    "new year predictions for the group"
+  ],
+  "dontUseWhen": [
+    "a bet with a stake (use handshake-bet)",
+    "a reminder or countdown to an event (use countdown)",
+    "a recap of things that already happened (use wrapped)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title" },
+      "question": { "type": "string", "description": "The question from the chat, in their words" },
+      "dig": { "type": "string", "description": "Dig day as people say it, e.g. 'May 10'" },
+      "digAt": { "type": "integer", "description": "Dig day as a timestamp in milliseconds; the capsule opens only after it" },
+      "slips": { "type": "array", "items": { "type": "object", "properties": { "by": { "type": "string" }, "about": { "type": "string" }, "text": { "type": "string" } }, "required": ["by", "about", "text"] }, "description": "Predictions already in: who wrote it, who it is about (someone else), and the prediction in their own words; kind, never mean" }
+    },
+    "required": ["dig", "digAt"]
+  },
+  "height": 290
+}

@@ -1,0 +1,73 @@
+{
+ "id": "pregame-vote-2",
+ "ask": "bracket this",
+ "kind": "pregame-vote",
+ "family": "coord",
+ "surface": "event",
+ "sentence": "Runs a four-option knockout bracket where the group votes on two first-round matches, then a final, to pick one pregame activity.",
+ "use_when": [
+  "The group needs to pick one activity from four options",
+  "Someone asks to bracket or tournament-style vote on choices",
+  "A plain poll feels too loose and people want head-to-head picks",
+  "Choosing a pregame game or activity before an event"
+ ],
+ "dont_use_when": [
+  "There are more or fewer than four options to compare",
+  "The group wants a single quick poll with many options at once",
+  "People need to play an actual tournament with scores or results",
+  "Only one person is deciding"
+ ],
+ "keywords": [
+  "bracket",
+  "tournament",
+  "vote",
+  "pregame",
+  "head to head",
+  "knockout",
+  "pick one",
+  "activity",
+  "game night",
+  "elimination",
+  "final",
+  "group decision"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 4
+ },
+ "mutation_score": 0.8,
+ "height": 332,
+ "params": {
+  "names": [],
+  "options": [
+   "Mario Kart",
+   "Flip cup",
+   "Uno",
+   "Charades"
+  ],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "formal pregame @ dani's fri",
+  "members": [
+   "Dani",
+   "Bryan",
+   "June",
+   "Bea"
+  ],
+  "text": "event: pregame at my apt fri 8, formal is at 10 at the student union\ngoing\ngoing, wearing the green dress finally\ngoing, can only stay till 9:30 tho\nok we need stuff to do for like 90 min\nmario kart. i have the switch\nmario kart takes forever w 4+ ppl\nflip cup is faster\nwe only have like 10 cups\ncan grab solo cups at the dollar tree on the way\nuno?? chaotic\nuno with drinking rules is lowkey so fun\ncharades too, we did it at june's bday\nthat was elite\nok so mario kart, flip cup, uno, charades\nmusic wise whoever is closest to the aux\nno thats how we got 40 min of country last time\nlmao\nok that was my bad\nfine dani picks music\ncant agree on any of the games rn tho\nmuse bracket this"
+ },
+ "seconds": 171.7,
+ "attempts": 1,
+ "created": "2026-11-13T04:38:04.135Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 5,
+  "restHash": "9f339e336c260738",
+  "playedHash": "bb1c9239e6c419e3"
+ }
+}

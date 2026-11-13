@@ -1,0 +1,11 @@
+{
+  "id": "plan-spinner",
+  "name": "Plan spinner",
+  "origin": { "crate": "apps9", "id": "plan-spinner" },
+  "surface": "messenger",
+  "summary": "Three tapes pick an activity, food and an after plan the chat didn't veto, then people RSVP until it locks.",
+  "useWhen": ["a group can't pick weekend plans: 'idk anything', 'you pick'", "a few ideas per part of the day, some ruled out in the chat"],
+  "dontUseWhen": ["one question to vote on (use a poll)", "the plan is already set (use an RSVP)", "tonight's bar run with drink prices (use slot-machine)"],
+  "params": { "title": "string", "why": "string", "date": "string", "tapes": "1-3 x {name, options: {label, when, costCents, vetoedBy}[] (2-8)}", "rules": "{text, who}[]", "lockAt": "integer 2-12" },
+  "height": 252
+}

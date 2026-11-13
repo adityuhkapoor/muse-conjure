@@ -1,0 +1,38 @@
+{
+  "id": "night-strands",
+  "name": "Night strands",
+  "surface": "story",
+  "summary": "Everyone's stories from one night drawn left to right by time as one coloured strand per friend with each story a bead; strands braid where friends were in the same place and split where they weren't, and tapping a bead opens that moment to heart it.",
+  "useWhen": [
+    "everyone posted stories saturday, make the night into one thing",
+    "show where we all were last night and when we were together",
+    "recap of the night from the six's stories",
+    "who was where on friday, golden lantern then the anchor",
+    "turn last night's stories into a timeline we can heart"
+  ],
+  "dontUseWhen": [
+    "a recap of a whole trip or semester (use trip-story or semester-wrapped)",
+    "planning tonight (use plan-spinner or friends-plans)",
+    "checking everyone got home safe (send a direct message)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "The night, e.g. 'Saturday night'" },
+      "start": { "type": "string", "description": "First hour shown, e.g. '7pm'" },
+      "end": { "type": "string", "description": "Last hour shown, e.g. '1am'" },
+      "stories": {
+        "type": "array",
+        "description": "Every story from the night: who posted it, the time like '8:15pm', the place, and the caption in their words",
+        "items": { "type": "object", "properties": { "who": { "type": "string" }, "at": { "type": "string" }, "place": { "type": "string" }, "caption": { "type": "string" } }, "required": ["who", "at", "place"] }
+      },
+      "hearts": {
+        "type": "array",
+        "description": "Hearts already given: the 0-based index of the story and the names who hearted it",
+        "items": { "type": "object", "properties": { "story": { "type": "integer" }, "who": { "type": "array", "items": { "type": "string" } } }, "required": ["story", "who"] }
+      }
+    },
+    "required": ["stories"]
+  },
+  "height": 556
+}

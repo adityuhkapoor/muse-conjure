@@ -1,0 +1,88 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"no one appears twice on a room or slot\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"there are two rooms and four slots with unique ids\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"rooms and slots keep the labels from the chat\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"labels and notes never change\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.8,
+  "typecheck": 44.8,
+  "static": 1.7,
+  "determinism": 70.4,
+  "invariants": 228.2,
+  "mutation": 241.7,
+  "render": 917.9,
+  "copy": 1.1,
+  "render.browser": 0,
+  "render.mount": 49,
+  "render.taps": 260,
+  "render.lint": 873,
+  "render.axe": 912,
+  "render.total": 918,
+  "total": 952
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 15,
+  "inert": 4,
+  "killed": 13,
+  "score": 0.87,
+  "threshold": 0.8,
+  "kills": {
+   "no one appears twice on a room or slot": 0,
+   "every voter is in the chat": 4,
+   "there are two rooms and four slots with unique ids": 0,
+   "rooms and slots keep the labels from the chat": 0,
+   "a room vote flips the actor on that one room and changes no one else": 4,
+   "a slot vote flips the actor on that one slot and changes no one else": 4,
+   "clear removes only the actor's votes": 5,
+   "only people in the chat change anything": 2,
+   "labels and notes never change": 0
+  },
+  "survivors": [
+   {
+    "op": "negate-condition",
+    "line": 60,
+    "before": "action.t === \"clear\"",
+    "after": "!(action.t === \"clear\")"
+   },
+   {
+    "op": "flip-comparison",
+    "line": 60,
+    "before": "===",
+    "after": "!=="
+   }
+  ]
+ },
+ "weak": [
+  "no one appears twice on a room or slot",
+  "there are two rooms and four slots with unique ids",
+  "rooms and slots keep the labels from the chat",
+  "labels and notes never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

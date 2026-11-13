@@ -1,0 +1,54 @@
+{
+  "id": "snow-day",
+  "name": "Snow day",
+  "surface": "feed",
+  "summary": "A canceled-classes post becomes the sledding hill: sleds and dining hall trays wait at the top, tap to grab one and your face rides it down to the others, and whoever brings trays shows under the hill.",
+  "useWhen": [
+    "CLASSES CANCELED tuesday who's sledding",
+    "snow day!! miller hill at 1?",
+    "who has trays from the dining hall",
+    "sledding this afternoon, who's in",
+    "it's dumping snow, hill later?"
+  ],
+  "dontUseWhen": [
+    "an ordinary plan with no snow or hill (use squad-lock)",
+    "rides to somewhere far (use carpool)",
+    "a weather check for an outdoor plan (use clear-skies)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, sentence case, e.g. 'Snow day on Miller Hill'" },
+      "post": { "type": "string", "description": "The post that started it, e.g. 'Eastfield · classes canceled Tuesday'" },
+      "place": { "type": "string", "description": "The hill's name on the sign" },
+      "time": { "type": "string", "description": "When everyone meets, e.g. '1pm'" },
+      "riders": {
+        "type": "array",
+        "description": "Who is already going, in the order they said so",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string", "description": "First name" },
+            "said": { "type": "string", "description": "What they said about it, in their own words" }
+          },
+          "required": ["name"]
+        }
+      },
+      "gear": {
+        "type": "array",
+        "description": "Who is bringing something to ride",
+        "items": {
+          "type": "object",
+          "properties": {
+            "by": { "type": "string", "description": "First name" },
+            "kind": { "type": "string", "enum": ["tray", "sled"], "description": "A dining hall tray or a real sled" },
+            "n": { "type": "number", "description": "How many, 1 to 3" }
+          },
+          "required": ["by", "kind", "n"]
+        }
+      }
+    },
+    "required": ["place", "riders"]
+  },
+  "height": 396
+}

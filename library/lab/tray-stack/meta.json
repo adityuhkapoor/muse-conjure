@@ -1,0 +1,38 @@
+{
+  "id": "tray-stack",
+  "name": "Tray stack",
+  "surface": "gaming",
+  "summary": "A stacking game in the dining hall: today's food swings over your tray on a serving scoop, tap to drop each piece, the tower leans as it goes off-centre and comes down when the weight hangs past an edge. Height is the score; friends' faces sit on a ruler at the height they reached.",
+  "useWhen": [
+    "arun stacked 23 things on his tray at hollis, beat that",
+    "a quick game about the dining hall",
+    "something to play while we wait in the brunch line",
+    "challenge the group to a stacking game",
+    "dining hall food tower contest"
+  ],
+  "dontUseWhen": [
+    "deciding where to eat (use dinner-veto)",
+    "planning a grocery run (use grocery)",
+    "a game with words or trivia (use trivia-night)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Tray stack'" },
+      "sub": { "type": "string", "description": "Line under the title, e.g. 'Hollis Dining Hall · tap to drop'" },
+      "menu": { "type": "string", "description": "Words on the menu board on the wall, e.g. 'Hollis · Sunday brunch'" },
+      "foods": {
+        "type": "array",
+        "description": "Foods on the line today, 1 to 8: a name and a drawn kind",
+        "items": { "type": "object", "properties": { "name": { "type": "string" }, "kind": { "type": "string", "enum": ["waffle", "mac", "cereal", "jello", "pancake", "rice", "toast", "donut"] } }, "required": ["name", "kind"] }
+      },
+      "board": {
+        "type": "array",
+        "description": "Friends' best stacks already played: name, items stacked, an optional line in their words",
+        "items": { "type": "object", "properties": { "name": { "type": "string" }, "best": { "type": "integer" }, "said": { "type": "string" } }, "required": ["name", "best"] }
+      }
+    },
+    "required": ["foods"]
+  },
+  "height": 390
+}

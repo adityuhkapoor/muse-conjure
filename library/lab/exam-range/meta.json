@@ -1,0 +1,44 @@
+{
+  "id": "exam-range",
+  "name": "Exam range",
+  "surface": "messenger",
+  "summary": "Everyone's finals drawn as two weeks of mountains: each exam is a peak in its owner's color, as tall as they said it was scary, the valleys are when people can hang, and the first meadow after the last peak is where the end of finals dinner goes; add your exam, make it scarier, then lock the dinner as an event.",
+  "useWhen": [
+    "when are everyone's finals",
+    "when r we all done with exams",
+    "end of finals dinner when everyone's free??",
+    "post ur exam schedule so we can plan",
+    "can we hang at all during finals week"
+  ],
+  "dontUseWhen": [
+    "one person's study plan (use a reminder)",
+    "picking a weekend far ahead (use clear-skies or meeting-time)",
+    "quizzing each other (use exam-quiz)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Finals range'" },
+      "sub": { "type": "string", "description": "Line under the title: the chat and the span, e.g. 'orgo survivors · Dec 8 to 19'" },
+      "days": { "type": "array", "items": { "type": "string" }, "description": "5 to 16 days in order, short weekday and date, e.g. 'Mon 8'" },
+      "dinner": { "type": "object", "properties": { "place": { "type": "string", "description": "Where the dinner is" }, "time": { "type": "string", "description": "e.g. '7pm'" } }, "description": "The celebration once everyone is done" },
+      "exams": {
+        "type": "array",
+        "description": "Exams already posted in the chat",
+        "items": {
+          "type": "object",
+          "properties": {
+            "who": { "type": "string", "description": "Whose exam (name in the chat)" },
+            "course": { "type": "string", "description": "Short course name, e.g. 'orgo'" },
+            "day": { "type": "integer", "description": "Index into days" },
+            "fear": { "type": "integer", "description": "How scared they said they were, 1 to 5; sets the peak height" },
+            "said": { "type": "string", "description": "What they said about it, in their words" }
+          },
+          "required": ["who", "course", "day"]
+        }
+      }
+    },
+    "required": ["days", "exams"]
+  },
+  "height": 380
+}

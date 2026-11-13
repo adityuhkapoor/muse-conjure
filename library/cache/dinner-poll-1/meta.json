@@ -1,0 +1,67 @@
+{
+ "id": "dinner-poll-1",
+ "ask": "can u make a poll for dumpling house, siam corner, el patron and joe's",
+ "kind": "dinner-poll",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A single-choice poll where each person votes for one restaurant from a fixed list, can change or withdraw their vote, and sees live counts and who voted.",
+ "use_when": [
+  "a group needs to pick one place to eat from a short list",
+  "people want to see vote counts and who chose what",
+  "voters may change their mind before a deadline",
+  "a quick decision among a few set options"
+ ],
+ "dont_use_when": [
+  "people need to pick more than one option or rank choices",
+  "the options must be added or edited after the poll starts",
+  "you need a split of a bill or an order list rather than a vote"
+ ],
+ "keywords": [
+  "dinner poll",
+  "restaurant vote",
+  "where to eat",
+  "poll",
+  "vote",
+  "single choice",
+  "group decision",
+  "lunch poll",
+  "food choice",
+  "pick a place",
+  "live tally",
+  "fixed options"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 5
+ },
+ "mutation_score": 1,
+ "height": 326,
+ "params": {
+  "names": [],
+  "options": [],
+  "numbers": []
+ },
+ "fact_bound": false,
+ "origin": {
+  "title": "thursday dinner crew",
+  "members": [
+   "Nora",
+   "Dev",
+   "Jess",
+   "Abby",
+   "Ravi"
+  ],
+  "text": "ok where are we eating tn\nidk im starving\nnot pizza again pls\nwe said dumpling house like 3 times\ndumpling house has a 40 min wait on thursdays tho\ntrue. what about siam corner\nsiam corner is good and its cheap\ni could do thai or tacos\nwhich tacos\nel patron by the library\nel patron has the $2 taco thing til 8\nok so thats dumpling house, siam corner, el patron\nand joe's if we give up\nwe are not giving up on night one lol\ni vote el patron fr\ni want dumplings but not waiting\ni dont even care i just want food\nsame honestly\nok we literally keep going in circles\nwe need to just decide, 7:30 is when everything gets packed\nmuse can u make a poll for dumpling house, siam corner, el patron and joe's"
+ },
+ "seconds": 24.7,
+ "attempts": 1,
+ "created": "2026-11-13T02:19:14.259Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 4,
+  "restHash": "9f39310733333173",
+  "playedHash": "9e3ae18d85a1397a"
+ }
+}

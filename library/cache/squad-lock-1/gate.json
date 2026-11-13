@@ -1,0 +1,83 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"a locked plan has enough going, and the locker is going and in the chat\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"an open plan has no locker\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"only the locker can unlock\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"answers do not change while the plan is locked\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the plan itself never changes\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.1,
+  "typecheck": 58.9,
+  "static": 2.3,
+  "determinism": 34.8,
+  "invariants": 190.7,
+  "mutation": 234.2,
+  "render": 949,
+  "copy": 1.7,
+  "render.browser": 0,
+  "render.mount": 36,
+  "render.taps": 282,
+  "render.lint": 897,
+  "render.axe": 943,
+  "render.total": 949,
+  "total": 988.4
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 13,
+  "inert": 1,
+  "killed": 13,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "at most one answer per person": 1,
+   "everyone with an answer is in the chat": 3,
+   "every status is valid and every note is short and tidy": 3,
+   "a locked plan has enough going, and the locker is going and in the chat": 0,
+   "an open plan has no locker": 0,
+   "a set changes only the actor's own answer to the given status and note": 6,
+   "a clear removes only the actor's own answer": 3,
+   "a lock needs enough going and the actor going, and sets the actor as locker": 1,
+   "only the locker can unlock": 0,
+   "answers do not change while the plan is locked": 0,
+   "the plan itself never changes": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "a locked plan has enough going, and the locker is going and in the chat",
+  "an open plan has no locker",
+  "only the locker can unlock",
+  "answers do not change while the plan is locked",
+  "the plan itself never changes"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

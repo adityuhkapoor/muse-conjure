@@ -1,0 +1,74 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"today is a whole day from 1 to the length of the pact\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the pact keeps its length, buy-in and miss cost\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"an uncheck removes exactly that day from the actor's list and no one else's\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1,
+  "typecheck": 55.1,
+  "static": 2.7,
+  "determinism": 39.2,
+  "invariants": 87.5,
+  "mutation": 156.5,
+  "render": 918.6,
+  "copy": 1.6,
+  "render.browser": 0,
+  "render.mount": 51,
+  "render.taps": 257,
+  "render.lint": 870,
+  "render.axe": 914,
+  "render.total": 919,
+  "total": 962.2
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 16,
+  "inert": 1,
+  "killed": 16,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "today is a whole day from 1 to the length of the pact": 0,
+   "everyone in the pact and the counter are in the chat": 4,
+   "no one is in twice and every check belongs to someone in": 1,
+   "check lists are sorted unique days from 1 to today": 2,
+   "the counter is empty or in the pact": 4,
+   "the pact keeps its length, buy-in and miss cost": 0,
+   "a join adds only the actor and takes the count if no one has it": 3,
+   "a check adds exactly that day to the actor's list and no one else's": 2,
+   "an uncheck removes exactly that day from the actor's list and no one else's": 0,
+   "next raises today by one and only for the counter": 5,
+   "only the counter changes today": 4,
+   "taking the count makes the actor the counter and only changes that": 1,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "today is a whole day from 1 to the length of the pact",
+  "the pact keeps its length, buy-in and miss cost",
+  "an uncheck removes exactly that day from the actor's list and no one else's"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

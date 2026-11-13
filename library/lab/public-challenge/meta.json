@@ -1,0 +1,11 @@
+{
+  "id": "public-challenge",
+  "name": "Public challenge",
+  "origin": { "crate": "apps12", "id": "public-challenge" },
+  "surface": "feed",
+  "summary": "A friend's public 30-day challenge as a flame wall: join, check in each day, keep your streak and hype the crew.",
+  "useWhen": ["a post starting a daily challenge others can join: gym, running, no phone after 11", "'30 day challenge, who's in', 'streak check'"],
+  "dontUseWhen": ["a one-off event (use an RSVP)", "a private streak in a group chat (use gym)", "anything scored head to head (use challenge-friend)"],
+  "params": { "title": "challenge name", "host": "who posted it", "hostLine": "the host's hype line", "today": "day number 1-60", "of": "length in days, 7-60", "others": "people outside your friends who joined", "crew": "up to 8 x {name, days: 'x' went, '.' missed, ' ' not joined yet, one per day up to today}" },
+  "height": 374
+}

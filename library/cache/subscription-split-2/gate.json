@@ -1,0 +1,78 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"users have no repeats and are never empty\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"cents are whole and above zero, ids are unique\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a join flips only the actor in users, and a leaver comes off paid\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"no action changes a payer, a total or a label\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.1,
+  "typecheck": 68.9,
+  "static": 3.1,
+  "determinism": 50.5,
+  "invariants": 185.1,
+  "mutation": 264.1,
+  "render": 1004.2,
+  "copy": 1.8,
+  "render.browser": 0,
+  "render.mount": 30,
+  "render.taps": 315,
+  "render.lint": 954,
+  "render.axe": 998,
+  "render.total": 1004,
+  "total": 1060
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 12,
+  "inert": 3,
+  "killed": 12,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "every payer, user and paid entry is in the chat": 6,
+   "paid is a subset of users, without repeats, and never has the payer": 5,
+   "the payer is one of the users": 2,
+   "users have no repeats and are never empty": 0,
+   "cents are whole and above zero, ids are unique": 0,
+   "shares add up to the bill exactly": 2,
+   "a paid adds only the actor, a user who is not the payer, to that sub's paid list": 3,
+   "an unpaid removes only the actor from that sub's paid list": 1,
+   "a confirm adds exactly the named user, and only the payer can do it": 1,
+   "a join flips only the actor in users, and a leaver comes off paid": 0,
+   "no action changes a payer, a total or a label": 0,
+   "only people in the chat change anything": 1
+  },
+  "survivors": []
+ },
+ "weak": [
+  "users have no repeats and are never empty",
+  "cents are whole and above zero, ids are unique",
+  "a join flips only the actor in users, and a leaver comes off paid",
+  "no action changes a payer, a total or a label"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

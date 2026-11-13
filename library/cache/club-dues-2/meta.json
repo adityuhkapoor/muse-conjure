@@ -1,0 +1,77 @@
+{
+ "id": "club-dues-2",
+ "ask": "ok muse do your thing",
+ "kind": "club-dues",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Tracks who has paid a fixed share toward a group goal, shows progress, separates cash held by others from cash handed to the collector, and lets the collector waive a share.",
+ "use_when": [
+  "A group is collecting equal dues toward a shared cost like a deposit or deadline payment",
+  "People pay cash to different members and you need to see what has not reached the collector yet",
+  "You want a progress bar showing how much is collected and how much is short",
+  "The collector needs to excuse someone's share"
+ ],
+ "dont_use_when": [
+  "Splitting uneven bills or shared expenses between people after the fact",
+  "Moving real money or processing card payments",
+  "Voting or polling the group on a choice"
+ ],
+ "keywords": [
+  "dues",
+  "collect money",
+  "club dues",
+  "deposit",
+  "payment tracker",
+  "who paid",
+  "cash",
+  "fundraising",
+  "group payment",
+  "collector",
+  "waive",
+  "progress bar",
+  "shortfall"
+ ],
+ "members": {
+  "min": 2,
+  "max": 20,
+  "original": 4
+ },
+ "mutation_score": 0.93,
+ "height": 334,
+ "params": {
+  "names": [
+   "Ana",
+   "Omar",
+   "Paige",
+   "Luis"
+  ],
+  "options": [],
+  "blanks": [],
+  "numbers": [
+   3500,
+   14000,
+   2500
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "hiking club dues",
+  "members": [
+   "Ana",
+   "Omar",
+   "Paige",
+   "Luis"
+  ],
+  "text": "ok hiking club dues time, its $35 for the semester\ni thought it was $30\nit went up bc of the van rental for the shenandoah trip\nohh ok. i can venmo rn\nsent $35\ngot it thx paige\ni gave omar 35 cash at the coffee shop on monday\nyeah he did, i forgot to tell u ana\ni havent paid mine tho lol\nomar ur literally the treasurer's roommate\ni KNOW\nso who is left\ni think me omar and... idk\ni paid, paige paid, so just you two?\ni paid in august with the early bird thing, that was $25\nso does ana owe 10 more\nno the early bird was supposed to be the full thing before the price went up\nok but then how much total do we have\n35 + 35 + 25 = 95? and omar's cash\ni have luis's 35 in my pocket still not given to ana\nwe need 140 for the van deposit by monday\nwait so are we short or not\nok muse do your thing"
+ },
+ "seconds": 125.4,
+ "attempts": 1,
+ "created": "2026-11-13T04:44:07.712Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 2,
+  "restHash": "83fc3ff019c0f80d",
+  "playedHash": "83fc3ff019e0cc19"
+ }
+}

@@ -1,0 +1,64 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"the spots are the six from the chat, with unique ids\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"labels and ids never change\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.8,
+  "typecheck": 39.2,
+  "static": 1.7,
+  "determinism": 43.8,
+  "invariants": 127.8,
+  "mutation": 143.5,
+  "render": 895.5,
+  "copy": 0.9,
+  "render.browser": 0,
+  "render.mount": 48,
+  "render.taps": 233,
+  "render.lint": 848,
+  "render.axe": 890,
+  "render.total": 895,
+  "total": 923.1
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 12,
+  "inert": 6,
+  "killed": 12,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "no one holds more than one spot": 3,
+   "every holder is in the chat": 4,
+   "the spots are the six from the chat, with unique ids": 0,
+   "held spots never exceed the spots or the people": 6,
+   "a claim fills the named open spot with the actor and changes no other spot": 5,
+   "a release empties the named spot, and only the holder can do it": 3,
+   "only people in the chat change anything": 2,
+   "labels and ids never change": 0
+  },
+  "survivors": []
+ },
+ "weak": [
+  "the spots are the six from the chat, with unique ids",
+  "labels and ids never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

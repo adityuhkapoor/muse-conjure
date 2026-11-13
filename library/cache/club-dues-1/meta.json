@@ -1,0 +1,83 @@
+{
+ "id": "club-dues-1",
+ "ask": "muse split?",
+ "kind": "club-dues",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Splits a fixed bill evenly across everyone in the chat, shows who has paid and who still owes, and lets members mark themselves paid or the collector confirm payments.",
+ "use_when": [
+  "Splitting a shared cost like league fees or team gear evenly among the group",
+  "Tracking who has paid one person who is collecting the money",
+  "Checking how much is still owed before a due date",
+  "Collecting dues from a team, club or class"
+ ],
+ "dont_use_when": [
+  "Splitting by different amounts per person or by who ate what",
+  "Tracking running expenses or debts between friends over time",
+  "Actually sending money or taking card payments",
+  "Voting or polling on a decision"
+ ],
+ "keywords": [
+  "split bill",
+  "bill split",
+  "club dues",
+  "league fee",
+  "who owes",
+  "collect money",
+  "split cost",
+  "payment tracker",
+  "even split",
+  "team fees",
+  "mark paid",
+  "shared expense",
+  "dues"
+ ],
+ "members": {
+  "min": 2,
+  "max": 30,
+  "original": 6
+ },
+ "mutation_score": 1,
+ "height": 300,
+ "params": {
+  "names": [
+   "Dev",
+   "Abby",
+   "Theo",
+   "Ty"
+  ],
+  "options": [
+   "League fee",
+   "Pinnies"
+  ],
+  "blanks": [],
+  "numbers": [
+   12000,
+   1500,
+   2000
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "rec soccer thursday league",
+  "members": [
+   "Dev",
+   "Tyler",
+   "Abby",
+   "Theo",
+   "Tess",
+   "Ty"
+  ],
+  "text": "ok league fee is $120 per team and we need it by friday\nso 6 of us thats $20 each right\nyeah $20 each. i venmo'd dev last night\nyep got abby's\ni paid dev cash after class tuesday\nya theo gave me 20 in cash, i have it in my backpack lol\nugh i forgot. i can do it tmrw\ni sent 20 this morning, check ur venmo\noh yea ty got it\ni havent yet lol payday is thursday\ntyler u always say that\nno this time i mean it\nalso we need new pinnies, ref said ours are gross\nlol ok that's like $15 extra total, i can grab them at dicks\ndoes that go on top of the 20?\nya so like 120 + 15 = 135\nso 6 ppl so 22.50 each?? idk\nwait but i already paid 20, do i owe 2.50 more\nugh yeah i guess everyone owes 2.50 more then\nmy brain hurts\nwho even has paid at this point\nabby theo ty paid i think, then me and tess not\nyea but im also not sure if i paid my own share lol\ndev you ARE the one collecting, did you put in your 20\nmuse split?"
+ },
+ "seconds": 108.3,
+ "attempts": 1,
+ "created": "2026-11-13T03:09:24.664Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 3,
+  "restHash": "82bdbd5ab081b5ca",
+  "playedHash": "837f7e81b181fcc0"
+ }
+}

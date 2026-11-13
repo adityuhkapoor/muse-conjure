@@ -1,0 +1,33 @@
+{
+  "id": "rice-strata",
+  "name": "Rice strata",
+  "surface": "messenger",
+  "summary": "The apartment's shared rice drawn as a cut-away rice cooker filling up in layers like rock strata: every scoop someone logs is a band in their colour stacked in the order it happened, with day marks on the side, while the bag beside it drains. When the bag runs out, whoever ate the most buys the next one.",
+  "useWhen": [
+    "who keeps eating all the rice",
+    "arun's rice cooker log, who buys the next bag",
+    "track the shared rice bag",
+    "we're out of rice again, who ate it",
+    "shared groceries but just the rice lol"
+  ],
+  "dontUseWhen": [
+    "a full grocery list (use grocery)",
+    "splitting the cost of a purchase (use split-purchase)",
+    "chores around the apartment (use chore-wheel)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Arun's rice cooker'" },
+      "sub": { "type": "string", "description": "Line under the title, e.g. 'it makes everything · 20 lb bag'" },
+      "bag": { "type": "integer", "description": "Cups in a full bag, 6 to 80" },
+      "scoops": {
+        "type": "array",
+        "description": "Scoops so far, oldest first: who, cups 1 to 3, a short day label like 'Mon', and an optional line in their words",
+        "items": { "type": "object", "properties": { "name": { "type": "string" }, "cups": { "type": "integer" }, "day": { "type": "string" }, "said": { "type": "string" } }, "required": ["name", "cups"] }
+      }
+    },
+    "required": ["bag"]
+  },
+  "height": 390
+}

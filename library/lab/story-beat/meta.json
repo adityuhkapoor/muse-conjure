@@ -1,0 +1,11 @@
+{
+  "id": "story-beat",
+  "name": "Squad beat",
+  "origin": { "crate": "apps15", "id": "story-beat" },
+  "surface": "story",
+  "summary": "The group builds an 8-step beat out of friends' shouts and posts the loop to a story.",
+  "useWhen": ["friends keep quoting each other's catchphrases and want something silly for a story", "a creative toy for a group story"],
+  "dontUseWhen": ["a recap of real events (use semester-wrapped or trip-story)", "anything that needs a decision"],
+  "params": { "rows": "1 to 4 rows: who (a name from the chat) and shout (their catchphrase, exactly as said in the chat)", "grid": "optional starting pattern per row, 8 characters of x and ." },
+  "height": 520
+}

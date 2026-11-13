@@ -1,0 +1,83 @@
+{
+ "id": "packing-split-2",
+ "ask": "muse mkae a splitter thing so we dont all bring the same stuff plz",
+ "kind": "packing-split",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A shared checklist of items to bring on a trip where each person taps an open item to claim it, taps their own to release it, and anyone can add new items.",
+ "use_when": [
+  "A group is packing for a trip and wants to avoid bringing duplicate gear",
+  "Friends need to divide who brings shared items like coolers, tents, or speakers",
+  "Everyone should see which items are still unclaimed",
+  "A potluck or party needs people to sign up for things to bring"
+ ],
+ "dont_use_when": [
+  "Splitting money or expenses between people",
+  "Scheduling dates or times or voting on a choice",
+  "Tracking personal to-do tasks or a private packing list"
+ ],
+ "keywords": [
+  "packing list",
+  "who brings what",
+  "gear claim",
+  "bring list",
+  "sign up",
+  "road trip",
+  "camping",
+  "potluck",
+  "claim items",
+  "shared checklist",
+  "avoid duplicates",
+  "trip planning"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 5
+ },
+ "mutation_score": 1,
+ "height": 382,
+ "params": {
+  "names": [
+   "Theo",
+   "Nora",
+   "Omar",
+   "Felix",
+   "June"
+  ],
+  "options": [
+   "Speaker",
+   "4 person tent",
+   "2 person tent",
+   "Sleeping bags"
+  ],
+  "blanks": [
+   "UE Boom",
+   "Blue Igloo",
+   "REI"
+  ],
+  "numbers": []
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "austin road trip",
+  "members": [
+   "Theo",
+   "Nora",
+   "Omar",
+   "Felix",
+   "June"
+  ],
+  "text": "road trip to austin in 2 weeks!! gear check\ni can bring the speaker, got a ue boom\ni was gonna bring mine too ngl\none speaker is enough lol\nfelix u bring the aux cable and phone charger thing then\nfine ok. i have a car charger that does 3 ports\ni got the cooler, the blue igloo one\ni have a cooler too tho, smaller\njune bring the small one for drinks, theo's for food\nok deal\ntent?? we're camping the first night at bastrop\nmy brother's 4 person tent, can borrow\nwe need 2 tents for 5 ppl no?\ni have a 2 person tent from rei\nok nice that works\ni have uno and a deck of cards\nnora u got the sleeping bags right\ni have 2 extras but need 1 more\nmuse mkae a splitter thing so we dont all bring the same stuff plz"
+ },
+ "seconds": 117,
+ "attempts": 1,
+ "created": "2026-11-13T04:59:09.437Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 10,
+  "restHash": "af33933437363452",
+  "playedHash": "af26d2b1b1b22e34"
+ }
+}

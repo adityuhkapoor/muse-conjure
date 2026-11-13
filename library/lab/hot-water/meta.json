@@ -1,0 +1,32 @@
+{
+  "id": "hot-water",
+  "name": "Hot water",
+  "surface": "messenger",
+  "summary": "A shower schedule for a shared apartment drawn as the water heater and a curve of hot water left across the morning: everyone's shower is a block on the timeline, the curve dips with each one and refills between, stretches with no hot water turn blue, and tapping the timeline or finding a hot slot books yours.",
+  "useWhen": [
+    "who keeps using all the hot water",
+    "shower schedule for tomorrow morning, we all have 9ams",
+    "will took a 25 minute shower again",
+    "can we figure out the bathroom before class",
+    "i got cold water AGAIN"
+  ],
+  "dontUseWhen": [
+    "splitting the utility bill (use utilities-split)",
+    "a chore rotation (use chore-wheel)",
+    "booking a shared room or space for a whole day"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "place": { "type": "string", "description": "Where, e.g. '412 Pine'" },
+      "startHour": { "type": "integer", "description": "Clock hour the timeline starts at, 0 to 23" },
+      "window": { "type": "integer", "description": "Minutes the timeline covers, 60 to 180" },
+      "tank": { "type": "integer", "description": "Minutes of hot shower a full tank gives" },
+      "refill": { "type": "integer", "description": "Tank refill per idle minute, in tenths of a minute (4 means 0.4 min)" },
+      "usual": { "type": "integer", "description": "Default shower length in minutes when someone taps" },
+      "showers": { "type": "array", "items": { "type": "object", "properties": { "who": { "type": "string" }, "at": { "type": "integer", "description": "Minutes after the start" }, "len": { "type": "integer", "description": "Minutes, 3 to 30" }, "said": { "type": "string" } }, "required": ["who", "at", "len"] }, "description": "Showers already booked, no overlaps, with what people said in their own words" }
+    },
+    "required": ["showers"]
+  },
+  "height": 380
+}

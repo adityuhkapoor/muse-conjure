@@ -1,0 +1,31 @@
+{
+  "id": "reel-map",
+  "name": "Reel map",
+  "surface": "reel",
+  "summary": "A trip reel pulled apart into its spots and pinned on a drawn city map; friends tap the spots they want, the route draws itself through the ones enough people picked, and the weekend goes to a vote.",
+  "useWhen": [
+    "we need to do this exact trip (someone shared a city reel)",
+    "this reel has like 5 spots, which ones are we actually doing",
+    "can we plan a weekend off this tiktok of montreal",
+    "map out the places from that reel and see who wants what",
+    "turn the travel reel into an actual route"
+  ],
+  "dontUseWhen": [
+    "a single hike or one activity from a reel (use reel-hike-plan or reel-to-try)",
+    "locking dates and costs for a trip already decided (use trip-lock)",
+    "drafting who plans which part of the trip (use trip-draft)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "city": { "type": "string", "description": "The city in the reel" },
+      "from": { "type": "string", "description": "Who shared the reel" },
+      "quote": { "type": "string", "description": "What they said when sharing it" },
+      "spots": { "type": "array", "description": "3 to 6 spots in the order the reel visits them", "items": { "type": "object", "properties": { "name": { "type": "string", "description": "The spot" }, "kind": { "type": "string", "description": "Drawing: bread, park, storefront, book, coffee, curry, ramen, pizza, venue, campus and the other thumb kinds" }, "x": { "type": "integer", "description": "Left to right on the map, 100 to 900" }, "y": { "type": "integer", "description": "Top to bottom on the map, 120 to 800" } }, "required": ["name", "x", "y"] } },
+      "wants": { "type": "array", "description": "Spots people already picked", "items": { "type": "object", "properties": { "who": { "type": "string", "description": "Name" }, "spots": { "type": "array", "items": { "type": "integer" }, "description": "Indexes into spots" }, "note": { "type": "string", "description": "A line in their words" } }, "required": ["who", "spots"] } },
+      "weekend": { "type": "string", "description": "The dates that go to a vote" }
+    },
+    "required": ["city", "spots"]
+  },
+  "height": 470
+}

@@ -1,0 +1,10 @@
+{
+  "name": "@muse/library",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "exports": { ".": "./index.ts", "./*": "./pieces/*/piece.tsx" },
+  "scripts": { "test": "bun test" },
+  "dependencies": { "@muse/app": "workspace:*" },
+  "devDependencies": { "@muse/verify": "workspace:*", "@types/bun": "^1.3.0" }
+}

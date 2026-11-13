@@ -1,0 +1,66 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"no buyer has more than 4 tickets\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a buy or drop never changes the start time\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.2,
+  "typecheck": 60.6,
+  "static": 2.1,
+  "determinism": 41.3,
+  "invariants": 86.3,
+  "mutation": 151.1,
+  "render": 976.4,
+  "copy": 1.4,
+  "render.browser": 0,
+  "render.mount": 52,
+  "render.taps": 240,
+  "render.lint": 913,
+  "render.axe": 969,
+  "render.total": 976,
+  "total": 1021.9
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 14,
+  "inert": 3,
+  "killed": 14,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "no buyer has more than 4 tickets": 0,
+   "each person has at most one ticket arranged": 2,
+   "people and buyers in tickets are in the chat": 4,
+   "start time is null or a positive whole number": 3,
+   "no start time means no one set it, and setter is in the chat": 4,
+   "a buy adds one ticket for the asked person with the actor as buyer and keeps the rest": 1,
+   "a drop removes one ticket and only when the actor was its buyer": 1,
+   "a set start sets the time from now and the setter, and leaves tickets alone": 2,
+   "a buy or drop never changes the start time": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "no buyer has more than 4 tickets",
+  "a buy or drop never changes the start time"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

@@ -1,0 +1,68 @@
+{
+ "id": "chat-wrapped-1",
+ "ask": "mkae a wrapped card of ths chat, msgs per person most used word and busiest time",
+ "kind": "chat-wrapped",
+ "family": "recap",
+ "surface": "chat",
+ "sentence": "A shared wrapped card where each person enters their own message count, most used word and busiest hour, and the card shows message bars per person, the top word and the busiest time.",
+ "use_when": [
+  "Someone wants a wrapped-style summary card for a group chat",
+  "People want to compare how many messages each person sent",
+  "The group wants to see the most used word and busiest time of day"
+ ],
+ "dont_use_when": [
+  "The numbers must be counted automatically from the real chat history",
+  "The group wants a vote or poll on a question",
+  "Someone wants a long-term stats chart or a report over many months"
+ ],
+ "keywords": [
+  "chat wrapped",
+  "wrapped card",
+  "message count",
+  "messages per person",
+  "most used word",
+  "busiest time",
+  "busiest hour",
+  "chat stats",
+  "group recap",
+  "year in review",
+  "leaderboard",
+  "top word"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 6
+ },
+ "mutation_score": 1,
+ "height": 352,
+ "params": {
+  "names": [],
+  "options": [],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "3rd floor lounge crew",
+  "members": [
+   "Theo",
+   "Cam",
+   "Owen",
+   "Rohan",
+   "Ravi",
+   "Eli"
+  ],
+  "text": "its literally 2am why are we all awake\norgo midterm tmrw thats why\ni been on this chat since 11 fr\nngl the 2am hours in here hit different\nwe do this every thursday lol\nbro i said lowkey like 40 times today\nlowkey is ur whole personality\nlowkey i need to sleep\nlowkey same\nlowkey who's getting insomnia cookies\nlowkey me\nok but we always peak after midnight\nfacts nobody talks at 3pm\nowen sent like 50 msgs today\ni was bored and sick ok\ni wanna see who talks the most\nand the word thing\nmuse mkae a wrapped card of ths chat, msgs per person most used word and busiest time"
+ },
+ "seconds": 148.8,
+ "attempts": 1,
+ "created": "2026-11-13T03:36:56.121Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 5,
+  "restHash": "8b80fe7fd8116c4a",
+  "playedHash": "a981de9e9a316969"
+ }
+}

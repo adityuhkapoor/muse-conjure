@@ -1,0 +1,77 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"one hint and one vote per player at most, from players only\" caught none of 9 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"no one votes for themselves\" caught none of 9 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a hint adds one trimmed entry for the actor and changes nothing else\" caught none of 9 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a vote adds one entry for the actor naming another player and leaves hints and players alone\" caught none of 9 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.2,
+  "typecheck": 79.9,
+  "static": 3.2,
+  "determinism": 56.9,
+  "invariants": 116.6,
+  "mutation": 198.2,
+  "render": 920.6,
+  "copy": 1.9,
+  "render.browser": 0,
+  "render.mount": 56,
+  "render.taps": 262,
+  "render.lint": 874,
+  "render.axe": 915,
+  "render.total": 921,
+  "total": 983.3
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 9,
+  "inert": 7,
+  "killed": 9,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "players are in the chat and not repeated": 1,
+   "lobby is empty; a round has a spot, an imposter among the players and at least 3 players": 3,
+   "one hint and one vote per player at most, from players only": 0,
+   "no one votes for themselves": 0,
+   "the phase agrees with the hint and vote counts": 2,
+   "a start deals everyone in the chat, picks the spot and imposter from the seed, and moves to hints": 1,
+   "a hint adds one trimmed entry for the actor and changes nothing else": 0,
+   "a vote adds one entry for the actor naming another player and leaves hints and players alone": 0,
+   "play again only follows a finished round and returns to the lobby": 1,
+   "only people in the chat change anything, and only players hint or vote": 2,
+   "the spots never change, and the spot and imposter change only on start or again": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "one hint and one vote per player at most, from players only",
+  "no one votes for themselves",
+  "a hint adds one trimmed entry for the actor and changes nothing else",
+  "a vote adds one entry for the actor naming another player and leaves hints and players alone"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

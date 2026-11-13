@@ -1,0 +1,11 @@
+{
+  "id": "road-bingo",
+  "name": "Road trip bingo",
+  "origin": { "crate": "apps2", "id": "road-bingo" },
+  "surface": "messenger",
+  "summary": "A bingo card of the group's road-trip habits; tap what you spot, first full line wins.",
+  "useWhen": ["a road trip or long drive with a group chat", "inside jokes about how the group travels: 'Leo always needs a bathroom stop'"],
+  "dontUseWhen": ["a planning question (use a poll)", "bingo during a live show with a setlist (use setlist-bingo)"],
+  "params": { "title": "string", "prize": "string", "to": "string", "miles": "integer", "squares": "24 strings (or 8 for a 3x3)", "spotted": "{square, name}[]" },
+  "height": 400
+}

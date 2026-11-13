@@ -1,0 +1,80 @@
+{
+ "id": "party-headcount-1",
+ "ask": "cuont how many ppl are coming incl plus ones plz",
+ "kind": "party-headcount",
+ "family": "coord",
+ "surface": "event",
+ "sentence": "Shows a live headcount for an event where each person answers going, maybe or no and sets how many guests they bring, and totals only those going plus their guests.",
+ "use_when": [
+  "Counting how many people are coming to a party or gathering, including plus ones",
+  "Everyone in the chat needs to say going, maybe or no for an event",
+  "Guests need to add how many extra people they are bringing",
+  "Checking who has not replied yet"
+ ],
+ "dont_use_when": [
+  "Choosing between several options or dates, which needs a poll",
+  "Splitting costs or tracking who owes money",
+  "Assigning who brings which item or task"
+ ],
+ "keywords": [
+  "headcount",
+  "rsvp",
+  "plus ones",
+  "guest count",
+  "who is coming",
+  "attendance",
+  "party",
+  "event",
+  "going maybe no",
+  "count people",
+  "guest list",
+  "invite replies"
+ ],
+ "members": {
+  "min": 2,
+  "max": 30,
+  "original": 7
+ },
+ "mutation_score": 1,
+ "height": 254,
+ "params": {
+  "names": [
+   "Dev",
+   "Rohan",
+   "Kofi",
+   "Ana",
+   "Bea",
+   "Priya",
+   "Ty"
+  ],
+  "options": [],
+  "blanks": [],
+  "numbers": [
+   7
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "diwali at devs",
+  "members": [
+   "Dev",
+   "Rohan",
+   "Kofi",
+   "Ana",
+   "Bea",
+   "Priya",
+   "Ty"
+  ],
+  "text": "ok so diwali thing at my place sat the 14th, 7pm. pls actually rsvp this time\ngoing ofc. bringing my cousin neel\nim in, solo\ngoing!! bringing my roommate jess\nmaybe?? i have a shift till 8\nbea maybe is just a maybe lol\ngoing, and my bf is coming too so 2 of us\ni can come but might be late. no plus one\nok shift got moved im definitely going. no plus one\nwait neels brother also wants to come is that ok\nyea fine just tell me\nok so neel and his brother, thats 2 guests from me\nill bring samosas from that place on 5th\njess is def coming btw\nmuse cuont how many ppl are coming incl plus ones plz"
+ },
+ "seconds": 67.6,
+ "attempts": 1,
+ "created": "2026-11-13T03:10:26.336Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 5,
+  "restHash": "8fe1fd1ee0203ec1",
+  "playedHash": "87e17f1ee01ea0e1"
+ }
+}

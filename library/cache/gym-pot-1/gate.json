@@ -1,0 +1,78 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"today is inside the challenge and closed means finished\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a check-in adds that day to the actor's own list and nothing else\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the rules never change\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.2,
+  "typecheck": 81.3,
+  "static": 2.7,
+  "determinism": 54.4,
+  "invariants": 162.5,
+  "mutation": 220.4,
+  "render": 951.8,
+  "copy": 1.7,
+  "render.browser": 0,
+  "render.mount": 39,
+  "render.taps": 288,
+  "render.lint": 901,
+  "render.axe": 943,
+  "render.total": 952,
+  "total": 1011.4
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 15,
+  "inert": 3,
+  "killed": 14,
+  "score": 0.93,
+  "threshold": 0.8,
+  "kills": {
+   "check-in days are sorted, unique, on gym days, and not in the future": 3,
+   "check-ins and buy-ins belong to people in the chat, once each": 4,
+   "today is inside the challenge and closed means finished": 0,
+   "the host is in the chat while anyone is": 2,
+   "a check-in adds that day to the actor's own list and nothing else": 0,
+   "an I paid tap flips only the actor in the paid list": 2,
+   "only the host moves to the next day, by exactly one": 1,
+   "only the host ends the challenge, on the last day": 2,
+   "the rules never change": 0,
+   "only people in the chat change anything, and nothing changes once closed": 3
+  },
+  "survivors": [
+   {
+    "op": "flip-logic",
+    "line": 106,
+    "before": "||",
+    "after": "&&"
+   }
+  ]
+ },
+ "weak": [
+  "today is inside the challenge and closed means finished",
+  "a check-in adds that day to the actor's own list and nothing else",
+  "the rules never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

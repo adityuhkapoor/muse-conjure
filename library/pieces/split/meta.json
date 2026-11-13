@@ -1,0 +1,125 @@
+{
+  "id": "split",
+  "name": "Bill split (even or by item)",
+  "use_when": [
+    "one person paid and the group pays them back",
+    "'who owes who', 'split the bill', 'venmo me', 'how much do I owe'",
+    "an amount or items with prices are in the chat"
+  ],
+  "dont_use_when": [
+    "many tangled debts between many payers (adapt or build new)",
+    "chipping in toward a goal (adapt)",
+    "no money involved",
+    "only some of the chat share the bill and the rest should never be listed (everyone in the chat is on an even bill and can opt out)"
+  ],
+  "keywords": [
+    "split",
+    "bill",
+    "owe",
+    "owes",
+    "pay",
+    "paid",
+    "venmo",
+    "zelle",
+    "cost",
+    "costs",
+    "money",
+    "dinner",
+    "check",
+    "receipt",
+    "tab",
+    "total",
+    "cents",
+    "dollars",
+    "each",
+    "share",
+    "back",
+    "uber",
+    "groceries",
+    "airbnb",
+    "$"
+  ],
+  "guarantees": [
+    "all money is integer cents; shares add up to the bill exactly",
+    "even shares differ by at most one cent",
+    "the payer is always marked paid; people who paid back owe something",
+    "an even bill covers everyone in the chat now, so a late joiner owes a share; only the payer changes the total, and not after someone paid back"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "description": "What the bill is for, e.g. 'Dinner at Nopa'"
+      },
+      "payer": {
+        "type": "string",
+        "description": "Name of the person who paid, exactly as in the members list, or empty"
+      },
+      "mode": {
+        "type": "string",
+        "enum": [
+          "even",
+          "items"
+        ],
+        "description": "even: one total split evenly; items: each item split across who had it"
+      },
+      "totalCents": {
+        "type": "integer",
+        "description": "Even mode: the total in cents ($184.50 is 18450), 0 if unknown"
+      },
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string",
+              "description": "Item"
+            },
+            "cents": {
+              "type": "integer",
+              "description": "Price in cents"
+            }
+          },
+          "required": [
+            "label",
+            "cents"
+          ],
+          "additionalProperties": false
+        },
+        "description": "Items mode: items with prices from the chat; empty for even"
+      }
+    },
+    "required": [
+      "title",
+      "payer",
+      "mode",
+      "totalCents",
+      "items"
+    ],
+    "additionalProperties": false
+  },
+  "examples": [
+    {
+      "title": "Thai Basil",
+      "payer": "Leo",
+      "mode": "items",
+      "totalCents": 0,
+      "items": [
+        {
+          "label": "Pad thai",
+          "cents": 1450
+        },
+        {
+          "label": "Curry",
+          "cents": 1625
+        },
+        {
+          "label": "Spring rolls",
+          "cents": 899
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+{
+ "id": "subscription-split-2",
+ "ask": "muse mkae a splitter for the subs plz",
+ "kind": "subscription-split",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Splits the cost of shared subscriptions evenly among the people who use each one, shows what each person owes the payer, and lets people mark themselves (or the payer mark them) as paid back.",
+ "use_when": [
+  "A group shares several subscriptions like streaming or wifi and one person pays each bill",
+  "People want to see who still owes whom for recurring shared bills",
+  "Members need to join or leave a subscription and have the share recalculated",
+  "The payer wants to track and confirm who has paid them back"
+ ],
+ "dont_use_when": [
+  "Splitting a one-off bill or a restaurant check with uneven items",
+  "Tracking many mixed expenses with custom unequal shares",
+  "Settling up total balances across the whole group with fewest transfers"
+ ],
+ "keywords": [
+  "subscription split",
+  "split subs",
+  "shared subscriptions",
+  "who owes who",
+  "bill splitter",
+  "streaming costs",
+  "wifi bill",
+  "pay back",
+  "recurring bills",
+  "even split",
+  "expense tracker",
+  "roommate bills",
+  "payer",
+  "owe money"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 6
+ },
+ "mutation_score": 1,
+ "height": 352,
+ "params": {
+  "names": [
+   "Maya",
+   "Noor",
+   "Theo",
+   "Nora",
+   "Bryan",
+   "Jake"
+  ],
+  "options": [
+   "Crunchyroll",
+   "Wifi (Spectrum)"
+  ],
+  "blanks": [],
+  "numbers": [
+   1399,
+   799,
+   5000
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "the dorm wifi crew",
+  "members": [
+   "Maya",
+   "Noor",
+   "Theo",
+   "Nora",
+   "Bryan",
+   "Jake"
+  ],
+  "text": "ok rent adjacent question, who pays the disney+\nme, 13.99, bundle w hulu\ni got the crunchyroll its 7.99 and only me and bryan use it lol\nya me n nora split that one\ni pay for the wifi, spectrum 50 a month\njake we owe u for like 3 months arent we\nkinda lol its fine but yes\nok so wifi is 6 ppl so like 8.33 each\ndisney i only need 2 others, noor n maya watch it\nok someone just do the math, i cant do it\nfr and track who paid\nmuse mkae a splitter for the subs plz"
+ },
+ "seconds": 122.4,
+ "attempts": 1,
+ "created": "2026-11-13T03:39:10.691Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 1,
+  "restHash": "9f67d6369021266d",
+  "playedHash": "9f21f437d0992369"
+ }
+}

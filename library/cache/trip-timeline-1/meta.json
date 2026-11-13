@@ -1,0 +1,83 @@
+{
+ "id": "trip-timeline-1",
+ "ask": "can u make a timeline of the trip from all the dates and places we said",
+ "kind": "trip-timeline",
+ "family": "recap",
+ "surface": "chat",
+ "sentence": "Shows a day-by-day list of a trip's dates and plans that anyone in the group can add to, edit, move or remove, with a button for each person to mark that the plan looks right.",
+ "use_when": [
+  "The group wants one shared timeline built from dates and places already mentioned in chat",
+  "Someone asks for a trip itinerary or schedule by day",
+  "The group needs to check together that the plan is correct",
+  "Plans for a multi-day trip keep changing and need one place to fix them"
+ ],
+ "dont_use_when": [
+  "The group needs to vote between options such as places or dates",
+  "The group needs to split costs or track who owes what",
+  "The group needs a packing list or to-do list with assigned tasks"
+ ],
+ "keywords": [
+  "trip timeline",
+  "itinerary",
+  "trip plan",
+  "schedule",
+  "travel plan",
+  "day by day",
+  "dates and places",
+  "vacation",
+  "agenda",
+  "shared plan",
+  "trip schedule",
+  "group trip"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 7
+ },
+ "mutation_score": 1,
+ "height": 350,
+ "params": {
+  "names": [
+   "Marcus"
+  ],
+  "options": [
+   "Rainey St bars night"
+  ],
+  "blanks": [],
+  "numbers": [
+   13,
+   20,
+   14,
+   15,
+   16,
+   17,
+   18,
+   19
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "austin spring break 2k27",
+  "members": [
+   "Dre",
+   "Jake",
+   "Rhea",
+   "Marcus",
+   "Bryan",
+   "Hugo",
+   "Sofia"
+  ],
+  "text": "ok so we're really doing austin for spring break??\nyes. i got us flights landing march 14 around 2pm at AUS\nwait i thought we said 13th\nno 13th is when marcus gets in from his internship thing, he's coming separate\nyeah i land the 13th at night, ill uber to the airbnb\nairbnb is on south congress, check in is the 14th at 4\nso what are we doing the 14th tho\nfranklin bbq line on the 15th!! gotta be there by 8am or its over\nngl ill die at 8am but fine\n16th i wanna do barton springs in the morning then zilker\n17th is the rainey st bars night, i already told my cousin hed meet us\n18th day trip to lockhart?? or just chill\nlockhart yes, kreuz market\n19th is the acl tickets thing no wait thats fall lol. 19th is just pack up and fly out at 6pm\ni leave the 20th tho, my flight is early morning\n14th we can just do tacos and walk around the capitol\nok so many dates im lost\nsame fr\nsomebody write it all down\nmuse can u make a timeline of the trip from all the dates and places we said"
+ },
+ "seconds": 142.5,
+ "attempts": 1,
+ "created": "2026-11-13T03:12:58.217Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 2,
+  "restHash": "bee01ff01ef0681c",
+  "playedHash": "9ee00ff016676c1e"
+ }
+}

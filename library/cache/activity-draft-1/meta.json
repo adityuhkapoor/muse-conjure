@@ -1,0 +1,77 @@
+{
+ "id": "activity-draft-1",
+ "ask": "ok muse do your thing",
+ "kind": "activity-draft",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Draws a random pick order for the group once, then members take turns in snake order choosing from a fixed list of options until a pick limit is reached.",
+ "use_when": [
+  "A group needs to split up or choose plans from a short list by taking turns",
+  "Fair, random turn order is wanted for picking activities, places or items",
+  "Each option should go to only one person",
+  "Planning an outing where everyone gets a say"
+ ],
+ "dont_use_when": [
+  "The group wants to vote and count preferences on options (use a poll)",
+  "Options need to be added or edited by members freely",
+  "Everyone should pick at the same time or pick more than one option each without turns"
+ ],
+ "keywords": [
+  "draft",
+  "snake draft",
+  "pick order",
+  "take turns",
+  "random order",
+  "plan",
+  "activities",
+  "outing",
+  "choose options",
+  "turn based",
+  "group pick",
+  "saturday plan"
+ ],
+ "members": {
+  "min": 2,
+  "max": 8,
+  "original": 4
+ },
+ "mutation_score": 1,
+ "height": 344,
+ "params": {
+  "names": [],
+  "options": [
+   "Honky Tonk Row",
+   "Hattie B's",
+   "Country Music Hall of Fame",
+   "Pedal Tavern",
+   "Bluebird Cafe"
+  ],
+  "blanks": [
+   "$30 each"
+  ],
+  "numbers": [
+   30
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "nashville bach weekend",
+  "members": [
+   "Theo",
+   "Lily",
+   "Rohan",
+   "Ravi"
+  ],
+  "text": "ok so we need to lock the saturday plan for nashville\ni just want honky tonk row at night, thats my one thing\ni want hot chicken at hattie bs for lunch fr\nthe country music hall of fame is kinda a must tho\ni vote the pedal tavern thing, looks so dumb in a good way\nno way thats like 30 each lol\nalso i heard the bluebird cafe is impossible to get into\nok list so far: honky tonk, hattie bs, hall of fame, pedal tavern, bluebird\nwe only have time for like 4 things sat tho\nand last time ravi picked everything and we did 3 museums\nthat was ONE time and the museums were good\nlol ok but i dont wanna argue again, everyone needs to get at least one thing they want\nagreed. 4 of us 5 options tho idk how to make it fair\nsomeone goes first and then it just gets annoying\nand then whoever picks first gets the best stuff\nwe keep going in circles rn\nthis is a mess muse fix it"
+ },
+ "seconds": 119.1,
+ "attempts": 1,
+ "created": "2026-11-13T02:27:16.024Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 1,
+  "restHash": "9bb55aa55b21855a",
+  "playedHash": "9f3ba81531ab4555"
+ }
+}

@@ -1,0 +1,38 @@
+{
+  "id": "dorm-kit",
+  "name": "Dorm kit",
+  "surface": "marketplace",
+  "summary": "Furnish someone's dorm room on a budget: an empty room drawn from above with dashed spots, a tray of Marketplace finds with friends' free leftovers first; tap a find and it drops into its spot while the budget bar runs down, then send the list.",
+  "useWhen": [
+    "'my little sister starts at eastfield in the fall, budget is like $150'",
+    "help furnishing a dorm room cheap from marketplace",
+    "anyone have stuff they're getting rid of for a freshman's room",
+    "setting up a new room for someone with friends' leftovers and cheap finds",
+    "what does a dorm actually need lol"
+  ],
+  "dontUseWhen": [
+    "checking whether one big piece fits a room (use room-fit)",
+    "a group shopping list for an apartment (use grocery)",
+    "sorting your own stuff before moving out (use box-sorter)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "forWho": { "type": "string", "description": "Whose room, a first name" },
+      "where": { "type": "string", "description": "Short line: relation, hall, move-in date" },
+      "budgetCents": { "type": "integer", "description": "The budget in cents" },
+      "finds": {
+        "type": "array",
+        "description": "3 to 12 finds: name, the spot it fills (lamp, chair, rug, fridge, shelf, mirror, plant, bins), price in cents, and from: a friend's first name when it's their free leftover",
+        "items": { "type": "object", "properties": { "name": { "type": "string" }, "slot": { "type": "string" }, "priceCents": { "type": "integer" }, "from": { "type": "string" } }, "required": ["name", "slot", "priceCents"] }
+      },
+      "placed": {
+        "type": "array",
+        "description": "Finds already in the room: find index, who added it, a short line",
+        "items": { "type": "object", "properties": { "find": { "type": "integer" }, "who": { "type": "string" }, "said": { "type": "string" } }, "required": ["find", "who"] }
+      }
+    },
+    "required": ["forWho", "budgetCents", "finds"]
+  },
+  "height": 395
+}

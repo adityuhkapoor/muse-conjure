@@ -1,0 +1,75 @@
+{
+ "id": "road-trip-stops-1",
+ "ask": "can u make a poll for this",
+ "kind": "road-trip-stops",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A shared poll where everyone picks up to three stops for a drive from a short list, and anyone can add another stop, up to six in total.",
+ "use_when": [
+  "a group is choosing where to stop on a road trip",
+  "people need to pick a few favorites from a short list",
+  "anyone in the chat should be able to suggest extra options",
+  "a quick look at which stops have the most votes"
+ ],
+ "dont_use_when": [
+  "a single-choice vote or yes/no question is needed",
+  "the group needs to plan a route or schedule with times",
+  "costs or expenses need to be split between people"
+ ],
+ "keywords": [
+  "poll",
+  "road trip",
+  "stops",
+  "vote",
+  "group vote",
+  "multiple choice",
+  "pick favorites",
+  "trip planning",
+  "drive",
+  "suggest option",
+  "ranking",
+  "group decision"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 4
+ },
+ "mutation_score": 1,
+ "height": 346,
+ "params": {
+  "names": [],
+  "options": [
+   "Graeter's",
+   "Skyline Chili",
+   "Red River Gorge"
+  ],
+  "blanks": [
+   "lunch",
+   "1 hr hike",
+   "30 min"
+  ],
+  "numbers": []
+ },
+ "fact_bound": false,
+ "origin": {
+  "title": "asheville spring break drive",
+  "members": [
+   "Ty",
+   "Jess",
+   "Nora",
+   "Dev"
+  ],
+  "text": "ok so columbus to asheville fri, leaving at 8, its like 7 hrs straight\nstops tho!! i need to see something other than i-75\ngraeter's in cincy for sure, black raspberry chip and im not negotiating\nred river gorge is like 20 min off route, could do a 1 hr hike\ngorge could eat the whole afternoon tho\nwhat about skyline chili in cincy too, lunch\n3 stops max or we get there at midnight, i have a 9am thing sat\nalso berea ky has those pottery shops, quick 30 min\nok so graeter's, skyline, red river gorge, berea. thats 4\ngraeter's and skyline are basically same stop lol so idk. gorge vs berea is the real fight\nmuse can u make a poll for this"
+ },
+ "seconds": 47.1,
+ "attempts": 1,
+ "created": "2026-11-13T02:29:30.103Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 6,
+  "restHash": "bf3b023626c63b46",
+  "playedHash": "9e3285bd25268bb5"
+ }
+}

@@ -1,0 +1,73 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"item ids are unique and labels are unique ignoring case\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"at most 12 items, each label 1 to 40 characters\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a remove deletes only that item, by an asker or the shopper\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.2,
+  "typecheck": 112.2,
+  "static": 3,
+  "determinism": 89.9,
+  "invariants": 181.8,
+  "mutation": 216,
+  "render": 910.8,
+  "copy": 1.9,
+  "render.browser": 0,
+  "render.mount": 51,
+  "render.taps": 257,
+  "render.lint": 867,
+  "render.axe": 906,
+  "render.total": 911,
+  "total": 1006.2
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 16,
+  "inert": 3,
+  "killed": 16,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "item ids are unique and labels are unique ignoring case": 0,
+   "every asker is in the chat and appears once per item": 4,
+   "the shopper and driver are in the chat": 2,
+   "at most 12 items, each label 1 to 40 characters": 0,
+   "an item with no askers is kept only if it is got": 4,
+   "an add appends one item last with the actor as sole asker and changes nothing else": 1,
+   "a want toggles only the actor on that item": 1,
+   "a check flips got on that item only, and only the shopper does it": 3,
+   "only the shopper changes got on any item": 1,
+   "a remove deletes only that item, by an asker or the shopper": 0,
+   "only the shopper hands over the role, and the driver never changes": 2,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "item ids are unique and labels are unique ignoring case",
+  "at most 12 items, each label 1 to 40 characters",
+  "a remove deletes only that item, by an asker or the shopper"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

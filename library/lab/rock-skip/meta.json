@@ -1,0 +1,30 @@
+{
+  "id": "rock-skip",
+  "name": "Rock skip",
+  "surface": "messenger",
+  "summary": "A two-minute stone skipping game on a lake drawn from the side: pull the stone back and let go, power and a flat angle decide the skips with a little seeded wobble from the lake, and each friend's best stone floats as a buoy with their face.",
+  "useWhen": [
+    "who can skip a rock the most times at lake wren",
+    "quick game for the lake day chat",
+    "settle the rock skipping argument from the trip",
+    "something to play while we wait for will to park the sube",
+    "lowkey bored, give the chat a little game"
+  ],
+  "dontUseWhen": [
+    "planning the lake day itself (use trip-lock or friends-plans)",
+    "a trivia or quiz game (use trivia-night or trip-quiz)",
+    "a bet with money (use over-under)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "lake": { "type": "string", "description": "Where everyone is skipping stones" },
+      "throws": {
+        "type": "array",
+        "description": "Throws already made, one per friend: skips 0 to 15 and a line in their words",
+        "items": { "type": "object", "properties": { "who": { "type": "string" }, "skips": { "type": "integer" }, "note": { "type": "string" } }, "required": ["who", "skips"] }
+      }
+    }
+  },
+  "height": 360
+}

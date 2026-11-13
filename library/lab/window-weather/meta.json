@@ -1,0 +1,32 @@
+{
+  "id": "window-weather",
+  "name": "Window weather",
+  "surface": "feed",
+  "summary": "A building at dusk where the poster's big window shows their sky and temperature, and each friend lights a window with the sky where they are right now (sun, cloud, rain, snow or night), their temperature and place; warmest and coldest are called out.",
+  "useWhen": [
+    "yo whats up just having fun in south america eating tostadas",
+    "28 degrees and sunny here, how's everyone",
+    "first snow in boston!!",
+    "beach weather in november, sorry",
+    "what's the weather like where yall are"
+  ],
+  "dontUseWhen": [
+    "a guessing game about where someone is (use guess-where)",
+    "planning around the forecast for an event (use clear-skies)",
+    "a trip with several stops (use souvenir-passport)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "author": { "type": "string", "description": "Who posted; theirs is the big window" },
+      "place": { "type": "string", "description": "Where they are" },
+      "sky": { "type": "string", "enum": ["sun", "cloud", "rain", "snow", "night"], "description": "Their sky right now" },
+      "temp": { "type": "integer", "description": "Their temperature in whole degrees" },
+      "unit": { "type": "string", "enum": ["C", "F"], "description": "Degree unit" },
+      "line": { "type": "string", "description": "The post's own line" },
+      "windows": { "type": "array", "items": { "type": "object", "properties": { "who": { "type": "string" }, "place": { "type": "string" }, "sky": { "type": "string", "enum": ["sun", "cloud", "rain", "snow", "night"] }, "temp": { "type": "integer" }, "said": { "type": "string" } }, "required": ["who", "sky", "temp"] }, "description": "Friends' windows: where they are, their sky, temperature and a line" }
+    },
+    "required": ["author", "place", "sky", "temp"]
+  },
+  "height": 386
+}

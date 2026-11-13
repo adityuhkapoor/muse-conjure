@@ -1,0 +1,100 @@
+{
+ "id": "split-by-item-2",
+ "ask": "mkae a splitr for this bil plz",
+ "kind": "split-by-item",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Splits a restaurant bill by item, with each person owning their own dishes, shared items divided evenly, and tax and tip spread in proportion, plus a way to mark who has sent money to the person who paid.",
+ "use_when": [
+  "A group ate together and one person paid the whole bill",
+  "Each person ordered different items and wants to pay for their own",
+  "Some dishes were shared and should be split evenly",
+  "Tax and tip need to be divided fairly by what each person ordered"
+ ],
+ "dont_use_when": [
+  "The total should just be split equally with no item detail",
+  "Tracking ongoing shared expenses or debts over many days",
+  "Collecting votes or choosing where to eat"
+ ],
+ "keywords": [
+  "bill split",
+  "split bill",
+  "split by item",
+  "restaurant bill",
+  "dinner check",
+  "who owes",
+  "tax and tip",
+  "shared items",
+  "pay back",
+  "diner",
+  "expense split",
+  "itemized bill"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 6
+ },
+ "mutation_score": 1,
+ "height": 296,
+ "params": {
+  "names": [
+   "Kev",
+   "Ana",
+   "Maya",
+   "Nora",
+   "Felix",
+   "Sam"
+  ],
+  "options": [
+   "Chicken and waffles",
+   "Coke",
+   "Pancake stack",
+   "Side bacon",
+   "Veggie omelette",
+   "Double cheeseburger",
+   "Patty melt",
+   "Chocolate shake",
+   "Greek salad"
+  ],
+  "blanks": [],
+  "numbers": [
+   935,
+   18,
+   1500,
+   1200,
+   1300,
+   1600,
+   1400,
+   700,
+   1100,
+   600,
+   800,
+   900,
+   16
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "post finals diner",
+  "members": [
+   "Kev",
+   "Ana",
+   "Maya",
+   "Nora",
+   "Felix",
+   "Sam"
+  ],
+  "text": "that diner was so good ngl\nbill is here btw, 6 of us\ntotal 118.35 includes tax 9.35\ntip should be 18% on pre tax imo\nfine w that\ni got the chicken and waffles 15 and a coke 3\npancake stack 12, side bacon 5\nveggie omelette 13 and oj 4\ndouble cheeseburger 16 and fries for table 8\npatty melt 14, and a chocolate shake 7\ni had the greek salad 11 and a coffee 3\nand we got the mozz sticks 9 for the table too\nso fries and mozz sticks split 6 ways\nalso felix took 3 of my bacon strips\nit was 2\nlol dont charge him\nwait did anyone add the second coffee, i had 2 coffees\nyeah maya 2 coffees so 6\nok\ni gotta leave in 5 can someone just figure it out\ni paid w my card so just venmo me\ni cant do tax math rn im fried from the orgo final\nsame\nme too lol\nmuse mkae a splitr for this bil plz"
+ },
+ "seconds": 140.2,
+ "attempts": 1,
+ "created": "2026-11-13T03:48:26.877Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 2,
+  "restHash": "83f83ffc0d3dc003",
+  "playedHash": "8339ffbd483f4042"
+ }
+}

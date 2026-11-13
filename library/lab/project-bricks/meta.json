@@ -1,0 +1,43 @@
+{
+  "id": "project-bricks",
+  "name": "Project bricks",
+  "surface": "messenger",
+  "summary": "A group project drawn as a brick wall, foundation first: unclaimed parts are dashed outlines of air, claim one and it fills with your color and face, finish it and it sets solid with a check; a crane dangles the next brick and the flag on top says when it's due.",
+  "useWhen": [
+    "who's doing what for the deck",
+    "group project due thursday and the doc is empty",
+    "can we divide up the work",
+    "nobody's started the presentation lol",
+    "split up the sections for the report"
+  ],
+  "dontUseWhen": [
+    "chores around the apartment (use chore-wheel or chore-draft)",
+    "studying alone for an exam",
+    "picking a time to meet (use meeting-time)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'MKTG 340 deck'" },
+      "sub": { "type": "string", "description": "Line under the title: the group and the deadline" },
+      "due": { "type": "string", "description": "Short deadline for the flag, e.g. 'Thu 11:59pm'" },
+      "bricks": {
+        "type": "array",
+        "description": "3 to 14 parts of the project, foundation first",
+        "items": {
+          "type": "object",
+          "properties": {
+            "label": { "type": "string", "description": "Short part name, e.g. 'Research'" },
+            "size": { "type": "integer", "description": "How big a job, 1 to 3; sets the brick width" },
+            "who": { "type": "string", "description": "Who claimed it, if anyone" },
+            "done": { "type": "boolean", "description": "Finished" },
+            "said": { "type": "string", "description": "What the claimer said about it, in their words" }
+          },
+          "required": ["label", "size"]
+        }
+      }
+    },
+    "required": ["bricks"]
+  },
+  "height": 362
+}

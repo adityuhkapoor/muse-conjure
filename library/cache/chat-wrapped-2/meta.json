@@ -1,0 +1,68 @@
+{
+ "id": "chat-wrapped-2",
+ "ask": "can u make a wrapped card from this chat, msgs per person, most used word, busiest time",
+ "kind": "chat-wrapped",
+ "family": "recap",
+ "surface": "chat",
+ "sentence": "A shared recap card where each person enters their own message count, most used word and busiest hour, and the card shows bars per person, the top word and the busiest time.",
+ "use_when": [
+  "A group wants a year-end or period recap card of their chat",
+  "People want to compare message counts side by side",
+  "The group wants to pick a most used word and busiest time together",
+  "Someone asks for a wrapped-style summary of a chat"
+ ],
+ "dont_use_when": [
+  "The group needs a plain poll or vote on a decision",
+  "The numbers must be counted automatically from the chat history",
+  "The group wants a game, quiz or score tracker"
+ ],
+ "keywords": [
+  "chat wrapped",
+  "wrapped card",
+  "recap",
+  "chat stats",
+  "message count",
+  "messages per person",
+  "most used word",
+  "busiest time",
+  "busiest hour",
+  "leaderboard",
+  "year in review",
+  "group summary"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 5
+ },
+ "mutation_score": 1,
+ "height": 340,
+ "params": {
+  "names": [],
+  "options": [],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "tuesday trivia team",
+  "members": [
+   "Owen",
+   "Sofia",
+   "Luis",
+   "Tyler",
+   "Zoe"
+  ],
+  "text": "we got 3rd at trivia at Moe's again\nrobbed. that 2009 oscars question was bs\n\"robbed\" is ur most used word luis\nrobbed\nlol its true\nim just here for the $5 pitchers\nwe always text the most around 9pm during the rounds\nyeah 9pm is peak, everyone texting under the table\ni def sent the most\nno way i did\ni barely typed anything lol\nits the last week of the semester btw\naw\nwe should do a spotify wrapped thing but for us\nyes just counts, who talks most, fav word\nmuse can u make a wrapped card from this chat, msgs per person, most used word, busiest time"
+ },
+ "seconds": 104.4,
+ "attempts": 1,
+ "created": "2026-11-13T05:14:35.761Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 1,
+  "restHash": "86907eb67a86a678",
+  "playedHash": "a1317fce9b906661"
+ }
+}

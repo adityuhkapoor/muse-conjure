@@ -1,0 +1,78 @@
+{
+ "id": "movie-bracket-2",
+ "ask": "bracket this",
+ "kind": "movie-bracket",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Runs a single-elimination bracket of eight movies where chat members vote on each match and the leading side advances until one movie wins the final.",
+ "use_when": [
+  "a group needs to pick one movie to watch from a short list",
+  "people want head-to-head votes instead of one big poll",
+  "a movie night needs a fun way to settle on a film",
+  "a list of eight options needs narrowing to one winner"
+ ],
+ "dont_use_when": [
+  "a simple one-question yes/no or multiple choice poll is enough",
+  "the options are not movies or not a list of eight",
+  "a person needs to schedule a time or split a bill"
+ ],
+ "keywords": [
+  "movie bracket",
+  "bracket",
+  "tournament",
+  "movie night",
+  "vote",
+  "head to head",
+  "elimination",
+  "pick a movie",
+  "decide movie",
+  "ranking",
+  "group vote",
+  "knockout"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 6
+ },
+ "mutation_score": 0.92,
+ "height": 374,
+ "params": {
+  "names": [],
+  "options": [
+   "Interstellar",
+   "Shrek 2",
+   "Everything Everywhere All at Once",
+   "Mean Girls",
+   "Coco",
+   "The Dark Knight",
+   "Hot Fuzz",
+   "Ratatouille"
+  ],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "dorm 4b movie marathon",
+  "members": [
+   "Ines",
+   "Gabe",
+   "Felix",
+   "Ravi",
+   "Wren",
+   "Nora"
+  ],
+  "text": "ok sat night movies, i have the projector from the film club\nfinally. i want interstellar\nno more nolan pls, how about shrek 2\nlmaooo shrek 2 is elite tho\nmy picks are everything everywhere all at once and mean girls\nooh mean girls yes. also coco?\nok so far interstellar, shrek 2, eeaao, mean girls, coco\nadd the dark knight, if nolan is out then i need one lol\nfine. then i want hot fuzz\nand i wanna throw in ratatouille\nwait count them. interstellar, shrek 2, eeaao, mean girls, coco, dark knight, hot fuzz, ratatouille\nthats 8 exactly\nok good number\nwe gonna be here till midnight just voting tho\nfr last time we did it in the group chat and it was chaos\ni got pizza from mama's coming at 8 so need to decide before\ntwo at a time and loser's out?\nyeah like march madness but movies\ni like that, one left at the end\nbut who sets it up and keeps track\nnot me i will lose it\nsame i cant keep track of anything\nmuse bracket this"
+ },
+ "seconds": 228.4,
+ "attempts": 1,
+ "created": "2026-11-13T04:09:07.430Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 4,
+  "restHash": "9f1172f3e2e3f008",
+  "playedHash": "9e2dd2e1d335c262"
+ }
+}

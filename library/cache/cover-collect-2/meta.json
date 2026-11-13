@@ -1,0 +1,81 @@
+{
+ "id": "cover-collect-2",
+ "ask": "can u make a checklist of who paid the $10 so jalen can use it at the door",
+ "kind": "cover-collect",
+ "family": "coord",
+ "surface": "event",
+ "sentence": "A door checklist for a fixed cover charge where the host marks each person and their guests as paid, and members can say they sent payment.",
+ "use_when": [
+  "Collecting a flat cover charge from a group before an event",
+  "A host needs a paid or not paid list to check at the door",
+  "Guests want to say they sent money so the host can verify it",
+  "People are bringing plus-ones who also need to pay"
+ ],
+ "dont_use_when": [
+  "Splitting a bill or shared expenses by amount owed",
+  "Collecting different amounts from each person or taking real payments in the app",
+  "Counting RSVPs or yes/no attendance with no payment"
+ ],
+ "keywords": [
+  "cover charge",
+  "who paid",
+  "door checklist",
+  "paid list",
+  "event entry",
+  "collect money",
+  "venmo",
+  "plus ones",
+  "guest list",
+  "mark paid",
+  "ticket check",
+  "party cover"
+ ],
+ "members": {
+  "min": 2,
+  "max": 40,
+  "original": 6
+ },
+ "mutation_score": 0.88,
+ "height": 304,
+ "params": {
+  "names": [
+   "Paige",
+   "Bryan",
+   "Marcus",
+   "Jalen",
+   "Naomi"
+  ],
+  "options": [
+   "Who paid the $10?"
+  ],
+  "blanks": [],
+  "numbers": [
+   10,
+   1000,
+   1500
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "jalen's saturday kegger 4th st",
+  "members": [
+   "Paige",
+   "Jess",
+   "Bryan",
+   "Marcus",
+   "Jalen",
+   "Naomi"
+  ],
+  "text": "ok so saturday at the apt on 4th st, $10 cover covers the keg and cups. need it before sat so i know how much to buy\nvenmo or cash\nvenmo @jalen-k or cash to me at dinner thurs\nim in, sending now\ncan i just pay at the door\ndoor is $15 bro\nugh fine ill do 10 now\nim bringing 3 ppl from my chem lab\nare they paying the 10 too\nyeah each, so 40 total from me w/ me\ni paid wednesday i think?\npaige yes got it\ni'll pay thurs at dinner\ndid marcus actually send\nsent just now\nlol i cant check venmo that fast, got like 5 notifs\nso far thats bryan paige marcus paid\nand me thurs\ni need a clean list for the door bc im not gonna remember all that\nfr or someone sneaks in\nmuse can u make a checklist of who paid the $10 so jalen can use it at the door"
+ },
+ "seconds": 402.8,
+ "attempts": 2,
+ "created": "2026-11-13T04:43:09.537Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 4,
+  "restHash": "8ab5bd1a154a82ef",
+  "playedHash": "823dfd58b4ca84cb"
+ }
+}

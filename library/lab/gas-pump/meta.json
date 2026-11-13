@@ -1,0 +1,30 @@
+{
+  "id": "gas-pump",
+  "name": "Gas pump",
+  "surface": "messenger",
+  "summary": "The road trip's gas and toll receipts rung up on a drawn pump, split evenly by everyone who rode; one nozzle per rider clicks home when they pay the driver back.",
+  "useWhen": [
+    "paying back whoever drove for gas after a road trip: 'will drove the sube 412 miles, how much do we owe him'",
+    "gas and toll receipts scattered in the chat: '$38.40 sunoco', '$41.12 at the wawa', '$12 tolls'",
+    "'venmo me for gas' after a drive"
+  ],
+  "dontUseWhen": [
+    "splitting a ride by distance or drop-off (use uber-segments)",
+    "a shared bill that isn't a car trip (use a bill split)",
+    "deciding who drives (use carpool)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "trip": { "type": "string", "description": "Trip or chat name, e.g. 'lake placid trip'" },
+      "driver": { "type": "string", "description": "Who drove and paid at the pump" },
+      "car": { "type": "string", "description": "The car's nickname, e.g. 'the Sube'" },
+      "miles": { "type": "integer", "description": "Miles driven" },
+      "receipts": { "type": "array", "items": { "type": "object", "properties": { "label": { "type": "string" }, "cents": { "type": "integer" } }, "required": ["label", "cents"] }, "description": "1 to 4 receipts from the chat, in cents" },
+      "riders": { "type": "array", "items": { "type": "string" }, "description": "Everyone in the car, driver included, 2 to 8" },
+      "paid": { "type": "array", "items": { "type": "object", "properties": { "who": { "type": "string" }, "said": { "type": "string" } } }, "description": "Riders who already paid, with what they said" }
+    },
+    "required": ["driver", "receipts", "riders"]
+  },
+  "height": 400
+}

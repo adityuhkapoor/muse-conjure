@@ -1,0 +1,37 @@
+{
+  "id": "box-sorter",
+  "name": "Box sorter",
+  "surface": "marketplace",
+  "summary": "A friend's move-out as a conveyor belt of their drawn stuff: drag the thing at the front into Keep, Sell or Give, friends help sort, and everything in Sell becomes a drafted Marketplace listing with a price; things the owner will never sell make the box shake.",
+  "useWhen": [
+    "'i move out in 2 weeks and i have SO much stuff'",
+    "help me figure out what to sell vs keep before moving",
+    "friends helping someone declutter before a move-out",
+    "turning a pile of move-out stuff into marketplace listings",
+    "arun what are you doing with all your stuff lol"
+  ],
+  "dontUseWhen": [
+    "one listing to price (use price-check)",
+    "a shared apartment's jointly owned things after a lease ends (use lease-divvy)",
+    "free stuff left on the curb for anyone to grab (use curb-alert)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "owner": { "type": "string", "description": "Whose move-out" },
+      "when": { "type": "string", "description": "Short timing line, e.g. 'moves out in 14 days'" },
+      "items": {
+        "type": "array",
+        "description": "3 to 14 things in belt order: name, kind (lamp, fridge, hangers, cooker, chair, books, plant, mirror, fan, box), suggested price in cents, noSell for things the owner will never sell",
+        "items": { "type": "object", "properties": { "name": { "type": "string" }, "kind": { "type": "string" }, "priceCents": { "type": "integer" }, "noSell": { "type": "boolean" } }, "required": ["name", "kind"] }
+      },
+      "sorted": {
+        "type": "array",
+        "description": "Things already sorted, from the front of the belt: item index, box (keep, sell, give), who, and a short line they said",
+        "items": { "type": "object", "properties": { "item": { "type": "integer" }, "box": { "type": "string" }, "who": { "type": "string" }, "said": { "type": "string" } }, "required": ["item", "box", "who"] }
+      }
+    },
+    "required": ["owner", "items"]
+  },
+  "height": 398
+}

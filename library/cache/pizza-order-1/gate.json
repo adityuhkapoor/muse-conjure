@@ -1,0 +1,72 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"shares differ by at most one cent\" caught none of 19 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the total changes only through setTotal\" caught none of 19 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the collector changes only through collect\" caught none of 19 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.2,
+  "typecheck": 43.9,
+  "static": 2,
+  "determinism": 29.7,
+  "invariants": 67.9,
+  "mutation": 92.8,
+  "render": 930.1,
+  "copy": 1.5,
+  "render.browser": 0,
+  "render.mount": 34,
+  "render.taps": 270,
+  "render.lint": 882,
+  "render.axe": 925,
+  "render.total": 930,
+  "total": 964
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 19,
+  "inert": 1,
+  "killed": 19,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "shares add up to the total": 2,
+   "shares differ by at most one cent": 0,
+   "the total is whole cents from $1 to $1000": 5,
+   "everyone who paid is in the chat once": 3,
+   "the collector is in the chat": 3,
+   "a pay flips only the actor in the paid list": 2,
+   "only the collector sets the total, to the amount asked, and paid is cleared": 7,
+   "a collect makes the actor the collector and changes nothing else": 5,
+   "the total changes only through setTotal": 0,
+   "the collector changes only through collect": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "shares differ by at most one cent",
+  "the total changes only through setTotal",
+  "the collector changes only through collect"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

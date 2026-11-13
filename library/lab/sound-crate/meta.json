@@ -1,0 +1,33 @@
+{
+  "id": "sound-crate",
+  "name": "Sound crate",
+  "surface": "reel",
+  "summary": "Every song from reels the chat shared, as a crate of drawn records: flip through by dragging, pull the ones you want onto the road trip stack, one friend holds a limited veto stamp, and the stack becomes the playlist.",
+  "useWhen": [
+    "make a playlist from all the songs in the reels we sent",
+    "road trip playlist, pull from what's been in the chat",
+    "what was that song from the reel, add it to the trip mix",
+    "let everyone pick songs but tsai lin gets veto",
+    "pick the aux list for saturday from our reels"
+  ],
+  "dontUseWhen": [
+    "bingo during a concert set (use setlist-bingo)",
+    "ranking reels by how funny they were (use reel-rank)",
+    "picking one song for a story (use story-beat)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title" },
+      "chat": { "type": "string", "description": "The group chat's name" },
+      "forWhat": { "type": "string", "description": "What the playlist is for, e.g. 'the road trip'" },
+      "songs": { "type": "array", "description": "3 to 14 songs from shared reels", "items": { "type": "object", "properties": { "title": { "type": "string", "description": "Song title" }, "artist": { "type": "string", "description": "Artist" }, "secs": { "type": "integer", "description": "Length in seconds" }, "from": { "type": "string", "description": "Whose reel it came from" } }, "required": ["title", "artist"] } },
+      "pulls": { "type": "array", "description": "Songs people already pulled", "items": { "type": "object", "properties": { "who": { "type": "string", "description": "Name" }, "songs": { "type": "array", "items": { "type": "integer" }, "description": "Indexes into songs" } }, "required": ["who", "songs"] } },
+      "vetoer": { "type": "string", "description": "Who holds the veto stamp, or empty for nobody" },
+      "stamps": { "type": "integer", "description": "How many veto stamps they get, 0 to 5" },
+      "vetoed": { "type": "array", "description": "Songs already stamped", "items": { "type": "object", "properties": { "song": { "type": "integer", "description": "Index into songs" }, "note": { "type": "string", "description": "What the vetoer said" } }, "required": ["song"] } }
+    },
+    "required": ["songs"]
+  },
+  "height": 420
+}

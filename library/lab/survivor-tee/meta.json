@@ -1,0 +1,42 @@
+{
+  "id": "survivor-tee",
+  "name": "Survivor tee",
+  "surface": "messenger",
+  "summary": "The chat designs its end-of-finals shirt together: everyone's design hangs on a clothesline with a clothespin and the one in front is shown big on a hanger; make yours by tapping the shirt to change the picture, picking a color and writing the line, hang it, then tap shirts on the line and give one your vote.",
+  "useWhen": [
+    "we should make orgo survivor shirts",
+    "design a group tshirt for the end of finals",
+    "matching shirts for the trip, ideas?",
+    "vote on the club shirt design",
+    "what do we put on the senior week tees"
+  ],
+  "dontUseWhen": [
+    "collecting money for the shirts (use group-buy or split-purchase)",
+    "a plain poll with no design (use a poll)",
+    "ordering merch from a store"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Survivor tee'" },
+      "sub": { "type": "string", "description": "Line under the title: what it's for and the deadline or price" },
+      "designs": {
+        "type": "array",
+        "description": "0 to 6 designs already hanging, one per person",
+        "items": {
+          "type": "object",
+          "properties": {
+            "who": { "type": "string", "description": "Who made it" },
+            "color": { "type": "integer", "description": "Shirt color 0 blue, 1 red, 2 green, 3 yellow, 4 purple, 5 navy" },
+            "art": { "type": "string", "enum": ["flask", "coffee", "mountain", "ricecooker", "alarm", "owl"], "description": "The picture on the front" },
+            "line": { "type": "string", "description": "The line printed on the shirt, up to 32 characters" },
+            "votes": { "type": "array", "items": { "type": "string" }, "description": "Who voted for it; one vote per person" }
+          },
+          "required": ["who", "color", "art", "line"]
+        }
+      }
+    },
+    "required": ["designs"]
+  },
+  "height": 386
+}

@@ -1,0 +1,75 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"no one votes twice for an option\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"four options with unique ids and labels\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a new vote leaves the voter on that option only\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"option ids and labels never change\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.8,
+  "typecheck": 35.9,
+  "static": 1.8,
+  "determinism": 45.5,
+  "invariants": 140.3,
+  "mutation": 144.2,
+  "render": 906.7,
+  "copy": 0.9,
+  "render.browser": 0,
+  "render.mount": 46,
+  "render.taps": 248,
+  "render.lint": 859,
+  "render.axe": 901,
+  "render.total": 907,
+  "total": 930.6
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 12,
+  "inert": 4,
+  "killed": 12,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "no one votes twice for an option": 0,
+   "each person has at most one vote": 2,
+   "voters are in the chat": 5,
+   "four options with unique ids and labels": 0,
+   "a vote flips the voter's vote on that option and touches no one else": 7,
+   "a new vote leaves the voter on that option only": 0,
+   "removing a vote leaves the voter on no option": 2,
+   "option ids and labels never change": 0,
+   "only people in the chat change the poll": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "no one votes twice for an option",
+  "four options with unique ids and labels",
+  "a new vote leaves the voter on that option only",
+  "option ids and labels never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

@@ -1,0 +1,11 @@
+{
+  "id": "host-board",
+  "name": "Host board",
+  "origin": { "crate": "apps10", "id": "host-board" },
+  "surface": "event",
+  "summary": "A host view of who's coming, plus-ones, capacity and snacks for a house party, with a door list that locks once it fits.",
+  "useWhen": ["hosting a party at a place with a rough cap", "'how many people are actually coming', 'can people bring a plus-one', 'how much pizza do we need'"],
+  "dontUseWhen": ["a ticketed event or venue (use squad-lock)", "splitting the cost of the snacks (use split-purchase)"],
+  "params": { "title": "event name", "when": "day and time, e.g. Fri 9pm", "host": "name", "cap": "20-60 heads", "door": "who checks the list at the door", "going": "chat names already going", "maybe": "chat names who said maybe", "othersGoing": "guests outside the chat going", "othersMaybe": "guests outside the chat maybe", "guests": "names of outside guests for the door list", "plus": "0 none, 1 one each, 2 anyone", "rate": "0 one in 4, 1 one in 2, 2 three in 4" },
+  "height": 418
+}

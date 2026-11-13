@@ -1,0 +1,28 @@
+{
+  "id": "deposit-dents",
+  "name": "Deposit dents",
+  "surface": "messenger",
+  "summary": "The landlord kept part of the deposit: the apartment's floor plan with each charge marked in its room; tap a mark, then whose it is or shared, and each roommate's total updates under the plan; lock it and the requests go out.",
+  "useWhen": [
+    "the landlord kept some of the security deposit: 'they kept $340: wall dent, burned counter, a missing blind'",
+    "arguing over who caused which damage at move-out",
+    "splitting deductions between roommates where some are one person's fault and some are shared"
+  ],
+  "dontUseWhen": [
+    "monthly rent shares (use rent-mailbox or rent-split)",
+    "an ordinary shared bill (use a bill split)",
+    "planning the move itself (use move-in-day)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "home": { "type": "string" },
+      "keptCents": { "type": "integer", "description": "What the landlord kept" },
+      "rooms": { "type": "array", "items": { "type": "object", "properties": { "name": { "type": "string" }, "kind": { "enum": ["bed", "bath", "living", "kitchen"] }, "who": { "type": "string" } }, "required": ["name", "kind"] }, "description": "Up to 8 rooms; bedrooms and the bath go on the top row" },
+      "roommates": { "type": "array", "items": { "type": "string" }, "description": "2 to 6 roommates" },
+      "charges": { "type": "array", "items": { "type": "object", "properties": { "label": { "type": "string" }, "cents": { "type": "integer" }, "room": { "type": "string" }, "owner": { "type": "string", "description": "a roommate or 'shared', if already claimed" }, "by": { "type": "string" }, "said": { "type": "string" } }, "required": ["label", "cents", "room"] }, "description": "1 to 5 charges" }
+    },
+    "required": ["roommates", "charges"]
+  },
+  "height": 390
+}

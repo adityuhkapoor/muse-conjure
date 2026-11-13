@@ -1,0 +1,30 @@
+{
+  "id": "campfire",
+  "name": "Campfire",
+  "surface": "group",
+  "summary": "A club's ambient campfire under the stars: every log a member tosses (with a line they say) keeps it burning for a few hours and seats their face around it; with nobody adding it burns down to embers. Toss a log and it arcs in and the flames flare; tap the fire to poke it.",
+  "useWhen": [
+    "keep the outing club fire going this week",
+    "something cozy for the group while everyone's away on break",
+    "a little check-in thing for the club, low effort",
+    "miss you guys, campfire's open",
+    "a place to drop a line to the group now and then"
+  ],
+  "dontUseWhen": [
+    "planning an actual camping trip (use trip-lock or bring-list)",
+    "a checklist or schedule",
+    "a poll or vote"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Campfire'" },
+      "group": { "type": "string", "description": "Group name, e.g. 'Eastfield Outing Club'" },
+      "hours": { "type": "integer", "description": "Hours one log keeps burning, e.g. 6" },
+      "lines": { "type": "array", "items": { "type": "string" }, "description": "Up to 4 short things to say with a log" },
+      "logs": { "type": "array", "description": "Logs already on the fire", "items": { "type": "object", "properties": { "name": { "type": "string", "description": "Who tossed it, by name" }, "hoursAgo": { "type": "integer", "description": "How many hours ago" }, "said": { "type": "string", "description": "What they said, in their words" } }, "required": ["name"] } }
+    },
+    "required": ["group"]
+  },
+  "height": 368
+}

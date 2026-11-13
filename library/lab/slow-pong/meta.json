@@ -1,0 +1,40 @@
+{
+  "id": "slow-pong",
+  "name": "Slow pong",
+  "surface": "gaming",
+  "summary": "A pong match between two friends where each gets one hit a day: the ball creeps across a drawn table in real time, the receiver taps where to aim and hits it back before it lands, a missed day loses, the old rally fades behind the ball, and everyone else in the chat backs a side.",
+  "useWhen": [
+    "calvin vs will, one hit a day, loser buys tio's",
+    "a slow game two of us can play all week",
+    "rivalry thing for the chat to watch",
+    "pong but it takes days lol",
+    "settle the bet with a really slow match"
+  ],
+  "dontUseWhen": [
+    "a quick game everyone plays now (use tray-stack)",
+    "tracking a bet with odds (use over-under)",
+    "a tournament with many players (use group-tourney)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Slow pong'" },
+      "stakes": { "type": "string", "description": "The bet, short, e.g. 'loser buys Tío's'" },
+      "left": { "type": "string", "description": "Left player's name in the chat; empty for an open paddle" },
+      "right": { "type": "string", "description": "Right player's name in the chat; empty for an open paddle" },
+      "hours": { "type": "integer", "description": "Hours for the ball to cross the table, usually 24" },
+      "rally": { "type": "integer", "description": "Hits so far in the rally" },
+      "lastBy": { "type": "string", "enum": ["left", "right"], "description": "Which player hit last" },
+      "minutesLeft": { "type": "integer", "description": "Minutes until the ball lands on the other side, as of now" },
+      "backers": {
+        "type": "array",
+        "description": "Friends backing a side, with an optional line in their words",
+        "items": { "type": "object", "properties": { "name": { "type": "string" }, "side": { "type": "string", "enum": ["left", "right"] }, "said": { "type": "string" } }, "required": ["name", "side"] }
+      },
+      "leftSaid": { "type": "string", "description": "What the left player said" },
+      "rightSaid": { "type": "string", "description": "What the right player said" }
+    },
+    "required": ["left", "right"]
+  },
+  "height": 380
+}

@@ -1,0 +1,95 @@
+{
+ "id": "who-paid-chart-2",
+ "ask": "sort it out lol",
+ "kind": "who-paid-chart",
+ "family": "recap",
+ "surface": "chat",
+ "sentence": "Shows who owes and who gets back for a group's shared expenses, then works out the fewest payments to settle everyone and lets people mark each one sent.",
+ "use_when": [
+  "A group trip or outing has several shared costs and someone needs to work out who owes what",
+  "People want a short list of payments to square up after expenses paid by different people",
+  "Members need to add an expense and then mark payments as sent or received"
+ ],
+ "dont_use_when": [
+  "Splitting a single bill once at a table with uneven item choices",
+  "Voting or polling the group on a decision",
+  "Tracking a long-running shared budget or recurring household bills over months"
+ ],
+ "keywords": [
+  "settle up",
+  "who paid",
+  "split expenses",
+  "trip costs",
+  "who owes",
+  "bill split",
+  "debts",
+  "reimburse",
+  "shared expenses",
+  "balances",
+  "payments",
+  "group trip",
+  "expense tracker",
+  "even out"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 7
+ },
+ "mutation_score": 0.81,
+ "height": 244,
+ "params": {
+  "names": [
+   "Leo",
+   "Dani",
+   "Rohan",
+   "Maya",
+   "Dre",
+   "Cleo",
+   "Marcus"
+  ],
+  "options": [
+   "Hotel",
+   "Waffle House",
+   "Tolls",
+   "Gas station snacks",
+   "Parking"
+  ],
+  "blanks": [],
+  "numbers": [
+   6400,
+   21800,
+   7,
+   24500,
+   5230,
+   1150,
+   2375,
+   2000,
+   4800
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "ann arbor game trip",
+  "members": [
+   "Leo",
+   "Dani",
+   "Rohan",
+   "Maya",
+   "Dre",
+   "Cleo",
+   "Marcus"
+  ],
+  "text": "gas was 64 at the shell in toledo\ni got the hotel, 218 for the night\ni bought the tickets for everyone earlier, 7 x 35 so 245\ni paid for waffle house, 52.30\ni got tolls, 11.50 total\ni did gas station snacks 23.75\ni havent paid anything lol\nwait i got parking, 20\noh and the second gas fill on the way back was 48\nwait is hotel split 7 or just the ones who stayed\ncleo and dre drove back early so they didnt stay\nyeah we left right after the game\nso hotel is 5 ways?\ni guess, everything else 7 ways\nmy brain hurts\nok this is a mess muse sort it out lol"
+ },
+ "seconds": 203.2,
+ "attempts": 1,
+ "created": "2026-11-13T05:03:53.403Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 1,
+  "restHash": "83957f990366c46e",
+  "playedHash": "833eff0166c4c9cc"
+ }
+}

@@ -1,0 +1,76 @@
+{
+ "id": "theme-vote-2",
+ "ask": "can u make a poll for the costume theme with the 4 options",
+ "kind": "theme-vote",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A single-choice poll where each person gets one locked vote among four fixed costume theme options, showing vote counts and the current leader.",
+ "use_when": [
+  "The group needs to pick one costume theme from a few options",
+  "Everyone should get exactly one vote that cannot be changed",
+  "You want a quick live tally showing who is ahead",
+  "A party or event theme needs to be decided by majority"
+ ],
+ "dont_use_when": [
+  "People need to change or retract their vote",
+  "Voters should pick several options or rank them",
+  "The options must be typed in by the group or differ from the four set themes",
+  "You need to split people into teams or assign roles"
+ ],
+ "keywords": [
+  "poll",
+  "vote",
+  "costume theme",
+  "party theme",
+  "group vote",
+  "pick one",
+  "single choice",
+  "tally",
+  "majority",
+  "four options",
+  "event planning",
+  "decision"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 7
+ },
+ "mutation_score": 1,
+ "height": 316,
+ "params": {
+  "names": [],
+  "options": [
+   "Scooby Doo gang",
+   "The Office",
+   "White Lotus",
+   "Mario Kart"
+  ],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": false,
+ "origin": {
+  "title": "fall formal squad",
+  "members": [
+   "Wren",
+   "Noor",
+   "Omar",
+   "Hugo",
+   "Theo",
+   "Ty",
+   "Ana"
+  ],
+  "text": "ok the halloween party at the house is saturday and we still have no theme\nwe said group costume right\nyeah i thought so\ni vote scooby doo gang, theres like 5 of us plus a dog\nwe dont have a dog hugo\nty can be the dog\nabsolutely not\nlol what else tho\ni was gonna say the office, super easy, just wear business casual\nooh or white lotus. linen everything\nwhite lotus is lowkey the cheapest too, i own linen pants\nwhat about mario kart. like everyone picks a character\nmario kart is cute i could be daisy\nok so scooby, the office, white lotus, mario kart\nyep thats the four\ni dont wanna argue for 2 hours about it\nsame, last time we did this it took til midnight\njust vote and whatever has the most wins\nand then it locks, no switching after\ndeal\nfine but ill be mad if the office wins its so boring\nana. rules\nok ok\nwe need like an actual poll tho\nya screenshot votes get messy\nmuse is in here, use it\nyeah ask it\ndo it wren its ur party\nmuse can u make a poll for the costume theme with the 4 options"
+ },
+ "seconds": 34.5,
+ "attempts": 1,
+ "created": "2026-11-13T04:00:54.056Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 4,
+  "restHash": "9f3023662666fc0f",
+  "playedHash": "9e3ea5361266fd40"
+ }
+}

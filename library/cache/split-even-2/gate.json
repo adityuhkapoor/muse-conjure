@@ -1,0 +1,72 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"at most 8 expenses, unique ids, labels of 1 to 40 characters\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"an add appends one expense paid by the actor, shared by everyone, and changes nothing else\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"existing expenses keep their label, amount and payer\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.5,
+  "typecheck": 87.3,
+  "static": 3.7,
+  "determinism": 66.6,
+  "invariants": 123.5,
+  "mutation": 247.3,
+  "render": 948.8,
+  "copy": 2.5,
+  "render.browser": 0,
+  "render.mount": 33,
+  "render.taps": 272,
+  "render.lint": 894,
+  "render.axe": 943,
+  "render.total": 949,
+  "total": 1022.4
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 12,
+  "inert": 3,
+  "killed": 12,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "every expense has a positive amount, a payer in the chat, people, and no repeats": 6,
+   "everyone sharing an expense is in the chat": 4,
+   "shares of each expense add up to its amount": 2,
+   "balances add up to zero": 2,
+   "each confirmed payment is positive, between two people in the chat, one entry per pair": 2,
+   "at most 8 expenses, unique ids, labels of 1 to 40 characters": 0,
+   "a toggle flips only the actor in that expense and changes nothing else": 2,
+   "an add appends one expense paid by the actor, shared by everyone, and changes nothing else": 0,
+   "a received step adds exactly that amount from the payer to the actor, only the receiver records it": 1,
+   "existing expenses keep their label, amount and payer": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "at most 8 expenses, unique ids, labels of 1 to 40 characters",
+  "an add appends one expense paid by the actor, shared by everyone, and changes nothing else",
+  "existing expenses keep their label, amount and payer"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

@@ -1,0 +1,39 @@
+{
+  "id": "halfway-seesaw",
+  "name": "Halfway seesaw",
+  "surface": "messenger",
+  "summary": "Where two friends should meet, drawn as a little town map with each of them at their end and walking rings around them; every spot sits where it is, a green dot marks the fairest walk, and under the map a seesaw weighs their two walks for the spot in play and tips toward whoever walks further. Tap a spot to suggest it; pick the same one and it's set.",
+  "useWhen": [
+    "you're at larkin, i'm at second chapter. where do we meet",
+    "meet halfway? i'm downtown you're on campus",
+    "somewhere in between us for lunch",
+    "where's fair for both of us to walk to",
+    "pick a spot in the middle, i'm not walking 20 min lol"
+  ],
+  "dontUseWhen": [
+    "a whole group meeting up (use meeting-time or poll-map)",
+    "picking a time rather than a place (use coffee-seat)",
+    "real directions or live location"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Meet in the middle'" },
+      "quote": { "type": "string", "description": "What started it, in their words" },
+      "quoteBy": { "type": "string", "description": "Who said the quote" },
+      "people": {
+        "type": "array",
+        "description": "The two friends",
+        "items": { "type": "object", "properties": { "name": { "type": "string", "description": "A name in the chat" }, "at": { "type": "string", "description": "Where they are, e.g. 'Larkin Hall'" }, "x": { "type": "number", "description": "Map position across, 0 to 1" }, "y": { "type": "number", "description": "Map position down, 0 to 1" } }, "required": ["name", "x", "y"] }
+      },
+      "spots": {
+        "type": "array",
+        "description": "2 to 5 places to meet, placed between them",
+        "items": { "type": "object", "properties": { "name": { "type": "string", "description": "The place" }, "x": { "type": "number", "description": "Map position across, 0 to 1" }, "y": { "type": "number", "description": "Map position down, 0 to 1" }, "minA": { "type": "integer", "description": "Walking minutes for the first person" }, "minB": { "type": "integer", "description": "Walking minutes for the second person" } }, "required": ["name", "x", "y", "minA", "minB"] }
+      },
+      "picked": { "type": "array", "items": { "type": "string" }, "description": "Spot names already suggested, same order as people ('' for none)" }
+    },
+    "required": ["people", "spots"]
+  },
+  "height": 406
+}

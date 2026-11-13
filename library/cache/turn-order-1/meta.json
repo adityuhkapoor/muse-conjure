@@ -1,0 +1,87 @@
+{
+ "id": "turn-order-1",
+ "ask": "this is a mess fix it",
+ "kind": "turn-order",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Lets a group sign up for one of three fixed shower time windows with four spots each, reorder within a window, mark a long shower, and leave a short note.",
+ "use_when": [
+  "A group shares limited hot water and needs to agree who showers when",
+  "Everyone should pick one slot and be able to move up or down in the order",
+  "People want to flag a long shower or add a short note about timing",
+  "You want to see who still has no slot"
+ ],
+ "dont_use_when": [
+  "The group needs a free-form calendar with custom times or dates",
+  "The task is a chore rota or a recurring schedule that repeats",
+  "The group needs a vote or poll on a choice rather than a turn order"
+ ],
+ "keywords": [
+  "shower order",
+  "shower schedule",
+  "turn order",
+  "time slots",
+  "sign up",
+  "queue",
+  "hot water",
+  "sharing bathroom",
+  "who goes when",
+  "slot picker",
+  "house schedule",
+  "short notes"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 8
+ },
+ "mutation_score": 1,
+ "height": 276,
+ "params": {
+  "names": [
+   "Cam",
+   "Zoe",
+   "Rhea",
+   "Ravi",
+   "Dani"
+  ],
+  "options": [
+   "Fri night",
+   "Sat am",
+   "Sun am",
+   "Out by 8:15 Sat"
+  ],
+  "blanks": [],
+  "numbers": [
+   40,
+   8,
+   15,
+   10
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "lake cabin weekend",
+  "members": [
+   "Cam",
+   "Sam",
+   "Zoe",
+   "Rhea",
+   "Ravi",
+   "Dani",
+   "Wren",
+   "Sofia"
+  ],
+  "text": "ok so the cabin has ONE bathroom and theres 8 of us\nyeah and the host said the hot water tank is like 40 gal so maybe 4 showers max lol\ni have to be out by 8:15 sat for the trailhead shuttle tho\ni need a long one, sat is hair wash day\ni can shower at night, dont care\ni went first last time and everyone yelled at me\nlol yes bc you took 25 min\nit was a thick conditioner situation ok\ncan we not do whoever wakes up first, cam always does that\ni wake up at 6 its not my fault\nfri night too tho, we get in like 11\nsat and sun mornings are the real problem\nill go last both mornings if i get a night one\ni want first on sat then, sun someone else\nok but zoe still needs early sat\nyeah 8:15 sat, sun we leave at 9 for the drive back\nso cam first sun? hes up anyway\nfine but 10 min cap\nand i get a long one sometime pls\nwere doing this in the group chat for real lol\nsomeone's gonna cry over lukewarm water\n8 ppl, fri night + sat am + sun am, honestly a mess\nmuse this is a mess fix it"
+ },
+ "seconds": 109.5,
+ "attempts": 1,
+ "created": "2026-11-13T02:27:56.829Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 4,
+  "restHash": "965abda9a9a15256",
+  "playedHash": "975c3939c039c657"
+ }
+}

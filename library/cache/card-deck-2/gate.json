@@ -1,0 +1,83 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"before the shuffle everything is empty, after it the order holds every card once\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"no card is drawn twice: each log entry is the next card in the order\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a start shuffles with the seed, builds the circle from the chat and gives the first turn\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"once started the order never changes and the log only grows at the end\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.1,
+  "typecheck": 78.2,
+  "static": 2.4,
+  "determinism": 49.6,
+  "invariants": 163.8,
+  "mutation": 234.2,
+  "render": 917.3,
+  "copy": 1.7,
+  "render.browser": 0,
+  "render.mount": 58,
+  "render.taps": 266,
+  "render.lint": 873,
+  "render.axe": 912,
+  "render.total": 917,
+  "total": 965.5
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 12,
+  "inert": 1,
+  "killed": 11,
+  "score": 0.92,
+  "threshold": 0.8,
+  "kills": {
+   "before the shuffle everything is empty, after it the order holds every card once": 0,
+   "no card is drawn twice: each log entry is the next card in the order": 0,
+   "everyone in the circle is in the chat, once": 2,
+   "the turn is empty when the deck is done or not started, else someone in the circle": 4,
+   "a start shuffles with the seed, builds the circle from the chat and gives the first turn": 0,
+   "a draw adds the next card in the order for the actor and changes nothing else": 1,
+   "only the person whose turn it is can draw": 2,
+   "after a draw the turn goes to the next person in the circle, or ends with the deck": 2,
+   "once started the order never changes and the log only grows at the end": 0,
+   "only people in the chat change the deck": 2
+  },
+  "survivors": [
+   {
+    "op": "flip-comparison",
+    "line": 104,
+    "before": "===",
+    "after": "!=="
+   }
+  ]
+ },
+ "weak": [
+  "before the shuffle everything is empty, after it the order holds every card once",
+  "no card is drawn twice: each log entry is the next card in the order",
+  "a start shuffles with the seed, builds the circle from the chat and gives the first turn",
+  "once started the order never changes and the log only grows at the end"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

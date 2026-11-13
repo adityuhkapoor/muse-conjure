@@ -1,0 +1,37 @@
+{
+  "id": "van-pack",
+  "name": "Van pack",
+  "surface": "messenger",
+  "summary": "A two-minute packing game for move-out day: the back of a moving van as a grid, everyone gets the same stuff in the same order; slide each thing over a column, turn it, drop it and it falls in, what doesn't fit stays on the curb, and whoever fills the most space drives.",
+  "useWhen": [
+    "'we're never fitting all this in one trip'",
+    "who's driving the moving van lol",
+    "a quick game while packing up the apartment",
+    "tetris but it's our couch",
+    "moving day and everyone's arguing about how to pack the truck"
+  ],
+  "dontUseWhen": [
+    "planning who drives which car (use carpool)",
+    "checking if a couch fits up the stairs (use stairwell-pivot)",
+    "splitting the shared stuff when a lease ends (use lease-divvy)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title" },
+      "move": { "type": "string", "description": "Whose move, short, e.g. '412 Pine move-out · one trip'" },
+      "stuff": {
+        "type": "array",
+        "description": "4 to 12 things in the order they come out: name and shape (box 1 cell, bigbox 2x2, couch 3 long, mattress 3 tall, lamp 2 tall, tv 2 wide, desk L of 4, chair L of 3); the van holds 35 cells",
+        "items": { "type": "object", "properties": { "name": { "type": "string" }, "shape": { "type": "string" } }, "required": ["name", "shape"] }
+      },
+      "runs": {
+        "type": "array",
+        "description": "Earlier runs: who, cells filled (0 to 35, at most the stuff's total size), and a short line",
+        "items": { "type": "object", "properties": { "who": { "type": "string" }, "filled": { "type": "integer" }, "said": { "type": "string" } }, "required": ["who", "filled"] }
+      }
+    },
+    "required": ["stuff"]
+  },
+  "height": 408
+}

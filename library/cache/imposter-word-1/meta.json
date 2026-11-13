@@ -1,0 +1,76 @@
+{
+ "id": "imposter-word-1",
+ "ask": "can u set up the imposter game w those 8 campus spots, 5 of us, 1 random imposter, and a vote at the end",
+ "kind": "imposter-word",
+ "family": "game",
+ "surface": "chat",
+ "sentence": "A hidden-word party game where everyone but one random imposter sees a campus spot, each player gives a one-word hint, then all vote on who the imposter is.",
+ "use_when": [
+  "A group wants to play an imposter or spyfall style game in the chat",
+  "Players want a secret location with one random player who doesn't know it",
+  "The round should end with a vote on who the imposter is"
+ ],
+ "dont_use_when": [
+  "Only two people are in the chat, since at least 3 are needed",
+  "The group wants a simple poll or a single vote with no game",
+  "The group wants to pick its own custom word list or a different kind of game, like trivia or a board game"
+ ],
+ "keywords": [
+  "imposter",
+  "impostor",
+  "spyfall",
+  "word game",
+  "party game",
+  "secret role",
+  "hidden role",
+  "social deduction",
+  "vote",
+  "hints",
+  "campus spots",
+  "group game"
+ ],
+ "members": {
+  "min": 3,
+  "max": 12,
+  "original": 5
+ },
+ "mutation_score": 1,
+ "height": 212,
+ "params": {
+  "names": [],
+  "options": [
+   "Library",
+   "Dining hall",
+   "Rec center",
+   "Quad",
+   "Laundry room",
+   "Bookstore",
+   "Shuttle bus",
+   "24hr diner on Main St"
+  ],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "game night at kofis",
+  "members": [
+   "Zoe",
+   "Kofi",
+   "Dre",
+   "Sofia",
+   "Kev"
+  ],
+  "text": "ok game night tn at kofi's, we doing the imposter thing\nyesss. everyone gets the same secret word except one person who gets nothing\nand we each say one word hint and then vote who's the fake\nlast time i got imposter and was sweating so hard lol\nu lasted like 2 rounds tho\nok theme should be campus stuff so everyone can say hints\nlibrary, dining hall, rec center, quad, laundry room, bookstore\nadd the shuttle bus\nand the 24hr diner on main st\nthats 8 total\nwe have 5 ppl so 1 imposter, 4 know the word\ni dont wanna be the one who picks tho, i'd know the word\nyeah someone not playing has to pick fr\nand no one can see anyone elses word\nwe all on our own phones rn right\nya\nmuse can u set up the imposter game w those 8 campus spots, 5 of us, 1 random imposter, and a vote at the end"
+ },
+ "seconds": 118.7,
+ "attempts": 1,
+ "created": "2026-11-13T02:39:11.334Z",
+ "second_look": {
+  "endStep": 9,
+  "endReason": "reached phase = done",
+  "controls": 1,
+  "restHash": "8f9578f0e00f876a",
+  "playedHash": "9f19b3d7902030df"
+ }
+}

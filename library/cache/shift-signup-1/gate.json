@@ -1,0 +1,65 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"the six shifts keep their roles, times and spots\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"title, roles, times and spots never change\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.5,
+  "typecheck": 46.4,
+  "static": 1.9,
+  "determinism": 91.3,
+  "invariants": 274.4,
+  "mutation": 275.4,
+  "render": 1081.5,
+  "copy": 1.3,
+  "render.browser": 0,
+  "render.mount": 56,
+  "render.taps": 389,
+  "render.lint": 1036,
+  "render.axe": 1077,
+  "render.total": 1082,
+  "total": 1116.8
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 14,
+  "inert": 4,
+  "killed": 14,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "no shift has more people than its spots": 1,
+   "no one is on the same shift twice": 2,
+   "everyone on a shift is in the chat": 4,
+   "the six shifts keep their roles, times and spots": 0,
+   "a join adds the actor to the end of that shift and changes no other shift": 4,
+   "a leave removes only the actor from that shift and changes no other shift": 3,
+   "a join that fits always lands": 6,
+   "title, roles, times and spots never change": 0,
+   "only people in the chat change a shift": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "the six shifts keep their roles, times and spots",
+  "title, roles, times and spots never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

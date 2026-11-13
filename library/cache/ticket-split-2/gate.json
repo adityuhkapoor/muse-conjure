@@ -1,0 +1,77 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "arbitrary-weak",
+   "message": "only 14 in 100 actions from arbitrary changed the state"
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"each note belongs to one ower and is 1 to 30 characters\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a note changes only the actor's own note, and only for an ower\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"host, share and total never change by an action\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.5,
+  "typecheck": 70.6,
+  "static": 3.1,
+  "determinism": 51.7,
+  "invariants": 89.2,
+  "mutation": 167.7,
+  "render": 914.1,
+  "copy": 1.9,
+  "render.browser": 0,
+  "render.mount": 30,
+  "render.taps": 247,
+  "render.lint": 856,
+  "render.axe": 906,
+  "render.total": 914,
+  "total": 971.6
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 12,
+  "inert": 5,
+  "killed": 12,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "everyone paid is an ower, and no one is paid twice": 4,
+   "owers are unique, never the host, at most 8": 2,
+   "host, owers, paid and notes are all in the chat": 4,
+   "each note belongs to one ower and is 1 to 30 characters": 0,
+   "the share is a positive whole number of cents and what is owed is never negative": 4,
+   "only the host marks someone paid, adding exactly that person": 2,
+   "I paid adds exactly the actor, who is an ower": 3,
+   "undo removes one entry, only by the host or that person": 1,
+   "a note changes only the actor's own note, and only for an ower": 0,
+   "joining appends only the actor to owers": 1,
+   "host, share and total never change by an action": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "each note belongs to one ower and is 1 to 30 characters",
+  "a note changes only the actor's own note, and only for an ower",
+  "host, share and total never change by an action"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

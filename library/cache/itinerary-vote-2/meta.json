@@ -1,0 +1,86 @@
+{
+ "id": "itinerary-vote-2",
+ "ask": "this is a mess muse fix it",
+ "kind": "itinerary-vote",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A group picks activities for a weekend trip, with four time slots and two options each, where people can lean toward an option and anyone can spin to randomly lock in a slot.",
+ "use_when": [
+  "a group is deciding between two plans for each part of a trip",
+  "people want to show a preference but settle ties by a random spin",
+  "planning a short weekend itinerary with a few time slots"
+ ],
+ "dont_use_when": [
+  "a poll with many options or free-text answers is needed",
+  "the group needs a binding majority vote rather than a random pick",
+  "splitting costs or tracking bookings for a trip"
+ ],
+ "keywords": [
+  "trip planner",
+  "itinerary",
+  "weekend trip",
+  "activity picker",
+  "vote",
+  "spin",
+  "random pick",
+  "group decision",
+  "nyc",
+  "time slots",
+  "two options",
+  "tie breaker"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 4
+ },
+ "mutation_score": 1,
+ "height": 404,
+ "params": {
+  "names": [],
+  "options": [
+   "Saturday day",
+   "High Line + Chelsea Market",
+   "Saturday night",
+   "Comedy Cellar",
+   "Broadway rush ticket",
+   "Sunday morning",
+   "Sunday afternoon",
+   "Central Park",
+   "The Strand bookstore"
+  ],
+  "blanks": [
+   "Nov 21-23",
+   "Pay what you want for students",
+   "Lobster roll",
+   "2 drink minimum",
+   "About $40, line up at 10am",
+   "Books"
+  ],
+  "numbers": [
+   21,
+   40
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "nyc trip 2 nights",
+  "members": [
+   "Cleo",
+   "Bryan",
+   "Noor",
+   "Amir"
+  ],
+  "text": "ok nyc weekend nov 21-23, we need to decide stuff before the bus\nsaturday daytime: met or the high line + chelsea market?\nmet is pay what you want for students i think? so cheap\ni want the high line, i wanna get a lobster roll at chelsea market\nwhy not both, met in the morning high line after\ntoo much walking, my feet are already dead from finals\nsaturday night: comedy cellar or a broadway rush ticket thing\nrush tickets are like 40 and u have to line up at 10am\ncomedy cellar then, 2 drink minimum tho\nnooo i wanted broadway\nsunday morning: bagels at russ and daughters or just grab ones near the hostel\nruss and daughters has a line for like an hour\nsunday afternoon is either central park or the strand bookstore\nstrand!!\ncentral park is free but its gonna be freezing\nthis is a mess muse fix it"
+ },
+ "seconds": 145.9,
+ "attempts": 1,
+ "created": "2026-11-13T04:19:30.991Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 12,
+  "restHash": "9e533331a9a9ad2c",
+  "playedHash": "96b3a9765298a54e"
+ }
+}

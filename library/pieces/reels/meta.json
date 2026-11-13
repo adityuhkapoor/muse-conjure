@@ -1,0 +1,147 @@
+{
+  "id": "reels",
+  "name": "Three-reel picker (slot machine)",
+  "use_when": [
+    "the group wants a whole plan picked at random across two or three separate choices: where, budget, leave at; activity, food, after",
+    "'slot machine', 'randomize our night', 'spin the plan', 'pick the place and the time and the price'",
+    "the chat ruled some options out ('frat row is a no', 'maya is broke') and those must never come up"
+  ],
+  "dont_use_when": [
+    "one list of options and Muse should just pick one (use wheel)",
+    "people want to vote (use poll)",
+    "people knock options out one by one (use veto)",
+    "finding a time everyone is free (use overlap)"
+  ],
+  "keywords": [
+    "slot",
+    "machine",
+    "reel",
+    "reels",
+    "randomize",
+    "plan",
+    "night",
+    "budget",
+    "price",
+    "leave",
+    "activity",
+    "after",
+    "whole",
+    "saturday",
+    "jackpot",
+    "lever"
+  ],
+  "guarantees": [
+    "one pull picks one option on every reel from the server seed; the result is the same for everyone and shows only once confirmed",
+    "options the chat ruled out, and options people crossed out, never land",
+    "every reel always keeps at least one option that can land; the current result cannot be crossed out",
+    "a late joiner can pull and cross out; a leaver's crossed-out options come back"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "description": "Card title, e.g. 'Saturday night'"
+      },
+      "reels": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Reel name, 1-2 words, e.g. 'Where', 'Budget', 'Leave at'"
+            },
+            "options": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "label": {
+                    "type": "string",
+                    "description": "Option, short: 'Lucky's', '$3 drafts', '10:15'"
+                  },
+                  "out": {
+                    "type": "string",
+                    "description": "Why the chat ruled it out, a few words ('Maya's broke'); empty if allowed"
+                  }
+                },
+                "required": [
+                  "label",
+                  "out"
+                ],
+                "additionalProperties": false
+              },
+              "description": "2 to 8 options"
+            }
+          },
+          "required": [
+            "name",
+            "options"
+          ],
+          "additionalProperties": false
+        },
+        "description": "1 to 3 independent reels"
+      }
+    },
+    "required": [
+      "title",
+      "reels"
+    ],
+    "additionalProperties": false
+  },
+  "examples": [
+    {
+      "title": "Sat plans",
+      "reels": [
+        {
+          "name": "Activity",
+          "options": [
+            { "label": "Bowling", "out": "Not bowling again" },
+            { "label": "Mini golf", "out": "" },
+            { "label": "Thrifting on Haight", "out": "" },
+            { "label": "Dolores park", "out": "" }
+          ]
+        },
+        {
+          "name": "Food",
+          "options": [
+            { "label": "Souvla", "out": "" },
+            { "label": "La Taqueria", "out": "" },
+            { "label": "Nopa", "out": "Under $20" },
+            { "label": "Dumpling time", "out": "" }
+          ]
+        },
+        {
+          "name": "After",
+          "options": [
+            { "label": "Movie at Kev's", "out": "" },
+            { "label": "Karaoke", "out": "" },
+            { "label": "Bed lol", "out": "" }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Where are we pregaming",
+      "reels": [
+        {
+          "name": "Whose place",
+          "options": [
+            { "label": "Leo's", "out": "" },
+            { "label": "Apt 4b", "out": "RA walks by at 10" },
+            { "label": "Priya's", "out": "" }
+          ]
+        },
+        {
+          "name": "Leave at",
+          "options": [
+            { "label": "10:00", "out": "" },
+            { "label": "10:30", "out": "" },
+            { "label": "11:15", "out": "" }
+          ]
+        }
+      ]
+    }
+  ]
+}

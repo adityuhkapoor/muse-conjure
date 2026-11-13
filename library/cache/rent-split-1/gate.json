@@ -1,0 +1,72 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"room ids are unique\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"setting utilities changes only the utilities total\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the rent total, names and labels never change\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.2,
+  "typecheck": 59.4,
+  "static": 2.1,
+  "determinism": 45.6,
+  "invariants": 172.3,
+  "mutation": 215.5,
+  "render": 955.6,
+  "copy": 1.4,
+  "render.browser": 0,
+  "render.mount": 39,
+  "render.taps": 297,
+  "render.lint": 912,
+  "render.axe": 950,
+  "render.total": 956,
+  "total": 998
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 13,
+  "inert": 6,
+  "killed": 13,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "room rents add up to the rent total": 6,
+   "every rent is a whole number of cents, zero or more": 3,
+   "room ids are unique": 0,
+   "owners are in the chat and own one room each": 3,
+   "utilities are a whole number from 0 to 100000": 1,
+   "monthly totals add up to rent plus utilities": 6,
+   "a swap lowers one room and raises another by the same amount": 7,
+   "a swap never takes more than the room's rent": 3,
+   "setting utilities changes only the utilities total": 0,
+   "the rent total, names and labels never change": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "room ids are unique",
+  "setting utilities changes only the utilities total",
+  "the rent total, names and labels never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

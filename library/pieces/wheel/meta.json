@@ -1,0 +1,84 @@
+{
+  "id": "wheel",
+  "name": "Pick-one wheel",
+  "use_when": [
+    "the group can't decide and wants Muse to just pick",
+    "'idk you pick', 'spin for it', 'random', 'flip a coin'",
+    "choosing a person at random: who drives, who goes first, turn order (noRepeat)"
+  ],
+  "dont_use_when": [
+    "people want a say (use poll)",
+    "handing out a list of chores or tasks to people (use assign)"
+  ],
+  "keywords": [
+    "pick",
+    "random",
+    "randomly",
+    "spin",
+    "wheel",
+    "decide",
+    "idk",
+    "u pick",
+    "you pick",
+    "for us",
+    "coin",
+    "flip",
+    "who",
+    "drives",
+    "first",
+    "choose",
+    "whatever",
+    "roulette",
+    "eat",
+    "where"
+  ],
+  "guarantees": [
+    "picks come from the server seed, the same for everyone, and show only once confirmed",
+    "spins are at least 3 s apart, so no one re-spins mid-turn",
+    "with noRepeat, each pick leaves the wheel until reset",
+    "every pick is an option on the wheel; anyone in the chat, including a late joiner, can spin or add",
+    "with fewer than two options there is no wheel: a short card asks the chat to add some, and the wheel appears at two"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "description": "Card title, e.g. 'Where are we eating?'"
+      },
+      "options": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Options named in the chat, up to 10, short (places, people's names, movies). Use [] when the chat names none: never invent options; the card then asks the group to add some"
+      },
+      "noRepeat": {
+        "type": "boolean",
+        "description": "true if a picked option should leave the wheel (turn order, elimination)"
+      }
+    },
+    "required": [
+      "title",
+      "options",
+      "noRepeat"
+    ],
+    "additionalProperties": false
+  },
+  "examples": [
+    {
+      "title": "Who drives?",
+      "options": [
+        "Maya",
+        "Leo",
+        "Ana"
+      ],
+      "noRepeat": true
+    },
+    {
+      "title": "Where are we eating?",
+      "options": [],
+      "noRepeat": false
+    }
+  ]
+}

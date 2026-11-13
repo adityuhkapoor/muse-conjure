@@ -1,0 +1,72 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"no one appears twice in an option\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"ids and labels are unique\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the note never changes\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.8,
+  "typecheck": 42.8,
+  "static": 1.7,
+  "determinism": 43.1,
+  "invariants": 159.4,
+  "mutation": 186.7,
+  "render": 1004.5,
+  "copy": 1,
+  "render.browser": 0,
+  "render.mount": 46,
+  "render.taps": 299,
+  "render.lint": 913,
+  "render.axe": 994,
+  "render.total": 1004,
+  "total": 1037
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 13,
+  "inert": 5,
+  "killed": 13,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "no one appears twice in an option": 0,
+   "each person has at most one vote": 3,
+   "voters are in the chat": 4,
+   "ids and labels are unique": 0,
+   "at most 6 options, each 1 to 40 characters": 2,
+   "a vote flips the actor on that option and touches no one else": 6,
+   "a vote that lands leaves the actor on that option only": 2,
+   "an add appends one option last with the actor as its only voter": 5,
+   "an add leaves everyone else's votes as they were": 1,
+   "only people in the chat change anything": 2,
+   "the note never changes": 0
+  },
+  "survivors": []
+ },
+ "weak": [
+  "no one appears twice in an option",
+  "ids and labels are unique",
+  "the note never changes"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

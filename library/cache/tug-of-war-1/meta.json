@@ -1,0 +1,78 @@
+{
+ "id": "tug-of-war-1",
+ "ask": "tug war",
+ "kind": "tug-of-war",
+ "family": "game",
+ "surface": "chat",
+ "sentence": "Splits the chat into two teams for a timed 20 second tapping contest where each person's taps add to their team's total and the bigger total wins.",
+ "use_when": [
+  "a group wants a quick head to head game between two teams",
+  "settling a small decision with a playful contest, like who picks the next show",
+  "a short break activity where everyone taps as fast as they can",
+  "a rematch is wanted right after a round ends"
+ ],
+ "dont_use_when": [
+  "a vote or poll is needed to pick between options",
+  "a turn based board or card game for two players is wanted",
+  "tracking scores or standings over many rounds or a season"
+ ],
+ "keywords": [
+  "tug of war",
+  "tap race",
+  "team game",
+  "timed game",
+  "tapping contest",
+  "two teams",
+  "team battle",
+  "quick game",
+  "group game",
+  "competition",
+  "countdown",
+  "rematch"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 7
+ },
+ "mutation_score": 1,
+ "height": 220,
+ "params": {
+  "names": [
+   "Tess",
+   "Wren",
+   "Ines",
+   "Cam",
+   "Theo",
+   "Sam",
+   "Omar"
+  ],
+  "options": [],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "3rd floor lounge night",
+  "members": [
+   "Tess",
+   "Wren",
+   "Ines",
+   "Cam",
+   "Theo",
+   "Sam",
+   "Omar"
+  ],
+  "text": "ok so lounge is free till 11, who's actually staying\nme, i have a bio exam friday but my brain is fried rn\nsame lol. i got the leftover trader joes dumplings\nsay less im coming\nwait we need something to do besides watch great british bake off again\nwe have 7 ppl ish. teams?\ntess wren ines vs cam theo sam and me, so 3 v 4\nomar thats not fair lol u r on the 4 side\nfine ill be on tess's side then. tess wren ines omar vs cam theo sam\nok 4 v 3 now but we still got this\nno running tho, something we can all do on our phones at once\nlike a tapping thing? whoever taps most\nyes!! like a tug of war but on the phone lol\n20 seconds max, my thumb is bad from the switch\nwinner picks the next show\nmuse tug war"
+ },
+ "seconds": 74.4,
+ "attempts": 1,
+ "created": "2026-11-13T02:43:50.402Z",
+ "second_look": {
+  "endStep": 26,
+  "endReason": "reached phase = done",
+  "controls": 1,
+  "restHash": "8f957a90856b817e",
+  "playedHash": "bf959c6ac03b3b80"
+ }
+}

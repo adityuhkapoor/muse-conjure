@@ -1,0 +1,21 @@
+{
+  "id": "concert",
+  "name": "Concert seats",
+  "origin": { "crate": "apps2", "id": "concert" },
+  "surface": "messenger",
+  "summary": "An arena seat map where friends sit together in one section, see price trends and say if they're going.",
+  "useWhen": ["friends going to a concert or game together and picking a section", "'which section are we getting', 'who's in for SZA', 'prices dropped on 104'"],
+  "dontUseWhen": ["one-off headcount with no seats (use an RSVP)", "splitting the ticket cost (use a bill split)", "general admission only, no sections"],
+  "params": {
+    "title": "string",
+    "when": "string",
+    "venue": "string",
+    "floor": "{priceCents, together}",
+    "lower": "5 x {label, priceCents, together}",
+    "upper": "5 x {label, priceCents, together}",
+    "claimed": "section label",
+    "people": "{name, status: in|maybe|out}[]",
+    "note": "{who, text}"
+  },
+  "height": 396
+}

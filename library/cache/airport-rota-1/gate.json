@@ -1,0 +1,70 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"trip ids are unique\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"trips are never added or removed\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a release clears only the actor's own trip\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1,
+  "typecheck": 51.5,
+  "static": 2.1,
+  "determinism": 46.4,
+  "invariants": 162.8,
+  "mutation": 202.1,
+  "render": 977.3,
+  "copy": 1.6,
+  "render.browser": 0,
+  "render.mount": 45,
+  "render.taps": 287,
+  "render.lint": 927,
+  "render.axe": 971,
+  "render.total": 977,
+  "total": 1013.8
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 12,
+  "inert": 4,
+  "killed": 12,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "trip ids are unique": 0,
+   "every driver is open or in the chat": 4,
+   "notes are trimmed and at most 40 characters": 2,
+   "trips are never added or removed": 0,
+   "a claim gives an open trip to the actor and changes no other trip": 3,
+   "a release clears only the actor's own trip": 0,
+   "a note changes only that trip's note": 4,
+   "only people in the chat change anything": 2,
+   "a driver is never swapped for another driver in one step": 1
+  },
+  "survivors": []
+ },
+ "weak": [
+  "trip ids are unique",
+  "trips are never added or removed",
+  "a release clears only the actor's own trip"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

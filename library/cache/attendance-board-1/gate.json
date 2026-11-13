@@ -1,0 +1,82 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"no one is listed twice for an event\" caught none of 11 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"event ids are unique and there are at most 4 events\" caught none of 11 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"no seat goes to someone under the minimum\" caught none of 11 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"setMin changes only the minimum to the number asked\" caught none of 11 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"event ids and names never change\" caught none of 11 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1,
+  "typecheck": 51.4,
+  "static": 2.3,
+  "determinism": 41.2,
+  "invariants": 147.5,
+  "mutation": 200.5,
+  "render": 960.4,
+  "copy": 1.5,
+  "render.browser": 0,
+  "render.mount": 49,
+  "render.taps": 303,
+  "render.lint": 914,
+  "render.axe": 955,
+  "render.total": 960,
+  "total": 1002.1
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 11,
+  "inert": 6,
+  "killed": 11,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "no one is listed twice for an event": 0,
+   "everyone who went is in the chat": 2,
+   "event ids are unique and there are at most 4 events": 0,
+   "seats is a whole number from 0 to 20": 1,
+   "the minimum is a whole number from 1 to the number of events": 1,
+   "no seat goes to someone under the minimum": 0,
+   "a toggle flips only that person on that event": 5,
+   "setSeats changes only the seats to the number asked": 1,
+   "setMin changes only the minimum to the number asked": 0,
+   "event ids and names never change": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "no one is listed twice for an event",
+  "event ids are unique and there are at most 4 events",
+  "no seat goes to someone under the minimum",
+  "setMin changes only the minimum to the number asked",
+  "event ids and names never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

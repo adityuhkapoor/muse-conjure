@@ -1,0 +1,45 @@
+{
+  "id": "tonight-board",
+  "name": "Tonight board",
+  "surface": "group",
+  "summary": "Tonight's campus events, gathered from the group's scattered posts, up on a theater marquee with chasing bulbs: each line has its start time, where it is and the walk, a row of heat bulbs by how many starred it, and the faces of friends going; tap a line to star it and your face joins the crowd under it.",
+  "useWhen": [
+    "what's on tonight",
+    "anything happening on campus tonight?",
+    "free stuff tonight around eastfield",
+    "where is everyone going later",
+    "so many event posts, which ones are tonight"
+  ],
+  "dontUseWhen": [
+    "planning one specific event (use an event page or squad-lock)",
+    "picking a weekend weeks away (use clear-skies)",
+    "a party at someone's place (use party-headcount)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Tonight board'" },
+      "sub": { "type": "string", "description": "Line under the title: the group and where the events came from" },
+      "sign": { "type": "string", "description": "Header painted on the marquee, e.g. 'Tonight in Eastfield'" },
+      "events": {
+        "type": "array",
+        "description": "1 to 6 events tonight, in time order",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string", "description": "Event name, short" },
+            "time": { "type": "string", "description": "Start time, e.g. '8:00'" },
+            "place": { "type": "string", "description": "Where" },
+            "walk": { "type": "integer", "description": "Minutes to walk there" },
+            "stars": { "type": "integer", "description": "Stars from the group so far" },
+            "going": { "type": "array", "items": { "type": "string" }, "description": "Friends already going, by name" },
+            "said": { "type": "string", "description": "A line from the post about it" }
+          },
+          "required": ["name", "time", "place"]
+        }
+      }
+    },
+    "required": ["events"]
+  },
+  "height": 406
+}

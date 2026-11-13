@@ -1,0 +1,87 @@
+{
+ "id": "bring-list-1",
+ "ask": "mkae a sign up list for the stuff, 1 or 2 ppl on each thing",
+ "kind": "bring-list",
+ "family": "coord",
+ "surface": "event",
+ "sentence": "A shared sign-up list where each item can be claimed by up to two people, who can join or leave an item, and anyone can add new items.",
+ "use_when": [
+  "Sorting out who brings what to a party or potluck",
+  "Splitting up supplies or chores with a small limit per item",
+  "Group wants to see which items are still unclaimed",
+  "Need a quick tap-to-join list in a chat"
+ ],
+ "dont_use_when": [
+  "Voting between options or picking a date",
+  "Splitting costs or tracking who owes money",
+  "Assigning time slots or a schedule",
+  "Tracking tasks with due dates and status"
+ ],
+ "keywords": [
+  "sign up",
+  "sign-up list",
+  "bring list",
+  "potluck",
+  "who brings what",
+  "party supplies",
+  "claim items",
+  "volunteer",
+  "friendsgiving",
+  "signup sheet",
+  "checklist",
+  "assign items",
+  "shared list"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 5
+ },
+ "mutation_score": 1,
+ "height": 420,
+ "params": {
+  "names": [
+   "Jake",
+   "Wren"
+  ],
+  "options": [
+   "Cups",
+   "Ice",
+   "Chips and dip",
+   "Speaker",
+   "Plates and forks",
+   "Chairs",
+   "Power strip"
+  ],
+  "blanks": [
+   "2 bags minimum",
+   "Paper plates, Costco 200 ct"
+  ],
+  "numbers": [
+   200,
+   8
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "wrens friendsgiving (sat 7pm)",
+  "members": [
+   "Cam",
+   "Jake",
+   "Ravi",
+   "Sofia",
+   "Wren"
+  ],
+  "text": "ok event is sat 7pm at my place, 4th floor no elevator btw\nlol rip my knees\nwhat do we need to bring\ni have the turkey situation handled, like 2 tofurkeys and a real one\nngl tofurkey is elite\nwe need cups for sure, wren only has like 4 mugs\nyeah 4 mugs and a mason jar\nice too. like 2 bags minimum\ni can do ice if someone comes with me, trader joes is far\nill go w u\nchips and dip? i can do tostitos\nget the spinach dip pls\nok spinach dip\nspeaker?? someone needs a speaker\nmine died at coachella lol its dead\ni have the jbl but i need the charger from my car\nalso plates and forks, i have like 3 plates\npaper plates, costco has 200 ct\nill grab plates then, with cam since costco is by his place\nwait did i just get roped lol fine\nwe need chairs too, wren has 2 chairs\ni can bring 3 folding chairs from the rez hall\nneed 6 more tho, 8 ppl coming\nand a power strip for the speaker and the crockpot\nok this is getting long i cant keep track\nsame fr who has what\nmuse mkae a sign up list for the stuff, 1 or 2 ppl on each thing"
+ },
+ "seconds": 201.2,
+ "attempts": 2,
+ "created": "2026-11-13T03:34:26.737Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 8,
+  "restHash": "9638a9303f1fb83c",
+  "playedHash": "9b30a531b51fbd18"
+ }
+}

@@ -1,0 +1,86 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"no one is in the order twice\" caught none of 18 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"no draw means no order and no time\" caught none of 18 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a draw follows the seed\" caught none of 18 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.7,
+  "typecheck": 42.1,
+  "static": 1.6,
+  "determinism": 29.1,
+  "invariants": 74.1,
+  "mutation": 108.3,
+  "render": 1012.2,
+  "copy": 1,
+  "render.browser": 0,
+  "render.mount": 99,
+  "render.taps": 364,
+  "render.lint": 970,
+  "render.axe": 1008,
+  "render.total": 1012,
+  "total": 1044.1
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 18,
+  "inert": 2,
+  "killed": 16,
+  "score": 0.89,
+  "threshold": 0.8,
+  "kills": {
+   "no one is in the order twice": 0,
+   "everyone in the order is in the chat": 1,
+   "everyone who added is in the order, once": 3,
+   "the person who drew is in the chat": 4,
+   "the order is no longer than the chat": 1,
+   "no draw means no order and no time": 0,
+   "a draw orders every member, counts once, and clears who added": 1,
+   "a draw follows the seed": 0,
+   "no draw once someone has added a song": 4,
+   "added puts only the actor in the added list": 4,
+   "undo takes only the actor out of the added list": 3,
+   "only people in the chat change anything": 2
+  },
+  "survivors": [
+   {
+    "op": "negate-condition",
+    "line": 45,
+    "before": "action.t === \"undo\"",
+    "after": "!(action.t === \"undo\")"
+   },
+   {
+    "op": "flip-comparison",
+    "line": 45,
+    "before": "===",
+    "after": "!=="
+   }
+  ]
+ },
+ "weak": [
+  "no one is in the order twice",
+  "no draw means no order and no time",
+  "a draw follows the seed"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

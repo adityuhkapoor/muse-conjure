@@ -1,0 +1,33 @@
+{
+  "id": "napkin-boxes",
+  "name": "Napkin boxes",
+  "surface": "messenger",
+  "summary": "Dots and boxes on a drawn café napkin for two: on your turn draw one line between two dots in your pen color, close a box and your face goes in it and you go again; when the napkin is full the one with more boxes wins the stake, and a new napkin starts with the loser.",
+  "useWhen": [
+    "bored in line at kettle, play something",
+    "loser buys the chai, you're on",
+    "quick game while we wait for the bus",
+    "dots and boxes? i'm undefeated",
+    "settle it with a game, winner picks dinner"
+  ],
+  "dontUseWhen": [
+    "a group game for more than two (use trivia-night or imposter)",
+    "a bet on something real happening (use handshake-bet)",
+    "a solo puzzle (use daily-puzzle)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Napkin boxes'" },
+      "place": { "type": "string", "description": "Where the napkin is, e.g. 'Kettle & Crumb'; may be empty" },
+      "players": { "type": "array", "items": { "type": "string" }, "description": "The two players (names in the chat), first to move first" },
+      "stake": { "type": "string", "description": "What's on the line, e.g. 'Loser buys the chai'; may be empty" },
+      "talk": { "type": "array", "items": { "type": "string" }, "description": "One line of trash talk each, same order as players, in their words" },
+      "cols": { "type": "integer", "description": "Boxes across, 2 to 5" },
+      "rows": { "type": "integer", "description": "Boxes down, 2 to 4" },
+      "moves": { "type": "array", "items": { "type": "string" }, "description": "Lines already drawn, in order, as 'h' or 'v' then row then column digits, e.g. 'h00' (top edge of the first box) or 'v12'; played with the real turn rules" }
+    },
+    "required": ["players"]
+  },
+  "height": 377
+}

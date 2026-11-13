@@ -1,0 +1,24 @@
+{
+  "id": "best-of",
+  "name": "Group answer",
+  "origin": { "crate": "apps11", "id": "best-of" },
+  "surface": "group",
+  "summary": "A ranked answer to a question the group keeps asking, built from past replies, with +1s and a pin.",
+  "useWhen": ["a big group where the same recommendation question keeps coming back", "'best dentist near campus?', 'where to get a haircut', 'good cheap laptop repair'"],
+  "dontUseWhen": ["a fresh decision among friends (use a poll)", "ranking things for fun (use feed-tier-list)"],
+  "params": {
+    "type": "object",
+    "properties": {
+      "group": { "type": "string" }, "members": { "type": "integer" },
+      "question": { "type": "string", "description": "Short title, e.g. 'Best dentist near campus'" },
+      "posts": { "type": "integer", "description": "Times it was asked, e.g. 40" },
+      "replies": { "type": "integer", "description": "Replies read, e.g. 212" },
+      "helped": { "type": "integer", "description": "Members outside the chat who found it useful, e.g. 86" },
+      "asks": { "type": "array", "description": "Up to 3 recent repeat posts: who, text, ago", "items": { "type": "object" } },
+      "picks": { "type": "array", "description": "2 to 5 answers: name, detail, mentions, rating 1.0-5.0, up to 2 quotes {who, text}", "items": { "type": "object" } },
+      "plus": { "type": "array", "description": "Chat members' +1s: name and pick name", "items": { "type": "object" } }
+    },
+    "required": ["question", "picks"]
+  },
+  "height": 406
+}

@@ -1,0 +1,11 @@
+{
+  "id": "semester-wrapped",
+  "name": "Semester wrapped",
+  "origin": { "crate": "apps15", "id": "semester-wrapped" },
+  "surface": "story",
+  "summary": "The group's semester recap as a pack of six cards each person rips open, flips and shares.",
+  "useWhen": ["end of a term and the group wants a recap of its own stats", "someone asks for a 'wrapped' of the group chat"],
+  "dontUseWhen": ["a single trip recap (use trip-story)", "no real numbers were given: never invent stats"],
+  "params": { "term": "e.g. Fall '26", "cards": "1 to 6 cards: kind (study|food|chat|music|night|squad), title, big (the number as text), unit, who (person, place or song), detail (one fact)", "opened": "names of people who already opened theirs" },
+  "height": 580
+}

@@ -1,0 +1,65 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"the title and dice count never change\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1,
+  "typecheck": 50.9,
+  "static": 2.1,
+  "determinism": 37.1,
+  "invariants": 108.7,
+  "mutation": 151,
+  "render": 968.4,
+  "copy": 1.7,
+  "render.browser": 0,
+  "render.mount": 45,
+  "render.taps": 314,
+  "render.lint": 924,
+  "render.axe": 963,
+  "render.total": 968,
+  "total": 1010
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 15,
+  "inert": 3,
+  "killed": 15,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "every die is a whole number from 1 to 6": 1,
+   "a waiting table is empty and a dealt table has full hands": 1,
+   "ready has no repeats and only people with dice": 1,
+   "dice and ready marks belong to people in the chat": 3,
+   "dice are shown only when everyone with dice is ready": 2,
+   "dice stay hidden while someone with dice is not ready": 1,
+   "a deal gives every member the dice rng(seed) draws and clears ready": 5,
+   "a ready adds only the actor and changes no dice": 1,
+   "only someone with dice who is not ready can mark ready": 1,
+   "the last ready shows the dice and nothing shows them earlier": 1,
+   "dice change only on a deal": 1,
+   "again works only from shown dice and empties the table": 1,
+   "the title and dice count never change": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "the title and dice count never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

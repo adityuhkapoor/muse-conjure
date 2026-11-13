@@ -1,0 +1,30 @@
+{
+  "id": "library-seats",
+  "name": "Library seats",
+  "surface": "group",
+  "summary": "A study floor plan from above (window carrels, the long table, round tables, the stacks): empty seats glow, strangers' seats hold a laptop, friends sit as faces and full tables go dark; tap a seat or let it find one near friends, and save the next seat for a friend for 15 minutes.",
+  "useWhen": [
+    "is there any space up there",
+    "anyone at fenwick? save me a seat",
+    "how full is the 3rd floor rn",
+    "where are you guys sitting in the library",
+    "saving one for maya, she's 10 min out"
+  ],
+  "dontUseWhen": [
+    "the library at night as a building with lit windows (use fenwick-lights)",
+    "booking a study room for a fixed time (use meeting-time)",
+    "event or arena seats (use concert or ticket tools)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Library seats'" },
+      "place": { "type": "string", "description": "Group or place, e.g. 'Fenwick 3rd floor regulars'" },
+      "tables": { "type": "array", "description": "Up to 4 tables, drawn in order: top strip, left, right top, right bottom", "items": { "type": "object", "properties": { "name": { "type": "string", "description": "Table name, e.g. 'Long table'" }, "kind": { "type": "string", "enum": ["carrels", "long", "round"], "description": "Shape: carrels 2-5 seats, long 4-10, round 2-6" }, "seats": { "type": "integer", "description": "Seats at the table" }, "strangers": { "type": "integer", "description": "Seats taken by people outside the chat" } }, "required": ["name", "kind", "seats"] } },
+      "here": { "type": "array", "description": "Friends already sitting", "items": { "type": "object", "properties": { "name": { "type": "string", "description": "Their name as in the chat" }, "table": { "type": "string", "description": "Table name they're at" }, "said": { "type": "string", "description": "What they said, in their words" } } } },
+      "saving": { "type": "object", "description": "A seat being saved right now, optional", "properties": { "by": { "type": "string", "description": "Who is saving it (seated)" }, "for": { "type": "string", "description": "Who it's for" }, "table": { "type": "string", "description": "Which table" }, "minutesLeft": { "type": "integer", "description": "Minutes left on the 15-minute hold" } } }
+    },
+    "required": ["tables"]
+  },
+  "height": 374
+}

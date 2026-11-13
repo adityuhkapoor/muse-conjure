@@ -1,0 +1,11 @@
+{
+  "id": "ticket-split",
+  "name": "Group ticket buy",
+  "origin": { "crate": "apps10", "id": "ticket-split" },
+  "surface": "event",
+  "summary": "Friends pick a ticket tier together, one person fronts it, and everyone sees their share and marks it sent.",
+  "useWhen": ["buying tickets for a show or game as a group, with a few price tiers", "'who's buying the tickets', 'lawn or reserved?', 'split the pit tickets'"],
+  "dontUseWhen": ["one person already bought and only the money is left (use split)", "only deciding whether to go (use squad-lock)"],
+  "params": { "venue": "string", "date": "string", "tiers": "1-3 of {name, kind: lawn|rows|pit, priceCents, feeCents, left, together, row?}", "tier": "index of the tier the chat leans to", "people": "names who are in", "payer": "name who fronts it" },
+  "height": 400
+}

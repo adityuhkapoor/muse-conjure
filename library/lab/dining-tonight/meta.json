@@ -1,0 +1,44 @@
+{
+  "id": "dining-tonight",
+  "name": "Dining tonight",
+  "surface": "group",
+  "summary": "Tonight's dining hall menu drawn as a cafeteria tray with a dish in each compartment; members thumb dishes as they eat, each dish glows warm when tonight's batch is good and greys out when it isn't, the best one wears what people are saying about it, and the verdict says stay or walk to the other hall.",
+  "useWhen": [
+    "is hollis good tonight or should i walk to larkin",
+    "whats good at the dining hall rn",
+    "is the curry back??",
+    "dining hall menu tonight",
+    "anyone eaten yet, worth going?"
+  ],
+  "dontUseWhen": [
+    "picking a restaurant off campus (use dinner-veto or claw-pick)",
+    "cooking at home (use cupboard-cooker)",
+    "a one-off food review post"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "hall": { "type": "string", "description": "The dining hall, e.g. 'Hollis'" },
+      "other": { "type": "string", "description": "Where to walk instead if it's bad, e.g. 'Larkin'" },
+      "sub": { "type": "string", "description": "Line under the title: the group and the hours" },
+      "dishes": {
+        "type": "array",
+        "description": "2 to 8 dishes on tonight's menu",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string", "description": "Dish name, short" },
+            "kind": { "type": "string", "enum": ["curry", "pizza", "salad", "noodles", "soup", "dessert", "burger", "tacos"], "description": "The picture in the compartment" },
+            "up": { "type": "integer", "description": "Thumbs up already from the group" },
+            "down": { "type": "integer", "description": "Thumbs down already from the group" },
+            "said": { "type": "string", "description": "What someone said about tonight's batch, in their words" },
+            "by": { "type": "string", "description": "Who said it" }
+          },
+          "required": ["name", "kind"]
+        }
+      }
+    },
+    "required": ["hall", "dishes"]
+  },
+  "height": 366
+}

@@ -1,0 +1,83 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"the slots are 13 half hours from 5:00 pm\" caught none of 18 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"no one keeps an empty list\" caught none of 18 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a clear removes only the actor's entry\" caught none of 18 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the slots and the note never change\" caught none of 18 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.8,
+  "typecheck": 47.3,
+  "static": 1.8,
+  "determinism": 31.6,
+  "invariants": 107.8,
+  "mutation": 126,
+  "render": 906.2,
+  "copy": 1.2,
+  "render.browser": 0,
+  "render.mount": 51,
+  "render.taps": 241,
+  "render.lint": 858,
+  "render.axe": 901,
+  "render.total": 906,
+  "total": 941.2
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 18,
+  "inert": 1,
+  "killed": 17,
+  "score": 0.94,
+  "threshold": 0.8,
+  "kills": {
+   "each list is sorted, has no repeats and uses only real slots": 3,
+   "everyone with an entry is in the chat": 4,
+   "the slots are 13 half hours from 5:00 pm": 0,
+   "no one keeps an empty list": 0,
+   "a toggle flips that slot for the actor and leaves everyone else as they were": 2,
+   "a set makes the actor's list the slots from start up to the end time": 1,
+   "a set with a bad range changes nothing, a good one from a member is applied": 11,
+   "a clear removes only the actor's entry": 0,
+   "only people in the chat change anything": 2,
+   "the slots and the note never change": 0
+  },
+  "survivors": [
+   {
+    "op": "drop-assignment",
+    "line": 123,
+    "before": "free[k] = state.free[k]!;",
+    "after": ";"
+   }
+  ]
+ },
+ "weak": [
+  "the slots are 13 half hours from 5:00 pm",
+  "no one keeps an empty list",
+  "a clear removes only the actor's entry",
+  "the slots and the note never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

@@ -1,0 +1,83 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"the limits are always 15, 20, 25 and 30 dollars\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the note is the exchange note\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the limits and the note never change\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.9,
+  "typecheck": 50.2,
+  "static": 2.2,
+  "determinism": 29.6,
+  "invariants": 100.6,
+  "mutation": 132.6,
+  "render": 972.8,
+  "copy": 1.4,
+  "render.browser": 0,
+  "render.mount": 57,
+  "render.taps": 286,
+  "render.lint": 903,
+  "render.axe": 959,
+  "render.total": 972,
+  "total": 1006.5
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 12,
+  "inert": 7,
+  "killed": 10,
+  "score": 0.83,
+  "threshold": 0.8,
+  "kills": {
+   "every pick is one of the allowed limits": 4,
+   "everyone who picked is in the chat": 3,
+   "the limits are always 15, 20, 25 and 30 dollars": 0,
+   "there are never more picks than people": 2,
+   "the note is the exchange note": 0,
+   "a pick sets the actor's pick and leaves everyone else's alone": 4,
+   "a clear removes only the actor's pick": 1,
+   "only people in the chat change anything": 2,
+   "the limits and the note never change": 0
+  },
+  "survivors": [
+   {
+    "op": "flip-comparison",
+    "line": 45,
+    "before": "===",
+    "after": "!=="
+   },
+   {
+    "op": "drop-assignment",
+    "line": 58,
+    "before": "picks[k] = state.picks[k]!;",
+    "after": ";"
+   }
+  ]
+ },
+ "weak": [
+  "the limits are always 15, 20, 25 and 30 dollars",
+  "the note is the exchange note",
+  "the limits and the note never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

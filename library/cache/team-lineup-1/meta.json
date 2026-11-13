@@ -1,0 +1,77 @@
+{
+ "id": "team-lineup-1",
+ "ask": "can u make a poll for this so everyone picks their spot",
+ "kind": "team-lineup",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Each person picks one position for each game night from a limited list, with a cap on total players per night and on certain positions, and can release or change their pick.",
+ "use_when": [
+  "Everyone in a group needs to pick a position or role for a game night",
+  "A pickup game or team event has a fixed number of spots per night",
+  "Some roles have a smaller limit than others, like two quarterbacks",
+  "You want to see who has not picked a spot yet"
+ ],
+ "dont_use_when": [
+  "A simple yes or no vote or a single-choice poll is enough",
+  "Teams need to be split automatically or at random",
+  "People need to pick a time or date instead of a role",
+  "Scores or results need to be tracked"
+ ],
+ "keywords": [
+  "poll",
+  "pick spot",
+  "position",
+  "lineup",
+  "sign up",
+  "roster",
+  "claim spot",
+  "game night",
+  "flag football",
+  "team",
+  "slots",
+  "rsvp",
+  "role picker"
+ ],
+ "members": {
+  "min": 2,
+  "max": 16,
+  "original": 7
+ },
+ "mutation_score": 1,
+ "height": 322,
+ "params": {
+  "names": [],
+  "options": [
+   "Rusher",
+   "Receiver"
+  ],
+  "blanks": [],
+  "numbers": [
+   8
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "rec sports flag football thursdays",
+  "members": [
+   "Hugo",
+   "Priya",
+   "Maya",
+   "Sam",
+   "Sofia",
+   "Tyler",
+   "Mia"
+  ],
+  "text": "ok so flag football reg closes fri\nwait how many can we even put on the roster\nits 8 per game, and they only let us have 2 qbs and 2 rushers max\ni wanna be a receiver tbh\nsame lol i cant throw to save my life\ni can qb if nobody else wants\ni'll qb too, i played in high school\nok so thats both qb spots\nyeah sofia and tyler qb unless someone fights\ni'll rush, i dont mind running\nrush is chill i'll do that too\nso rushers are priya and sam\nthen theres 4 other spots, receivers or db\ni'll do db, i like swatting stuff\nreceiver for me\nalso we play either thurs 7pm at the turf or thurs 9pm at the rec field\n9 is too late i have lab till 8\n7 doesnt work for me bc i work til 7:30\nugh ok so we need to see who can do which night\nand only 8 people each game so not everyone can play both\nyeah each night max 8 and the sign up form is a pain\ncan we just do a thing where ppl claim a spot\nya like position + which night\nyes pls so its not chaos in here\nhugo u can just copy it over to the form after\nmuse can u make a poll for this so everyone picks their spot"
+ },
+ "seconds": 66.5,
+ "attempts": 1,
+ "created": "2026-11-13T02:33:10.655Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 8,
+  "restHash": "bf94949c9169689d",
+  "playedHash": "9e96a594b5696954"
+ }
+}

@@ -1,0 +1,77 @@
+{
+ "id": "dinner-veto-1",
+ "ask": "this is a mess fix it",
+ "kind": "dinner-veto",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Each person in a group chat gets one veto to strike a restaurant from a fixed list of five until one place is left and wins.",
+ "use_when": [
+  "a group can't agree on where to eat dinner",
+  "narrowing a short list of places by elimination",
+  "everyone should get an equal say with one strike each",
+  "picking a winner without a long discussion"
+ ],
+ "dont_use_when": [
+  "people need to vote for a favorite or rank choices",
+  "the list of options must be custom or change over time",
+  "a time or date needs to be picked, not a place"
+ ],
+ "keywords": [
+  "dinner veto",
+  "where to eat",
+  "restaurant pick",
+  "veto",
+  "elimination",
+  "group decision",
+  "food choice",
+  "strike out",
+  "last one standing",
+  "lunch spot",
+  "tiebreaker",
+  "decide place"
+ ],
+ "members": {
+  "min": 2,
+  "max": 5,
+  "original": 8
+ },
+ "mutation_score": 1,
+ "height": 340,
+ "params": {
+  "names": [],
+  "options": [
+   "Joe's Pizza",
+   "Pho 79",
+   "Chengdu Taste",
+   "Shake Shack",
+   "Taco Bell Cantina"
+  ],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "post finals dinner",
+  "members": [
+   "Theo",
+   "Owen",
+   "Leo",
+   "Tyler",
+   "Maya",
+   "Dev",
+   "Amir",
+   "Jake"
+  ],
+  "text": "ok so finals are DONE who's eating tn\nme. starving. havent eaten since like 11\nim in but not pizza again\ni want joe's pizza tho\noptions so far: joe's pizza, pho 79, chengdu taste, shake shack, taco bell cantina\nthats five. theres six of us\nok so we all get one veto?\nyes!! one veto each and whoevers left wins\ni veto nothing yet im saving it\nlol you cant save it\nchengdu taste is too spicy for me last time i cried\nshake shack is just a burger we can do that anytime\nif joe's gets vetoed im leaving\ndramatic\nok who goes first tho\nnot me\nidk the order thing always starts fights\nand do we stop at one left or does the 6th veto kill everything\nmuse this is a mess fix it"
+ },
+ "seconds": 139.7,
+ "attempts": 1,
+ "created": "2026-11-13T03:28:18.738Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 5,
+  "restHash": "9ef9213c3531d307",
+  "playedHash": "9f2ba950f0712b0f"
+ }
+}

@@ -1,0 +1,27 @@
+{
+  "id": "pregame-vote",
+  "name": "Pregame vote",
+  "origin": { "crate": "apps10", "id": "pregame-vote" },
+  "surface": "event",
+  "summary": "Vote on where and when to meet before an event on a small map with pins; lock picks the leaders and shows when to leave.",
+  "useWhen": ["choosing a meetup spot and time before a concert or game", "'where do we pregame', 'Top Dog or Jana's at 6:30?', 'meet before the show'"],
+  "dontUseWhen": ["only a time is open (use poll)", "many places without a map (use poll)"],
+  "params": { "type": "object", "properties": {
+    "title": { "type": "string", "description": "e.g. 'Pregame before the Greek'" },
+    "sub": { "type": "string", "description": "e.g. 'Doors 7:00 · 7 going'" },
+    "venue": { "type": "string", "description": "Short venue name" },
+    "doorsMin": { "type": "integer", "description": "Doors time in minutes after midnight, 0 to 1439" },
+    "spots": { "type": "array", "description": "3 meetup spots", "items": { "type": "object", "properties": {
+      "name": { "type": "string", "description": "Place name, up to 20 characters" },
+      "walk": { "type": "integer", "description": "Walk to the venue in minutes, 1 to 60" },
+      "x": { "type": "number", "description": "Map position, 0.08 to 0.8" },
+      "y": { "type": "number", "description": "Map position, 0.3 to 0.85" },
+      "voters": { "type": "array", "items": { "type": "string" }, "description": "Names who voted for it, as in the chat" } } } },
+    "times": { "type": "array", "description": "2 to 3 meetup times", "items": { "type": "object", "properties": {
+      "label": { "type": "string", "description": "e.g. '6:30 PM'" },
+      "voters": { "type": "array", "items": { "type": "string" }, "description": "Names who voted for it" } } } },
+    "streets": { "type": "array", "description": "Up to 2 street names for the map", "items": { "type": "object", "properties": {
+      "name": { "type": "string" }, "x": { "type": "number" }, "y": { "type": "number" } } } } },
+    "required": ["title", "sub", "venue", "doorsMin", "spots", "times"] },
+  "height": 414
+}

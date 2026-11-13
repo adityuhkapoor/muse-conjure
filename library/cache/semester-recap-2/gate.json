@@ -1,0 +1,92 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"entries are sorted by month then day\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"ids are unique and there are at most 12 entries\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"no one is listed twice on an entry\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"today is always Nov 12\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"an add puts one new entry in with the actor on it and leaves the rest alone\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a remove deletes one entry and only the one the actor added\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"only add, join and remove change entries, and today never moves\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.3,
+  "typecheck": 85.3,
+  "static": 2.9,
+  "determinism": 136.4,
+  "invariants": 368.9,
+  "mutation": 393,
+  "render": 963.4,
+  "copy": 1.9,
+  "render.browser": 0,
+  "render.mount": 35,
+  "render.taps": 276,
+  "render.lint": 910,
+  "render.axe": 956,
+  "render.total": 963,
+  "total": 1019.4
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 13,
+  "inert": 6,
+  "killed": 13,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "entries are sorted by month then day": 0,
+   "ids are unique and there are at most 12 entries": 0,
+   "every entry has a short title and a real date": 3,
+   "no one is listed twice on an entry": 0,
+   "people on entries are in the chat": 6,
+   "today is always Nov 12": 0,
+   "an add puts one new entry in with the actor on it and leaves the rest alone": 0,
+   "a join flips the actor on that one entry and changes nothing else": 4,
+   "a remove deletes one entry and only the one the actor added": 0,
+   "only people in the chat change anything": 2,
+   "only add, join and remove change entries, and today never moves": 0
+  },
+  "survivors": []
+ },
+ "weak": [
+  "entries are sorted by month then day",
+  "ids are unique and there are at most 12 entries",
+  "no one is listed twice on an entry",
+  "today is always Nov 12",
+  "an add puts one new entry in with the actor on it and leaves the rest alone",
+  "a remove deletes one entry and only the one the actor added",
+  "only add, join and remove change entries, and today never moves"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

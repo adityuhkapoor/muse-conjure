@@ -1,0 +1,82 @@
+{
+  "id": "streak",
+  "name": "Streak board (daily check-in)",
+  "use_when": [
+    "a group keeps a daily habit together and wants to see who kept it up: gym, runs, leetcode, reading, no-phone mornings",
+    "'streak', 'check in every day', 'day 1 of', 'who went today', 'loser buys smoothies Sunday'",
+    "one check-in per person per day; streaks and a weekly stake matter"
+  ],
+  "dont_use_when": [
+    "a one-time headcount for one event (use lock)",
+    "a list of tasks to finish once (use claims)",
+    "finding a time to meet (use overlap)"
+  ],
+  "keywords": [
+    "streak",
+    "streaks",
+    "daily",
+    "everyday",
+    "gym",
+    "workout",
+    "lift",
+    "run",
+    "check",
+    "checks",
+    "checkin",
+    "habit",
+    "challenge",
+    "day",
+    "every",
+    "loser",
+    "track",
+    "accountability"
+  ],
+  "guarantees": [
+    "one check-in per person per day; the day comes from the server time at a fixed UTC offset and day-start hour, never from a phone",
+    "a current streak counts days in a row ending today, or yesterday until today is missed; best is the longest run kept",
+    "only today's own check-in can be taken back; nobody can check in for someone else or backfill a day",
+    "a leaver's row goes; a late joiner starts at zero and can check in at once"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "description": "Card title, e.g. 'Gym streak'"
+      },
+      "stake": {
+        "type": "string",
+        "description": "The weekly stake as one plain line from the chat, e.g. 'Fewest days by Sunday buys smoothies', or empty"
+      },
+      "utcOffsetMinutes": {
+        "type": "integer",
+        "description": "The group's fixed UTC offset in minutes: -480 Pacific, -420 Mountain, -360 Central, -300 Eastern"
+      },
+      "dayStartsAt": {
+        "type": "integer",
+        "description": "Hour the day starts, 0 to 23; 4 means check-ins before 4 AM count for the day before"
+      }
+    },
+    "required": [
+      "title",
+      "stake",
+      "utcOffsetMinutes",
+      "dayStartsAt"
+    ],
+    "additionalProperties": false
+  },
+  "examples": [
+    {
+      "title": "Leetcode every day",
+      "stake": "",
+      "utcOffsetMinutes": -300,
+      "dayStartsAt": 0
+    },
+    {
+      "title": "Run club 30 day challenge",
+      "stake": "Fewest runs this week buys Philz on Sunday",
+      "utcOffsetMinutes": -480,
+      "dayStartsAt": 4
+    }
+  ]
+}

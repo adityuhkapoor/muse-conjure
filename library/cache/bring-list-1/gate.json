@@ -1,0 +1,77 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"ids are unique and labels are unique ignoring case\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"at most 12 items, each label 1 to 40 characters\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"an add appends one item last with the actor as its only person\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"existing labels, ids and the cap never change\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1,
+  "typecheck": 48.4,
+  "static": 2.2,
+  "determinism": 77.4,
+  "invariants": 240.1,
+  "mutation": 273.4,
+  "render": 976.2,
+  "copy": 1.4,
+  "render.browser": 0,
+  "render.mount": 29,
+  "render.taps": 279,
+  "render.lint": 929,
+  "render.axe": 972,
+  "render.total": 976,
+  "total": 1014
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 12,
+  "inert": 6,
+  "killed": 12,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "no item has more people than the cap": 2,
+   "no one is on the same item twice": 5,
+   "everyone signed up is in the chat": 4,
+   "ids are unique and labels are unique ignoring case": 0,
+   "at most 12 items, each label 1 to 40 characters": 0,
+   "a join adds the actor to that item and changes no other item": 2,
+   "a join only happens when the item has room": 2,
+   "a leave removes only the actor from that item and changes no other item": 2,
+   "an add appends one item last with the actor as its only person": 0,
+   "existing labels, ids and the cap never change": 0,
+   "only people in the chat change the list": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "ids are unique and labels are unique ignoring case",
+  "at most 12 items, each label 1 to 40 characters",
+  "an add appends one item last with the actor as its only person",
+  "existing labels, ids and the cap never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

@@ -1,0 +1,43 @@
+{
+  "id": "cap-signing",
+  "name": "Cap signing",
+  "surface": "feed",
+  "summary": "A graduation post becomes the mortarboard drawn from above: friends write on it in their own hand with a doodle, the tassel swings each time, and the graduate pins the finished cap to their profile.",
+  "useWhen": [
+    "maya graduated!! everyone sign something",
+    "can we all write on her grad post",
+    "make a cap we can sign for calvin's graduation",
+    "graduation post, leave her a note",
+    "congrats grad, sign the cap"
+  ],
+  "dontUseWhen": [
+    "a birthday card with a gift pot (use bday-pool)",
+    "planning the graduation party itself (use host-board)",
+    "a recap of the whole year (use semester-wrapped)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "who": { "type": "string", "description": "The graduate's first name" },
+      "title": { "type": "string", "description": "Card title, sentence case, e.g. 'Sign Maya's cap'" },
+      "school": { "type": "string", "description": "Line under the title, e.g. 'Eastfield · class of 2027'" },
+      "year": { "type": "string", "description": "Two digits on the tassel charm, e.g. '27'" },
+      "notes": {
+        "type": "array",
+        "description": "Signatures already on the cap, oldest first, in the friends' own words (28 characters or fewer)",
+        "items": {
+          "type": "object",
+          "properties": {
+            "by": { "type": "string", "description": "Who signed, by first name" },
+            "text": { "type": "string", "description": "What they wrote, lowercase is fine" },
+            "doodle": { "type": "string", "enum": ["star", "heart", "bolt", "smile"], "description": "The little doodle beside it" }
+          },
+          "required": ["by", "text"]
+        }
+      },
+      "lines": { "type": "array", "items": { "type": "string" }, "description": "1 to 6 suggested lines shown in the empty box; Sign uses it if nothing is typed" }
+    },
+    "required": ["who", "notes"]
+  },
+  "height": 406
+}

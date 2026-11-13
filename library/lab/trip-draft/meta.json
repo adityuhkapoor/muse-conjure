@@ -1,0 +1,11 @@
+{
+  "id": "trip-draft",
+  "name": "Trip snake draft",
+  "origin": { "crate": "apps1", "id": "trip-draft" },
+  "surface": "messenger",
+  "summary": "A snake draft of a trip itinerary: friends take turns picking plans off a board, two each, with a shot clock.",
+  "useWhen": ["a group trip with too many things to do and everyone wants a say", "'what are we doing in Nashville', 'everyone pick two things'"],
+  "dontUseWhen": ["voting on one plan (use a poll)", "a trip with no list of activities yet", "splitting costs (use rent-split or settle-up)"],
+  "params": { "title": "string", "why": "subtitle", "players": "2-6 x {name, prefs: plan indices for auto picks}", "plans": "up to 14 x {label, cat: 0 music, 1 food, 2 sights, 3 nightlife, suggested: true when Muse proposes the stop and nobody in the chat said it}; each label is 3 or 4 words, a name not a sentence ('Machu Picchu', 'Lima old town', 'Ceviche in Barranco')", "picks": "already made, in order: plan indices" },
+  "height": 418
+}

@@ -1,0 +1,74 @@
+{
+  "id": "bracket",
+  "name": "Bracket vote",
+  "use_when": [
+    "ranking or settling 'best X' among 4 to 8 entries head to head",
+    "'bracket', 'tournament', 'march madness', 'settle this', 'best ___ of all time'",
+    "the chat named several contenders"
+  ],
+  "dont_use_when": [
+    "a quick pick among 2-3 options (use poll)",
+    "random choice (use wheel)"
+  ],
+  "keywords": [
+    "bracket",
+    "tournament",
+    "best",
+    "goat",
+    "ranking",
+    "rank",
+    "versus",
+    "vs",
+    "head",
+    "matchup",
+    "settle",
+    "debate",
+    "march",
+    "madness",
+    "faceoff",
+    "all",
+    "time",
+    "top",
+    "winner"
+  ],
+  "guarantees": [
+    "no one votes for both sides of a match",
+    "each round is exactly the winners of the last one",
+    "a winner had at least as many votes; ties go to the server seed, shown once confirmed",
+    "only the newest round is open; a leaver's votes in open matches go, a late joiner can vote"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "description": "Card title, e.g. 'Best late night food'"
+      },
+      "entries": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Entries from the chat, 2 to 8, short"
+      }
+    },
+    "required": [
+      "title",
+      "entries"
+    ],
+    "additionalProperties": false
+  },
+  "examples": [
+    {
+      "title": "Best Pixar movie",
+      "entries": [
+        "Up",
+        "Ratatouille",
+        "Wall-E",
+        "Coco",
+        "Inside Out",
+        "Toy Story 2"
+      ]
+    }
+  ]
+}

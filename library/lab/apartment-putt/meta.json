@@ -1,0 +1,40 @@
+{
+  "id": "apartment-putt",
+  "name": "Apartment putt",
+  "surface": "gaming",
+  "summary": "A mini-golf hole drawn as the apartment's floor plan: putt from the front door around the couch, under the table, past the rice cooker to the cup in the bathroom. Drag back from your ball to aim and set power, then putt; the ball bounces off walls and furniture the same way on every phone, every friend's ball sits where it stopped with their face, and fewest strokes wins the week.",
+  "useWhen": [
+    "mini golf but the course is our apartment",
+    "hole of the week at 412 pine, bathroom is the cup",
+    "a putting game in our living room",
+    "who can sink it past arun's rice cooker",
+    "something silly to play from the couch"
+  ],
+  "dontUseWhen": [
+    "planning a real mini golf outing (use friends-plans)",
+    "a puzzle with moves to count (use lot-escape)",
+    "assigning rooms or chores in the apartment (use chore-wheel)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. '412 Pine mini golf'" },
+      "hole": { "type": "string", "description": "This week's hole, e.g. 'hole 3 · front door to the bathroom'" },
+      "par": { "type": "integer", "description": "Par for the hole" },
+      "things": {
+        "type": "array",
+        "description": "The floor plan in a 1000 by 640 world, up to 16: walls, couch, table (rolls under), cooker and plant (round bumpers, x and y are the centre, w the size), rug, bed; an optional short label",
+        "items": { "type": "object", "properties": { "kind": { "type": "string", "enum": ["wall", "couch", "table", "cooker", "rug", "plant", "bed"] }, "x": { "type": "integer" }, "y": { "type": "integer" }, "w": { "type": "integer" }, "h": { "type": "integer" }, "label": { "type": "string" } }, "required": ["kind", "x", "y", "w", "h"] }
+      },
+      "start": { "type": "object", "properties": { "x": { "type": "integer" }, "y": { "type": "integer" } }, "description": "Where every ball starts, usually the front door" },
+      "cup": { "type": "object", "properties": { "x": { "type": "integer" }, "y": { "type": "integer" }, "label": { "type": "string" } }, "description": "Where the cup is" },
+      "players": {
+        "type": "array",
+        "description": "Friends already playing: strokes so far, where their ball sits, whether it's in, an optional line",
+        "items": { "type": "object", "properties": { "name": { "type": "string" }, "strokes": { "type": "integer" }, "x": { "type": "integer" }, "y": { "type": "integer" }, "holed": { "type": "boolean" }, "said": { "type": "string" } }, "required": ["name", "strokes", "x", "y"] }
+      }
+    },
+    "required": ["things", "start", "cup"]
+  },
+  "height": 400
+}

@@ -1,0 +1,95 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "arbitrary-weak",
+   "message": "only 30 in 100 actions from arbitrary changed the state"
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"no one has more than their share of picks\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"turn slots are never exceeded\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a pick adds one entry for the actor and the named snack\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the host, the snacks and the order never change after the start\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 2,
+  "typecheck": 94,
+  "static": 3.8,
+  "determinism": 138.5,
+  "invariants": 346.3,
+  "mutation": 473.5,
+  "render": 1202.1,
+  "copy": 2.5,
+  "render.browser": 1,
+  "render.mount": 80,
+  "render.taps": 429,
+  "render.lint": 1079,
+  "render.axe": 1193,
+  "render.total": 1202,
+  "total": 1277.4
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 12,
+  "inert": 5,
+  "killed": 10,
+  "score": 0.83,
+  "threshold": 0.8,
+  "kills": {
+   "every picked snack exists and is picked once": 2,
+   "no one has more than their share of picks": 0,
+   "turn slots are never exceeded": 0,
+   "before the start nothing is drawn, after it the order has each person once": 2,
+   "the host is in the chat": 1,
+   "each entry was made by the person whose turn it was": 1,
+   "a start by the host draws the order from the seed and changes nothing else": 3,
+   "a pick adds one entry for the actor and the named snack": 0,
+   "a pick only happens on the actor's own turn": 1,
+   "a skip adds one empty entry for a picker who left": 1,
+   "the host, the snacks and the order never change after the start": 0,
+   "only people in the chat change anything": 1
+  },
+  "survivors": [
+   {
+    "op": "flip-comparison",
+    "line": 86,
+    "before": "===",
+    "after": "!=="
+   },
+   {
+    "op": "flip-comparison",
+    "line": 97,
+    "before": "===",
+    "after": "!=="
+   }
+  ]
+ },
+ "weak": [
+  "no one has more than their share of picks",
+  "turn slots are never exceeded",
+  "a pick adds one entry for the actor and the named snack",
+  "the host, the snacks and the order never change after the start"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

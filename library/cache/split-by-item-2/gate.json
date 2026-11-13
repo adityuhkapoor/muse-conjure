@@ -1,0 +1,68 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"a shared item has no owner and an owned item is not shared\" caught none of 17 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"add appends one item owned by the actor at the price asked\" caught none of 17 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.7,
+  "typecheck": 83.4,
+  "static": 3.2,
+  "determinism": 121.2,
+  "invariants": 332.8,
+  "mutation": 351.1,
+  "render": 1008.3,
+  "copy": 2.5,
+  "render.browser": 0,
+  "render.mount": 56,
+  "render.taps": 296,
+  "render.lint": 958,
+  "render.axe": 1002,
+  "render.total": 1008,
+  "total": 1078.7
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 17,
+  "inert": 2,
+  "killed": 17,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "item ids are unique and prices are whole positive cents": 2,
+   "a shared item has no owner and an owned item is not shared": 0,
+   "owners and people who sent are in the chat": 3,
+   "the payer is in the chat and never marks sent": 2,
+   "shares add up to items plus tax plus tip": 2,
+   "at most 16 items, labels 1 to 40 characters, tax and tip sane": 2,
+   "sent flips only the actor, never the payer": 3,
+   "share is by the owner and moves one item to everyone": 3,
+   "claim gives one shared item to the actor": 2,
+   "add appends one item owned by the actor at the price asked": 0,
+   "remove drops one item, by its owner or the payer": 2,
+   "only people in the chat change anything, and payer, tax and tip stay": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "a shared item has no owner and an owned item is not shared",
+  "add appends one item owned by the actor at the price asked"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

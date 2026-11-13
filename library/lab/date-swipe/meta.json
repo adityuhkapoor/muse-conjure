@@ -1,0 +1,33 @@
+{
+  "id": "date-swipe",
+  "name": "Which weekend",
+  "origin": { "crate": "apps6", "id": "date-swipe" },
+  "surface": "messenger",
+  "summary": "A few candidate weekends; everyone says free or not, and the first to reach the lock count locks.",
+  "useWhen": ["picking one weekend or date range for a trip from 2 to 4 options", "'when are we doing nashville', 'which weekend works', 'march or april'"],
+  "dontUseWhen": ["finding an hour in a day (use a meeting-time grid)", "picking a place (use dinner-veto)", "a headcount for a set date (use an RSVP)"],
+  "params": {
+    "type": "object",
+    "properties": {
+      "place": { "type": "string", "description": "The trip, e.g. 'Nashville'" },
+      "lockAt": { "type": "integer", "description": "How many free people lock a weekend, e.g. 5" },
+      "weekends": {
+        "type": "array",
+        "description": "2 to 4",
+        "items": {
+          "type": "object",
+          "properties": {
+            "label": { "type": "string", "description": "'Mar 6–8'" },
+            "month": { "type": "string", "description": "'Mar'" },
+            "day": { "type": "integer", "description": "First day, 6" },
+            "span": { "type": "string", "description": "'Thu–Sun'" },
+            "why": { "type": "string", "description": "Short note: 'midterms week tho'" },
+            "free": { "type": "array", "items": { "type": "string" }, "description": "Names already free" }
+          }
+        }
+      }
+    },
+    "required": ["weekends"]
+  },
+  "height": 396
+}

@@ -1,0 +1,88 @@
+{
+ "id": "trip-tab-1",
+ "ask": "ok this is a mess, do your thing and tell us who owes who",
+ "kind": "trip-tab",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Tracks shared trip expenses in a group chat, works out each person's balance, and shows the fewest payments needed to settle up, with a button to mark a payment as made.",
+ "use_when": [
+  "A group has paid for things separately on a trip or weekend and needs to know who owes who",
+  "Some costs were shared by everyone and some by only a few people",
+  "People want to add expenses and mark payments as paid as they go",
+  "The group wants the smallest number of transfers to even out"
+ ],
+ "dont_use_when": [
+  "Splitting a single restaurant bill by items or with tax and tip on one receipt",
+  "Tracking a long-term budget, loan, or recurring household bills with currency conversion",
+  "Actually sending money, since it only records payments and does not move funds"
+ ],
+ "keywords": [
+  "split expenses",
+  "who owes who",
+  "trip costs",
+  "settle up",
+  "bill split",
+  "shared expenses",
+  "group tab",
+  "expense tracker",
+  "debts",
+  "reimbursement",
+  "cabin weekend",
+  "payments"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 6
+ },
+ "mutation_score": 1,
+ "height": 272,
+ "params": {
+  "names": [
+   "Zoe",
+   "Lily",
+   "Noor",
+   "Wren",
+   "June"
+  ],
+  "options": [
+   "Cabin deposit",
+   "Gas",
+   "Firewood and s'mores",
+   "Pizza night at the lodge",
+   "Lift passes"
+  ],
+  "blanks": [],
+  "numbers": [
+   24000,
+   8600,
+   6200,
+   2700,
+   5400,
+   18000
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "tahoe cabin weekend",
+  "members": [
+   "Zoe",
+   "Lily",
+   "Noor",
+   "Wren",
+   "June",
+   "Theo"
+  ],
+  "text": "ok so i paid for the cabin deposit, 240 total\ni got groceries at safeway tho, like 86\ni did gas on the way up, 62 bucks\nwait i also bought firewood and s'mores stuff, 27\ni havent paid for anything yet lol\nsame, i just brought the speaker\ntheo that doesnt count as paying\nit was a nice speaker\nalso the pizza night at the lodge, i put it on my card, 54\noh and i covered lift passes for me and june, 90 each i think? so 180\nyeah i still owe noor for that for sure, my 90\ntheres 6 of us right, everything split even except the lift passes\nyea only noor and june skied the rest of us were in the hot tub\nbest decision\ni dont even know what everyone owes anymore\nsame my notes app is a disaster\nthis is a mess muse fix it"
+ },
+ "seconds": 347.9,
+ "attempts": 1,
+ "created": "2026-11-13T03:03:04.404Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 2,
+  "restHash": "93ddff183100c0ef",
+  "playedHash": "93ddff183300c0e7"
+ }
+}

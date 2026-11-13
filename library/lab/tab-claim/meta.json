@@ -1,0 +1,35 @@
+{
+  "id": "tab-claim",
+  "name": "Tab claim",
+  "origin": { "crate": "apps9", "id": "tab-claim" },
+  "surface": "messenger",
+  "summary": "Everyone taps what they ate off one person's receipt; the rest splits evenly and totals update live.",
+  "useWhen": ["one person paid a restaurant bill and others owe for what they ordered", "'I got Smokey's, claim your stuff', 'who had the ribs'"],
+  "dontUseWhen": ["an even split with no items (use split-even)", "deciding who pays (use bill-roulette)", "ongoing house expenses (use settle-up)"],
+  "params": {
+    "type": "object",
+    "properties": {
+      "place": { "type": "string", "description": "Where the bill is from: \"Smokey's\"" },
+      "payer": { "type": "string", "description": "Name of the member who put it on their card, exactly as in the members list" },
+      "tipBps": { "type": "integer", "description": "Tax and tip together in basis points (2200 = 22 in 100)" },
+      "items": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 12,
+        "items": {
+          "type": "object",
+          "properties": {
+            "label": { "type": "string", "description": "Item name, short: \"Brisket plate\"" },
+            "priceCents": { "type": "integer", "description": "Price in cents ($24 -> 2400)" },
+            "claimedBy": { "type": "string", "description": "Member name who already claimed it in the chat, or an empty string" }
+          },
+          "required": ["label", "priceCents", "claimedBy"],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": ["place", "payer", "tipBps", "items"],
+    "additionalProperties": false
+  },
+  "height": 408
+}

@@ -1,0 +1,11 @@
+{
+  "id": "lobby",
+  "name": "Who's on tonight",
+  "origin": { "crate": "apps2", "id": "lobby" },
+  "surface": "messenger",
+  "summary": "A 6 pm to 1 am grid of when everyone is free tonight, the best overlap, and a ping before it starts.",
+  "useWhen": ["finding when people are free tonight to game, call or hang", "'who's on tonight', 'maybe after 10', '9-11 then im out'"],
+  "dontUseWhen": ["picking a day across a week (use a date poll)", "a fixed time already agreed (use an RSVP)"],
+  "params": { "title": "string", "people": "{name, reply, from, to, maybe}[] (slot 0 = 6:00 PM, 30 min each, to exclusive, max 14)" },
+  "height": 360
+}

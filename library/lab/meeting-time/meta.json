@@ -1,0 +1,24 @@
+{
+  "id": "meeting-time",
+  "name": "Weekly meeting",
+  "origin": { "crate": "apps11", "id": "meeting-time" },
+  "surface": "group",
+  "summary": "An availability heatmap for a group's weekly meeting that locks the slot most people can make.",
+  "useWhen": ["a club or class group picking one recurring meeting time", "'when can everyone meet weekly', 'best night for practice'"],
+  "dontUseWhen": ["a one-off event date (use a poll)", "volunteer shifts with several slots (use signup-board)"],
+  "params": {
+    "type": "object",
+    "properties": {
+      "group": { "type": "string", "description": "e.g. 'Cal Hackers'" },
+      "members": { "type": "integer", "description": "Members of the group, e.g. 31" },
+      "place": { "type": "string", "description": "Where it meets, e.g. 'Soda 306'" },
+      "starts": { "type": "string", "description": "First meeting, e.g. 'Jan 21'" },
+      "days": { "type": "array", "items": { "type": "string" }, "description": "1 to 7 short day names, e.g. ['Mon','Tue','Wed','Thu','Fri']" },
+      "times": { "type": "array", "items": { "type": "string" }, "description": "1 to 6 times, e.g. ['5pm','6pm','7pm','8pm','9pm']" },
+      "counts": { "type": "array", "description": "counts[time][day]: members outside this chat who are free then", "items": { "type": "array", "items": { "type": "integer" } } },
+      "people": { "type": "array", "description": "Chat members' free times: name and 'Tue 7pm' style cells", "items": { "type": "object" } }
+    },
+    "required": ["days", "times", "counts"]
+  },
+  "height": 330
+}

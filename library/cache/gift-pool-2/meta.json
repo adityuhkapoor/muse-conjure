@@ -1,0 +1,88 @@
+{
+ "id": "gift-pool-2",
+ "ask": "ok muse do your thing",
+ "kind": "gift-pool",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Tracks a group gift fund toward a goal, where members pledge an amount, record what they sent to a chosen money holder, and the holder confirms receipt.",
+ "use_when": [
+  "A group is chipping in for a shared gift and wants to see progress toward the total",
+  "Someone needs to track who pledged and who has actually paid",
+  "Money is sent to one or two people who collect it and confirm it",
+  "A group wants a simple view of how much is left to raise before a deadline"
+ ],
+ "dont_use_when": [
+  "Splitting a bill or dining costs between people after the fact",
+  "Voting on what gift or option to pick",
+  "Moving real money or taking payments inside the chat",
+  "Tracking ongoing shared expenses or debts over time"
+ ],
+ "keywords": [
+  "gift fund",
+  "group gift",
+  "pledge",
+  "collection",
+  "fundraiser",
+  "chip in",
+  "contribution",
+  "money pool",
+  "goal progress",
+  "payment tracker",
+  "confirm payment",
+  "retirement gift",
+  "whip round"
+ ],
+ "members": {
+  "min": 3,
+  "max": 20,
+  "original": 6
+ },
+ "mutation_score": 0.92,
+ "height": 338,
+ "params": {
+  "names": [
+   "Maya",
+   "Naomi",
+   "Paige",
+   "Jake",
+   "Omar",
+   "Bryan"
+  ],
+  "options": [
+   "Signed team jersey frame",
+   "Card and engraving plate"
+  ],
+  "blanks": [],
+  "numbers": [
+   14000,
+   2200,
+   2500,
+   2000,
+   3000,
+   1500
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "coach k retirement gift",
+  "members": [
+   "Maya",
+   "Naomi",
+   "Paige",
+   "Jake",
+   "Omar",
+   "Bryan"
+  ],
+  "text": "ok so coach is retiring after this season and we gotta get him something\nthe rec soccer coach? yeah fr\ni heard people want to get him a framed jersey thing\nthe signed team jersey frame is $140 at that shop on elm\ni can do $25\ni can do 20 now, more after payday\nim in for 30\nput me down for 25 but i havent sent yet\ni sent 15 on venmo last night\nok i sent 30 this morning\ni sent mine too, 25\nwait did anyone send to me or paige\ni sent to paige\ni sent 20 to jake\nok so i have maya's 20 and my 30 i guess\nok sending my 25 to paige now\ngot it. so who has what lol\ni honestly lost track\nand we still need the card and engraving plate, like $22\nhis last game is the 16th so we have like 4 days\ni cant tell if we hit 140 or not\nthis is a mess muse, ok muse do your thing"
+ },
+ "seconds": 231.6,
+ "attempts": 1,
+ "created": "2026-11-13T04:08:20.245Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 3,
+  "restHash": "9ba552a95637b858",
+  "playedHash": "9ab3b5d04a66b549"
+ }
+}

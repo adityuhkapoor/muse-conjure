@@ -1,0 +1,70 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"no one is in a weekend's yes list twice\" caught none of 18 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"there are exactly the chat's weekends with unique ids\" caught none of 18 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the title and weekends never change\" caught none of 18 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.8,
+  "typecheck": 45.5,
+  "static": 2,
+  "determinism": 40.6,
+  "invariants": 123.6,
+  "mutation": 143.7,
+  "render": 896.3,
+  "copy": 1.2,
+  "render.browser": 0,
+  "render.mount": 49,
+  "render.taps": 231,
+  "render.lint": 846,
+  "render.axe": 891,
+  "render.total": 896,
+  "total": 929.5
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 18,
+  "inert": 1,
+  "killed": 18,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "no one is in a weekend's yes list twice": 0,
+   "everyone who said yes is in the chat": 3,
+   "there are exactly the chat's weekends with unique ids": 0,
+   "a lock names an existing weekend and a locker, and an open poll has neither": 2,
+   "a vote flips the voter's yes on that weekend and leaves everyone else alone": 7,
+   "a lock records the weekend, the locker and the time, and only with enough yeses": 6,
+   "only the locker reopens the poll, and the yeses are kept": 1,
+   "the title and weekends never change": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "no one is in a weekend's yes list twice",
+  "there are exactly the chat's weekends with unique ids",
+  "the title and weekends never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

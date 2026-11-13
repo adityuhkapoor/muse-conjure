@@ -1,0 +1,53 @@
+{
+  "id": "blind-taste",
+  "name": "Blind taste",
+  "surface": "messenger",
+  "summary": "A real-life blind taste test: numbered boxes with their lids closed and steam curling out; everyone taps the boxes best to worst and medals stick to the lids, and when the whole chat is in the lids flip open together to show what was in each box, where it placed and how many points it got.",
+  "useWhen": [
+    "settle it: who has the best pizza in town",
+    "blind taste test tonight",
+    "rank them without knowing which is which",
+    "which coffee is actually best, no bias",
+    "is the frozen one secretly better lol"
+  ],
+  "dontUseWhen": [
+    "voting on places nobody has tried yet (use dinner-veto or claw-pick)",
+    "friends who aren't in the same room",
+    "ranking things you can see the names of (use tier-list)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Blind taste'" },
+      "sub": { "type": "string", "description": "The question being settled, quoted from the chat" },
+      "items": {
+        "type": "array",
+        "description": "3 to 5 things in the boxes; the box numbers are shuffled so they stay blind",
+        "items": {
+          "type": "object",
+          "properties": {
+            "label": { "type": "string", "description": "What it is, e.g. 'Rook's'" },
+            "kind": { "type": "string", "enum": ["pizza", "coffee", "dumpling", "cookie", "taco", "fries"], "description": "The food drawn inside the box" },
+            "note": { "type": "string", "description": "A line shown after the reveal, e.g. 'Arun's, heated in the rice cooker'" }
+          },
+          "required": ["label", "kind"]
+        }
+      },
+      "ranks": {
+        "type": "array",
+        "description": "Rankings already in",
+        "items": {
+          "type": "object",
+          "properties": {
+            "who": { "type": "string", "description": "Name in the chat" },
+            "order": { "type": "array", "items": { "type": "integer" }, "description": "Every item index once, best first" },
+            "said": { "type": "string", "description": "What they said while tasting, in their words" }
+          },
+          "required": ["who", "order"]
+        }
+      }
+    },
+    "required": ["items"]
+  },
+  "height": 354
+}

@@ -1,0 +1,75 @@
+{
+ "id": "liars-dice-1",
+ "ask": "deal em",
+ "kind": "liars-dice",
+ "family": "game",
+ "surface": "chat",
+ "sentence": "Deals each person in the chat a hidden set of five dice that only they can see, then shows everyone's dice once all have said ready so bids can be checked.",
+ "use_when": [
+  "The group wants to start a round of liar's dice and needs dice dealt in secret",
+  "Everyone needs to see their own dice privately and then reveal them together",
+  "A bluffing dice game is being played in chat and someone needs to check a bid",
+  "Starting a new round after dice were shown"
+ ],
+ "dont_use_when": [
+  "Someone just wants a single public dice roll or coin flip",
+  "The group wants to track bids, turns or lost dice through a full game",
+  "The game needs cards or a board rather than dice"
+ ],
+ "keywords": [
+  "liar's dice",
+  "deal dice",
+  "hidden dice",
+  "bluffing game",
+  "dice game",
+  "secret roll",
+  "reveal dice",
+  "bid",
+  "perudo",
+  "dice hands",
+  "party game",
+  "ready check"
+ ],
+ "members": {
+  "min": 2,
+  "max": 8,
+  "original": 8
+ },
+ "mutation_score": 1,
+ "height": 140,
+ "params": {
+  "names": [
+   "Leo"
+  ],
+  "options": [],
+  "blanks": [],
+  "numbers": [
+   800
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "friday game night",
+  "members": [
+   "Maya",
+   "Leo",
+   "Gabe",
+   "Kev",
+   "Sofia",
+   "Nora",
+   "Ana",
+   "Owen"
+  ],
+  "text": "ok game night at leo's tn, whos actually coming\nme gabe kev for sure\nim in after my orgo thing ends at 8\nme and ana coming w the dumplings from golden wok\nyes dumplings. owen u coming?\nya just got out of lab\ncan we do something other than uno pls\nliars dice?? we played it at the lake house\ni forgot the rules lol\neveryone gets 5 dice, look at ur own in secret, take turns bidding like \"three 4s\" and u gotta raise it each time\nand if u think someone's lying u call them\nloser of the round loses a die. we dont have 8 sets of dice tho\ni only have like 2 dice\nalso last time kev peeked at mine\nONE time and i was drunk\nneed something that rolls for us and nobody sees til we all lock in\nyeah hidden til everyone says ready\nthen reveal all of them after so we can check who was lying\njust one round to start, 5 dice each\nill be the first to call bs fr\nok everyone ready??\nmuse deal em"
+ },
+ "seconds": 247.1,
+ "attempts": 1,
+ "created": "2026-11-13T03:29:09.268Z",
+ "second_look": {
+  "endStep": 5,
+  "endReason": "reached phase = revealed",
+  "controls": 1,
+  "restHash": "bb911a6ec46ec4e2",
+  "playedHash": "bf81699ce0629d6a"
+ }
+}

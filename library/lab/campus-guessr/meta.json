@@ -1,0 +1,42 @@
+{
+  "id": "campus-guessr",
+  "name": "Campus guessr",
+  "surface": "gaming",
+  "summary": "A geo-guessing game on a drawn campus map: each round shows a friend's photo redrawn as a little polaroid, you tap the map where you think it was taken and lock your pin, and the reveal draws a line from every friend's pin to the spot with metres off and points. The friend who took the photo always wins that round.",
+  "useWhen": [
+    "geoguessr but it's our campus and our photos",
+    "guess where i took this, eastfield edition",
+    "make a game out of the photos we sent this semester",
+    "who knows campus best",
+    "a map game for the group chat"
+  ],
+  "dontUseWhen": [
+    "finding where friends are right now (use come-find-me)",
+    "a travel guess on a world map (use guess-where)",
+    "planning where to meet (use meeting-time)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Campus guessr'" },
+      "campus": { "type": "string", "description": "The campus or town name, e.g. 'Eastfield'" },
+      "places": {
+        "type": "array",
+        "description": "Up to 10 map landmarks: short name, kind, centre in thousandths of the map; keep x under 330 and y under 450 clear for the photo",
+        "items": { "type": "object", "properties": { "name": { "type": "string" }, "kind": { "type": "string", "enum": ["building", "lake", "hill", "green", "lot", "shop"] }, "x": { "type": "integer" }, "y": { "type": "integer" } }, "required": ["name", "kind", "x", "y"] }
+      },
+      "rounds": {
+        "type": "array",
+        "description": "Up to 5 photos: who took it, the drawn scene, where it was taken in thousandths of the map, and the caption revealed after guessing",
+        "items": { "type": "object", "properties": { "by": { "type": "string" }, "scene": { "type": "string", "enum": ["pond", "library", "pizza", "dock", "hill", "tree", "coffee", "lot"] }, "x": { "type": "integer" }, "y": { "type": "integer" }, "caption": { "type": "string" } }, "required": ["by", "scene", "x", "y", "caption"] }
+      },
+      "guesses": {
+        "type": "array",
+        "description": "Pins friends already dropped: name, round number from 1, where",
+        "items": { "type": "object", "properties": { "name": { "type": "string" }, "round": { "type": "integer" }, "x": { "type": "integer" }, "y": { "type": "integer" } }, "required": ["name", "round", "x", "y"] }
+      }
+    },
+    "required": ["places", "rounds"]
+  },
+  "height": 390
+}

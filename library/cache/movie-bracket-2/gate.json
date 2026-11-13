@@ -1,0 +1,81 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"the champion is the winner of the final\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"decided matches never change their winner or votes except by reset\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a reset returns the whole bracket to its start\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.7,
+  "typecheck": 86,
+  "static": 3.7,
+  "determinism": 116,
+  "invariants": 393.7,
+  "mutation": 496.1,
+  "render": 1017.1,
+  "copy": 4.1,
+  "render.browser": 0,
+  "render.mount": 46,
+  "render.taps": 326,
+  "render.lint": 942,
+  "render.axe": 1007,
+  "render.total": 1017,
+  "total": 1088.9
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 13,
+  "inert": 4,
+  "killed": 12,
+  "score": 0.92,
+  "threshold": 0.8,
+  "kills": {
+   "there are the 8 movies from the chat and 7 matches with fixed ids and rounds": 1,
+   "no one is on both sides of a match or twice on one side": 1,
+   "voters in open matches are in the chat": 4,
+   "a decided match was won by the side with strictly more votes": 2,
+   "each later slot holds the winner of its feeder match, first round is seeded in order": 2,
+   "a match with an empty slot has no votes and no winner": 1,
+   "the champion is the winner of the final": 0,
+   "a vote changes only the actor's place in that open match": 4,
+   "a decide gives the win to the leading side, fills one slot in the next match and changes nothing else": 3,
+   "a decide only happens when the vote counts differ": 2,
+   "decided matches never change their winner or votes except by reset": 0,
+   "a reset returns the whole bracket to its start": 0,
+   "only people in the chat change anything, and the movie list never changes": 2
+  },
+  "survivors": [
+   {
+    "op": "swap-branches",
+    "line": 116,
+    "before": "same(state, fresh()) ? state : fresh()",
+    "after": "(same(state, fresh())) ? (fresh()) : (state)"
+   }
+  ]
+ },
+ "weak": [
+  "the champion is the winner of the final",
+  "decided matches never change their winner or votes except by reset",
+  "a reset returns the whole bracket to its start"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

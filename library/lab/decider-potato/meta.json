@@ -1,0 +1,10 @@
+{
+  "id": "decider-potato",
+  "name": "Decider potato",
+  "surface": "messenger",
+  "summary": "Pick the person, not the place: a hot potato hops around the circle of friends, faster and faster, and pops on whoever decides; they get 60 seconds and their pick is final.",
+  "useWhen": ["'can someone just decide' after the chat has gone in circles", "the group wants one person to make the call, no appeals", "the same people always end up deciding"],
+  "dontUseWhen": ["the group wants to vote (use a poll or after-vote)", "picking a place at random (use claw-pick or slot-machine)", "assigning chores (use chore-wheel)"],
+  "params": { "title": "string", "sub": "the moment, e.g. “can someone just decide” ×3", "seconds": "number 15-300, time the decider gets", "people": "up to 8 x {name, decided (times this semester), would (their pick if they're not in the chat), said}", "ideas": "up to 4 places floated in the chat" },
+  "height": 382
+}

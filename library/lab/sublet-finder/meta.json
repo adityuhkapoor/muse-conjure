@@ -1,0 +1,23 @@
+{
+  "id": "sublet-finder",
+  "name": "Sublet finder",
+  "origin": { "crate": "apps11", "id": "sublet-finder" },
+  "surface": "group",
+  "summary": "A swipe stack of sublet posts filtered by budget and friends of friends, with a shortlist the chat shares.",
+  "useWhen": ["a housing group with many sublet or room posts", "'looking for a summer sublet', 'anyone subletting near BART'"],
+  "dontUseWhen": ["finding a roommate rather than a place (use roommate-match)", "splitting rent for a place you have"],
+  "params": {
+    "type": "object",
+    "properties": {
+      "group": { "type": "string", "description": "Group name, e.g. 'Bay Area Sublets'" },
+      "posts": { "type": "integer", "description": "Sublet posts in the group, e.g. 1083" },
+      "swiped": { "type": "integer", "description": "Members of the wider group who swiped today, e.g. 38" },
+      "budgets": { "type": "array", "items": { "type": "integer" }, "description": "3 monthly budget caps in cents, e.g. [120000, 160000, 220000]" },
+      "listings": { "type": "array", "description": "Up to 9 posts: hood, city, priceCents, dates, perk, via, viaWho, mutuals, view 0-4, x and y on the Bay map (0-1)", "items": { "type": "object" } },
+      "people": { "type": "array", "description": "Chat members' saves and passes so far, by name and hood", "items": { "type": "object" } },
+      "labels": { "type": "array", "description": "Up to 4 place names on the map: name, x and y (0-1), e.g. the town's neighbourhoods", "items": { "type": "object" } }
+    },
+    "required": ["group", "listings"]
+  },
+  "height": 412
+}

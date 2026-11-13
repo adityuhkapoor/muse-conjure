@@ -1,0 +1,37 @@
+{
+  "id": "curb-alert",
+  "name": "Curb alert",
+  "surface": "marketplace",
+  "summary": "Free stuff someone left on the curb, drawn at street level: tap a thing and claim it, a little dolly with your face rolls in and wheels it off, and it is gone from the curb for everyone else.",
+  "useWhen": [
+    "'free stuff on pine st, someone put out a bookshelf and a chair'",
+    "curb alert!! who wants the desk chair",
+    "dibs on free furniture someone left outside",
+    "a free pile on the street during move-out week",
+    "who's grabbing what from the free stuff before it's gone"
+  ],
+  "dontUseWhen": [
+    "selling your own things before a move (use box-sorter or move-out-sale)",
+    "planning a car to pick something up (use pickup-run)",
+    "a listing with a price (use price-check)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "place": { "type": "string", "description": "Where on the street, e.g. 'outside 418 Pine'" },
+      "spotted": { "type": "object", "description": "Who spotted it and their line", "properties": { "who": { "type": "string" }, "said": { "type": "string" } } },
+      "items": {
+        "type": "array",
+        "description": "1 to 5 things on the curb: name and kind (bookshelf, chair, mugs, lamp, table, mirror, box)",
+        "items": { "type": "object", "properties": { "name": { "type": "string" }, "kind": { "type": "string" } }, "required": ["name", "kind"] }
+      },
+      "claims": {
+        "type": "array",
+        "description": "Things already claimed: item index, who, a short line",
+        "items": { "type": "object", "properties": { "item": { "type": "integer" }, "who": { "type": "string" }, "said": { "type": "string" } }, "required": ["item", "who"] }
+      }
+    },
+    "required": ["items"]
+  },
+  "height": 362
+}

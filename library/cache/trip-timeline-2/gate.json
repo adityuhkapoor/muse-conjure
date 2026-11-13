@@ -1,0 +1,98 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"items are sorted by day, then slot, then id\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the Sunday deadline is fixed\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"an add puts one new item in with the actor as adder and only confirmer\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a remove drops exactly that item, and only its adder can do it\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 2.7,
+  "typecheck": 116.2,
+  "static": 6.3,
+  "determinism": 223.6,
+  "invariants": 682.7,
+  "mutation": 685.3,
+  "render": 1081.3,
+  "copy": 3.2,
+  "render.browser": 1,
+  "render.mount": 56,
+  "render.taps": 377,
+  "render.lint": 1002,
+  "render.axe": 1068,
+  "render.total": 1081,
+  "total": 1176.9
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 16,
+  "inert": 4,
+  "killed": 13,
+  "score": 0.81,
+  "threshold": 0.8,
+  "kills": {
+   "items are sorted by day, then slot, then id": 0,
+   "ids are unique and there are at most 16 items": 1,
+   "every item has a valid day, slot, title and time text": 4,
+   "no title appears twice on the same day": 1,
+   "no one confirms twice and confirmers are in the chat": 6,
+   "the adder is empty or in the chat": 6,
+   "the Sunday deadline is fixed": 0,
+   "an add puts one new item in with the actor as adder and only confirmer": 0,
+   "a confirm flips the actor on that one item and changes nothing else": 1,
+   "a move changes only that item's day and slot, resets its confirmers, and only its adder can do it": 1,
+   "a remove drops exactly that item, and only its adder can do it": 0,
+   "only people in the chat change the plan": 2,
+   "the deadline and title never change, and a change records its time": 1
+  },
+  "survivors": [
+   {
+    "op": "remove-guard",
+    "line": 77,
+    "before": "if (it.day === day && it.slot === slot) return s;",
+    "after": ";"
+   },
+   {
+    "op": "negate-condition",
+    "line": 77,
+    "before": "it.day === day && it.slot === slot",
+    "after": "!(it.day === day && it.slot === slot)"
+   },
+   {
+    "op": "flip-comparison",
+    "line": 77,
+    "before": "===",
+    "after": "!=="
+   }
+  ]
+ },
+ "weak": [
+  "items are sorted by day, then slot, then id",
+  "the Sunday deadline is fixed",
+  "an add puts one new item in with the actor as adder and only confirmer",
+  "a remove drops exactly that item, and only its adder can do it"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

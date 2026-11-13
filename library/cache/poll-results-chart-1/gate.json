@@ -1,0 +1,69 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"no one appears twice in an option\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the movies and their ids never change\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a vote counts only for a movie that exists\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.5,
+  "typecheck": 35.8,
+  "static": 1.2,
+  "determinism": 43.6,
+  "invariants": 124.9,
+  "mutation": 123.5,
+  "render": 928.4,
+  "copy": 0.7,
+  "render.browser": 0,
+  "render.mount": 50,
+  "render.taps": 271,
+  "render.lint": 882,
+  "render.axe": 922,
+  "render.total": 928,
+  "total": 950.6
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 12,
+  "inert": 3,
+  "killed": 12,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "no one appears twice in an option": 0,
+   "each person votes for at most one option": 4,
+   "voters are in the chat": 3,
+   "the movies and their ids never change": 0,
+   "a vote changes only the actor's own vote": 1,
+   "after a vote the actor is on that movie only, or on none if they tapped their own": 9,
+   "a vote counts only for a movie that exists": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "no one appears twice in an option",
+  "the movies and their ids never change",
+  "a vote counts only for a movie that exists"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

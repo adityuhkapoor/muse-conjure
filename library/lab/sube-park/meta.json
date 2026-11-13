@@ -1,0 +1,27 @@
+{
+  "id": "sube-park",
+  "name": "Parallel park",
+  "surface": "messenger",
+  "summary": "A two-minute parallel parking game on a street drawn from above: drag the car into the gap between two parked cars and park it; closer to the middle scores higher, friends' tries stay as ghost cars with their faces, and the best score gets the spot.",
+  "useWhen": [
+    "teasing someone's parking in the chat: 'calvin took 9 tries to park the sube'",
+    "a quick game to settle who gets the good parking spot",
+    "something light to play while waiting on someone"
+  ],
+  "dontUseWhen": [
+    "planning rides or who drives (use carpool)",
+    "a real parking ticket to split (use ticket-peel)",
+    "a game with questions or trivia (use trivia-night)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "street": { "type": "string", "description": "Where the spot is" },
+      "car": { "type": "string", "description": "The car everyone parks, e.g. 'the Sube'" },
+      "owner": { "type": "string", "description": "Whose car it is" },
+      "tries": { "type": "array", "items": { "type": "object", "properties": { "who": { "type": "string" }, "x": { "type": "integer" }, "y": { "type": "integer" }, "said": { "type": "string" } }, "required": ["who", "x", "y"] }, "description": "Earlier tries in thousandths of the street; the spot's middle is x 390, y 300" }
+    },
+    "required": ["tries"]
+  },
+  "height": 380
+}

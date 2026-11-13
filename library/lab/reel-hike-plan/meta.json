@@ -1,0 +1,11 @@
+{
+  "id": "reel-hike-plan",
+  "name": "Hike plan from a reel",
+  "origin": { "crate": "apps15", "id": "reel-hike-plan" },
+  "surface": "reel",
+  "summary": "A shared hike reel becomes a plan: the trail's climb, everyone's comfort level picking the route, car seats and a lock.",
+  "useWhen": ["someone shares a hike or trail reel and asks 'can we do this'", "a day outing where how hard it is matters and people need rides"],
+  "dontUseWhen": ["just picking a date (use a date poll)", "rides only, no route question (use event-carpool)", "a food reel (use reel-to-try)"],
+  "params": { "reel": "{from, note, account, quote, title}", "ridge": "{name, stats} the full route", "flat": "{name, stats} the easy version", "to": "where the trail ends", "when": "{day, time, word}", "weather": "short note", "comfort": "{name, level 0-2}[] already said in the chat", "cars": "{name, driver, seats 2-7 incl. driver, riders: names}[] 0-3" },
+  "height": 538
+}

@@ -1,0 +1,76 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"no one is free twice in a slot\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a pinned slot is a real slot\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a tap leaves the pin as it was\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a pin names a slot with the most people and records the actor\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.2,
+  "typecheck": 84,
+  "static": 2.9,
+  "determinism": 181,
+  "invariants": 910.7,
+  "mutation": 1045.5,
+  "render": 1523.4,
+  "copy": 1.9,
+  "render.browser": 1,
+  "render.mount": 84,
+  "render.taps": 796,
+  "render.lint": 1435,
+  "render.axe": 1513,
+  "render.total": 1523,
+  "total": 1578.8
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 13,
+  "inert": 6,
+  "killed": 13,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "the grid has exactly one entry for each day and slot": 2,
+   "no one is free twice in a slot": 0,
+   "everyone in the grid is in the chat": 4,
+   "a pinned slot is a real slot": 0,
+   "pinned and pinnedBy are set together and the pinner is in the chat": 3,
+   "a tap flips the actor in that one slot and changes no one else": 4,
+   "a tap leaves the pin as it was": 0,
+   "a pin names a slot with the most people and records the actor": 0,
+   "only the person who pinned can unpin, and it clears the pin": 4,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "no one is free twice in a slot",
+  "a pinned slot is a real slot",
+  "a tap leaves the pin as it was",
+  "a pin names a slot with the most people and records the actor"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

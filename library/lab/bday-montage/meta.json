@@ -1,0 +1,11 @@
+{
+  "id": "bday-montage",
+  "name": "Birthday roast reel",
+  "origin": { "crate": "apps5", "id": "bday-montage" },
+  "surface": "reel",
+  "summary": "A beat-cut birthday reel of drawn frames from the group's lore, with captions, ending on the cake.",
+  "useWhen": ["a friend's birthday and the chat has running jokes about them", "'make jake a birthday video', 'roast reel for her 21st'"],
+  "dontUseWhen": ["collecting money for a gift (use gift-pool)", "a birthday card everyone signs (use bday-pool)", "no lore from the chat: never invent stories"],
+  "params": { "honoree": "name", "age": "integer", "crew": "who made it, e.g. 'the boys'", "bpm": "60-180", "slides": "2-8 {scene: barber|pregame|parking|kitchen|beach|cake, caption, who (whose lore), tag (short name)}; the last is the cake", "watched": "names who already watched", "quote": "{who, text}: a reaction already in" },
+  "height": 564
+}

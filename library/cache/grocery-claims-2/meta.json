@@ -1,0 +1,87 @@
+{
+ "id": "grocery-claims-2",
+ "ask": "split?",
+ "kind": "grocery-claims",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Splits a shared grocery receipt by item, where each person joins the items they had, sees what they owe the payer, and marks when they have paid back.",
+ "use_when": [
+  "One person paid a grocery bill and the group needs to divide it by item",
+  "People want to pick which items they had and see their own share",
+  "The group wants to track who has paid the payer back",
+  "A shared receipt has some items for everyone and some for only a few"
+ ],
+ "dont_use_when": [
+  "Splitting a bill evenly with no item choices or a simple equal split",
+  "Tracking ongoing debts across many expenses over time",
+  "Sending real payments or collecting money through a payment service"
+ ],
+ "keywords": [
+  "split bill",
+  "grocery receipt",
+  "split by item",
+  "who owes",
+  "pay back",
+  "shared expenses",
+  "receipt split",
+  "claim items",
+  "groceries",
+  "payer",
+  "owe money",
+  "bill splitting"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 8
+ },
+ "mutation_score": 0.87,
+ "height": 368,
+ "params": {
+  "names": [
+   "Zoe",
+   "Paige",
+   "Noor",
+   "Jalen",
+   "June",
+   "Rhea"
+  ],
+  "options": [
+   "Pasta night",
+   "Sausage",
+   "Eggs and milk"
+  ],
+  "blanks": [],
+  "numbers": [
+   8740,
+   900,
+   1100,
+   1400
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "apt 4b grocery run",
+  "members": [
+   "Zoe",
+   "Luis",
+   "Paige",
+   "Noor",
+   "Jalen",
+   "June",
+   "Rhea",
+   "Gabe"
+  ],
+  "text": "just got back from aldi, receipt is $87.40\ndamn ok. who was in on the pasta night stuff\nme noor jalen and june i think\nyeah but i dont eat the sausage so idk\nthe sausage was like 9 bucks tho\nrhea and gabe used the eggs and milk too, those were $11 together\nyeah we did, i'll pay for those\ni bought the oat milk myself last week so no milk for me lol\nok im confused, all 8 of us ate the garlic bread + salad which was $14\nmuse split?"
+ },
+ "seconds": 212.8,
+ "attempts": 1,
+ "created": "2026-11-13T04:25:33.340Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 5,
+  "restHash": "9e17b32df093644a",
+  "playedHash": "8b3bb23cf0b5e148"
+ }
+}

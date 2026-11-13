@@ -1,0 +1,29 @@
+{
+  "id": "uber-segments",
+  "name": "Ride split by miles",
+  "surface": "messenger",
+  "summary": "One rideshare receipt, several drop-offs: the route drawn as a road with a colored strand per rider that peels off at their stop, the fare split by the miles each person rode, an even split to compare, then requests and pay-backs to whoever paid.",
+  "useWhen": [
+    "splitting an uber or lyft with several drop-offs: 'the 2am ride back, $54, calvin got out first'",
+    "'i only rode 2 miles why am i paying the same'",
+    "someone shared a ride receipt and asked everyone to pay them back"
+  ],
+  "dontUseWhen": [
+    "a road trip where one friend drove and bought gas (use gas-pump)",
+    "deciding who rides in which car (use carpool)",
+    "an ordinary bill with no distances (use a bill split)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "ride": { "type": "string", "description": "What the ride was, e.g. '2am ride back from the city'" },
+      "from": { "type": "string", "description": "Where it started" },
+      "payer": { "type": "string", "description": "Who paid and shared the receipt" },
+      "fareCents": { "type": "integer" },
+      "stops": { "type": "array", "items": { "type": "object", "properties": { "who": { "type": "array", "items": { "type": "string" } }, "tenths": { "type": "integer", "description": "miles from the start in tenths, increasing" }, "place": { "type": "string" } }, "required": ["who", "tenths"] }, "description": "Drop-offs in order, 1 to 5" },
+      "said": { "type": "object", "properties": { "who": { "type": "string" }, "line": { "type": "string" } }, "description": "What someone already said about the split" }
+    },
+    "required": ["payer", "fareCents", "stops"]
+  },
+  "height": 400
+}

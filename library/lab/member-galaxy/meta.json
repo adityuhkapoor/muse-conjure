@@ -1,0 +1,21 @@
+{
+  "id": "member-galaxy",
+  "name": "Class galaxy",
+  "origin": { "crate": "apps11", "id": "member-galaxy" },
+  "surface": "group",
+  "summary": "A big group drawn as clusters of member dots by dorm or major, with your friends placed in theirs.",
+  "useWhen": ["a large group (a class, a club, a dorm) wants to see who is where", "'which dorm is everyone in', 'who else is CS', 'find people from my floor'"],
+  "dontUseWhen": ["a small chat with no wider membership (use a poll)", "picking a time or a place to meet"],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Class galaxy'" },
+      "group": { "type": "string", "description": "Group name, e.g. \"Cal Class of '28\"" },
+      "members": { "type": "integer", "description": "Total members of the group, e.g. 6200" },
+      "lenses": { "type": "array", "description": "1 or 2 ways to cluster ('By dorm', 'By major'), each with 1 to 5 groups and member counts", "items": { "type": "object" } },
+      "people": { "type": "array", "description": "Chat members and their group label per lens", "items": { "type": "object" } }
+    },
+    "required": ["group", "members", "lenses"]
+  },
+  "height": 412
+}

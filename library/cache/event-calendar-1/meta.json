@@ -1,0 +1,82 @@
+{
+ "id": "event-calendar-1",
+ "ask": "this is a mess pls sort it out",
+ "kind": "event-calendar",
+ "family": "recap",
+ "surface": "chat",
+ "sentence": "A shared timeline of dates for a group where each person taps the dates they are in for, owners can remove their own dates, and a short list shows who brings which side dish.",
+ "use_when": [
+  "a group wants one shared list of upcoming dates and who is going to each",
+  "people need to sign up to help at events or show up for a friend's event",
+  "a group dinner needs each person to claim a side dish",
+  "a messy mix of schedules and plans needs to be put in one place"
+ ],
+ "dont_use_when": [
+  "the group needs to vote on one date or option, which needs a poll",
+  "someone wants a personal reminder or alarm for a single event",
+  "the group needs to split costs or track who owes money"
+ ],
+ "keywords": [
+  "event calendar",
+  "timeline",
+  "shared schedule",
+  "dates",
+  "sign up",
+  "rsvp",
+  "who is going",
+  "potluck",
+  "side dishes",
+  "group plans",
+  "volunteer slots",
+  "countdown to break"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 5
+ },
+ "mutation_score": 0.92,
+ "height": 390,
+ "params": {
+  "names": [
+   "Leo",
+   "Abby",
+   "Maya",
+   "Nora",
+   "Gabe"
+  ],
+  "options": [
+   "The quad",
+   "Intramural semis",
+   "The chapel",
+   "Outside the dining hall",
+   "Friendsgiving",
+   "Mac n cheese",
+   "Rolls"
+  ],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "before break chaos",
+  "members": [
+   "Leo",
+   "Abby",
+   "Maya",
+   "Nora",
+   "Gabe"
+  ],
+  "text": "ok so who's actually around before break\ni have orgo midterm thurs nov 19 so dont talk to me that day\nintramural semis are sat nov 21 at 2 on the quad, need ppl to show up\ni can do that, but sun nov 22 is leo's acapella thing right\nyes!! 7pm at the chapel, pls come\nwait i thought it was the 21st\nno 22. sat is just dress rehearsal\nok good bc sat i'm working the library til 6\ni fly home tues nov 24 at like 6am so im gonna be dead\nugh and my club bake sale is mon nov 23 too\nwhat time\n11-3 outside the dining hall, i need ppl to sit w me for an hr each\nalso friendsgiving at mine fri dec 4 if ur still on campus\ni'm here til the 6th for finals\nim not lol im gone but i'll be sad\nwait dec 4 or 5\n4! dinner at 7, bring a side\ni'll bring mac n cheese\ni got rolls\nok so theres like 6 dates floating around\ni literally cant keep track\nsame i'm gonna miss something\nmuse this is a mess pls sort it out"
+ },
+ "seconds": 268.3,
+ "attempts": 1,
+ "created": "2026-11-13T02:36:35.762Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 8,
+  "restHash": "9fb9c125f007a95a",
+  "playedHash": "9f99e223f801b95a"
+ }
+}

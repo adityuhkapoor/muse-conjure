@@ -1,0 +1,78 @@
+{
+ "id": "gym-pot-1",
+ "ask": "mkae a streak pot for us plz",
+ "kind": "gym-pot",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A four-week gym check-in challenge where everyone pays a buy-in, missed gym days add fees to the pot, and people with no misses split it at the end.",
+ "use_when": [
+  "A group wants a money-backed gym or habit streak with daily check-ins",
+  "Friends want missed days to cost something and clean streaks to win the pot",
+  "A small group wants to track who paid in and who has missed days"
+ ],
+ "dont_use_when": [
+  "Splitting a bill or tracking who owes whom for a shared expense",
+  "A one-time vote or poll on a plan",
+  "A solo habit tracker with no money or group"
+ ],
+ "keywords": [
+  "streak pot",
+  "gym",
+  "habit tracker",
+  "check-in",
+  "buy-in",
+  "challenge",
+  "accountability",
+  "workout",
+  "pot",
+  "penalty fee",
+  "daily streak",
+  "group bet"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 6
+ },
+ "mutation_score": 0.93,
+ "height": 296,
+ "params": {
+  "names": [],
+  "options": [
+   "Mon",
+   "Tue",
+   "Wed",
+   "Sun",
+   "Chipotle"
+  ],
+  "blanks": [],
+  "numbers": [
+   1000,
+   6,
+   10
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "6am gym crew",
+  "members": [
+   "June",
+   "Priya",
+   "Sofia",
+   "Ana",
+   "Bryan",
+   "Omar"
+  ],
+  "text": "ok so who actually went to the rec today\nme!! 6:40 am dont even talk to me\ni went tuesday does that count\nlol bryan tuesday was 3 days ago\ni keep saying im gonna go and then i dont\nsame fr. midterms ate my whole week\nok idea. we all put money in and have to check in every day we hit the gym\nooh like a accountability thing\nhow much tho im broke\n10 bucks each? so 60 total\nok thats fine\nand if you miss a day you owe the pot a dollar?\n2 dollars. need real stakes\nana why\n2 is good lol\nok so gym 4 days a week min, miss one of those and its 2 bucks\nrest days are sunday and wednesday then\nfine by me\nand at the end whoever never missed splits the pot?\nyea and if everyone misses we get chipotle with it\nok now im motivated\nstart monday for 4 weeks?\nmonday works\nwe need a way to track who checked in tho\ni am NOT using a spreadsheet\nlol same\nmuse mkae a streak pot for us plz"
+ },
+ "seconds": 120.2,
+ "attempts": 1,
+ "created": "2026-11-13T02:37:01.038Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 3,
+  "restHash": "87f83f11f00fe00f",
+  "playedHash": "8112bf3992dbf0c6"
+ }
+}

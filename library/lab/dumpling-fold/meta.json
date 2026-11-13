@@ -1,0 +1,28 @@
+{
+  "id": "dumpling-fold",
+  "name": "Dumpling fold-off",
+  "surface": "messenger",
+  "summary": "A two-minute timing game: a chopstick sweeps along a dumpling wrapper's edge and you pinch when it's in the green for a neat pleat; eight pinches make a dumpling that joins everyone's in a steamer basket with their faces, and the neatest fold wins a small stake.",
+  "useWhen": [
+    "quick game before dumpling night, loser folds",
+    "who's actually good at folding dumplings",
+    "settle who picks the order at the dumpling place",
+    "something to play while we wait for the table",
+    "fold-off, arun says he has rice cooker hands"
+  ],
+  "dontUseWhen": [
+    "choosing the restaurant (use dinner-veto)",
+    "a parking or driving game (use sube-park)",
+    "trivia or questions (use trivia-night)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "place": { "type": "string", "description": "Where the dumplings happen, e.g. 'Golden Lantern, Friday'" },
+      "prize": { "type": "string", "description": "What the neatest fold wins, as a short line" },
+      "folds": { "type": "array", "description": "Dumplings already in the steamer, up to 8", "items": { "type": "object", "properties": { "who": { "type": "string", "description": "Name" }, "neat": { "type": "integer", "description": "Neat pleats out of 8" }, "said": { "type": "string", "description": "A line in their words" } }, "required": ["who", "neat"] } }
+    },
+    "required": ["folds"]
+  },
+  "height": 380
+}

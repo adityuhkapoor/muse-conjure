@@ -1,0 +1,33 @@
+{
+  "id": "trailer-couch",
+  "name": "Trailer couch",
+  "surface": "reel",
+  "summary": "A movie trailer someone shared turns into a movie night on a drawn living room couch: tap a cushion to sit, claim a snack on the coffee table, pick a showtime and lock it; the floor beanbag is always somebody's.",
+  "useWhen": [
+    "WE ARE WATCHING THIS (someone shared a trailer)",
+    "movie night at ours when it comes out, who's in",
+    "trailer just dropped, pick a showtime and who brings snacks",
+    "who's watching the new heist movie on the couch friday",
+    "save me a seat for the premiere watch"
+  ],
+  "dontUseWhen": [
+    "choosing which movie to watch (use movie-bracket)",
+    "going out to a theater with tickets to split (use ticket-split)",
+    "a watch party for a pile of funny reels (use reel-rank)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "movie": { "type": "string", "description": "The movie" },
+      "opens": { "type": "string", "description": "When it comes out, e.g. 'out Friday'" },
+      "from": { "type": "string", "description": "Who shared the trailer" },
+      "quote": { "type": "string", "description": "What they said, in their words" },
+      "seats": { "type": "array", "items": { "type": "string" }, "description": "3 to 6 cushions: the name sitting there, or empty for free" },
+      "beanbag": { "type": "string", "description": "Whose floor beanbag it is (the running joke), or empty" },
+      "snacks": { "type": "array", "description": "2 to 4 snacks on the coffee table", "items": { "type": "object", "properties": { "name": { "type": "string", "description": "The snack" }, "kind": { "type": "string", "description": "popcorn, candy, chips, soda or pizza" }, "who": { "type": "string", "description": "Who brings it, or empty" } }, "required": ["name"] } },
+      "times": { "type": "array", "description": "2 to 4 showtimes", "items": { "type": "object", "properties": { "label": { "type": "string", "description": "e.g. 'Fri 9:40'" }, "who": { "type": "array", "items": { "type": "string" }, "description": "Who already picked it" } }, "required": ["label"] } }
+    },
+    "required": ["movie", "seats", "times"]
+  },
+  "height": 480
+}

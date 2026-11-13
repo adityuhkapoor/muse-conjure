@@ -1,0 +1,30 @@
+{
+  "id": "gear-wall",
+  "name": "Gear wall",
+  "surface": "group",
+  "summary": "A club's gear closet drawn as two wooden shelves of gear; whatever is out leaves a dashed outline with the borrower's face and a back-by tag, overdue tags turn red and wobble, and members tap a thing, pick a day and borrow it.",
+  "useWhen": [
+    "does anyone have the 4-person tent?",
+    "who has the club stove, we need it saturday",
+    "can we track who borrows the outing club gear",
+    "whoever has the cooler pls bring it back",
+    "borrowing the bear canister till tuesday ok?"
+  ],
+  "dontUseWhen": [
+    "shared house stuff on a hook by the door (use key-hook)",
+    "selling or giving gear away (use marketplace tools)",
+    "packing a list for one trip (use bring-list)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Gear wall'" },
+      "club": { "type": "string", "description": "Club name, e.g. 'Eastfield Outing Club'" },
+      "asked": { "type": "string", "description": "The item someone just asked about, by its name; it starts selected" },
+      "backBy": { "type": "array", "description": "Up to 3 back-by choices", "items": { "type": "object", "properties": { "label": { "type": "string", "description": "Day label, e.g. 'Sun'" }, "days": { "type": "integer", "description": "Days from now" } } } },
+      "items": { "type": "array", "description": "4 to 8 pieces of gear", "items": { "type": "object", "properties": { "name": { "type": "string", "description": "Short name, sentence case" }, "kind": { "type": "string", "enum": ["tent4", "tent2", "stove", "headlamp", "cooler", "pad", "bear", "filter", "pack", "rope"], "description": "The drawing" }, "holder": { "type": "string", "description": "Who has it now; empty if on the shelf" }, "due": { "type": "string", "description": "When it's due back, e.g. 'Tue'" }, "late": { "type": "integer", "description": "Days overdue, 0 if not" }, "said": { "type": "string", "description": "What the holder said, in their words" } }, "required": ["name", "kind"] } }
+    },
+    "required": ["items"]
+  },
+  "height": 384
+}

@@ -1,0 +1,66 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"car ids are unique and each car has a departure time\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"cars, drivers, times and seat counts never change from an action\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.2,
+  "typecheck": 65.5,
+  "static": 2.9,
+  "determinism": 50.1,
+  "invariants": 136.7,
+  "mutation": 177.6,
+  "render": 974.9,
+  "copy": 1.5,
+  "render.browser": 0,
+  "render.mount": 56,
+  "render.taps": 305,
+  "render.lint": 926,
+  "render.axe": 968,
+  "render.total": 975,
+  "total": 1027.7
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 14,
+  "inert": 5,
+  "killed": 14,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "each person holds at most one seat": 3,
+   "passengers and drivers are in the chat": 5,
+   "no driver sits in their own car": 4,
+   "total equals the seats across all cars": 1,
+   "car ids are unique and each car has a departure time": 0,
+   "a take puts the actor in that empty seat, frees only their old seat, and never seats a driver in their own car": 6,
+   "a leave empties the actor's own seat and nothing else": 2,
+   "cars, drivers, times and seat counts never change from an action": 0,
+   "an action changes at most one person's seat": 1,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "car ids are unique and each car has a departure time",
+  "cars, drivers, times and seat counts never change from an action"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

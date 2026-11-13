@@ -1,0 +1,75 @@
+{
+ "id": "trip-lock-1",
+ "ask": "muse headcount?",
+ "kind": "trip-lock",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Each person answers in, maybe or out for a trip, and the plan locks as soon as enough people are in.",
+ "use_when": [
+  "A group needs a headcount before booking a cabin or other trip",
+  "A plan only goes ahead if a minimum number of people commit",
+  "You want to see who has answered and who is still missing",
+  "People may change or withdraw their answer before the plan is set"
+ ],
+ "dont_use_when": [
+  "You need to pick between several dates or places, which needs a poll",
+  "You need to split costs or track who has paid",
+  "The event has no minimum and you only want a simple yes or no RSVP"
+ ],
+ "keywords": [
+  "headcount",
+  "who's in",
+  "rsvp",
+  "trip",
+  "cabin",
+  "minimum people",
+  "attendance",
+  "book trip",
+  "in or out",
+  "maybe",
+  "weekend plan",
+  "commitment",
+  "group trip",
+  "lock in"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 5
+ },
+ "mutation_score": 1,
+ "height": 312,
+ "params": {
+  "names": [],
+  "options": [],
+  "blanks": [
+   "Dec 6 weekend · about $140 each"
+  ],
+  "numbers": [
+   6,
+   140
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "asheville cabin weekend",
+  "members": [
+   "Noor",
+   "Tyler",
+   "Lily",
+   "Felix",
+   "Marcus"
+  ],
+  "text": "ok so idea. cabin outside asheville the weekend of dec 6\nooh how much tho\nrough guess like 140 each w food, 3 nights fri-mon\n140 is doable ngl\ni'm prob in but gotta check my work schedule\ncabin only books if we have at least 4 people, the host said\nim in. hot tub??\nyes hot tub lol\nok im in too then\nughh ok shift got covered im in\nmuse headcount?"
+ },
+ "seconds": 45,
+ "attempts": 1,
+ "created": "2026-11-13T02:50:52.216Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 3,
+  "restHash": "bf13321f3f13c181",
+  "playedHash": "9f1aa18d1ef2c8cc"
+ }
+}

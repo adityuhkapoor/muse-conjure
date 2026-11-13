@@ -1,0 +1,77 @@
+{
+ "id": "date-swipe-2",
+ "ask": "can u make a poll for these 4 weekends and lock the one w enough yeses",
+ "kind": "date-swipe",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A group poll where members tap the dates they can do, and anyone can lock the leading date once it has yeses from a majority of the chat.",
+ "use_when": [
+  "a group needs to pick one date from a short list of weekends",
+  "people want to mark which dates they can make",
+  "the group wants to lock a date only after most members agree",
+  "planning an outing or event with several candidate dates"
+ ],
+ "dont_use_when": [
+  "the group needs to pick a time of day or a time slot grid",
+  "the choice is not about dates, such as picking a place or food",
+  "you need ranked or scored votes rather than simple yes",
+  "you need a one-on-one scheduling with a single person"
+ ],
+ "keywords": [
+  "date poll",
+  "weekend poll",
+  "pick a date",
+  "schedule",
+  "availability",
+  "vote",
+  "lock date",
+  "majority",
+  "group plan",
+  "event planning",
+  "yes votes",
+  "date swipe"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 6
+ },
+ "mutation_score": 1,
+ "height": 322,
+ "params": {
+  "names": [
+   "Hugo"
+  ],
+  "options": [
+   "Mar 7",
+   "Mar 14",
+   "Mar 21",
+   "Mar 28"
+  ],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "bday dinner + karaoke",
+  "members": [
+   "Eli",
+   "Lily",
+   "Leo",
+   "Rohan",
+   "Ines",
+   "Hugo"
+  ],
+  "text": "hugos bday is coming up we need to pick a weekend for the karaoke thing\nu guys dont have to\nshut up we are. options are mar 7, mar 14, mar 21, mar 28\nmar 14 is spring break for me i'll be home in ohio, so no on that one\ni can do mar 7 and mar 21. mar 28 i have the a cappella show\nmar 7 yes, mar 21 yes, 14 yes, 28 no\n7 is good for me, 21 also fine\n7 works. 21 works. dont care about the others\nhonestly 21 is best bc i have an exam on the 9th\n7 and 21 both fine, 28 yes too\nmuse can u make a poll for these 4 weekends and lock the one w enough yeses"
+ },
+ "seconds": 98.5,
+ "attempts": 1,
+ "created": "2026-11-13T04:27:22.274Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 5,
+  "restHash": "9f2d302d2c6cedc4",
+  "playedHash": "deadd42d6824a55a"
+ }
+}

@@ -1,0 +1,28 @@
+{
+  "id": "move-in-day",
+  "name": "Move-in day",
+  "origin": { "crate": "apps7", "id": "move-in-day" },
+  "surface": "messenger",
+  "summary": "Moving day: big items need a number of hands, friends get put on them, items load into the truck, and the truck rolls when all are loaded.",
+  "useWhen": ["helping a friend move with a truck and a few heavy items", "'couch needs 3 people', 'who's carrying the mattress', 'truck at 9'"],
+  "dontUseWhen": ["shifts across a day without items (use shifts)", "seats in cars (use event-carpool)"],
+  "params": { "type": "object", "properties": {
+    "title": { "type": "string", "description": "e.g. 'Move-in day'" },
+    "sub": { "type": "string", "description": "e.g. 'Sat · 412 Alder St'" },
+    "stops": { "type": "array", "description": "2 to 5 stops on the timeline", "items": { "type": "object", "properties": {
+      "time": { "type": "string", "description": "e.g. '9:00'" }, "label": { "type": "string", "description": "e.g. 'Load'" } } } },
+    "stage": { "type": "integer", "description": "Index of the current stop" },
+    "items": { "type": "array", "description": "1 to 3 big items", "items": { "type": "object", "properties": {
+      "name": { "type": "string" },
+      "need": { "type": "integer", "description": "Hands needed, 1 to 4" },
+      "note": { "type": "string" },
+      "cuft": { "type": "integer", "description": "Truck space in cubic feet, 0 to 400" },
+      "kind": { "type": "string", "enum": ["couch", "mattress", "tv", "table", "boxes", "other"] },
+      "hands": { "type": "array", "items": { "type": "string" }, "description": "Names already on it, as in the chat" } } } },
+    "boxes": { "type": "object", "description": "The boxes already counted", "properties": {
+      "label": { "type": "string", "description": "e.g. '23 boxes'" }, "cuft": { "type": "integer" } } },
+    "truckCuft": { "type": "integer", "description": "Truck size in cubic feet, 50 to 2000" },
+    "after": { "type": "string", "description": "Line shown when the truck rolls" } },
+    "required": ["title", "sub", "stops", "stage", "items", "boxes", "truckCuft", "after"] },
+  "height": 410
+}

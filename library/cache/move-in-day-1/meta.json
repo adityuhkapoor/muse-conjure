@@ -1,0 +1,75 @@
+{
+ "id": "move-in-day-1",
+ "ask": "mkae a sign up for the moving stuff plz",
+ "kind": "move-in-day",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A sign-up sheet for moving day where each person can join or leave limited-capacity jobs like loading, driving, packing and unloading, with a count of filled spots.",
+ "use_when": [
+  "A group needs helpers for a move and wants each job to have a set number of people",
+  "Someone wants a shared sign-up list for tasks with limited spots",
+  "People should be able to pick or drop a job themselves and see who else is on it"
+ ],
+ "dont_use_when": [
+  "The group needs to vote on one choice, such as a date or place",
+  "Tasks need to be assigned to people by one organizer",
+  "The list needs to track expenses or split costs"
+ ],
+ "keywords": [
+  "sign up",
+  "signup sheet",
+  "moving day",
+  "move helpers",
+  "volunteer",
+  "task slots",
+  "shift sign up",
+  "limited spots",
+  "job list",
+  "help with moving",
+  "who is coming",
+  "chore sign up"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 6
+ },
+ "mutation_score": 1,
+ "height": 410,
+ "params": {
+  "names": [
+   "Ravi",
+   "Dani",
+   "Tess"
+  ],
+  "options": [],
+  "blanks": [],
+  "numbers": [
+   6,
+   9
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "hugo moving out sat",
+  "members": [
+   "Hugo",
+   "Theo",
+   "Ravi",
+   "Dani",
+   "Tess",
+   "Ana"
+  ],
+  "text": "ok so im officially out of the elm st place by sunday\nmoving to the apt by the trader joes on 5th\nbro finally lol\ni need help saturday if anyone is free pls\ni can drive the truck if someone pays for gas\ni already reserved the uhaul 10ft, pickup is at 9am\nok then i got the truck, i just need coffee first\ni have like 6 boxes in my car i can bring\ni have a ton of boxes from my own move, ill bring like 15\nwho is doing the couch tho\ncouch is a 2 person job ngl, its the huge sectional\nyeah the couch has to go down 3 flights\nill do the couch, need one more person\ni can do couch if its before 1, i have work at 2\ni can pack kitchen stuff in the morning\ni can do the afternoon unloading at the new place\nhonestly we need pizza too, i said id buy\nget from joes pizza, 3 larges min\ni can pick up the pizza on the way, say 1pm\nperfect\nso slots are like 9-12 loading, 12-1 lunch, 1-4 unloading right\nyeah that works\ni cant do the morning tho, only after 12\ni can do 9-12 then bounce\nim good all day\nsame i can do all day except i need to leave at 4\nok this is getting messy lol\nyeah someone put it all in one place\nmuse mkae a sign up for the moving stuff plz"
+ },
+ "seconds": 54.3,
+ "attempts": 1,
+ "created": "2026-11-13T02:51:14.266Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 6,
+  "restHash": "9f13313133131f9d",
+  "playedHash": "9e818531bd6b3b92"
+ }
+}

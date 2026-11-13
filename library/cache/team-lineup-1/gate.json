@@ -1,0 +1,76 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"each night has at most 8 claims\" caught none of 10 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"each night stays within the QB and rusher limits\" caught none of 10 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a claim never pushes a night past its limits\" caught none of 10 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the nights, positions and size never change\" caught none of 10 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.7,
+  "typecheck": 51.1,
+  "static": 1.8,
+  "determinism": 73,
+  "invariants": 219,
+  "mutation": 255.5,
+  "render": 946.8,
+  "copy": 1.2,
+  "render.browser": 0,
+  "render.mount": 45,
+  "render.taps": 274,
+  "render.lint": 896,
+  "render.axe": 941,
+  "render.total": 947,
+  "total": 980.5
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 10,
+  "inert": 6,
+  "killed": 10,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "no one has two claims on the same night": 1,
+   "each night has at most 8 claims": 0,
+   "each night stays within the QB and rusher limits": 0,
+   "every claim names a known night and position": 1,
+   "everyone with a claim is in the chat": 4,
+   "a claim sets the actor's spot on that night and no other claim": 3,
+   "a release removes only the actor's claim on that night": 2,
+   "a claim never pushes a night past its limits": 0,
+   "the nights, positions and size never change": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "each night has at most 8 claims",
+  "each night stays within the QB and rusher limits",
+  "a claim never pushes a night past its limits",
+  "the nights, positions and size never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

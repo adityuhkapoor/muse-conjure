@@ -1,0 +1,87 @@
+{
+ "id": "attendance-board-1",
+ "ask": "this is a mess fix it",
+ "kind": "attendance-board",
+ "family": "recap",
+ "surface": "chat",
+ "sentence": "Shows a ranked list of chat members by how many group events they attended, lets anyone mark who went to each event, and awards limited seats to those who meet a minimum attendance.",
+ "use_when": [
+  "Deciding who gets a seat at a dinner or event based on past attendance",
+  "Tracking who showed up to each of a few group events",
+  "Ranking friends by how many events they came to",
+  "Setting a seat cap and a minimum number of events to qualify"
+ ],
+ "dont_use_when": [
+  "Collecting votes or RSVPs for a future event",
+  "Splitting costs or tracking who owes money",
+  "Tracking more than a handful of events or detailed schedules",
+  "Scoring a game or competition with points"
+ ],
+ "keywords": [
+  "attendance",
+  "leaderboard",
+  "ranking",
+  "seats",
+  "friendsgiving",
+  "who went",
+  "events attended",
+  "qualify",
+  "dinner guests",
+  "guest list",
+  "check-in",
+  "minimum events",
+  "seat cap"
+ ],
+ "members": {
+  "min": 2,
+  "max": 20,
+  "original": 8
+ },
+ "mutation_score": 1,
+ "height": 264,
+ "params": {
+  "names": [
+   "Noor",
+   "Abby",
+   "Omar",
+   "Rhea",
+   "Nora",
+   "Lena",
+   "Mina",
+   "Owen"
+  ],
+  "options": [
+   "Trivia Thursday",
+   "Halloween party",
+   "Pumpkin patch",
+   "Movie night"
+  ],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "friendsgiving seat list",
+  "members": [
+   "Noor",
+   "Abby",
+   "Omar",
+   "Rhea",
+   "Nora",
+   "Lena",
+   "Mina",
+   "Owen"
+  ],
+  "text": "ok so who was at trivia thursday, im doing the friendsgiving list and only ppl who actually show up to stuff get a seat lol\ni was at trivia. omar too, he named us quiz khalifa\nyes i was there. rhea too tho she left before the tiebreaker\nwas there for like 2 rounds then had lab. counts tho\nmissed trivia, had my shift at the bookstore\ni was at trivia, mina came with me\nyep i was there\nmissed trivia ugh midterm\ni was there too btw. so trivia is me abby omar rhea lena mina\nok halloween party at the 4th st house sat. i went as a crayon\ni was there!! as shrek\ni went, saw noor there w the cat ears\nyeah i went\ndidnt go, was home for my cousins wedding\ni went, left at 1\ndidnt go, was sick\nwent for like an hour\npumpkin patch sunday i drove. me nora mina abby in the car\nyeah felt better by then\ni was at the pumpkin patch too, met them after my brunch shift\ncouldnt go, orgo\ni went to the pumpkin patch, got back sun morning\nmissed it\nmovie night monday at lenas, i was there\nme abby noor omar and nora came. mina said she was coming but never showed\nlol i fell asleep sorry\nnot me, had practice\ni was there too, i brought the popcorn, forgot to say\nmuse this is a mess fix it"
+ },
+ "seconds": 75,
+ "attempts": 1,
+ "created": "2026-11-13T03:35:50.973Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 5,
+  "restHash": "8b867d7d8669c183",
+  "playedHash": "8b877d7d8668c0c3"
+ }
+}

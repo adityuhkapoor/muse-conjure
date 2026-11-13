@@ -1,0 +1,76 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"no one is listed twice on a side\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the 7 rules keep their ids and labels\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"every label is 1 to 80 characters\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"votes never change labels or the number of rules\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.9,
+  "typecheck": 50.4,
+  "static": 2.5,
+  "determinism": 92.3,
+  "invariants": 240.5,
+  "mutation": 233.5,
+  "render": 937.6,
+  "copy": 1.7,
+  "render.browser": 0,
+  "render.mount": 47,
+  "render.taps": 282,
+  "render.lint": 891,
+  "render.axe": 931,
+  "render.total": 937,
+  "total": 975.9
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 14,
+  "inert": 3,
+  "killed": 14,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "no one is both in and out on a rule": 3,
+   "no one is listed twice on a side": 0,
+   "voters are in the chat": 4,
+   "the 7 rules keep their ids and labels": 0,
+   "every label is 1 to 80 characters": 0,
+   "a vote changes only the actor's own vote on the named rule": 2,
+   "a vote puts the actor on the chosen side only, or clears a repeat": 10,
+   "a vote with a bad rule or choice changes nothing": 4,
+   "only people in the chat change anything": 2,
+   "votes never change labels or the number of rules": 0
+  },
+  "survivors": []
+ },
+ "weak": [
+  "no one is listed twice on a side",
+  "the 7 rules keep their ids and labels",
+  "every label is 1 to 80 characters",
+  "votes never change labels or the number of rules"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

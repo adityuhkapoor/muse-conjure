@@ -1,0 +1,74 @@
+{
+  "id": "lock",
+  "name": "Threshold lock (who's in)",
+  "use_when": [
+    "a plan happens only if enough people commit: '3 of 4 in', 'need 4 for the airbnb'",
+    "headcount for one event, concert, trip or game",
+    "'who's in', 'are we doing this', 'rsvp', 'count me in'"
+  ],
+  "dont_use_when": [
+    "choosing between options (use poll)",
+    "picking a time (use overlap)",
+    "splitting costs (use split)"
+  ],
+  "keywords": [
+    "in",
+    "who's",
+    "whos",
+    "down",
+    "coming",
+    "going",
+    "rsvp",
+    "count",
+    "lock",
+    "commit",
+    "need",
+    "tickets",
+    "concert",
+    "trip",
+    "airbnb",
+    "show",
+    "game",
+    "party",
+    "headcount",
+    "attend",
+    "event",
+    "yes"
+  ],
+  "guarantees": [
+    "each person has one answer: going, maybe or no",
+    "the plan locks exactly when going reaches the threshold and never unlocks",
+    "the threshold follows the chat (0 means everyone) and is never more than the chat size",
+    "a leaver's answer goes; a late joiner is waiting like everyone else"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "description": "The plan, short, e.g. 'SZA on Saturday'"
+      },
+      "detail": {
+        "type": "string",
+        "description": "Where and when if known, e.g. 'Kia Forum · Sat 8 PM', else empty"
+      },
+      "need": {
+        "type": "integer",
+        "description": "How many going locks it; the number from the chat, or 0 for everyone in the chat (0 follows the chat as people join or leave)"
+      }
+    },
+    "required": [
+      "title",
+      "detail",
+      "need"
+    ],
+    "additionalProperties": false
+  },
+  "examples": [
+    {
+      "title": "Cabin weekend",
+      "detail": "Big Bear · Jan 17-19",
+      "need": 3
+    }
+  ]
+}

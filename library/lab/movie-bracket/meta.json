@@ -1,0 +1,41 @@
+{
+  "id": "movie-bracket",
+  "name": "Movie night bracket",
+  "origin": { "crate": "apps6", "id": "movie-bracket" },
+  "surface": "messenger",
+  "summary": "Seeds the movies the chat mentioned into a bracket; each matchup is a quick vote until one champion is left.",
+  "useWhen": ["picking one movie, show or game from 4 to 8 that people suggested", "'what are we watching friday', 'bracket it', 'dune or paddington'"],
+  "dontUseWhen": ["two options only (use a poll)", "picking a date (use date-swipe)", "ranking everything in order (use a tier list)"],
+  "params": {
+    "type": "object",
+    "properties": {
+      "when": { "type": "string", "description": "When it's on, e.g. 'Fri 9 PM'" },
+      "where": { "type": "string", "description": "Where, e.g. \"Theo's projector\"" },
+      "movies": {
+        "type": "array",
+        "description": "4 or 8 in seed order; 5-7 means the first 4 play",
+        "items": {
+          "type": "object",
+          "properties": {
+            "title": { "type": "string" },
+            "by": { "type": "string", "description": "Who suggested it" },
+            "quote": { "type": "string", "description": "What they said, short" }
+          }
+        }
+      },
+      "picks": {
+        "type": "array",
+        "description": "Votes already in for the first matchup",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "side": { "type": "integer", "description": "0 first movie, 1 second" }
+          }
+        }
+      }
+    },
+    "required": ["movies"]
+  },
+  "height": 330
+}

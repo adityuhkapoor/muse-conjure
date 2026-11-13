@@ -1,0 +1,73 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"slot ids and labels are unique\" caught none of 17 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"at most 8 slots, each label 1 to 40 characters\" caught none of 17 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"an added slot comes last with only the adder in it\" caught none of 17 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.1,
+  "typecheck": 62.7,
+  "static": 2.3,
+  "determinism": 51.6,
+  "invariants": 169.7,
+  "mutation": 228.4,
+  "render": 950.9,
+  "copy": 1.4,
+  "render.browser": 0,
+  "render.mount": 34,
+  "render.taps": 277,
+  "render.lint": 897,
+  "render.axe": 945,
+  "render.total": 951,
+  "total": 998.3
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 17,
+  "inert": 1,
+  "killed": 17,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "no one is in a slot twice": 1,
+   "everyone in a slot is in the chat": 3,
+   "slot ids and labels are unique": 0,
+   "at most 8 slots, each label 1 to 40 characters": 0,
+   "a lock names an existing slot and who locked it": 2,
+   "a locked slot has at least one yes": 5,
+   "a toggle flips the actor on that slot and changes no one else": 3,
+   "an added slot comes last with only the adder in it": 0,
+   "a lock sets that slot and the actor and changes nothing else": 1,
+   "only the person who locked can unlock, or anyone if they left": 3,
+   "toggle and add change nothing while a slot is locked": 2,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "slot ids and labels are unique",
+  "at most 8 slots, each label 1 to 40 characters",
+  "an added slot comes last with only the adder in it"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

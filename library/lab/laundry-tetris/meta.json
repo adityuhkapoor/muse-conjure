@@ -1,0 +1,41 @@
+{
+  "id": "laundry-tetris",
+  "name": "Laundry tetris",
+  "surface": "gaming",
+  "summary": "A time puzzle in the dorm laundry room: washers and dryers drawn as lanes on a clock up to the deadline line; tap each friend's basket in the order it goes in, loads slide into the first free washer then the first free dryer, and the earliest finish where everything is dry before the line tops the board.",
+  "useWhen": [
+    "laundry sunday at larkin, 6 loads 4 washers 2 dryers, can we all be done by 10",
+    "make a game out of the laundry room line",
+    "who can schedule our laundry fastest lol",
+    "will's comforter takes forever, puzzle it out",
+    "a quick puzzle for the group about sharing machines"
+  ],
+  "dontUseWhen": [
+    "tracking real machines that are running right now (use washer-watch)",
+    "splitting chores for the week (use chore-wheel)",
+    "a puzzle with words or trivia (use chat-crossword)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Larkin laundry'" },
+      "sub": { "type": "string", "description": "Line under the title with the goal, e.g. 'everyone dry by 10 · tap bags in order'" },
+      "opens": { "type": "integer", "description": "When the room opens, in minutes after noon (410 is 6:50pm)" },
+      "due": { "type": "integer", "description": "When everything must be dry, in minutes after noon (600 is 10:00pm)" },
+      "washers": { "type": "integer", "description": "Number of washers, 2 to 5" },
+      "dryers": { "type": "integer", "description": "Number of dryers, 1 to 3" },
+      "loads": {
+        "type": "array",
+        "description": "One load per friend: owner name, what it is in their words, wash and dry minutes",
+        "items": { "type": "object", "properties": { "who": { "type": "string" }, "what": { "type": "string" }, "wash": { "type": "integer" }, "dry": { "type": "integer" } }, "required": ["who", "what", "wash", "dry"] }
+      },
+      "board": {
+        "type": "array",
+        "description": "Friends who already solved it: their name, the load order by owner name, and a short line",
+        "items": { "type": "object", "properties": { "name": { "type": "string" }, "order": { "type": "array", "items": { "type": "string" } }, "said": { "type": "string" } }, "required": ["name", "order"] }
+      }
+    },
+    "required": ["loads"]
+  },
+  "height": 400
+}

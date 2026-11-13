@@ -1,0 +1,71 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"the number of seats never changes\" caught none of 11 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"car ids are unique and each car has 1 to 8 seats\" caught none of 11 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"take and leave never change cars, drivers, title or total\" caught none of 11 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.9,
+  "typecheck": 51.9,
+  "static": 2.3,
+  "determinism": 61,
+  "invariants": 210.1,
+  "mutation": 250.9,
+  "render": 952.8,
+  "copy": 1.4,
+  "render.browser": 0,
+  "render.mount": 31,
+  "render.taps": 283,
+  "render.lint": 907,
+  "render.axe": 946,
+  "render.total": 953,
+  "total": 993.2
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 11,
+  "inert": 5,
+  "killed": 11,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "each person holds at most one seat": 1,
+   "the number of seats never changes": 0,
+   "seat holders are in the chat": 6,
+   "a driver is in the chat and holds seat 0 of their car": 1,
+   "car ids are unique and each car has 1 to 8 seats": 0,
+   "a take fills the chosen open seat with the actor and frees only the actor's old seat": 4,
+   "a leave empties only the actor's own seat": 1,
+   "a driver never loses their own seat": 1,
+   "take and leave never change cars, drivers, title or total": 0,
+   "only people in the chat change a seat": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "the number of seats never changes",
+  "car ids are unique and each car has 1 to 8 seats",
+  "take and leave never change cars, drivers, title or total"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

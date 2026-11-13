@@ -1,0 +1,25 @@
+{
+  "id": "club-dues",
+  "name": "Club dues",
+  "origin": { "crate": "apps11", "id": "club-dues" },
+  "surface": "group",
+  "summary": "A ring of club members lit when they've paid dues, filling toward the goals the dues pay for.",
+  "useWhen": ["a club or team collecting the same dues from every member", "'dues are $35 this semester', 'who hasn't paid dues yet'"],
+  "dontUseWhen": ["splitting one bill unevenly (use a bill split)", "a gift pool where amounts vary"],
+  "params": {
+    "type": "object",
+    "properties": {
+      "club": { "type": "string", "description": "e.g. 'Cal Salsa Club'" },
+      "term": { "type": "string", "description": "e.g. \"spring '27\"" },
+      "duesCents": { "type": "integer", "description": "Dues per member in cents, e.g. 3500" },
+      "due": { "type": "string", "description": "Due date, e.g. 'Feb 14'" },
+      "members": { "type": "integer", "description": "Members of the club in total, e.g. 24" },
+      "paidOutside": { "type": "integer", "description": "Members outside this chat who already paid, e.g. 13" },
+      "names": { "type": "array", "items": { "type": "string" }, "description": "Names of members outside this chat, for the ring" },
+      "goals": { "type": "array", "description": "Up to 3 things dues pay for, in order: label and amountCents", "items": { "type": "object" } },
+      "paid": { "type": "array", "items": { "type": "string" }, "description": "Chat members who already paid, by name" }
+    },
+    "required": ["club", "duesCents", "members"]
+  },
+  "height": 310
+}

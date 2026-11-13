@@ -1,0 +1,90 @@
+{
+ "id": "game-leaderboard-1",
+ "ask": "muse mkae a leaderbord of the mk scores",
+ "kind": "game-leaderboard",
+ "family": "recap",
+ "surface": "chat",
+ "sentence": "Shows a ranked leaderboard of total points across up to six rounds of a game, where each person enters or fixes only their own score.",
+ "use_when": [
+  "a group wants to track running totals for a racing or party game over several rounds",
+  "everyone should enter their own scores and see who leads",
+  "a quick ranked scoreboard is needed in the chat",
+  "scores need to be added round by round"
+ ],
+ "dont_use_when": [
+  "players need to be matched in head-to-head brackets or tournaments",
+  "a vote or poll with options is needed",
+  "scores must be entered or edited for other people",
+  "more than six rounds or decimal scores are needed"
+ ],
+ "keywords": [
+  "leaderboard",
+  "scoreboard",
+  "scores",
+  "mario kart",
+  "rankings",
+  "points",
+  "rounds",
+  "totals",
+  "game night",
+  "score tracker",
+  "standings",
+  "racing game"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 6
+ },
+ "mutation_score": 1,
+ "height": 180,
+ "params": {
+  "names": [
+   "Jalen",
+   "Ana",
+   "Kev",
+   "Sofia",
+   "Rohan",
+   "Noor"
+  ],
+  "options": [],
+  "blanks": [],
+  "numbers": [
+   47,
+   52,
+   61,
+   58,
+   44,
+   39,
+   49,
+   55,
+   63,
+   46,
+   57,
+   50
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "mario kart thursdays",
+  "members": [
+   "Jalen",
+   "Ana",
+   "Kev",
+   "Sofia",
+   "Rohan",
+   "Noor"
+  ],
+  "text": "ok mario kart night was actually insane\ni got 1st in like 3 races dont forget\nlol ana you got 1st on rainbow road bc rohan fell off twice\nthat was lag\nit was not lag\nok lets just tally it. i had 47 points total i think\ni had 52\ni had 61 ngl\nbro 61?? i had 58\ni got 44 and i was playing with my left hand\ni got 39 and i blame the controller\nthat was round 1 tho\nround 2 i got 49\nround 2 i got 55\ni got 63 in round 2 lets goo\n46 for me. improving\n57 . redemption arc\ni got 50 in round 2\nso is it total of both rounds\nyes total obv\ni already know im winning\nwe need to put it somewhere so kev cant lie\nfr\nyeah someone do it\nmuse mkae a leaderbord of the mk scores"
+ },
+ "seconds": 244.5,
+ "attempts": 1,
+ "created": "2026-11-13T03:03:14.736Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 2,
+  "restHash": "9ff01fb0e40fe0a2",
+  "playedHash": "9ff838f09117e00f"
+ }
+}

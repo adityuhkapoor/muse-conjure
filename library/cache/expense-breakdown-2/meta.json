@@ -1,0 +1,96 @@
+{
+ "id": "expense-breakdown-2",
+ "ask": "this is a mess sort it out lol",
+ "kind": "expense-breakdown",
+ "family": "recap",
+ "surface": "chat",
+ "sentence": "Tracks shared expenses for a group trip, splits the total equally, and shows the fewest payments needed so everyone is settled, with a way to mark payments as paid.",
+ "use_when": [
+  "A group trip has many expenses paid by different people and nobody knows who owes what",
+  "Someone wants the total and each person's equal share worked out",
+  "The group wants the fewest payments to settle up",
+  "People need to add or remove what they paid and track who has paid back"
+ ],
+ "dont_use_when": [
+  "Costs should be split unevenly or by item, not equally",
+  "Only one person needs a single bill or tip calculated",
+  "The group wants a budget, a poll on spending, or a shared to-do list"
+ ],
+ "keywords": [
+  "expense split",
+  "trip costs",
+  "settle up",
+  "who owes who",
+  "split bill",
+  "shared expenses",
+  "group payments",
+  "expense breakdown",
+  "equal split",
+  "debt settle",
+  "trip budget",
+  "reimbursement",
+  "money tracker"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 5
+ },
+ "mutation_score": 1,
+ "height": 192,
+ "params": {
+  "names": [
+   "Rohan",
+   "Paige",
+   "Owen",
+   "Theo",
+   "Priya"
+  ],
+  "options": [
+   "Lift tickets",
+   "Cabin",
+   "Groceries",
+   "Gas",
+   "Chains",
+   "Friday dinner",
+   "Ski rental",
+   "Beers",
+   "Hot tub"
+  ],
+  "blanks": [],
+  "numbers": [
+   90000,
+   11200,
+   7000,
+   3500,
+   8800,
+   7400,
+   2500,
+   4600,
+   4000,
+   40
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "tahoe ski trip",
+  "members": [
+   "Rohan",
+   "Paige",
+   "Owen",
+   "Theo",
+   "Priya"
+  ],
+  "text": "ok for tahoe i paid lift tickets, 5 x 129\ncabin was 900 total, i put it on my card\ni got groceries, 112 at safeway\ngas was 70 and the chains were 35 lol\nfriday dinner at the pizza spot was 88\nand sat burgers after skiing was 74\nski rental for me and priya was 60 each\nyea 60 each\nparking at the resort was 25\nwait i also bought beers for the cabin, 46\nand the hot tub was 40 extra\nim lost on where it all went\nfr nobody knows what we spent the most on\nmuse this is a mess sort it out lol"
+ },
+ "seconds": 227.8,
+ "attempts": 1,
+ "created": "2026-11-13T05:03:30.994Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 4,
+  "restHash": "9ebcb95a0665e0c3",
+  "playedHash": "9a80adbdbd844e78"
+ }
+}

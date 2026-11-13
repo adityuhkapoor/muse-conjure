@@ -1,0 +1,30 @@
+{
+  "id": "musical-chairs",
+  "name": "Musical chairs",
+  "surface": "messenger",
+  "summary": "Musical chairs in the chat: drawn chairs in a circle, everyone still in walks around them while the music plays, the music cuts at a random moment, tap a chair to sit; whoever is left standing is out and the last one sitting wins a prize like picking the movie.",
+  "useWhen": [
+    "nobody can pick the movie tonight, make it a game",
+    "everyone's home and bored, quick game for the gc",
+    "winner picks dinner, loser does dishes",
+    "musical chairs but over text lol",
+    "settle who gets the aux with a two minute game"
+  ],
+  "dontUseWhen": [
+    "a plain vote on what to watch (use a poll or movie-bracket)",
+    "a game with questions or words (use trivia-night or word-bomb)",
+    "fewer than three people in the chat"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Musical chairs'" },
+      "prize": { "type": "string", "description": "What the winner gets, said after their name: 'picks the movie'" },
+      "song": { "type": "string", "description": "The song on the speaker" },
+      "out": { "type": "array", "items": { "type": "object", "properties": { "who": { "type": "string" }, "said": { "type": "string" } }, "required": ["who"] }, "description": "People already out, in order, with what they said in their own words" },
+      "early": { "type": "array", "items": { "type": "object", "properties": { "who": { "type": "string" }, "n": { "type": "integer" } }, "required": ["who", "n"] }, "description": "False starts so far: who tapped before the music stopped, and how many times" }
+    },
+    "required": ["prize"]
+  },
+  "height": 360
+}

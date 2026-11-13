@@ -1,0 +1,70 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"task ids are unique and there are at most 12 tasks\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"labels are 1 to 40 characters and unique ignoring case\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"an add appends one open task with the trimmed label\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.4,
+  "typecheck": 91.4,
+  "static": 3.1,
+  "determinism": 207.8,
+  "invariants": 416.7,
+  "mutation": 415.4,
+  "render": 997.7,
+  "copy": 2.1,
+  "render.browser": 0,
+  "render.mount": 73,
+  "render.taps": 328,
+  "render.lint": 950,
+  "render.axe": 991,
+  "render.total": 998,
+  "total": 1054.6
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 13,
+  "inert": 5,
+  "killed": 13,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "task ids are unique and there are at most 12 tasks": 0,
+   "every owner is in the chat": 5,
+   "a task with no owner is not done": 3,
+   "labels are 1 to 40 characters and unique ignoring case": 0,
+   "a claim gives only that open task to the actor": 4,
+   "a release is made by the owner and empties owner and done": 2,
+   "done is made by the owner and flips done on that task only": 2,
+   "an add appends one open task with the trimmed label": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "task ids are unique and there are at most 12 tasks",
+  "labels are 1 to 40 characters and unique ignoring case",
+  "an add appends one open task with the trimmed label"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

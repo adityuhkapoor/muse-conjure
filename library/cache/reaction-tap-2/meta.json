@@ -1,0 +1,67 @@
+{
+ "id": "reaction-tap-2",
+ "ask": "muse mkae a reaction game so we can see who is fastets",
+ "kind": "reaction-tap",
+ "family": "game",
+ "surface": "chat",
+ "sentence": "A round-based reaction game where everyone waits for the screen to change color, then taps, and the fastest time wins, with a running best time for each person.",
+ "use_when": [
+  "The group wants to see who has the fastest reflexes",
+  "A quick tap contest to settle a friendly bet",
+  "Playing several short rounds and tracking each person's best time"
+ ],
+ "dont_use_when": [
+  "The group needs a turn-based board or card game",
+  "The group wants a quiz or trivia with right and wrong answers",
+  "The group needs to vote or collect opinions"
+ ],
+ "keywords": [
+  "reaction game",
+  "reaction time",
+  "fastest",
+  "tap game",
+  "reflex",
+  "speed test",
+  "quick tap",
+  "race",
+  "competition",
+  "leaderboard",
+  "best time",
+  "rounds",
+  "party game"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 4
+ },
+ "mutation_score": 1,
+ "height": 388,
+ "params": {
+  "names": [],
+  "options": [],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "ravi's bday weekend",
+  "members": [
+   "Ravi",
+   "Noor",
+   "Mia",
+   "Maya"
+  ],
+  "text": "ok bday dinner is booked 8pm at the thai place on 5th\nyesss i'm so hungry already\nsame, we should do something before tho while we wait for maya\ni'm literally 10 min away stop\ni want a game, something quick we can all do on our phones at the table\nnot trivia again maya always wins\ni can't help that i'm smart\nwhat about those reaction speed things\nomg yes where u wait for it to change color then tap\ni think i'm gonna win ngl, i have cat reflexes\nu dropped your iced coffee on the bus yesterday\nthat was the bus's fault\nlol ok so everyone taps when it flips and the fastest gets the W\nand the birthday boy gets a 50ms head start jk\nno head start. show the times after tho so we can laugh\nalso tapping too early should be a fail\nyeah or else people just spam tap\na leaderboard would be cool too\nok ravi ask muse\nmuse mkae a reaction game so we can see who is fastets"
+ },
+ "seconds": 158.4,
+ "attempts": 1,
+ "created": "2026-11-13T03:57:10.743Z",
+ "second_look": {
+  "endStep": 2,
+  "endReason": "reached results = {\"u3\":-1}",
+  "controls": 1,
+  "restHash": "8fb07e85189d786a",
+  "playedHash": "9e38bc1e989d3c70"
+ }
+}

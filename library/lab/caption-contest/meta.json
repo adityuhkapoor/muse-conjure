@@ -1,0 +1,52 @@
+{
+  "id": "caption-contest",
+  "name": "Caption this",
+  "origin": { "crate": "apps8", "id": "caption-contest" },
+  "surface": "messenger",
+  "summary": "Friends caption a drawn photo from the trip and vote; the winning caption is written onto it.",
+  "useWhen": [
+    "a group game captioning moments from a trip or night out",
+    "'caption contest', 'best caption wins', 'caption this pic of Theo'"
+  ],
+  "dontUseWhen": [
+    "voting on plans (use a poll)",
+    "no shared moment to caption",
+    "a real photo needs to be shown (this draws an illustration)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "photos": {
+        "type": "array",
+        "minItems": 1,
+        "maxItems": 3,
+        "items": {
+          "type": "object",
+          "properties": {
+            "place": { "type": "string", "description": "'Gulf Shores, day 2'" },
+            "scene": { "type": "string", "enum": ["beach", "camp", "other"] },
+            "captions": {
+              "type": "array",
+              "maxItems": 6,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "by": { "type": "string", "description": "Author, exactly as in the members list" },
+                  "text": { "type": "string", "description": "The caption as written in the chat" },
+                  "voters": { "type": "array", "items": { "type": "string" }, "description": "Who already voted for it, by name" }
+                },
+                "required": ["by", "text", "voters"],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": ["place", "scene", "captions"],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": ["photos"],
+    "additionalProperties": false
+  },
+  "height": 416
+}

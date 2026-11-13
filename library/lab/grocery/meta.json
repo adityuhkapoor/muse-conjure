@@ -1,0 +1,21 @@
+{
+  "id": "grocery",
+  "name": "Grocery run",
+  "origin": { "crate": "apps3", "id": "grocery" },
+  "surface": "messenger",
+  "summary": "A shared grocery list with an urgency meter; one person takes the run and ticks items into the cart.",
+  "useWhen": ["housemates listing what the place is out of", "'we're out of eggs', 'who's going to trader joe's', 'add oat milk'"],
+  "dontUseWhen": ["splitting what a shop cost (use a bill split)", "deciding who brings what to a party (use potluck or a bring list)"],
+  "params": { "type": "object", "properties": {
+    "title": { "type": "string", "description": "Where, e.g. 'Apt 4B'" },
+    "messages": { "type": "integer", "description": "How many chat messages the list came from, 0 if unknown" },
+    "items": { "type": "array", "items": { "type": "object", "properties": {
+      "name": { "type": "string" }, "qty": { "type": "string", "description": "'x12', '1lb', '' if none" },
+      "who": { "type": "string", "description": "Who asked, as in the chat" },
+      "quote": { "type": "string", "description": "What they said, short" },
+      "urgency": { "type": "integer", "description": "0 chill to 3 urgent" },
+      "priceCents": { "type": "integer", "description": "Estimated price in cents, 0 if unknown" } } } },
+    "begging": { "type": "string", "description": "Name of whoever is asking hardest, or empty" } },
+    "required": ["title", "items"] },
+  "height": 396
+}

@@ -1,0 +1,72 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"each person has at most one ranking\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"there are exactly 4 spots with unique ids\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the spots and title never change\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.8,
+  "typecheck": 45,
+  "static": 1.7,
+  "determinism": 42.6,
+  "invariants": 150.7,
+  "mutation": 172.4,
+  "render": 1108.2,
+  "copy": 1.2,
+  "render.browser": 0,
+  "render.mount": 53,
+  "render.taps": 442,
+  "render.lint": 1059,
+  "render.axe": 1099,
+  "render.total": 1108,
+  "total": 1141.6
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 13,
+  "inert": 6,
+  "killed": 13,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "each person has at most one ranking": 0,
+   "a ranking has at most 3 picks and no spot twice": 1,
+   "every pick is one of the spots": 3,
+   "people with a ranking are in the chat": 2,
+   "there are exactly 4 spots with unique ids": 0,
+   "no ranking is empty": 1,
+   "a pick adds the spot last in the actor's picks and no one else changes": 2,
+   "an unpick removes that spot from the actor's picks and keeps the order": 2,
+   "a clear removes only the actor's ranking": 3,
+   "only people in the chat change a ranking": 2,
+   "the spots and title never change": 0
+  },
+  "survivors": []
+ },
+ "weak": [
+  "each person has at most one ranking",
+  "there are exactly 4 spots with unique ids",
+  "the spots and title never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

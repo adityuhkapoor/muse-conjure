@@ -1,0 +1,94 @@
+{
+ "id": "semester-recap-2",
+ "ask": "recap card?",
+ "kind": "semester-recap",
+ "family": "recap",
+ "surface": "chat",
+ "sentence": "A shared timeline card of past memories and upcoming dates for a group, where anyone can add an entry and tap \"I was there\" or \"I'm in\", and only the adder can remove it.",
+ "use_when": [
+  "The group wants a recap of the semester with memories and what is coming up",
+  "Friends want to log shared events and see who was there or who is joining",
+  "Someone asks for a recap card or a shared timeline of dates"
+ ],
+ "dont_use_when": [
+  "The group needs to pick one date or option by voting, which needs a poll",
+  "Someone needs a private reminder or personal to-do list",
+  "The group wants to split costs or track who owes what"
+ ],
+ "keywords": [
+  "recap",
+  "semester recap",
+  "timeline",
+  "memories",
+  "shared calendar",
+  "upcoming events",
+  "event list",
+  "i was there",
+  "rsvp",
+  "group events",
+  "scrapbook",
+  "dates",
+  "attendance",
+  "memory log"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 6
+ },
+ "mutation_score": 1,
+ "height": 280,
+ "params": {
+  "names": [
+   "Hugo"
+  ],
+  "options": [
+   "Lake Lanier trip",
+   "Tate concert",
+   "Dollar cinema",
+   "Library all nighter",
+   "Winter formal",
+   "Jan",
+   "Mar",
+   "Sep",
+   "Oct",
+   "Nov",
+   "Dec"
+  ],
+  "blanks": [
+   "The canoe incident",
+   "Bring snacks",
+   "At the Marriott"
+  ],
+  "numbers": [
+   12,
+   13,
+   22,
+   29,
+   8
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "the lake lanier crew",
+  "members": [
+   "Eli",
+   "Sam",
+   "Hugo",
+   "Abby",
+   "Rhea",
+   "Bryan"
+  ],
+  "text": "guys its nov 12 how\nthe semester is cooked\ni havent slept since the lake lanier trip\nthat was sept 13 lol\nand im still tired\nlake trip was goated tho. the canoe incident\nwe do not speak of the canoe\nwaffle house at 3am after the tate concert oct 4\ntate was oct 4?? i thought 5\noct 4 saturday\nok yeah oct 4\ndollar cinema every wed was a W too, we saw that shark movie\nshark one was oct 22\nalso hugos bday at chipotle oct 29\nit was a lovely chipotle\nand the library all nighter dec 8 is coming up unfortunately\ndec 8 bring snacks\nand winter formal dec 12 at the marriott\nomg true\nall this will be forgotten by january\nfacts\ni keep typing it in notes and losing it\nsame\nmuse recap card?"
+ },
+ "seconds": 173.5,
+ "attempts": 1,
+ "created": "2026-11-13T05:11:34.453Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 4,
+  "restHash": "9eb12b9c1c60e76a",
+  "playedHash": "963b3d1c819e988f"
+ }
+}

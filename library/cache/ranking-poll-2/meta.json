@@ -1,0 +1,78 @@
+{
+ "id": "ranking-poll-2",
+ "ask": "can u make a poll where we each rank our top 3 of these places",
+ "kind": "ranking-poll",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Lets each person pick and order their top 3 from a fixed list of options, scoring 3, 2 and 1 points for first, second and third, and shows a live points tally.",
+ "use_when": [
+  "a group wants to rank their top 3 from a short list of places or options",
+  "a plain one-choice vote would hide how strongly people prefer things",
+  "deciding on a trip destination, restaurant, or activity as a group",
+  "each person should be able to change or clear their picks before deciding"
+ ],
+ "dont_use_when": [
+  "a simple single-choice yes/no or one-vote poll is enough",
+  "people need to rank every option in a full order",
+  "the options list must be added to or edited by members",
+  "a scheduling or availability poll for dates and times is needed"
+ ],
+ "keywords": [
+  "ranking poll",
+  "top 3",
+  "rank choices",
+  "weighted vote",
+  "points vote",
+  "group decision",
+  "poll",
+  "vote",
+  "favorites",
+  "preference",
+  "trip planning",
+  "destination",
+  "ranked choice",
+  "scoreboard"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 6
+ },
+ "mutation_score": 1,
+ "height": 364,
+ "params": {
+  "names": [],
+  "options": [
+   "Miami",
+   "Austin",
+   "Nashville",
+   "Asheville",
+   "San Diego"
+  ],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": false,
+ "origin": {
+  "title": "spring break 2027 planning",
+  "members": [
+   "Sofia",
+   "Amir",
+   "Tyler",
+   "Bea",
+   "Maya",
+   "Noor"
+  ],
+  "text": "ok spring break ideas, we need to decide this week or flights get crazy\nmiami. cheap flights from boston rn like 140\naustin!! the food and the music, my cousin has a couch too\nnashville is giving bachelorette weekend but im not against it\nwhat about asheville, we could do cabin and hikes\ni have a midterm the week before so i cant plan much lol\nso miami, austin, nashville, asheville\nalso san diego? flights are like 200 tho\nok yeah 5 then\ni would be happy with austin or san diego honestly\ni like asheville most but austin second for sure\nmiami is my first, then san diego\nif we just vote one thing it's gonna be a tie again like last year\nlol true, last year it was 2 2 2 and we just didnt go anywhere\nwe ended up doing that dumb day trip to the outlets\nthe outlets were fine, i got a jacket\nlol that jacket is nice tbf\nok but i want a real trip this time\nsame\nwe need a way to see which ones have the most overall love\nlike pick your favorite 3 and weight them\nyes first choice counts the most\n3 points for first, 2 for second, 1 for third?\nsure that works\nmuse can u make a poll where we each rank our top 3 of these places"
+ },
+ "seconds": 49.9,
+ "attempts": 1,
+ "created": "2026-11-13T04:33:22.563Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 6,
+  "restHash": "9f2d302c363c2773",
+  "playedHash": "9e3ae6a5a43d2562"
+ }
+}

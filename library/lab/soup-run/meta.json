@@ -1,0 +1,38 @@
+{
+  "id": "soup-run",
+  "name": "Soup run",
+  "surface": "messenger",
+  "summary": "A care run in a one-to-one chat: a shelf of the things the sick friend has said she likes and a paper bag; the runner taps things and they drop into the bag, 'Drop it off' folds it shut and his face travels down the road to her door, and she taps 'Got it' when it lands.",
+  "useWhen": [
+    "i have the flu, i'm dying",
+    "so sick rn can someone bring me ginger ale",
+    "want me to drop off soup? what do you want",
+    "bringing you stuff after class, list it",
+    "covid again lol send help"
+  ],
+  "dontUseWhen": [
+    "a group shopping list for the apartment (use grocery)",
+    "several friends each bringing something to a sick friend (use soup-drop)",
+    "paying someone back for what they bought"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Soup run for Maya'" },
+      "patient": { "type": "string", "description": "Who's sick (a name in the chat)" },
+      "runner": { "type": "string", "description": "Who's bringing it (a name in the chat); only they pack and leave" },
+      "quote": { "type": "string", "description": "What the sick friend said, in her words; may be empty" },
+      "store": { "type": "string", "description": "Where the run starts, e.g. 'CVS on Elm'" },
+      "door": { "type": "string", "description": "Where it ends, e.g. 'Maya's door'" },
+      "by": { "type": "string", "description": "When it gets there, e.g. 'by 6'; may be empty" },
+      "minutes": { "type": "integer", "description": "How many minutes the run takes, 1 to 240" },
+      "items": {
+        "type": "array",
+        "description": "Up to six things she's said she likes, in her words",
+        "items": { "type": "object", "properties": { "label": { "type": "string", "description": "The thing, e.g. 'the spicy ramen'" }, "inBag": { "type": "boolean", "description": "Already in the bag" } }, "required": ["label"] }
+      }
+    },
+    "required": ["patient", "runner", "items"]
+  },
+  "height": 386
+}

@@ -1,0 +1,24 @@
+{
+  "id": "group-buy",
+  "name": "Group buy",
+  "origin": { "crate": "apps13", "id": "group-buy" },
+  "surface": "marketplace",
+  "summary": "Roommates vote on a shortlist of listings; the first to reach the quorum is bought and split evenly.",
+  "useWhen": ["a group choosing one of 2 to 4 Marketplace listings to buy together", "'which couch do we get', 'vote on the TV, we split it', 'three listings, pick one'"],
+  "dontUseWhen": ["one item already chosen, only the split and who keeps it (use split-purchase)", "is this price fair (use price-check)", "selling things (use move-out-sale)"],
+  "params": { "type": "object", "properties": {
+    "title": { "type": "string", "description": "Short: 'Couch hunt · apt 4'" },
+    "listings": { "type": "array", "maxItems": 4, "items": { "type": "object", "properties": {
+      "name": { "type": "string", "description": "Listing title, short: 'Grey sectional'" },
+      "priceCents": { "type": "integer" },
+      "where": { "type": "string", "description": "'1.2 mi · Berkeley'" },
+      "style": { "type": "string", "enum": ["sectional", "velvet", "midcentury", "other"] },
+      "color": { "type": "string", "enum": ["grey", "green", "mustard", "blue", "red", "brown"] },
+      "quote": { "type": "string", "description": "What someone said about it, with the name: 'Maya: fits all 5 for movie night'; empty if none" } },
+      "required": ["name", "priceCents", "where", "style", "color", "quote"], "additionalProperties": false } },
+    "votes": { "type": "array", "items": { "type": "object", "properties": { "name": { "type": "string" }, "listing": { "type": "integer" } }, "required": ["name", "listing"], "additionalProperties": false }, "description": "Votes already in the chat, by member name and listing index" },
+    "wins": { "type": "integer", "description": "Votes that decide it, e.g. 3 of 5" },
+    "pickup": { "type": "string", "description": "Pickup plan if known: 'Sat 11am · Dev's truck', else empty" } },
+    "required": ["title", "listings", "votes", "wins", "pickup"], "additionalProperties": false },
+  "height": 396
+}

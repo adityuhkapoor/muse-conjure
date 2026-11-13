@@ -1,0 +1,10 @@
+{
+  "id": "clear-skies",
+  "name": "Clear skies",
+  "surface": "messenger",
+  "summary": "The month as a weather map: every conflict read from the chat is a cloud over its days and one weekend is open sky; drag the sun onto it, the clouds part and the trip goes on everyone's calendar.",
+  "useWhen": ["weeks of 'i can't that weekend' while planning a trip or a weekend away", "finding the one weekend in a month that works for everyone, with the reasons people gave"],
+  "dontUseWhen": ["finding an hour today or this week (use meeting-time or time-zone-table)", "deciding where to go (use a poll)", "a date already set (use an event)"],
+  "params": { "title": "string", "sub": "the moment", "month": "month name", "mon": "short month", "first": "weekday of the 1st, 0 Mon to 6 Sun", "days": "28-31", "plan": "what it becomes, e.g. Spring break trip", "crew": "names", "clouds": "up to 10 x {name, what, from, to} conflicts by day of month" },
+  "height": 392
+}

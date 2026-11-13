@@ -1,0 +1,86 @@
+{
+ "id": "road-trip-stops-2",
+ "ask": "bracket this",
+ "kind": "road-trip-stops",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A head-to-head knockout bracket where a group votes on each matchup between candidate stops until one winner is left.",
+ "use_when": [
+  "A group needs to narrow a list of trip stops down to one pick or a few picks",
+  "People want to vote on pairs of options one matchup at a time",
+  "Someone asks to bracket, rank or settle a list of 2 to 8 choices",
+  "A host wants to add options first and then start the voting"
+ ],
+ "dont_use_when": [
+  "A single yes/no or one-shot poll is enough",
+  "The group needs a route, map or day-by-day itinerary",
+  "The list has more than 8 options or needs scored ratings",
+  "Splitting costs or tracking who owes what"
+ ],
+ "keywords": [
+  "bracket",
+  "tournament",
+  "knockout",
+  "head to head",
+  "vote",
+  "matchup",
+  "road trip",
+  "trip stops",
+  "pick winner",
+  "decide",
+  "elimination",
+  "group choice",
+  "ranking"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 8
+ },
+ "mutation_score": 1,
+ "height": 256,
+ "params": {
+  "names": [
+   "Priya"
+  ],
+  "options": [
+   "Crater Lake",
+   "Redwoods",
+   "Mount Shasta",
+   "San Francisco",
+   "Santa Cruz",
+   "Hearst Castle",
+   "santa cruz"
+  ],
+  "blanks": [],
+  "numbers": [
+   25,
+   8
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "senior week pnw to la",
+  "members": [
+   "Priya",
+   "Leo",
+   "Naomi",
+   "Mina",
+   "Mia",
+   "Dre",
+   "Lily",
+   "Ty"
+  ],
+  "text": "ok senior week drive portland to la, 8 of us in 2 cars, we need stops\ncrater lake obviously, its right off 97\nredwoods!! avenue of the giants\ni just want in n out in eureka lol\nmount shasta for the hike? or at least the town\nsan francisco overnight or we skipping it\nskip sf its too much driving, but santa cruz boardwalk is chill\nhearst castle is on the way and i have never been\nok thats crater lake, redwoods, shasta, sf, santa cruz, hearst castle\nin n out is not a stop its a mood\nleo i will fight u\nwe only have 3 days so like 4 stops tops\ncrater lake first since it's closest to pdx\nredwoods before shasta tho or we zigzag\nok shasta is a maybe, hiking in sandals is not it\nhearst castle tour is 25 each btw\nsanta cruz is free tho\nsf is the one i could skip honestly\nnah sf has the burrito place i want\nwe are literally going in circles\nyes pls someone decide\nmuse bracket this"
+ },
+ "seconds": 145.2,
+ "attempts": 1,
+ "created": "2026-11-13T03:42:32.939Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 3,
+  "restHash": "86ad52b1e04fadd2",
+  "playedHash": "b737993a96644646"
+ }
+}

@@ -1,0 +1,44 @@
+{
+  "id": "sock-line",
+  "name": "Sock line",
+  "surface": "messenger",
+  "summary": "The laundry room's lost and found as a clothesline of orphan socks with googly eyes: tap a sock to see where it turned up, say it's yours, and when you're its only claimer take it home and it hops off the line; two claimers on one sock is a dispute and it wiggles nervously until someone lets go.",
+  "useWhen": [
+    "whose socks are these in the laundry room",
+    "lost and found for the apartment",
+    "someone left a sock in the dryer again",
+    "who owns the giant grey sock",
+    "sort out the random laundry nobody claimed"
+  ],
+  "dontUseWhen": [
+    "tracking washers that are running now (use washer-watch)",
+    "borrowed things to give back (use gear-wall)",
+    "selling stuff (use move-out-sale)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Larkin lost socks'" },
+      "sub": { "type": "string", "description": "Line under the title, e.g. 'laundry room lost and found'" },
+      "socks": {
+        "type": "array",
+        "description": "Up to 8 socks on the line: pattern, colour, size (1 small, 2 normal, 3 enormous), where it was found, who already claims it, and an optional quoted line like 'Calvin: that's my sock'",
+        "items": {
+          "type": "object",
+          "properties": {
+            "look": { "type": "string", "enum": ["stripes", "dots", "argyle", "plain", "toe", "wool"] },
+            "hue": { "type": "string", "enum": ["red", "blue", "green", "yellow", "orange", "purple", "grey"] },
+            "size": { "type": "integer" },
+            "found": { "type": "string" },
+            "claims": { "type": "array", "items": { "type": "string" } },
+            "said": { "type": "string" }
+          },
+          "required": ["look", "hue", "found", "claims"]
+        }
+      },
+      "gone": { "type": "array", "items": { "type": "string" }, "description": "Names of friends who already took a sock home" }
+    },
+    "required": ["socks"]
+  },
+  "height": 360
+}

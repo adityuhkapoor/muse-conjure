@@ -1,0 +1,81 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"not locked means fewer yes than needed\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a clear removes only the actor from both lists\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"once locked, votes and clears change nothing\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the lock is set only by a vote that brings yes to the bar, at that time\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the bar and the booker never change by an action\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.7,
+  "typecheck": 70,
+  "static": 2,
+  "determinism": 50.6,
+  "invariants": 160.8,
+  "mutation": 176.2,
+  "render": 1025,
+  "copy": 1,
+  "render.browser": 0,
+  "render.mount": 51,
+  "render.taps": 369,
+  "render.lint": 980,
+  "render.axe": 1018,
+  "render.total": 1025,
+  "total": 1064
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 12,
+  "inert": 6,
+  "killed": 12,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "no one is in both lists or twice in one": 4,
+   "everyone who voted is in the chat": 5,
+   "not locked means fewer yes than needed": 0,
+   "the bar is 4 and the booker is empty or in the chat": 5,
+   "a vote puts the voter on the chosen side only and leaves everyone else as they were": 2,
+   "a clear removes only the actor from both lists": 0,
+   "once locked, votes and clears change nothing": 0,
+   "the lock is set only by a vote that brings yes to the bar, at that time": 0,
+   "the bar and the booker never change by an action": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "not locked means fewer yes than needed",
+  "a clear removes only the actor from both lists",
+  "once locked, votes and clears change nothing",
+  "the lock is set only by a vote that brings yes to the bar, at that time",
+  "the bar and the booker never change by an action"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

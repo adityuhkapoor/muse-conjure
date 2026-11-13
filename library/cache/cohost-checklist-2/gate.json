@@ -1,0 +1,65 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"ids and labels are unique\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"an add appends one open item last with the trimmed label\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.8,
+  "typecheck": 118,
+  "static": 3.3,
+  "determinism": 345.9,
+  "invariants": 857,
+  "mutation": 959.7,
+  "render": 1469.7,
+  "copy": 2.2,
+  "render.browser": 1,
+  "render.mount": 86,
+  "render.taps": 660,
+  "render.lint": 1383,
+  "render.axe": 1457,
+  "render.total": 1470,
+  "total": 1563.4
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 12,
+  "inert": 6,
+  "killed": 12,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "every owner is in the chat": 4,
+   "a done item has an owner": 1,
+   "ids and labels are unique": 0,
+   "at most 16 items, labels 1 to 40 characters and trimmed": 3,
+   "a claim gives an open item to the actor and changes nothing else": 3,
+   "a release frees the actor's own item and clears done": 1,
+   "done flips only the owner's own flag and keeps the owner": 3,
+   "an add appends one open item last with the trimmed label": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "ids and labels are unique",
+  "an add appends one open item last with the trimmed label"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

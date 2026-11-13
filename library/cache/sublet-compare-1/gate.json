@@ -1,0 +1,85 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"there are 3 houses and 6 criteria with unique ids\" caught none of 17 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a rate sets the actor's one score and changes nothing else\" caught none of 17 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"while the result is locked, no score or parking skip changes\" caught none of 17 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the houses, criteria and host never change\" caught none of 17 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.6,
+  "typecheck": 89.6,
+  "static": 3.3,
+  "determinism": 98.5,
+  "invariants": 320.6,
+  "mutation": 361.7,
+  "render": 949.8,
+  "copy": 2.8,
+  "render.browser": 0,
+  "render.mount": 39,
+  "render.taps": 267,
+  "render.lint": 894,
+  "render.axe": 943,
+  "render.total": 950,
+  "total": 1022.6
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 17,
+  "inert": 3,
+  "killed": 16,
+  "score": 0.94,
+  "threshold": 0.8,
+  "kills": {
+   "every score is a whole number from 0 to 3 on a known house and criterion": 3,
+   "everyone with a score is in the chat": 5,
+   "nobody who skips parking has a parking score": 1,
+   "skipping parking is listed once per person, and only for people in the chat": 4,
+   "the host is in the chat whenever the chat has people": 5,
+   "there are 3 houses and 6 criteria with unique ids": 0,
+   "a rate sets the actor's one score and changes nothing else": 0,
+   "only the host closes or reopens: close locks, reopen unlocks": 3,
+   "while the result is locked, no score or parking skip changes": 0,
+   "toggling parking flips the actor's skip and clears only the actor's parking scores": 1,
+   "only people in the chat change anything": 2,
+   "the houses, criteria and host never change": 0
+  },
+  "survivors": [
+   {
+    "op": "drop-assignment",
+    "line": 71,
+    "before": "out[u] = sc[u]!;",
+    "after": ";"
+   }
+  ]
+ },
+ "weak": [
+  "there are 3 houses and 6 criteria with unique ids",
+  "a rate sets the actor's one score and changes nothing else",
+  "while the result is locked, no score or parking skip changes",
+  "the houses, criteria and host never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

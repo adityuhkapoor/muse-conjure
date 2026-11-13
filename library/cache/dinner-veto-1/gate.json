@@ -1,0 +1,75 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"at least one place is never struck\" caught none of 11 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the five places and their ids never change\" caught none of 11 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a veto never happens when one place is left and never strikes the last open one\" caught none of 11 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a veto or undo never changes labels or ids\" caught none of 11 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.9,
+  "typecheck": 41.3,
+  "static": 1.6,
+  "determinism": 47.3,
+  "invariants": 126.1,
+  "mutation": 151,
+  "render": 899.7,
+  "copy": 1,
+  "render.browser": 0,
+  "render.mount": 32,
+  "render.taps": 240,
+  "render.lint": 851,
+  "render.axe": 892,
+  "render.total": 900,
+  "total": 925.6
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 11,
+  "inert": 7,
+  "killed": 11,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "nobody has more than one veto": 3,
+   "everyone who vetoed is in the chat": 4,
+   "at least one place is never struck": 0,
+   "the five places and their ids never change": 0,
+   "a veto strikes one open place for the actor and changes no other": 5,
+   "a veto never happens when one place is left and never strikes the last open one": 0,
+   "an undo clears the actor's own veto and changes no other place": 2,
+   "only people in the chat change anything": 2,
+   "a veto or undo never changes labels or ids": 0
+  },
+  "survivors": []
+ },
+ "weak": [
+  "at least one place is never struck",
+  "the five places and their ids never change",
+  "a veto never happens when one place is left and never strikes the last open one",
+  "a veto or undo never changes labels or ids"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

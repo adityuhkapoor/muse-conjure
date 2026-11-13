@@ -1,0 +1,85 @@
+{
+ "id": "movie-bracket-1",
+ "ask": "can u make a bracket for these 8 movies till theres one left",
+ "kind": "movie-bracket",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A single-elimination bracket for eight movies where the group votes in each head-to-head match and winners advance through three rounds until one movie is left.",
+ "use_when": [
+  "a group needs to pick one movie out of eight",
+  "people want to vote match by match in a knockout bracket",
+  "choosing a movie for a group movie night",
+  "settling a tie between many options with head-to-head rounds"
+ ],
+ "dont_use_when": [
+  "there are fewer or more than eight options",
+  "a single one-time poll across all options is enough",
+  "a round-robin or points ranking is wanted instead of knockout",
+  "a tournament with scores or played games, not votes"
+ ],
+ "keywords": [
+  "movie bracket",
+  "bracket",
+  "tournament",
+  "knockout",
+  "single elimination",
+  "head to head",
+  "movie night",
+  "vote",
+  "pick a movie",
+  "eight options",
+  "playoff",
+  "group decision",
+  "winner",
+  "rounds"
+ ],
+ "members": {
+  "min": 2,
+  "max": 20,
+  "original": 6
+ },
+ "mutation_score": 1,
+ "height": 332,
+ "params": {
+  "names": [
+   "Rohan"
+  ],
+  "options": [
+   "Spirited Away",
+   "Superbad",
+   "Scream 2",
+   "Parasite",
+   "Whiplash",
+   "The Grand Budapest Hotel",
+   "Mamma Mia",
+   "Knives Out"
+  ],
+  "blanks": [],
+  "numbers": [
+   6
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "fri movie night",
+  "members": [
+   "Rohan",
+   "Sofia",
+   "Amir",
+   "Zoe",
+   "Cam",
+   "Owen"
+  ],
+  "text": "ok friday movie night at my place, we need to actually pick something this time\ni vote spirited away\nngl i want to rewatch superbad\nscream 2 its spooky season still lol\nparasite??\nwhiplash or the grand budapest hotel, cant choose\nok thats 6 so far. spirited away, superbad, scream 2, parasite, whiplash, budapest\nadd mamma mia pls\nand knives out\nok that makes 8 right\nyeah 8. last time we argued for an hour and ate all the popcorn before starting\nlmao true. we need a proper way to cut it down\nmuse can u make a bracket for these 8 movies till theres one left"
+ },
+ "seconds": 112,
+ "attempts": 1,
+ "created": "2026-11-13T02:48:37.498Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 12,
+  "restHash": "a739982d9913e927",
+  "playedHash": "bf39b91686e9c046"
+ }
+}

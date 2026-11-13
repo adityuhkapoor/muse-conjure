@@ -1,0 +1,35 @@
+{
+  "id": "cootie-catcher",
+  "name": "Cootie catcher",
+  "surface": "messenger",
+  "summary": "The paper fortune teller from fourth grade, folded out of the chat's plans: tap a color and it pumps open and shut once per letter, tap one of the numbers that shows and that flap lifts to tell your fortune; everyone's fortune stacks up beside it and any of them can be locked in as the plan.",
+  "useWhen": [
+    "we literally can't decide friday, let the paper thing pick",
+    "make a cootie catcher for what we do tonight",
+    "fortune teller but it picks dinner",
+    "let fate decide, here are 8 ideas",
+    "remember those paper fortune tellers lol make one"
+  ],
+  "dontUseWhen": [
+    "a fair random pick everyone must accept (use plan-spinner)",
+    "a vote where the most popular wins (use after-vote)",
+    "real fortunes, horoscopes or predictions"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Friday, decided by paper'" },
+      "quote": { "type": "string", "description": "What started it, in their words" },
+      "quoteBy": { "type": "string", "description": "Who said the quote" },
+      "colors": { "type": "array", "items": { "type": "string" }, "description": "Four flap colors as words; each pumps once per letter, e.g. ['pink', 'blue', 'green', 'yellow']" },
+      "fortunes": { "type": "array", "items": { "type": "string" }, "description": "Up to eight short fortunes (the chat's plan ideas), under flaps 1 to 8" },
+      "told": {
+        "type": "array",
+        "description": "Fortunes already told",
+        "items": { "type": "object", "properties": { "who": { "type": "string", "description": "A name in the chat" }, "number": { "type": "integer", "description": "The flap they opened, 1 to 8" } }, "required": ["who", "number"] }
+      }
+    },
+    "required": ["fortunes"]
+  },
+  "height": 362
+}

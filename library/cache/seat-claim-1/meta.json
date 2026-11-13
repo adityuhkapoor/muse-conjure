@@ -1,0 +1,68 @@
+{
+ "id": "seat-claim-1",
+ "ask": "ok muse do your thing",
+ "kind": "seat-claim",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Shows a fixed list of six sleeping spots at a cabin where each person in the chat can take one open spot or give theirs up, first claim wins.",
+ "use_when": [
+  "A group is staying somewhere together and needs to sort out who sleeps where",
+  "Everyone should pick one bed or couch from a short fixed list",
+  "You want to see who still has no spot"
+ ],
+ "dont_use_when": [
+  "The options change or need to be added by people, like a custom list of rooms or items",
+  "People need to vote or rank choices rather than claim one first-come",
+  "You need to assign shifts, rides, or tasks instead of beds"
+ ],
+ "keywords": [
+  "sleeping spots",
+  "who sleeps where",
+  "bed assignment",
+  "seat claim",
+  "cabin trip",
+  "room sharing",
+  "first come first served",
+  "claim a spot",
+  "beds",
+  "group trip",
+  "sleeping arrangements",
+  "lodging"
+ ],
+ "members": {
+  "min": 2,
+  "max": 6,
+  "original": 6
+ },
+ "mutation_score": 1,
+ "height": 378,
+ "params": {
+  "names": [],
+  "options": [],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": false,
+ "origin": {
+  "title": "tahoe cabin weekend",
+  "members": [
+   "Luis",
+   "Rhea",
+   "Cam",
+   "Omar",
+   "Ravi",
+   "Priya"
+  ],
+  "text": "ok so the cabin in tahoe has 4 beds total + 2 couches\nwait so thats 6 spots for 6 of us?? sounds fine\nno the 2 couches are the pull out one and the sketchy one by the heater\nthe beds are 2 queens and 2 bunk beds lol\ni call a queen not even kidding\nyou cant just call it ravi\nhonestly first come first served, one spot per person\nfine but we need to actually track it bc last time everyone claimed 2 things\ni claimed nothing im clean\nwe leave friday at 4 so ppl will be claiming all day\nok muse do your thing"
+ },
+ "seconds": 62.9,
+ "attempts": 1,
+ "created": "2026-11-13T03:07:27.295Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 6,
+  "restHash": "9a373d1f251aa11b",
+  "playedHash": "9f95381fb11aa51a"
+ }
+}

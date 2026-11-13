@@ -1,0 +1,80 @@
+{
+ "id": "poll-results-chart-2",
+ "ask": "chart this",
+ "kind": "poll-results-chart",
+ "family": "recap",
+ "surface": "chat",
+ "sentence": "Shows a bar chart of a group vote between three ski mountains, with votes pre-filled from the chat, and lets members pick an option and lock their vote.",
+ "use_when": [
+  "The group chat already stated votes for a few options and someone wants them charted",
+  "A group needs to choose between a small fixed set of options, like three places",
+  "People want to see who voted for what and which option leads",
+  "Votes should become final once each person locks them"
+ ],
+ "dont_use_when": [
+  "The options are not a fixed list of three or the question is different, since this one is set to ski mountains",
+  "The request is for free-text answers or ranking instead of one pick",
+  "Only a one-time total is needed with no way for people to vote or lock"
+ ],
+ "keywords": [
+  "poll",
+  "vote",
+  "bar chart",
+  "chart results",
+  "group vote",
+  "ski trip",
+  "mountain",
+  "lock vote",
+  "tally",
+  "choose option",
+  "pick one",
+  "results"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 4
+ },
+ "mutation_score": 0.93,
+ "height": 348,
+ "params": {
+  "names": [
+   "Jess",
+   "Amir",
+   "Jake",
+   "Ines"
+  ],
+  "options": [
+   "Killington",
+   "Stowe",
+   "Sugarbush"
+  ],
+  "blanks": [
+   "Stowe is about $40 more a night"
+  ],
+  "numbers": [
+   40
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "ski trip 2027 planning",
+  "members": [
+   "Jess",
+   "Amir",
+   "Jake",
+   "Ines"
+  ],
+  "text": "ok we need to pick the mountain for january. options: killington, stowe, or sugarbush\nkillington, cheapest pass thing\nstowe. its prettier and the lodge has the hot tub\nngl stowe\ni was gonna say sugarbush but stowe is fine\nstowe is like $40 more a night tho\nits worth it fr\nok but i can only do killington if its cheaper\nso is that a killington vote jess\nhmm no keep me at stowe\nugh fine\nwait no i still vote killington\nlol ok\nok so who has voted\nme ines stowe, jake killington\nand im sugarbush then, final\nok but we're only 4 so thats a mess\ni can switch to sugarbush if it breaks the tie\nno dont lol\nok no switching, votes are locked\nlocked\nlocked killington\nstowe locked\nsugarbush locked\nok i need to see it laid out\nmuse chart this"
+ },
+ "seconds": 85.9,
+ "attempts": 1,
+ "created": "2026-11-13T03:54:42.377Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 3,
+  "restHash": "9f30343f70344ff0",
+  "playedHash": "b2a5d88d76378a52"
+ }
+}

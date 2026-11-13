@@ -1,0 +1,82 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"four games, and round 1 pairs them in order\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.8,
+  "typecheck": 232,
+  "static": 4.2,
+  "determinism": 166.7,
+  "invariants": 664.3,
+  "mutation": 705.9,
+  "render": 1368.7,
+  "copy": 2.9,
+  "render.browser": 0,
+  "render.mount": 111,
+  "render.taps": 613,
+  "render.lint": 1243,
+  "render.axe": 1340,
+  "render.total": 1369,
+  "total": 1542.7
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 15,
+  "inert": 3,
+  "killed": 12,
+  "score": 0.8,
+  "threshold": 0.8,
+  "kills": {
+   "four games, and round 1 pairs them in order": 0,
+   "voters in undecided matches are in the chat": 2,
+   "a winner is one of its two sides and did not trail": 4,
+   "the final holds the winners of round 1 and is decided only when both are known": 1,
+   "the champion is the final's winner": 3,
+   "votes are a or b, and only on matches with both sides": 1,
+   "a vote changes only the actor's own vote in that match": 2,
+   "a close decides that match by more votes, or by the seed on a tie": 3,
+   "a close fills only the matching slot of the final, or sets the champion": 2,
+   "a decided match keeps its winner and votes until reset": 2,
+   "reset clears every vote, winner and champion and keeps the games": 1,
+   "only people in the chat change anything": 2
+  },
+  "survivors": [
+   {
+    "op": "off-by-one",
+    "line": 23,
+    "before": "0",
+    "after": "1"
+   },
+   {
+    "op": "off-by-one",
+    "line": 42,
+    "before": "0",
+    "after": "1"
+   },
+   {
+    "op": "swap-branches",
+    "line": 66,
+    "before": "pristine(state) ? state : { ...state, matches: build(state.games), champion: nul…",
+    "after": "(pristine(state)) ? ({ ...state, matches: build(state.games), champion: null }) …"
+   }
+  ]
+ },
+ "weak": [
+  "four games, and round 1 pairs them in order"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

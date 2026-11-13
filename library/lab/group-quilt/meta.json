@@ -1,0 +1,10 @@
+{
+  "id": "group-quilt",
+  "name": "Group quilt",
+  "surface": "messenger",
+  "summary": "A quilt for the group, one square each: friends have stitched theirs, yours is a dashed patch you try patterns and threads on, then stitch in while a needle runs the seam; the last square sews in the label.",
+  "useWhen": ["end of a semester or a trip and the group wants a keepsake they all make together", "'we should make something for the group chat', a shared creative moment with everyone's own piece"],
+  "dontUseWhen": ["a recap of what happened (use wrapped or album)", "deciding or planning anything", "a one-person drawing (use a sticker or sprite tool)"],
+  "params": { "title": "string", "sub": "string", "label": "sewn-in label once finished", "squares": "up to 9 x {name, pattern: stripes|dots|zigzag|checks|stars|hearts|waves|rice or '' if not stitched yet, color (0-5), said}" },
+  "height": 392
+}

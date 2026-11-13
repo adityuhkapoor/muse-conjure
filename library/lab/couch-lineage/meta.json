@@ -1,0 +1,11 @@
+{
+  "id": "couch-lineage",
+  "name": "Couch lineage",
+  "origin": { "crate": "apps13", "id": "couch-lineage" },
+  "surface": "marketplace",
+  "summary": "A listing's history inside the friend group as a price curve with each owner's story, and a way to keep it in the family.",
+  "useWhen": ["a friend lists something that has passed between friends before", "'this couch has been in the group since freshman year', 'who wants it next'"],
+  "dontUseWhen": ["a new listing with no history in the group (use price-check)", "selling many things before moving (use move-out-sale)", "buying something together (use group-buy)"],
+  "params": { "title": "card title", "item": "what it is, e.g. 'green velvet couch'", "eras": "2-8 x {who, year, paidCents, place, lore}, oldest first; the last is the current seller", "next": "year the next owner would take it" },
+  "height": 396
+}

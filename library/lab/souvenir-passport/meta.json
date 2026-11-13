@@ -1,0 +1,30 @@
+{
+  "id": "souvenir-passport",
+  "name": "Souvenir passport",
+  "surface": "feed",
+  "summary": "A passport spread with an ink stamp for each stop of the poster's trip; friends hang a souvenir request off a stamp (magnet, snacks, hot sauce, a shirt) with their words, and the traveller ticks them off as they pack.",
+  "useWhen": [
+    "day 4 of the trip lowkey never coming back",
+    "3 cities down, 2 to go",
+    "yall want anything from peru",
+    "having fun in south america eating tostadas, bringing stuff back",
+    "trip update quito then banos then cuenca"
+  ],
+  "dontUseWhen": [
+    "planning a trip that hasn't started (use trip-draft)",
+    "a recap after the trip is over (use trip-story)",
+    "one place, no stops (use postcard-sign)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "author": { "type": "string", "description": "Who is travelling" },
+      "trip": { "type": "string", "description": "The trip's name, shown as the title" },
+      "line": { "type": "string", "description": "The post's own line, shown in quotes" },
+      "stops": { "type": "array", "items": { "type": "object", "properties": { "city": { "type": "string" }, "date": { "type": "string" } }, "required": ["city"] }, "description": "Stops so far in order with a short date; the last three are stamped" },
+      "asks": { "type": "array", "items": { "type": "object", "properties": { "who": { "type": "string" }, "stop": { "type": "string" }, "item": { "type": "string", "enum": ["magnet", "keychain", "snack", "sauce", "shirt", "postcard"] }, "note": { "type": "string" }, "packed": { "type": "boolean" } }, "required": ["who", "stop", "item"] }, "description": "Souvenir requests already hanging: who, the stop's city, the item, their words, and whether it is packed" }
+    },
+    "required": ["author", "stops"]
+  },
+  "height": 380
+}

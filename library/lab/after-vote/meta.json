@@ -1,0 +1,11 @@
+{
+  "id": "after-vote",
+  "name": "After vote",
+  "origin": { "crate": "apps10", "id": "after-vote" },
+  "surface": "event",
+  "summary": "Two to four tall cards fill with friends' faces as they vote, and the plan locks once everyone is in and one leads.",
+  "useWhen": ["picking between 2-4 options together: 'where do we go after the show', 'tacos or karaoke'", "a plain poll that should end in one locked answer"],
+  "dontUseWhen": ["more than 4 options (use a poll)", "nobody can decide and wants it picked for them (use slot-machine)", "ranking many things (use tier-list)"],
+  "params": { "title": "question, e.g. After the show?", "when": "context line, e.g. Greek ends 11:00", "clock": "time now as H:MM, or empty for a plain poll", "ends": "H:MM the thing ends, or empty", "meetAt": "H:MM shown on the result, or empty", "options": "2-4 x {name, meta, plan, icon: tacos|mic|roof|'' , voters: names}" },
+  "height": 416
+}

@@ -1,0 +1,85 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"rent and utilities are the amounts from the chat\" caught none of 17 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"what everyone owes adds up to the rent of rooms with people plus utilities\" caught none of 17 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a utilities toggle flips only the actor and changes no room\" caught none of 17 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the rent and utilities totals never change\" caught none of 17 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.5,
+  "typecheck": 78.3,
+  "static": 3.1,
+  "determinism": 57.2,
+  "invariants": 158.7,
+  "mutation": 243.5,
+  "render": 939.1,
+  "copy": 2.1,
+  "render.browser": 0,
+  "render.mount": 60,
+  "render.taps": 261,
+  "render.lint": 888,
+  "render.axe": 931,
+  "render.total": 939,
+  "total": 1002.5
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 17,
+  "inert": 2,
+  "killed": 16,
+  "score": 0.94,
+  "threshold": 0.8,
+  "kills": {
+   "room rents are whole, not negative, and add up to the rent": 6,
+   "rent and utilities are the amounts from the chat": 0,
+   "everyone in a room or on utilities is in the chat": 2,
+   "no one is in two rooms, twice in a room, or twice on utilities": 1,
+   "what everyone owes adds up to the rent of rooms with people plus utilities": 0,
+   "a shift moves exactly the cents asked from one room to another": 3,
+   "a join puts the actor in that room only and on utilities, and moves no one else": 3,
+   "a leave removes only the actor from only that room": 3,
+   "a utilities toggle flips only the actor and changes no room": 0,
+   "the rent and utilities totals never change": 0,
+   "a change records its time": 1,
+   "only people in the chat change anything": 2
+  },
+  "survivors": [
+   {
+    "op": "remove-guard",
+    "line": 105,
+    "before": "if (already) return s;",
+    "after": ";"
+   }
+  ]
+ },
+ "weak": [
+  "rent and utilities are the amounts from the chat",
+  "what everyone owes adds up to the rent of rooms with people plus utilities",
+  "a utilities toggle flips only the actor and changes no room",
+  "the rent and utilities totals never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

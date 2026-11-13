@@ -1,0 +1,71 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"the suggested word never changes\" caught none of 11 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a word sets only the actor's own word, trimmed and lowercase\" caught none of 11 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a clear removes the actor's entries and no one else's\" caught none of 11 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.4,
+  "typecheck": 76.8,
+  "static": 2.4,
+  "determinism": 58.8,
+  "invariants": 117.1,
+  "mutation": 173.6,
+  "render": 957.6,
+  "copy": 1.7,
+  "render.browser": 0,
+  "render.mount": 34,
+  "render.taps": 297,
+  "render.lint": 914,
+  "render.axe": 953,
+  "render.total": 958,
+  "total": 1021.2
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 11,
+  "inert": 9,
+  "killed": 11,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "every entry belongs to someone in the chat": 3,
+   "every count is a whole number from 0 to 99999": 3,
+   "every hour is a whole number from 0 to 23": 2,
+   "every word is lowercase, 1 to 20 characters, with no spaces": 1,
+   "the suggested word never changes": 0,
+   "a count sets only the actor's own count": 1,
+   "a word sets only the actor's own word, trimmed and lowercase": 0,
+   "an hour sets only the actor's own busiest hour": 1,
+   "a clear removes the actor's entries and no one else's": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "the suggested word never changes",
+  "a word sets only the actor's own word, trimmed and lowercase",
+  "a clear removes the actor's entries and no one else's"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

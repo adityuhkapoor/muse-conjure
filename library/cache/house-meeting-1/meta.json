@@ -1,0 +1,73 @@
+{
+ "id": "house-meeting-1",
+ "ask": "mkae a pol for the evnings plz",
+ "kind": "house-meeting",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A shared poll where everyone taps the evenings that work for a meeting, anyone can add another evening, and the vote counts show live.",
+ "use_when": [
+  "Picking an evening for a house or group meeting",
+  "Finding which days work for most people",
+  "Letting people vote on more than one option and add their own"
+ ],
+ "dont_use_when": [
+  "Choosing exactly one winner with a single vote per person",
+  "Booking a time on a calendar with exact hours or reminders",
+  "Splitting costs or tracking tasks"
+ ],
+ "keywords": [
+  "poll",
+  "evening poll",
+  "vote",
+  "house meeting",
+  "schedule",
+  "pick a day",
+  "availability",
+  "group vote",
+  "which evening",
+  "multi-choice",
+  "add option",
+  "meeting time"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 5
+ },
+ "mutation_score": 1,
+ "height": 308,
+ "params": {
+  "names": [],
+  "options": [
+   "Tues 8",
+   "Wed 8:30",
+   "Thurs"
+  ],
+  "blanks": [],
+  "numbers": [
+   8
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "apt 4b house meeting",
+  "members": [
+   "Naomi",
+   "Mia",
+   "Ravi",
+   "Abby",
+   "Lena"
+  ],
+  "text": "ok we actually need a house meeting about the dishes thing\nyesss before it gets worse lol\nim down but i have lab mon and wed till like 8\nmon is bad for me too, work shift till 9\nwhat about tues\ntues works for me after 6\ntues i have choir till 7:30 but after that fine\ntues is good for me\ntues works!! i can do 8ish\ni can do tues too but thurs is also ok for me\nthurs i cant, going home for the weekend\nwait is wed dead for everyone? i could do wed late\nwed i can only do after 8:30\nwed after 8:30 ok for me\nwed is fine for me too\nwed late is ok i guess but im tired by then\nok so tues 8, wed 8:30, or thurs. idk\nmuse mkae a pol for the evnings plz"
+ },
+ "seconds": 27.6,
+ "attempts": 1,
+ "created": "2026-11-13T02:53:33.964Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 5,
+  "restHash": "9f29292f3d65e150",
+  "playedHash": "9e2aa5ad2f4a3133"
+ }
+}

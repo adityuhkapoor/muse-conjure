@@ -1,0 +1,74 @@
+{
+ "id": "pick-for-us-1",
+ "ask": "pick one",
+ "kind": "pick-for-us",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Randomly picks one place from a short fixed list of lunch options for the whole chat, shows the winner with who picked it, and lets that person pick again.",
+ "use_when": [
+  "The group can't decide where to eat and wants a random pick",
+  "Someone asks to just choose one of a few listed options for everyone",
+  "A quick tiebreak is needed between a small set of places"
+ ],
+ "dont_use_when": [
+  "The group wants to vote and count preferences, which needs a poll",
+  "The options are not a fixed lunch list and must be added or edited",
+  "Someone wants a fair split of costs or tasks rather than a single pick"
+ ],
+ "keywords": [
+  "pick one",
+  "tiebreak",
+  "lunch",
+  "where to eat",
+  "random pick",
+  "decide",
+  "restaurant",
+  "choose for us",
+  "spinner",
+  "coin flip",
+  "food choice",
+  "pick again"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 5
+ },
+ "mutation_score": 0.85,
+ "height": 274,
+ "params": {
+  "names": [],
+  "options": [
+   "Thai Palace",
+   "La Casita Tacos",
+   "Joe's Pizza"
+  ],
+  "blanks": [
+   "Lunch special $11.99",
+   "3 for $9"
+  ],
+  "numbers": []
+ },
+ "fact_bound": false,
+ "origin": {
+  "title": "orgo final lunch",
+  "members": [
+   "Sofia",
+   "Maya",
+   "Gabe",
+   "Mia",
+   "Marcus"
+  ],
+  "text": "ok so where are we eating tmrw after the orgo final\nidk i literally cant think\ni'm fine w anything\nu always say that\nbc its true\noptions were thai palace, la casita tacos, and joe's pizza right\nyeah and the dumpling place on 8th but its cash only\ni have like $4 in cash lol\nthai palace has that lunch special 11.99\ntacos are cheaper tho, like 3 for 9\npizza is easiest we can just grab a big table\njoes is so loud tho i wanna actually talk\ni dont care just not dumplings\nok dumplings out then\nso thai, tacos, or pizza\ni like thai but i had it sunday\ni had tacos sunday lol\nok so pizza?\neh i had pizza last night omg\nwe've been doing this for 20 min\nexam is at 9 we need to know by tonight\nsomeone just decide\nnot me i always get blamed\nsame\nreservation thing for 5 ppl closes at 8 btw\nugh fine\nits 7:40 now\nok whoever, we need a tiebreak\nmuse pick one"
+ },
+ "seconds": 42.1,
+ "attempts": 1,
+ "created": "2026-11-13T02:46:27.368Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 1,
+  "restHash": "9f917a91783c854e",
+  "playedHash": "b71f1d32f0c8e2e0"
+ }
+}

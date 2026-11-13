@@ -1,0 +1,71 @@
+{
+ "id": "lab-partners-2",
+ "ask": "muse can u pair us up for the 2v2 teams and make it random",
+ "kind": "lab-partners",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Randomly splits the people in the chat into 2v2 teams over three rounds so nobody has the same partner twice, or into a single 1v1 if only two or three are present.",
+ "use_when": [
+  "a group of four wants random 2v2 teams for a game",
+  "everyone should get a different partner each round",
+  "two people need a quick random 1v1 matchup",
+  "teams need to be redrawn with a fresh shuffle"
+ ],
+ "dont_use_when": [
+  "teams need to be chosen by hand or by skill level",
+  "more than four people need to be split into several teams",
+  "a single random pick or a coin flip is needed",
+  "a score or bracket needs to be tracked"
+ ],
+ "keywords": [
+  "random teams",
+  "2v2",
+  "team pairing",
+  "partners",
+  "lab partners",
+  "shuffle",
+  "draw teams",
+  "split into teams",
+  "1v1",
+  "matchup",
+  "rounds",
+  "pair up",
+  "random pairs"
+ ],
+ "members": {
+  "min": 2,
+  "max": 4,
+  "original": 4
+ },
+ "mutation_score": 1,
+ "height": 176,
+ "params": {
+  "names": [],
+  "options": [
+   "2v2 teams"
+  ],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": false,
+ "origin": {
+  "title": "mario kart night",
+  "members": [
+   "Ty",
+   "Lily",
+   "Tyler",
+   "Owen"
+  ],
+  "text": "mario kart tn at my place right\nyes i'll bring the chips\ni got the switch and 4 controllers\nbet. what time\n8ish, after my orgo thing\nok but last time teams were so unfair\ncause u and owen picked each other lol\nwe're just good at it ngl\nok but fr it was not fair to ty\ni got last 6 races in a row it hurt\nso lets do random teams this time\nfine. 2v2 right, 4 of us\nyes 2 teams of 2\nand we play 3 rounds then switch teams\nooh ok so first round teams then new ones each round\nya no repeat partners if possible\ngenius. there's only 3 ways to split 4 ppl so it works\nand everyone should be able to see who their partner is\nok someone just do it\nmuse can u pair us up for the 2v2 teams and make it random"
+ },
+ "seconds": 312,
+ "attempts": 2,
+ "created": "2026-11-13T04:31:44.230Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 1,
+  "restHash": "8f8578f0870ff078",
+  "playedHash": "8f8f0f8c369cd870"
+ }
+}

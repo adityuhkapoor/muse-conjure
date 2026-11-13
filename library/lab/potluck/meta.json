@@ -1,0 +1,23 @@
+{
+  "id": "potluck",
+  "name": "Potluck table",
+  "origin": { "crate": "apps3", "id": "potluck" },
+  "surface": "messenger",
+  "summary": "A table of plates showing who brings what, what's missing and what's doubled up.",
+  "useWhen": ["a potluck or holiday dinner where people bring dishes", "'who's bringing what for thanksgiving', 'we have 3 pies', 'someone get drinks'"],
+  "dontUseWhen": ["a shopping list for one person (use grocery)", "splitting what the food cost (use a bill split)", "ordering food together (use pizza)"],
+  "params": { "type": "object", "properties": {
+    "title": { "type": "string", "description": "e.g. 'Thanksgiving potluck'" },
+    "coming": { "type": "integer", "description": "How many people are coming" },
+    "host": { "type": "string", "description": "The centerpiece line, e.g. \"Dad's turkey\", or empty" },
+    "plates": { "type": "array", "description": "Up to 10 plates", "items": { "type": "object", "properties": {
+      "need": { "type": "string", "description": "What this plate is for: 'dessert', 'veggies', or '' for an open spot" },
+      "who": { "type": "string", "description": "Who is bringing it, or empty" },
+      "dish": { "type": "string", "description": "What they're bringing, or empty" } } } },
+    "defaults": { "type": "object", "description": "Dish to bring for a need when someone moves onto it, e.g. { veggies: 'green beans' }" },
+    "tips": { "type": "array", "items": { "type": "object", "properties": {
+      "who": { "type": "string" }, "to": { "type": "string", "description": "The need to move them to" },
+      "why": { "type": "string" } } } } },
+    "required": ["plates"] },
+  "height": 390
+}

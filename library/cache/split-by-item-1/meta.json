@@ -1,0 +1,95 @@
+{
+ "id": "split-by-item-1",
+ "ask": "this is a mess fix it",
+ "kind": "split-by-item",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Splits a restaurant bill by item, lets each person claim their items or share some, adds tax and tip in proportion, and tracks who has paid the person who covered it.",
+ "use_when": [
+  "A group ate together and one person paid, so everyone else needs to pay them back",
+  "Each person should pay for what they ordered, with some dishes shared",
+  "Tax and tip need to be split in proportion to each person's items",
+  "The group wants to see who has paid back and who has not"
+ ],
+ "dont_use_when": [
+  "The cost should be split equally with no item list",
+  "Several people pay different bills and debts need to be netted out over time",
+  "The group needs a poll or vote rather than a payment split"
+ ],
+ "keywords": [
+  "bill split",
+  "split bill",
+  "restaurant bill",
+  "split by item",
+  "who owes",
+  "pay back",
+  "tax and tip",
+  "shared items",
+  "dinner check",
+  "expenses",
+  "claim items",
+  "settle up"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 4
+ },
+ "mutation_score": 1,
+ "height": 372,
+ "params": {
+  "names": [
+   "Gabe",
+   "Paige",
+   "Dani",
+   "June"
+  ],
+  "options": [
+   "Spicy tuna roll",
+   "Miso soup",
+   "Mochi",
+   "Matcha latte",
+   "Dragon roll",
+   "Chirashi bowl",
+   "Sapporo",
+   "Katsu curry",
+   "Edamame",
+   "Gyoza"
+  ],
+  "blanks": [],
+  "numbers": [
+   14260,
+   1140,
+   20,
+   1400,
+   700,
+   1700,
+   2400,
+   800,
+   1800,
+   600,
+   1000
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "sakura house dinner",
+  "members": [
+   "Gabe",
+   "Paige",
+   "Dani",
+   "June"
+  ],
+  "text": "ok bill just came at sakura house, total is 142.60 w tax\ntip not included right\nnope. tax is 11.40 already in that, tip we said 20%\nok i had the spicy tuna roll 14 and the miso soup 4\ni had the dragon roll 17 and edamame 6\nwait edamame was shared, we all ate it\nok fine edamame split 4 ways then\ni had chirashi bowl 24 and a sapporo 8\ni got the katsu curry 18 and a sapporo too 8\nalso i had the mochi 7 but paige took half lol\ni had like one bite stop\nwe also did the gyoza app 10 for the table\nok so gyoza split 4 too\ni also got a matcha latte 5 i forgot\nngl my brain hurts doing tax on each thing\nvenmo me whoever, i put my card down\nsomeone needs to do the math w tax and tip split proportional\nnot me i have an exam at 9\nmuse this is a mess fix it"
+ },
+ "seconds": 343.6,
+ "attempts": 2,
+ "created": "2026-11-13T02:39:02.342Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 1,
+  "restHash": "8301fcbd7bbc6809",
+  "playedHash": "8301fcbd6bbc6b08"
+ }
+}

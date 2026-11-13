@@ -1,0 +1,33 @@
+{
+  "id": "last-slice",
+  "name": "Last slice",
+  "surface": "messenger",
+  "summary": "A reaction duel for the last slice of pizza: the box lid lifts, the slice sits under a heat lamp, and at a moment the server picks it glows. First tap after the glow wins it with a cheese pull to their face; tapping early burns your fingers and you're out.",
+  "useWhen": [
+    "one slice left and three people claiming it: 'i paid', 'it's literally mine'",
+    "fight over the last dumpling / last cookie / last beer",
+    "settle who gets the last of something with a quick game",
+    "dibs war in the group chat over leftovers",
+    "who gets the last one, fastest finger"
+  ],
+  "dontUseWhen": [
+    "splitting the pizza bill (use tab-claim)",
+    "ordering more food (use late-cart or pizza)",
+    "a fair random pick with no skill (use a coin flip or wheel)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Last slice'" },
+      "shop": { "type": "string", "description": "Where it's from, printed on the box lid, e.g. 'Rook's'" },
+      "slice": { "type": "string", "description": "What's left, e.g. 'pepperoni'" },
+      "claims": {
+        "type": "array",
+        "description": "Up to 3 people who claimed it in the chat, each with their own line ('i paid')",
+        "items": { "type": "object", "properties": { "who": { "type": "string" }, "said": { "type": "string" } }, "required": ["who", "said"] }
+      }
+    },
+    "required": ["claims"]
+  },
+  "height": 390
+}

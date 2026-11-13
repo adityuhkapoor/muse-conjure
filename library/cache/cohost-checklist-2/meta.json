@@ -1,0 +1,92 @@
+{
+ "id": "cohost-checklist-2",
+ "ask": "ok muse do your thing",
+ "kind": "cohost-checklist",
+ "family": "coord",
+ "surface": "event",
+ "sentence": "A shared checklist for a group event where each person can take an open item, mark it done, release it, or add new items, with a progress bar showing how much is covered.",
+ "use_when": [
+  "a group is planning a dinner or party and needs to split up who brings what",
+  "people want to see which tasks are still open and claim one",
+  "a host wants a simple shared list of food, drinks and setup jobs with owners",
+  "friends are sharing chores for a trip or event"
+ ],
+ "dont_use_when": [
+  "the group needs to vote or pick between options, which needs a poll",
+  "the group needs to split a bill or track money owed",
+  "someone wants a personal to-do list with no sharing or owners"
+ ],
+ "keywords": [
+  "checklist",
+  "who brings what",
+  "potluck",
+  "dinner planning",
+  "party planning",
+  "task list",
+  "claim items",
+  "sign up",
+  "shared list",
+  "cohost",
+  "event tasks",
+  "assign tasks"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 8
+ },
+ "mutation_score": 1,
+ "height": 340,
+ "params": {
+  "names": [
+   "Ines",
+   "Sam",
+   "Noor",
+   "Maya",
+   "Hugo",
+   "Paige",
+   "Lily",
+   "Abby"
+  ],
+  "options": [
+   "Pasta",
+   "Tiramisu",
+   "Cake",
+   "Wine",
+   "Salad and garlic bread",
+   "Candles",
+   "Balloons",
+   "Playlist",
+   "Board games",
+   "Sparkling water and soda",
+   "Ice"
+  ],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "maya's birthday dinner sunday",
+  "members": [
+   "Ines",
+   "Sam",
+   "Noor",
+   "Maya",
+   "Hugo",
+   "Paige",
+   "Lily",
+   "Abby"
+  ],
+  "text": "so my bday thing sunday, 8 of us at my place, i'm making pasta but i cant do everything\ni can bring dessert, thinking tiramisu\ni'll do the cake?? is that different from dessert\nlol yes cake is separate noor pls, and sam do the tiramisu too\ni'll get wine, red and one white\nsalad and garlic bread is mine\ni can pick up candles and balloons, already have the banner from last yr\ni'll come early and help cook, like 4\ni'll make the playlist and bring board games\nok love you guys\ntiramisu needs to sit overnight so im making it saturday\ncake is ordered from that bakery on 5th, pick up sun at noon\nwine not bought yet lol friday\nwait who's picking up the cake from the bakery\ni thought hugo had a car\ni do but i didnt know that was me\nballoons are done btw\nplaylist done, board games not yet\nstill coming at 4 yes\ni also forgot who's doing drinks that aren't wine\ni can do sparkling water and soda\nwait did anyone confirm ice\nok ok this is a mess muse, ok muse do your thing"
+ },
+ "seconds": 120.4,
+ "attempts": 1,
+ "created": "2026-11-13T04:08:29.889Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 8,
+  "restHash": "9f93b929963ee0c0",
+  "playedHash": "c998b7293d69c913"
+ }
+}

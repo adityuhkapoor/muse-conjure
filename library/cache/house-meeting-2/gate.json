@@ -1,0 +1,69 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"no one appears twice in an option\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"three nights with unique ids and labels\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the nights and title never change\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.6,
+  "typecheck": 30.1,
+  "static": 1.5,
+  "determinism": 43.1,
+  "invariants": 121.5,
+  "mutation": 116,
+  "render": 903.1,
+  "copy": 0.8,
+  "render.browser": 0,
+  "render.mount": 39,
+  "render.taps": 246,
+  "render.lint": 856,
+  "render.axe": 898,
+  "render.total": 903,
+  "total": 922.4
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 12,
+  "inert": 4,
+  "killed": 12,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "no one appears twice in an option": 0,
+   "each person votes for at most one night": 4,
+   "voters are in the chat": 3,
+   "three nights with unique ids and labels": 0,
+   "a vote changes only the actor's vote": 1,
+   "a vote puts the actor on that night only, or on none if they held it": 9,
+   "only people in the chat change the poll": 2,
+   "the nights and title never change": 0
+  },
+  "survivors": []
+ },
+ "weak": [
+  "no one appears twice in an option",
+  "three nights with unique ids and labels",
+  "the nights and title never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

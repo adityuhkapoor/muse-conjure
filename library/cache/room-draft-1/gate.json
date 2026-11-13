@@ -1,0 +1,86 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"no one is in the order twice\" caught none of 10 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"everyone in the order is in the chat\" caught none of 10 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the four rooms never change\" caught none of 10 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"room holders are in the chat and in the order\" caught none of 10 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the rooms never change in a step\" caught none of 10 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.3,
+  "typecheck": 56.8,
+  "static": 2.5,
+  "determinism": 39.4,
+  "invariants": 98.7,
+  "mutation": 152.7,
+  "render": 894.6,
+  "copy": 1.8,
+  "render.browser": 0,
+  "render.mount": 47,
+  "render.taps": 238,
+  "render.lint": 847,
+  "render.axe": 889,
+  "render.total": 895,
+  "total": 939
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 10,
+  "inert": 6,
+  "killed": 10,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "no one is in the order twice": 0,
+   "everyone in the order is in the chat": 0,
+   "before the shuffle there is no time and no shuffler": 1,
+   "after the shuffle someone is recorded as the shuffler": 1,
+   "the four rooms never change": 0,
+   "no one holds two rooms, and no one holds one before the shuffle": 1,
+   "room holders are in the chat and in the order": 0,
+   "a shuffle orders exactly the people in the chat as the seed says": 2,
+   "a shuffle records who pressed it and when": 1,
+   "once set, the order is never reshuffled": 1,
+   "a settled shuffle keeps its shuffler and time": 1,
+   "only people in the chat change anything": 2,
+   "the rooms never change in a step": 0,
+   "a pick gives an open room to the person whose turn it is": 3,
+   "a release empties the actor's own room and nothing else": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "no one is in the order twice",
+  "everyone in the order is in the chat",
+  "the four rooms never change",
+  "room holders are in the chat and in the order",
+  "the rooms never change in a step"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

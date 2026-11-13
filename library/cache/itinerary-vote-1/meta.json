@@ -1,0 +1,78 @@
+{
+ "id": "itinerary-vote-1",
+ "ask": "bracket this",
+ "kind": "itinerary-vote",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Settles a weekend plan by randomly drawing one of two fixed options for each open slot (Saturday morning, Saturday night, Sunday), with Friday night already set.",
+ "use_when": [
+  "A group can't decide between two options for each part of a weekend and wants chance to choose",
+  "Someone wants a quick random pick for several plan slots at once",
+  "A group wants to leave a tie-breaking decision to a draw that everyone can see"
+ ],
+ "dont_use_when": [
+  "People want to vote on options and count preferences",
+  "The options or slots need to be different from the fixed weekend plan",
+  "A full tournament bracket with rounds and matchups is needed"
+ ],
+ "keywords": [
+  "weekend plan",
+  "random pick",
+  "draw",
+  "coin flip",
+  "tiebreaker",
+  "itinerary",
+  "schedule",
+  "decide for us",
+  "either or",
+  "group plans",
+  "saturday sunday",
+  "bracket"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 6
+ },
+ "mutation_score": 1,
+ "height": 296,
+ "params": {
+  "names": [],
+  "options": [
+   "Saturday morning",
+   "Saturday night",
+   "Card games + bonfire",
+   "Sunday",
+   "Brunch at the diner",
+   "Pancakes at the house"
+  ],
+  "blanks": [],
+  "numbers": [
+   20,
+   11
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "lake house weekend",
+  "members": [
+   "Marcus",
+   "Abby",
+   "Gabe",
+   "Kev",
+   "Cam",
+   "Cleo"
+  ],
+  "text": "ok so lake house fri-sun, we need to actually plan stuff\nsaturday morning i vote kayaking or hiking the ridge trail\nkayaking is 20 each tho for rentals\nhiking is free, im poor\nsaturday night either card games + bonfire or the karaoke bar in town\nkaraoke bar closes at 11 tho lol\nsunday we got brunch at the diner or just make pancakes at the house\npancakes!! but i dont wanna do dishes\nfriday night is just pizza and mario kart, thats locked\nok so thats like 3 slots with 2 options each and everyone has opinions\nmuse help"
+ },
+ "seconds": 83.5,
+ "attempts": 1,
+ "created": "2026-11-13T02:55:07.276Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 4,
+  "restHash": "9aad62a5675aa552",
+  "playedHash": "8f3c74616766c1f0"
+ }
+}

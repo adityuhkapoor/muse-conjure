@@ -1,0 +1,30 @@
+{
+  "id": "plate-flags",
+  "name": "Plate flags",
+  "surface": "feed",
+  "summary": "The poster's dish drawn on a plate from above (tostada, noodles, pizza or cake); friends stick a toothpick flag in it with 1 to 5 chillies of how badly they want it and a word or two.",
+  "useWhen": [
+    "first tostada of the trip",
+    "look what im eating rn",
+    "having fun in south america eating tostadas",
+    "made ramen from scratch, rate it",
+    "food pic, be jealous"
+  ],
+  "dontUseWhen": [
+    "choosing where to eat as a group (use claw-pick)",
+    "planning a dinner (use congrats-dinner or potluck)",
+    "asking for food recs somewhere new (use try-this-here)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "author": { "type": "string", "description": "Who posted the food" },
+      "title": { "type": "string", "description": "What it is in their words, shown in quotes as the title" },
+      "dish": { "type": "string", "enum": ["tostada", "noodles", "pizza", "cake"], "description": "Which dish to draw; pick the closest" },
+      "place": { "type": "string", "description": "Where they're eating it, short" },
+      "flags": { "type": "array", "items": { "type": "object", "properties": { "who": { "type": "string" }, "heat": { "type": "integer", "minimum": 1, "maximum": 5 }, "word": { "type": "string" }, "slot": { "type": "integer", "minimum": 0, "maximum": 9 } }, "required": ["who", "heat"] }, "description": "Flags already in: how badly each friend wants it (1 to 5 chillies), their word or two, and optionally a socket 0 to 9" }
+    },
+    "required": ["author", "title", "dish"]
+  },
+  "height": 396
+}

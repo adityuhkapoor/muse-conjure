@@ -1,0 +1,26 @@
+{
+  "id": "gift-pool",
+  "name": "Gift pool",
+  "origin": { "crate": "apps3", "id": "gift-pool" },
+  "surface": "messenger",
+  "summary": "Friends chip in equal shares toward one gift; a jar fills with coins and stragglers get a nudge.",
+  "useWhen": ["a group gift for someone not in the chat", "'everyone venmo me $30 for jake's headphones', 'are we doing a gift for mom'"],
+  "dontUseWhen": ["splitting a bill that's already paid (use a bill split)", "settling who owes who (use settle-up)", "the person is in the chat (it is a surprise tool)"],
+  "params": {
+    "type": "object",
+    "properties": {
+      "recipient": { "type": "string", "description": "Who the gift is for, e.g. 'Jake'" },
+      "occasion": { "type": "string", "description": "e.g. 'he turns 25 Sat'" },
+      "gift": { "type": "string", "description": "e.g. 'Sony XM5'" },
+      "giftNote": { "type": "string", "description": "e.g. 'on sale'" },
+      "quote": { "type": "string", "description": "What the recipient said about it" },
+      "quoteDate": { "type": "string", "description": "e.g. 'Sep 14'" },
+      "goalCents": { "type": "integer" },
+      "shareCents": { "type": "integer" },
+      "crew": { "type": "array", "items": { "type": "string" }, "description": "Who is chipping in" },
+      "paid": { "type": "array", "items": { "type": "string" }, "description": "Who already paid" }
+    },
+    "required": ["recipient", "gift", "shareCents"]
+  },
+  "height": 408
+}

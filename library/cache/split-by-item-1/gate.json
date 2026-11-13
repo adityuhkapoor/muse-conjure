@@ -1,0 +1,68 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"what people owe adds up to their items plus tax and tip\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a paid mark flips only the actor, and never the payer\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.6,
+  "typecheck": 86,
+  "static": 3.2,
+  "determinism": 141.9,
+  "invariants": 372.3,
+  "mutation": 444.5,
+  "render": 1071.5,
+  "copy": 2.6,
+  "render.browser": 0,
+  "render.mount": 31,
+  "render.taps": 302,
+  "render.lint": 1010,
+  "render.axe": 1065,
+  "render.total": 1071,
+  "total": 1142
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 14,
+  "inert": 3,
+  "killed": 14,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "owners and people who paid back are in the chat": 2,
+   "ids and owners are unique, and a shared item has no owners": 1,
+   "at most 12 items, each with a label of 1 to 40 characters and whole cents": 3,
+   "tip is a whole number from 0 to 40 and tax is within the total": 3,
+   "the payer is in the chat and never in the paid list": 2,
+   "what people owe adds up to their items plus tax and tip": 0,
+   "a claim flips only the actor on that one item": 2,
+   "an add appends one item with the label, price and owner given": 1,
+   "only the payer removes an item, and exactly that one goes": 1,
+   "only the payer sets the tip, and nothing else changes": 2,
+   "a paid mark flips only the actor, and never the payer": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "what people owe adds up to their items plus tax and tip",
+  "a paid mark flips only the actor, and never the payer"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

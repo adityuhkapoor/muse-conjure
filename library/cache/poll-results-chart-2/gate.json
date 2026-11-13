@@ -1,0 +1,78 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"everyone locked has a vote\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"there are three options with unique ids and labels\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the title, note and mountains never change\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.2,
+  "typecheck": 69.2,
+  "static": 2,
+  "determinism": 61.3,
+  "invariants": 161.2,
+  "mutation": 183.8,
+  "render": 945.3,
+  "copy": 1.1,
+  "render.browser": 0,
+  "render.mount": 55,
+  "render.taps": 276,
+  "render.lint": 888,
+  "render.axe": 933,
+  "render.total": 945,
+  "total": 991.9
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 14,
+  "inert": 5,
+  "killed": 13,
+  "score": 0.93,
+  "threshold": 0.8,
+  "kills": {
+   "no one votes for more than one option or twice": 5,
+   "voters and locked people are in the chat": 4,
+   "everyone locked has a vote": 0,
+   "no one is locked twice": 2,
+   "there are three options with unique ids and labels": 0,
+   "a vote puts the actor on that option and moves no one else": 4,
+   "a locked person's vote never changes": 3,
+   "a lock adds only the actor, who has a vote, and leaves votes as they were": 2,
+   "only people in the chat change anything": 2,
+   "the title, note and mountains never change": 0
+  },
+  "survivors": [
+   {
+    "op": "flip-comparison",
+    "line": 58,
+    "before": "===",
+    "after": "!=="
+   }
+  ]
+ },
+ "weak": [
+  "everyone locked has a vote",
+  "there are three options with unique ids and labels",
+  "the title, note and mountains never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

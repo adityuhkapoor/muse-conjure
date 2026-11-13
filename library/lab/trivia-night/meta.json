@@ -1,0 +1,66 @@
+{
+  "id": "trivia-night",
+  "name": "Trivia night",
+  "origin": { "crate": "apps8", "id": "trivia-night" },
+  "surface": "messenger",
+  "summary": "Two teams buzz in on questions about the group; a miss lets the other team steal.",
+  "useWhen": [
+    "a team trivia game about the group itself, with questions and answers people gave in the chat",
+    "'trivia about us', 'team quiz, losers buy wings', 'who knows the boys best, teams'"
+  ],
+  "dontUseWhen": [
+    "general knowledge trivia with no facts from the chat (Muse must not invent answers)",
+    "one person guessing alone (use two-truths)",
+    "a single question poll (use a poll)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "teams": {
+        "type": "array",
+        "minItems": 2,
+        "maxItems": 2,
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string", "description": "Team name, short: 'Aux Cords'" },
+            "people": {
+              "type": "array",
+              "items": { "type": "string" },
+              "description": "Names exactly as in the members list; others are placed on the smaller team"
+            }
+          },
+          "required": ["name", "people"],
+          "additionalProperties": false
+        }
+      },
+      "questions": {
+        "type": "array",
+        "maxItems": 10,
+        "items": {
+          "type": "object",
+          "properties": {
+            "about": { "type": "string", "description": "Who or what it is about: 'Dev', 'the chat'" },
+            "q": { "type": "string", "description": "The question, only from facts stated in the chat" },
+            "opts": {
+              "type": "array",
+              "minItems": 2,
+              "maxItems": 4,
+              "items": { "type": "string" },
+              "description": "2 to 4 short answers"
+            },
+            "answer": { "type": "integer", "description": "Index of the right answer in opts" },
+            "note": { "type": "string", "description": "The receipt shown after: '12 times. There were 14 last ones.'" }
+          },
+          "required": ["about", "q", "opts", "answer", "note"],
+          "additionalProperties": false
+        }
+      },
+      "stake": { "type": "string", "description": "What the losers buy: 'the wings'" },
+      "where": { "type": "string", "description": "When and where it is paid: 'Thursday at Buffalo Joe's'" }
+    },
+    "required": ["teams", "questions", "stake", "where"],
+    "additionalProperties": false
+  },
+  "height": 380
+}

@@ -1,0 +1,83 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"item ids and labels are unique\" caught none of 11 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"at most 12 items, each label 1 to 40 characters\" caught none of 11 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the cap is 2 people\" caught none of 11 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"an add appends one item with the cleaned label and no bringers\" caught none of 11 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the cap never changes\" caught none of 11 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.1,
+  "typecheck": 64.9,
+  "static": 2.4,
+  "determinism": 122,
+  "invariants": 373.1,
+  "mutation": 455.2,
+  "render": 1097.6,
+  "copy": 1.7,
+  "render.browser": 0,
+  "render.mount": 49,
+  "render.taps": 364,
+  "render.lint": 1007,
+  "render.axe": 1087,
+  "render.total": 1098,
+  "total": 1145.1
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 11,
+  "inert": 7,
+  "killed": 11,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "no item has more than 2 bringers": 2,
+   "no one is on the same item twice": 3,
+   "bringers are in the chat": 4,
+   "item ids and labels are unique": 0,
+   "at most 12 items, each label 1 to 40 characters": 0,
+   "the cap is 2 people": 0,
+   "a claim adds the actor at the end of that item and changes nothing else": 2,
+   "a claim never lands on an item that already had 2 bringers": 3,
+   "a drop removes only the actor from that item": 2,
+   "an add appends one item with the cleaned label and no bringers": 0,
+   "only people in the chat change the list": 2,
+   "the cap never changes": 0
+  },
+  "survivors": []
+ },
+ "weak": [
+  "item ids and labels are unique",
+  "at most 12 items, each label 1 to 40 characters",
+  "the cap is 2 people",
+  "an add appends one item with the cleaned label and no bringers",
+  "the cap never changes"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

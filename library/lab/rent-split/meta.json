@@ -1,0 +1,23 @@
+{
+  "id": "rent-split",
+  "name": "Rent split",
+  "origin": { "crate": "apps3", "id": "rent-split" },
+  "surface": "messenger",
+  "summary": "Splits rent by room size, private bath and parking, and locks once every room agrees.",
+  "useWhen": ["housemates deciding rent for rooms of different sizes", "'how do we split rent', 'my room is smaller', 'whoever gets the bathroom pays more'"],
+  "dontUseWhen": ["splitting one bill evenly (use a bill split)", "picking who gets which room (use a draft or wheel)", "settling IOUs after a trip (use settle-up)"],
+  "params": { "type": "object", "properties": {
+    "title": { "type": "string", "description": "The place, e.g. '14 Linden Ave'" },
+    "rentCents": { "type": "integer", "description": "Monthly rent in cents, 10000 to 2000000" },
+    "rooms": { "type": "array", "description": "2 to 8 rooms", "items": { "type": "object", "properties": {
+      "name": { "type": "string", "description": "Who has the room, as in the chat, or empty" },
+      "sqft": { "type": "integer", "description": "Room size in square feet, 40 to 2000" },
+      "bath": { "type": "boolean", "description": "Has its own bathroom" },
+      "parking": { "type": "boolean", "description": "Comes with the parking spot" } } } },
+    "weight": { "type": "integer", "description": "How much size counts, 0 to 100 in steps of 5; default 60" },
+    "bathCents": { "type": "integer", "description": "Extra for a private bath, 0 to 30000. Only an amount a person wrote in the chat; 0 otherwise (someone saying they should pay more for it is bath: true on their room with this at 0)" },
+    "parkingCents": { "type": "integer", "description": "Extra for parking, 0 to 15000. Only an amount a person wrote in the chat; 0 otherwise" },
+    "agreed": { "type": "array", "items": { "type": "string" }, "description": "Names who already said yes" } },
+    "required": ["title", "rentCents", "rooms"] },
+  "height": 404
+}

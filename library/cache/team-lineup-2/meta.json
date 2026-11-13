@@ -1,0 +1,76 @@
+{
+ "id": "team-lineup-2",
+ "ask": "muse help",
+ "kind": "team-lineup",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Lets chat members sign up for or drop out of a fixed set of dated games, with a cap of six players per game and a live list of who is in each.",
+ "use_when": [
+  "A group wants to see who is playing in each of a few set game dates",
+  "Players need to join or leave a date with a limited number of spots",
+  "Organizing a weekly pickup sport or regular meetup with a player cap"
+ ],
+ "dont_use_when": [
+  "The group needs to vote on which date or time works best",
+  "The dates or spot limit need to be changed or added by members",
+  "Teams, scores or brackets need to be tracked"
+ ],
+ "keywords": [
+  "game sign up",
+  "sign up",
+  "lineup",
+  "roster",
+  "pickup game",
+  "attendance",
+  "rsvp",
+  "player cap",
+  "who is playing",
+  "sports",
+  "join leave",
+  "team lineup"
+ ],
+ "members": {
+  "min": 2,
+  "max": 20,
+  "original": 7
+ },
+ "mutation_score": 1,
+ "height": 283,
+ "params": {
+  "names": [
+   "Mia"
+  ],
+  "options": [
+   "Nov 16",
+   "Dec 7"
+  ],
+  "blanks": [],
+  "numbers": [
+   6
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "volleyball sunday sign up",
+  "members": [
+   "Sam",
+   "Priya",
+   "Theo",
+   "Amir",
+   "Rohan",
+   "Paige",
+   "Mia"
+  ],
+  "text": "coed vball sign up is live, 6 per team on court\nhow many games we doing\n3 sundays, nov 16 23 and dec 7\ni can only do the 16th and 7th\nim in for all 3\nwe need at least 2 girls on court each game btw\ni can do 16 and 23\nall 3 for me but i have a 4pm thing on the 23rd\nok so who's on what night is gonna get confusing\nya ngl i cant keep track. muse help"
+ },
+ "seconds": 45.1,
+ "attempts": 1,
+ "created": "2026-11-13T03:44:52.389Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 3,
+  "restHash": "96393b3a3d42e156",
+  "playedHash": "833cbd3f3e03a342"
+ }
+}

@@ -1,0 +1,93 @@
+{
+ "id": "settle-up-1",
+ "ask": "can u figure out who pays who so its the fewest venmos",
+ "kind": "settle-up",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Splits shared expenses evenly among everyone in the chat and shows the fewest payments needed to settle up, with a way for each person to mark their payment as sent.",
+ "use_when": [
+  "A group shared costs on a trip or weekend and needs to know who pays whom",
+  "Several people each paid for different things and want an even split",
+  "Someone wants the fewest Venmo or cash transfers to settle a group bill",
+  "People want to add or remove expenses and track which payments are done"
+ ],
+ "dont_use_when": [
+  "The split should be uneven, by percentage, or by item per person",
+  "A single shared bill at a restaurant needs to be divided by what each person ordered",
+  "The group wants a running tally of money over months or recurring bills"
+ ],
+ "keywords": [
+  "bill split",
+  "split expenses",
+  "settle up",
+  "who pays who",
+  "venmo",
+  "fewest payments",
+  "group expenses",
+  "trip costs",
+  "even split",
+  "shared costs",
+  "owe money",
+  "reimbursement",
+  "debts",
+  "expense tracker"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 8
+ },
+ "mutation_score": 1,
+ "height": 238,
+ "params": {
+  "names": [
+   "Leo",
+   "Sofia",
+   "Nora",
+   "Felix",
+   "Maya",
+   "Jess"
+  ],
+  "options": [
+   "Kayak rental",
+   "Lake house",
+   "Groceries at Publix",
+   "Gas"
+  ],
+  "blanks": [],
+  "numbers": [
+   6000,
+   24000,
+   8600,
+   5400,
+   3800,
+   4200,
+   12
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "lake house weekend",
+  "members": [
+   "Leo",
+   "Sofia",
+   "Nora",
+   "Felix",
+   "Maya",
+   "Lena",
+   "Jess",
+   "Bryan"
+  ],
+  "text": "ok that was a good weekend ngl\nbest one fr. my legs r dead from the kayaks tho\nlol i paid 60 for the kayak rental btw\ni put the whole lake house on my card, 240\ni did groceries at publix 86\ni got gas on the way up, 54\nfirewood and the beer was me, 38\ni paid for the pizza saturday night 42\ni paid for nothing im so sorry\nsame lol. i owe like everyone\nits all 8 of us splitting even right\nyeah even, nobody skipped anything\ni dont wanna do like 12 separate venmos tho\nsame i will forget half of them\nsomeone just do the math pls my brain is fried from the drive\nmuse can u figure out who pays who so its the fewest venmos"
+ },
+ "seconds": 207,
+ "attempts": 1,
+ "created": "2026-11-13T03:38:08.836Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 2,
+  "restHash": "9b977e311118c3ce",
+  "playedHash": "91b7fe11114e81ee"
+ }
+}

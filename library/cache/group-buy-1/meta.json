@@ -1,0 +1,87 @@
+{
+ "id": "group-buy-1",
+ "ask": "muse tally this",
+ "kind": "group-buy",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Tallies group hoodie orders by size, lets each member pick or drop a size and add a few guests, and shows progress toward the minimum needed to print.",
+ "use_when": [
+  "A group is ordering hoodies or shirts and needs a count per size",
+  "There is a minimum order quantity and a deadline to hit",
+  "Members want to add friends or family as guests with their own sizes",
+  "Someone wants a quick view of who picked what size"
+ ],
+ "dont_use_when": [
+  "The group needs to vote on a single choice, like a design or a date",
+  "Money needs to be collected or split between people",
+  "Items have many options beyond size, such as colors or quantities per person"
+ ],
+ "keywords": [
+  "group buy",
+  "hoodie order",
+  "size tally",
+  "size count",
+  "merch order",
+  "minimum order",
+  "order deadline",
+  "guest sizes",
+  "shirt sizes",
+  "pre-order",
+  "headcount",
+  "bulk order",
+  "clothing order",
+  "sign-up"
+ ],
+ "members": {
+  "min": 2,
+  "max": 30,
+  "original": 8
+ },
+ "mutation_score": 1,
+ "height": 280,
+ "params": {
+  "names": [
+   "Jake",
+   "Ines",
+   "Paige",
+   "Mina",
+   "Nora",
+   "Tyler",
+   "Sofia",
+   "Sam"
+  ],
+  "options": [],
+  "blanks": [],
+  "numbers": [
+   12,
+   3800,
+   4500,
+   20
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "ultimate frisbee hoodies",
+  "members": [
+   "Jake",
+   "Ines",
+   "Paige",
+   "Mina",
+   "Nora",
+   "Tyler",
+   "Sofia",
+   "Sam"
+  ],
+  "text": "ok so the hoodie place says min 12 or they dont print it\nhow many do we have rn\ni said yes already, M\nme too. small pls\nL for me. my arms are long lol\nL also, and my roommate wants one, he's XL\nim a M but if its boxy then S?? idk\nXL for me. also is it 38 each or 45\n38 each if we hit 12, 45 if its under 20 w/ the back print\nput me down for M, and my sister in the sophomore class wants an S\nwait did jake say yes too\nyeah im L. deadline is friday night\ni keep losing track of who is what\nmuse tally this"
+ },
+ "seconds": 265.9,
+ "attempts": 1,
+ "created": "2026-11-13T03:18:11.216Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 5,
+  "restHash": "9f708dd84e3de086",
+  "playedHash": "b9308fceda31708e"
+ }
+}

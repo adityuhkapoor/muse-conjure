@@ -1,0 +1,40 @@
+{
+  "id": "mile-mountain",
+  "name": "Mile mountain",
+  "surface": "messenger",
+  "summary": "Two friends training for the same race climb one drawn mountain, one switchback trail each: every logged run moves your face up your trail past the long-run flags, race day is the summit, and whoever's ahead can send the one behind a gentle 'Sat long run?' from the trail.",
+  "useWhen": [
+    "we signed up for the eastfield half, keep each other honest",
+    "logged 5 today, your turn",
+    "marathon training buddy tracker for me and arun",
+    "couch to 5k together starting monday",
+    "how far behind am i lol"
+  ],
+  "dontUseWhen": [
+    "a group fitness streak with more than two people (use gym)",
+    "a one-off race-day plan or ride",
+    "betting on who finishes faster (use handshake-bet)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Road to the Eastfield half'" },
+      "race": { "type": "string", "description": "Race day shown at the summit, e.g. 'Sun Apr 12'" },
+      "goal": { "type": "number", "description": "Plan miles from the foot to the summit, 5 to 2000" },
+      "runners": {
+        "type": "array",
+        "description": "The two runners, left trail first",
+        "items": { "type": "object", "properties": { "name": { "type": "string", "description": "A name in the chat" }, "miles": { "type": "number", "description": "Miles logged so far" }, "note": { "type": "string", "description": "Their last log, in their words" } }, "required": ["name"] }
+      },
+      "flags": {
+        "type": "array",
+        "description": "Long runs flagged on both trails, up to six",
+        "items": { "type": "object", "properties": { "label": { "type": "string", "description": "Short flag label, e.g. '10'" }, "miles": { "type": "number", "description": "Total-miles mark where the flag stands" } }, "required": ["label", "miles"] }
+      },
+      "nudge": { "type": "string", "description": "The gentle nudge the one ahead can send, e.g. 'Sat long run?'" },
+      "nudged": { "type": "string", "description": "Who already got the nudge (must be the one behind by 5 miles or more), or empty" }
+    },
+    "required": ["runners", "goal"]
+  },
+  "height": 371
+}

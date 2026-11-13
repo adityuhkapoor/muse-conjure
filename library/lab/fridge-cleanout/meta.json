@@ -1,0 +1,37 @@
+{
+  "id": "fridge-cleanout",
+  "name": "Fridge cleanout",
+  "surface": "messenger",
+  "summary": "The shared fridge stands open on three shelves of drawn leftovers that grow fuzz, then eyes, then waving arms as they age. Each owner taps theirs to eat it tonight or toss it into the bag; nobody's things can be claimed, and anything unclaimed gets tossed at the deadline.",
+  "useWhen": [
+    "something in the fridge is alive",
+    "whose pad thai is this, it's been there like 2 weeks",
+    "fridge cleanout sunday, claim your stuff or it's gone",
+    "roommates need to clear old food before the grocery run",
+    "the fridge smells, everybody check your leftovers"
+  ],
+  "dontUseWhen": [
+    "planning what to buy (use grocery)",
+    "dirty dishes in the sink (use dish-tower)",
+    "a map of who owns which shelf space (use fridge-map)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Fridge cleanout'" },
+      "deadline": { "type": "string", "description": "When unclaimed things get tossed, short, e.g. 'Sun 9pm'" },
+      "items": {
+        "type": "array",
+        "description": "Up to 12 leftovers in shelf order (4 per shelf). owner: a chat member's name or '' if nobody knows; label: what it is in the chat's words; kind: one of takeout, tub, cup, foil, jar, carton, slice, bowl; days: how old (7+ grows eyes, 9+ waves); fate: 'eat' or 'toss' if its owner already decided",
+        "items": { "type": "object", "properties": { "owner": { "type": "string" }, "label": { "type": "string" }, "kind": { "type": "string" }, "days": { "type": "integer" }, "fate": { "type": "string" } }, "required": ["owner", "label", "kind", "days"] }
+      },
+      "said": {
+        "type": "array",
+        "description": "The chat's lines about the fridge, newest last; the last shows under the title",
+        "items": { "type": "object", "properties": { "who": { "type": "string" }, "said": { "type": "string" } }, "required": ["who", "said"] }
+      }
+    },
+    "required": ["items"]
+  },
+  "height": 400
+}

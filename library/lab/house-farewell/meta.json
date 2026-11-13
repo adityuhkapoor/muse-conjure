@@ -1,0 +1,44 @@
+{
+  "id": "house-farewell",
+  "name": "House farewell",
+  "surface": "feed",
+  "summary": "The house drawn in section with every room lit: friends tap a room to leave a memory there, and when someone flips the switch the rooms go dark one by one while the porch light stays on.",
+  "useWhen": [
+    "last night at 412 pine",
+    "we move out tomorrow, one last post for the house",
+    "goodbye to the apartment, leave a memory",
+    "lease is up, saying bye to our place",
+    "final night in the dorm suite"
+  ],
+  "dontUseWhen": [
+    "splitting move-out costs or deposits (use deposit-dents)",
+    "who packs what for the move (use packing-split)",
+    "selling furniture before leaving (use move-out-sale)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Last night at 412 Pine'" },
+      "number": { "type": "string", "description": "House or unit number on the porch, e.g. '412'" },
+      "rooms": {
+        "type": "array",
+        "description": "2 to 6 rooms; up to 5 inside plus an optional porch",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string", "description": "Room name as the friends call it, e.g. 'Calvin's room'" },
+            "kind": { "type": "string", "enum": ["couch", "kitchen", "bath", "bed", "desk", "porch"], "description": "What is drawn in it" },
+            "memories": {
+              "type": "array",
+              "description": "Memories already left there, in the friends' own words",
+              "items": { "type": "object", "properties": { "by": { "type": "string", "description": "First name" }, "text": { "type": "string", "description": "The memory, 60 characters or fewer" } }, "required": ["by", "text"] }
+            }
+          },
+          "required": ["name", "kind"]
+        }
+      }
+    },
+    "required": ["rooms"]
+  },
+  "height": 404
+}

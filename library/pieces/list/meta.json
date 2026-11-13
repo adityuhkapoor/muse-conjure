@@ -1,0 +1,101 @@
+{
+  "id": "list",
+  "name": "Shared shopping list (one person takes the run)",
+  "use_when": [
+    "a running shopping list for a house or apartment: groceries, a Costco, Target or Trader Joe's run",
+    "'grocery list', 'add it to the list', 'we're out of', 'who's going to the store', 'costco haul'",
+    "anyone adds items, some are urgent, and one person goes and checks things off"
+  ],
+  "dont_use_when": [
+    "each item needs its own person to bring it, a potluck or packing list (use claims)",
+    "splitting what the groceries cost (use split)",
+    "tasks at set times (use shifts)"
+  ],
+  "keywords": [
+    "grocery",
+    "groceries",
+    "store",
+    "costco",
+    "target",
+    "trader",
+    "joes",
+    "safeway",
+    "shopping",
+    "run",
+    "buy",
+    "restock",
+    "out",
+    "shared",
+    "eggs",
+    "milk",
+    "tp",
+    "towels",
+    "asap",
+    "urgent"
+  ],
+  "guarantees": [
+    "one person holds the run at a time; while they do, only they check items off",
+    "no two open items share a name; at most 20 items",
+    "Done ends the run and removes only the checked items",
+    "a leaver's run opens up again and their items stay; a late joiner can add, flag or take the run"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "description": "Card title, e.g. 'Apt 4b groceries' or 'Target run'"
+      },
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string",
+              "description": "Item, short, e.g. 'Oat milk'"
+            },
+            "urgent": {
+              "type": "boolean",
+              "description": "true if the chat said asap, critical or we're out"
+            }
+          },
+          "required": [
+            "label",
+            "urgent"
+          ],
+          "additionalProperties": false
+        },
+        "description": "Items from the chat, up to 20"
+      }
+    },
+    "required": [
+      "title",
+      "items"
+    ],
+    "additionalProperties": false
+  },
+  "examples": [
+    {
+      "title": "Target run",
+      "items": [
+        {
+          "label": "Trash bags",
+          "urgent": true
+        },
+        {
+          "label": "Shower curtain",
+          "urgent": false
+        },
+        {
+          "label": "Command hooks",
+          "urgent": false
+        },
+        {
+          "label": "Dish soap",
+          "urgent": true
+        }
+      ]
+    }
+  ]
+}

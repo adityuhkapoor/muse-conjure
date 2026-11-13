@@ -1,0 +1,22 @@
+{
+  "id": "pizza",
+  "name": "Pizza run",
+  "origin": { "crate": "apps3", "id": "pizza" },
+  "surface": "messenger",
+  "summary": "One pizza split by person with their toppings, a price each with tip, optional wings, then one order.",
+  "useWhen": ["a few people ordering one pizza together", "'pizza tonight?', 'pepperoni or i riot', 'no olives on mine', 'get wings'"],
+  "dontUseWhen": ["choosing a restaurant (use dinner-veto)", "splitting a bill that already came (use a bill split)", "a potluck (use potluck)"],
+  "params": { "type": "object", "properties": {
+    "place": { "type": "string", "description": "e.g. \"Tony's on 9th\"" },
+    "messages": { "type": "integer" },
+    "crew": { "type": "array", "description": "2 to 8 people", "items": { "type": "object", "properties": {
+      "name": { "type": "string" }, "quote": { "type": "string", "description": "What they said about toppings" },
+      "toppings": { "type": "array", "items": { "type": "string", "enum": ["pepperoni", "mushroom", "olive", "pineapple", "peppers"] } },
+      "whatever": { "type": "boolean", "description": "They said they don't care: plain cheese" } } } },
+    "baseCents": { "type": "integer", "description": "Plain large pizza, e.g. 2200" },
+    "toppingCents": { "type": "integer", "description": "Per topping per person, e.g. 125" },
+    "tipPercent": { "type": "integer", "description": "0 to 30" },
+    "wings": { "type": "object", "properties": { "label": { "type": "string" }, "cents": { "type": "integer" }, "note": { "type": "string" } } } },
+    "required": ["crew"] },
+  "height": 404
+}

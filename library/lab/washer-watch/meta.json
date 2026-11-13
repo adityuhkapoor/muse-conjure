@@ -1,0 +1,33 @@
+{
+  "id": "washer-watch",
+  "name": "Washer watch",
+  "surface": "messenger",
+  "summary": "The building's laundry room, live: washers and dryers in a row with portholes, a running load tumbling in its owner's color with minutes left, a finished one waiting with its owner's face. Tap a free machine to start yours, nudge whoever's load is done, and after a grace period move it out to the basket.",
+  "useWhen": [
+    "is the washer free? calvin's load has been sitting there since 11",
+    "laundry room status for the building, who's using what",
+    "someone left wet clothes in the dryer again",
+    "coordinate laundry day so nobody waits",
+    "can i move your stuff out of washer 2"
+  ],
+  "dontUseWhen": [
+    "weekly chores (use chore-wheel)",
+    "splitting the laundry card money (use settle-up)",
+    "the bathroom schedule (use shower-queue)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Laundry room'" },
+      "place": { "type": "string", "description": "Where the machines are, e.g. '412 Pine basement'" },
+      "machines": {
+        "type": "array",
+        "description": "Up to 4 machines in order: name ('Washer 1'), kind washer or dryer, who: whose load is in it or '' if free, left: minutes left now (0 means done), waited: minutes a done load has sat",
+        "items": { "type": "object", "properties": { "name": { "type": "string" }, "kind": { "type": "string" }, "who": { "type": "string" }, "left": { "type": "integer" }, "waited": { "type": "integer" } }, "required": ["name", "kind", "who", "left"] }
+      },
+      "grace": { "type": "integer", "description": "Minutes a done load can sit before anyone may move it out, e.g. 10" }
+    },
+    "required": ["machines"]
+  },
+  "height": 330
+}

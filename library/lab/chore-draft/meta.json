@@ -1,0 +1,11 @@
+{
+  "id": "chore-draft",
+  "name": "Chore draft",
+  "origin": { "crate": "apps7", "id": "chore-draft" },
+  "surface": "messenger",
+  "summary": "Roommates draft chores in snake order; heavier chores are worth more points and a load row shows whether it came out even.",
+  "useWhen": ["roommates splitting a month of chores fairly", "'who does bathrooms this month', 'let's draft chores', 'I always get trash'"],
+  "dontUseWhen": ["spinning for one chore (use wheel)", "a one-off list of things to bring (use bring-list)"],
+  "params": { "title": "string", "sub": "string", "chores": "2-8 of {name, pts 1-5, note}", "order": "names in draft order", "picks": "[{chore index, name}] already made, in order" },
+  "height": 396
+}

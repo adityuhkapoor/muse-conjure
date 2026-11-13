@@ -1,0 +1,19 @@
+{
+  "id": "bring-list",
+  "name": "Bring list",
+  "origin": { "crate": "apps10", "id": "bring-list" },
+  "surface": "event",
+  "summary": "A potluck list: each person claims one thing to bring, doubles are flagged and fixed, gaps stand out until the table is covered.",
+  "useWhen": ["a potluck, BYOB party or picnic where each guest brings one thing", "'what should I bring', 'two people said chips', 'who's got ice'"],
+  "dontUseWhen": ["one person shops for everything (use list)", "chores that repeat (use chore-draft)"],
+  "params": { "type": "object", "properties": {
+    "title": { "type": "string", "description": "The event, e.g. 'Friendsgiving potluck'" },
+    "sub": { "type": "string", "description": "when · where · how many" },
+    "items": { "type": "array", "description": "1 to 8 things to bring", "items": { "type": "object", "properties": {
+      "label": { "type": "string", "description": "What to bring, e.g. 'Chips'" },
+      "kind": { "type": "string", "enum": ["turkey", "mac", "chips", "drinks", "pie", "salad", "ice", "cups", "other"], "description": "Which drawing to show" },
+      "by": { "type": "array", "items": { "type": "string" }, "description": "Names already bringing it, as in the chat" },
+      "suggested": { "type": "boolean", "description": "true for a thing Muse proposes that nobody in the chat said; leave out for things the chat named" } } } } },
+    "required": ["title", "sub", "items"] },
+  "height": 414
+}

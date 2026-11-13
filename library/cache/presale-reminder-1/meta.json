@@ -1,0 +1,80 @@
+{
+ "id": "presale-reminder-1",
+ "ask": "mkae a countdwn for presale and who buyin for who plz",
+ "kind": "presale-reminder",
+ "family": "coord",
+ "surface": "event",
+ "sentence": "Shows a live countdown to a ticket presale start time and tracks which person buys a ticket for which person, with a cap of four tickets per buyer.",
+ "use_when": [
+  "A group is waiting on a ticket presale and wants a shared countdown",
+  "Friends need to sort out who buys tickets for whom",
+  "You want to see who in the chat still has no ticket covered",
+  "Buyers have a per-person ticket limit to split fairly"
+ ],
+ "dont_use_when": [
+  "Splitting the cost or paying back money after tickets are bought",
+  "Voting on which event or date to go to",
+  "Tracking a general to-do list or shared shopping list"
+ ],
+ "keywords": [
+  "presale countdown",
+  "ticket presale",
+  "who buys",
+  "ticket plan",
+  "countdown timer",
+  "concert tickets",
+  "buyer assignment",
+  "ticket limit",
+  "group tickets",
+  "on sale reminder",
+  "ticket coverage",
+  "sale start"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 8
+ },
+ "mutation_score": 1,
+ "height": 324,
+ "params": {
+  "names": [
+   "Wren",
+   "Marcus",
+   "Maya",
+   "Kev",
+   "Sam",
+   "Hugo",
+   "June",
+   "Mia"
+  ],
+  "options": [],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "mitski presale fri 10am",
+  "members": [
+   "Wren",
+   "Marcus",
+   "Maya",
+   "Kev",
+   "Sam",
+   "Hugo",
+   "June",
+   "Mia"
+  ],
+  "text": "ok presale code dropped, its friday 10am est for mitski at the anthem\nive got class till 10:15 tho fml\ni can be on at 10 sharp i have no class fri\ni'll buy for me and hugo, he's gonna be in his lab\nyeah kev got me, venmo him after\nim in. can i get one for june too? she said she's down\nyes pls sam!! ill pay u back\nok so far kev=kev+hugo, sam=sam+june\ni need a ticket too!! who can grab mine\ni got u mia, ill do me + mia\nso that leaves me and wren?\ni'll do me and marcus then, since ur in class\nur a legend\nmax is 4 per person right? we're fine\nwait whats the time again i keep forgetting lol\nfriday 10am est, also i think the code expires at noon\nmuse mkae a countdwn for presale and who buyin for who plz"
+ },
+ "seconds": 112.4,
+ "attempts": 1,
+ "created": "2026-11-13T03:31:02.659Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 5,
+  "restHash": "9c3f7fa8a1667018",
+  "playedHash": "8e9f3d28f55a4381"
+ }
+}

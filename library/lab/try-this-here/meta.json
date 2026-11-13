@@ -1,0 +1,30 @@
+{
+  "id": "try-this-here",
+  "name": "Try this here",
+  "surface": "feed",
+  "summary": "The few blocks around the poster drawn from above with a you-are-here dot; friends pin what to eat or do with a few words, Same makes a pin taller, and the poster taps one to draw a dotted walking route to it.",
+  "useWhen": [
+    "in lima for 3 days what do i eat",
+    "just landed in lisbon, recs??",
+    "what should i do around here tonight",
+    "having fun in south america eating tostadas, where next",
+    "first time in this city tell me where to go"
+  ],
+  "dontUseWhen": [
+    "a group choosing among a few places together (use claw-pick or slot-machine)",
+    "planning rides or who drives (use carpool)",
+    "a guessing game about where someone is (use guess-where)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "author": { "type": "string", "description": "Who posted and is asking for recs" },
+      "place": { "type": "string", "description": "Where they are, a city or neighbourhood" },
+      "line": { "type": "string", "description": "The post's own line, shown in quotes" },
+      "water": { "type": "boolean", "description": "Whether to draw water on one side (sea, river or lake)" },
+      "recs": { "type": "array", "items": { "type": "object", "properties": { "who": { "type": "string" }, "what": { "type": "string" }, "note": { "type": "string" }, "kind": { "type": "string", "enum": ["food", "coffee", "sight", "night", "shop"] }, "x": { "type": "integer" }, "y": { "type": "integer" }, "same": { "type": "array", "items": { "type": "string" } } }, "required": ["who", "what", "kind"] }, "description": "Recs already pinned: who, what in a few words, their note, kind, map spot in thousandths (the poster is at 500, 560) and who tapped Same" }
+    },
+    "required": ["author", "place"]
+  },
+  "height": 382
+}

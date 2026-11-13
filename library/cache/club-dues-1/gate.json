@@ -1,0 +1,81 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"the items add up to the bill\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"shares add up to the bill and differ by at most one cent\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"paid amounts only go up, except through confirm\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the collector, items and due date never change by an action\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"only people in the chat change anything\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.2,
+  "typecheck": 58,
+  "static": 2.6,
+  "determinism": 37.2,
+  "invariants": 94.9,
+  "mutation": 155.8,
+  "render": 915.5,
+  "copy": 1.8,
+  "render.browser": 0,
+  "render.mount": 54,
+  "render.taps": 262,
+  "render.lint": 872,
+  "render.axe": 911,
+  "render.total": 915,
+  "total": 957.7
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 12,
+  "inert": 5,
+  "killed": 12,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "the items add up to the bill": 0,
+   "shares add up to the bill and differ by at most one cent": 0,
+   "no one has paid less than nothing or more than their share": 3,
+   "the collector and everyone who paid are in the chat": 4,
+   "the collector has no payment of their own to make": 5,
+   "settle puts the actor at their full share and moves no one else": 3,
+   "confirm is only by the collector and sets that one person's amount": 4,
+   "paid amounts only go up, except through confirm": 0,
+   "the collector, items and due date never change by an action": 0,
+   "only people in the chat change anything": 0
+  },
+  "survivors": []
+ },
+ "weak": [
+  "the items add up to the bill",
+  "shares add up to the bill and differ by at most one cent",
+  "paid amounts only go up, except through confirm",
+  "the collector, items and due date never change by an action",
+  "only people in the chat change anything"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

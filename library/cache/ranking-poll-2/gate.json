@@ -1,0 +1,62 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"the title and places never change\" caught none of 17 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.9,
+  "typecheck": 59.2,
+  "static": 2,
+  "determinism": 70.7,
+  "invariants": 195.8,
+  "mutation": 222.9,
+  "render": 1036.1,
+  "copy": 1.4,
+  "render.browser": 0,
+  "render.mount": 57,
+  "render.taps": 352,
+  "render.lint": 979,
+  "render.axe": 1027,
+  "render.total": 1036,
+  "total": 1077.2
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 17,
+  "inert": 3,
+  "killed": 17,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "each person has at most one entry": 1,
+   "every entry has 1 to 3 picks with no repeats": 2,
+   "every pick is a known place": 3,
+   "everyone who ranked is in the chat": 2,
+   "points add up to 3, 2, 1 per pick": 3,
+   "no place has more than 3 points per person": 1,
+   "a pick adds the place to the end of the actor's picks and changes no one else": 4,
+   "an unpick removes the place, keeps the order of the rest, and changes no one else": 6,
+   "a clear removes only the actor's entry": 1,
+   "the title and places never change": 0,
+   "only people in the chat change the ranking": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "the title and places never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

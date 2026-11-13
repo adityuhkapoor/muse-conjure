@@ -1,0 +1,79 @@
+{
+ "id": "card-deck-2",
+ "ask": "can u make a deck of question cards for sat? like 40, we draw in turn from the same shuffle and no skips",
+ "kind": "card-deck",
+ "family": "game",
+ "surface": "chat",
+ "sentence": "A shared deck of 40 conversation question cards that is shuffled once, then members take turns drawing the next card in the same order, with no skips.",
+ "use_when": [
+  "a group wants icebreaker or get-to-know-you questions to pass around",
+  "everyone should draw from one shared shuffled deck in turn",
+  "a casual hangout needs a simple turn-based question game",
+  "no skipping or redrawing is wanted"
+ ],
+ "dont_use_when": [
+  "players need to write their own questions or custom cards",
+  "a competitive game with scores or winners is needed",
+  "a quick vote or poll on one question is needed"
+ ],
+ "keywords": [
+  "question cards",
+  "card deck",
+  "icebreaker",
+  "conversation starters",
+  "get to know",
+  "turn based",
+  "shared shuffle",
+  "draw cards",
+  "no skips",
+  "party game",
+  "hangout",
+  "social game",
+  "deck of questions"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 8
+ },
+ "mutation_score": 0.92,
+ "height": 280,
+ "params": {
+  "names": [
+   "Ana",
+   "June"
+  ],
+  "options": [
+   "Favorite thing in the dining hall?"
+  ],
+  "blanks": [],
+  "numbers": [
+   8
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "3rd floor lounge post-finals",
+  "members": [
+   "Ana",
+   "June",
+   "Rhea",
+   "Dre",
+   "Sam",
+   "Leo",
+   "Eli",
+   "Tess"
+  ],
+  "text": "ok finals are DONE. saturday we need to do something in the lounge\nnot drinking tho pls, i have the 8am shift at the dining hall sunday\nsame, my wallet is also dead after textbook week\ni can bring the string lights and the good popcorn from the corner store\nok but what are we even playing\ncards against humanity is out, last time got weird\nagreed, that one turned into a fight about the oxford comma\nwhat if we do question cards. one person draws, reads it, answers, then next person\nyes!! and no skipping, the second u let people skip it dies\nok but then someone gets the awkward one\nso keep them neutral. nothing about exes or grades or money\nya like favorite thing in the dining hall, worst haircut, what youd do w a free day in the city\nwhat was ur first phone, whats a show u rewatch\nwhat's a smell that takes u back to childhood\nok that one is good\nalso one shuffle for everyone. last time two ppl drew the same card and argued\nso like a seed thing, same order each round\nyes exactly. we go around the circle in order, i go first\nnooo i wanna go first\nfine june goes first\nhow many tho\n8 of us, 5 rounds is 40\n40 sounds right\nstuff like what u wanted to be at age 8 would be so cute\nstuff like best thing u ate this semester\nok and nothing too long to answer, we r tired\nshort answers ok\nand no cringe icebreaker stuff pls\nok i'll ask muse\nmuse can u make a deck of question cards for sat? like 40, we draw in turn from the same shuffle and no skips"
+ },
+ "seconds": 142.8,
+ "attempts": 1,
+ "created": "2026-11-13T03:49:21.752Z",
+ "second_look": {
+  "endStep": 41,
+  "endReason": "summary says \"Question cards for Saturday Deck done.\"",
+  "controls": 1,
+  "restHash": "bfb16a84621f9568",
+  "playedHash": "bfe17a94620f816a"
+ }
+}

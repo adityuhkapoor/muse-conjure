@@ -1,0 +1,42 @@
+{
+  "id": "scrapbook-page",
+  "name": "Scrapbook page",
+  "surface": "messenger",
+  "summary": "One scrapbook page for the semester made together: pick a drawn sticker from the tray (a dumpling, the rice cooker, an alarm clock, the car) and tap the page to slap it down anywhere, tilted and signed with your face; three each, and you can peel your last one off.",
+  "useWhen": [
+    "make a scrapbook page for this semester",
+    "everyone add a sticker for fall",
+    "a page of our inside jokes",
+    "decorate a page for the group together",
+    "sticker page for the six"
+  ],
+  "dontUseWhen": [
+    "a photo album of real pictures (use album)",
+    "signing a card for one person (use bday-pool or cap-signing)",
+    "a written recap of the year (use wrapped)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Our fall '26 page'" },
+      "heading": { "type": "string", "description": "Handwritten heading on the page, e.g. 'fall '26'" },
+      "tray": { "type": "array", "items": { "type": "string", "enum": ["dumpling", "ricecooker", "alarm", "car", "headphones", "sheet", "pizza", "sled", "coffee", "star"] }, "description": "Up to 6 stickers offered, picked to match the group's jokes" },
+      "stickers": {
+        "type": "array",
+        "description": "Stickers already on the page, at most 3 per person",
+        "items": {
+          "type": "object",
+          "properties": {
+            "by": { "type": "string", "description": "First name" },
+            "kind": { "type": "string", "description": "One of the tray kinds" },
+            "x": { "type": "number", "description": "0 (left) to 1 (right)" },
+            "y": { "type": "number", "description": "0 (top) to 1 (bottom)" }
+          },
+          "required": ["by", "kind", "x", "y"]
+        }
+      }
+    },
+    "required": ["tray"]
+  },
+  "height": 392
+}

@@ -1,0 +1,80 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"each person holds at most one front seat\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"no one holds a seat in a car they drive\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"there are 4 seats with unique ids and the pool has no duplicates\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1,
+  "typecheck": 57.5,
+  "static": 2.2,
+  "determinism": 46.7,
+  "invariants": 155.4,
+  "mutation": 204.8,
+  "render": 954.3,
+  "copy": 1.7,
+  "render.browser": 0,
+  "render.mount": 54,
+  "render.taps": 277,
+  "render.lint": 904,
+  "render.axe": 949,
+  "render.total": 954,
+  "total": 1001
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 14,
+  "inert": 3,
+  "killed": 13,
+  "score": 0.93,
+  "threshold": 0.8,
+  "kills": {
+   "each person holds at most one front seat": 0,
+   "no one holds a seat in a car they drive": 0,
+   "holders, drivers and the pool are in the chat": 5,
+   "every holder is in the pool": 2,
+   "there are 4 seats with unique ids and the pool has no duplicates": 0,
+   "drawn time and round agree, and nothing is held before the draw": 1,
+   "a join toggles only the actor in the pool and changes nothing else": 2,
+   "a join changes nothing once the draw has happened": 1,
+   "a draw gives seats in the order the seed gives and stamps the time": 3,
+   "only a person in the pool can draw": 4,
+   "a reset clears every holder and the draw time and keeps the pool and drivers": 1,
+   "only people in the chat change anything": 2
+  },
+  "survivors": [
+   {
+    "op": "negate-condition",
+    "line": 82,
+    "before": "action.t === \"reset\"",
+    "after": "!(action.t === \"reset\")"
+   }
+  ]
+ },
+ "weak": [
+  "each person holds at most one front seat",
+  "no one holds a seat in a car they drive",
+  "there are 4 seats with unique ids and the pool has no duplicates"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

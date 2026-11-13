@@ -1,0 +1,72 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"every hour is a whole number from 0 to 23\" caught none of 8 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"every word is trimmed, lowercase and 1 to 20 characters\" caught none of 8 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the title and the starting hour never change\" caught none of 8 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.9,
+  "typecheck": 79.8,
+  "static": 3.2,
+  "determinism": 58.2,
+  "invariants": 127.5,
+  "mutation": 213.9,
+  "render": 941.8,
+  "copy": 2.9,
+  "render.browser": 0,
+  "render.mount": 34,
+  "render.taps": 274,
+  "render.lint": 893,
+  "render.axe": 936,
+  "render.total": 942,
+  "total": 1008.8
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 8,
+  "inert": 9,
+  "killed": 8,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "each person has at most one count, word and hour": 1,
+   "every entry belongs to someone in the chat": 3,
+   "every count is a whole number from 0 to 100000": 1,
+   "every hour is a whole number from 0 to 23": 0,
+   "every word is trimmed, lowercase and 1 to 20 characters": 0,
+   "a count sets the actor's count and nothing else": 3,
+   "a word sets the actor's word and nothing else": 2,
+   "an hour vote sets the actor's hour and nothing else": 2,
+   "clear removes only the actor's entries": 1,
+   "only people in the chat change anything": 2,
+   "the title and the starting hour never change": 0
+  },
+  "survivors": []
+ },
+ "weak": [
+  "every hour is a whole number from 0 to 23",
+  "every word is trimmed, lowercase and 1 to 20 characters",
+  "the title and the starting hour never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

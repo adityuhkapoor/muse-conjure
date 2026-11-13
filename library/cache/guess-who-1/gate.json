@@ -1,0 +1,66 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "arbitrary-weak",
+   "message": "only 29 in 100 actions from arbitrary changed the state"
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the subject never guesses and no score goes down\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.5,
+  "typecheck": 84.8,
+  "static": 3.6,
+  "determinism": 83.8,
+  "invariants": 233.3,
+  "mutation": 267.5,
+  "render": 924.1,
+  "copy": 2.4,
+  "render.browser": 0,
+  "render.mount": 51,
+  "render.taps": 256,
+  "render.lint": 869,
+  "render.axe": 918,
+  "render.total": 924,
+  "total": 991.4
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 14,
+  "inert": 2,
+  "killed": 14,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "scores are unique, positive and cover every right guess": 3,
+   "each card is played once and rounds match cards played": 1,
+   "a round shows 1 to 3 clues and each person guesses once, never the subject": 1,
+   "a guess scores only when it names the subject, more with fewer clues": 2,
+   "everyone in the game is in the chat and the subject fits the card": 6,
+   "a guess adds one entry for the guesser with the right points and their score": 2,
+   "a clue shows exactly one more clue and changes nothing else": 2,
+   "showing the answer needs every clue out and changes nothing else": 2,
+   "a start plays the unused card the seed picks, with one clue and no guesses": 1,
+   "the subject never guesses and no score goes down": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "the subject never guesses and no score goes down"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

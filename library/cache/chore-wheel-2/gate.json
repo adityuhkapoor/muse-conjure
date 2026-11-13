@@ -1,0 +1,78 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"there are the same chores in order, with unique ids\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"an open chore has no time and an owned one has a time\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"chore names and times never change\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.3,
+  "typecheck": 78.4,
+  "static": 3.8,
+  "determinism": 57.6,
+  "invariants": 157.3,
+  "mutation": 248.7,
+  "render": 926.4,
+  "copy": 2.2,
+  "render.browser": 0,
+  "render.mount": 42,
+  "render.taps": 253,
+  "render.lint": 867,
+  "render.axe": 918,
+  "render.total": 926,
+  "total": 990.6
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 12,
+  "inert": 2,
+  "killed": 11,
+  "score": 0.92,
+  "threshold": 0.8,
+  "kills": {
+   "there are the same chores in order, with unique ids": 0,
+   "chore owners are in the chat": 2,
+   "an open chore has no time and an owned one has a time": 0,
+   "marks belong to people in the chat and are whole numbers": 2,
+   "everyone has at least one mark for each chore they hold": 4,
+   "a spin fills only that chore with the seed's weighted pick": 3,
+   "a spin adds one mark to the winner and changes no one else's": 3,
+   "a reset clears only that chore and takes one mark off its old owner": 2,
+   "chore names and times never change": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": [
+   {
+    "op": "flip-logic",
+    "line": 113,
+    "before": "&&",
+    "after": "||"
+   }
+  ]
+ },
+ "weak": [
+  "there are the same chores in order, with unique ids",
+  "an open chore has no time and an owned one has a time",
+  "chore names and times never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

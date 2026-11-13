@@ -1,0 +1,37 @@
+{
+  "id": "lot-escape",
+  "name": "Lot escape",
+  "surface": "gaming",
+  "summary": "A sliding-block puzzle in a parking lot drawn from above: drag the parked cars along their lanes until the friend's car can drive out the gate. Moves count, par is the true minimum, three lots from the chat, and each lot shows the friends' best under it.",
+  "useWhen": [
+    "the sube is boxed in at lot c again, make it a game",
+    "rush hour puzzle but it's our parking lot",
+    "will can't get out after the game lol",
+    "a puzzle for the group with a leaderboard",
+    "move-in day traffic but make it a game"
+  ],
+  "dontUseWhen": [
+    "planning who drives or rides (use carpool)",
+    "a quick reflex game (use tray-stack)",
+    "splitting a parking ticket (use ticket-peel)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Get the Sube out'" },
+      "hero": { "type": "string", "description": "The car being freed, e.g. 'the Sube'" },
+      "levels": {
+        "type": "array",
+        "description": "Up to 3 lots from the chat. rows: 6 strings of 6; '.' empty, 'XX' the hero on row 3, other letters are cars 2 or 3 long; cars maps a letter to a short label; the lot must be solvable",
+        "items": { "type": "object", "properties": { "name": { "type": "string" }, "rows": { "type": "array", "items": { "type": "string" } }, "cars": { "type": "object", "additionalProperties": { "type": "string" } } }, "required": ["name", "rows"] }
+      },
+      "board": {
+        "type": "array",
+        "description": "Friends' best solves: name, lot number from 1, moves, and an optional line in their words",
+        "items": { "type": "object", "properties": { "name": { "type": "string" }, "level": { "type": "integer" }, "moves": { "type": "integer" }, "said": { "type": "string" } }, "required": ["name", "level", "moves"] }
+      }
+    },
+    "required": ["levels"]
+  },
+  "height": 390
+}

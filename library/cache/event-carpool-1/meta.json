@@ -1,0 +1,81 @@
+{
+ "id": "event-carpool-1",
+ "ask": "can u make a ride board so ppl can claim seats with the departure times",
+ "kind": "event-carpool",
+ "family": "coord",
+ "surface": "event",
+ "sentence": "A ride board that lists each car with its driver, departure time, pickup spot and seats, where group members tap an open seat to claim it or tap their own seat to give it up.",
+ "use_when": [
+  "a group needs to sort out who rides in which car to an event",
+  "drivers have set departure times and a limited number of seats",
+  "people want to claim and release seats and see who still has no ride",
+  "planning carpools for a trip, party, game or outing"
+ ],
+ "dont_use_when": [
+  "people need to vote on a time or date, which needs a poll",
+  "the group needs to split costs or track gas money",
+  "the task is assigning people to shifts, tasks or roles rather than seats",
+  "live location tracking or route planning is needed"
+ ],
+ "keywords": [
+  "ride board",
+  "carpool",
+  "rides",
+  "seats",
+  "claim seat",
+  "departure time",
+  "drivers",
+  "car pool",
+  "event transport",
+  "sign up",
+  "seat sign-up",
+  "who is riding",
+  "trip planning"
+ ],
+ "members": {
+  "min": 2,
+  "max": 20,
+  "original": 7
+ },
+ "mutation_score": 1,
+ "height": 336,
+ "params": {
+  "names": [
+   "Lily",
+   "Theo",
+   "Mia",
+   "Mina",
+   "Hana",
+   "Nora"
+  ],
+  "options": [],
+  "blanks": [],
+  "numbers": [
+   6
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "lantern fest @ brookside park",
+  "members": [
+   "Gabe",
+   "Lily",
+   "Theo",
+   "Mia",
+   "Mina",
+   "Hana",
+   "Nora"
+  ],
+  "text": "ok so who's driving to lantern fest saturday? parking at brookside is gonna be trash\ni can drive, got my civic, 3 open seats, leaving campus lot b at 5:30\ni got 4 seats in the jeep but leaving 6:15 bc lab til 5:45\nclaiming a seat w lily!!\nlily can i get one too, i can be at lot b by 5:30\nyep mina thats 2 of 3 gone\ntheo ill take the 6:15, need to grab dinner first anyway\ni can drive too but only 2 seats, leaving 6:00 from the quad\nok wait so lily has 1 left, nora 2, theo 3?? i lost track\nngl same, ppl keep commenting different stuff\nmuse can u make a ride board so ppl can claim seats with the departure times"
+ },
+ "seconds": 94.2,
+ "attempts": 1,
+ "created": "2026-11-13T03:30:53.154Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 6,
+  "restHash": "9e30dc3670d8e176",
+  "playedHash": "9e21e13e7cc1e03e"
+ }
+}

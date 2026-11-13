@@ -1,0 +1,10 @@
+{
+  "id": "porch-lights",
+  "name": "Porch lights",
+  "surface": "messenger",
+  "summary": "The friends' windows at dusk: tap yours to turn your light on if you're up for something; at three lights Muse offers the cheapest thing those three wanted this week and you lock it.",
+  "useWhen": ["Friday night, nobody has a plan: 'anyone doing anything', 'what's everyone up to tonight'", "a low-pressure check of who's up for something, where staying in is fine"],
+  "dontUseWhen": ["a plan already picked that needs RSVPs (use an event)", "choosing between named options (use a poll or slot-machine)", "finding a date weeks out (use meeting-time)"],
+  "params": { "title": "string", "sub": "string, the moment: 'Fri 6:12pm · light on = up for something'", "when": "start time, e.g. 7:30", "need": "number 2-6, lights it takes to offer a plan", "windows": "2-8 x {name, place (building; consecutive windows group), on, said (their line), want (something they wanted this week), cost (cents), cat}" },
+  "height": 382
+}

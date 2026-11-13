@@ -1,0 +1,80 @@
+{
+ "id": "sublet-compare-2",
+ "ask": "muse mkae a quik score sheet for the 3 subelts and a vote plz",
+ "kind": "sublet-compare",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Lets each person score three fixed sublets from 1 to 5 on price, commute, outdoor space and AC, then vote for one, with point totals, vote counts and a leader shown.",
+ "use_when": [
+  "A group is choosing between three sublets or apartments and wants to score them side by side",
+  "People want to rate options on a few set criteria and then cast one vote",
+  "A quick tally of points and votes is needed to settle a housing choice"
+ ],
+ "dont_use_when": [
+  "The options or criteria are different from the three sublets and four criteria built in",
+  "Only a simple yes or no or single-choice poll is needed with no scoring",
+  "Splitting rent or costs between people is the job"
+ ],
+ "keywords": [
+  "sublet",
+  "score sheet",
+  "vote",
+  "compare",
+  "apartment",
+  "housing",
+  "rating",
+  "scorecard",
+  "decision",
+  "poll",
+  "rank options",
+  "group choice"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 7
+ },
+ "mutation_score": 1,
+ "height": 416,
+ "params": {
+  "names": [],
+  "options": [
+   "Astoria",
+   "Bushwick",
+   "Jersey City",
+   "Price",
+   "Commute",
+   "Outdoor space"
+  ],
+  "blanks": [],
+  "numbers": [
+   25,
+   50,
+   35
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "summer sublet crew",
+  "members": [
+   "Jake",
+   "June",
+   "Leo",
+   "Kofi",
+   "Ines",
+   "Theo",
+   "Mia"
+  ],
+  "text": "ok summer sublets, we gotta pick by friday\ni found 3. one in astoria, one in bushwick, one in jersey city\nastoria is 1900/mo for the whole thing, 2 bedrooms + a pullout\nbushwick is 1650 but its only 2 beds no pullout, and the l train is a pain\njersey city is 1500, 3 beds, 8 min from path\ni want a roof or balcony tbh\nastoria has a balcony. jc has a roof\nbushwick has neither lol\ni care most about commute to my internship in midtown\nastoria is 25 min on the n, jc is like 35, bushwick 50\nhonestly price matters most for me. im broke\njc wins on price then\nbut jc has no ac in the living room rip\nastoria has ac everywhere\nso like price, commute, outdoor space, ac\nyeah those 4\nsomeone has to just rank them already\nmuse mkae a quik score sheet for the 3 subelts and a vote plz"
+ },
+ "seconds": 182.2,
+ "attempts": 1,
+ "created": "2026-11-13T03:42:23.325Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 25,
+  "restHash": "af962dd02dd43d60",
+  "playedHash": "af942de02dd03f62"
+ }
+}

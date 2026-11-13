@@ -1,0 +1,33 @@
+{
+  "id": "lanes-score",
+  "name": "Lanes score",
+  "surface": "gaming",
+  "summary": "A live bowling scoresheet drawn the classic way, frames and little boxes: each bowler taps the pins they knocked down on their own pin deck and rolls, strikes send a ball rolling across their row, totals and standings update for everyone, and last place after the tenth pays for shoes.",
+  "useWhen": [
+    "bowling at midtown lanes tonight, keep score",
+    "scoresheet for thursday bowling, loser pays shoes",
+    "track our bowling game in the chat",
+    "who's winning at the lanes rn",
+    "bowling night score keeper for 6 people"
+  ],
+  "dontUseWhen": [
+    "a game played inside the chat itself (use tray-stack)",
+    "splitting the bowling bill (use tab-claim)",
+    "a bracket across several games (use group-tourney)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, usually the alley, e.g. 'Midtown Lanes'" },
+      "sub": { "type": "string", "description": "Line under the title, e.g. 'lane 7 · Thursday'" },
+      "stakes": { "type": "string", "description": "What last place pays for, e.g. 'shoes'" },
+      "players": {
+        "type": "array",
+        "description": "Up to 8 bowlers in lane order, with pins knocked per roll so far (10 on a first ball is a strike) and an optional line",
+        "items": { "type": "object", "properties": { "name": { "type": "string" }, "rolls": { "type": "array", "items": { "type": "integer" } }, "said": { "type": "string" } }, "required": ["name", "rolls"] }
+      }
+    },
+    "required": ["players"]
+  },
+  "height": 370
+}

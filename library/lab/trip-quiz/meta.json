@@ -1,0 +1,47 @@
+{
+  "id": "trip-quiz",
+  "name": "Trip quiz",
+  "surface": "story",
+  "summary": "A story quiz made from a trip's moments, each question over a drawn scene from the trip with four friends or answers to pick; picks go green or red like the quiz sticker, and the end shows your score beside everyone else's and who got every one.",
+  "useWhen": [
+    "make a quiz about the lake wren trip for my story",
+    "who remembers the weekend best, quiz on the trip",
+    "story quiz with questions like who fell off the paddleboard",
+    "trip recap but as a game the group can play",
+    "quiz the six on spring break moments"
+  ],
+  "dontUseWhen": [
+    "a photo recap without questions (use trip-story or album)",
+    "trivia about general topics (use trivia-night)",
+    "guessing who said a message (use who-said-it)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "author": { "type": "string", "description": "Whose story it is" },
+      "trip": { "type": "string", "description": "The trip's name, e.g. 'Lake Wren weekend'" },
+      "ago": { "type": "string", "description": "How long ago it went up, e.g. '1d'" },
+      "questions": {
+        "type": "array",
+        "description": "Two to six questions about moments from the trip",
+        "items": {
+          "type": "object",
+          "properties": {
+            "scene": { "type": "string", "enum": ["paddleboard", "grill", "car", "campfire", "tent", "dock"], "description": "Which drawn scene sits behind the question" },
+            "q": { "type": "string", "description": "The question, lower case like a story sticker" },
+            "options": { "type": "array", "items": { "type": "string" }, "description": "2 to 4 answers; friends' names show their faces" },
+            "answer": { "type": "integer", "description": "0-based index of the right option" }
+          },
+          "required": ["q", "options", "answer"]
+        }
+      },
+      "played": {
+        "type": "array",
+        "description": "Friends who already played and the option they picked for each question, in order",
+        "items": { "type": "object", "properties": { "who": { "type": "string" }, "picks": { "type": "array", "items": { "type": "integer" } } }, "required": ["who", "picks"] }
+      }
+    },
+    "required": ["questions"]
+  },
+  "height": 556
+}

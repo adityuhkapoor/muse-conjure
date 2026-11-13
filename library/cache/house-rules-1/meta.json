@@ -1,0 +1,72 @@
+{
+ "id": "house-rules-1",
+ "ask": "mkae a vote for each hous rule plz",
+ "kind": "house-rules",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Lets each person vote in or out on a fixed list of house rules, one rule at a time, and shows running counts and who voted each way.",
+ "use_when": [
+  "A household or roommate group needs to agree on a set of house rules",
+  "Everyone should give an in or out answer on each rule separately",
+  "You want to see how many people have voted on every rule",
+  "A short list of rules needs a quick group check"
+ ],
+ "dont_use_when": [
+  "The group needs to pick one option from several choices",
+  "People need to suggest or add their own rules or write free text",
+  "You need a ranked or scored vote, or a schedule or chore split"
+ ],
+ "keywords": [
+  "house rules",
+  "vote",
+  "in or out",
+  "roommates",
+  "household",
+  "poll",
+  "yes no vote",
+  "rule list",
+  "group decision",
+  "approve rules",
+  "agreement",
+  "per item vote"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 5
+ },
+ "mutation_score": 1,
+ "height": 298,
+ "params": {
+  "names": [],
+  "options": [
+   "Shoes off at the door",
+   "Bathroom chore wheel, switches every Sunday",
+   "No pad thai leftovers in the fridge more than 4 days"
+  ],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "apt 4b house rules",
+  "members": [
+   "Theo",
+   "Lena",
+   "Jalen",
+   "Rhea",
+   "Hugo"
+  ],
+  "text": "ok so new apt house rules before we kill each other lol\nlol yes. i have a list from the notes app\n1. quiet hours 11pm-8am weeknights\n11 is too early for me, i got my late lab on thursdays. midnight?\nmidnight weeknights is fine by me, weekends no quiet hours\ni vote quiet hrs yes but idk about the time\n2. overnight guests max 2 nights a week, ask the group first\nthats fair tbh\nwhat if its my gf from ucla she's here every weekend\nok so maybe 3 nights then\ni like 2 nights. 3 is basically living here\n3. dishes done same day, no soaking in the sink overnight\nngl i am guilty of this one\nsame day is harsh, how bout by next morning\nnext morning = roaches. same day\n4. shoes off at the door\nyes obviously\n5. bathroom chore wheel, switches every sunday\nyes. also 6. no pad thai leftovers in the fridge more than 4 days\nlmao rhea that was me once\n7. shared snacks are fair game but replace it if u finish it\nhmm that one's sketchy, last time someone drank my oat milk\nok so we got 7 rules and nobody agrees on like 3 of them\nquiet hours time, guest nights, dishes timing\nwe should just vote on each\nyes in or out for every rule\nsomeone just do it im tired\nmuse mkae a vote for each hous rule plz"
+ },
+ "seconds": 72.2,
+ "attempts": 1,
+ "created": "2026-11-13T02:41:02.261Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 4,
+  "restHash": "9b39d63d332368c4",
+  "playedHash": "9b39d63f320768c4"
+ }
+}

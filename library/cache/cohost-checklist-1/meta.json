@@ -1,0 +1,86 @@
+{
+ "id": "cohost-checklist-1",
+ "ask": "muse split?",
+ "kind": "cohost-checklist",
+ "family": "coord",
+ "surface": "event",
+ "sentence": "A shared task board for an event where each person can take an open task, mark their own done, drop it, or add a new task.",
+ "use_when": [
+  "Sharing out chores and supplies for a party or gathering",
+  "Everyone needs to see who is bringing or doing what",
+  "A group wants to claim tasks and tick them off before an event",
+  "Someone needs to add a missed item to the list"
+ ],
+ "dont_use_when": [
+  "Splitting a bill or tracking who owes money",
+  "Picking a date, time or option by vote",
+  "Assigning tasks by a host with no self-claiming, or tracking long-running projects with deadlines"
+ ],
+ "keywords": [
+  "task board",
+  "checklist",
+  "who brings what",
+  "party tasks",
+  "claim tasks",
+  "chores",
+  "event planning",
+  "to-do list",
+  "sign up",
+  "housewarming",
+  "potluck",
+  "supplies",
+  "shared list"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 8
+ },
+ "mutation_score": 1,
+ "height": 342,
+ "params": {
+  "names": [
+   "Jess",
+   "Hugo",
+   "Ines",
+   "Wren",
+   "Felix",
+   "Abby",
+   "Naomi"
+  ],
+  "options": [
+   "Ice",
+   "Come at 4 to help clean and set up",
+   "Extension cords for the speaker"
+  ],
+  "blanks": [
+   "Sat at 5"
+  ],
+  "numbers": []
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "leo's apartment warming sat",
+  "members": [
+   "Leo",
+   "Jess",
+   "Hugo",
+   "Ines",
+   "Wren",
+   "Felix",
+   "Abby",
+   "Naomi"
+  ],
+  "text": "ok apartment warming is sat at 7, like 25 ppl said going so we need to actually plan this\ni can do cups plates and napkins, already got the plates from target\ni'll grab drinks. beer + that cheap seltzer\ni'm doing the playlist and bringing my speaker\nnice. still need someone for ice and someone for snacks\nsnacks me. chips, salsa, those little dumplings from trader joes\nice i guess?? i have a car\ni can come at 4 to help clean and set up\nwait i said i'd do the bathroom cleaning thing didnt i\nyes naomi lol bathroom + trash bags\ncups and plates done btw, they're in my trunk\ndrinks not bought yet, getting them friday after class\nice is sat at 5 so it doesnt melt\nsnacks bought except dumplings\nplaylist half done, need requests\nalso who's got extension cords for the speaker\nok this is getting messy lol, muse split?"
+ },
+ "seconds": 245.10000000000002,
+ "attempts": 2,
+ "created": "2026-11-13T02:52:47.565Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 8,
+  "restHash": "9232e7a5ada3a352",
+  "playedHash": "9735a6c22833b57c"
+ }
+}

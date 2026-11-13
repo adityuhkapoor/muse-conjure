@@ -1,0 +1,81 @@
+{
+ "id": "rent-split-1",
+ "ask": "splt the rent by rom so it adds up to 2400 and utils evn plz",
+ "kind": "rent-split",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Splits a fixed monthly rent across rooms so the room rents always add up to the total, divides utilities evenly, and shows each person one monthly amount.",
+ "use_when": [
+  "Housemates need to divide a set rent total between rooms of different size or value",
+  "Utilities should be shared equally on top of room rent",
+  "Someone wants to shift rent dollars from one room to another and keep the total fixed",
+  "Everyone wants to see what each person owes per month"
+ ],
+ "dont_use_when": [
+  "Splitting a one-time bill or dinner check by item",
+  "Tracking who paid whom over time or settling running debts",
+  "Splitting utilities unevenly by usage"
+ ],
+ "keywords": [
+  "rent split",
+  "split rent",
+  "roommates",
+  "housemates",
+  "utilities",
+  "monthly total",
+  "room rent",
+  "share bills",
+  "household",
+  "rent by room",
+  "even utilities",
+  "who owes"
+ ],
+ "members": {
+  "min": 2,
+  "max": 8,
+  "original": 4
+ },
+ "mutation_score": 1,
+ "height": 326,
+ "params": {
+  "names": [
+   "Mina",
+   "Maya",
+   "Tyler",
+   "Abby"
+  ],
+  "options": [
+   "Attached bathroom",
+   "Middle room"
+  ],
+  "blanks": [],
+  "numbers": [
+   240000,
+   18000,
+   80000,
+   65000,
+   47500
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "unit 4b rent",
+  "members": [
+   "Mina",
+   "Maya",
+   "Tyler",
+   "Abby"
+  ],
+  "text": "ok landlord confirmed the renewal, rent is 2400 total for the 4 of us\nfinally. so are we keeping the same split as last yr\nlast yr we just did 600 each and ngl that was kinda unfair\nyeah my room is like double the size of ur closet maya lol\nits not a closet its cozy\nmine is the same size as maya's tho and the window faces the dumpster\nok so i have the room w the attached bathroom, i think i should pay more fr\nyes. how much tho\nidk 800?\nok i can do 650 for the middle room\nso maya and abby 475 each?\n800 + 650 + 475 + 475... thats 2400 right\ni did it in my head and think so but i suck at math\nalso utilities are about 180 a month, wifi + electric + gas\nutils should just be even imo, we all use the kitchen and stuff\nya even is fine, i dont wanna argue abt wifi\nok so 45 each\ni just want one place to see everyones total each month so nobody venmos the wrong amt\nsame, we always mess it up\nmuse splt the rent by rom so it adds up to 2400 and utils evn plz"
+ },
+ "seconds": 74.4,
+ "attempts": 1,
+ "created": "2026-11-13T02:54:14.532Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 1,
+  "restHash": "9738af78e3f8c003",
+  "playedHash": "9638af3ce3e9d102"
+ }
+}

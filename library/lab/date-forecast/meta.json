@@ -1,0 +1,30 @@
+{
+  "id": "date-forecast",
+  "name": "Date forecast",
+  "surface": "messenger",
+  "summary": "A weather dial for a friend's first date: everyone except her taps the dial from stormy to sunny (second date) and their face lands on the arc; afterwards she sets the real weather with one tap, the needle swings over and the faces near it called it. Kind by design; she can hide it any time.",
+  "useWhen": [
+    "maya has a first date at kettle & crumb at 4",
+    "predictions for her date tonight, nice ones only",
+    "how do we think his date goes",
+    "forecast for the first date, report back at 6",
+    "rate the vibes before the date"
+  ],
+  "dontUseWhen": [
+    "rating someone's looks or a profile (use hinge-rate)",
+    "the person on the date hasn't shared it with the chat",
+    "betting with points or money (use over-under)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Date forecast'" },
+      "who": { "type": "string", "description": "Whose date it is (a name in the chat); she can't forecast and is the one who calls it" },
+      "plan": { "type": "string", "description": "Where and when, as the chat said it, e.g. 'Kettle & Crumb at 4'" },
+      "callAt": { "type": "string", "description": "When she'll call it, e.g. '6'" },
+      "forecasts": { "type": "array", "items": { "type": "object", "properties": { "who": { "type": "string" }, "value": { "type": "integer", "description": "0 stormy to 100 sunny" }, "said": { "type": "string" } }, "required": ["who", "value"] }, "description": "Forecasts already in, with what each person said in their own words; kind only" }
+    },
+    "required": ["who", "plan"]
+  },
+  "height": 330
+}

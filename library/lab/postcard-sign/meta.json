@@ -1,0 +1,31 @@
+{
+  "id": "postcard-sign",
+  "name": "Postcard",
+  "surface": "feed",
+  "summary": "A postcard from where the poster is: friends sign the back with a line each and slam a stamp in the corner under a postmark with the place and date; flip it for the drawn 'Greetings from' front.",
+  "useWhen": [
+    "wish you were all here, cartagena is unreal",
+    "miss yall so much from tokyo",
+    "having fun in south america eating tostadas",
+    "everyone sign a postcard for maya",
+    "send her something from all of us while shes away"
+  ],
+  "dontUseWhen": [
+    "a birthday or welcome card (use welcome-card)",
+    "asking what to do somewhere (use try-this-here)",
+    "a multi-stop trip with souvenirs (use souvenir-passport)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "author": { "type": "string", "description": "Who is away; the postcard is addressed to them" },
+      "place": { "type": "string", "description": "Where they are, printed big on the front and on the postmark" },
+      "date": { "type": "string", "description": "Postmark date, short, e.g. 'Nov 12'" },
+      "scene": { "type": "string", "enum": ["beach", "mountains", "city"], "description": "Which picture to draw on the front" },
+      "line": { "type": "string", "description": "The post's own line, shown in quotes under the title" },
+      "signed": { "type": "array", "items": { "type": "object", "properties": { "who": { "type": "string" }, "line": { "type": "string" }, "stamp": { "type": "string", "enum": ["sun", "palm", "wave", "heart", "peak", "flower"] } }, "required": ["who", "line"] }, "description": "Friends who already signed: their line in their own words and the stamp they picked" }
+    },
+    "required": ["author", "place"]
+  },
+  "height": 340
+}

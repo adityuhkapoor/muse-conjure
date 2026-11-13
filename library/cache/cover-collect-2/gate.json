@@ -1,0 +1,99 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"no one says sent twice\" caught none of 17 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"nobody is both paid and waiting to be checked\" caught none of 17 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"cover is $10 and door is $15\" caught none of 17 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"adding a guest adds one unpaid guest owned by the actor\" caught none of 17 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"an action never changes the host, cover or door price\" caught none of 17 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.2,
+  "typecheck": 66.2,
+  "static": 2.8,
+  "determinism": 48.2,
+  "invariants": 117.2,
+  "mutation": 168.7,
+  "render": 939.5,
+  "copy": 1.8,
+  "render.browser": 0,
+  "render.mount": 37,
+  "render.taps": 268,
+  "render.lint": 889,
+  "render.axe": 932,
+  "render.total": 939,
+  "total": 993
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 17,
+  "inert": 3,
+  "killed": 15,
+  "score": 0.88,
+  "threshold": 0.8,
+  "kills": {
+   "no one is ticked paid twice": 1,
+   "no one says sent twice": 0,
+   "paid and sent lists hold only people in the chat, never the host": 4,
+   "nobody is both paid and waiting to be checked": 0,
+   "guests belong to people in the chat, have unique ids, at most 8": 2,
+   "the host is in the chat whenever the chat has people": 1,
+   "cover is $10 and door is $15": 0,
+   "a tick flips only that person, clears their sent note and changes nothing else": 4,
+   "only the host changes who has paid": 2,
+   "a guest tick flips only that guest, by the host": 4,
+   "saying sent flips only the actor in the sent list": 1,
+   "adding a guest adds one unpaid guest owned by the actor": 0,
+   "removing a guest removes one, by its owner or the host": 3,
+   "only people in the chat change anything": 2,
+   "an action never changes the host, cover or door price": 0
+  },
+  "survivors": [
+   {
+    "op": "flip-logic",
+    "line": 75,
+    "before": "||",
+    "after": "&&"
+   },
+   {
+    "op": "off-by-one",
+    "line": 80,
+    "before": "1",
+    "after": "2"
+   }
+  ]
+ },
+ "weak": [
+  "no one says sent twice",
+  "nobody is both paid and waiting to be checked",
+  "cover is $10 and door is $15",
+  "adding a guest adds one unpaid guest owned by the actor",
+  "an action never changes the host, cover or door price"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

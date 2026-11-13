@@ -1,0 +1,79 @@
+{
+  "id": "assign",
+  "name": "Chore wheel (fair random assignment)",
+  "use_when": [
+    "tasks get handed out to people at random but fairly: chore wheel, who does what",
+    "'make a chore wheel', 'spin for chores', 'randomly assign'",
+    "the tasks were named in the chat",
+    "tasks go to whoever is in the chat now, including people who join later"
+  ],
+  "dont_use_when": [
+    "people choose their own tasks (use claims)",
+    "picking one option, not assigning a list (use wheel)",
+    "seats or spots (use slots)"
+  ],
+  "keywords": [
+    "chore",
+    "chores",
+    "wheel",
+    "assign",
+    "assigned",
+    "random",
+    "randomly",
+    "spin",
+    "task",
+    "tasks",
+    "clean",
+    "cleaning",
+    "dishes",
+    "trash",
+    "duty",
+    "duties",
+    "rotation",
+    "rotate",
+    "who",
+    "does"
+  ],
+  "guarantees": [
+    "each spin gives the first open task to someone in the chat with the fewest tasks",
+    "picks come from the server seed, the same for everyone, and show only once confirmed",
+    "the newest spin always holds its task; spins are 3 s apart",
+    "the wheel is the people in the chat now: a late joiner is on it, a leaver's tasks open up again",
+    "with no tasks there is no wheel: a short card asks the chat to add them, and anyone can add more later"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "description": "Card title, e.g. 'Chores this week'"
+      },
+      "tasks": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Tasks named in the chat, up to 12, short. Use [] when the chat names none: never invent tasks; the card then asks the group to add them"
+      }
+    },
+    "required": [
+      "title",
+      "tasks"
+    ],
+    "additionalProperties": false
+  },
+  "examples": [
+    {
+      "title": "Cabin jobs",
+      "tasks": [
+        "Cook",
+        "Dishes",
+        "Firewood"
+      ]
+    },
+    {
+      "title": "Chores this week",
+      "tasks": []
+    }
+  ]
+}

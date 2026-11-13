@@ -1,0 +1,11 @@
+{
+  "id": "squad-constellation",
+  "name": "Who you know here",
+  "origin": { "crate": "apps10", "id": "squad-constellation" },
+  "surface": "event",
+  "summary": "The people going to an event drawn as a night sky: your friends are bright stars wired to the people they know, and you can ask one to introduce you.",
+  "useWhen": ["a big event where you only know a few of the people going", "'who do I even know at this', 'is anyone I know going', 'can someone introduce me'"],
+  "dontUseWhen": ["getting your friends to commit to going (use squad-lock)", "a small plan where everyone knows each other", "seats or tickets (use concert or ticket-split)"],
+  "params": { "title": "string", "show": "how to call the event in copy, e.g. the show", "total": "number of people going, 1-5000", "knows": "{name, people: string[]}[]: who each friend knows there", "asks": "{from, via}[] intros already asked" },
+  "height": 396
+}

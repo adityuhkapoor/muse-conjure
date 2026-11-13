@@ -1,0 +1,10 @@
+{
+  "id": "coaster-lock",
+  "name": "Coaster lock",
+  "surface": "messenger",
+  "summary": "A roller coaster train with everyone's seat: each 'in' drops a lap bar and clicks the train up the lift hill; at the target it crests, drops and becomes the event with the riders as hosts.",
+  "useWhen": ["'saturday lake day real or fake', a plan that happens only if enough people commit", "a day trip or outing waiting on a few more yeses, some with conditions ('if it's above 70')"],
+  "dontUseWhen": ["choosing where or what (use a poll or claw-pick)", "finding a date that works (use clear-skies or meeting-time)", "an event that already exists (use its RSVP)"],
+  "params": { "title": "string", "sub": "the line that started it", "need": "number 2-8, bars down to crest", "event": "{place, when, dow (3 letters), date (day of month)}", "forecast": "number, degrees F the thermometer shows", "riders": "up to 8 x {name, in, said, above (degrees, 0 for no condition)}" },
+  "height": 390
+}

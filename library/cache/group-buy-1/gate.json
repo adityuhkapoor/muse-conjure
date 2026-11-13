@@ -1,0 +1,83 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"each member has at most one pick\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"every pick and guest has a real size\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"guest ids are unique, at most 3 per host, at most 12 in all\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the minimum and prices are the ones from the chat\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the minimum, deadline and prices never change\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1,
+  "typecheck": 60.6,
+  "static": 2.3,
+  "determinism": 43.6,
+  "invariants": 126.4,
+  "mutation": 165,
+  "render": 895.7,
+  "copy": 1.5,
+  "render.browser": 0,
+  "render.mount": 32,
+  "render.taps": 231,
+  "render.lint": 845,
+  "render.axe": 888,
+  "render.total": 896,
+  "total": 943.8
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 14,
+  "inert": 5,
+  "killed": 14,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "each member has at most one pick": 0,
+   "every pick and guest has a real size": 0,
+   "picks and guest hosts are in the chat": 2,
+   "guest ids are unique, at most 3 per host, at most 12 in all": 0,
+   "guest labels are trimmed, 1 to 30 characters": 3,
+   "the minimum and prices are the ones from the chat": 0,
+   "setting a size gives the actor that size and changes no one else": 3,
+   "going out removes only the actor's pick": 2,
+   "adding a guest adds one guest hosted by the actor and changes no picks": 2,
+   "only a guest's host removes it, and only that guest goes": 3,
+   "only people in the chat change the tally": 2,
+   "the minimum, deadline and prices never change": 0
+  },
+  "survivors": []
+ },
+ "weak": [
+  "each member has at most one pick",
+  "every pick and guest has a real size",
+  "guest ids are unique, at most 3 per host, at most 12 in all",
+  "the minimum and prices are the ones from the chat",
+  "the minimum, deadline and prices never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

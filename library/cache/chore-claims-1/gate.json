@@ -1,0 +1,60 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"the chores are always the same eight, in order\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.9,
+  "typecheck": 47.1,
+  "static": 1.7,
+  "determinism": 67.1,
+  "invariants": 202.1,
+  "mutation": 233.5,
+  "render": 916.8,
+  "copy": 1.1,
+  "render.browser": 0,
+  "render.mount": 34,
+  "render.taps": 243,
+  "render.lint": 870,
+  "render.axe": 911,
+  "render.total": 917,
+  "total": 954.1
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 12,
+  "inert": 4,
+  "killed": 12,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "each person owns at most one chore": 2,
+   "chore owners are in the chat": 2,
+   "a chore with no owner is not done": 2,
+   "the chores are always the same eight, in order": 0,
+   "a claim gives the open chore to the actor and frees only the actor's other chore": 5,
+   "a release clears the owner and done on the actor's own chore only": 2,
+   "done flips only the done mark of the actor's own chore": 4,
+   "a taken chore is never handed to someone else": 2,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "the chores are always the same eight, in order"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

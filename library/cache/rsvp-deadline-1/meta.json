@@ -1,0 +1,70 @@
+{
+ "id": "rsvp-deadline-1",
+ "ask": "can u make a poll for this and track who hasnt voted",
+ "kind": "rsvp-deadline",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A two-question group poll (going yes/maybe/no, and stay over or day trip) that shows vote counts, lists who has not answered yet, and can be closed and reopened by whoever closed it.",
+ "use_when": [
+  "Asking a group if they are coming to an event and who is staying overnight",
+  "Checking who still has not replied before a deadline",
+  "Getting a quick headcount for a trip or get-together",
+  "Closing responses once the deadline passes"
+ ],
+ "dont_use_when": [
+  "Picking a date or time from several options, which needs a scheduling poll",
+  "Splitting costs or tracking who owes money",
+  "Collecting free-text answers or open suggestions"
+ ],
+ "keywords": [
+  "poll",
+  "rsvp",
+  "headcount",
+  "who hasn't voted",
+  "deadline",
+  "yes no maybe",
+  "attendance",
+  "overnight stay",
+  "day trip",
+  "group trip",
+  "vote tracker",
+  "reply check"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 4
+ },
+ "mutation_score": 0.88,
+ "height": 304,
+ "params": {
+  "names": [],
+  "options": [
+   "stay",
+   "day"
+  ],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "saturday lake house",
+  "members": [
+   "Bryan",
+   "Theo",
+   "Kofi",
+   "Ana"
+  ],
+  "text": "ok so lake house at ana's uncle's for sat, need headcount by thursday night or he cant get the key\nim in\nprobably in? depends on my shift\nkofi u gotta know by thursday\ni know i know, manager posts the schedule wed\nok so theo yes, kofi maybe, ana obv yes\nyeah im driving, have 3 seats\ni can bring the speaker and stuff for burgers\nnice. also we need to know whos staying over vs just day trip\ni'd stay over if i get off\ni can only do day, got brunch shift sunday\nok so thats 2 diff questions lol\nyeah going or not AND staying or not\nalso maddie and jun might come, haven't answered me\nthey never answer in time\nfr\ni dont wanna scroll back to figure out whos said what\nsame, i already lost track of kofis maybe\nlol\nmuse can u make a poll for this and track who hasnt voted"
+ },
+ "seconds": 56.9,
+ "attempts": 1,
+ "created": "2026-11-13T03:12:41.486Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 6,
+  "restHash": "87f8037b930ff806",
+  "playedHash": "a7f8210ff20fd832"
+ }
+}

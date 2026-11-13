@@ -1,0 +1,95 @@
+{
+  "id": "veto",
+  "name": "Veto (last one standing)",
+  "use_when": [
+    "the group knocks options out until one is left: each person gets a veto or two",
+    "'everyone gets one veto', 'veto game', 'cross off what you hate', 'knock them out', 'last one standing'",
+    "people care more about avoiding what they hate than voting for a favorite"
+  ],
+  "dont_use_when": [
+    "people vote for what they want (use poll)",
+    "nobody wants a say and Muse should just pick (use wheel)",
+    "several categories at once like place, budget and time (use reels)",
+    "head to head rounds (use bracket)"
+  ],
+  "keywords": [
+    "veto",
+    "vetoes",
+    "vetos",
+    "knock",
+    "eliminate",
+    "elimination",
+    "cross",
+    "standing",
+    "left",
+    "until",
+    "nix",
+    "strike",
+    "hate",
+    "hard",
+    "no"
+  ],
+  "guarantees": [
+    "each person in the chat vetoes at most the set number of options; a veto strikes one option and records who did it",
+    "the last option standing wins; a veto can never strike the last one",
+    "when everyone has used their vetoes, or someone taps Decide, the server seed picks one of those still in, shown only once confirmed",
+    "a late joiner gets their own vetoes; a leaver's vetoes are lifted and those options come back in"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "description": "Card title, e.g. 'Where are we eating?'"
+      },
+      "options": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Options from the chat, 2 to 6, short"
+      },
+      "vetoesEach": {
+        "type": "integer",
+        "description": "Vetoes per person, 1 to 3; 1 unless the chat says otherwise"
+      },
+      "detail": {
+        "type": "string",
+        "description": "One line from the chat shown with the winner, e.g. 'Table for 6 at 7:30'; empty if none"
+      }
+    },
+    "required": [
+      "title",
+      "options",
+      "vetoesEach",
+      "detail"
+    ],
+    "additionalProperties": false
+  },
+  "examples": [
+    {
+      "title": "Kev's bday dinner",
+      "options": [
+        "Tacos El Gordo",
+        "Shake Shack",
+        "Ramen Nagi",
+        "Souvla",
+        "Zachary's",
+        "the thai place on college"
+      ],
+      "vetoesEach": 1,
+      "detail": "Table for 6 at 7:30"
+    },
+    {
+      "title": "Movie tonight",
+      "options": [
+        "Oppenheimer (again)",
+        "Past Lives",
+        "Talk to Me",
+        "Spider-Verse"
+      ],
+      "vetoesEach": 2,
+      "detail": "Theo's projector at 9"
+    }
+  ]
+}

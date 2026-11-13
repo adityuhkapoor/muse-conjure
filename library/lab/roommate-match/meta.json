@@ -1,0 +1,20 @@
+{
+  "id": "roommate-match",
+  "name": "Roommate match",
+  "origin": { "crate": "apps11", "id": "roommate-match" },
+  "surface": "group",
+  "summary": "A 6-question lifestyle quiz that ranks the group's members who are looking for a roommate.",
+  "useWhen": ["a housing or roommate group full of repeated 'looking for a room' posts", "'anyone need a roommate', 'looking for a room in the Mission'"],
+  "dontUseWhen": ["picking among specific apartments (use sublet-finder)", "splitting rent in a place you already share"],
+  "params": {
+    "type": "object",
+    "properties": {
+      "group": { "type": "string", "description": "Group name, e.g. 'SF Roommate Exchange'" },
+      "took": { "type": "integer", "description": "Members of the wider group who already took the quiz, e.g. 412" },
+      "listings": { "type": "array", "description": "Up to 7 members looking: name, neighborhood, a short note, and their 6 answers (0 to 2 each)", "items": { "type": "object" } },
+      "people": { "type": "array", "description": "Chat members' answers so far, by name", "items": { "type": "object" } }
+    },
+    "required": ["group", "listings"]
+  },
+  "height": 418
+}

@@ -1,0 +1,47 @@
+{
+  "id": "group-photo-frame",
+  "name": "Group photo frame",
+  "surface": "feed",
+  "summary": "A photo frame with everyone's silhouette: tap the days you're around and you step into the frame, the one day all of you are free lights it up, and the frame sets a reminder to take the photo that night.",
+  "useWhen": [
+    "we have no group photo from this year",
+    "when are all 6 of us around to take a pic",
+    "need one photo of everyone before break",
+    "formal is the only night we're all here right?",
+    "let's finally get a group pic, what day works"
+  ],
+  "dontUseWhen": [
+    "picking a time for a meeting or study session (use meeting-time)",
+    "voting on what to do, not when (use plan-spinner)",
+    "an album of photos you already took (use album)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, sentence case" },
+      "post": {
+        "type": "object",
+        "description": "Who posted it and what they said",
+        "properties": { "by": { "type": "string", "description": "First name" }, "text": { "type": "string", "description": "Their line, in their words" } }
+      },
+      "people": { "type": "array", "items": { "type": "string" }, "description": "Everyone who should be in the photo, by first name (up to 10)" },
+      "days": {
+        "type": "array",
+        "description": "2 to 6 candidate days in order",
+        "items": {
+          "type": "object",
+          "properties": {
+            "dow": { "type": "string", "description": "Three-letter weekday, e.g. 'Sat'" },
+            "date": { "type": "string", "description": "Month and day, e.g. 'Dec 6'" },
+            "label": { "type": "string", "description": "What's on that night, e.g. 'formal'; empty if nothing" },
+            "free": { "type": "array", "items": { "type": "string" }, "description": "Who is already free and in town that day" }
+          },
+          "required": ["dow", "date", "free"]
+        }
+      },
+      "remindAt": { "type": "string", "description": "When the reminder goes off that day, e.g. '8pm'" }
+    },
+    "required": ["people", "days"]
+  },
+  "height": 398
+}

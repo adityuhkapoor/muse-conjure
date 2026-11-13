@@ -1,0 +1,27 @@
+{
+  "id": "fenwick-lights",
+  "name": "Library lights",
+  "surface": "messenger",
+  "summary": "Who's at the library tonight, drawn as the building at night: a friend studying there is a lit window with their face and a lamp that says locked in, on a break or come say hi; tap a dark window to sit there, tap yours to change your lamp.",
+  "useWhen": [
+    "'who's at fenwick rn' or 'anyone at the library?'",
+    "finding friends to study near during exam weeks",
+    "letting the group know you're studying and whether to come say hi"
+  ],
+  "dontUseWhen": [
+    "planning a study session at a set time (use meeting-time or lobby)",
+    "quizzing each other (use exam-quiz)",
+    "a place that isn't one building with floors (use a map or a poll)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "place": { "type": "string", "description": "The building, e.g. 'Fenwick Library'" },
+      "hours": { "type": "string", "description": "e.g. 'closes 2am'" },
+      "floors": { "type": "array", "items": { "type": "string" }, "description": "3 to 5 floor names, ground floor first" },
+      "here": { "type": "array", "items": { "type": "object", "properties": { "who": { "type": "string" }, "floor": { "type": "integer" }, "window": { "type": "integer", "description": "0 to 4" }, "status": { "type": "integer", "description": "0 locked in, 1 on a break, 2 come say hi" }, "said": { "type": "string" } }, "required": ["who", "floor", "window"] } }
+    },
+    "required": ["place", "floors"]
+  },
+  "height": 360
+}

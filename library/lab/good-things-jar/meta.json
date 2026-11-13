@@ -1,0 +1,36 @@
+{
+  "id": "good-things-jar",
+  "name": "Good things jar",
+  "surface": "messenger",
+  "summary": "A jar between two friends through a rough week: each day each drops in one marble with a few words, the marbles stack up in day bands in their two colors, tapping any marble reads it, and on the last day the jar tips over and pours the week out as a list.",
+  "useWhen": [
+    "this week is cooked",
+    "exam week is killing me, need something good",
+    "lets each say one good thing a day till friday",
+    "gratitude thing but not cringe, just us two",
+    "rough week, cheer me up daily"
+  ],
+  "dontUseWhen": [
+    "a whole group cheering one person's win (use win-jar)",
+    "a habit streak to keep (use gym)",
+    "venting or emotional support as content"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Good things jar'" },
+      "people": { "type": "array", "items": { "type": "string" }, "description": "The two friends (names in the chat), left marble first" },
+      "quote": { "type": "string", "description": "What started it, in their words" },
+      "quoteBy": { "type": "string", "description": "Who said the quote" },
+      "days": { "type": "array", "items": { "type": "string" }, "description": "Short day labels, 2 to 7, e.g. ['Mon', 'Tue', 'Wed', 'Thu', 'Fri']" },
+      "marbles": {
+        "type": "array",
+        "description": "Marbles already in, in day order; a day fills only after both have one in the day before",
+        "items": { "type": "object", "properties": { "who": { "type": "string", "description": "A name in the chat" }, "day": { "type": "integer", "description": "Index into days" }, "text": { "type": "string", "description": "The good thing, a few words, in their voice" } }, "required": ["who", "day", "text"] }
+      },
+      "prompt": { "type": "string", "description": "Placeholder in the text box, e.g. 'One good thing today'" }
+    },
+    "required": ["people", "days"]
+  },
+  "height": 342
+}

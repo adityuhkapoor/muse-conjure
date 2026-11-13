@@ -1,0 +1,79 @@
+{
+ "id": "pizza-order-2",
+ "ask": "someone sort this out lol",
+ "kind": "pizza-order",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A group pizza order card where people vote on toppings, vote for two or three pies, and one person volunteers to pay, with the per-person cost shown after a discount code.",
+ "use_when": [
+  "a group chat needs to pick pizza toppings for a shared meal",
+  "people want to decide how many pies to order",
+  "someone needs to volunteer to pay and see the split cost",
+  "a group needs a quick food order sorted out"
+ ],
+ "dont_use_when": [
+  "a general poll with custom questions and options is needed",
+  "splitting a bill with different amounts per person",
+  "ordering from a menu with many different items or sizes"
+ ],
+ "keywords": [
+  "pizza",
+  "pizza order",
+  "toppings",
+  "food order",
+  "group order",
+  "vote",
+  "poll",
+  "split cost",
+  "who pays",
+  "number of pies",
+  "dinner",
+  "takeout"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 4
+ },
+ "mutation_score": 1,
+ "height": 408,
+ "params": {
+  "names": [
+   "Hana"
+  ],
+  "options": [
+   "Margherita",
+   "Pepperoni",
+   "Sausage and peppers",
+   "Buffalo chicken",
+   "Pepperoni and jalapeno"
+  ],
+  "blanks": [],
+  "numbers": [
+   30,
+   4500,
+   2000
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "intramural soccer win night",
+  "members": [
+   "Hana",
+   "Marcus",
+   "Omar",
+   "Dev"
+  ],
+  "text": "we won!! pizza at mine tn?\nyesss im down\ndown but i have lab til 7\nsame, 7:30 ok?\nok 7:30. how many pies tho\n2 larges? we are 4\nnah marcus u alone eat like a whole one\nlol true. 3\n3 is like 45 at joes tho\ni got a 20 off code for joes\ntoppings. i want buffalo chicken\nbuffalo chicken ew. sausage and peppers\nim doing margherita or pepperoni, either\npepperoni and jalapeno\nok so nobody agrees lol. hana either, omar sausage, me buffalo, marcus pep jalapeno\nand 3 pies or 2 idk, and who pays\nmuse someone sort this out lol"
+ },
+ "seconds": 87.3,
+ "attempts": 1,
+ "created": "2026-11-13T04:43:55.185Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 8,
+  "restHash": "9fad52a55023fc0e",
+  "playedHash": "9adea56ba4a52d84"
+ }
+}

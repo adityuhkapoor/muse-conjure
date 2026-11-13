@@ -1,0 +1,94 @@
+{
+ "id": "fantasy-draft-1",
+ "ask": "can u run a snake draft for us, 8 people, random order, and show everyones final 3 movies",
+ "kind": "fantasy-draft",
+ "family": "game",
+ "surface": "chat",
+ "sentence": "Runs a snake-order draft where everyone in the chat takes turns picking movies from a shared pool, with the order drawn at random and each person's picks shown at the end.",
+ "use_when": [
+  "A group wants to split up a list of movies by taking turns picking",
+  "Someone asks for a random draft order with snake turns (1 to n, then n to 1)",
+  "The group wants to see everyone's final picks side by side after a draft",
+  "Picking movies for a movie night in a fair, turn-based way"
+ ],
+ "dont_use_when": [
+  "The group wants a simple vote or poll on one choice",
+  "Items must be assigned randomly with no choosing, like a raffle or name draw",
+  "The draft is for a non-movie list that needs a different pool or pick count set up from scratch",
+  "Only one person is asking and there is no group to take turns"
+ ],
+ "keywords": [
+  "snake draft",
+  "movie draft",
+  "fantasy draft",
+  "random order",
+  "turn-based picks",
+  "draft picks",
+  "movie night",
+  "pick movies",
+  "draft order",
+  "group picks",
+  "take turns",
+  "final picks"
+ ],
+ "members": {
+  "min": 2,
+  "max": 16,
+  "original": 8
+ },
+ "mutation_score": 0.83,
+ "height": 290,
+ "params": {
+  "names": [
+   "Noor"
+  ],
+  "options": [
+   "Spiderverse",
+   "Mean Girls",
+   "Knives Out",
+   "Step Brothers",
+   "Whiplash",
+   "Scott Pilgrim",
+   "Parasite",
+   "Shrek 2",
+   "Interstellar",
+   "Coco",
+   "Barbie",
+   "Dune 2",
+   "Superbad",
+   "The Notebook",
+   "Tangled"
+  ],
+  "blanks": [],
+  "numbers": [
+   16,
+   40,
+   8
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "fantasy movie night draft",
+  "members": [
+   "Noor",
+   "Dre",
+   "Maya",
+   "Tess",
+   "Kev",
+   "Bea",
+   "Owen",
+   "Kofi"
+  ],
+  "text": "ok so movie night saturday at my place, we are NOT doing the 40 min scrolling thing again\nlol fair\nwhat if we draft movies like fantasy football\nomg yes. snake draft so the first pick doesnt just win\ni call spiderverse before anyone else takes it\nu cant call it u gotta wait ur turn kev\npool is spiderverse, mean girls, knives out, hereditary, step brothers, whiplash, scott pilgrim, parasite, shrek 2, interstellar etc\nhereditary is a no from me i have to sleep after\nok drop hereditary add coco and barbie then\nso thats 12 movies?\nyeah 12. 8 of us tho so not everyone gets 3\nok 8 ppl, 2 picks each then, 16 doesnt fit so add 4 more whenever\nadd dune 2, superbad, the notebook, tangled\n16 total now, 2 each, snake. whoever ends up with the best pair picks first\nmuse can u run a snake draft for us, 8 people, random order, and show everyones final 3 movies"
+ },
+ "seconds": 279.1,
+ "attempts": 1,
+ "created": "2026-11-13T03:17:50.873Z",
+ "second_look": {
+  "endStep": 9,
+  "endReason": "reached phase = done",
+  "controls": 3,
+  "restHash": "bb903e953b64843b",
+  "playedHash": "bf9794181d39e0e2"
+ }
+}

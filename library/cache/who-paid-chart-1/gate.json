@@ -1,0 +1,72 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"an add puts one item last, paid by the actor, and clears the sent marks\" caught none of 18 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"items change only through add and remove\" caught none of 18 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"sent marks change only through add, remove and sent\" caught none of 18 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.5,
+  "typecheck": 78.5,
+  "static": 4,
+  "determinism": 79.8,
+  "invariants": 249.8,
+  "mutation": 326.9,
+  "render": 936.1,
+  "copy": 2.6,
+  "render.browser": 0,
+  "render.mount": 52,
+  "render.taps": 273,
+  "render.lint": 892,
+  "render.axe": 931,
+  "render.total": 936,
+  "total": 1000.9
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 18,
+  "inert": 1,
+  "killed": 18,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "items have whole positive cents, a 1 to 40 character label and a unique id, at most 20": 3,
+   "every payer is in the chat": 6,
+   "every settled mark is a payment in the plan, once": 2,
+   "shares add up to the total and balances add up to zero": 1,
+   "the plan has at most one fewer payments than people and settles every balance": 1,
+   "an add puts one item last, paid by the actor, and clears the sent marks": 0,
+   "a remove deletes exactly that item, only for its payer, and clears the sent marks": 4,
+   "a sent toggles one payment's mark, only for the person paying or receiving, and leaves items alone": 5,
+   "items change only through add and remove": 0,
+   "sent marks change only through add, remove and sent": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "an add puts one item last, paid by the actor, and clears the sent marks",
+  "items change only through add and remove",
+  "sent marks change only through add, remove and sent"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

@@ -1,0 +1,33 @@
+{
+  "id": "pickup-pitch",
+  "name": "Pickup pitch",
+  "surface": "group",
+  "summary": "A pickup soccer pitch from above with 14 dashed spots; members tap a position and their face stands there, at the needed number the game is on, and teams even out by self-rated skill with everyone running to their new side.",
+  "useWhen": [
+    "is it on this week??",
+    "pickup sunday, who's coming",
+    "need 10 for the game, sign up",
+    "5v5 basketball at the rec tonight anyone",
+    "can we even out the teams this time"
+  ],
+  "dontUseWhen": [
+    "a league schedule or standings",
+    "booking a court or paying for a field (use split tools)",
+    "a one-off party headcount (use party-headcount)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Sunday pickup'" },
+      "group": { "type": "string", "description": "Group name, e.g. 'Sunday pickup soccer'" },
+      "members": { "type": "integer", "description": "Members in the group" },
+      "when": { "type": "string", "description": "When, as said, e.g. 'Sun 10am'" },
+      "where": { "type": "string", "description": "Where, e.g. 'the Quad'" },
+      "need": { "type": "integer", "description": "Players needed for the game to be on, 4 to 14" },
+      "bibs": { "type": "string", "description": "Name of whoever has the bibs, or empty" },
+      "players": { "type": "array", "description": "People already on the pitch", "items": { "type": "object", "properties": { "name": { "type": "string", "description": "Name; chat members are matched by name" }, "spot": { "type": "integer", "description": "0-6 left team (0 keeper), 7-13 right team (7 keeper)" }, "skill": { "type": "integer", "description": "1 chill, 2 solid, 3 sweaty" }, "said": { "type": "string", "description": "What they said, in their words" } }, "required": ["name", "spot"] } }
+    },
+    "required": ["players"]
+  },
+  "height": 370
+}

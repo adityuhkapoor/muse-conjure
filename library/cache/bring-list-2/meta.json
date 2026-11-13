@@ -1,0 +1,76 @@
+{
+ "id": "bring-list-2",
+ "ask": "can u make a list of everything we gotta bring with 1 or 2 ppl on each thing",
+ "kind": "bring-list",
+ "family": "coord",
+ "surface": "event",
+ "sentence": "A shared bring list where group members tap an item to sign up to bring it, with up to two people per item and room to add more items.",
+ "use_when": [
+  "A group needs to split up who brings what to a party, trip, or meetup",
+  "Each item needs one or two people to cover it",
+  "People want to see what is still open and sign up or drop with a tap"
+ ],
+ "dont_use_when": [
+  "The group needs to vote or pick between options",
+  "Costs need to be split or tracked between people",
+  "Tasks need due dates, assignments by a leader, or more than two people per item"
+ ],
+ "keywords": [
+  "bring list",
+  "sign up",
+  "potluck",
+  "who brings what",
+  "party supplies",
+  "cookout",
+  "bbq",
+  "claim items",
+  "checklist",
+  "supplies",
+  "signup sheet",
+  "event planning"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 8
+ },
+ "mutation_score": 1,
+ "height": 388,
+ "params": {
+  "names": [],
+  "options": [
+   "Cornhole set",
+   "Charcoal",
+   "Buns",
+   "Veggie burgers",
+   "Speaker"
+  ],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": false,
+ "origin": {
+  "title": "end of finals bbq @ lenas",
+  "members": [
+   "Jake",
+   "Lily",
+   "Kofi",
+   "Omar",
+   "Lena",
+   "Ty",
+   "Naomi",
+   "Owen"
+  ],
+  "text": "finals bbq thurs at my house on maple st, 5ish\nsay less\ni can bring my cornhole set\nwe need ice for the cooler like a lot\nand cups, red ones\ncharcoal too, lenas grill is gas but she said its busted\nyeah the grill is cooked lol\ni have a little weber i can bring\nbuns and dogs, and veggie burgers for naomi\nily\nspeaker, someone\nmuse can u make a list of everything we gotta bring with 1 or 2 ppl on each thing"
+ },
+ "seconds": 198.9,
+ "attempts": 2,
+ "created": "2026-11-13T05:12:40.430Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 11,
+  "restHash": "a726b13136b1e565",
+  "playedHash": "ce6eb1b5f04864b1"
+ }
+}

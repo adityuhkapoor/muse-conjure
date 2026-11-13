@@ -1,0 +1,73 @@
+{
+ "id": "event-carpool-2",
+ "ask": "sort rides",
+ "kind": "event-carpool",
+ "family": "coord",
+ "surface": "event",
+ "sentence": "Shows two cars with a fixed number of seats each, lets each person tap an open seat to claim or release it, and lets each person hold one extra seat for a guest.",
+ "use_when": [
+  "A group needs to sort out who rides in which car for a trip or event",
+  "People should pick their own seat in a car with a set number of seats",
+  "Someone wants to save a seat for a guest who is not in the chat",
+  "The group wants to see who still has no ride"
+ ],
+ "dont_use_when": [
+  "The group needs to split costs or gas money for the trip",
+  "The plan needs routes, maps or live location sharing",
+  "The cars, drivers or seat counts need to change, since they are fixed",
+  "A general vote or poll on a time or place is needed"
+ ],
+ "keywords": [
+  "carpool",
+  "rides",
+  "seat picker",
+  "car seats",
+  "who is riding",
+  "ride sorter",
+  "driver",
+  "passengers",
+  "guest seat",
+  "trip transport",
+  "sign up",
+  "event travel"
+ ],
+ "members": {
+  "min": 2,
+  "max": 8,
+  "original": 5
+ },
+ "mutation_score": 1,
+ "height": 272,
+ "params": {
+  "names": [
+   "Luis",
+   "Bryan",
+   "Owen"
+  ],
+  "options": [],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": false,
+ "origin": {
+  "title": "corn maze + pumpkin patch sunday",
+  "members": [
+   "Luis",
+   "Leo",
+   "Wren",
+   "Bryan",
+   "Owen"
+  ],
+  "text": "yo corn maze sunday, who's got a car\ni got my moms minivan this weekend, 6 seats incl me\nnice. leaving when tho\n11ish from the dining hall? we can get donuts on the way\nill ride w bryan\nme too if its 11, i got class til 10:50 tho\nfine 11:10\ni can drive too, just a corolla so 3 seats open, leaving 12:30 bc i work brunch\nill go w luis then, i hate waking up lol\nwait bryan im gonna switch to luis, my roommate wants to come and hes slow\nok so thats wren, owen, roommate = full\nstill on bryan 11:10\nso its me and leo and 4 empty seats lol\nwait does roommate count, i said wren owen roommate thats 3 yeah\nyeah full. but im confused who is on what now\nsame, someone posted another time too i think\nmuse sort rides"
+ },
+ "seconds": 179.8,
+ "attempts": 1,
+ "created": "2026-11-13T05:11:23.086Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 9,
+  "restHash": "9a2dd0956a73a5cc",
+  "playedHash": "ae19d926d96226d9"
+ }
+}

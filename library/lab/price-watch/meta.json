@@ -1,0 +1,33 @@
+{
+  "id": "price-watch",
+  "name": "Price watch",
+  "surface": "marketplace",
+  "summary": "A listing that keeps dropping: its price tag hangs on a nail with the old prices crossed out, and beside it a price ruler where friends stick pins at what they'd pay; when the seller drops into anyone's pin, the highest pin gets the first message.",
+  "useWhen": [
+    "'that standing desk dropped again, it's $140 now'",
+    "waiting for a marketplace listing to get cheaper",
+    "who gets dibs on messaging the seller if the price drops",
+    "i'd pay like $110 for that, max",
+    "a few friends watching the same listing's price"
+  ],
+  "dontUseWhen": [
+    "deciding if a price is fair right now (use price-check)",
+    "bargaining with the seller live (use haggle-duel)",
+    "splitting the cost of buying it together (use group-buy)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "item": { "type": "string", "description": "What the listing is" },
+      "listed": { "type": "string", "description": "How long it has been up, e.g. 'listed 3 weeks'" },
+      "prices": { "type": "array", "items": { "type": "integer" }, "description": "1 to 6 prices in cents, oldest first, each lower than the last, whole dollars; the last is the price now" },
+      "pins": {
+        "type": "array",
+        "description": "Pins friends already set: who, the price they'd pay in cents (whole dollars, at most the first price), and a short line",
+        "items": { "type": "object", "properties": { "who": { "type": "string" }, "cents": { "type": "integer" }, "said": { "type": "string" } }, "required": ["who", "cents"] }
+      }
+    },
+    "required": ["item", "prices"]
+  },
+  "height": 344
+}

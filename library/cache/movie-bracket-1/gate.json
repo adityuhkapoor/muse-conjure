@@ -1,0 +1,83 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"a match has votes or a winner only when both movies are set\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a winner is one of the two movies in its match\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the champion is the final's winner\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a decided match never changes\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the movies never change\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.2,
+  "typecheck": 72.3,
+  "static": 3.2,
+  "determinism": 124,
+  "invariants": 331.2,
+  "mutation": 362.6,
+  "render": 945.9,
+  "copy": 1.8,
+  "render.browser": 0,
+  "render.mount": 36,
+  "render.taps": 284,
+  "render.lint": 900,
+  "render.axe": 940,
+  "render.total": 946,
+  "total": 1002.9
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 13,
+  "inert": 5,
+  "killed": 13,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "every voter is in the chat": 4,
+   "no one votes twice or for both sides of a match": 1,
+   "a match has votes or a winner only when both movies are set": 0,
+   "a winner is one of the two movies in its match": 0,
+   "each next slot holds the winner of its feeder match, or is empty": 3,
+   "the champion is the final's winner": 0,
+   "there are 8 movies and 7 matches with fixed first-round pairs": 1,
+   "a vote changes only the actor's own presence in that one open match": 6,
+   "a decide gives the win to the side with more votes and touches only that match, the next slot and the champion": 3,
+   "a decided match never changes": 0,
+   "only people in the chat change anything": 2,
+   "the movies never change": 0
+  },
+  "survivors": []
+ },
+ "weak": [
+  "a match has votes or a winner only when both movies are set",
+  "a winner is one of the two movies in its match",
+  "the champion is the final's winner",
+  "a decided match never changes",
+  "the movies never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

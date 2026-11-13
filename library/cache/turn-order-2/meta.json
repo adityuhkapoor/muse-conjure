@@ -1,0 +1,78 @@
+{
+ "id": "turn-order-2",
+ "ask": "mkae a fair rotaton for shotgn plz",
+ "kind": "turn-order",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Randomly assigns the four front seats across a trip there and back, so each person gets at most one seat and nobody gets a seat in a car they drive.",
+ "use_when": [
+  "A group is carpooling in two cars and needs a fair way to pick who sits in front",
+  "People are arguing over shotgun and want a random draw",
+  "A trip has an outbound and a return leg and each front seat needs a different person"
+ ],
+ "dont_use_when": [
+  "The group needs a turn order for a game or for speaking",
+  "You need to split people into teams or groups",
+  "You need a yes or no vote or a poll on a choice"
+ ],
+ "keywords": [
+  "shotgun",
+  "front seat",
+  "car seats",
+  "carpool",
+  "road trip",
+  "random draw",
+  "fair rotation",
+  "seat assignment",
+  "turn order",
+  "who sits where",
+  "drivers",
+  "ride share"
+ ],
+ "members": {
+  "min": 3,
+  "max": 8,
+  "original": 8
+ },
+ "mutation_score": 0.93,
+ "height": 364,
+ "params": {
+  "names": [
+   "Jake",
+   "Felix",
+   "Wren",
+   "Ravi",
+   "Omar",
+   "Noor",
+   "Priya"
+  ],
+  "options": [],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "philly concert road trip",
+  "members": [
+   "Maya",
+   "Jake",
+   "Felix",
+   "Wren",
+   "Ravi",
+   "Omar",
+   "Noor",
+   "Priya"
+  ],
+  "text": "ok so we taking 2 cars to philly sat right\nmy civic fits 4, priyas rav4 fits 4 so 8 total\nyes but i dont wanna drive both ways lol\ni can drive the way back, i dont drink anyway\nshotgun in the civic is the good one, rav4 front is cramped\ni get carsick in the back i NEED front\nsame omg\ni call front on the way there\nyou called it last time ravi\n...ok fair\nalso jake's aux is elite so whoever's in the civic is lucky\ni control the aux thats the rule\nlol ok\nits like 2.5 hrs each way so 2 legs\nso 2 front seats there and 2 back, i get one of those fr\ni also get carsick but less than noor\nok drivers, jake and priya going there\nill do the civic back, jake can chill\ni can do rav4 back\nok good\nso drivers sorted, front seat still a fight\ni dont mind back there if i get front on the way home\ni get front there pls\nok we need some fair thing\nyeah no one wants to argue in the parking lot\nmuse mkae a fair rotaton for shotgn plz"
+ },
+ "seconds": 91,
+ "attempts": 1,
+ "created": "2026-11-13T03:39:49.371Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 2,
+  "restHash": "831d7c1d3c1b1759",
+  "playedHash": "83ad7a18bd5aa552"
+ }
+}

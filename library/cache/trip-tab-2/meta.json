@@ -1,0 +1,84 @@
+{
+ "id": "trip-tab-2",
+ "ask": "mkae a runing tab for the trip so we can see who owse who plz",
+ "kind": "trip-tab",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A shared running tab where each person logs what they paid, costs are split evenly among everyone in the chat, and it shows who should pay whom to settle up.",
+ "use_when": [
+  "a group trip has shared costs and people want to see who owes who",
+  "friends take turns paying for food, gas, or lodging and want an even split",
+  "someone wants to log an expense and mark a debt as paid later"
+ ],
+ "dont_use_when": [
+  "costs need to be split unevenly or by item",
+  "the group wants a one-off vote or poll on where to go",
+  "a planned schedule or packing list is needed rather than money tracking"
+ ],
+ "keywords": [
+  "trip tab",
+  "expense split",
+  "who owes who",
+  "running tab",
+  "split bill",
+  "shared costs",
+  "settle up",
+  "group expenses",
+  "debt tracker",
+  "even split",
+  "money owed",
+  "trip budget"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 4
+ },
+ "mutation_score": 1,
+ "height": 186,
+ "params": {
+  "names": [
+   "Theo",
+   "Cam",
+   "Hugo",
+   "Kev"
+  ],
+  "options": [
+   "In-N-Out",
+   "Airbnb in Joshua Tree",
+   "Gas",
+   "Beers at the gas station",
+   "Park entry"
+  ],
+  "blanks": [],
+  "numbers": [
+   4100,
+   32000,
+   5800,
+   2300,
+   3000,
+   30
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "hugo's bday road trip",
+  "members": [
+   "Theo",
+   "Cam",
+   "Hugo",
+   "Kev"
+  ],
+  "text": "ok first stop was in n out, i paid 41\ni got the airbnb in joshua tree, 320 for the night\nits my bday u guys dont have to pay for me\nlol no we r splitting it 4 ways u still pay urs\nfine fine\nalso i put gas on my card, 58\ni got the beers at the gas station, 23\nand breakfast burritos tmrw i'll get it\ni paid for the park entry, 30 for the car\nngl i keep forgetting who paid what\nsame, last trip we did venmo chaos for like 2 weeks\nlol the vegas thing\ndont bring up vegas\nwe should just keep one list the whole time\nyea where anyone can add stuff as it happens\nand it shows the balances at the end\nya that\ni just dont wanna do math on my bday\nfair\nok so who's gonna set it up\nmuse mkae a runing tab for the trip so we can see who owse who plz"
+ },
+ "seconds": 219.3,
+ "attempts": 1,
+ "created": "2026-11-13T04:29:35.069Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 1,
+  "restHash": "8f856ab3856af06a",
+  "playedHash": "8e947b873f9c806a"
+ }
+}

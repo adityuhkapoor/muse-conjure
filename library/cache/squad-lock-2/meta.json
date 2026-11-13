@@ -1,0 +1,70 @@
+{
+ "id": "squad-lock-2",
+ "ask": "muse mkae a pol so we can see whos in, need 4 to lock it",
+ "kind": "squad-lock",
+ "family": "coord",
+ "surface": "event",
+ "sentence": "A headcount poll where each person answers in, maybe or out, with an optional short note, and the event locks once enough people are in.",
+ "use_when": [
+  "Checking who is coming to a game, meetup or outing",
+  "An event needs a minimum number of people to go ahead",
+  "Everyone should see live answers and a count toward the minimum",
+  "People want to add a short note like running late"
+ ],
+ "dont_use_when": [
+  "Choosing between several options or times, which needs a vote or schedule poll",
+  "Splitting costs or tracking who owes what",
+  "Assigning people to teams or roles"
+ ],
+ "keywords": [
+  "who's in",
+  "rsvp",
+  "headcount",
+  "poll",
+  "attendance",
+  "minimum players",
+  "lock in",
+  "pickup game",
+  "sign up",
+  "in or out",
+  "maybe",
+  "availability",
+  "event check"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 6
+ },
+ "mutation_score": 0.87,
+ "height": 270,
+ "params": {
+  "names": [],
+  "options": [],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "pickup soccer thurs @ lot b field",
+  "members": [
+   "Dani",
+   "Dev",
+   "Kev",
+   "Ty",
+   "Ana",
+   "Hugo"
+  ],
+  "text": "pickup 5v5 thurs 6pm at the lot b field, who's in\nin\nmaybe, my ankle still kinda weird from last week\nim down if its not raining\nno sorry got section till 7\ngoing. can bring the cones and my ball\nok thats dev, hugo, me so far\ndoes maybe if no rain count lol\nweather says 30% rain so prob fine\ni'll prob come just wont run much\ni could maybe come late like 7:15\nwe need 4 min or the ref guy cancels the field\ni can ask the guys from my dorm too\ndont want 12 people tho lol\nlol no. just want a clear count\nok im going. rain or not\nty thats 4\nwait then am i a maybe or a yes\ni'm still a no for the start\npeople keep changing it in the comments im confused\nya its all over the place\nyeah i cant keep track of it\nmuse mkae a pol so we can see whos in, need 4 to lock it"
+ },
+ "seconds": 210.3,
+ "attempts": 1,
+ "created": "2026-11-13T05:08:30.429Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 3,
+  "restHash": "86f13fc11e1ee01e",
+  "playedHash": "a39d7f3398728198"
+ }
+}

@@ -1,0 +1,84 @@
+{
+ "id": "subscription-split-1",
+ "ask": "this is a mess muse fix it",
+ "kind": "subscription-split",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Tracks shared subscription bills in a chat, works out who owes whom, suggests the fewest payments to settle up, and lets each person mark their own payment as paid.",
+ "use_when": [
+  "A group shares streaming, wifi or other recurring subscriptions and wants to know who owes what",
+  "One person paid a bill and others need to pay them back",
+  "Some people want to skip a bill they do not use",
+  "The group wants a short list of payments to settle up"
+ ],
+ "dont_use_when": [
+  "Splitting a one-off meal or trip bill with uneven custom amounts per person",
+  "Collecting money in advance toward a shared goal or gift",
+  "Actually sending money, since this only records payments people say they made"
+ ],
+ "keywords": [
+  "subscription split",
+  "split bills",
+  "who owes who",
+  "shared subscriptions",
+  "settle up",
+  "expense split",
+  "roommate bills",
+  "netflix",
+  "wifi bill",
+  "balances",
+  "pay back",
+  "recurring bills",
+  "bill tracker"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 5
+ },
+ "mutation_score": 1,
+ "height": 280,
+ "params": {
+  "names": [
+   "Maya",
+   "Zoe",
+   "Jalen",
+   "Ty"
+  ],
+  "options": [
+   "Netflix",
+   "Spotify family",
+   "HBO Max"
+  ],
+  "blanks": [],
+  "numbers": [
+   1799,
+   1999,
+   1199,
+   6000,
+   1699
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "apt 4b subscriptions",
+  "members": [
+   "Maya",
+   "Zoe",
+   "Jalen",
+   "Lena",
+   "Ty"
+  ],
+  "text": "ok so who's even paying for what rn\ni pay netflix its 17.99 and i swear nobody has venmo'd me since august\ni do the spotify family, 19.99, 5 of us so like 4 each\nwait i thought ty was paying hulu\ni am hulu is 11.99 w no ads. but i also have the wifi, xfinity 60/mo\nand i do hbo max 16.99 bc of the house of dragon thing lol\ndoes everyone use hbo tho. lena u dont even watch it\ni watched like one ep with u guys\nok and wifi is split 5 ways right\ni thought so?? but only 3 ppl paid last month\ni def paid wifi\ni paid it in oct not nov\ni lost track of everything\nsame, all the venmos are all over the place\nthis is a mess muse fix it"
+ },
+ "seconds": 197.1,
+ "attempts": 1,
+ "created": "2026-11-13T02:28:33.864Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 2,
+  "restHash": "8d3d6460e33f3f08",
+  "playedHash": "8d3d6464e70f3f08"
+ }
+}

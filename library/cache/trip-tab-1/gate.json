@@ -1,0 +1,66 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"at most 12 expenses and 12 payments\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a payment is added last, from the actor, to the person and amount asked, and no expense changes\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.6,
+  "typecheck": 113.8,
+  "static": 4,
+  "determinism": 73.8,
+  "invariants": 221.2,
+  "mutation": 333.3,
+  "render": 917.7,
+  "copy": 3,
+  "render.browser": 0,
+  "render.mount": 34,
+  "render.taps": 257,
+  "render.lint": 872,
+  "render.axe": 912,
+  "render.total": 918,
+  "total": 999.1
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 12,
+  "inert": 2,
+  "killed": 12,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "every expense has whole cents, a trimmed label of 1 to 40 characters and its own id": 1,
+   "payers and split members are in the chat, once each, and a split is never empty": 4,
+   "every payment has whole cents, two different people in the chat and its own id": 5,
+   "at most 12 expenses and 12 payments": 0,
+   "balances add up to zero": 1,
+   "an added expense comes last, paid by the actor, as asked, and no payment changes": 2,
+   "only the payer removes an expense, and exactly that one goes": 2,
+   "a payment is added last, from the actor, to the person and amount asked, and no expense changes": 0,
+   "only the person who made a payment undoes it, and exactly that one goes": 1,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "at most 12 expenses and 12 payments",
+  "a payment is added last, from the actor, to the person and amount asked, and no expense changes"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

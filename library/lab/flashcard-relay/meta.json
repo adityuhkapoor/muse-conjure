@@ -1,0 +1,59 @@
+{
+  "id": "flashcard-relay",
+  "name": "Flashcard relay",
+  "surface": "group",
+  "summary": "A big class group builds one deck before the final: the cards stack up on a drawn desk toward the goal, everyone writes a few, and every day the same five come up for everyone, toughest first, as a card you flip; say if you got it and your streak flame grows.",
+  "useWhen": [
+    "can we make flashcards for the bio final together",
+    "crowdsource a study deck for the class",
+    "daily quiz cards until the final",
+    "everyone write 3 cards pls",
+    "final prep for 180 people, how do we split it"
+  ],
+  "dontUseWhen": [
+    "a quiz battle among a few friends (use exam-quiz)",
+    "sharing lecture notes",
+    "dividing a group project (use project-bricks)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'BIO 101 deck'" },
+      "sub": { "type": "string", "description": "Line under the title: the group and the final" },
+      "day": { "type": "string", "description": "Today, e.g. 'Dec 3'; picks the day's five cards" },
+      "count": { "type": "integer", "description": "Cards the group has written so far" },
+      "goal": { "type": "integer", "description": "Cards the group wants before the final" },
+      "each": { "type": "integer", "description": "Cards each member is asked to write" },
+      "cards": {
+        "type": "array",
+        "description": "3 to 40 cards to draw today's five from",
+        "items": {
+          "type": "object",
+          "properties": {
+            "q": { "type": "string", "description": "Front of the card" },
+            "a": { "type": "string", "description": "Back of the card, short" },
+            "by": { "type": "string", "description": "Who wrote it" },
+            "miss": { "type": "integer", "description": "Times the group missed it" },
+            "hit": { "type": "integer", "description": "Times the group got it" }
+          },
+          "required": ["q", "a"]
+        }
+      },
+      "streaks": {
+        "type": "array",
+        "description": "Members on a streak",
+        "items": {
+          "type": "object",
+          "properties": {
+            "who": { "type": "string", "description": "Member name" },
+            "days": { "type": "integer", "description": "Days in a row" },
+            "said": { "type": "string", "description": "Something they said, in their words" }
+          },
+          "required": ["who", "days"]
+        }
+      }
+    },
+    "required": ["cards", "goal"]
+  },
+  "height": 378
+}

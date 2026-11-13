@@ -1,0 +1,90 @@
+{
+ "id": "packing-split-1",
+ "ask": "ok this is a mess fix it",
+ "kind": "packing-split",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A shared gear list for a trip where each item shows who is bringing it or that it is still open, and anyone in the chat can add, claim, drop or remove items.",
+ "use_when": [
+  "a group is planning a trip and needs to sort out who brings which gear",
+  "people want to see which items are still unclaimed",
+  "a chat needs a short shared checklist of things to bring with owners",
+  "someone wants to add an item and take it at the same time"
+ ],
+ "dont_use_when": [
+  "the group needs to split costs or track who owes money",
+  "the group needs a vote or poll between options",
+  "the list is long, with more than 12 items, or needs quantities and categories",
+  "the task is a schedule or itinerary with dates and times"
+ ],
+ "keywords": [
+  "gear list",
+  "packing list",
+  "who brings what",
+  "trip planning",
+  "camping",
+  "bring list",
+  "claim items",
+  "checklist",
+  "shared list",
+  "assign items",
+  "weekend trip",
+  "supplies"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 7
+ },
+ "mutation_score": 1,
+ "height": 408,
+ "params": {
+  "names": [
+   "Theo",
+   "Wren",
+   "Tess",
+   "Bryan",
+   "Owen",
+   "Ines",
+   "Priya"
+  ],
+  "options": [
+   "Who's bringing what?",
+   "Big boombox",
+   "4 person tent",
+   "6 person tent",
+   "Uno",
+   "Cards Against Humanity",
+   "Lantern",
+   "Camp stove"
+  ],
+  "blanks": [],
+  "numbers": [
+   24
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "lake george weekend",
+  "members": [
+   "Theo",
+   "Wren",
+   "Tess",
+   "Bryan",
+   "Owen",
+   "Ines",
+   "Priya"
+  ],
+  "text": "ok so lake george fri-sun, we need to figure out who's bringing what gear\ni can bring my bluetooth speaker, the jbl one\nwait bryan said he's bringing a speaker too\nyeah i have the big boombox thing lol\ni have a 4 person tent but it smells like a basement\ni have a 6 person tent!! way better\nok so who's got a cooler\ni have a small one, like 24 cans max\nmy roommate has a huge yeti she said we can borrow it\ncards?? i have uno but no regular deck\ni got a regular deck and cards against humanity\nwait so are we doing one tent or two\ni think 2 tents, 7 ppl is a lot for one\ni also have a lantern and a camp stove btw\nok i literally can't keep track of who has what\nmuse this is a mess fix it"
+ },
+ "seconds": 208.7,
+ "attempts": 1,
+ "created": "2026-11-13T03:22:15.081Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 13,
+  "restHash": "af3c9192789517c3",
+  "playedHash": "a6399ba09993e363"
+ }
+}

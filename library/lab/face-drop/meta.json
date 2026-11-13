@@ -1,0 +1,11 @@
+{
+  "id": "face-drop",
+  "name": "Face drop",
+  "origin": { "crate": "apps15", "id": "face-drop" },
+  "surface": "story",
+  "summary": "Friends tap to drop each other's faces onto a shared pile, boop them and shake it.",
+  "useWhen": ["the chat is bored or goofing around and wants a toy for a story", "a silly shared fidget with everyone's faces"],
+  "dontUseWhen": ["anything that needs a decision, a plan or money", "a recap of real events"],
+  "params": { "names": "first names whose faces fall when the chat has no members to use, up to 8" },
+  "height": 572
+}

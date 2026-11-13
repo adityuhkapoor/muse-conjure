@@ -1,0 +1,74 @@
+{
+ "id": "house-meeting-2",
+ "ask": "can u make a poll for the meeting night",
+ "kind": "house-meeting",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A single-choice poll where each person in the chat votes for one of three fixed nights for a roommate meeting, with live counts and a tap-again-to-remove vote.",
+ "use_when": [
+  "Picking a night for a house or roommate meeting",
+  "Choosing one date from a short fixed list of options",
+  "Getting a quick group answer before a deadline"
+ ],
+ "dont_use_when": [
+  "People need to pick several dates they are free (availability grid)",
+  "The options or question must be written by the user from scratch",
+  "Splitting costs or assigning chores"
+ ],
+ "keywords": [
+  "poll",
+  "vote",
+  "meeting night",
+  "roommate meeting",
+  "house meeting",
+  "pick a date",
+  "schedule",
+  "single choice",
+  "group decision",
+  "date poll",
+  "roommates",
+  "deadline"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 8
+ },
+ "mutation_score": 1,
+ "height": 268,
+ "params": {
+  "names": [],
+  "options": [
+   "Thurs the 14th",
+   "Fri the 15th",
+   "Sun the 17th"
+  ],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "3rd floor townhouse chat",
+  "members": [
+   "Leo",
+   "Naomi",
+   "Theo",
+   "Ravi",
+   "Jess",
+   "Felix",
+   "Kofi",
+   "Hana"
+  ],
+  "text": "guys we gotta do a roommate meeting abt the lease renewal, landlord wants an answer by the 20th\nugh fr. ok when\nim free thurs the 14th any time after 5\nthurs im at the library till 9 for my econ midterm\ni can do thurs but only before 8, got ultimate practice\nthurs works for me ngl\ni work thurs close, no way\nfri the 15th? im free all night\nfri works for me, we could order from thai place\nfri i can do after 7\nfri im out of town, going to my cousins\nfri is good for me tho\nfri fine for me too\nfri i can do, after 9 tho\ni have a thing fri but could skip if its quick\nwhat about sun the 17th\nsun is great for me\nsun works for me 100%\nsun ok for me, after 4\nsun i can do too\nsun i have a paper due mon but i can do like an hour\nsun is fine\nsun yeah ok\nok so thurs, fri, or sun then\nsomeone just pick lol\nwe keep going in circles\nmuse can u make a poll for the meeting night"
+ },
+ "seconds": 48.5,
+ "attempts": 1,
+ "created": "2026-11-13T04:16:55.816Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 3,
+  "restHash": "bf2f216a28639c71",
+  "playedHash": "9e3ae5a52060bd7a"
+ }
+}

@@ -1,0 +1,72 @@
+{
+ "id": "pickup-run-2",
+ "ask": "muse wheel it plz",
+ "kind": "pickup-run",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A spinning wheel that picks one of a fixed set of food places at random, with the result chosen by the server so everyone sees the same winner.",
+ "use_when": [
+  "a group cannot agree on where to eat and wants a random pick",
+  "someone asks to spin a wheel to choose between a few places",
+  "a quick tiebreak among a short, fixed list of options is needed"
+ ],
+ "dont_use_when": [
+  "people want to vote and see counts, which needs a poll",
+  "the options list must be edited or is not three places",
+  "a fair split of costs or tasks is needed instead of a single pick"
+ ],
+ "keywords": [
+  "wheel",
+  "spin",
+  "food wheel",
+  "random pick",
+  "where to eat",
+  "restaurant",
+  "decide",
+  "tiebreak",
+  "lunch",
+  "dinner",
+  "chooser",
+  "random choice"
+ ],
+ "members": {
+  "min": 1,
+  "max": 12,
+  "original": 4
+ },
+ "mutation_score": 1,
+ "height": 388,
+ "params": {
+  "names": [],
+  "options": [
+   "Dumpling House in Chinatown",
+   "Regina's in the North End"
+  ],
+  "blanks": [],
+  "numbers": [
+   4000,
+   600
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "airport pickup crew ✈️",
+  "members": [
+   "Ty",
+   "Naomi",
+   "Owen",
+   "Rohan"
+  ],
+  "text": "my flight lands fri at 6:40pm at logan btw\nwait u need a ride?? i can take u\ni was gonna just take the t honestly\nthe t w a suitcase on friday night, no thanks\ni can come too, i wanna see the airport lol\ni only fit 4 in my car tho\nok thats literally all of us plus my bag\nmy roommate has a bigger car, could ask\nno just go, bags go in the trunk\nok but then where do we eat after\ni have been dreaming of dumplings since hawaii\ndumpling house in chinatown!!\nnah i want pizza, regina's in the north end\ni could do either honestly\ni dont even care i just want food that isnt airplane food\nbro dumplings. thats what ty said first\nty said that bc hes tired he'd say yes to anything\nlol true\nhey\nwhat about taco bell, its by the airport\nno\nalso ps who is paying for parking\nsplit it 4 ways ez\nill cover it ur picking me up\nty ur the best\nok we need to decide dumplings vs pizza vs ur taco bell owen\nits a valid option!!\nmuse wheel it plz"
+ },
+ "seconds": 131.4,
+ "attempts": 1,
+ "created": "2026-11-13T04:57:02.666Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 2,
+  "restHash": "e5a49b93398d3634",
+  "playedHash": "a5359b933d996524"
+ }
+}

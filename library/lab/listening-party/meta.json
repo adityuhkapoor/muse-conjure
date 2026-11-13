@@ -1,0 +1,43 @@
+{
+  "id": "listening-party",
+  "name": "Listening party",
+  "surface": "messenger",
+  "summary": "A first listen together, drawn as a spinning vinyl with each track as a band of grooves and the needle on the one that's playing; everyone sticks fire, fine or skip on each track and the stickers spin with the record, and after the last track it shows the group's ranked tracklist and the one track everyone called fire.",
+  "useWhen": [
+    "album drops at midnight who's listening",
+    "listening party for the new album",
+    "rate the tracks as we go",
+    "first listen together tonight??",
+    "which song on the new album is the best"
+  ],
+  "dontUseWhen": [
+    "planning a concert trip (use concert)",
+    "building a shared playlist (use sound-crate)",
+    "a single song someone sent"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Listening party'" },
+      "album": { "type": "string", "description": "Album and artist, e.g. 'Neon Valley · Lumen Park'" },
+      "tracks": { "type": "array", "items": { "type": "string" }, "description": "3 to 12 track titles in order" },
+      "now": { "type": "integer", "description": "Index of the track playing now, 0 is the first" },
+      "reactions": {
+        "type": "array",
+        "description": "Stickers already on the record, only on tracks up to now",
+        "items": {
+          "type": "object",
+          "properties": {
+            "who": { "type": "string", "description": "Name in the chat" },
+            "track": { "type": "integer", "description": "Index into tracks" },
+            "r": { "type": "integer", "description": "0 fire, 1 fine, 2 skip" },
+            "said": { "type": "string", "description": "What they said about the track, in their words" }
+          },
+          "required": ["who", "track", "r"]
+        }
+      }
+    },
+    "required": ["album", "tracks"]
+  },
+  "height": 370
+}

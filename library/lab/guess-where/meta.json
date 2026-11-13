@@ -1,0 +1,33 @@
+{
+  "id": "guess-where",
+  "name": "Guess where",
+  "surface": "feed",
+  "summary": "A world map game on a travel post: the poster drops clues one at a time, friends drag a pin where they think the poster is, and the reveal drops a star, draws a line from every pin and crowns the closest.",
+  "useWhen": [
+    "yo whats up just having fun in south america eating tostadas",
+    "guess where i am 👀",
+    "bet nobody can guess what city im in rn",
+    "new place who can guess it, hint: the bus had a goat",
+    "make them guess where i went for break"
+  ],
+  "dontUseWhen": [
+    "the post already names the exact place and nobody is guessing",
+    "planning a trip before it happens (use trip-draft)",
+    "asking for recommendations in a city (use try-this-here)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "author": { "type": "string", "description": "Who posted and is hiding where they are" },
+      "line": { "type": "string", "description": "The post's own line, shown in quotes under the title" },
+      "clues": { "type": "array", "items": { "type": "string" }, "description": "2 to 5 clues in the order the poster drops them, a few words each" },
+      "shown": { "type": "integer", "description": "How many clues are already out, at least 1" },
+      "place": { "type": "string", "description": "The real place, shown at the reveal, e.g. 'Cusco, Peru'" },
+      "lon": { "type": "number", "description": "Longitude of the real place" },
+      "lat": { "type": "number", "description": "Latitude of the real place (the map runs from 80 north to 60 south)" },
+      "guesses": { "type": "array", "items": { "type": "object", "properties": { "who": { "type": "string" }, "lon": { "type": "number" }, "lat": { "type": "number" }, "said": { "type": "string" } }, "required": ["who", "lon", "lat"] }, "description": "Friends who already guessed: where their pin is and what they said with it" }
+    },
+    "required": ["author", "clues", "place", "lon", "lat"]
+  },
+  "height": 414
+}

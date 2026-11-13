@@ -1,0 +1,88 @@
+{
+  "id": "draft",
+  "name": "Snake draft",
+  "use_when": [
+    "people take turns choosing from a shared board until it is split up: trip itinerary, who plans which activity, chores picked in turn, rooms by draft order",
+    "'snake draft', 'draft order', 'take turns picking', 'first pick', 'we each pick one then go back'",
+    "everyone ends up owning some of the options, and the order should be fair and random"
+  ],
+  "dont_use_when": [
+    "Muse hands tasks out at random with a spin (use assign)",
+    "people grab what they want, first come first served (use claims)",
+    "the group picks one winner (use poll, wheel or veto)",
+    "fixed seats or beds with no turn order (use slots)"
+  ],
+  "keywords": [
+    "draft",
+    "drafting",
+    "snake",
+    "turns",
+    "turn",
+    "picking",
+    "order",
+    "itinerary",
+    "round",
+    "rounds",
+    "fantasy",
+    "first pick"
+  ],
+  "guarantees": [
+    "Start draws the turn order from the server seed, the same for everyone, shown only once confirmed",
+    "the order snakes: 1 2 3, then 3 2 1; only the person up can pick, one free option per turn",
+    "each option is picked once; nobody gets more picks than the rounds allow",
+    "someone who joins mid-draft enters at the next round; a leaver's picks go back on the board and the next person is up"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "description": "Card title, e.g. 'Nashville: who plans what'"
+      },
+      "options": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Options on the board from the chat, 2 to 12, short"
+      },
+      "rounds": {
+        "type": "integer",
+        "description": "Picks per person, 1 to 6; 0 to go until the board is empty"
+      },
+      "people": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Names of the people drafting, as in the chat; empty for everyone in the chat"
+      }
+    },
+    "required": [
+      "title",
+      "options",
+      "rounds",
+      "people"
+    ],
+    "additionalProperties": false
+  },
+  "examples": [
+    {
+      "title": "Apt 4b chore draft",
+      "options": [
+        "Bathroom",
+        "Dishes",
+        "Trash + recycling",
+        "Vacuuming",
+        "Fridge clean-out",
+        "Mopping"
+      ],
+      "rounds": 2,
+      "people": [
+        "Dani",
+        "Marcus",
+        "Theo"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,77 @@
+{
+ "id": "secret-santa-1",
+ "ask": "draw secret santa names for all 8 of us so nobody gets themselves and we each only see our own",
+ "kind": "secret-santa",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Draws one random gift-giving cycle for everyone in the chat so nobody gets themselves, and each person can reveal only their own match.",
+ "use_when": [
+  "a group wants to draw secret santa names",
+  "each person should privately see who they give a gift to",
+  "a gift exchange needs a fair random assignment",
+  "someone needs to redo the draw after a mistake"
+ ],
+ "dont_use_when": [
+  "picking one random winner or person from the group",
+  "splitting people into teams or groups",
+  "splitting costs or tracking who owes what",
+  "making a wish list or gift idea list"
+ ],
+ "keywords": [
+  "secret santa",
+  "gift exchange",
+  "name draw",
+  "draw names",
+  "random pairs",
+  "gift assignment",
+  "white elephant",
+  "holiday gifts",
+  "private match",
+  "christmas",
+  "shuffle names",
+  "who gives to who"
+ ],
+ "members": {
+  "min": 2,
+  "max": 30,
+  "original": 8
+ },
+ "mutation_score": 0.93,
+ "height": 168,
+ "params": {
+  "names": [
+   "Hugo"
+  ],
+  "options": [],
+  "blanks": [],
+  "numbers": [
+   20,
+   12
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "floor 4 secret santa",
+  "members": [
+   "Hugo",
+   "Lena",
+   "Jake",
+   "Theo",
+   "Dani",
+   "Eli",
+   "Lily",
+   "June"
+  ],
+  "text": "ok so are we doing secret santa this year or what\nyes obviously\nfr last year was so fun\nbudget tho. last year someone got me a $40 candle lol\nlets do $20 max\n20 is good im broke\n$20 and it has to be funny or useful\nok when tho\nfinals end dec 12 so party at my place that night?\nworks\nim good the 12th\nsame, ill bring the dumplings from that place on 5th\nok but who does the names. last time we used a hat and eli peeked\ni did NOT peek i just dropped it\nlol sure\nalso last time hugo got himself and we had to redo it\nthat was ONE time\nits 8 of us so a hat is annoying\nand whoever draws always knows everything\nwe need it so nobody gets themselves\nand everyone only sees their own\nlike private so no spoilers\nthe group chat is the whole problem lol everyone sees\nya\nok someone just do it\nok ok\neight of us: hugo lena jake theo dani eli lily june\n^ yep thats everyone\nmuse draw secret santa names for all 8 of us so nobody gets themselves and we each only see our own"
+ },
+ "seconds": 69.3,
+ "attempts": 1,
+ "created": "2026-11-13T03:33:13.339Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 1,
+  "restHash": "9f90780f877ac40f",
+  "playedHash": "9f391889f0c7c6c6"
+ }
+}

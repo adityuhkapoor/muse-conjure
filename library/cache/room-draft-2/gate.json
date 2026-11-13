@@ -1,0 +1,79 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "arbitrary-weak",
+   "message": "only 23 in 100 actions from arbitrary changed the state"
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"nothing is picked before the order is drawn\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.1,
+  "typecheck": 62.7,
+  "static": 2.4,
+  "determinism": 66.4,
+  "invariants": 211.8,
+  "mutation": 259.8,
+  "render": 949.8,
+  "copy": 1.5,
+  "render.browser": 0,
+  "render.mount": 45,
+  "render.taps": 288,
+  "render.lint": 903,
+  "render.axe": 944,
+  "render.total": 950,
+  "total": 997.6
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 16,
+  "inert": 4,
+  "killed": 14,
+  "score": 0.88,
+  "threshold": 0.8,
+  "kills": {
+   "each room has one owner at most, and each group owns one room at most": 1,
+   "the order lists every group exactly once, or is empty": 1,
+   "picks follow the order and match the room owners": 5,
+   "nothing is picked before the order is drawn": 0,
+   "everyone in a group is in the chat and in one group only": 3,
+   "a draw sets the order the seed gives and the time, and changes nothing else": 1,
+   "a draw changes nothing once the order exists": 2,
+   "a pick gives the named room to the group on turn and changes no other room": 4,
+   "only a member of the group on turn can pick": 2,
+   "a room that has an owner keeps it": 1,
+   "only people in the chat change anything": 2
+  },
+  "survivors": [
+   {
+    "op": "off-by-one",
+    "line": 68,
+    "before": "0",
+    "after": "1"
+   },
+   {
+    "op": "off-by-one",
+    "line": 92,
+    "before": "0",
+    "after": "1"
+   }
+  ]
+ },
+ "weak": [
+  "nothing is picked before the order is drawn"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

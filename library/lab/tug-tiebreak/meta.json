@@ -1,0 +1,10 @@
+{
+  "id": "tug-tiebreak",
+  "name": "Tug tiebreak",
+  "surface": "messenger",
+  "summary": "A 10-second tap war for a tied vote: two camps on a rope over a mud puddle, friends who aren't here pull at their usual strength, the losers slide into the mud and the winner's plan posts.",
+  "useWhen": ["a vote stuck at a tie: 'bowling vs karaoke, 3–3, nobody budging'", "two options, two camps, and the chat wants it settled fast and a little physically"],
+  "dontUseWhen": ["more than two options (use a poll or claw-pick)", "nobody has picked a side yet (use a poll)", "a decision that shouldn't come down to tapping speed"],
+  "params": { "title": "string", "sub": "the standoff", "seconds": "number 5-20", "rule": "footnote on the result, e.g. No rematches, Will", "sides": "exactly 2 x {name, icon: pin|mic|ball|star, plan (what posts if they win), team: {name, grip (pulls over the whole war when they aren't tapping)}[]}" },
+  "height": 340
+}

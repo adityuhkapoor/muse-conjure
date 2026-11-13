@@ -1,0 +1,11 @@
+{
+  "id": "reel-rank",
+  "name": "Reels ranked",
+  "origin": { "crate": "apps15", "id": "reel-rank" },
+  "surface": "reel",
+  "summary": "The reels a group shared this week, ranked live by everyone's laughs, with a watch party for the top ones.",
+  "useWhen": ["a chat full of shared reels or videos: 'which one was the best', 'we have to watch these together'", "a shortlist of things friends shared, ranked by reactions"],
+  "dontUseWhen": ["one reel that should become a plan (use reel-to-try or reel-cook-night)", "ranking with tiers (use tier-list)", "voting on one winner (use after-vote)"],
+  "params": { "title": "string", "chat": "group chat name", "reels": "2-6 x {title, by, kind: roomba|backflip|stairs|pasta|mic|plain, count, last}", "party": "{when, where, treat}" },
+  "height": 516
+}

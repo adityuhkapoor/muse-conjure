@@ -1,0 +1,87 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"every count belongs to someone in the chat and is a whole number from 0\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"spins is a whole number from 0 to 99\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the task and due day never change\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.9,
+  "typecheck": 49.6,
+  "static": 1.9,
+  "determinism": 35.6,
+  "invariants": 81.7,
+  "mutation": 123.7,
+  "render": 945.2,
+  "copy": 1.4,
+  "render.browser": 0,
+  "render.mount": 52,
+  "render.taps": 282,
+  "render.lint": 896,
+  "render.axe": 939,
+  "render.total": 945,
+  "total": 984.6
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 13,
+  "inert": 2,
+  "killed": 11,
+  "score": 0.85,
+  "threshold": 0.8,
+  "kills": {
+   "every count belongs to someone in the chat and is a whole number from 0": 0,
+   "everyone in the chat has a count": 1,
+   "the pick is nobody or someone in the chat": 1,
+   "a taken chore has a pick": 2,
+   "no pick means no spin time and nothing taken": 3,
+   "spins is a whole number from 0 to 99": 0,
+   "a spin picks who the seed gives, by the old counts, and changes no count": 1,
+   "a spin is refused once the chore is taken": 1,
+   "a spin never starts within 4 seconds of the last one": 1,
+   "accept is the picked person raising only their own count by 1": 5,
+   "a reset clears only the pick, the spin time and taken": 1,
+   "only people in the chat change anything": 2,
+   "the task and due day never change": 0
+  },
+  "survivors": [
+   {
+    "op": "flip-logic",
+    "line": 105,
+    "before": "||",
+    "after": "&&"
+   },
+   {
+    "op": "flip-comparison",
+    "line": 95,
+    "before": "===",
+    "after": "!=="
+   }
+  ]
+ },
+ "weak": [
+  "every count belongs to someone in the chat and is a whole number from 0",
+  "spins is a whole number from 0 to 99",
+  "the task and due day never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

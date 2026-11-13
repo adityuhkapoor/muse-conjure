@@ -1,0 +1,118 @@
+{
+  "id": "claims",
+  "name": "Claim list (bring list, chores)",
+  "use_when": [
+    "a list of things that each need someone: potluck, bring list, packing, chores, errands",
+    "'who's bringing what', 'what do we need', 'split up the chores'",
+    "items were named in the chat"
+  ],
+  "dont_use_when": [
+    "chores handed out at random, a chore wheel (use assign)",
+    "seats or spots in a fixed grid (use slots)",
+    "money (use split)"
+  ],
+  "keywords": [
+    "bring",
+    "bringing",
+    "potluck",
+    "list",
+    "chores",
+    "chore",
+    "clean",
+    "cleaning",
+    "who's",
+    "grab",
+    "pack",
+    "packing",
+    "need",
+    "supplies",
+    "snacks",
+    "drinks",
+    "errands",
+    "tasks",
+    "todo",
+    "cover",
+    "claim",
+    "sign",
+    "up"
+  ],
+  "guarantees": [
+    "no item gets more people than it needs",
+    "no one takes an item twice or goes over the per-person limit",
+    "done items have someone on them; only a taker marks an item done",
+    "a leaver's claims open up again; a late joiner can take an item at once"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "description": "Card title, e.g. 'What's everyone bringing?' or 'Chores this week'"
+      },
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string",
+              "description": "Item from the chat, short"
+            },
+            "need": {
+              "type": "integer",
+              "description": "People it takes, usually 1"
+            }
+          },
+          "required": [
+            "label",
+            "need"
+          ],
+          "additionalProperties": false
+        },
+        "description": "Items from the chat, up to 12"
+      },
+      "perPerson": {
+        "type": "integer",
+        "description": "Most items one person can take, 0 for no limit"
+      },
+      "allowAdd": {
+        "type": "boolean",
+        "description": "true if people can add items"
+      },
+      "checkable": {
+        "type": "boolean",
+        "description": "true for chores or tasks that get done; false for a bring list"
+      }
+    },
+    "required": [
+      "title",
+      "items",
+      "perPerson",
+      "allowAdd",
+      "checkable"
+    ],
+    "additionalProperties": false
+  },
+  "examples": [
+    {
+      "title": "Chores this week",
+      "items": [
+        {
+          "label": "Dishes",
+          "need": 1
+        },
+        {
+          "label": "Trash",
+          "need": 1
+        },
+        {
+          "label": "Bathroom",
+          "need": 1
+        }
+      ],
+      "perPerson": 1,
+      "allowAdd": false,
+      "checkable": true
+    }
+  ]
+}

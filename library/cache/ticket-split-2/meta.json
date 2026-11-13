@@ -1,0 +1,86 @@
+{
+ "id": "ticket-split-2",
+ "ask": "mkae a thing to show whos paid jake yet",
+ "kind": "ticket-split",
+ "family": "coord",
+ "surface": "event",
+ "sentence": "Shows who in the chat has paid back the person who covered a shared bill, with an equal share per person, a progress bar, and the amount still owed.",
+ "use_when": [
+  "One person paid a shared cost and the group needs to see who has paid them back",
+  "Friends splitting a dinner, tickets or a trip want a simple paid or unpaid list",
+  "The payer wants to mark people as paid by cash, Venmo or other",
+  "People want to add a short note like paying later"
+ ],
+ "dont_use_when": [
+  "Several people paid different amounts and the group needs to work out who owes whom",
+  "The bill needs uneven shares or item-by-item splitting",
+  "A group wants to vote or collect choices rather than track payments"
+ ],
+ "keywords": [
+  "pay back",
+  "who paid",
+  "split bill",
+  "expense split",
+  "payment tracker",
+  "owe money",
+  "reimbursement",
+  "shared cost",
+  "paid status",
+  "venmo",
+  "cash",
+  "group payment",
+  "iou",
+  "settle up"
+ ],
+ "members": {
+  "min": 2,
+  "max": 9,
+  "original": 8
+ },
+ "mutation_score": 1,
+ "height": 144,
+ "params": {
+  "names": [
+   "Jake",
+   "Rhea",
+   "Dani",
+   "Zoe",
+   "Mia"
+  ],
+  "options": [
+   "cash",
+   "venmo"
+  ],
+  "blanks": [],
+  "numbers": [
+   16800,
+   2800,
+   30
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "helium comedy night sat",
+  "members": [
+   "Marcus",
+   "Luis",
+   "Ines",
+   "Jake",
+   "Rhea",
+   "Dani",
+   "Zoe",
+   "Mia"
+  ],
+  "text": "got the 6 tix for helium sat 9pm, 28 each so 168 total on me\nwish i could come, midterm sat\nsending u 28 now\nill venmo tmrw\ni already gave u cash at the library remember\nyeah zoe paid. rhea too\nill pay when we get there i dont have venmo\nwait is it 28 or 30 w fees\n28 w fees included, 168 total\nu guys should just track it somewhere lol\nmuse mkae a thing to show whos paid jake yet"
+ },
+ "seconds": 165.5,
+ "attempts": 1,
+ "created": "2026-11-13T03:59:07.128Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 1,
+  "restHash": "bf33b69cc1ccc188",
+  "playedHash": "9233bd2796e0c0bd"
+ }
+}

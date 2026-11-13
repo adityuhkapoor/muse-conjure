@@ -1,0 +1,38 @@
+{
+  "id": "alarm-box",
+  "name": "Alarm box",
+  "surface": "messenger",
+  "summary": "The group writes a tune on a drawn music box: tap the brass drum to set pins in your colour on a grid of 16 steps by 8 notes, crank it and the drum turns for everyone, pins pluck the comb and little notes float up, and when it sounds right the group sets it as the friend's next alarm.",
+  "useWhen": [
+    "let's write calvin a new alarm he can't sleep through",
+    "make a little song together in the chat",
+    "group ringtone for the apartment",
+    "compose something silly with everyone",
+    "music box where we each add notes"
+  ],
+  "dontUseWhen": [
+    "picking songs for a playlist (use sound-crate)",
+    "waking someone up with a game (use seven-alarms)",
+    "a real reminder at a time (use reminder)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Calvin's alarm 8'" },
+      "sub": { "type": "string", "description": "Line under the title, e.g. 'a tune he can't sleep through'" },
+      "owner": { "type": "string", "description": "Whose alarm or tune it becomes" },
+      "pins": {
+        "type": "array",
+        "description": "Pins friends already set: name, step 1 to 16, note 1 (low) to 8 (high); up to 12 each",
+        "items": { "type": "object", "properties": { "name": { "type": "string" }, "step": { "type": "integer" }, "note": { "type": "integer" } }, "required": ["name", "step", "note"] }
+      },
+      "said": {
+        "type": "array",
+        "description": "Up to 4 lines from friends about the tune so far",
+        "items": { "type": "object", "properties": { "name": { "type": "string" }, "text": { "type": "string" } }, "required": ["name", "text"] }
+      }
+    },
+    "required": ["pins"]
+  },
+  "height": 380
+}

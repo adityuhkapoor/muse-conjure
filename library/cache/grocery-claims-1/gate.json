@@ -1,0 +1,71 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"item ids are unique and labels are unique ignoring case\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"each item has one holder or none\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the title never changes\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.7,
+  "typecheck": 74.9,
+  "static": 1.6,
+  "determinism": 178.5,
+  "invariants": 396,
+  "mutation": 467.7,
+  "render": 1002.9,
+  "copy": 1.1,
+  "render.browser": 0,
+  "render.mount": 50,
+  "render.taps": 325,
+  "render.lint": 951,
+  "render.axe": 996,
+  "render.total": 1003,
+  "total": 1045.2
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 15,
+  "inert": 4,
+  "killed": 15,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "every claimed item is held by someone in the chat": 3,
+   "item ids are unique and labels are unique ignoring case": 0,
+   "at most 12 items, each label 1 to 40 characters and trimmed": 3,
+   "each item has one holder or none": 0,
+   "a claim gives that open item to the actor and changes no other item": 5,
+   "a release opens only an item the actor held and changes no other item": 3,
+   "an add appends one open item last and leaves the others as they were": 1,
+   "a claim never takes an item someone else holds": 3,
+   "only people in the chat change anything": 2,
+   "the title never changes": 0
+  },
+  "survivors": []
+ },
+ "weak": [
+  "item ids are unique and labels are unique ignoring case",
+  "each item has one holder or none",
+  "the title never changes"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

@@ -1,0 +1,30 @@
+{
+  "id": "wish-you-were-here",
+  "name": "Wish you were here",
+  "surface": "feed",
+  "summary": "The poster's view drawn wide (a beach, a park or a snowy hill) with empty towels, blankets or sleds; friends tap one to jump in as a little figure with their face, something they brought and a line.",
+  "useWhen": [
+    "wish you were here",
+    "beach day without u guys is weird",
+    "having fun in south america eating tostadas, yall should be here",
+    "view from the top, get up here",
+    "picnic in the park, room for more"
+  ],
+  "dontUseWhen": [
+    "actually planning a trip or a day out (use trip-lock or coaster-lock)",
+    "a group photo plan (use group-photo-frame)",
+    "a postcard to sign (use postcard-sign)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "author": { "type": "string", "description": "Who posted; they stand in the middle of the picture" },
+      "place": { "type": "string", "description": "Where they are" },
+      "scene": { "type": "string", "enum": ["beach", "park", "snow"], "description": "Which picture to draw; pick the closest" },
+      "line": { "type": "string", "description": "The post's own line" },
+      "joined": { "type": "array", "items": { "type": "object", "properties": { "who": { "type": "string" }, "spot": { "type": "integer", "minimum": 0, "maximum": 5 }, "prop": { "type": "string", "enum": ["umbrella", "ball", "cooler", "guitar", "car", "kite"] }, "said": { "type": "string" } }, "required": ["who", "spot", "prop"] }, "description": "Friends already in the picture: their spot (0 to 5), what they brought and their line" }
+    },
+    "required": ["author", "scene"]
+  },
+  "height": 344
+}

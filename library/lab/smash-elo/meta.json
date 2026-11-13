@@ -1,0 +1,11 @@
+{
+  "id": "smash-elo",
+  "name": "Smash ladder",
+  "origin": { "crate": "apps4", "id": "smash-elo" },
+  "surface": "gaming",
+  "summary": "An Elo ladder for a game the group plays, built from who beat who; log a set and the ratings move and rows re-sort.",
+  "useWhen": ["a chat that keeps arguing who is best at a game: 'gg i won', 'run it back', 'I'm the best here'", "head-to-head results between 2-12 friends"],
+  "dontUseWhen": ["one game's score right now (use a scoreboard)", "a single-elimination tournament (use movie-bracket)", "a streak or daily habit (use gym)"],
+  "params": { "title": "string", "logged": "how many results were found in the chat", "players": "2-12 x {name, main, stock: fox|sword|orb|block|puff|bolt, elo 1000-2000}", "wins": "n x n sets row beat column", "claim": "{who, text} or null" },
+  "height": 404
+}

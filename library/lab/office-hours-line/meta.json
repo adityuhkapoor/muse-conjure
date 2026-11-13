@@ -1,0 +1,32 @@
+{
+  "id": "office-hours-line",
+  "name": "Office hours line",
+  "surface": "group",
+  "summary": "The hallway outside a professor's door with the office hours line drawn as little students with backpacks and what they came to ask; join with your question and walk in at the back with your wait, the line shuffles forward when the door opens, and the door opens on you at your turn.",
+  "useWhen": [
+    "office hours are a zoo before the project's due",
+    "how long is the line at okafor's office hours",
+    "is anyone at TA hours right now",
+    "save me a spot in line for office hours",
+    "who's going to office hours today"
+  ],
+  "dontUseWhen": [
+    "booking a fixed meeting time (use meeting-time)",
+    "a study group's notes or schedule (use notes-relay)",
+    "a queue for a shared shower or washer at home"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Office hours line'" },
+      "course": { "type": "string", "description": "Course or group, e.g. 'CS 201 · Fall'" },
+      "prof": { "type": "string", "description": "Who holds the hours, e.g. 'Prof. Okafor'" },
+      "where": { "type": "string", "description": "Room and hours, as said, e.g. 'Larkin 214 · 3 to 5'" },
+      "minutes": { "type": "integer", "description": "Minutes per person, for the wait estimate" },
+      "topics": { "type": "array", "items": { "type": "string" }, "description": "Up to 4 short things people come to ask, as chips" },
+      "line": { "type": "array", "description": "The line now, front first; the first is inside the office", "items": { "type": "object", "properties": { "name": { "type": "string", "description": "Name; chat members are matched by name" }, "said": { "type": "string", "description": "What they're asking, in their words" } }, "required": ["name"] } }
+    },
+    "required": ["prof", "line"]
+  },
+  "height": 364
+}

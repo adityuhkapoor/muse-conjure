@@ -1,0 +1,76 @@
+{
+ "id": "budget-cap-2",
+ "ask": "split?",
+ "kind": "budget-cap",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Group members each pick one spending limit from four fixed amounts ($15, $20, $25, $30), and the tool shows vote counts and the middle pick.",
+ "use_when": [
+  "A group needs to agree on a spending limit for a gift exchange",
+  "Everyone should pick one price from a short fixed list",
+  "You want to see the middle choice and who has not picked yet"
+ ],
+ "dont_use_when": [
+  "The group needs to split a bill or share a cost between people",
+  "Options are free text or a custom amount rather than fixed prices",
+  "The group needs to draw names or assign who gives to whom"
+ ],
+ "keywords": [
+  "budget vote",
+  "spending limit",
+  "price cap",
+  "gift budget",
+  "secret santa",
+  "gift exchange",
+  "poll",
+  "vote",
+  "median",
+  "price limit",
+  "group decision",
+  "pick amount"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 7
+ },
+ "mutation_score": 0.83,
+ "height": 368,
+ "params": {
+  "names": [],
+  "options": [],
+  "blanks": [
+   "Exchange Sunday the 14th at the lounge"
+  ],
+  "numbers": [
+   1500,
+   2000,
+   2500,
+   3000
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "secret santa 2026 (dorm 4b)",
+  "members": [
+   "Felix",
+   "Theo",
+   "Kev",
+   "Gabe",
+   "Rhea",
+   "Leo",
+   "Naomi"
+  ],
+  "text": "ok secret santa spending limit, we cant do it like last year\nlast year somebody got a 60 dollar candle and i got socks\nlmaooo that was me, sorry kev\ni vote 15\n15 is nothing, u cant even get a decent mug\ni can do 25 tops\n25 is fine but i have 3 other gift things this month\ni was thinking 20\nhonestly 20 works for me\nim ok with 30 but i dont mind going lower\nok 20 i guess but not higher\ni said 15 is nothing so like 25?\n25 or 20 either works tbh\ncan we do the exchange sunday the 14th at the lounge\nyeah sunday works, after my orgo final\nbring snacks pls\ni'll grab the chick fil a trays\nok but the budget thing, we r all over the place\nyeah everybody said something different\ni cant keep track who said what lol\nrhea 15, leo 25, naomi 25 maybe 20, felix 20, kev 20, gabe 30\nok so whats the actual middle\nmuse split?"
+ },
+ "seconds": 68.3,
+ "attempts": 1,
+ "created": "2026-11-13T04:06:11.769Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 4,
+  "restHash": "bff0363e30867270",
+  "playedHash": "b131ce1e318576ce"
+ }
+}

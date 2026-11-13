@@ -1,0 +1,76 @@
+{
+ "id": "carpool-seats-1",
+ "ask": "mkae a seat pickr for the cars plz",
+ "kind": "carpool-seats",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Shows each car with its seats so group members can tap an open seat to claim it or tap their own seat to give it up, with drivers fixed in the first seat.",
+ "use_when": [
+  "a group is splitting up into several cars for a trip and needs to pick seats",
+  "people want to see who is in which car and how many seats are open",
+  "a quick check of who still has no ride is needed",
+  "a road trip or event needs a shared seat sign-up"
+ ],
+ "dont_use_when": [
+  "people just need a yes or no on who is coming, which needs an RSVP or poll",
+  "the group needs to split costs like gas or tolls, which needs an expense splitter",
+  "seats are assigned for an event venue or a table, not for cars"
+ ],
+ "keywords": [
+  "carpool",
+  "seat picker",
+  "car seats",
+  "ride share",
+  "road trip",
+  "who is riding",
+  "seat sign-up",
+  "cars",
+  "drivers",
+  "open seats",
+  "transport",
+  "seating"
+ ],
+ "members": {
+  "min": 2,
+  "max": 20,
+  "original": 7
+ },
+ "mutation_score": 1,
+ "height": 328,
+ "params": {
+  "names": [
+   "Rhea",
+   "Sam",
+   "Jake"
+  ],
+  "options": [],
+  "blanks": [],
+  "numbers": [
+   6
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "away game @ ohio state sat",
+  "members": [
+   "June",
+   "Rhea",
+   "Sam",
+   "Lily",
+   "Jake",
+   "Felix",
+   "Leo"
+  ],
+  "text": "ok so for saturday, who's driving to columbus\ni can drive, i have the subaru. fits me + 3 more\nmy car is a civic so only 3 total including me lol\ni dont have a car rn its in the shop\ni can take my moms minivan, 6 seats total w me\nwait is the minivan actually coming\nyea she said ok as long as i fill it up\nill chip in for gas ngl\nok so thats rhea 4, sam 3, jake 6\nwe're leaving at 8am from the quad tho dont be late\n8?? kickoff is at 3\ntailgate bro\nok fair\ni wanna be in the minivan so i can sleep\nsame lol\nfirst come first serve then\ni dont care where i sit just not the middle\ntheres 7 of us in the chat and 13 seats so we have room\nand maybe a couple others from the dorm are coming too\noh true. how many\nprob 2 or 3\nok so we need to actually figure this out\ni dont wanna do it in the chat its gonna be a mess\nsomeone just make a sign up thing\nyeah people just claim a seat in a car\nya\nmuse mkae a seat pickr for the cars plz"
+ },
+ "seconds": 64.6,
+ "attempts": 1,
+ "created": "2026-11-13T03:37:05.586Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 12,
+  "restHash": "bb26b732a0735e11",
+  "playedHash": "ac049b37e573da60"
+ }
+}

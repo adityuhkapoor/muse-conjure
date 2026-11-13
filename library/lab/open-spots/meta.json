@@ -1,0 +1,11 @@
+{
+  "id": "open-spots",
+  "name": "Open spots",
+  "origin": { "crate": "apps10", "id": "open-spots" },
+  "surface": "event",
+  "summary": "A plan with a few open spots: requests come in with mutual friends and a note, the host accepts or declines, and spots fill.",
+  "useWhen": ["a plan with a fixed number of places that friends of friends can ask to join", "'we have 3 spots on the hike', 'anyone can ask, Maya decides', 'open it up'"],
+  "dontUseWhen": ["everyone in the chat is invited and you need a headcount (use squad-lock)", "seats in cars (use event-carpool)"],
+  "params": { "title": "string", "when": "string", "going": "names already going, host first", "spots": "open spots 1-8", "requests": "[{name, meta, mutuals: names, note}] from outside the chat" },
+  "height": 366
+}

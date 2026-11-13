@@ -1,0 +1,48 @@
+{
+  "id": "midnight-route",
+  "name": "Midnight route",
+  "surface": "event",
+  "summary": "A New Year's Eve with three parties drawn as a clock face from the first stop to midnight: each party is an arc as long as the stay, walks are dotted, the roof deadline is a flag; drag a stop around the dial to reorder, the times reflow and the faces walk the new route, then save it to the event.",
+  "useWhen": [
+    "nye we have 3 parties and need to be on the roof by 11:50",
+    "what order do we hit the parties in tonight",
+    "plan the route between maya's, larkin and kettle before midnight",
+    "party hopping schedule for new years",
+    "can we make all three parties and still see the countdown"
+  ],
+  "dontUseWhen": [
+    "picking one party out of several (use plan-spinner)",
+    "rides to one event (use event-carpool)",
+    "finding a time everyone is free (use meeting-time)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'New Year's Eve · three parties'" },
+      "start": { "type": "string", "description": "When the night starts, 24-hour, e.g. '21:00'; the dial covers 3 hours from here" },
+      "roof": {
+        "type": "object",
+        "description": "Where everyone must be and by when",
+        "properties": { "name": { "type": "string", "description": "e.g. 'Larkin roof'" }, "by": { "type": "string", "description": "24-hour, e.g. '23:50'" } }
+      },
+      "stops": {
+        "type": "array",
+        "description": "Exactly 3 parties in the current (maybe late) order",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string", "description": "Where it is" },
+            "host": { "type": "string", "description": "Whose party, e.g. 'Arun's lab'" },
+            "stay": { "type": "number", "description": "Minutes to stay" },
+            "toRoof": { "type": "number", "description": "Walking minutes from here to the roof" }
+          },
+          "required": ["name", "stay", "toRoof"]
+        }
+      },
+      "walks": { "type": "array", "items": { "type": "number" }, "description": "Walking minutes between the parties: [first-second, first-third, second-third]" },
+      "going": { "type": "array", "items": { "type": "string" }, "description": "Who is going, by first name" }
+    },
+    "required": ["stops", "walks", "roof"]
+  },
+  "height": 386
+}

@@ -1,0 +1,73 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"at most 10 bills and 12 payments\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"only a bill's payer removes it, and exactly that bill goes\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a pay never exceeds what the actor owed that person before\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.5,
+  "typecheck": 90,
+  "static": 4.1,
+  "determinism": 89,
+  "invariants": 250.6,
+  "mutation": 378.8,
+  "render": 911.7,
+  "copy": 2.8,
+  "render.browser": 0,
+  "render.mount": 33,
+  "render.taps": 246,
+  "render.lint": 865,
+  "render.axe": 906,
+  "render.total": 912,
+  "total": 986.3
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 14,
+  "inert": 3,
+  "killed": 14,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "every bill has whole cents above zero, a unique id and a label of 1 to 40 characters": 3,
+   "every bill payer is in the chat": 4,
+   "skip lists have no duplicates, no payer, no one outside the chat, and never cover everyone": 6,
+   "each bill's shares add up to its cents and net balances add up to zero": 1,
+   "every payment is whole cents between two different people in the chat": 2,
+   "at most 10 bills and 12 payments": 0,
+   "a skip flips only the actor on that bill and changes nothing else": 4,
+   "an add appends one bill last, paid by the actor, with the cents asked": 1,
+   "only a bill's payer removes it, and exactly that bill goes": 0,
+   "a pay appends one payment from the actor and leaves the bills alone": 1,
+   "a pay never exceeds what the actor owed that person before": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "at most 10 bills and 12 payments",
+  "only a bill's payer removes it, and exactly that bill goes",
+  "a pay never exceeds what the actor owed that person before"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

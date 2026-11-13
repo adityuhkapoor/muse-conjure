@@ -1,0 +1,11 @@
+{
+  "id": "hinge-rate",
+  "name": "Rate the matches",
+  "origin": { "crate": "apps4", "id": "hinge-rate" },
+  "surface": "messenger",
+  "summary": "Friends rate someone's dating matches on drawn profile cards: their takes swing a red-to-green flag meter and a flag on each card gives the verdict.",
+  "useWhen": ["a friend shares dating matches or a profile and asks the chat what they think", "'rate my matches', 'red flag or green flag', 'should I text him back'"],
+  "dontUseWhen": ["real photos of real strangers are the point (never draw a real person)", "a plain yes/no poll", "rating places or things (use tier-list)"],
+  "params": { "subject": "whose matches, first name", "profiles": "1-3 x {name, age, info, prompt, answer, look, takes: up to 4 x {who, text, weight -20..20, at ms}}" },
+  "height": 404
+}

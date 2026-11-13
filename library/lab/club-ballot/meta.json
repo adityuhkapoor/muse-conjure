@@ -1,0 +1,33 @@
+{
+  "id": "club-ballot",
+  "name": "Club ballot",
+  "surface": "group",
+  "summary": "A ranked-choice club election drawn as climbing walls: members tap the candidates in order and drop the slip in the box; on close the count plays as a climb, the last climber drops off and their ballots fly to next choices until someone tops out past half.",
+  "useWhen": [
+    "club elections for president next week, 3 people running",
+    "can we do ranked choice for the board vote",
+    "vote for next year's captain",
+    "who's running for treasurer, how do we vote",
+    "set up the officer election for the climbing club"
+  ],
+  "dontUseWhen": [
+    "a quick poll on where to eat (use a poll)",
+    "picking one plan by luck (use plan-spinner)",
+    "ranking lots of options for fun (use tier-list)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Climbing club election'" },
+      "club": { "type": "string", "description": "Club or group name, e.g. 'Eastfield Climbing Club'" },
+      "members": { "type": "integer", "description": "Members in the whole group, e.g. 212" },
+      "role": { "type": "string", "description": "The office being elected, e.g. 'President'" },
+      "closes": { "type": "string", "description": "When voting closes, as said, e.g. 'Fri 6pm'" },
+      "candidates": { "type": "array", "description": "2 to 4 candidates", "items": { "type": "object", "properties": { "name": { "type": "string", "description": "First name" }, "pitch": { "type": "string", "description": "One-line pitch in their words" } }, "required": ["name"] } },
+      "outside": { "type": "array", "description": "Ballots already in from members outside the chat", "items": { "type": "object", "properties": { "rank": { "type": "array", "items": { "type": "string" }, "description": "Candidate names, first choice first" }, "n": { "type": "integer", "description": "How many ballots ranked it this way" } } } },
+      "voted": { "type": "array", "description": "Chat friends who already voted", "items": { "type": "object", "properties": { "name": { "type": "string", "description": "Their name as in the chat" }, "rank": { "type": "array", "items": { "type": "string" }, "description": "Their ranking by candidate name (kept secret)" }, "said": { "type": "string", "description": "What they said about it, in their words" } } } }
+    },
+    "required": ["candidates"]
+  },
+  "height": 380
+}

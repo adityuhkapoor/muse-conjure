@@ -1,0 +1,25 @@
+{
+  "id": "room-fit",
+  "name": "Will it fit",
+  "origin": { "crate": "apps13", "id": "room-fit" },
+  "surface": "marketplace",
+  "summary": "Drop Marketplace finds onto a floor plan of the room to see what fits.",
+  "useWhen": ["roommates checking whether furniture from listings fits their room", "'will this couch even fit', 'measure the room before we buy', 'plan the dorm layout with these finds'"],
+  "dontUseWhen": ["choosing between listings by vote (use group-buy)", "splitting the cost of one item (use split-purchase)", "no room size or item sizes known"],
+  "params": { "type": "object", "properties": {
+    "room": { "type": "string", "description": "Room name, short: 'Unit 4B'" },
+    "cols": { "type": "integer", "description": "Room width in feet, 6 to 16" },
+    "rows": { "type": "integer", "description": "Room depth in feet, 4 to 10" },
+    "fixed": { "type": "array", "maxItems": 3, "items": { "type": "object", "properties": {
+      "label": { "type": "string" }, "kind": { "type": "string", "enum": ["bed", "closet", "counter"] },
+      "x": { "type": "integer" }, "y": { "type": "integer" }, "w": { "type": "integer" }, "h": { "type": "integer" } },
+      "required": ["label", "kind", "x", "y", "w", "h"], "additionalProperties": false }, "description": "What is already in the room, in feet from the top left" },
+    "finds": { "type": "array", "maxItems": 8, "items": { "type": "object", "properties": {
+      "name": { "type": "string", "description": "Short: 'Couch'" }, "priceCents": { "type": "integer" },
+      "w": { "type": "integer", "description": "Width in feet, 1 to 6" }, "h": { "type": "integer", "description": "Depth in feet, 1 to 4" },
+      "by": { "type": "string", "description": "Who found it, exactly as in the members list" },
+      "at": { "type": ["array", "null"], "items": { "type": "integer" }, "description": "[x, y] if already placed, else null" } },
+      "required": ["name", "priceCents", "w", "h", "by", "at"], "additionalProperties": false } } },
+    "required": ["room", "cols", "rows", "fixed", "finds"], "additionalProperties": false },
+  "height": 396
+}

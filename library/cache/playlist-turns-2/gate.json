@@ -1,0 +1,78 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"songs left this turn is a whole number from 1 to the cap\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the playlist has unique ids and titles, each 1 to 40 characters, at most 40 songs\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"an add appends one song by the actor with the cleaned title and changes no earlier song\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1,
+  "typecheck": 64.7,
+  "static": 2.3,
+  "determinism": 44.4,
+  "invariants": 85.7,
+  "mutation": 146.4,
+  "render": 883.2,
+  "copy": 1.3,
+  "render.browser": 0,
+  "render.mount": 36,
+  "render.taps": 223,
+  "render.lint": 833,
+  "render.axe": 875,
+  "render.total": 883,
+  "total": 931.5
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 15,
+  "inert": 4,
+  "killed": 14,
+  "score": 0.93,
+  "threshold": 0.8,
+  "kills": {
+   "the turn belongs to someone in the order, or both are empty": 1,
+   "the order has no repeats and everyone in it is in the chat": 2,
+   "everyone in the chat has a place in the order": 2,
+   "songs left this turn is a whole number from 1 to the cap": 0,
+   "the playlist has unique ids and titles, each 1 to 40 characters, at most 40 songs": 0,
+   "an add appends one song by the actor with the cleaned title and changes no earlier song": 0,
+   "an add comes only from the person on turn, and spends one song or passes the turn": 6,
+   "a pass comes only from the person on turn, moves to the next person and keeps the songs": 3,
+   "a remove deletes exactly one song, and it was the actor's": 2,
+   "only people in the chat change anything": 1
+  },
+  "survivors": [
+   {
+    "op": "off-by-one",
+    "line": 75,
+    "before": "1",
+    "after": "2"
+   }
+  ]
+ },
+ "weak": [
+  "songs left this turn is a whole number from 1 to the cap",
+  "the playlist has unique ids and titles, each 1 to 40 characters, at most 40 songs",
+  "an add appends one song by the actor with the cleaned title and changes no earlier song"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

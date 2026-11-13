@@ -1,0 +1,80 @@
+{
+ "id": "guess-who-1",
+ "ask": "guess who",
+ "kind": "guess-who",
+ "family": "game",
+ "surface": "chat",
+ "sentence": "A card game where clues about one person in the chat are shown one at a time, and everyone else guesses who it is, scoring more points for guessing with fewer clues.",
+ "use_when": [
+  "The group wants a quick guessing game about people in the chat",
+  "Someone asks to play guess who with clues",
+  "The group wants a light icebreaker where friends are the subject",
+  "People want a game with scores across several rounds"
+ ],
+ "dont_use_when": [
+  "The group needs a board game or a two player match",
+  "The group wants a poll or a vote on a decision",
+  "The group wants trivia or quiz questions about general topics"
+ ],
+ "keywords": [
+  "guess who",
+  "guessing game",
+  "clues",
+  "party game",
+  "icebreaker",
+  "card game",
+  "who is it",
+  "score",
+  "rounds",
+  "chat game",
+  "friends",
+  "trivia about people"
+ ],
+ "members": {
+  "min": 3,
+  "max": 8,
+  "original": 6
+ },
+ "mutation_score": 1,
+ "height": 168,
+ "params": {
+  "names": [
+   "Leo",
+   "Abby",
+   "Felix",
+   "Owen",
+   "Jalen",
+   "Tess"
+  ],
+  "options": [
+   "Guess who",
+   "Missed the bus to the away game",
+   "At the rock wall til 9"
+  ],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "dining hall fridge crew",
+  "members": [
+   "Leo",
+   "Abby",
+   "Felix",
+   "Owen",
+   "Jalen",
+   "Tess"
+  ],
+  "text": "ok who left a whole rotisserie chicken in the dining hall fridge again\nnot me i was at the rock wall til 9\nits owen's he does it every week\nit was on sale at trader joes ok i have a plan for it\nowen's plan is always chicken and then he sleeps thru his 8am\none time jalen. ONE\nlol jalen is the one who sleeps thru everything, he missed the bus to the away game\ni was in a hoodie tess not a bathrobe\nsure\nabby u still climbing tn? u said u'd get the purple route\nyes i finally sent the purple one on tuesday, tess watched\ni did, she screamed so loud the guy at the desk came over\ni cant climb im broke, i been doing nothing but shifts at the campus coffee place\nfelix knows everyones order. abby oat latte, tess just black\nand leo gets the dumb pumpkin thing w 3 shots\nits seasonal felix\nleo also has the yellow rain jacket he wears literally every day even when its sunny\nthe yellow jacket is iconic tho\ni got my cat biscuit a tiny sweater dont judge\nbiscuit has more clothes than all of us\nok idea we do a guess who game w the stuff we said\nyes clues get harder, fewer clues = more points\nmuse guess who"
+ },
+ "seconds": 279.4,
+ "attempts": 1,
+ "created": "2026-11-13T03:02:24.227Z",
+ "second_look": {
+  "endStep": 7,
+  "endReason": "reached round.revealed = true",
+  "controls": 1,
+  "restHash": "877cfc0721f8e183",
+  "playedHash": "8f3ddf8a80267cc8"
+ }
+}

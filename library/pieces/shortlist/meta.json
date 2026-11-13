@@ -1,0 +1,93 @@
+{
+  "id": "shortlist",
+  "name": "Shortlist (save or skip a stack of candidates)",
+  "use_when": [
+    "several listings or candidates to go through one by one: sublets, apartments, couches, used cars, venues",
+    "'shortlist', 'swipe through these', 'save the ones you like', 'narrow down the listings'",
+    "each person saves or skips every candidate on their own, and the group sees which ones got the most saves"
+  ],
+  "dont_use_when": [
+    "the group picks one option by vote (use poll)",
+    "knocking options out until one is left (use veto)",
+    "head to head rounds (use bracket)",
+    "rating a single thing (use rate)"
+  ],
+  "keywords": [
+    "shortlist",
+    "swipe",
+    "save",
+    "saved",
+    "listing",
+    "listings",
+    "sublet",
+    "sublets",
+    "apartment",
+    "apartments",
+    "couch",
+    "couches",
+    "marketplace",
+    "candidates",
+    "narrow",
+    "browse",
+    "housing",
+    "lease",
+    "places",
+    "skip"
+  ],
+  "guarantees": [
+    "each person has one answer per candidate, save or skip; answering again changes it",
+    "where you are in the stack comes from your answers, the same on every device",
+    "the shortlist ranks by saves, ties in the order the candidates were posted",
+    "the candidates never change; a leaver's answers go, a late joiner gets the whole stack"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "description": "Card title, e.g. 'Summer sublets'"
+      },
+      "items": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "title": {
+              "type": "string",
+              "description": "Short name, e.g. 'Mission 2br'"
+            },
+            "cents": {
+              "type": "integer",
+              "description": "Price in cents ($1,450 is 145000), 0 if none"
+            },
+            "detail": {
+              "type": "string",
+              "description": "One line of facts from the chat, joined with ' · '"
+            }
+          },
+          "required": ["title", "cents", "detail"],
+          "additionalProperties": false
+        },
+        "description": "Candidates from the chat, 2 to 12"
+      },
+      "unit": {
+        "type": "string",
+        "description": "Price suffix: '/mo', '/night' or ''"
+      }
+    },
+    "required": ["title", "items", "unit"],
+    "additionalProperties": false
+  },
+  "examples": [
+    {
+      "title": "Couch for the new place",
+      "items": [
+        { "title": "West Elm sofa", "cents": 30000, "detail": "Grey · Berkeley · seller can't deliver" },
+        { "title": "Green velvet couch", "cents": 18000, "detail": "Oakland · small stain on one arm" },
+        { "title": "IKEA sectional", "cents": 22500, "detail": "Fits 5 · Albany · pickup this weekend" },
+        { "title": "Leather loveseat", "cents": 9500, "detail": "Kev's friend is moving out" }
+      ],
+      "unit": ""
+    }
+  ]
+}

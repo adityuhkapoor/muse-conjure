@@ -1,0 +1,75 @@
+{
+ "id": "twenty-questions-2",
+ "ask": "20 questions?",
+ "kind": "twenty-questions",
+ "family": "game",
+ "surface": "chat",
+ "sentence": "A guessing game where one randomly picked chat member secretly chooses another member, and the rest ask up to 20 yes or no questions or guess who it is.",
+ "use_when": [
+  "The group wants a quick guessing game about people in the chat",
+  "Someone asks for 20 questions or a who-is-it game",
+  "A group in a car or waiting around needs a simple word-free party game"
+ ],
+ "dont_use_when": [
+  "The group wants to guess an object, animal, or word that is not a chat member",
+  "Only one person is available, since it needs a holder and at least one guesser",
+  "The group wants a vote, poll, or scored trivia quiz"
+ ],
+ "keywords": [
+  "20 questions",
+  "guessing game",
+  "yes or no",
+  "who am i",
+  "guess who",
+  "party game",
+  "twenty questions",
+  "question game",
+  "secret person",
+  "icebreaker",
+  "group game",
+  "turn-based"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 7
+ },
+ "mutation_score": 0.93,
+ "height": 152,
+ "params": {
+  "names": [
+   "Naomi"
+  ],
+  "options": [
+   "20 questions"
+  ],
+  "blanks": [],
+  "numbers": [
+   20
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "cabin weekend",
+  "members": [
+   "Ana",
+   "Omar",
+   "Maya",
+   "Naomi",
+   "Dani",
+   "Abby",
+   "Mia"
+  ],
+  "text": "cabin is like 3 hrs from campus lol\ni call shotgun\nno ur driving omar\n...fair\nwe need car games or ill die\nnot the license plate one\nok what about guess the person\nlike someone picks one of us and we ask yes no\n20 questions!!\nya but only people in this chat, no celebs\nlast time omar picked his ex roommate nobody knew him\nhe was iconic\nlol no. only us 7\nand only yes or no, no explaining\ni'll go first as the holder\nno u always pick ana\ni do NOT\nshe does\nok let it be random who holds it\nand a tally of how many qs we used\ncant be on my phone while driving tho so someone else reads\ni'll read\nok leaving at 4 so get in the chat\nbring snacks\ni got takis\nmuse 20 questions?"
+ },
+ "seconds": 219.4,
+ "attempts": 1,
+ "created": "2026-11-13T04:36:49.373Z",
+ "second_look": {
+  "endStep": 3,
+  "endReason": "reached phase = over",
+  "controls": 1,
+  "restHash": "be943e3ec06bc161",
+  "playedHash": "9f1cf0e3c3f0c107"
+ }
+}

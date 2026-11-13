@@ -1,0 +1,77 @@
+{
+ "id": "quorum-decision-1",
+ "ask": "can u make a poll for this, yes or no on booking the cabin, needs 4 of 7 yes before anyone pays",
+ "kind": "quorum-decision",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A yes or no vote on one group decision that locks as soon as a set number of yes votes is reached, so nobody commits money before then.",
+ "use_when": [
+  "The group needs enough yes votes before anyone pays for a booking or purchase",
+  "You want a simple yes or no on one proposal with a minimum number of yes votes",
+  "Someone will book or buy once the group has agreed, and you want the vote to lock at that point"
+ ],
+ "dont_use_when": [
+  "The group is choosing between several options or dates",
+  "You need to split costs or track who has paid",
+  "You want a simple majority or a vote that stays open after a result"
+ ],
+ "keywords": [
+  "yes no poll",
+  "quorum vote",
+  "poll",
+  "vote",
+  "group decision",
+  "minimum yes",
+  "book trip",
+  "cabin booking",
+  "lock vote",
+  "threshold vote",
+  "approval",
+  "go or no go"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 7
+ },
+ "mutation_score": 1,
+ "height": 278,
+ "params": {
+  "names": [
+   "Naomi"
+  ],
+  "options": [],
+  "blanks": [],
+  "numbers": [
+   840,
+   6,
+   8,
+   120,
+   7
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "lake tahoe cabin weekend",
+  "members": [
+   "Naomi",
+   "Eli",
+   "Rohan",
+   "Omar",
+   "Marcus",
+   "Tyler",
+   "Jess"
+  ],
+  "text": "ok so the cabin in tahoe is 840 for the weekend of dec 6-8\nthats like 120 each if all 7 of us go\nthats actually fine\ni have a midterm that monday tho\nbro its the weekend before finals thing, we need this\ni'm in if we get the one with the hot tub\nit has the hot tub yes\ni'm probably in but i gotta ask my mom for money lol\nthey said the listing holds till friday\nok so who's actually saying yes tho\ni'd say yes if its a majority idk\nsame, not booking if only like 3 of us want to\nyeah we need most ppl or its 200 each\nfair, nobody pays til we know\nok good lol\nsomebody has to book by friday tho\nnaomi can book if it passes\nyeah i will\nmuse can u make a poll for this, yes or no on booking the cabin, needs 4 of 7 yes before anyone pays"
+ },
+ "seconds": 49.3,
+ "attempts": 1,
+ "created": "2026-11-13T03:36:21.198Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 2,
+  "restHash": "9d1e381bc59be720",
+  "playedHash": "9e1a9dbd8f420ac5"
+ }
+}

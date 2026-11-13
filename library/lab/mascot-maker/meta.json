@@ -1,0 +1,29 @@
+{
+  "id": "mascot-maker",
+  "name": "Mascot maker",
+  "surface": "group",
+  "summary": "The club builds its mascot one part each: a drawn critter with callout tags for critter, color, eyes, headgear and what it's holding, each showing who picked it; tap an open tag, flip through drawn options with a live preview, lock it in and it pops on, and the finished mascot hops and gets its name.",
+  "useWhen": [
+    "we need a mascot for the club",
+    "design a team mascot together",
+    "what should our club's sticker character look like",
+    "let's make a mascot for the comp banner",
+    "everyone pick one thing for the mascot"
+  ],
+  "dontUseWhen": [
+    "voting on a club logo from finished options (use a poll)",
+    "a pixel sprite of yourself (use sprite-maker)",
+    "a group quilt of squares (use group-quilt)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Mascot maker'" },
+      "club": { "type": "string", "description": "Club name, e.g. 'Eastfield Climbing Club'" },
+      "name": { "type": "string", "description": "The mascot's name once finished, e.g. 'Crimpy'" },
+      "picks": { "type": "array", "description": "Parts already picked", "items": { "type": "object", "properties": { "slot": { "type": "string", "enum": ["animal", "color", "eyes", "head", "hold"], "description": "Which part" }, "option": { "type": "string", "description": "animal: Goat, Frog, Bear, Blob; color: Green, Orange, Purple, Blue; eyes: Dots, Googly, Sleepy, Starry; head: Helmet, Beanie, Headlamp, Nothing; hold: Chalk bag, Rope, Rice cooker, Flag" }, "by": { "type": "string", "description": "Who picked it, by name" }, "said": { "type": "string", "description": "What they said, in their words" } }, "required": ["slot", "option", "by"] } }
+    },
+    "required": ["club"]
+  },
+  "height": 368
+}

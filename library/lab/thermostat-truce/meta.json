@@ -1,0 +1,39 @@
+{
+  "id": "thermostat-truce",
+  "name": "Thermostat truce",
+  "surface": "messenger",
+  "summary": "A big round thermostat with every roommate's preferred temperature as a face on the dial. Drag it to a truce for the day and one for the night (a ring around it shows when night starts); everyone taps Agree and the dial clicks locked.",
+  "useWhen": [
+    "roommates fighting over the thermostat: 'why is it 64 in here'",
+    "can we agree on a temp for the apartment, will keeps cranking it",
+    "heat or AC setting for the house, cooler at night",
+    "someone keeps changing the thermostat while i sleep",
+    "settle the temperature war before the gas bill"
+  ],
+  "dontUseWhen": [
+    "splitting the heating bill (use utilities-split)",
+    "agreeing on quiet hours (use quiet-clock)",
+    "a plain vote between a few options (use a poll)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Thermostat truce'" },
+      "sub": { "type": "string", "description": "The line that started it, e.g. 'Maya: “why is it 64 in here”'" },
+      "min": { "type": "integer", "description": "Lowest temperature on the dial, e.g. 60" },
+      "max": { "type": "integer", "description": "Highest temperature on the dial, e.g. 80" },
+      "nightFrom": { "type": "integer", "description": "Hour night starts, 0 to 23 (0 is midnight)" },
+      "nightTo": { "type": "integer", "description": "Hour night ends, 0 to 23" },
+      "prefs": {
+        "type": "array",
+        "description": "Each person's preferred temperature, with their own words as note; visiting true means a guest who does not need to agree",
+        "items": { "type": "object", "properties": { "who": { "type": "string" }, "temp": { "type": "integer" }, "note": { "type": "string" }, "visiting": { "type": "boolean" } }, "required": ["who", "temp"] }
+      },
+      "day": { "type": "integer", "description": "The day truce on the table now" },
+      "night": { "type": "integer", "description": "The night truce on the table now" },
+      "agreed": { "type": "array", "items": { "type": "string" }, "description": "Names of who already agreed to that truce" }
+    },
+    "required": ["prefs"]
+  },
+  "height": 400
+}

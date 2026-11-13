@@ -1,0 +1,30 @@
+{
+  "id": "come-find-me",
+  "name": "Come find me",
+  "surface": "feed",
+  "summary": "A radar around where the poster is right now with rings for 5, 15 and 30 minutes away; friends tap their ring and hit On my way, and their face walks in along a dotted line with the minutes left.",
+  "useWhen": [
+    "at kettle & crumb till 4 come say hi",
+    "im at the library till 6 if anyone wants to study",
+    "who's around rn",
+    "chilling at the quad, come through",
+    "just landed back, at the airport cafe for an hour"
+  ],
+  "dontUseWhen": [
+    "a planned event with a date and a guest list (use an RSVP)",
+    "getting home safe after a night out (use home-check)",
+    "picking a time that works for everyone (use meeting-time)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "author": { "type": "string", "description": "Who posted and is waiting in the middle" },
+      "place": { "type": "string", "description": "Where they are right now" },
+      "until": { "type": "string", "description": "Until when they'll be there, short, e.g. '4pm'" },
+      "line": { "type": "string", "description": "The post's own line" },
+      "friends": { "type": "array", "items": { "type": "object", "properties": { "who": { "type": "string" }, "ring": { "type": "integer", "minimum": 0, "maximum": 3 }, "coming": { "type": "boolean" }, "walked": { "type": "integer", "minimum": 0, "maximum": 9 }, "said": { "type": "string" } }, "required": ["who", "ring"] }, "description": "Friends who answered: ring 0 is 5 min away, 1 is 15, 2 is 30, 3 can't today; whether they're on their way, how far in (0 to 9) and their words" }
+    },
+    "required": ["author", "place"]
+  },
+  "height": 378
+}

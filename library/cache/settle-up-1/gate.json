@@ -1,0 +1,78 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"no one both pays and receives, and there are at most members minus one payments\" caught none of 10 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"sent marks are unique and match current payments between people in the chat\" caught none of 10 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"only the payer can remove an expense\" caught none of 10 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the title never changes\" caught none of 10 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.5,
+  "typecheck": 77.9,
+  "static": 3.3,
+  "determinism": 58.6,
+  "invariants": 153.1,
+  "mutation": 252.6,
+  "render": 946.8,
+  "copy": 2.8,
+  "render.browser": 0,
+  "render.mount": 52,
+  "render.taps": 271,
+  "render.lint": 900,
+  "render.axe": 942,
+  "render.total": 947,
+  "total": 1012.5
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 10,
+  "inert": 5,
+  "killed": 10,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "expenses are whole positive cents with unique ids, at most 12": 4,
+   "every expense payer is in the chat": 3,
+   "everyone's balance adds up to zero": 3,
+   "the payments leave every person exactly even": 3,
+   "no one both pays and receives, and there are at most members minus one payments": 0,
+   "sent marks are unique and match current payments between people in the chat": 0,
+   "an add appends one expense paid by the actor and clears sent": 1,
+   "a remove deletes exactly that expense and clears sent": 1,
+   "only the payer can remove an expense": 0,
+   "a sent mark toggles only the actor's own payment and leaves expenses alone": 1,
+   "only people in the chat change anything": 2,
+   "the title never changes": 0
+  },
+  "survivors": []
+ },
+ "weak": [
+  "no one both pays and receives, and there are at most members minus one payments",
+  "sent marks are unique and match current payments between people in the chat",
+  "only the payer can remove an expense",
+  "the title never changes"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

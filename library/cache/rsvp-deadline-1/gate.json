@@ -1,0 +1,76 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"only the person who closed can reopen\" caught none of 17 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1,
+  "typecheck": 69.7,
+  "static": 3,
+  "determinism": 47.6,
+  "invariants": 309.7,
+  "mutation": 406.4,
+  "render": 1075.1,
+  "copy": 1.7,
+  "render.browser": 0,
+  "render.mount": 71,
+  "render.taps": 379,
+  "render.lint": 996,
+  "render.axe": 1066,
+  "render.total": 1075,
+  "total": 1127.6
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 17,
+  "inert": 3,
+  "killed": 15,
+  "score": 0.88,
+  "threshold": 0.8,
+  "kills": {
+   "everyone with a going answer is in the chat": 4,
+   "everyone with a stay answer is in the chat": 2,
+   "going answers are yes, maybe or no": 3,
+   "stay answers are stay or day": 1,
+   "a closed poll names a closer in the chat, an open poll names none": 4,
+   "answer counts never pass the number of people": 3,
+   "a going action changes only the actor's going answer, or clears it when repeated": 6,
+   "a stay action changes only the actor's stay answer, or clears it when repeated": 2,
+   "answers never change while the poll is closed": 5,
+   "closing records the actor and changes no answers": 1,
+   "only the person who closed can reopen": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": [
+   {
+    "op": "flip-logic",
+    "line": 70,
+    "before": "&&",
+    "after": "||"
+   },
+   {
+    "op": "negate-condition",
+    "line": 55,
+    "before": "action.t === \"close\"",
+    "after": "!(action.t === \"close\")"
+   }
+  ]
+ },
+ "weak": [
+  "only the person who closed can reopen"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

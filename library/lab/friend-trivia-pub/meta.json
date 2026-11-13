@@ -1,0 +1,11 @@
+{
+  "id": "friend-trivia-pub",
+  "name": "Friend trivia",
+  "origin": { "crate": "apps14", "id": "friend-trivia-pub" },
+  "surface": "gaming",
+  "summary": "Trivia a friend wrote about the group: answer fast, see who picked what, race the friends who played.",
+  "useWhen": ["someone wrote quiz questions about the group and wants everyone to play", "'how well do you know us' with real questions and answers given"],
+  "dontUseWhen": ["no questions and answers were given: never write them", "a daily word game (use daily-puzzle)"],
+  "params": { "title": "", "by": "who wrote it", "plays": "count", "questions": "1 to 5: about (a name or 'the group'), q, options (2 to 4), answer (index)", "played": "friends who already played: name, picks per question, points per question" },
+  "height": 410
+}

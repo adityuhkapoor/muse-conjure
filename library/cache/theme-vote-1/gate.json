@@ -1,0 +1,89 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"no one appears twice in an option\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"options have unique ids and labels\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"nothing is voted once the theme is locked\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"once locked, the theme never changes\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"option ids and labels never change\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.7,
+  "typecheck": 42.4,
+  "static": 1.8,
+  "determinism": 36.3,
+  "invariants": 131.2,
+  "mutation": 151.1,
+  "render": 922.5,
+  "copy": 0.9,
+  "render.browser": 0,
+  "render.mount": 49,
+  "render.taps": 266,
+  "render.lint": 877,
+  "render.axe": 917,
+  "render.total": 922,
+  "total": 952.4
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 14,
+  "inert": 4,
+  "killed": 13,
+  "score": 0.93,
+  "threshold": 0.8,
+  "kills": {
+   "no one appears twice in an option": 0,
+   "each person has at most one vote": 4,
+   "voters are in the chat": 4,
+   "options have unique ids and labels": 0,
+   "a locked theme is an existing option and has a locker": 1,
+   "a vote puts the actor on that option or takes them off, and no one else changes": 6,
+   "nothing is voted once the theme is locked": 0,
+   "a lock picks the earliest option with the most votes and records the actor": 3,
+   "once locked, the theme never changes": 0,
+   "only people in the chat change anything": 2,
+   "option ids and labels never change": 0
+  },
+  "survivors": [
+   {
+    "op": "flip-comparison",
+    "line": 71,
+    "before": "===",
+    "after": "!=="
+   }
+  ]
+ },
+ "weak": [
+  "no one appears twice in an option",
+  "options have unique ids and labels",
+  "nothing is voted once the theme is locked",
+  "once locked, the theme never changes",
+  "option ids and labels never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

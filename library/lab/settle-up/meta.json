@@ -1,0 +1,30 @@
+{
+  "id": "settle-up",
+  "name": "Settle up",
+  "origin": { "crate": "apps3", "id": "settle-up" },
+  "surface": "messenger",
+  "summary": "Turns a tangle of IOUs into the fewest payments, then tracks who has paid.",
+  "useWhen": ["several people owe each other after a trip or a house month", "'who owes who', 'let's settle the nashville tab', 'I paid airbnb, Sam got gas'"],
+  "dontUseWhen": ["one bill split evenly (use a bill split)", "a single person collecting for a gift (use gift-pool)", "rent by room (use rent-split)"],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Name of the tab, e.g. 'Nashville trip tab'" },
+      "ious": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "from": { "type": "string", "description": "Who owes, a name as in the chat" },
+            "to": { "type": "string", "description": "Who is owed, a name as in the chat" },
+            "cents": { "type": "integer", "description": "Amount in cents, 1 to 1000000" },
+            "why": { "type": "string", "description": "What for, 1-3 words: 'airbnb', 'gas'" }
+          },
+          "required": ["from", "to", "cents", "why"]
+        }
+      }
+    },
+    "required": ["title", "ious"]
+  },
+  "height": 390
+}

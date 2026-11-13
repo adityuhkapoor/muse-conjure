@@ -1,0 +1,82 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"at most 12 expenses with unique ids\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.4,
+  "typecheck": 84.7,
+  "static": 3.7,
+  "determinism": 97,
+  "invariants": 267.9,
+  "mutation": 364.3,
+  "render": 924.9,
+  "copy": 2,
+  "render.browser": 0,
+  "render.mount": 44,
+  "render.taps": 241,
+  "render.lint": 852,
+  "render.axe": 903,
+  "render.total": 925,
+  "total": 992.3
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 16,
+  "inert": 2,
+  "killed": 13,
+  "score": 0.81,
+  "threshold": 0.8,
+  "kills": {
+   "every expense has positive whole cents and a split with no repeats": 1,
+   "payers and sharers are in the chat": 5,
+   "when settled, payments move each person to their balance": 1,
+   "payments are positive, between two people, and few": 3,
+   "paid keys match the plan, and nothing is planned before settling": 1,
+   "at most 12 expenses with unique ids": 0,
+   "settle freezes the plan from the expenses at that moment": 2,
+   "paid adds exactly that payment, by one of its two people": 1,
+   "add appends one expense paid by the actor and changes nothing else": 2,
+   "reopen works only when nothing is paid, and clears the plan": 3,
+   "expenses never change while settled": 1,
+   "only people in the chat change anything": 2
+  },
+  "survivors": [
+   {
+    "op": "flip-comparison",
+    "line": 102,
+    "before": "===",
+    "after": "!=="
+   },
+   {
+    "op": "off-by-one",
+    "line": 102,
+    "before": "0",
+    "after": "1"
+   },
+   {
+    "op": "off-by-one",
+    "line": 137,
+    "before": "0",
+    "after": "1"
+   }
+  ]
+ },
+ "weak": [
+  "at most 12 expenses with unique ids"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

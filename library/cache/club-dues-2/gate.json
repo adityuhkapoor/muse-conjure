@@ -1,0 +1,76 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"waiving never touches payments and other actions never touch the waived list\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"dues, goal, deadline and collector never change in an action\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.1,
+  "typecheck": 71.6,
+  "static": 2.6,
+  "determinism": 50.2,
+  "invariants": 101,
+  "mutation": 193,
+  "render": 946.8,
+  "copy": 2.1,
+  "render.browser": 0,
+  "render.mount": 56,
+  "render.taps": 291,
+  "render.lint": 903,
+  "render.axe": 942,
+  "render.total": 947,
+  "total": 1002.5
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 15,
+  "inert": 1,
+  "killed": 14,
+  "score": 0.93,
+  "threshold": 0.8,
+  "kills": {
+   "every payment is a whole amount from 1 cent up to the dues": 1,
+   "each person has at most one payment and ids are unique": 2,
+   "payers and holders are in the chat": 4,
+   "the collector is in the chat": 1,
+   "a payment is handed over exactly when the collector holds it": 2,
+   "waived people are unique and in the chat": 1,
+   "a payment sets the actor's own payment and leaves everyone else's alone": 4,
+   "a handoff moves only that payment to the collector, and only from its holder": 2,
+   "only the collector waives, and it flips that one person": 1,
+   "an unpay removes only that payment, for its payer or the collector": 2,
+   "waiving never touches payments and other actions never touch the waived list": 0,
+   "dues, goal, deadline and collector never change in an action": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": [
+   {
+    "op": "negate-condition",
+    "line": 73,
+    "before": "to === m.user && m.user !== s.collector",
+    "after": "!(to === m.user && m.user !== s.collector)"
+   }
+  ]
+ },
+ "weak": [
+  "waiving never touches payments and other actions never touch the waived list",
+  "dues, goal, deadline and collector never change in an action"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

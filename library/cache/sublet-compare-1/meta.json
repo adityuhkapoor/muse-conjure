@@ -1,0 +1,87 @@
+{
+ "id": "sublet-compare-1",
+ "ask": "ok muse do your thing",
+ "kind": "sublet-compare",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Group members each give three candidate rental houses 0 to 3 points on criteria like price, laundry, distance, kitchen, quiet and parking, and the card totals the points, shows the leader, and lets the host lock the result.",
+ "use_when": [
+  "A group needs to pick one of a few houses or apartments to rent together",
+  "Roommates want to compare sublet options on shared criteria",
+  "Everyone should score each option separately before a final choice",
+  "A host needs to lock in a decision after people have rated"
+ ],
+ "dont_use_when": [
+  "The choice is a quick single-question yes/no or one-vote poll",
+  "The options are not housing, or the criteria are different from the fixed list",
+  "Splitting rent or costs between people is needed"
+ ],
+ "keywords": [
+  "house vote",
+  "sublet",
+  "compare houses",
+  "rental choice",
+  "apartment compare",
+  "roommates",
+  "score options",
+  "point voting",
+  "rate criteria",
+  "housing decision",
+  "group decision",
+  "lock result",
+  "pick a place"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 7
+ },
+ "mutation_score": 0.94,
+ "height": 416,
+ "params": {
+  "names": [],
+  "options": [
+   "Maple St",
+   "Walnut Apts",
+   "Above the bagel place",
+   "Price",
+   "Laundry",
+   "Distance",
+   "Kitchen",
+   "Quiet"
+  ],
+  "blanks": [
+   "kitchen, parking, 20 min walk"
+  ],
+  "numbers": [
+   285000,
+   340000,
+   20,
+   260000
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "senior house hunt 2027",
+  "members": [
+   "Jess",
+   "Felix",
+   "Amir",
+   "Gabe",
+   "Naomi",
+   "Jake",
+   "Bea"
+  ],
+  "text": "ok so we have 3 options for next year, the maple st one, the walnut apts one and the one above the bagel place\nmaple is 2850 total for 4 rooms, walnut is 3400 but has in unit laundry\nbagel place is 2600 but its like 20 min walk to campus lol\ni only care about laundry and not being 20 min away ngl\ni care about price and a real kitchen. maple has a dishwasher, walnut has tiny kitchen\nbagel place has the good kitchen tho, and free parking\ni need a quiet street for studying. maple is on a busy road fr\nwalnut is quiet and 5 min from the library\nok so what we care about is price, laundry, distance, kitchen, quiet\nyeah and parking is a bonus for me and jake only\nthis is a mess muse fix it"
+ },
+ "seconds": 197.4,
+ "attempts": 1,
+ "created": "2026-11-13T02:30:04.137Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 15,
+  "restHash": "a69d364c333c3c66",
+  "playedHash": "8f17ad46b13cbc44"
+ }
+}

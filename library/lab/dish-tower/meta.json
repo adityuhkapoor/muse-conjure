@@ -1,0 +1,37 @@
+{
+  "id": "dish-tower",
+  "name": "Dish tower",
+  "surface": "messenger",
+  "summary": "The shared sink drawn as a leaning tower of dishes, each tagged with its owner's face. Tap your own to wash them off; the tower straightens as it shrinks, tapping someone else's nudges them, and an empty sink sparkles.",
+  "useWhen": [
+    "roommates arguing about dirty dishes: 'whose bowl is this', a photo of the sink",
+    "sink's full again can everyone wash their stuff",
+    "who left the pot soaking for 3 days",
+    "dishes pile up every week, need a way to shame people nicely",
+    "kitchen cleanup at the house, everyone grab yours"
+  ],
+  "dontUseWhen": [
+    "assigning weekly chores (use chore-wheel)",
+    "food in the fridge going bad (use fridge-cleanout)",
+    "splitting a grocery bill (use settle-up)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'The sink'" },
+      "sub": { "type": "string", "description": "Line under the title, usually the chat's own complaint, e.g. '“whose bowl is this” ×5 since Sunday'" },
+      "dishes": {
+        "type": "array",
+        "description": "The pile, bottom first, up to 14 unwashed. kind is one of pot, pan, plate, bowl, mug, glass; owner is a chat member's name or '' for nobody's; label names it ('rice cooker pot'); done true means its owner already washed it",
+        "items": { "type": "object", "properties": { "owner": { "type": "string" }, "kind": { "type": "string" }, "label": { "type": "string" }, "done": { "type": "boolean" } }, "required": ["owner", "kind"] }
+      },
+      "said": {
+        "type": "array",
+        "description": "What people said about the sink, newest last; the last one shows under the picture",
+        "items": { "type": "object", "properties": { "who": { "type": "string" }, "said": { "type": "string" } }, "required": ["who", "said"] }
+      }
+    },
+    "required": ["dishes"]
+  },
+  "height": 400
+}

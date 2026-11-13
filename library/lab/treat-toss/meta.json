@@ -1,0 +1,31 @@
+{
+  "id": "treat-toss",
+  "name": "Treat toss",
+  "surface": "feed",
+  "summary": "A pet post as a two-second game: the pet sits on a rug, mouth open, and you pull a bone back like a slingshot and let go; the arc comes from how hard and how high you threw, so everyone sees the same catch or miss, and catches go on a board with faces.",
+  "useWhen": [
+    "biscuit learned to catch!!",
+    "my dog doing the thing again",
+    "look at this cat waiting for treats",
+    "new puppy pics",
+    "pet tax"
+  ],
+  "dontUseWhen": [
+    "a lost pet (no game, just share it)",
+    "rating photos or outfits (use outfit)",
+    "a group game with questions (use trivia-night)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "author": { "type": "string", "description": "Whose pet it is" },
+      "pet": { "type": "string", "description": "The pet's name" },
+      "kind": { "type": "string", "enum": ["dog", "cat"], "description": "Which animal to draw" },
+      "coat": { "type": "string", "enum": ["brown", "cream", "dark", "orange", "grey"], "description": "Coat colour, the closest match" },
+      "line": { "type": "string", "description": "The post's own line" },
+      "board": { "type": "array", "items": { "type": "object", "properties": { "who": { "type": "string" }, "tries": { "type": "integer" }, "caught": { "type": "integer" }, "said": { "type": "string" } }, "required": ["who", "tries", "caught"] }, "description": "Friends who already threw: tries, catches and a line" }
+    },
+    "required": ["pet", "kind"]
+  },
+  "height": 326
+}

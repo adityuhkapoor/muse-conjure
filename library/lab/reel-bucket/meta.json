@@ -1,0 +1,30 @@
+{
+  "id": "reel-bucket",
+  "name": "Reel bucket",
+  "surface": "reel",
+  "summary": "Every 'we have to do this' reel the group shared, as a bucket-list board of drawn tiles: done ones carry a date stamp and the faces of who went, tapping an undone one makes it the next plan, and doing it stamps it.",
+  "useWhen": [
+    "end of semester, how many of our saved reels did we actually do",
+    "bucket list from everything we said we'd do since august",
+    "we still haven't done the hot springs one",
+    "what's left on our list, pick the next one",
+    "track the stuff we keep saying we'll do"
+  ],
+  "dontUseWhen": [
+    "randomly picking one saved reel for this weekend (use reel-roulette)",
+    "a recap of things already done (use semester-wrapped)",
+    "planning one specific trip (use trip-lock)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title" },
+      "since": { "type": "string", "description": "Since when the reels were shared" },
+      "items": { "type": "array", "description": "6 to 15 things from reels", "items": { "type": "object", "properties": { "name": { "type": "string", "description": "The thing to do" }, "kind": { "type": "string", "description": "Drawing: park, venue, cake, ramen, boba, storefront, gift, campus and the other thumb kinds" }, "done": { "type": "object", "description": "Omit if not done yet", "properties": { "date": { "type": "string", "description": "e.g. 'Oct 4'" }, "who": { "type": "array", "items": { "type": "string" }, "description": "Who went" } } } }, "required": ["name"] } },
+      "nemesis": { "type": "integer", "description": "Index of the undone one everyone keeps not doing, or -1" },
+      "taunt": { "type": "string", "description": "What its sticker says, e.g. 'still waiting'" }
+    },
+    "required": ["items"]
+  },
+  "height": 430
+}

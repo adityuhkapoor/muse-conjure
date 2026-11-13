@@ -1,0 +1,89 @@
+{
+  "id": "overlap",
+  "name": "Availability overlap",
+  "use_when": [
+    "finding a day or time that works for everyone",
+    "'when is everyone free', 'what day works', 'when2meet'",
+    "days or times were mentioned in the chat"
+  ],
+  "dont_use_when": [
+    "the time is set and the question is who comes (use lock)",
+    "choosing a place (use poll)"
+  ],
+  "keywords": [
+    "when",
+    "free",
+    "available",
+    "availability",
+    "day",
+    "days",
+    "time",
+    "times",
+    "works",
+    "schedule",
+    "weekend",
+    "week",
+    "tonight",
+    "tomorrow",
+    "fri",
+    "sat",
+    "sun",
+    "mon",
+    "meet",
+    "hang",
+    "calendar",
+    "when2meet",
+    "slot"
+  ],
+  "guarantees": [
+    "each person is in a cell at most once",
+    "a tap changes only the tapper in that cell",
+    "a pick is always a cell with the most people, and it freezes the grid until anyone undoes it",
+    "a leaver's taps go and lift a pick they changed; a late joiner can tap at once"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "description": "Card title, e.g. 'When can everyone hang?'"
+      },
+      "days": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Columns: days or dates from the chat, 1 to 7, short like 'Fri' or 'Sat 14'"
+      },
+      "times": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Rows: times of day, 1 to 5, short like 'Lunch' or '7 PM'"
+      }
+    },
+    "required": [
+      "title",
+      "days",
+      "times"
+    ],
+    "additionalProperties": false
+  },
+  "examples": [
+    {
+      "title": "Study session",
+      "days": [
+        "Mon",
+        "Tue",
+        "Wed",
+        "Thu"
+      ],
+      "times": [
+        "Morning",
+        "Afternoon",
+        "Night"
+      ]
+    }
+  ]
+}

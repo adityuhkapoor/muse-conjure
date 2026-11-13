@@ -1,0 +1,80 @@
+{
+ "id": "date-swipe-1",
+ "ask": "mkae a pol for the dates plz",
+ "kind": "date-swipe",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A group poll where each person taps every cabin weekend they can do, with live vote counts per weekend and a line showing how close the top weekend is to the needed yeses.",
+ "use_when": [
+  "Picking a date for a group trip from a few fixed weekends",
+  "Checking which dates work for most people in the chat",
+  "Needing a set number of yeses before locking in a date",
+  "Letting people mark more than one date they can do"
+ ],
+ "dont_use_when": [
+  "Choosing a single option where each person gets only one vote",
+  "Finding a free time slot on a calendar by hour",
+  "Splitting costs or tracking who owes what",
+  "Polling on custom dates or options not already set"
+ ],
+ "keywords": [
+  "date poll",
+  "weekend poll",
+  "availability",
+  "pick a date",
+  "group trip",
+  "cabin weekend",
+  "vote",
+  "multi-select poll",
+  "schedule",
+  "yes count",
+  "when works",
+  "scheduling"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 6
+ },
+ "mutation_score": 1,
+ "height": 298,
+ "params": {
+  "names": [],
+  "options": [
+   "Jan 16-18",
+   "Jan 23-25",
+   "Feb 6-8",
+   "Feb 13-15"
+  ],
+  "blanks": [],
+  "numbers": [
+   16,
+   23,
+   6,
+   13
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "lake tahoe cabin weekend",
+  "members": [
+   "Luis",
+   "Sam",
+   "Felix",
+   "Maya",
+   "Zoe",
+   "Jake"
+  ],
+  "text": "ok so cabin at tahoe, my uncle says we can have it for one weekend\nsick. which weekends tho\nhe said jan 16-18, jan 23-25, feb 6-8, or feb 13-15\njan 16 is a no for me, got my cousins wedding\ni can do jan 23 or feb 6. feb 13 is valentines lol no\nim good for everything except jan 23 i have a midterm that mon\nfeb 6 works, feb 13 also works, jan stuff idk i might be working\nfeb 6 for me, also feb 13 is ok\nwe need like 5 yeses to make the drive worth it\nfeb 6 or 13 i can do both\nmuse mkae a pol for the dates plz"
+ },
+ "seconds": 27.9,
+ "attempts": 1,
+ "created": "2026-11-13T02:57:14.826Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 4,
+  "restHash": "bf1b311f303a6147",
+  "playedHash": "be1ab53520353f4a"
+ }
+}

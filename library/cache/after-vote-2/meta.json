@@ -1,0 +1,59 @@
+{
+ "id": "after-vote-2",
+ "ask": "ok muse do your thing",
+ "kind": "after-vote",
+ "family": "coord",
+ "surface": "event",
+ "sentence": "ok muse do your thing",
+ "use_when": [
+  "ok muse do your thing"
+ ],
+ "dont_use_when": [],
+ "keywords": [
+  "after-vote"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 6
+ },
+ "mutation_score": 1,
+ "height": 328,
+ "params": {
+  "names": [],
+  "options": [
+   "Slice Brothers",
+   "Pixel Palace",
+   "Boba Haus"
+  ],
+  "blanks": [
+   "Trivia ends around 10:30"
+  ],
+  "numbers": [
+   10
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "trivia night @ the rusty anchor",
+  "members": [
+   "Naomi",
+   "Abby",
+   "June",
+   "Jake",
+   "Eli",
+   "Leo"
+  ],
+  "text": "trivia ends around 10:30 so where do we go after\nSlice Brothers is open late, i want pizza\nwe just had pizza last week tho\ni could do the arcade at Pixel Palace, they have skee ball\npixel palace closes at 11 i think\nit closes at midnight on thursdays i checked\nok so thats still a maybe\nor bubble tea at Boba Haus, quick and cheap\nboba is a vibe but i need real food\ni vote pixel palace\npizza or arcade for me\nboba haus for me, or arcade i guess\nhonestly no idea anymore, its a mess\nok muse do your thing"
+ },
+ "seconds": 35.9,
+ "attempts": 1,
+ "created": "2026-11-13T04:15:58.500Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 3,
+  "restHash": "9f3ca32726366c38",
+  "playedHash": "9e3ea52502367e5a"
+ }
+}

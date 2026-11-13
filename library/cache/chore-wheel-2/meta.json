@@ -1,0 +1,90 @@
+{
+ "id": "chore-wheel-2",
+ "ask": "ok muse do your thing",
+ "kind": "chore-wheel",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A spinning wheel that assigns each chore on a short list to one person in the chat, giving better odds to people who have been picked less often.",
+ "use_when": [
+  "The group needs to decide who does which chore",
+  "Someone wants a fair random pick that favors people who have done less",
+  "A few chores need owners and nobody wants to choose",
+  "A chore needs to be re-spun after someone can't do it"
+ ],
+ "dont_use_when": [
+  "The group wants a recurring weekly schedule or calendar",
+  "The group needs to vote or poll on a choice",
+  "The group wants to split a bill or track money owed"
+ ],
+ "keywords": [
+  "chore wheel",
+  "chores",
+  "who does what",
+  "random pick",
+  "spin wheel",
+  "assign tasks",
+  "fair rotation",
+  "housework",
+  "roommates",
+  "household",
+  "task assignment",
+  "picker",
+  "wheel",
+  "draw"
+ ],
+ "members": {
+  "min": 2,
+  "max": 10,
+  "original": 8
+ },
+ "mutation_score": 0.92,
+ "height": 392,
+ "params": {
+  "names": [
+   "June",
+   "Eli",
+   "Sofia",
+   "Jake",
+   "Ines",
+   "Gabe",
+   "Abby",
+   "Rhea"
+  ],
+  "options": [
+   "Bathroom",
+   "Trash",
+   "Recycling"
+  ],
+  "blanks": [],
+  "numbers": [
+   6,
+   7,
+   600
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "the pit (house 12)",
+  "members": [
+   "June",
+   "Eli",
+   "Sofia",
+   "Jake",
+   "Ines",
+   "Gabe",
+   "Abby",
+   "Rhea"
+  ],
+  "text": "who left the pans in the sink AGAIN\nnot me i cook once a week max\nthe pans are from sunday that was eli's chili\ni made chili and then took out trash twice that day\nok this is why the chore chart needs to actually mean something\nthe whiteboard is just vibes rn\ni literally cleaned the oven last week nobody noticed\nabby we noticed. we love u\nok let me count the tally marks on the whiteboard\njune 6, eli 3, sofia 5, jake 2, ines 4, gabe 3, abby 7, rhea 4\ni feel like those marks are wrong\njake u have two marks and one is a smudge\nits a mark\nok but trash goes out tmrw night and the recycling is overflowing\nalso someone needs to do the bathroom its been 2 weeks\nill do it if i have to but 3 isnt the lowest\nlowest is jake with 2\nok fine but gabe and eli are at 3 right behind me\nso tie-ish\nif jake does bathroom then next one is eli or gabe\ni just dont want 7 to turn into 8 lol\nsame\nwe always argue about who's next and then nobody does it\nand then the trash sits there till monday\nwe need something that just picks\nbut not totally random bc abby would get unlucky and she already did 7\nty gabe\ni accept my fate i guess\nbathroom thurs, trash tmrw, recycling whenever\nok muse do your thing"
+ },
+ "seconds": 155,
+ "attempts": 1,
+ "created": "2026-11-13T04:44:33.367Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 4,
+  "restHash": "b62399dcad3070ab",
+  "playedHash": "a7329d8d9e613133"
+ }
+}

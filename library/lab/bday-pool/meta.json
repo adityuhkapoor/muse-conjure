@@ -1,0 +1,11 @@
+{
+  "id": "bday-pool",
+  "name": "Birthday card and gift pot",
+  "origin": { "crate": "apps12", "id": "bday-pool" },
+  "surface": "feed",
+  "summary": "A birthday post becomes a card friends sign by hand around a cake, plus a gift pot that fills toward one present.",
+  "useWhen": ["a friend's birthday post or a birthday coming up in the group", "'sign Priya's card', 'let's all chip in for her gift'"],
+  "dontUseWhen": ["splitting a bill that already happened (use settle-up)", "a gift pool with several gift options to vote on (use gift-pool)", "planning the party itself (use host-board)"],
+  "params": { "who": "birthday person's name", "heading": "the card's greeting as the group wrote it", "candles": "1-3 digits on the cake, e.g. '22'", "when": "when it goes to them, e.g. 'at 8pm'", "notes": "{by, text}[] signed already", "lines": "3 note suggestions", "gift": "{name, goalCents, buyer}", "pot": "{by, cents}[] already in", "amounts": "2 chip-in amounts in cents" },
+  "height": 418
+}

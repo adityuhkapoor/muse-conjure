@@ -1,0 +1,32 @@
+{
+  "id": "bill-roulette",
+  "name": "Bill roulette",
+  "origin": { "crate": "apps9", "id": "bill-roulette" },
+  "surface": "messenger",
+  "summary": "A wheel picks who covers the bill tonight, with bigger slices for whoever paid least lately.",
+  "useWhen": ["friends who take turns covering dinner or drinks", "'who's got dinner', 'whose turn to pay', 'card roulette'"],
+  "dontUseWhen": ["splitting a bill between people (use a bill split)", "a wheel with no money involved (use a wheel)"],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Short: \"Who's got dinner?\"" },
+      "place": { "type": "string", "description": "Where the bill is: \"Hattie B's\"" },
+      "billCents": { "type": "integer", "description": "The bill in cents ($186 -> 18600)" },
+      "people": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string", "description": "Exactly as in the members list" },
+            "paidCents": { "type": "integer", "description": "What they paid in the last 30 days, in cents" }
+          },
+          "required": ["name", "paidCents"],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": ["title", "place", "billCents", "people"],
+    "additionalProperties": false
+  },
+  "height": 396
+}

@@ -1,0 +1,38 @@
+{
+  "id": "stairwell-pivot",
+  "name": "Stairwell pivot",
+  "surface": "marketplace",
+  "summary": "Will a couch from a listing fit up the stairs: the turn at the landing drawn from above; drag the couch up and twist it through the turn, it scrapes red where it hits, and it either makes it (buy it) or gets stuck (try the smaller one). Friends' last tries stay on the stairs with their faces.",
+  "useWhen": [
+    "'will this even fit up our stairs' about a couch or sectional listing",
+    "we live on the 3rd floor, no elevator, is this sofa gonna make it",
+    "pivot!! (moving a couch up a narrow stairwell)",
+    "comparing two couches by whether they fit through the door or the turn",
+    "someone asks if a big piece of furniture will fit before buying it"
+  ],
+  "dontUseWhen": [
+    "whether furniture fits in a room's floor space (use room-fit)",
+    "a couch with a history inside the group (use couch-lineage)",
+    "organizing who drives the pickup (use pickup-run)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Will it make the turn'" },
+      "place": { "type": "string", "description": "Whose stairs, e.g. '412 Pine · 3rd floor walk-up'" },
+      "items": {
+        "type": "array",
+        "description": "1 to 3 listings to try: name, price in cents, length and depth in inches (30-120 long, 18-44 deep); the turn is 44 inches wide, about 70 long fits",
+        "items": { "type": "object", "properties": { "name": { "type": "string" }, "priceCents": { "type": "integer" }, "lengthIn": { "type": "integer" }, "depthIn": { "type": "integer" } }, "required": ["name", "lengthIn", "depthIn"] }
+      },
+      "tries": {
+        "type": "array",
+        "description": "Tries friends already made: who, item index, where the couch stopped (x 0-360 along the first flight, y 146-190 on it; start is x 60, y 168), angle 0-179, scrapes, and a short line they said",
+        "items": { "type": "object", "properties": { "who": { "type": "string" }, "item": { "type": "integer" }, "x": { "type": "integer" }, "y": { "type": "integer" }, "angle": { "type": "integer" }, "scrapes": { "type": "integer" }, "said": { "type": "string" } }, "required": ["who", "item", "x", "y", "angle"] }
+      },
+      "yell": { "type": "object", "description": "Someone yelling from the landing: who and a short line", "properties": { "who": { "type": "string" }, "said": { "type": "string" } } }
+    },
+    "required": ["items"]
+  },
+  "height": 393
+}

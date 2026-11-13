@@ -1,0 +1,85 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"no slot has more people than the room seats\" caught none of 9 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"no one is in a slot twice\" caught none of 9 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"slot ids are unique and the slots never change in number\" caught none of 9 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"capacity is a positive whole number\" caught none of 9 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a claim adds the actor only when the slot had room\" caught none of 9 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"labels, notes, ids and capacity never change\" caught none of 9 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.6,
+  "typecheck": 78.1,
+  "static": 1.8,
+  "determinism": 187.6,
+  "invariants": 409.3,
+  "mutation": 379.9,
+  "render": 1033.8,
+  "copy": 1,
+  "render.browser": 0,
+  "render.mount": 97,
+  "render.taps": 358,
+  "render.lint": 980,
+  "render.axe": 1026,
+  "render.total": 1034,
+  "total": 1057
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 9,
+  "inert": 7,
+  "killed": 9,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "no slot has more people than the room seats": 0,
+   "no one is in a slot twice": 0,
+   "everyone in a slot is in the chat": 4,
+   "slot ids are unique and the slots never change in number": 0,
+   "capacity is a positive whole number": 0,
+   "a claim flips only the actor on the named slot and touches no one else": 5,
+   "a claim adds the actor only when the slot had room": 0,
+   "only people in the chat change anything": 2,
+   "labels, notes, ids and capacity never change": 0
+  },
+  "survivors": []
+ },
+ "weak": [
+  "no slot has more people than the room seats",
+  "no one is in a slot twice",
+  "slot ids are unique and the slots never change in number",
+  "capacity is a positive whole number",
+  "a claim adds the actor only when the slot had room",
+  "labels, notes, ids and capacity never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

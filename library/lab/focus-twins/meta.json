@@ -1,0 +1,36 @@
+{
+  "id": "focus-twins",
+  "name": "Focus twins",
+  "surface": "messenger",
+  "summary": "A study session for two drawn as two tomato timers side by side: both tap in and the same 25 minutes start ticking, each tomato ripens from green to red, stepping away wilts yours until you're back, the break pops both into a shared stretch, and the rounds fill in until it's done.",
+  "useWhen": [
+    "study together? i can't focus alone",
+    "pomodoro w me tonight? stats midterm tmrw",
+    "keep me accountable for 2 hours of writing",
+    "lets lock in, 4 rounds then sleep",
+    "facetime study session but make it productive"
+  ],
+  "dontUseWhen": [
+    "a whole group studying at the library (use fenwick-lights)",
+    "a one-off countdown to an event (use countdown)",
+    "a habit streak over days (use gym)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Stats midterm focus'" },
+      "people": { "type": "array", "items": { "type": "string" }, "description": "The two studying (names in the chat), left tomato first" },
+      "quote": { "type": "string", "description": "What started it, in their words; may be empty" },
+      "quoteBy": { "type": "string", "description": "Who said the quote" },
+      "notes": { "type": "array", "items": { "type": "string" }, "description": "One short line each, same order as people, shown over their tomato before a round; may be empty strings" },
+      "rounds": { "type": "integer", "description": "Rounds in all, 1 to 8" },
+      "focusMin": { "type": "integer", "description": "Minutes of focus per round, 5 to 90" },
+      "breakMin": { "type": "integer", "description": "Minutes of break between rounds, 1 to 30" },
+      "done": { "type": "integer", "description": "Rounds already done" },
+      "ready": { "type": "array", "items": { "type": "string" }, "description": "Who is already in for the next round (at most one)" },
+      "doneLine": { "type": "string", "description": "The line shown when all rounds are done, e.g. 'go sleep, midterm's at 9'" }
+    },
+    "required": ["people"]
+  },
+  "height": 370
+}

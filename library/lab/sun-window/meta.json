@@ -1,0 +1,31 @@
+{
+  "id": "sun-window",
+  "name": "Sun window",
+  "surface": "messenger",
+  "summary": "A day outdoors drawn as the sun's path over the place: everyone's hours are bands of their color under the arc like a rainbow, the golden wedge is when the most people overlap, you drag across the sky to set your hours, and the golden window locks.",
+  "useWhen": [
+    "lake day?? when is everyone actually there",
+    "beach saturday, who's coming when",
+    "what hours work for the park, i can only do the afternoon",
+    "everyone's arriving at different times, when's the overlap",
+    "picnic on the quad, drop your hours"
+  ],
+  "dontUseWhen": [
+    "picking a meeting slot across several days (use meeting-time)",
+    "a start time with a countdown (use lobby)",
+    "rides to the place (use carpool)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "place": { "type": "string", "description": "Where, e.g. 'Lake Wren'" },
+      "day": { "type": "string", "description": "Which day" },
+      "weather": { "type": "string", "description": "A short weather line" },
+      "first": { "type": "integer", "description": "First hour of the day shown, 24h clock" },
+      "last": { "type": "integer", "description": "Last hour shown, 24h clock, after first" },
+      "people": { "type": "array", "description": "Hours people already said, up to 6", "items": { "type": "object", "properties": { "who": { "type": "string", "description": "Name" }, "from": { "type": "integer", "description": "Arrive, 24h clock" }, "to": { "type": "integer", "description": "Leave, 24h clock" }, "note": { "type": "string", "description": "A line in their words" } }, "required": ["who", "from", "to"] } }
+    },
+    "required": ["place", "people"]
+  },
+  "height": 360
+}

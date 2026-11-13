@@ -1,0 +1,75 @@
+{
+ "id": "cover-collect-1",
+ "ask": "mkae a list of who paid and who still owes",
+ "kind": "cover-collect",
+ "family": "coord",
+ "surface": "event",
+ "sentence": "Shows a shared list of who has paid a fixed per-spot price for an event and who still owes, with the amount left to collect, where each person marks their own spots paid.",
+ "use_when": [
+  "Collecting payment from a group for event tickets or a cover charge",
+  "Tracking who has sent money and who still owes",
+  "Some people are paying for more than one spot",
+  "Everyone should be able to mark themselves paid"
+ ],
+ "dont_use_when": [
+  "Splitting a bill with different amounts per person",
+  "Keeping a running balance of debts over time between friends",
+  "Voting or picking a date or option"
+ ],
+ "keywords": [
+  "who paid",
+  "who owes",
+  "payment tracker",
+  "paid list",
+  "collect money",
+  "venmo",
+  "cover charge",
+  "tickets",
+  "event fee",
+  "mark paid",
+  "group payment",
+  "still owed",
+  "spots",
+  "dues"
+ ],
+ "members": {
+  "min": 2,
+  "max": 30,
+  "original": 4
+ },
+ "mutation_score": 1,
+ "height": 328,
+ "params": {
+  "names": [
+   "Owen",
+   "Wren",
+   "Lily"
+  ],
+  "options": [],
+  "blanks": [],
+  "numbers": [
+   800
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "pink house show fri",
+  "members": [
+   "Maya",
+   "Owen",
+   "Wren",
+   "Lily"
+  ],
+  "text": "ok so for friday the house show at the pink house on delaware is $8 at the door but they want it venmo'd before so they know headcount\nugh i only have cash\nno cash, venmo @pinkhouse-tix by thursday night\ni already sent mine lol 8 bucks\ni'll pay tmrw after my shift\nok sent it\nwait who has actually paid tho\nme and owen\nand i think dana said she did but she's not on here\nim bringing my roommate too so thats 16 from me\nok so wren and owen paid, lily x2 not yet, and me not yet i gotta do mine\ni lose track fr\nmuse mkae a list of who paid and who still owes"
+ },
+ "seconds": 84.3,
+ "attempts": 1,
+ "created": "2026-11-13T03:07:55.335Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 2,
+  "restHash": "877ee0e03f1fc0c1",
+  "playedHash": "877f7223fe1e0103"
+ }
+}

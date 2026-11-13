@@ -1,0 +1,34 @@
+{
+  "id": "luck-pocket",
+  "name": "Luck pocket",
+  "surface": "story",
+  "summary": "A 'wish me luck' story drawn as a jacket pocket; friends drop one good-luck charm each (clover, horseshoe, a tiny car, star, heart, coffee) with one word, and afterwards the author adds one sticker, sun, half sun or cloud, and every charm dances.",
+  "useWhen": [
+    "first date tonight wish me luck, make my story something",
+    "will has a job interview tomorrow, let everyone send good luck",
+    "good luck charms for maya's driving test",
+    "story where friends drop little charms for luck",
+    "lowkey nervous for tonight, put a luck thing on my story"
+  ],
+  "dontUseWhen": [
+    "asking friends for advice or opinions on the date (send a message)",
+    "a bet on how it goes (do not build one)",
+    "celebrating after it went well (use bday-candles or a reaction)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "author": { "type": "string", "description": "Whose story it is; only they add the sticker afterwards" },
+      "ago": { "type": "string", "description": "How long ago it went up, e.g. '2h'" },
+      "caption": { "type": "string", "description": "Text on the story, in their words" },
+      "car": { "type": "string", "description": "What the little car charm is called, e.g. 'tiny Sube'" },
+      "charms": {
+        "type": "array",
+        "description": "Charms already dropped, one per friend, each with one word",
+        "items": { "type": "object", "properties": { "who": { "type": "string" }, "charm": { "type": "string", "enum": ["clover", "horseshoe", "car", "star", "heart", "coffee"] }, "word": { "type": "string", "description": "One kind word" } }, "required": ["who", "charm", "word"] }
+      }
+    },
+    "required": ["caption"]
+  },
+  "height": 556
+}

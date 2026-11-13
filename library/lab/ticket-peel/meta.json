@@ -1,0 +1,30 @@
+{
+  "id": "ticket-peel",
+  "name": "Ticket peel",
+  "surface": "messenger",
+  "summary": "Chip in on a friend's bad-luck fine: their windshield with the orange ticket cut into one strip per friend; tap to peel off your share with a little note, strips curl away until the glass is clear and they get a burst.",
+  "useWhen": [
+    "a friend got a parking ticket or fine during a group outing: 'will got a $45 ticket while we were all in the water'",
+    "'let's all chip in for his ticket'",
+    "covering a small unlucky cost for one friend together"
+  ],
+  "dontUseWhen": [
+    "a planned gift for someone (use gift-pool)",
+    "paying back gas for a trip (use gas-pump)",
+    "a bill everyone ran up together (use a bill split)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "who": { "type": "string", "description": "Whose ticket" },
+      "car": { "type": "string", "description": "The car's nickname" },
+      "where": { "type": "string", "description": "Where and when, e.g. 'Lake Wren lot · lake day'" },
+      "fineCents": { "type": "integer" },
+      "friends": { "type": "array", "items": { "type": "string" }, "description": "Friends chipping in, 1 to 8, not the owner" },
+      "notes": { "type": "array", "items": { "type": "string" }, "description": "1 to 4 short notes to pick from when peeling" },
+      "peeled": { "type": "array", "items": { "type": "object", "properties": { "who": { "type": "string" }, "note": { "type": "string" } } }, "description": "Strips already peeled" }
+    },
+    "required": ["who", "fineCents", "friends"]
+  },
+  "height": 390
+}

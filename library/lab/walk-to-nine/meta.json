@@ -1,0 +1,37 @@
+{
+  "id": "walk-to-nine",
+  "name": "Walk to nine",
+  "surface": "messenger",
+  "summary": "Everyone's walk to their first class as a campus map: routes from the apartment across the quad to each building in each walker's color, with leave times. Play the morning and the faces walk at their real times; tap 'Walk with' to leave together with someone heading out about when you do.",
+  "useWhen": [
+    "who's walking to campus tomorrow, i have a 9am at larkin",
+    "anyone want to walk to class together in the morning",
+    "when does everyone leave for their 9ams",
+    "group walk to the library before the exam",
+    "see who's heading the same way in the morning"
+  ],
+  "dontUseWhen": [
+    "rides in a car (use carpool)",
+    "where someone is right now (use come-find-me)",
+    "a meeting time (use meeting-time)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Walk to the 9ams'" },
+      "home": { "type": "object", "description": "Where everyone starts: name and x, y in thousandths of the map (bottom-left is about 110, 860)", "properties": { "name": { "type": "string" }, "x": { "type": "integer" }, "y": { "type": "integer" } } },
+      "places": {
+        "type": "array",
+        "description": "Up to 4 buildings people walk to, with x, y in thousandths of the map (keep them away from the middle, where the quad is)",
+        "items": { "type": "object", "properties": { "name": { "type": "string" }, "x": { "type": "integer" }, "y": { "type": "integer" } }, "required": ["name", "x", "y"] }
+      },
+      "people": {
+        "type": "array",
+        "description": "Up to 6 walkers: which place (by name), class time as 24-hour '9:00', minutes to walk, who they already walk with (a name), and a note in their words",
+        "items": { "type": "object", "properties": { "who": { "type": "string" }, "to": { "type": "string" }, "at": { "type": "string" }, "walk": { "type": "integer" }, "with": { "type": "string" }, "note": { "type": "string" } }, "required": ["who", "to", "at", "walk"] }
+      }
+    },
+    "required": ["people"]
+  },
+  "height": 410
+}

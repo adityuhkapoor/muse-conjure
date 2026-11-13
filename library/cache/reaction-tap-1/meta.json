@@ -1,0 +1,70 @@
+{
+ "id": "reaction-tap-1",
+ "ask": "ok muse do your thing",
+ "kind": "reaction-tap",
+ "family": "game",
+ "surface": "chat",
+ "sentence": "A best-of-three reflex game where everyone in the chat waits for the screen to turn green and taps, and the lowest reaction time in each round wins.",
+ "use_when": [
+  "Two or more people want a quick reaction-time contest in the chat",
+  "Settling a small bet or dare with a fast head-to-head game",
+  "A short game break that takes under a minute per round"
+ ],
+ "dont_use_when": [
+  "The group needs a turn-based board or card game",
+  "Someone wants a vote, poll or a way to pick a time to meet",
+  "The group wants a trivia or word game that tests knowledge"
+ ],
+ "keywords": [
+  "reflex test",
+  "reaction time",
+  "tap game",
+  "speed game",
+  "duel",
+  "best of three",
+  "quick game",
+  "head to head",
+  "wait for green",
+  "fastest tap",
+  "milliseconds",
+  "chat game"
+ ],
+ "members": {
+  "min": 2,
+  "max": 6,
+  "original": 5
+ },
+ "mutation_score": 1,
+ "height": 234,
+ "params": {
+  "names": [
+   "Dani",
+   "Rohan"
+  ],
+  "options": [],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "3rd floor hall lounge",
+  "members": [
+   "Dani",
+   "Rohan",
+   "Hana",
+   "Jess",
+   "Omar"
+  ],
+  "text": "ok who has the better reflexes me or rohan\nme obviously i play valorant like 6 hrs a day\nlol that means nothing you literally got caught by the rc for the fire alarm\nhe was asleep that's different\nok we need to settle this before the pizza gets here\nthe loser has to pay for the garlic knots\ndeal. but no cheating like last time when omar tapped early\ni did NOT, my phone lagged\nwe all have our phones here rn so it can be on one link\nyeah like screen goes red then turns green and u tap asap\nand if u tap before green u get disqualified or something\nfastest time wins, lowest ms\nbest of 3 maybe? so its not just luck\nwe need it to keep track of everyones times too\nok muse do your thing"
+ },
+ "seconds": 154.2,
+ "attempts": 1,
+ "created": "2026-11-13T02:40:02.492Z",
+ "second_look": {
+  "endStep": 2,
+  "endReason": "reached rounds.0.results = [{\"user\":\"u4\",\"ms\":null}]",
+  "controls": 1,
+  "restHash": "837bb5a5a54a5a4a",
+  "playedHash": "ab3f9180bf784c4a"
+ }
+}

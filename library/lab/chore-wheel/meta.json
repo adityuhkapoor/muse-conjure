@@ -1,0 +1,11 @@
+{
+  "id": "chore-wheel",
+  "name": "Chore wheel",
+  "origin": { "crate": "apps1", "id": "chore-wheel" },
+  "surface": "messenger",
+  "summary": "Roommates spin a wheel for this week's chores; slices are sized by how many fights each chore caused and nobody doubles up until every chore is taken.",
+  "useWhen": ["roommates deciding who does which chore this week", "'who's on dishes', 'spin for chores', 'I did trash last week'", "a weekly rota or shift plan for a house, a club or a team"],
+  "dontUseWhen": ["picking one person (use a wheel of names)", "drafting a month of chores with points (use chore-draft)", "splitting bills (use utilities-split)"],
+  "params": { "title": "string", "sub": "place, e.g. Apt 4B", "rule": "house rule shown on the result, e.g. Swaps allowed till Sun 8 PM", "chores": "2-8 x {label, fights 1-20, note}", "spun": "{name, chore label}[] already spun this week" },
+  "height": 342
+}

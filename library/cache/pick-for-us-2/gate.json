@@ -1,0 +1,81 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"no one appears twice in an option\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"option ids are unique\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the options are the movies from the chat\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a vote never changes ids, labels or order\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the title and note never change\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.8,
+  "typecheck": 61.9,
+  "static": 1.6,
+  "determinism": 74.4,
+  "invariants": 216.6,
+  "mutation": 207,
+  "render": 958.7,
+  "copy": 1,
+  "render.browser": 0,
+  "render.mount": 52,
+  "render.taps": 296,
+  "render.lint": 909,
+  "render.axe": 952,
+  "render.total": 959,
+  "total": 990.9
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 12,
+  "inert": 4,
+  "killed": 12,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "no one appears twice in an option": 0,
+   "each person has at most one vote": 4,
+   "voters are in the chat": 3,
+   "option ids are unique": 0,
+   "the options are the movies from the chat": 0,
+   "a vote changes only the actor's own vote": 1,
+   "after a vote the actor is on that option, or on none after tapping their pick": 9,
+   "a vote never changes ids, labels or order": 0,
+   "only people in the chat change anything": 2,
+   "the title and note never change": 0
+  },
+  "survivors": []
+ },
+ "weak": [
+  "no one appears twice in an option",
+  "option ids are unique",
+  "the options are the movies from the chat",
+  "a vote never changes ids, labels or order",
+  "the title and note never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

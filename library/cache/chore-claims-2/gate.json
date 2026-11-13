@@ -1,0 +1,66 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"the seven chores and their caps never change\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"labels and caps never change in a step\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.6,
+  "typecheck": 31.4,
+  "static": 1.4,
+  "determinism": 68.1,
+  "invariants": 197.6,
+  "mutation": 195.1,
+  "render": 959.5,
+  "copy": 0.7,
+  "render.browser": 0,
+  "render.mount": 31,
+  "render.taps": 290,
+  "render.lint": 909,
+  "render.axe": 954,
+  "render.total": 959,
+  "total": 982
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 14,
+  "inert": 6,
+  "killed": 14,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "no chore has more people than its cap": 1,
+   "each person is on at most one chore": 4,
+   "nobody is listed twice on a chore": 2,
+   "everyone on a chore is in the chat": 2,
+   "the seven chores and their caps never change": 0,
+   "a claim puts the actor on that chore, off any other, and moves no one else": 5,
+   "a claim only succeeds on a chore with room": 2,
+   "a drop removes only the actor from that chore": 5,
+   "only people in the chat change anything": 2,
+   "labels and caps never change in a step": 0
+  },
+  "survivors": []
+ },
+ "weak": [
+  "the seven chores and their caps never change",
+  "labels and caps never change in a step"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

@@ -1,0 +1,50 @@
+{
+  "id": "tree-rings",
+  "name": "Tree rings",
+  "surface": "messenger",
+  "summary": "The friend group as a tree stump seen from above: one ring per semester, as thick as that semester's plans, knots for the big moments and faces on the ring where each friend joined; tap a ring to read it, leave a leaf on your favorite, and carve your initials into the bark.",
+  "useWhen": [
+    "how long have we been friends, show it",
+    "our friendship by semester",
+    "which semester was the best one for us",
+    "4 years of the six, visualized",
+    "carve our initials somewhere lol"
+  ],
+  "dontUseWhen": [
+    "a map of the places we went (use plans-map)",
+    "chat stats like messages and emoji (use wrapped)",
+    "a before-and-after of the group (use then-now-wipe)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'The six, in tree rings'" },
+      "rings": {
+        "type": "array",
+        "description": "Semesters from the first (center) to now (outer), up to 10",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string", "description": "e.g. 'Junior fall'" },
+            "plans": { "type": "number", "description": "Plans the group locked that semester; sets the ring's thickness" },
+            "moment": { "type": "string", "description": "The moment that ring remembers, a few words" }
+          },
+          "required": ["name", "plans"]
+        }
+      },
+      "joined": {
+        "type": "array",
+        "description": "When each friend joined the group",
+        "items": { "type": "object", "properties": { "name": { "type": "string", "description": "First name" }, "ring": { "type": "number", "description": "Ring index from 0 (center)" } }, "required": ["name", "ring"] }
+      },
+      "carved": { "type": "array", "items": { "type": "string" }, "description": "Who already carved their initials" },
+      "favs": {
+        "type": "array",
+        "description": "Leaves already left on favorite rings",
+        "items": { "type": "object", "properties": { "by": { "type": "string", "description": "First name" }, "ring": { "type": "number", "description": "Ring index" } }, "required": ["by", "ring"] }
+      }
+    },
+    "required": ["rings"]
+  },
+  "height": 416
+}

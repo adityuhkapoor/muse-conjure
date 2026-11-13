@@ -1,0 +1,10 @@
+{
+  "id": "seven-alarms",
+  "name": "Seven alarms",
+  "surface": "messenger",
+  "summary": "A 15-second game: the friend who sets seven alarms is asleep and his clocks ring in a pattern the whole chat shares; snooze each one before he wakes, and everyone's best run sits on the board.",
+  "useWhen": ["a running joke about someone's alarms or oversleeping: 'calvin has seven alarms'", "a quick two-minute game the chat can compete on, with a shared board"],
+  "dontUseWhen": ["setting a real reminder or alarm (use reminder)", "a trivia or word game (use trivia-night)", "teasing that lands on one person's real problem"],
+  "params": { "title": "string", "sub": "string", "sleeper": "who is asleep", "said": "the sleeper's line", "board": "up to 12 x {name, snoozed (0-14), said}" },
+  "height": 394
+}

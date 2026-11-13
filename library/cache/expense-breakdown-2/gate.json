@@ -1,0 +1,72 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"there are at most 30 expenses\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"an add puts one expense last, paid by the actor, and clears the marks\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"expenses change only by an add or a remove\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.4,
+  "typecheck": 103.1,
+  "static": 3.2,
+  "determinism": 67.6,
+  "invariants": 136.6,
+  "mutation": 255.7,
+  "render": 927.4,
+  "copy": 2.7,
+  "render.browser": 0,
+  "render.mount": 65,
+  "render.taps": 262,
+  "render.lint": 879,
+  "render.axe": 921,
+  "render.total": 927,
+  "total": 1001.6
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 13,
+  "inert": 3,
+  "killed": 13,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "every expense was paid by someone in the chat": 4,
+   "expense ids are unique, amounts are positive whole cents, labels are 1 to 40 characters": 4,
+   "there are at most 30 expenses": 0,
+   "balances sum to exactly zero": 4,
+   "payments settle every balance with no self payments": 4,
+   "paid marks match a current payment and none repeat": 2,
+   "an add puts one expense last, paid by the actor, and clears the marks": 0,
+   "a remove deletes only that expense, only for its payer, and clears the marks": 1,
+   "a paid tap toggles one mark, only for the person who pays it": 2,
+   "expenses change only by an add or a remove": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "there are at most 30 expenses",
+  "an add puts one expense last, paid by the actor, and clears the marks",
+  "expenses change only by an add or a remove"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

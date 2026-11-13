@@ -1,0 +1,34 @@
+{
+  "id": "bday-candles",
+  "name": "Birthday candles",
+  "surface": "story",
+  "summary": "A friend's birthday story becomes a cake with one candle per year; each friend lights a candle with a one-line wish that floats over the cake, and the birthday person swipes to blow them out into a count of wishes and people.",
+  "useWhen": [
+    "maya's 21st is today, put something on her story friends can do",
+    "birthday story where everyone leaves a wish",
+    "make a cake people light candles on for calvin turning 22",
+    "bday wishes thing for her story, not just a card",
+    "lowkey want everyone to wish arun happy birthday in one place"
+  ],
+  "dontUseWhen": [
+    "collecting money for a gift (use gift-pool or bday-pool)",
+    "a recap video of the birthday (use bday-montage)",
+    "planning the party itself (use host-board or potluck)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "author": { "type": "string", "description": "Whose birthday it is and whose story this is" },
+      "age": { "type": "integer", "description": "How old they turn; the cake gets this many candles, 1 to 40" },
+      "ago": { "type": "string", "description": "How long ago the story went up, e.g. '11h'" },
+      "caption": { "type": "string", "description": "Big text on the story, e.g. '21 today'" },
+      "wishes": {
+        "type": "array",
+        "description": "Wishes already made, oldest first, each lighting one candle; a name may appear up to three times",
+        "items": { "type": "object", "properties": { "who": { "type": "string", "description": "Friend's name" }, "wish": { "type": "string", "description": "Their one-line wish, under 60 characters" } }, "required": ["who", "wish"] }
+      }
+    },
+    "required": ["author", "age"]
+  },
+  "height": 556
+}

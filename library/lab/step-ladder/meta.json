@@ -1,0 +1,33 @@
+{
+  "id": "step-ladder",
+  "name": "Step ladder",
+  "surface": "story",
+  "summary": "A step-count story drawn as a tall ladder against a brick wall; each friend drags their face up to today's steps and stays on that rung, the top rung belongs to whoever walked most, and the next day's first climb sends everyone back to the bottom.",
+  "useWhen": [
+    "i walked 31k steps today?? put it on my story so people can compare",
+    "step count challenge with the group for today",
+    "who walked the most today",
+    "fitness story where friends add their steps",
+    "daily steps thing that resets tomorrow"
+  ],
+  "dontUseWhen": [
+    "a gym streak over weeks (use gym)",
+    "a bet with money on it (use over-under or gym-pot)",
+    "a race to a savings goal (use savings-race)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "author": { "type": "string", "description": "Whose story it is" },
+      "ago": { "type": "string", "description": "How long ago it went up, e.g. '8h'" },
+      "caption": { "type": "string", "description": "Text on the story, in their words" },
+      "climbs": {
+        "type": "array",
+        "description": "Friends' steps already added today, 0 to 80000, with a line in their words",
+        "items": { "type": "object", "properties": { "who": { "type": "string" }, "steps": { "type": "integer" }, "note": { "type": "string" } }, "required": ["who", "steps"] }
+      }
+    },
+    "required": ["caption"]
+  },
+  "height": 556
+}

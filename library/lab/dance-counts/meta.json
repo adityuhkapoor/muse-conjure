@@ -1,0 +1,31 @@
+{
+  "id": "dance-counts",
+  "name": "Dance counts",
+  "surface": "reel",
+  "summary": "A dance reel broken into its eight counts, each a drawn stick-figure pose with a dancer looping it on the beat; friends tap the counts they have nailed, the shortest stack of faces shows where the group is stuck, and practice books the slot the stuck people can make.",
+  "useWhen": [
+    "we're learning this dance for formal",
+    "which part of the tiktok dance is everyone stuck on",
+    "track who has the choreo down before the wedding",
+    "we need a practice for the group dance, when",
+    "count 6 is killing us, who still doesn't have it"
+  ],
+  "dontUseWhen": [
+    "a workout routine to do together (use reel-circuit)",
+    "a one-off challenge video (use public-challenge)",
+    "finding a time with no dance involved (use meeting-time)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title" },
+      "from": { "type": "string", "description": "Who shared the dance reel" },
+      "quote": { "type": "string", "description": "What they said" },
+      "counts": { "type": "array", "description": "Exactly 8 counts", "items": { "type": "object", "properties": { "name": { "type": "string", "description": "Short name, e.g. 'the spin'" }, "pose": { "type": "string", "description": "step, clap, point, up, hip, spin, kick, dip, bow or sway" } }, "required": ["name", "pose"] } },
+      "nailed": { "type": "array", "description": "Who already has which counts", "items": { "type": "object", "properties": { "who": { "type": "string", "description": "Name" }, "counts": { "type": "array", "items": { "type": "integer" }, "description": "Counts 1 to 8 they have" } }, "required": ["who", "counts"] } },
+      "slots": { "type": "array", "description": "1 to 4 practice slots", "items": { "type": "object", "properties": { "label": { "type": "string", "description": "When and where, e.g. 'Thu 9pm · Larkin basement'" }, "free": { "type": "array", "items": { "type": "string" }, "description": "Who is free then" } }, "required": ["label", "free"] } }
+    },
+    "required": ["counts", "slots"]
+  },
+  "height": 470
+}

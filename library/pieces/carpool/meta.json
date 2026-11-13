@@ -1,0 +1,106 @@
+{
+  "id": "carpool",
+  "name": "Carpool (drivers, departure times, gas split)",
+  "use_when": [
+    "getting a group somewhere in several cars: drivers with seats and a time each car leaves",
+    "'carpool to the away game', 'who's driving to the formal', 'drivers say when you're leaving', 'pickup run for the couch, split gas'",
+    "drivers offered cars in the chat, maybe with gas or parking money"
+  ],
+  "dont_use_when": [
+    "calling seats in cars already sorted, no times or drivers to coordinate (use slots)",
+    "picking one person to drive (use wheel)",
+    "a headcount for the trip itself (use lock)"
+  ],
+  "keywords": [
+    "carpool",
+    "carpooling",
+    "driving",
+    "driver",
+    "drivers",
+    "leaving",
+    "depart",
+    "gas",
+    "parking",
+    "pickup",
+    "pick",
+    "away",
+    "minivan",
+    "suv",
+    "ikea",
+    "run",
+    "lift",
+    "lifts"
+  ],
+  "guarantees": [
+    "each person is in one car at most, as driver or rider; riders never exceed a car's seats",
+    "a join takes an open seat or does nothing; joining another car moves you out of your old one",
+    "a car's cost splits evenly across everyone in it in integer cents, the driver takes the leftover cents, and the shares add up to the cost",
+    "anyone can offer a car or take the wheel of a car with no driver; departure times and costs never change after they are set",
+    "a leaver's seat opens up, or their car needs a new driver; a late joiner can ride or drive"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "description": "Where everyone is going, e.g. 'Away game at Stanford'"
+      },
+      "cars": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "driver": {
+              "type": "string",
+              "description": "Driver, exactly as in the members list, or empty if the car needs one"
+            },
+            "seats": {
+              "type": "integer",
+              "description": "Rider seats, not counting the driver, 1 to 7"
+            },
+            "leaves": {
+              "type": "string",
+              "description": "When the car leaves, short: '5:30 PM', 'after class'"
+            },
+            "costCents": {
+              "type": "integer",
+              "description": "Gas and parking for this car in cents, 0 if none"
+            }
+          },
+          "required": [
+            "driver",
+            "seats",
+            "leaves",
+            "costCents"
+          ],
+          "additionalProperties": false
+        },
+        "description": "Cars from the chat, 1 to 5"
+      }
+    },
+    "required": [
+      "title",
+      "cars"
+    ],
+    "additionalProperties": false
+  },
+  "examples": [
+    {
+      "title": "IKEA couch run",
+      "cars": [
+        {
+          "driver": "Leo",
+          "seats": 1,
+          "leaves": "11:00 AM",
+          "costCents": 1850
+        },
+        {
+          "driver": "",
+          "seats": 3,
+          "leaves": "11:15 AM",
+          "costCents": 0
+        }
+      ]
+    }
+  ]
+}

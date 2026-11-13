@@ -1,0 +1,88 @@
+{
+ "id": "split-even-2",
+ "ask": "ok muse do your thing",
+ "kind": "split-even",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Tracks shared expenses with a payer and the people splitting each one, works out the fewest payments to settle up, and lets the person being paid confirm that money arrived.",
+ "use_when": [
+  "a group shared costs like rides, food or tickets and needs to know who owes who",
+  "someone wants to add an expense and split it among everyone in the chat",
+  "people want to opt in or out of a shared cost",
+  "the group wants to mark payments as received and see what is left"
+ ],
+ "dont_use_when": [
+  "a single yes/no or multiple choice vote is needed, which is a poll",
+  "money has to actually be sent or collected through a payment service",
+  "a recurring budget or long-term expense report is needed"
+ ],
+ "keywords": [
+  "bill split",
+  "split bill",
+  "who owes who",
+  "expenses",
+  "settle up",
+  "split cost",
+  "shared costs",
+  "group payments",
+  "owe money",
+  "split even",
+  "reimburse",
+  "trip expenses",
+  "pay back",
+  "ledger"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 7
+ },
+ "mutation_score": 1,
+ "height": 116,
+ "params": {
+  "names": [
+   "Jess",
+   "Priya",
+   "Owen",
+   "Sam",
+   "Noor",
+   "Hana",
+   "Eli"
+  ],
+  "options": [
+   "Who owes who"
+  ],
+  "blanks": [],
+  "numbers": [
+   4160,
+   2700,
+   1400,
+   40,
+   7
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "saturday night out",
+  "members": [
+   "Jess",
+   "Priya",
+   "Owen",
+   "Sam",
+   "Noor",
+   "Hana",
+   "Eli"
+  ],
+  "text": "that uber home was like 40 bucks omg\nsurge pricing fr\nwho ordered it\ni did, 41.60 total\nwait there were 4 in my uber and 3 in the other one right\nyea the other one was jess's\nmine was 27 and i paid it\nok so two ubers\nnoor's had me priya and hana and noor\nand jess's had jess sam eli\nyep\ni'll pay whatever just tell me\nalso i got the pizza at 2am like 14 for everyone\noh true that was 7 of us\ni dont wanna do this rn\nmy brain is fried from that bar\nsame lol\nso who owes who\nidk it's a lot of numbers\nhonestly its a mess\nok muse do your thing"
+ },
+ "seconds": 140.9,
+ "attempts": 1,
+ "created": "2026-11-13T03:39:35.929Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 1,
+  "restHash": "bf959b6ae06ac062",
+  "playedHash": "9a853db12db16aca"
+ }
+}

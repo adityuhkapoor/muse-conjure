@@ -1,0 +1,10 @@
+{
+  "id": "time-zone-table",
+  "name": "Time zone table",
+  "surface": "messenger",
+  "summary": "A round table with each friend's clock and face, awake or asleep at their local hour; drag the hour hand and every clock turns until nobody is asleep, then send the invite.",
+  "useWhen": ["friends spread across time zones saying 'we should call'", "winter or summer break, finding one hour that works in Seoul, Denver and New Jersey at once"],
+  "dontUseWhen": ["everyone is in the same time zone (use meeting-time)", "picking a day weeks out (use clear-skies)", "an in-person plan (use a poll or an event)"],
+  "params": { "title": "string", "sub": "string", "day": "3-letter weekday in the home zone", "zone": "home zone name, e.g. ET", "start": "starting hour 0-23", "people": "up to 8 x {name, city, offset (hours from home zone), wake (0-23), sleep (up to 30 for past midnight), said}" },
+  "height": 390
+}

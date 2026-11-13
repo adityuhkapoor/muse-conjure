@@ -1,0 +1,74 @@
+{
+ "id": "gym-pot-2",
+ "ask": "muse can u make a tracker for this so we can check in every day",
+ "kind": "gym-pot",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A daily check-in tracker for a fixed-length group pact where each person ticks off each day, misses add money to a shared pot, and one person advances the day.",
+ "use_when": [
+  "A group wants to check in once a day for a set number of days",
+  "Friends want a small money stake that grows when someone misses a day",
+  "A study, workout or habit pact needs a shared view of who is on track",
+  "One person should keep count and move the group to the next day"
+ ],
+ "dont_use_when": [
+  "Splitting a bill or tracking who owes whom",
+  "A one-time vote or poll between options",
+  "A solo habit tracker with no group or stake",
+  "A pact with a different length, buy-in or miss cost than the fixed one"
+ ],
+ "keywords": [
+  "daily check-in",
+  "habit tracker",
+  "study pact",
+  "gym pot",
+  "streak",
+  "accountability",
+  "group challenge",
+  "pot",
+  "stake",
+  "miss penalty",
+  "checklist",
+  "15 days"
+ ],
+ "members": {
+  "min": 2,
+  "max": 10,
+  "original": 7
+ },
+ "mutation_score": 1,
+ "height": 156,
+ "params": {
+  "names": [],
+  "options": [],
+  "blanks": [],
+  "numbers": [
+   15,
+   1500
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "library lockdown finals",
+  "members": [
+   "Leo",
+   "Paige",
+   "Theo",
+   "Omar",
+   "Ravi",
+   "Cleo",
+   "Mina"
+  ],
+  "text": "finals start dec 9 and i have studied exactly zero hours\nsame but im in butler til close tn\nok we should do a thing where we all gotta study daily\nlike what, a pact\nyea but with money. 15 each in a pot\n15 is steep but ok\ni like it. minimum 2 hrs a day or u miss\n2 hrs of actual studying or just sitting there on tiktok\nhonor system lol\npost a pic of ur notes or the library to prove it\nok and each miss costs 3 bucks into the pot\nand the pot goes to pizza night after finals?\nyes. koronet slices on us\nlol koronet\nruns dec 1 to dec 15 then\nok im in\nin\nin. someone has to keep count tho\nnot me i will forget\nmuse can u make a tracker for this so we can check in every day"
+ },
+ "seconds": 130.4,
+ "attempts": 1,
+ "created": "2026-11-13T03:53:32.432Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 1,
+  "restHash": "83fc0f0dfc83e0c6",
+  "playedHash": "83f01ff89738e00f"
+ }
+}

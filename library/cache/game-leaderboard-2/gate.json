@@ -1,0 +1,71 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"the shown night is one of the nights\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"there are 1 to 12 nights with unique ids\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a new night is added last, empty, and becomes the shown night\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.2,
+  "typecheck": 67.6,
+  "static": 3,
+  "determinism": 48.5,
+  "invariants": 94.9,
+  "mutation": 158.9,
+  "render": 898,
+  "copy": 2,
+  "render.browser": 0,
+  "render.mount": 53,
+  "render.taps": 241,
+  "render.lint": 853,
+  "render.axe": 893,
+  "render.total": 898,
+  "total": 952
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 15,
+  "inert": 3,
+  "killed": 15,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "every score is a whole number from 0 to 100": 1,
+   "every score belongs to someone in the chat": 2,
+   "the shown night is one of the nights": 0,
+   "there are 1 to 12 nights with unique ids": 0,
+   "night labels are 1 to 30 characters, tidy": 2,
+   "a score sets the actor's entry on that night and changes nothing else": 6,
+   "a clear removes only the actor's entry on that night": 3,
+   "a new night is added last, empty, and becomes the shown night": 0,
+   "show changes only which night is shown": 1,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "the shown night is one of the nights",
+  "there are 1 to 12 nights with unique ids",
+  "a new night is added last, empty, and becomes the shown night"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

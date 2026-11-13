@@ -1,0 +1,73 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"each person gives once and receives once\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"budget and party stay as written\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.7,
+  "typecheck": 37.8,
+  "static": 1.9,
+  "determinism": 23.9,
+  "invariants": 79.2,
+  "mutation": 95.4,
+  "render": 901,
+  "copy": 1,
+  "render.browser": 0,
+  "render.mount": 45,
+  "render.taps": 252,
+  "render.lint": 858,
+  "render.axe": 896,
+  "render.total": 901,
+  "total": 928.1
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 15,
+  "inert": 4,
+  "killed": 14,
+  "score": 0.93,
+  "threshold": 0.8,
+  "kills": {
+   "nobody is matched with themselves": 1,
+   "each person gives once and receives once": 0,
+   "everyone in the draw is in the chat": 2,
+   "a draw has at least 2 pairs and a drawer who is in it": 6,
+   "budget and party stay as written": 0,
+   "a draw matches every current member and records who drew": 2,
+   "a draw follows the shuffle the seed gives": 2,
+   "a draw never changes an existing draw": 1,
+   "only the drawer can reset, and reset empties the draw": 6,
+   "only people in the chat change anything": 2
+  },
+  "survivors": [
+   {
+    "op": "negate-condition",
+    "line": 32,
+    "before": "action.t === \"reset\"",
+    "after": "!(action.t === \"reset\")"
+   }
+  ]
+ },
+ "weak": [
+  "each person gives once and receives once",
+  "budget and party stay as written"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

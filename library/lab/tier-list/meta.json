@@ -1,0 +1,33 @@
+{
+  "id": "tier-list",
+  "name": "Tier list",
+  "origin": { "crate": "apps8", "id": "tier-list" },
+  "surface": "messenger",
+  "summary": "Everyone ranks the same things S to D, then sees the group's list and where they disagree.",
+  "useWhen": ["the chat is arguing which of several things is best: dining halls, movies, pizza places", "'tier list the dining halls', 'rank the Marvel movies', 'settle this, S to D'"],
+  "dontUseWhen": ["picking one option to do now (use a poll)", "more than 8 things", "ranking people in the chat"],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Short: 'Dining hall tier list'" },
+      "noun": { "type": "string", "description": "What one item is, singular: 'hall'" },
+      "items": { "type": "array", "maxItems": 8, "items": { "type": "string" }, "description": "3 to 8 things to rank, short names" },
+      "ranked": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string", "description": "Exactly as in the members list" },
+            "tiers": { "type": "string", "description": "One letter S, A, B, C or D per item, in order: 'ASCBAS'" }
+          },
+          "required": ["name", "tiers"],
+          "additionalProperties": false
+        },
+        "description": "Lists people already gave in the chat; empty if none"
+      }
+    },
+    "required": ["title", "noun", "items", "ranked"],
+    "additionalProperties": false
+  },
+  "height": 400
+}

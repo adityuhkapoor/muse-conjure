@@ -1,0 +1,73 @@
+{
+ "id": "shift-signup-1",
+ "ask": "can u make a signup sheet for door, music, and cleanup shifts",
+ "kind": "shift-signup",
+ "family": "coord",
+ "surface": "event",
+ "sentence": "A shared signup sheet where chat members take or leave limited-capacity time slots for door, music and cleanup shifts at an event.",
+ "use_when": [
+  "People need to sign up for volunteer shifts at an event",
+  "A group wants to fill roles with a set number of spots per time slot",
+  "You want to see who is on each shift and which spots are still open"
+ ],
+ "dont_use_when": [
+  "The group needs to pick one date or time by voting",
+  "Tasks need to be assigned by one person rather than chosen by each member",
+  "People need to split costs or track who owes money"
+ ],
+ "keywords": [
+  "shift signup",
+  "signup sheet",
+  "volunteer shifts",
+  "sign up",
+  "event staffing",
+  "door shift",
+  "music shift",
+  "cleanup crew",
+  "time slots",
+  "roster",
+  "schedule",
+  "open spots",
+  "volunteer"
+ ],
+ "members": {
+  "min": 2,
+  "max": 30,
+  "original": 5
+ },
+ "mutation_score": 1,
+ "height": 378,
+ "params": {
+  "names": [],
+  "options": [],
+  "blanks": [],
+  "numbers": [
+   9,
+   30,
+   10,
+   12
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "salsa club fall social @ the union ballroom",
+  "members": [
+   "Omar",
+   "Nora",
+   "Ty",
+   "Ines",
+   "Amir"
+  ],
+  "text": "ok so fall social is sat nov 22, doors open 8 and we kick everyone out at midnight\nim down to help but i cant do the whole night, got a midterm sunday lol\nwe need 2 ppl on door checking ids and wristbands\ni can do door 8-9:30 if someone takes over after\ni have the speaker and my playlist stuff so i can do music 9-10:30 ish\nneed someone else for music 10:30-12 too, otherwise its just amir's reggaeton the whole time\nlol honestly fine but yes\ni can do music late shift, and ill stay for cleanup if its not like 2 hrs\ncleanup is 12-12:45, need like 3 ppl, trash bags and stacking chairs\nty ur on door 9:30-11 right?\nyeah, and the 11-12 door is still open i think\nmuse can u make a signup sheet for door, music, and cleanup shifts"
+ },
+ "seconds": 46.6,
+ "attempts": 1,
+ "created": "2026-11-13T03:32:01.847Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 6,
+  "restHash": "9e1fb918a913ac1e",
+  "playedHash": "9a1db51cb05bac4b"
+ }
+}

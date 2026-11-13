@@ -1,0 +1,66 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"round ids are unique and there are 1 to 6 rounds\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"no action changes the title or reorders or deletes rounds\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.4,
+  "typecheck": 64.5,
+  "static": 2.8,
+  "determinism": 47.3,
+  "invariants": 125.3,
+  "mutation": 167.1,
+  "render": 895.4,
+  "copy": 1.7,
+  "render.browser": 0,
+  "render.mount": 50,
+  "render.taps": 219,
+  "render.lint": 833,
+  "render.axe": 884,
+  "render.total": 895,
+  "total": 948
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 16,
+  "inert": 1,
+  "killed": 16,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "round ids are unique and there are 1 to 6 rounds": 0,
+   "every score is a whole number from 0 to 999": 2,
+   "everyone with a score is in the chat": 2,
+   "each round is named for its position": 1,
+   "set score changes only the actor's own entry in that round": 3,
+   "a valid score from someone in the chat always lands": 5,
+   "clear score removes only the actor's entry in that round": 3,
+   "add round appends one empty round, only when the last has scores": 6,
+   "no action changes the title or reorders or deletes rounds": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "round ids are unique and there are 1 to 6 rounds",
+  "no action changes the title or reorders or deletes rounds"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

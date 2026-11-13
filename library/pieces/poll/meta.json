@@ -1,0 +1,96 @@
+{
+  "id": "poll",
+  "name": "Poll with add-option",
+  "use_when": [
+    "the group has to choose one of several options and wants to vote",
+    "options were already mentioned in the chat (places, movies, dates, colors)",
+    "someone asks 'vote', 'poll', 'which one', 'what should we'"
+  ],
+  "dont_use_when": [
+    "they want Muse to pick at random (use wheel)",
+    "a yes or no headcount for one plan (use lock)",
+    "many options to narrow down head to head (use bracket)",
+    "picking a time (use overlap)"
+  ],
+  "keywords": [
+    "poll",
+    "vote",
+    "votes",
+    "pick",
+    "choose",
+    "which",
+    "where",
+    "what",
+    "eat",
+    "dinner",
+    "lunch",
+    "food",
+    "restaurant",
+    "movie",
+    "watch",
+    "option",
+    "options",
+    "decide",
+    "best",
+    "favorite",
+    "theme",
+    "name"
+  ],
+  "guarantees": [
+    "one vote per person per option; single choice moves your vote",
+    "a vote changes only the voter's own vote; an added option comes last with its adder's vote",
+    "at most 8 options of 1-40 characters, unique labels",
+    "only people in the chat vote; a leaver's votes go, a late joiner can vote at once"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "description": "Card title, a plain question, e.g. 'Where should we eat?'"
+      },
+      "options": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "Options already mentioned in the chat, 0 to 8, short"
+      },
+      "suggested": {
+        "type": "array",
+        "items": {
+          "type": "string"
+        },
+        "description": "The labels from options that you proposed and nobody in the chat said; empty when every option was said in the chat"
+      },
+      "multi": {
+        "type": "boolean",
+        "description": "true if each person can vote for several options"
+      },
+      "allowAdd": {
+        "type": "boolean",
+        "description": "true if people can add options"
+      }
+    },
+    "required": [
+      "title",
+      "options",
+      "suggested",
+      "multi",
+      "allowAdd"
+    ],
+    "additionalProperties": false
+  },
+  "examples": [
+    {
+      "title": "What are we watching?",
+      "options": [
+        "Dune 2",
+        "Past Lives",
+        "Barbie"
+      ],
+      "multi": true,
+      "allowAdd": true
+    }
+  ]
+}

@@ -1,0 +1,74 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"no one is listed twice on a weekend\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the four weekends keep their ids and labels\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the needed count is fixed\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"title, need and labels never change\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.6,
+  "typecheck": 38.7,
+  "static": 1.4,
+  "determinism": 45.7,
+  "invariants": 135.5,
+  "mutation": 128.9,
+  "render": 909.5,
+  "copy": 0.7,
+  "render.browser": 0,
+  "render.mount": 46,
+  "render.taps": 249,
+  "render.lint": 864,
+  "render.axe": 904,
+  "render.total": 909,
+  "total": 932.1
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 12,
+  "inert": 3,
+  "killed": 12,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "no one is listed twice on a weekend": 0,
+   "voters are in the chat": 5,
+   "the four weekends keep their ids and labels": 0,
+   "the needed count is fixed": 0,
+   "a vote flips the actor on that weekend and no one else": 7,
+   "a vote leaves the actor's other weekends as they were": 3,
+   "only people in the chat change the poll": 2,
+   "title, need and labels never change": 0
+  },
+  "survivors": []
+ },
+ "weak": [
+  "no one is listed twice on a weekend",
+  "the four weekends keep their ids and labels",
+  "the needed count is fixed",
+  "title, need and labels never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

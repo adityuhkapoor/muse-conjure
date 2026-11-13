@@ -1,0 +1,43 @@
+{
+  "id": "reg-race",
+  "name": "Reg race",
+  "surface": "messenger",
+  "summary": "Class registration as a race: a running track with a lane per friend, each starting at their registration wave like a staggered start, and the open seats standing as a column of chairs by the finish; tap Got it and you sprint across the line and take a chair, miss it and you stop at the waitlist hurdle, or set a bell for five minutes before your wave.",
+  "useWhen": [
+    "registration opens at 7 who's getting psych 110",
+    "what are everyone's reg times",
+    "remind me before my registration window",
+    "did anyone get into the class yet",
+    "we all need the same section, how many seats left"
+  ],
+  "dontUseWhen": [
+    "choosing which classes to take",
+    "studying or exams (use exam-range)",
+    "event tickets on sale (use concert or ticket-split)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Reg race'" },
+      "course": { "type": "string", "description": "The class everyone wants, e.g. 'PSYCH 110 · Prof. Lin'" },
+      "seats": { "type": "integer", "description": "Seats left right now" },
+      "waves": { "type": "array", "items": { "type": "string" }, "description": "1 to 6 registration wave times in order, e.g. '7:00'" },
+      "people": {
+        "type": "array",
+        "description": "Friends and their waves",
+        "items": {
+          "type": "object",
+          "properties": {
+            "who": { "type": "string", "description": "Name in the chat" },
+            "wave": { "type": "integer", "description": "Index into waves" },
+            "status": { "type": "integer", "description": "0 waiting, 1 got in, 2 waitlisted" },
+            "said": { "type": "string", "description": "What they said, in their words" }
+          },
+          "required": ["who", "wave"]
+        }
+      }
+    },
+    "required": ["course", "waves", "people"]
+  },
+  "height": 340
+}

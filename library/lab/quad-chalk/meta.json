@@ -1,0 +1,26 @@
+{
+  "id": "quad-chalk",
+  "name": "Quad chalk",
+  "surface": "messenger",
+  "summary": "A shared stretch of sidewalk to draw on with chalk: each friend draws in their own color with a face tag on their doodles; pick a stick, drag to draw, undo your last line. Temporary on purpose.",
+  "useWhen": [
+    "a bored or happy group chat moment: 'someone drew a rice cooker on the quad lol'",
+    "a shared doodle wall for the group",
+    "something creative to do together on a nice day"
+  ],
+  "dontUseWhen": [
+    "making a sticker or sprite of yourself (use sprite-maker)",
+    "a poster or flyer for an event (use party-flyer)",
+    "a game with a winner (use a game)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "place": { "type": "string", "description": "Where, e.g. 'the Quad'" },
+      "forecast": { "type": "string", "description": "e.g. 'rain Thursday'" },
+      "doodles": { "type": "array", "items": { "type": "object", "properties": { "who": { "type": "string" }, "kind": { "enum": ["grid", "cooker", "note", "clocks", "car", "sun", "heart", "star"] }, "x": { "type": "integer" }, "y": { "type": "integer" } }, "required": ["who", "kind", "x", "y"] }, "description": "Up to 6 doodles friends already drew, in thousandths of the pavement" }
+    },
+    "required": ["doodles"]
+  },
+  "height": 380
+}

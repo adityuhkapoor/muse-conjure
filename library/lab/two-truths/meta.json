@@ -1,0 +1,61 @@
+{
+  "id": "two-truths",
+  "name": "Two truths and a lie",
+  "origin": { "crate": "apps8", "id": "two-truths" },
+  "surface": "messenger",
+  "summary": "Spot the lie among three claims about a friend, with receipts from the chat.",
+  "useWhen": [
+    "a party game about friends using things they said in the chat",
+    "'two truths and a lie about Theo', 'guess which one is cap', 'how well do you know us'"
+  ],
+  "dontUseWhen": [
+    "no facts about people in the chat (Muse must not invent the truths)",
+    "team quiz with scores (use trivia-night)",
+    "a poll"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "chat": { "type": "string", "description": "Where the receipts are from: 'the boys chat'" },
+      "rounds": {
+        "type": "array",
+        "maxItems": 6,
+        "items": {
+          "type": "object",
+          "properties": {
+            "about": { "type": "string", "description": "The friend, exactly as in the members list" },
+            "facts": {
+              "type": "array",
+              "minItems": 3,
+              "maxItems": 3,
+              "items": {
+                "type": "object",
+                "properties": {
+                  "claim": { "type": "string", "description": "Short claim; truths only from the chat" },
+                  "receipt": { "type": "string", "description": "The message that proves or disproves it: 'Dev, Jan 2: “log out of my account”'" }
+                },
+                "required": ["claim", "receipt"],
+                "additionalProperties": false
+              }
+            },
+            "lie": { "type": "integer", "description": "Index of the made-up claim, 0-2" },
+            "guesses": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": { "name": { "type": "string" }, "fact": { "type": "integer" } },
+                "required": ["name", "fact"],
+                "additionalProperties": false
+              }
+            }
+          },
+          "required": ["about", "facts", "lie", "guesses"],
+          "additionalProperties": false
+        }
+      }
+    },
+    "required": ["chat", "rounds"],
+    "additionalProperties": false
+  },
+  "height": 330
+}

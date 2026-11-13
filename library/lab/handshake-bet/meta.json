@@ -1,0 +1,38 @@
+{
+  "id": "handshake-bet",
+  "name": "Handshake bet",
+  "surface": "messenger",
+  "summary": "A friendly bet sealed with a drawn handshake: two arms reach toward each other, each side taps to shake and the hands clasp with the stake tag swinging from the grip, everyone else taps to witness and their faces line up, then the claimant marks each day until it settles.",
+  "useWhen": [
+    "calvin: i will NOT oversleep a single 9am this week. will: bet",
+    "make it official, loser buys tacos",
+    "i bet you can't go a week without the rice cooker",
+    "shake on it, we need witnesses",
+    "hold him to it, no takeout till friday"
+  ],
+  "dontUseWhen": [
+    "betting on several outcomes with odds (use over-under)",
+    "real money",
+    "a challenge between strangers or a public challenge (use public-challenge)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "claimant": { "type": "string", "description": "Who made the claim (a name in the chat)" },
+      "claim": { "type": "string", "description": "The claim in their own words, quoted as they wrote it" },
+      "doubter": { "type": "string", "description": "Who said bet (a name in the chat)" },
+      "said": { "type": "string", "description": "What the doubter said, e.g. 'bet'" },
+      "stake": { "type": "string", "description": "The stake on the tag, e.g. 'Loser buys Tío's'" },
+      "days": { "type": "array", "items": { "type": "string" }, "description": "Short day labels the bet runs over, 1 to 7" },
+      "due": { "type": "string", "description": "When it settles, e.g. 'Fri 5pm'" },
+      "question": { "type": "string", "description": "The daily check after 'did <name>', e.g. 'make the 9am'" },
+      "kept": { "type": "string", "description": "Button for a day kept, 1 to 2 words, e.g. 'Made it'" },
+      "missed": { "type": "string", "description": "Button for a day missed, 1 to 2 words, e.g. 'Overslept'" },
+      "shook": { "type": "array", "items": { "type": "string" }, "description": "Who already shook: the claimant, the doubter, or both" },
+      "witnesses": { "type": "array", "items": { "type": "string" }, "description": "Who already witnessed" },
+      "marks": { "type": "array", "items": { "type": "boolean" }, "description": "Days already marked, in order: true kept, false missed" }
+    },
+    "required": ["claimant", "claim", "doubter", "stake"]
+  },
+  "height": 390
+}

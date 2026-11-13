@@ -1,0 +1,21 @@
+{
+  "id": "split-purchase",
+  "name": "Co-own it",
+  "origin": { "crate": "apps13", "id": "split-purchase" },
+  "surface": "marketplace",
+  "summary": "Friends co-own one item: who has it which week, each pays for their weeks, everyone signs.",
+  "useWhen": ["several friends buying one Marketplace item to share and pass around", "'let's go in on the projector', 'split the PS5 and rotate it', 'who keeps the tent which week'"],
+  "dontUseWhen": ["choosing between listings (use group-buy)", "an even split with nobody keeping it (use a bill split)", "more than 6 owners or 8 periods"],
+  "params": { "type": "object", "properties": {
+    "title": { "type": "string", "description": "'Co-own the projector'" },
+    "item": { "type": "string", "description": "Listing title: 'Epson + 100” screen'" },
+    "priceCents": { "type": "integer" },
+    "seller": { "type": "string", "description": "'from Ravi · 1.8 mi'" },
+    "owners": { "type": "array", "maxItems": 6, "items": { "type": "string" }, "description": "Names exactly as in the members list" },
+    "weeks": { "type": "array", "minItems": 4, "maxItems": 8, "items": { "type": "string" }, "description": "Period labels, short: 'Jan 6', '13'" },
+    "holders": { "type": "array", "items": { "type": "integer" }, "description": "Owner index per week, same length as weeks" },
+    "pickup": { "type": "string", "description": "'Sat 2pm · Dev drives' or empty" },
+    "note": { "type": "string", "description": "'Maya's first · hands off Sundays' or empty" } },
+    "required": ["title", "item", "priceCents", "seller", "owners", "weeks", "holders", "pickup", "note"], "additionalProperties": false },
+  "height": 372
+}

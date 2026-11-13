@@ -1,0 +1,68 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"every reply is in, maybe or no\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"at most 10 guests and every diet is at most 30 characters\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.6,
+  "typecheck": 77.2,
+  "static": 3.1,
+  "determinism": 58.3,
+  "invariants": 180.9,
+  "mutation": 220.5,
+  "render": 988,
+  "copy": 2.3,
+  "render.browser": 0,
+  "render.mount": 42,
+  "render.taps": 320,
+  "render.lint": 934,
+  "render.axe": 979,
+  "render.total": 988,
+  "total": 1052.8
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 14,
+  "inert": 3,
+  "killed": 14,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "replies and diets belong to people in the chat": 4,
+   "every reply is in, maybe or no": 0,
+   "guest ids and names are unique and statuses are valid": 1,
+   "at most 10 guests and every diet is at most 30 characters": 0,
+   "the host is in the chat": 1,
+   "every guest is followed up by someone in the chat": 6,
+   "a reply changes only the actor's own reply": 1,
+   "a diet change sets only the actor's own diet": 1,
+   "adding a guest appends one waiting guest owned by the actor": 1,
+   "a guest status change touches only that guest, by its owner or the host": 2,
+   "removing a guest removes exactly that guest, by its owner or the host": 2,
+   "only the host locks, and nothing changes once it is locked": 3
+  },
+  "survivors": []
+ },
+ "weak": [
+  "every reply is in, maybe or no",
+  "at most 10 guests and every diet is at most 30 characters"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

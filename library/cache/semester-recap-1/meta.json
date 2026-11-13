@@ -1,0 +1,78 @@
+{
+ "id": "semester-recap-1",
+ "ask": "can u make a recap card of our semester using the places and dates we just listed",
+ "kind": "semester-recap",
+ "family": "recap",
+ "surface": "chat",
+ "sentence": "A shared recap card that lists a group's memories with places and dates, where members can heart favorites, add new ones, and remove their own.",
+ "use_when": [
+  "The group wants a recap card of a semester, trip, or season from a list of places and dates",
+  "Friends want to heart the memories they loved most",
+  "Anyone in the chat should be able to add a missing memory to the list"
+ ],
+ "dont_use_when": [
+  "The group needs to vote on a future plan or pick a winner",
+  "You need a photo album or uploaded pictures",
+  "You need a schedule or calendar with times and reminders"
+ ],
+ "keywords": [
+  "recap card",
+  "semester recap",
+  "memories",
+  "year in review",
+  "trip recap",
+  "shared list",
+  "heart",
+  "favorites",
+  "places and dates",
+  "highlights",
+  "scrapbook",
+  "group memories"
+ ],
+ "members": {
+  "min": 1,
+  "max": 12,
+  "original": 6
+ },
+ "mutation_score": 1,
+ "height": 344,
+ "params": {
+  "names": [
+   "Kofi"
+  ],
+  "options": [
+   "Apple picking at Barber Farm",
+   "Halloween at the co-op",
+   "Road trip to Montreal",
+   "Cornell game",
+   "Pho 79 after the last final"
+  ],
+  "blanks": [],
+  "numbers": [
+   79
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "fall sem 2026",
+  "members": [
+   "Kofi",
+   "Lily",
+   "Omar",
+   "Leo",
+   "Maya",
+   "Ty"
+  ],
+  "text": "cant believe finals are in 3 weeks\ndont remind me\nok but this sem was actually elite\napple picking at barber farm sept 21 was so good\nthe cider donuts tho\nhalloween at the co-op was peak. ty as a banana\ni stand by it\nalso the road trip to montreal oct 18, poutine at 2am\nand the cornell game nov 2 we lost but whatever\nwe also said secret santa dec 6 at my place\nand pho 79 after the last final dec 13\nok thats the semester basically\nwe should save it somewhere before we all forget\nya lol\nsomeone make a thing\nyea\nmuse can u make a recap card of our semester using the places and dates we just listed"
+ },
+ "seconds": 101.5,
+ "attempts": 1,
+ "created": "2026-11-13T03:33:04.792Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 8,
+  "restHash": "9fb90c9139c2897d",
+  "playedHash": "9f3a0881ad85ad3f"
+ }
+}

@@ -1,0 +1,80 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"item ids are unique and the item count never changes\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the pick is empty or an existing option\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a release clears owner and done on the actor's own item only\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the date, the later note and the item labels never change\" caught none of 16 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.3,
+  "typecheck": 80.2,
+  "static": 2.8,
+  "determinism": 89.8,
+  "invariants": 279.3,
+  "mutation": 325.5,
+  "render": 933.3,
+  "copy": 2,
+  "render.browser": 0,
+  "render.mount": 49,
+  "render.taps": 272,
+  "render.lint": 889,
+  "render.axe": 928,
+  "render.total": 933,
+  "total": 1000.7
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 16,
+  "inert": 3,
+  "killed": 16,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "every item owner is no one or someone in the chat": 3,
+   "an item with no owner is not done": 2,
+   "item ids are unique and the item count never changes": 0,
+   "no one votes twice and every voter is in the chat": 2,
+   "option ids and labels are unique, at most 6, each 1 to 40 characters": 2,
+   "the pick is empty or an existing option": 0,
+   "a claim gives one unowned item to the actor and changes nothing else": 3,
+   "a release clears owner and done on the actor's own item only": 0,
+   "done flips only the actor's own item": 3,
+   "a vote flips the voter on that option and no one else, before a pick": 1,
+   "an added option comes last with the adder's vote": 1,
+   "a decide picks the named option only when it had the most votes": 3,
+   "only people in the chat change anything": 2,
+   "the date, the later note and the item labels never change": 0
+  },
+  "survivors": []
+ },
+ "weak": [
+  "item ids are unique and the item count never changes",
+  "the pick is empty or an existing option",
+  "a release clears owner and done on the actor's own item only",
+  "the date, the later note and the item labels never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

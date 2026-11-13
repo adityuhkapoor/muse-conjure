@@ -1,0 +1,10 @@
+{
+  "id": "home-check",
+  "name": "Home check",
+  "surface": "messenger",
+  "summary": "Late night after a party: the town drawn small with a house for each friend and their dot walking home; tap I'm home to light your window, check on whoever's still out, and it settles to 'All 6 home' and goes quiet.",
+  "useWhen": ["'text when ur home' after a party or a late night out", "making sure everyone got back safe without a dozen separate texts"],
+  "dontUseWhen": ["planning a ride before leaving (use event-carpool or pickup-run)", "live location sharing", "anything during the day"],
+  "params": { "title": "string", "sub": "string", "from": "where everyone left from", "now": "story time H:MM", "people": "up to 8 x {name, home (H:MM got home or ''), walked (0-9), said, reply (what they say when checked on), detour (passes the halal cart)}" },
+  "height": 394
+}

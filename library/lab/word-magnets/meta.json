@@ -1,0 +1,29 @@
+{
+  "id": "word-magnets",
+  "name": "Word magnets",
+  "surface": "messenger",
+  "summary": "Magnetic poetry on a drawn fridge door: a pile of word magnets pulled from the chat's own words, tap magnets to build your line, stick it and it snaps onto the door next to your face; one line each, and the door becomes the group's poem.",
+  "useWhen": [
+    "write a poem about this apartment, one line each",
+    "fridge magnet poetry but with our inside jokes",
+    "something cute for the gc on a slow night",
+    "make a group poem for maya's birthday card",
+    "everyone add a line about the semester"
+  ],
+  "dontUseWhen": [
+    "a long message or a card with paragraphs (use a card tool)",
+    "a word game with points (use letter-sprint or word-bomb)",
+    "voting on something"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Fridge poem'" },
+      "fridge": { "type": "string", "description": "Whose fridge, e.g. '412 Pine'" },
+      "words": { "type": "array", "items": { "type": "string" }, "description": "Up to 36 single words, mostly from the chat's own jokes and places, plus small glue words (the, is, and, my)" },
+      "lines": { "type": "array", "items": { "type": "object", "properties": { "who": { "type": "string" }, "words": { "type": "array", "items": { "type": "string" } } }, "required": ["who", "words"] }, "description": "Lines already on the door: who and their words, each taken from the word list" }
+    },
+    "required": ["words"]
+  },
+  "height": 410
+}

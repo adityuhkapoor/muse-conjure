@@ -1,0 +1,95 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"each person has one row\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"pledges and sent amounts are whole cents up to 1000 dollars\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the goal is the items added up\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"someone can hold money whenever anyone is in the chat\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"only the holder confirms, and only that row flips\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the goal, items and holders never change through actions\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.4,
+  "typecheck": 85,
+  "static": 3,
+  "determinism": 59.6,
+  "invariants": 241.1,
+  "mutation": 599,
+  "render": 1461.7,
+  "copy": 1.9,
+  "render.browser": 0,
+  "render.mount": 40,
+  "render.taps": 763,
+  "render.lint": 1386,
+  "render.axe": 1452,
+  "render.total": 1462,
+  "total": 1527.1
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 12,
+  "inert": 2,
+  "killed": 11,
+  "score": 0.92,
+  "threshold": 0.8,
+  "kills": {
+   "each person has one row": 0,
+   "givers, holders and collectors are in the chat": 3,
+   "pledges and sent amounts are whole cents up to 1000 dollars": 0,
+   "sent money has a holder, unsent money has none and is not confirmed": 2,
+   "the goal is the items added up": 0,
+   "someone can hold money whenever anyone is in the chat": 0,
+   "a pledge changes only the actor's own pledge": 2,
+   "a sent sets the actor's own amount and holder, unconfirmed": 3,
+   "only the holder confirms, and only that row flips": 0,
+   "an unsend clears only the actor's own sent money": 3,
+   "the goal, items and holders never change through actions": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": [
+   {
+    "op": "flip-comparison",
+    "line": 75,
+    "before": "===",
+    "after": "!=="
+   }
+  ]
+ },
+ "weak": [
+  "each person has one row",
+  "pledges and sent amounts are whole cents up to 1000 dollars",
+  "the goal is the items added up",
+  "someone can hold money whenever anyone is in the chat",
+  "only the holder confirms, and only that row flips",
+  "the goal, items and holders never change through actions"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

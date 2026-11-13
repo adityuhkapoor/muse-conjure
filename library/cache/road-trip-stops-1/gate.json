@@ -1,0 +1,76 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"ids are unique and labels are unique ignoring case\" caught none of 10 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a vote that adds the actor keeps them within the stop limit\" caught none of 10 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"an added stop goes last with the cleaned label and at most the actor's vote\" caught none of 10 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"title and stop limit never change\" caught none of 10 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.9,
+  "typecheck": 128.7,
+  "static": 2.1,
+  "determinism": 91.2,
+  "invariants": 267.6,
+  "mutation": 384.8,
+  "render": 1287.2,
+  "copy": 1.7,
+  "render.browser": 0,
+  "render.mount": 148,
+  "render.taps": 563,
+  "render.lint": 1182,
+  "render.axe": 1247,
+  "render.total": 1287,
+  "total": 1327.5
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 10,
+  "inert": 8,
+  "killed": 10,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "no one votes twice for an option": 1,
+   "no one has more picks than the stop limit": 2,
+   "voters are in the chat": 4,
+   "ids are unique and labels are unique ignoring case": 0,
+   "at most 6 stops, each label 1 to 40 characters": 2,
+   "a vote flips only the actor's vote on that stop": 3,
+   "a vote that adds the actor keeps them within the stop limit": 0,
+   "an added stop goes last with the cleaned label and at most the actor's vote": 0,
+   "only people in the chat change anything": 2,
+   "title and stop limit never change": 0
+  },
+  "survivors": []
+ },
+ "weak": [
+  "ids are unique and labels are unique ignoring case",
+  "a vote that adds the actor keeps them within the stop limit",
+  "an added stop goes last with the cleaned label and at most the actor's vote",
+  "title and stop limit never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

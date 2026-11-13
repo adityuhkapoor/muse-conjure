@@ -1,0 +1,79 @@
+{
+ "id": "pick-for-us-2",
+ "ask": "this is a mess fix it",
+ "kind": "pick-for-us",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A group picks one movie from a fixed shortlist, where each person has one vote they can move or remove, and the card shows vote counts, who is leading and who has not voted yet.",
+ "use_when": [
+  "The group needs to settle on one movie for a night",
+  "Someone wants a quick show of hands over a short list of options",
+  "People ask what to watch and a few titles are already named",
+  "You want to see who has not voted yet"
+ ],
+ "dont_use_when": [
+  "The group wants to pick food, a place or a date, since the options here are fixed movies",
+  "Votes need to be secret or people need several votes each",
+  "The group needs to add or change options, or a free-form discussion",
+  "Only one person is deciding"
+ ],
+ "keywords": [
+  "movie vote",
+  "movie night",
+  "poll",
+  "vote",
+  "pick a movie",
+  "what to watch",
+  "group decision",
+  "shortlist",
+  "one vote each",
+  "tally",
+  "film choice",
+  "pick for us"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 8
+ },
+ "mutation_score": 1,
+ "height": 344,
+ "params": {
+  "names": [],
+  "options": [
+   "Challengers",
+   "Shrek 2",
+   "Past Lives",
+   "Knives Out"
+  ],
+  "blanks": [
+   "2.5 hrs"
+  ],
+  "numbers": []
+ },
+ "fact_bound": false,
+ "origin": {
+  "title": "friday movie night",
+  "members": [
+   "Sofia",
+   "Felix",
+   "Hugo",
+   "Theo",
+   "Dev",
+   "Rhea",
+   "Ines",
+   "Ana"
+  ],
+  "text": "movie night friday at mine, who's in\nin\nin, bringing snacks\nin unless the lab runs late\nin!! what are we watching\ni vote challengers\nwe watched that already like 2 months ago\ni didnt\ni want shrek 2 for comfort\nshrek 2 is elite ngl\ni'm not rewatching shrek, i want something new. past lives?\npast lives will make me cry in front of everyone\nya same\nwhat about the new knives out\nknives out is 2.5 hrs, i have 8am sat\nits saturday?? who has class sat\nlab. dont ask\nok so contenders: challengers, shrek 2, past lives, knives out\ni can do any of those honestly\nsame as long as its not horror\nnobody said horror\nsomeone said scream earlier\nthat was a joke\nwe've been going back n forth since like 4\npeople are coming at 8 and i have to order pizza\nnobody is deciding lol\nmuse this is a mess fix it"
+ },
+ "seconds": 33.5,
+ "attempts": 1,
+ "created": "2026-11-13T04:04:54.193Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 4,
+  "restHash": "9f3623322737740e",
+  "playedHash": "9e62a1a506337e7a"
+ }
+}

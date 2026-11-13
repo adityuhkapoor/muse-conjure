@@ -1,0 +1,81 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"at most 40 expenses and 30 payments\" caught none of 7 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"balances add up to zero\" caught none of 7 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"an add appends one expense paid by the actor and changes nothing else\" caught none of 7 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a settle records one payment from the actor, no more than they owed\" caught none of 7 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"expenses are never edited in place\" caught none of 7 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.4,
+  "typecheck": 68,
+  "static": 2.7,
+  "determinism": 50,
+  "invariants": 106.2,
+  "mutation": 187.9,
+  "render": 894.1,
+  "copy": 2,
+  "render.browser": 0,
+  "render.mount": 41,
+  "render.taps": 238,
+  "render.lint": 850,
+  "render.axe": 889,
+  "render.total": 894,
+  "total": 949.8
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 7,
+  "inert": 6,
+  "killed": 7,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "every expense has whole positive cents, a short clean label and a unique id": 1,
+   "at most 40 expenses and 30 payments": 0,
+   "payers are in the chat": 4,
+   "balances add up to zero": 0,
+   "every payment has whole positive cents between two different people in the chat": 2,
+   "an add appends one expense paid by the actor and changes nothing else": 0,
+   "a remove drops one expense, and only the payer can do it": 1,
+   "a settle records one payment from the actor, no more than they owed": 0,
+   "expenses are never edited in place": 0,
+   "only people in the chat change the tab": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "at most 40 expenses and 30 payments",
+  "balances add up to zero",
+  "an add appends one expense paid by the actor and changes nothing else",
+  "a settle records one payment from the actor, no more than they owed",
+  "expenses are never edited in place"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

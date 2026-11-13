@@ -1,0 +1,97 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"the bar to lock is always 4\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"not locked means fewer than 4 are in\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a lock has a time\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a lock never changes or lifts\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the title and the bar never change\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 0.8,
+  "typecheck": 47.9,
+  "static": 2,
+  "determinism": 32.5,
+  "invariants": 83.8,
+  "mutation": 128.5,
+  "render": 936.3,
+  "copy": 1.1,
+  "render.browser": 0,
+  "render.mount": 35,
+  "render.taps": 274,
+  "render.lint": 887,
+  "render.axe": 931,
+  "render.total": 936,
+  "total": 972.4
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 15,
+  "inert": 5,
+  "killed": 13,
+  "score": 0.87,
+  "threshold": 0.8,
+  "kills": {
+   "answers and notes belong to people in the chat": 3,
+   "every answer is in, maybe or out": 1,
+   "every note is trimmed, not empty, at most 40 characters": 3,
+   "the bar to lock is always 4": 0,
+   "not locked means fewer than 4 are in": 0,
+   "a lock has a time": 0,
+   "an answer sets only the actor's own answer": 2,
+   "a note sets only the actor's own note": 4,
+   "clear removes only the actor's answer and note": 1,
+   "a lock never changes or lifts": 0,
+   "a lock is set only by an answer that reaches the bar": 3,
+   "the title and the bar never change": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": [
+   {
+    "op": "negate-condition",
+    "line": 63,
+    "before": "a.t === \"clear\"",
+    "after": "!(a.t === \"clear\")"
+   },
+   {
+    "op": "flip-comparison",
+    "line": 63,
+    "before": "===",
+    "after": "!=="
+   }
+  ]
+ },
+ "weak": [
+  "the bar to lock is always 4",
+  "not locked means fewer than 4 are in",
+  "a lock has a time",
+  "a lock never changes or lifts",
+  "the title and the bar never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

@@ -1,0 +1,32 @@
+{
+  "id": "reel-circuit",
+  "name": "Reel circuit",
+  "surface": "reel",
+  "summary": "A workout reel's moves drawn as stations around a ring with a runner going round; join and you get a lane inside the ring, each session you log fills part of it, and the ring closes when everyone hits the weekly target.",
+  "useWhen": [
+    "doing this workout 3x a week, who's in",
+    "keep each other honest on the reel workout",
+    "gym-free dorm routine challenge for the week",
+    "track who actually did the 20 min circuit",
+    "let's all do this tiktok workout this week"
+  ],
+  "dontUseWhen": [
+    "a money pot for missing gym days (use gym-pot)",
+    "learning a dance (use dance-counts)",
+    "one person's gym log (use gym)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title" },
+      "from": { "type": "string", "description": "Who shared the workout reel" },
+      "mins": { "type": "integer", "description": "How long one session is, in minutes" },
+      "quote": { "type": "string", "description": "What they said when sharing it" },
+      "target": { "type": "integer", "description": "Sessions each person does this week, 1 to 7" },
+      "moves": { "type": "array", "description": "4 to 8 moves around the ring", "items": { "type": "object", "properties": { "name": { "type": "string", "description": "Move name" }, "move": { "type": "string", "description": "Drawing: squat, pushup, plank, jack, lunge, burpee, crunch or highknee" } }, "required": ["name", "move"] } },
+      "people": { "type": "array", "description": "People already in", "items": { "type": "object", "properties": { "who": { "type": "string", "description": "Name" }, "done": { "type": "integer", "description": "Sessions done so far" }, "note": { "type": "string", "description": "A line in their words" } }, "required": ["who", "done"] } }
+    },
+    "required": ["moves"]
+  },
+  "height": 420
+}

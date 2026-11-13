@@ -1,0 +1,46 @@
+{
+  "id": "dinner-veto",
+  "name": "Dinner veto",
+  "origin": { "crate": "apps6", "id": "dinner-veto" },
+  "surface": "messenger",
+  "summary": "Everyone strikes one place off the list; the last one standing is where you eat.",
+  "useWhen": ["a group can't agree where to eat and has 3 to 6 options", "'where are we eating', 'anything but sushi', 'everyone veto one'"],
+  "dontUseWhen": ["picking by most votes (use a poll)", "picking at random (use a wheel)", "splitting the bill after (use a bill split)"],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "e.g. 'Dinner for 6'" },
+      "time": { "type": "string", "description": "e.g. '7:30'" },
+      "leaveBy": { "type": "string", "description": "e.g. '7:15', or empty" },
+      "spots": {
+        "type": "array",
+        "description": "3 to 6 places",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "kind": { "type": "string", "description": "'ramen', 'tacos', 'thai'" },
+            "price": { "type": "string", "description": "'$' to '$$$$'" },
+            "miles": { "type": "number" },
+            "stars": { "type": "number" }
+          }
+        }
+      },
+      "vetoes": {
+        "type": "array",
+        "description": "Vetoes already said in the chat",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string" },
+            "spot": { "type": "integer" },
+            "why": { "type": "string" }
+          }
+        }
+      },
+      "passed": { "type": "array", "items": { "type": "string" }, "description": "Names who said they don't care" }
+    },
+    "required": ["spots"]
+  },
+  "height": 406
+}

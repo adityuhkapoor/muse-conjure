@@ -1,0 +1,28 @@
+{
+  "id": "bed-bids",
+  "name": "Bed bids",
+  "surface": "messenger",
+  "summary": "Who sleeps where at the rental: a floor plan with the beds drawn in and a pillow per spot; better beds cost a little more and the floor less while the total stays the rental's price; tap a pillow to claim it and lock when everyone has a bed.",
+  "useWhen": [
+    "more people than beds at an Airbnb: 'one queen, one double, a couch and an air mattress for six'",
+    "'i'll pay extra for the queen' or 'whoever gets the air mattress should pay less'",
+    "splitting a rental fairly when the beds aren't equal"
+  ],
+  "dontUseWhen": [
+    "splitting the rental evenly with no bed fight (use a bill split)",
+    "choosing which rental to book (use a poll)",
+    "trip costs beyond the place (use trip-suitcase)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "place": { "type": "string" },
+      "totalCents": { "type": "integer" },
+      "beds": { "type": "array", "items": { "type": "object", "properties": { "label": { "type": "string" }, "kind": { "enum": ["queen", "double", "couch", "air", "twin"] }, "spots": { "type": "integer" }, "premiumCents": { "type": "integer", "description": "per spot, above or below an even share; should sum to 0 over all spots" }, "room": { "type": "string" } }, "required": ["label", "kind", "spots", "premiumCents", "room"] }, "description": "1 to 5 beds in up to 4 rooms" },
+      "crew": { "type": "array", "items": { "type": "string" } },
+      "claimed": { "type": "array", "items": { "type": "object", "properties": { "who": { "type": "string" }, "bed": { "type": "integer" }, "said": { "type": "string" } } }, "description": "Who already has a spot, by bed index" }
+    },
+    "required": ["totalCents", "beds", "crew"]
+  },
+  "height": 380
+}

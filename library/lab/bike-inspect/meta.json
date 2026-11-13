@@ -1,0 +1,33 @@
+{
+  "id": "bike-inspect",
+  "name": "Bike inspect",
+  "surface": "marketplace",
+  "summary": "A used bike listing redrawn as the bike with hotspots on the parts that matter (tires, chain, brakes, frame, saddle, gears); the friend who knows bikes marks each good or needs work with a note and a fix cost, and a light moves from ask more to go for it, then message the seller or offer less.",
+  "useWhen": [
+    "'calvin wants this $220 road bike but knows nothing about bikes'",
+    "can someone who knows bikes look at this listing",
+    "is this used bike worth it or a lemon",
+    "checking a secondhand bike before buying, part by part",
+    "will what do you think of this one, you're the bike guy"
+  ],
+  "dontUseWhen": [
+    "comparing prices across listings (use price-check)",
+    "the bike's price keeps dropping and friends are waiting (use price-watch)",
+    "buying it together with friends (use group-buy)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "listing": { "type": "object", "description": "The listing: name and price in cents", "properties": { "name": { "type": "string" }, "priceCents": { "type": "integer" } } },
+      "buyer": { "type": "string", "description": "Who wants to buy it" },
+      "buyerSaid": { "type": "string", "description": "What the buyer said, short" },
+      "parts": {
+        "type": "array",
+        "description": "3 to 6 parts: part (tires, chain, brakes, frame, saddle, gears), fix cost in cents if it needs work, and a check already made: who, ok, and a short note",
+        "items": { "type": "object", "properties": { "part": { "type": "string" }, "fixCents": { "type": "integer" }, "check": { "type": "object", "properties": { "who": { "type": "string" }, "ok": { "type": "boolean" }, "note": { "type": "string" } } } }, "required": ["part", "fixCents"] }
+      }
+    },
+    "required": ["listing", "parts"]
+  },
+  "height": 362
+}

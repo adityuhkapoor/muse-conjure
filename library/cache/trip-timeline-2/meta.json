@@ -1,0 +1,88 @@
+{
+ "id": "trip-timeline-2",
+ "ask": "timeline pls",
+ "kind": "trip-timeline",
+ "family": "recap",
+ "surface": "chat",
+ "sentence": "A shared three-day trip timeline where group members add stops by day and time of day, tap a stop to confirm they are in, and move or remove stops they added.",
+ "use_when": [
+  "The group is planning a weekend trip and wants one shared list of stops by day",
+  "People need to see who is coming to each stop",
+  "Someone wants to add or move a stop in a short itinerary",
+  "The trip has a fixed leave-by time on the last day"
+ ],
+ "dont_use_when": [
+  "The group needs to vote between options or pick a winner",
+  "The plan is longer than three days or needs exact clock times and maps",
+  "The group needs to split costs or track expenses",
+  "The task is a to-do list or packing list rather than a schedule"
+ ],
+ "keywords": [
+  "timeline",
+  "trip plan",
+  "itinerary",
+  "weekend trip",
+  "schedule",
+  "stops",
+  "travel plan",
+  "day planner",
+  "group trip",
+  "confirm attendance",
+  "agenda",
+  "trip-timeline"
+ ],
+ "members": {
+  "min": 2,
+  "max": 10,
+  "original": 6
+ },
+ "mutation_score": 0.81,
+ "height": 413,
+ "params": {
+  "names": [
+   "Jess",
+   "Lily",
+   "Paige",
+   "Maya"
+  ],
+  "options": [
+   "Fri · Oct 3",
+   "Hattie B's, then Broadway",
+   "Brunch at Loveless Cafe",
+   "Parthenon",
+   "Thrift stores in East Nash",
+   "5 Points coffee",
+   "Night"
+  ],
+  "blanks": [
+   "Check in anytime"
+  ],
+  "numbers": [
+   10,
+   40
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "the girls nashville weekend",
+  "members": [
+   "Jess",
+   "Lily",
+   "Paige",
+   "Sam",
+   "Hana",
+   "Maya"
+  ],
+  "text": "ok recap of nashville bc im confused\nwe drive up fri oct 3 after my 1pm lab\ni cant leave til like 4 so meet at the hotel\nhotel is the one by vandy, check in anytime fri\nfri night is hattie b's then broadway\ni have a res at the bluebird sat at 9pm\nomg wait the bluebird?? ok yes\nsat morning brunch at loveless cafe, 10ish\nthen sat afternoon the thrift stores in east nash\nand the parthenon??\nparthenon sat at 2 before thrifting\nsun we do 5 points coffee and then drive back by 3\ni have to be back for my 7pm shift sun\nok so sun leave nashville by 3 latest\nwait is hattie b's fri or sat\nfri!! i said fri\nya fri. sat is bluebird dinner after\nlol im so lost\nsame its all over the place\nugh this is all in like 40 messages\nsomeone just put it in order\nmuse timeline pls"
+ },
+ "seconds": 200.1,
+ "attempts": 1,
+ "created": "2026-11-13T04:51:54.530Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 9,
+  "restHash": "9ff00df00f7283cc",
+  "playedHash": "97f02af10ff013e4"
+ }
+}

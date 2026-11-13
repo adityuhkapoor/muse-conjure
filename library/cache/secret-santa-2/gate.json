@@ -1,0 +1,73 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"each person is picked by exactly one giver\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the note never changes\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.1,
+  "typecheck": 49.8,
+  "static": 1.7,
+  "determinism": 29.5,
+  "invariants": 85.7,
+  "mutation": 120.5,
+  "render": 903.4,
+  "copy": 1.6,
+  "render.browser": 0,
+  "render.mount": 31,
+  "render.taps": 251,
+  "render.lint": 859,
+  "render.axe": 898,
+  "render.total": 903,
+  "total": 936.7
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 12,
+  "inert": 4,
+  "killed": 11,
+  "score": 0.92,
+  "threshold": 0.8,
+  "kills": {
+   "a draw covers exactly the people in the chat": 2,
+   "nobody is paired with themselves": 2,
+   "each person is picked by exactly one giver": 0,
+   "seen has no repeats and only people who drew": 1,
+   "the draw time is set exactly when there is a draw": 3,
+   "a draw follows the seeded shuffle, one loop, nobody has looked yet": 3,
+   "looking adds only the viewer to seen": 1,
+   "no action changes a draw once it is made": 2,
+   "the note never changes": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": [
+   {
+    "op": "negate-condition",
+    "line": 39,
+    "before": "action.t === \"seen\"",
+    "after": "!(action.t === \"seen\")"
+   }
+  ]
+ },
+ "weak": [
+  "each person is picked by exactly one giver",
+  "the note never changes"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

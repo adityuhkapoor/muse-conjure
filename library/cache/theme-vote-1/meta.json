@@ -1,0 +1,77 @@
+{
+ "id": "theme-vote-1",
+ "ask": "mkae a pol for the theme plz",
+ "kind": "theme-vote",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A one-time group poll with three fixed theme options where each person gets one changeable vote, and any member can lock the top option so voting ends.",
+ "use_when": [
+  "A group needs to pick a party theme from a short fixed list",
+  "Everyone should vote once and the most votes decides",
+  "Someone wants a final locked result after voting",
+  "A quick vote in a chat with a few people"
+ ],
+ "dont_use_when": [
+  "Members need to add their own options or write in answers",
+  "The vote needs a deadline, ranked choices, or multiple picks per person",
+  "The choice is about picking a date or time slot"
+ ],
+ "keywords": [
+  "poll",
+  "vote",
+  "theme",
+  "party theme",
+  "group vote",
+  "pick one",
+  "lock result",
+  "majority",
+  "birthday",
+  "decide together",
+  "single choice",
+  "voting"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 8
+ },
+ "mutation_score": 0.93,
+ "height": 264,
+ "params": {
+  "names": [
+   "Rhea"
+  ],
+  "options": [
+   "2000s Prom",
+   "Disney Villains",
+   "Y2K Pop Star"
+  ],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "rhea's bday night",
+  "members": [
+   "Rhea",
+   "Priya",
+   "Eli",
+   "Theo",
+   "Jess",
+   "Ana",
+   "Lena",
+   "Leo"
+  ],
+  "text": "ok so my bday is the 22nd and i wanna do a themed thing\nYES finally. what themes\ni was thinking 2000s prom, or disney villains, or like y2k pop star\ndisney villains is kinda fire ngl\n2000s prom means i gotta rent a tux again lol\ni already have a pink velour tracksuit so y2k pop star for me\nsame as jess honestly, easy costume\nvillains is more fun tho, ursula wig!!\ni dont care just tell me what to wear\nok lets just vote so its fair\ntop one wins and we lock it?\nyes. whatever gets most votes is the theme no takebacks\nfine by me\nok but whos counting\nsomeone make it a thing so we can all tap\nmuse can do it right\nya ask muse\nmuse mkae a pol for the theme plz"
+ },
+ "seconds": 52.7,
+ "attempts": 1,
+ "created": "2026-11-13T02:44:28.330Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 4,
+  "restHash": "9f27232632d2ced2",
+  "playedHash": "9e33a13a7280e56f"
+ }
+}

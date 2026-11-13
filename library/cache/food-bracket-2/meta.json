@@ -1,0 +1,79 @@
+{
+ "id": "food-bracket-2",
+ "ask": "this is a mess fix it",
+ "kind": "food-bracket",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A group picks a fixed number of snacks to buy by voting on head-to-head matches, where each match winner goes on the buy list until it is full.",
+ "use_when": [
+  "The chat needs to choose a few snacks from a longer list",
+  "People want a head-to-head vote instead of a plain poll",
+  "A shared buy list must be settled once most of the chat has voted",
+  "Deciding food or treats to get on a budget"
+ ],
+ "dont_use_when": [
+  "A single yes/no or one-question poll is enough",
+  "The choice is not between items, such as picking a time or place to meet",
+  "Splitting a bill or tracking who owes money"
+ ],
+ "keywords": [
+  "snack bracket",
+  "snack vote",
+  "head to head",
+  "tournament",
+  "bracket",
+  "buy list",
+  "food vote",
+  "group vote",
+  "majority vote",
+  "matchup",
+  "pick snacks",
+  "elimination",
+  "versus",
+  "food choice"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 6
+ },
+ "mutation_score": 0.92,
+ "height": 290,
+ "params": {
+  "names": [
+   "Ty",
+   "Hugo"
+  ],
+  "options": [
+   "Takis",
+   "Hot Cheetos Puffs"
+  ],
+  "blanks": [],
+  "numbers": [
+   9
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "dorm movie night snacks",
+  "members": [
+   "Maya",
+   "Mia",
+   "Ty",
+   "Ines",
+   "Hugo",
+   "Leo"
+  ],
+  "text": "wait are we doing the snack run before or after the movie\nbefore, its 11 already\ni want takis\ntakis are mid, hot cheetos puffs\nno i need mochi, the trader joes ones\ntj is closed lol its 11\nugh true. cvs then\ncvs has mochi ice cream i think\ni want those gas station taquitos from the sunoco\nhugo no. last time you got sick\nthat was the sushi\nok so far takis, hot cheetos puffs, mochi, taquitos\nadd cup noodles, the spicy shin ones\nand pickles?? i want the big pickle in the bag\nmaya what\nits good!!\nok thats 6 things\nwe can only afford like 3, i have 9 bucks\ni have 6\nvenmo me and ill get a bunch\nno everyone will just argue the whole time in the store\nok what if two at a time? like takis vs puffs, winner goes on\nyeah thats basically what i meant\ni say taquitos should auto win\ni second that\nNO\nmovie starts in 20 we are never leaving\nmuse this is a mess fix it"
+ },
+ "seconds": 134.2,
+ "attempts": 1,
+ "created": "2026-11-13T04:45:33.171Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 4,
+  "restHash": "9f3733623078c687",
+  "playedHash": "bf32a1c13372cc36"
+ }
+}

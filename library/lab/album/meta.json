@@ -1,0 +1,21 @@
+{
+  "id": "album",
+  "name": "Weekend album",
+  "origin": { "crate": "apps5", "id": "album" },
+  "surface": "messenger",
+  "summary": "Curate a weekend's photo dump into an album where everyone shows up at least twice, then play it as a story with captions from the chat.",
+  "useWhen": ["after a trip or weekend with lots of photos: 'make an album', 'pick the best ones from the dump'", "a recap of the weekend for the chat"],
+  "dontUseWhen": ["voting on one best photo (use a poll or caption contest)", "a story of the chat's messages (use wrapped)"],
+  "params": {
+    "title": "card title",
+    "total": "photos in the dump",
+    "target": "album size",
+    "album": "album name on the story cover",
+    "friends": "names to cover",
+    "kept": "appearances per friend among photos already kept",
+    "keptN": "photos already kept",
+    "photos": "up to 15 x {scene, people, when, order, caption, verdict: pick|open|reject, why}",
+    "savedBy": "names who saved it"
+  },
+  "height": 349
+}

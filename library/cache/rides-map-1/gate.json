@@ -1,0 +1,83 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"every car keeps its seat count\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"car ids are unique and in order\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a leave empties only the actor's own spot\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"car names, notes and sizes never change\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.1,
+  "typecheck": 56.2,
+  "static": 2.2,
+  "determinism": 73.4,
+  "invariants": 250,
+  "mutation": 314.8,
+  "render": 963.6,
+  "copy": 1.5,
+  "render.browser": 0,
+  "render.mount": 35,
+  "render.taps": 284,
+  "render.lint": 911,
+  "render.axe": 955,
+  "render.total": 963,
+  "total": 1006.9
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 14,
+  "inert": 3,
+  "killed": 13,
+  "score": 0.93,
+  "threshold": 0.8,
+  "kills": {
+   "each person holds at most one spot": 3,
+   "drivers and riders are in the chat": 4,
+   "every car keeps its seat count": 0,
+   "car ids are unique and in order": 0,
+   "a ride puts the actor in the asked open seat and moves no one else": 4,
+   "a drive makes the actor driver of a car that had none and moves no one else": 5,
+   "a leave empties only the actor's own spot": 0,
+   "no one but the actor changes spot": 5,
+   "car names, notes and sizes never change": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": [
+   {
+    "op": "flip-comparison",
+    "line": 74,
+    "before": "===",
+    "after": "!=="
+   }
+  ]
+ },
+ "weak": [
+  "every car keeps its seat count",
+  "car ids are unique and in order",
+  "a leave empties only the actor's own spot",
+  "car names, notes and sizes never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

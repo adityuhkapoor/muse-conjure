@@ -1,0 +1,72 @@
+{
+ "id": "simon-sequence-2",
+ "ask": "game?",
+ "kind": "simon-sequence",
+ "family": "game",
+ "surface": "chat",
+ "sentence": "A turn-based memory game where each person watches a growing pattern of four shapes and repeats it, and the longest streak wins.",
+ "use_when": [
+  "The group wants a quick casual game to play in chat",
+  "People want to compare memory skills by taking turns",
+  "Someone asks for a simple game with scores and a winner"
+ ],
+ "dont_use_when": [
+  "The group needs a two-player board game like chess or tic-tac-toe",
+  "People want to vote or collect opinions, which needs a poll",
+  "Players need to act at the same time in real time"
+ ],
+ "keywords": [
+  "memory game",
+  "simon says",
+  "pattern",
+  "repeat sequence",
+  "turns",
+  "game",
+  "streak",
+  "shapes",
+  "party game",
+  "score",
+  "quick game",
+  "casual"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 6
+ },
+ "mutation_score": 1,
+ "height": 356,
+ "params": {
+  "names": [
+   "Abby"
+  ],
+  "options": [],
+  "blanks": [],
+  "numbers": [
+   8
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "lib crew study break",
+  "members": [
+   "Theo",
+   "Naomi",
+   "Cleo",
+   "Hugo",
+   "Ana",
+   "Abby"
+  ],
+  "text": "im losing my mind in this library rn\nsame, 4th floor is so cold\nwe been here since like 1\nneed a break fr\n10 min break only tho\nok something quick we can all do on our phones\nremember that thing in orientation where u repeat the sequence of claps\nlol the clap one yes\ni was the best at that\nu were not\ni got to like 8 claps\nthat's not that many\nok so same idea but with like buttons or shapes\nit shows a pattern, u tap it back, then it adds one more each time\nand whoever lasts longest wins\ni need to win something this week\nlol same, i bombed my orgo quiz\nok so everyone gets a turn and we compare best streaks\nno screenshots of fake scores\nwe'll all be watching\nok whos first\nnot me i need to warm up\ncoward\ni'll go first then\nwait but where do we even play it\nyeah we have nothing for it\nmuse game?"
+ },
+ "seconds": 245.5,
+ "attempts": 1,
+ "created": "2026-11-13T04:48:22.031Z",
+ "second_look": {
+  "endStep": 15,
+  "endReason": "summary says \"Leo wins · best streak 2\"",
+  "controls": 6,
+  "restHash": "8f79a497f0309966",
+  "playedHash": "8f79849ff0061f70"
+ }
+}

@@ -1,0 +1,103 @@
+{
+  "id": "slots",
+  "name": "Seat or slot grid",
+  "use_when": [
+    "fixed spots people claim: car seats, tables, beds, shifts, time slots, tickets in a block",
+    "'who's riding with who', 'call your seat', 'sign up for a slot'",
+    "two people must not get the same spot"
+  ],
+  "dont_use_when": [
+    "things to bring or do (use claims)",
+    "finding a time everyone can make (use overlap)"
+  ],
+  "keywords": [
+    "seat",
+    "seats",
+    "car",
+    "cars",
+    "ride",
+    "riding",
+    "carpool",
+    "drive",
+    "table",
+    "tables",
+    "bed",
+    "beds",
+    "room",
+    "rooms",
+    "slot",
+    "slots",
+    "shift",
+    "shifts",
+    "spot",
+    "spots",
+    "call",
+    "dibs",
+    "shotgun",
+    "tickets",
+    "section"
+  ],
+  "guarantees": [
+    "one seat per person when set; taking a new seat frees the old one",
+    "the first claim on a seat wins, the second is a no-op",
+    "the seat count never changes",
+    "a leaver's seats open up again; a late joiner can take any open seat"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "description": "Card title, e.g. 'Who's riding with who?'"
+      },
+      "groups": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": {
+              "type": "string",
+              "description": "Car, table or shift name, e.g. \"Maya's car\""
+            },
+            "seats": {
+              "type": "integer",
+              "description": "Spots in it, 1 to 8"
+            }
+          },
+          "required": [
+            "name",
+            "seats"
+          ],
+          "additionalProperties": false
+        },
+        "description": "Groups from the chat, 1 to 6"
+      },
+      "onePerPerson": {
+        "type": "boolean",
+        "description": "true if each person takes one spot"
+      }
+    },
+    "required": [
+      "title",
+      "groups",
+      "onePerPerson"
+    ],
+    "additionalProperties": false
+  },
+  "examples": [
+    {
+      "title": "Beds at the cabin",
+      "groups": [
+        {
+          "name": "Loft",
+          "seats": 2
+        },
+        {
+          "name": "Bunk room",
+          "seats": 4
+        }
+      ],
+      "onePerPerson": true
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "id": "feed-tier-list",
+  "name": "Tier list post",
+  "origin": { "crate": "apps12", "id": "feed-tier-list" },
+  "surface": "feed",
+  "summary": "A friend's post asking everyone to rank a few things into S to D tiers, with the feed's consensus revealed after you post.",
+  "useWhen": ["a post asking people to rank a handful of things", "'rank the dining halls', 'tier list of campus coffee'"],
+  "dontUseWhen": ["picking one winner (use a poll or bracket-post)", "a recommendation question (use best-of)"],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "e.g. 'Rank the dining halls'" },
+      "author": { "type": "string", "description": "Who posted it, e.g. 'Jordan'" },
+      "items": { "type": "array", "description": "2 to 6 things to rank: name and the feed's votes per tier [S, A, B, C, D] from outside this chat", "items": { "type": "object" } },
+      "people": { "type": "array", "description": "Chat members who already posted: name and a tier letter per item", "items": { "type": "object" } }
+    },
+    "required": ["title", "items"]
+  },
+  "height": 418
+}

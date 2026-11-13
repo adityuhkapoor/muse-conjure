@@ -1,0 +1,40 @@
+{
+  "id": "coffee-seat",
+  "name": "Coffee seat",
+  "surface": "messenger",
+  "summary": "A café table for two in a one-to-one chat: the one who reached out already has a steaming cup, the other cup sits empty; times are chalked on the café's board, the friend taps one and her cup fills and it lands on both calendars, or taps 'Not this week' and a saucer keeps the seat, no guilt.",
+  "useWhen": [
+    "we should catch up sometime",
+    "omg we havent talked since august, coffee?",
+    "free for kettle and crumb this week? tue 3 wed 10 or thu 4",
+    "miss you!! lets get lunch soon",
+    "can we grab a coffee before break, my treat"
+  ],
+  "dontUseWhen": [
+    "a group of three or more picking a time (use meeting-time)",
+    "a date or romantic plan (use date-deck)",
+    "picking where to go rather than when"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Coffee at Kettle & Crumb'" },
+      "host": { "type": "string", "description": "Who reached out (a name in the chat)" },
+      "guest": { "type": "string", "description": "Who they asked (a name in the chat); only they pick" },
+      "quote": { "type": "string", "description": "What the host said, in their own words" },
+      "since": { "type": "string", "description": "How long since they talked, e.g. 'since August'; may be empty" },
+      "place": { "type": "string", "description": "The café or spot, e.g. 'Kettle & Crumb'" },
+      "hostOrder": { "type": "string", "description": "The host's usual order, under their cup" },
+      "guestOrder": { "type": "string", "description": "The guest's usual order, shown when her cup fills" },
+      "times": {
+        "type": "array",
+        "description": "One to four times offered",
+        "items": { "type": "object", "properties": { "day": { "type": "string", "description": "Short day, e.g. 'Tue'" }, "time": { "type": "string", "description": "Time, e.g. '3pm'" } }, "required": ["day", "time"] }
+      },
+      "note": { "type": "string", "description": "A short chalk note at the foot of the board, e.g. 'lowkey my treat'; may be empty" },
+      "picked": { "type": "integer", "description": "Index of a time already picked, or -1 for none" }
+    },
+    "required": ["host", "guest", "place", "times"]
+  },
+  "height": 400
+}

@@ -1,0 +1,34 @@
+{
+  "id": "shower-queue",
+  "name": "Shower queue",
+  "surface": "messenger",
+  "summary": "One bathroom, everyone with an early class: the hallway with the line at the bathroom door and the morning as a timeline underneath, one slot per person sized by their shower. Drag your slot to move in line, tap it to change your length; in the morning 'I'm out' tells the next person they're up.",
+  "useWhen": [
+    "one bathroom four roommates and we all have a 9am",
+    "who showers first tomorrow morning",
+    "will takes 25 minute showers, we need a schedule",
+    "bathroom order for the morning before the trip / the wedding / the game",
+    "line up showers so nobody's late"
+  ],
+  "dontUseWhen": [
+    "quiet hours at night (use quiet-clock)",
+    "weekly chores like cleaning the bathroom (use chore-wheel)",
+    "finding a time to meet (use meeting-time)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Shower queue'" },
+      "sub": { "type": "string", "description": "Under the title, e.g. 'One bathroom, four 9ams'" },
+      "start": { "type": "string", "description": "First shower, 24-hour time like '7:00'" },
+      "end": { "type": "string", "description": "Everyone must be out by, 24-hour time like '8:45'" },
+      "queue": {
+        "type": "array",
+        "description": "The line, first to last (up to 6), with each person's minutes (5 to 30, in fives) and a line in their own words",
+        "items": { "type": "object", "properties": { "who": { "type": "string" }, "minutes": { "type": "integer" }, "said": { "type": "string" } }, "required": ["who", "minutes"] }
+      }
+    },
+    "required": ["queue"]
+  },
+  "height": 360
+}

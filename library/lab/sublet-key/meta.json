@@ -1,0 +1,39 @@
+{
+  "id": "sublet-key",
+  "name": "Sublet key",
+  "surface": "marketplace",
+  "summary": "A summer sublet as a key tag: dates and price on the front, the answers to the questions everyone keeps asking on the back (tap to flip); interested people hang on a pegboard of hooks with their mutual friends, and the host hands the key to one of them.",
+  "useWhen": [
+    "'subletting my room may 20 to aug 15, $650'",
+    "people keep asking the same questions about my sublet",
+    "who should i sublet my room to this summer",
+    "summer sublet, furnished, utilities included, dm me",
+    "picking a subletter from everyone who's interested"
+  ],
+  "dontUseWhen": [
+    "looking for a sublet yourself (use sublet-finder)",
+    "matching roommates for next year (use roommate-match)",
+    "splitting rent (use rent-split)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "host": { "type": "string", "description": "Who is subletting" },
+      "room": { "type": "string", "description": "Short description of the room and where" },
+      "dates": { "type": "string", "description": "The dates, e.g. 'May 20 to Aug 15'" },
+      "priceCents": { "type": "integer", "description": "Monthly price in cents" },
+      "faq": {
+        "type": "array",
+        "description": "Up to 4 repeated questions: q (short), a (the answer), asked (how many times)",
+        "items": { "type": "object", "properties": { "q": { "type": "string" }, "a": { "type": "string" }, "asked": { "type": "integer" } }, "required": ["q", "a"] }
+      },
+      "hooks": {
+        "type": "array",
+        "description": "Up to 5 interested people already on hooks: who, mutual friends count, and a short line",
+        "items": { "type": "object", "properties": { "who": { "type": "string" }, "mutuals": { "type": "integer" }, "said": { "type": "string" } }, "required": ["who"] }
+      }
+    },
+    "required": ["host", "dates", "priceCents"]
+  },
+  "height": 348
+}

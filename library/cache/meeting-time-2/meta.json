@@ -1,0 +1,78 @@
+{
+ "id": "meeting-time-2",
+ "ask": "muse help",
+ "kind": "meeting-time",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Lets a group tap the times that work for them from a short list, add their own options, and lock in the leading time once enough people agree.",
+ "use_when": [
+  "A group needs to pick a time to meet, practice or hang out",
+  "Several candidate times exist and people can make more than one",
+  "Someone wants to see which time most people are free and then lock it",
+  "People need to suggest extra times to the list"
+ ],
+ "dont_use_when": [
+  "A single yes or no or a one-choice vote on a non-time question is needed",
+  "Two people just need to book one exact slot on a calendar",
+  "The group needs to split costs or assign tasks"
+ ],
+ "keywords": [
+  "meeting time",
+  "find a time",
+  "schedule",
+  "availability",
+  "when free",
+  "practice time",
+  "time poll",
+  "pick a day",
+  "lock time",
+  "group scheduling",
+  "rehearsal",
+  "when can we meet"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 7
+ },
+ "mutation_score": 1,
+ "height": 398,
+ "params": {
+  "names": [],
+  "options": [
+   "Sat after 4",
+   "Sat afternoon"
+  ],
+  "blanks": [
+   "Room closes at 9 on Sun · open mic on the 21st"
+  ],
+  "numbers": [
+   9,
+   7
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "the lowlights band",
+  "members": [
+   "Naomi",
+   "Jake",
+   "Theo",
+   "Kev",
+   "Noor",
+   "Ana",
+   "Mina"
+  ],
+  "text": "we need a practice before the open mic on the 21st\ni can do weeknights after 7 except wed\nweekends are better for me, drums are loud lol\nsat afternoon works\nsat i have a shift till 3\ni can do sat after 4 or sun anytime\nsun is my only free day tbh\nsun i can do after 1\nthe practice room in the music building closes at 9 on sun\nok i cant keep track of any of this\nmuse help"
+ },
+ "seconds": 69.9,
+ "attempts": 1,
+ "created": "2026-11-13T03:43:52.807Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 7,
+  "restHash": "9f3f013233138f17",
+  "playedHash": "9eade1123b52ad52"
+ }
+}

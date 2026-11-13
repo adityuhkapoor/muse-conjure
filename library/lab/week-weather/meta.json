@@ -1,0 +1,39 @@
+{
+  "id": "week-weather",
+  "name": "Week weather",
+  "surface": "story",
+  "summary": "A 'rate your week' story where each friend sets a weather from sun to storm; the story shows one strip of sky per friend and the group's forecast, and tapping someone's rain or storm sends them an umbrella that stands for a coffee on you.",
+  "useWhen": [
+    "rate your week story for finals",
+    "how's everyone doing this week, but fun",
+    "put a weather check in on my story for the six",
+    "monday check in thing where people can cheer each other up",
+    "calvin's having a rough week, let people send him something"
+  ],
+  "dontUseWhen": [
+    "a serious mental health check in (send a direct message)",
+    "picking a plan or a time (use story-poll-plan or meeting-time)",
+    "a vote on something with a winner (use after-vote)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "author": { "type": "string", "description": "Whose story it is" },
+      "ago": { "type": "string", "description": "How long ago it went up, e.g. '3h'" },
+      "question": { "type": "string", "description": "The prompt on the story, e.g. 'rate your week'" },
+      "gift": { "type": "string", "description": "What an umbrella stands for, e.g. 'a Kettle & Crumb coffee'" },
+      "ratings": {
+        "type": "array",
+        "description": "Weather already set by friends in the chat: 0 sunny, 1 sun and clouds, 2 cloudy, 3 rain, 4 storm, with a line in their words",
+        "items": { "type": "object", "properties": { "who": { "type": "string" }, "weather": { "type": "integer" }, "note": { "type": "string" } }, "required": ["who", "weather"] }
+      },
+      "umbrellas": {
+        "type": "array",
+        "description": "Umbrellas already sent; only to friends on rain or storm",
+        "items": { "type": "object", "properties": { "from": { "type": "string" }, "to": { "type": "string" } }, "required": ["from", "to"] }
+      }
+    },
+    "required": ["question"]
+  },
+  "height": 556
+}

@@ -1,0 +1,86 @@
+{
+ "id": "charades-picker-2",
+ "ask": "muse can u make a charades and pictionary game with our inside words",
+ "kind": "charades-picker",
+ "family": "game",
+ "surface": "chat",
+ "sentence": "Splits the chat into two teams and runs alternating charades and pictionary rounds where a teammate acts or draws a random word from an editable bank of custom phrases, and teammates score each guess.",
+ "use_when": [
+  "a group wants a team party game with charades and drawing rounds",
+  "the words should be inside jokes or custom phrases from the group",
+  "people want to split into two teams and keep a running score",
+  "a quick game for a group chat on a trip or hangout"
+ ],
+ "dont_use_when": [
+  "only one or two people are playing and teams are not possible",
+  "a trivia or quiz game with fixed correct answers is needed",
+  "a freeform drawing canvas or whiteboard is needed",
+  "a single random pick or poll is all that is needed"
+ ],
+ "keywords": [
+  "charades",
+  "pictionary",
+  "party game",
+  "team game",
+  "word game",
+  "guessing game",
+  "drawing game",
+  "acting game",
+  "inside jokes",
+  "custom words",
+  "word picker",
+  "score keeper",
+  "team split"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 6
+ },
+ "mutation_score": 0.94,
+ "height": 268,
+ "params": {
+  "names": [
+   "Dani",
+   "Leo",
+   "Jake",
+   "Tess",
+   "Ravi",
+   "Amir"
+  ],
+  "options": [
+   "Charades and Pictionary",
+   "Leo getting stuck in the kayak",
+   "Ravi's burnt s'mores",
+   "Amir and the goose",
+   "Tess's playlist of only Taylor",
+   "The wrong exit to Pittsfield",
+   "Jake's mystery cooler"
+  ],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "the lake house crew",
+  "members": [
+   "Dani",
+   "Leo",
+   "Jake",
+   "Tess",
+   "Ravi",
+   "Amir"
+  ],
+  "text": "lake weekend is 2 weeks away fr\nwe need something to do at night besides sitting on the dock\ncharades\npictionary tho\ndo both, alternate rounds\nonly if we use our own stuff\n\"leo getting stuck in the kayak\"\nthat was ONE time\n\"ravi's burnt s'mores\"\nthey were caramelized\n\"amir and the goose\"\ni still have the scar\n\"tess's playlist of only taylor\"\nno complaints from anyone at the time\n\"the wrong exit to Pittsfield\"\n\"jake's mystery cooler\"\nteams of 3, 3 vs 3\none guy gets a random word and acts it, team guesses\nand points go to whoever's team gets it\nwe rotate turns so everyone goes\nsomeone just keep track pls\nmuse can u make a charades and pictionary game with our inside words"
+ },
+ "seconds": 270.6,
+ "attempts": 1,
+ "created": "2026-11-13T04:38:23.022Z",
+ "second_look": {
+  "endStep": 3,
+  "endReason": "reached phase = reveal",
+  "controls": 3,
+  "restHash": "bf979078e0950f0e",
+  "playedHash": "af85993b90262ed5"
+ }
+}

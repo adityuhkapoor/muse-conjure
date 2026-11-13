@@ -1,0 +1,75 @@
+{
+ "id": "presale-reminder-2",
+ "ask": "can u make a countdown for the drop and list who's buying for who",
+ "kind": "presale-reminder",
+ "family": "coord",
+ "surface": "event",
+ "sentence": "Counts down to a ticket sale start time, shows which buyer gets tickets for which people, tracks each buyer's result, and tracks a payment owed between two people.",
+ "use_when": [
+  "A group is waiting for a ticket sale and wants a shared countdown",
+  "Two people will buy tickets on behalf of the rest and everyone needs to see who buys for whom",
+  "Buyers need to mark whether they got tickets or failed, with a backup plan",
+  "One person owes another money for a ticket and the group wants to track if it was paid"
+ ],
+ "dont_use_when": [
+  "Splitting many shared expenses among a group",
+  "Voting on which event or date to pick",
+  "Scheduling a meeting or event time across people's calendars"
+ ],
+ "keywords": [
+  "countdown",
+  "ticket drop",
+  "presale",
+  "ticket sale",
+  "who buys for who",
+  "buyer list",
+  "concert tickets",
+  "reminder",
+  "backup plan",
+  "payment tracker",
+  "sale timer",
+  "group tickets"
+ ],
+ "members": {
+  "min": 3,
+  "max": 6,
+  "original": 4
+ },
+ "mutation_score": 1,
+ "height": 270,
+ "params": {
+  "names": [
+   "Cam",
+   "Ravi",
+   "Maya",
+   "Kofi"
+  ],
+  "options": [],
+  "blanks": [],
+  "numbers": [
+   68,
+   6800
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "phoebe bridgers drop",
+  "members": [
+   "Cam",
+   "Ravi",
+   "Maya",
+   "Kofi"
+  ],
+  "text": "ticketmaster drop for phoebe is saturday at noon, general sale\nngl im scared its gonna sell out in like 4 min\ni have fast wifi at the library, i can try for all of us\ni can try too, two phones better than one\nok maya get 2, one for u one for ravi\nbet i'll send u 68 for mine\nthen i get me and cam\nyes. if one of us fails the other one grabs 4\nwait is it noon eastern or central\neastern, noon. we're at the same time as the dorm lol\nmuse can u make a countdown for the drop and list who's buying for who"
+ },
+ "seconds": 207.9,
+ "attempts": 1,
+ "created": "2026-11-13T05:09:06.513Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 1,
+  "restHash": "9a7aa5a5b55a5a42",
+  "playedHash": "8ff8f01ff8c01f80"
+ }
+}

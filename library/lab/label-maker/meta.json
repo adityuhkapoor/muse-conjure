@@ -1,0 +1,31 @@
+{
+  "id": "label-maker",
+  "name": "Label maker",
+  "surface": "messenger",
+  "summary": "A handheld label maker for everyone's moving boxes: type what's inside, pick a tape color, print, and the embossed strip feeds out and sticks onto the next box in the group's stack with your face on it.",
+  "useWhen": [
+    "'label your boxes before saturday or they're going to the curb'",
+    "packing up and need to mark what's in each box",
+    "moving day prep, whose box is whose",
+    "lol someone label the rice cooker box",
+    "a fun way to tag the boxes before the move"
+  ],
+  "dontUseWhen": [
+    "deciding what to keep, sell or give (use box-sorter)",
+    "packing the van itself (use van-pack)",
+    "a shared to-do list for the move (use move-in-day)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title" },
+      "stack": { "type": "string", "description": "Whose boxes and when, short" },
+      "labels": {
+        "type": "array",
+        "description": "Labels already printed: who, the words (up to 24 characters), tape color 0 to 3",
+        "items": { "type": "object", "properties": { "who": { "type": "string" }, "text": { "type": "string" }, "tape": { "type": "integer" } }, "required": ["who", "text"] }
+      }
+    }
+  },
+  "height": 378
+}

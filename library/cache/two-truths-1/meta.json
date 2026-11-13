@@ -1,0 +1,82 @@
+{
+ "id": "two-truths-1",
+ "ask": "can u make a two truths and a lie game from all the cabin stuff in here, the rest of us guess which one's fake",
+ "kind": "two-truths",
+ "family": "game",
+ "surface": "chat",
+ "sentence": "A two truths and a lie game where each round shows two real moments from a chat, one member writes a fake, the three are shuffled, the others guess the lie, and the author reveals it.",
+ "use_when": [
+  "Group wants a guessing game built from real events or memories from the chat",
+  "After a trip, weekend or event, to play with the funny moments",
+  "Someone asks for two truths and a lie where the rest guess the fake"
+ ],
+ "dont_use_when": [
+  "Group wants a quiz with right answers from general knowledge or trivia",
+  "Group wants a vote or poll on a choice or plan",
+  "Players want a competitive board or card game with turns"
+ ],
+ "keywords": [
+  "two truths and a lie",
+  "guessing game",
+  "party game",
+  "icebreaker",
+  "spot the lie",
+  "chat memories",
+  "trip recap",
+  "bluffing game",
+  "group game",
+  "fake fact",
+  "reveal",
+  "rounds"
+ ],
+ "members": {
+  "min": 3,
+  "max": 12,
+  "original": 7
+ },
+ "mutation_score": 0.93,
+ "height": 284,
+ "params": {
+  "names": [
+   "Nora",
+   "Eli",
+   "Maya",
+   "Bea",
+   "Owen",
+   "Jake"
+  ],
+  "options": [
+   "Two truths and a lie"
+  ],
+  "blanks": [],
+  "numbers": [
+   40,
+   300,
+   45
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "cabin weekend recap",
+  "members": [
+   "Ana",
+   "Nora",
+   "Eli",
+   "Maya",
+   "Bea",
+   "Owen",
+   "Jake"
+  ],
+  "text": "ok that cabin was unreal\nfr i'm still tired lol\ni'm still mad about my shoe. it's at the bottom of lake tamarack now\nbro you threw it to \"dry\" it on the dock\nit was a gentle toss\ni feel like the pancakes were fine\nowen you set off the smoke alarm twice\nok TWICE but they were crispy not burnt\nthe hammock ripping was not my fault it said 300 lbs\njake you put the cooler and your backpack in it too\n...ok fair\nbea drove us 40 min the wrong way tho\ngoogle maps sent me to a gravel quarry!!\ni still won monopoly in like 45 min though\nyou made owen mortgage everything\nshe charged me 800 for boardwalk i'll never forget\nthe raccoon in the kitchen at 2am tho\nnora screamed and hit it with a pool noodle\nit was a defense noodle\ni got like 3 hours of sleep that whole weekend\nwe should do something with all this lol\nlike two truths and a lie but about this weekend\nya where someone guesses the fake one\nhas to be stuff that really happened tho, 2 real 1 fake\nput my pancakes in there as a truth\nand the quarry\nand the noodle!!\nmake a few rounds so everyone gets one\nlowkey need the lie to be believable\nmuse can u make a two truths and a lie game from all the cabin stuff in here, the rest of us guess which one's fake"
+ },
+ "seconds": 181,
+ "attempts": 1,
+ "created": "2026-11-13T02:47:47.748Z",
+ "second_look": {
+  "endStep": 10,
+  "endReason": "reached rounds.1.status = revealed",
+  "controls": 4,
+  "restHash": "9e3991b9bc38e143",
+  "playedHash": "bf399298383cb847"
+ }
+}

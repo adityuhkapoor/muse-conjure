@@ -1,0 +1,11 @@
+{
+  "id": "story-poll-plan",
+  "name": "Story poll plan",
+  "origin": { "crate": "apps15", "id": "story-poll-plan" },
+  "surface": "story",
+  "summary": "A two-option poll sticker on a friend's story that turns into the winning plan card once the vote is decided.",
+  "useWhen": ["a story asking friends to pick between two plans: 'beach or hike sat?'", "a this-or-that poll that should end as a plan with a time and place"],
+  "dontUseWhen": ["more than two options (use after-vote)", "no plan details for either side yet (use a plain poll)", "a plan already decided"],
+  "params": { "author": "whose story", "ago": "e.g. 2h", "caption": "story text", "question": "string", "closeAt": "total votes that decide it, 2-50", "options": "2 x {label, art: beach|hike|plain, title, when, place, rows: [label, value][] (0-3), alt, voters: names}" },
+  "height": 556
+}

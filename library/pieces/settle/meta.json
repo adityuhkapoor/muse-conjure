@@ -1,0 +1,134 @@
+{
+  "id": "settle",
+  "name": "Settle up (many IOUs, fewest payments)",
+  "use_when": [
+    "several people paid for different things on a trip or over weeks and the group wants to square up",
+    "'settle up', 'untangle', 'square up the ious', 'who pays who after the trip', 'figure out the venmos for the whole weekend'",
+    "two or more payers in the chat: Priya paid the airbnb, Sam paid gas, Leo got groceries"
+  ],
+  "dont_use_when": [
+    "one person paid one bill and the rest pay them back (use split)",
+    "buying tickets for the group (use tickets)",
+    "gas or parking for one car (use carpool)",
+    "no money involved"
+  ],
+  "keywords": [
+    "settle",
+    "untangle",
+    "square",
+    "iou",
+    "ious",
+    "trip",
+    "weekend",
+    "spring",
+    "break",
+    "everything",
+    "whole",
+    "venmos",
+    "balances",
+    "ledger",
+    "even",
+    "debts",
+    "tangled",
+    "paid",
+    "gas",
+    "groceries",
+    "airbnb",
+    "ubers"
+  ],
+  "guarantees": [
+    "all money is integer cents; each IOU splits evenly across who it was for, the first people by id pay the leftover cents, and balances add up to zero",
+    "untangle gives the provably fewest payments: people minus the most groups that net to zero",
+    "the open payments clear every balance exactly; only the payer or the person paid marks a payment, once",
+    "anyone in the chat can add an IOU they paid; a new IOU clears the plan until someone untangles again",
+    "someone who leaves comes off the ledger with their IOUs, shares and payments"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "description": "What the money was for, e.g. 'Nashville trip'"
+      },
+      "ious": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "paidBy": {
+              "type": "string",
+              "description": "Who paid, exactly as in the members list"
+            },
+            "label": {
+              "type": "string",
+              "description": "What for, short: 'Airbnb', 'Gas'"
+            },
+            "cents": {
+              "type": "integer",
+              "description": "Amount in cents ($840 is 84000)"
+            },
+            "forWho": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Who it was for, payer included if they shared it; empty for everyone in the chat"
+            }
+          },
+          "required": [
+            "paidBy",
+            "label",
+            "cents",
+            "forWho"
+          ],
+          "additionalProperties": false
+        },
+        "description": "IOUs from the chat, up to 20"
+      }
+    },
+    "required": [
+      "title",
+      "ious"
+    ],
+    "additionalProperties": false
+  },
+  "examples": [
+    {
+      "title": "Spring break in Cabo",
+      "ious": [
+        {
+          "paidBy": "Maya",
+          "label": "Villa deposit",
+          "cents": 120000,
+          "forWho": []
+        },
+        {
+          "paidBy": "Leo",
+          "label": "Jet skis",
+          "cents": 18000,
+          "forWho": [
+            "Leo",
+            "Ana",
+            "Sam"
+          ]
+        },
+        {
+          "paidBy": "Ana",
+          "label": "Costco run",
+          "cents": 14376,
+          "forWho": []
+        },
+        {
+          "paidBy": "Sam",
+          "label": "Airport shuttle",
+          "cents": 9450,
+          "forWho": [
+            "Sam",
+            "Maya",
+            "Ana"
+          ]
+        }
+      ]
+    }
+  ]
+}

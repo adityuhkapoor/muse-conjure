@@ -1,0 +1,81 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"no one votes twice for a topping\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"no one is in both pie lists or twice in one\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"there are exactly the five toppings from the chat\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"price and code never change\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"paying takes a free spot for the actor or releases the actor's own\" caught none of 12 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.3,
+  "typecheck": 59.8,
+  "static": 2.3,
+  "determinism": 82.8,
+  "invariants": 221.4,
+  "mutation": 277.7,
+  "render": 921.6,
+  "copy": 1.7,
+  "render.browser": 0,
+  "render.mount": 37,
+  "render.taps": 249,
+  "render.lint": 873,
+  "render.axe": 916,
+  "render.total": 922,
+  "total": 967
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 12,
+  "inert": 6,
+  "killed": 12,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "no one votes twice for a topping": 0,
+   "no one is in both pie lists or twice in one": 0,
+   "voters and the payer are in the chat": 4,
+   "there are exactly the five toppings from the chat": 0,
+   "price and code never change": 0,
+   "a vote flips the actor's vote on that topping and nothing else": 3,
+   "a pies vote puts the actor on that count only, or clears it on a repeat": 4,
+   "paying takes a free spot for the actor or releases the actor's own": 0,
+   "only the current payer can clear or change the payer": 1,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "no one votes twice for a topping",
+  "no one is in both pie lists or twice in one",
+  "there are exactly the five toppings from the chat",
+  "price and code never change",
+  "paying takes a free spot for the actor or releases the actor's own"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

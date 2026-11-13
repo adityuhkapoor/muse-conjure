@@ -1,0 +1,79 @@
+{
+ "id": "pickup-run-1",
+ "ask": "this is a mess muse fix it",
+ "kind": "pickup-run",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "A shared store run list where group members add items they want, say \"me too\" on others' items, and one chosen shopper checks items off as they are picked up.",
+ "use_when": [
+  "Someone is making a store run for the group and people need to say what they want",
+  "A messy chat list of requests for one shopping trip needs to become a single checklist",
+  "The group wants to see who asked for each item and what is already picked up",
+  "One person needs to hand the shopping role to someone else mid-trip"
+ ],
+ "dont_use_when": [
+  "Splitting costs or tracking who owes whom after a purchase",
+  "A recurring grocery or meal plan list that lasts for weeks",
+  "Voting between options or picking a place to go"
+ ],
+ "keywords": [
+  "shopping list",
+  "store run",
+  "pickup list",
+  "grocery list",
+  "errand list",
+  "checklist",
+  "target run",
+  "shared list",
+  "me too",
+  "who wants what",
+  "check off items",
+  "shopper role"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 5
+ },
+ "mutation_score": 1,
+ "height": 188,
+ "params": {
+  "names": [
+   "Jess",
+   "Priya",
+   "Theo",
+   "Ana",
+   "Bryan"
+  ],
+  "options": [
+   "Tape",
+   "Sharpies"
+  ],
+  "blanks": [],
+  "numbers": [
+   12
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "target run 🛒",
+  "members": [
+   "Jess",
+   "Priya",
+   "Theo",
+   "Ana",
+   "Bryan"
+  ],
+  "text": "ok im going to target in like 20 min\nanyone need anything\nomg yes can u grab me the dry shampoo, the batiste one, the small one\ncan i come w u? need to get out of this library\nyeah ofc theo, meet me at the front of lawson\ntoilet paper pls we're literally out\n2 packs of the instant ramen, the spicy shin ones\nwait also a phone charger cable like 6ft if they have it\nthe 12 pack of toilet paper not the 4 lol\nslow down im not writing this down\noh and some tape. and sharpies\ni need deodorant, the old spice one, the blue one idk the name\nvenmo u after for the shampoo and cable\ni'll split the tp with whoever, bryan u want some?\nsure half. also i said 2 ramen not 4 sorry, ana said 4 on accident lol\ni never said ramen??\nok so who wants what and who owes who now im lost\ni can drive actually, jess u can shop\nok muse fix it"
+ },
+ "seconds": 355.5,
+ "attempts": 2,
+ "created": "2026-11-13T03:23:55.971Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 3,
+  "restHash": "9f98a5a5ca5ae0e1",
+  "playedHash": "da1ab5bc3c85c24e"
+ }
+}

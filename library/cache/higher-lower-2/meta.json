@@ -1,0 +1,84 @@
+{
+ "id": "higher-lower-2",
+ "ask": "do your thing",
+ "kind": "higher-lower",
+ "family": "game",
+ "surface": "chat",
+ "sentence": "A group guessing game where everyone bets whether the next shared household expense is higher or lower than the one shown, and the first to get five right in a row wins.",
+ "use_when": [
+  "The group wants a quick guessing game to pass time together",
+  "Roommates want a playful game based on shared bills and costs",
+  "Someone wants a friendly contest with a small prize like boba",
+  "The chat wants a game where everyone plays at once, not in turns"
+ ],
+ "dont_use_when": [
+  "The group needs to split a bill or track who owes what",
+  "Two people want a head-to-head board or strategy game",
+  "The group needs to vote on a decision or collect opinions"
+ ],
+ "keywords": [
+  "higher lower",
+  "guessing game",
+  "number guess",
+  "streak",
+  "party game",
+  "group game",
+  "house bills",
+  "roommates",
+  "expenses",
+  "quick game",
+  "boba",
+  "trivia",
+  "bet",
+  "simultaneous play"
+ ],
+ "members": {
+  "min": 2,
+  "max": 8,
+  "original": 6
+ },
+ "mutation_score": 0.83,
+ "height": 268,
+ "params": {
+  "names": [],
+  "options": [
+   "Wifi",
+   "Water",
+   "Costco run in Oct"
+  ],
+  "blanks": [],
+  "numbers": [
+   14300,
+   9600,
+   6000,
+   3800,
+   8700,
+   21400,
+   92500,
+   1200
+  ]
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "house 14 oak st",
+  "members": [
+   "Leo",
+   "Tyler",
+   "Ravi",
+   "Wren",
+   "Eli",
+   "Dev"
+  ],
+  "text": "electric bill came, 143 this month\nlast month was 96 what\nits the space heater eli\nit was 40 degrees!!\nwifi is still 60 tho\nand water was 38\ni ran the dishwasher once. once\nlol sure\ni got house groceries, 87 at trader joes\nthe costco run in oct was 214 tho\nthat was for like a month of stuff\nrent due on the 1st, its 925 each\nstill cant believe we pay that for a place with no dryer\nlaundromat is 4.50 a load now\nit was 3.75 in sept\nwalk there is 12 min, back 15 with the bags\nbc of the hill\nok we have so many numbers floating around\nsomeone said we should make it a game\nhigher or lower, with a streak\nlol yes distract me from the bills\nfirst to hit 5 in a row gets boba\nno one is gonna remember all these\nok muse do your thing"
+ },
+ "seconds": 220.1,
+ "attempts": 1,
+ "created": "2026-11-13T04:25:46.616Z",
+ "second_look": {
+  "endStep": 4,
+  "endReason": "reached last.results = {\"u2\":\"wrong\",\"u3\":\"wrong\",\"u4\":\"wrong\"}",
+  "controls": 3,
+  "restHash": "a63da467c9043fe2",
+  "playedHash": "a63da466bd215bc2"
+ }
+}

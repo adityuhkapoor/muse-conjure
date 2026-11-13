@@ -1,0 +1,30 @@
+{
+  "id": "soup-drop",
+  "name": "Soup drop",
+  "surface": "feed",
+  "summary": "A bedside tray drawn from above for someone who's sick; friends drop one thing onto it (soup, tea, tissues, a show, a playlist, oranges) with a few words, each lands in a free spot with their face, and the thermometer on the tray creeps down as it fills.",
+  "useWhen": [
+    "day 3 of the flu, send help",
+    "sick in bed again",
+    "got my wisdom teeth out, entertain me",
+    "stuck at home with a cold",
+    "recovering from surgery, need shows"
+  ],
+  "dontUseWhen": [
+    "a real errand run with money (use pickup-run)",
+    "a small win to celebrate (use win-jar)",
+    "serious grief or bad news (no tool, just reply)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "author": { "type": "string", "description": "Who's sick" },
+      "line": { "type": "string", "description": "The post's own line" },
+      "temp": { "type": "integer", "description": "Temperature now in tenths of a degree (1021 is 102.1); it falls a little with each thing on the tray" },
+      "unit": { "type": "string", "enum": ["F", "C"], "description": "Degree unit to show" },
+      "tray": { "type": "array", "items": { "type": "object", "properties": { "who": { "type": "string" }, "kind": { "type": "string", "enum": ["soup", "tea", "tissues", "show", "playlist", "oranges"] }, "note": { "type": "string" } }, "required": ["who", "kind"] }, "description": "Things already on the tray: what and their words (for a show or playlist, its name)" }
+    },
+    "required": ["author"]
+  },
+  "height": 358
+}

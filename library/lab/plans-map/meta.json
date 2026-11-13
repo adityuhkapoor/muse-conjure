@@ -1,0 +1,53 @@
+{
+  "id": "plans-map",
+  "name": "Plans map",
+  "surface": "feed",
+  "summary": "Every plan the group locked this year as pins on a drawn map of town, with the year's route dotted between them and a crown on the most-visited place; tap a pin to see who went and give your heart to the best night.",
+  "useWhen": [
+    "end of year, where did we actually go",
+    "map of everything we did this semester",
+    "how many times did we go to golden lantern lol",
+    "our year in eastfield post",
+    "recap all our plans on a map"
+  ],
+  "dontUseWhen": [
+    "a recap of chat messages and emoji (use wrapped)",
+    "planning the next outing (use plan-spinner)",
+    "one trip's story (use trip-story)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title, e.g. 'Our year in Eastfield'" },
+      "stats": {
+        "type": "object",
+        "description": "Totals for the year",
+        "properties": { "plans": { "type": "number", "description": "Plans locked" }, "nights": { "type": "number", "description": "Nights out" }, "dinners": { "type": "number", "description": "Dinners" } }
+      },
+      "places": {
+        "type": "array",
+        "description": "2 to 9 places in the order the year visited them",
+        "items": {
+          "type": "object",
+          "properties": {
+            "name": { "type": "string", "description": "Place name" },
+            "kind": { "type": "string", "enum": ["food", "coffee", "night", "outdoor", "campus", "home"], "description": "Icon on the pin" },
+            "x": { "type": "number", "description": "0 (west) to 1 (east) on the drawn map" },
+            "y": { "type": "number", "description": "0 (north) to 1 (south) on the drawn map; the lake is bottom left, the hill top right" },
+            "visits": { "type": "number", "description": "How many plans went there" },
+            "who": { "type": "array", "items": { "type": "string" }, "description": "Who went, by first name" },
+            "note": { "type": "string", "description": "One line about it in someone's words" }
+          },
+          "required": ["name", "kind", "x", "y", "visits"]
+        }
+      },
+      "favs": {
+        "type": "array",
+        "description": "Hearts already given for the best night",
+        "items": { "type": "object", "properties": { "by": { "type": "string", "description": "First name" }, "place": { "type": "string", "description": "A place name from places" } }, "required": ["by", "place"] }
+      }
+    },
+    "required": ["places", "stats"]
+  },
+  "height": 416
+}

@@ -1,0 +1,81 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"picks never go past the limit\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"option ids are unique and the option count never changes\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"only the person whose turn it is can pick\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"no pick before the draw or after the limit\" caught none of 15 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.1,
+  "typecheck": 59.2,
+  "static": 2.1,
+  "determinism": 54.7,
+  "invariants": 192.9,
+  "mutation": 230.7,
+  "render": 912.6,
+  "copy": 1.3,
+  "render.browser": 0,
+  "render.mount": 59,
+  "render.taps": 252,
+  "render.lint": 865,
+  "render.axe": 907,
+  "render.total": 913,
+  "total": 956.2
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 15,
+  "inert": 2,
+  "killed": 15,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "picks list exactly the taken options, once each": 3,
+   "picks never go past the limit": 0,
+   "everyone in the order and every picker is in the chat": 3,
+   "everyone in the chat is in the order once it is drawn": 2,
+   "every picker is in the order, and the order has no repeats": 2,
+   "option ids are unique and the option count never changes": 0,
+   "no draw means no picks": 1,
+   "a draw sets the order from the seed and changes nothing else": 2,
+   "a pick gives that option to the actor, adds it to picks and touches no other option": 3,
+   "only the person whose turn it is can pick": 0,
+   "no pick before the draw or after the limit": 0,
+   "a draw is only possible when no order exists": 1,
+   "a reset clears the order, the time, the picks and every pick holder": 2,
+   "a reset only happens after a draw, and always works then": 4,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "picks never go past the limit",
+  "option ids are unique and the option count never changes",
+  "only the person whose turn it is can pick",
+  "no pick before the draw or after the limit"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

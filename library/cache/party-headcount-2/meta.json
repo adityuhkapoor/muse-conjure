@@ -1,0 +1,76 @@
+{
+ "id": "party-headcount-2",
+ "ask": "can u add up whos coming w plus ones so i know how much turkey to get",
+ "kind": "party-headcount",
+ "family": "coord",
+ "surface": "event",
+ "sentence": "Shows a shared headcount for an event where each person says if they are going and can add named plus ones up to a limit, with a running total of everyone coming.",
+ "use_when": [
+  "Working out how much food to buy for a gathering based on who is coming",
+  "Collecting going or can't go answers along with guests each person is bringing",
+  "Host wants to open or close plus ones and see a live total",
+  "Counting attendees for a dinner, party or potluck in a group chat"
+ ],
+ "dont_use_when": [
+  "Picking a date, time or option by vote, which needs a poll",
+  "Splitting costs or tracking who owes money",
+  "Assigning dishes or items to bring, which needs a sign-up list"
+ ],
+ "keywords": [
+  "headcount",
+  "rsvp",
+  "plus ones",
+  "guest list",
+  "who is coming",
+  "attendance",
+  "party",
+  "dinner",
+  "friendsgiving",
+  "guest count",
+  "event planning",
+  "food amount",
+  "head count"
+ ],
+ "members": {
+  "min": 2,
+  "max": 30,
+  "original": 4
+ },
+ "mutation_score": 1,
+ "height": 360,
+ "params": {
+  "names": [
+   "Lena",
+   "Kofi",
+   "Maya",
+   "Rhea"
+  ],
+  "options": [
+   "Tara",
+   "Sam"
+  ],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "friendsgiving 2026",
+  "members": [
+   "Lena",
+   "Kofi",
+   "Maya",
+   "Rhea"
+  ],
+  "text": "friendsgiving at mine sunday the 22nd, 4pm. i have the oven, u guys bring sides\nim going! doing mac and cheese\ngoing, making jollof. bringing my girlfriend tara\nugh i might have to study for orgo\nrhea u need to eat tho\nok fine im coming. solo tho, my roommate went home\ncan i bring my lab partner sam? he has nowhere to go\nof course!!\ntara says shes bringing pie\nso me + sam\ni can do rolls from trader joes\nok i think thats everyone, my apt is small tho so no more plus ones lol\nmuse can u add up whos coming w plus ones so i know how much turkey to get"
+ },
+ "seconds": 169.8,
+ "attempts": 1,
+ "created": "2026-11-13T04:46:54.172Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 5,
+  "restHash": "87b63f702174e03d",
+  "playedHash": "87fc3f05f007f007"
+ }
+}

@@ -1,0 +1,11 @@
+{
+  "id": "event-carpool",
+  "name": "Rides to the event",
+  "origin": { "crate": "apps10", "id": "event-carpool" },
+  "surface": "event",
+  "summary": "Cars to the event drawn from above with friends in their seats; tap an open seat to ride, parking splits per car, then lock the cars.",
+  "useWhen": ["getting a group to an event in two or three cars with known drivers", "'who's riding with who to Outside Lands', 'I can take 3 in the RAV4', 'split parking'"],
+  "dontUseWhen": ["one car or no drivers yet (use carpool)", "buying the tickets (use ticket-split)"],
+  "params": { "title": "string", "place": "string", "cars": "1-3 of {driver, model, seats 2-7 including the driver, leaves, from, costCents, costLabel, riders: names}" },
+  "height": 384
+}

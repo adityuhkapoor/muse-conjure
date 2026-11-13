@@ -1,0 +1,79 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"event ids are unique\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"times are at most 12 characters\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"no one is going twice\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"at most 12 events\" caught none of 14 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.6,
+  "typecheck": 75.1,
+  "static": 3.2,
+  "determinism": 96.8,
+  "invariants": 294.9,
+  "mutation": 396.8,
+  "render": 1004.3,
+  "copy": 2.6,
+  "render.browser": 0,
+  "render.mount": 36,
+  "render.taps": 304,
+  "render.lint": 935,
+  "render.axe": 995,
+  "render.total": 1004,
+  "total": 1066.4
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 14,
+  "inert": 4,
+  "killed": 14,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "event ids are unique": 0,
+   "events are sorted by month then day": 2,
+   "every event has a label of 1 to 40 characters and a valid date": 2,
+   "times are at most 12 characters": 0,
+   "no one is going twice": 0,
+   "everyone going is in the chat": 3,
+   "at most 12 events": 0,
+   "selected is none or an existing event": 1,
+   "going toggles only the actor on that event": 3,
+   "an add puts one new event in with the actor as its only going member": 1,
+   "a remove drops exactly the named event": 2,
+   "a select changes only the selected field": 2,
+   "only people in the chat change the calendar": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "event ids are unique",
+  "times are at most 12 characters",
+  "no one is going twice",
+  "at most 12 events"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

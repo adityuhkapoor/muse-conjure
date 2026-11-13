@@ -1,0 +1,28 @@
+{
+  "id": "house-labels",
+  "name": "House labels",
+  "surface": "messenger",
+  "summary": "A label war for the shared apartment: its things drawn on a wall (shower, rice cooker, aux, alarm clock); pick a thing, punch a label in your own words and the tape strip flies over and sticks, anyone can relabel anything and only the author can peel theirs.",
+  "useWhen": [
+    "someone needs to put a sign on the shower",
+    "someone put a sign on the shower about will",
+    "house rules but make it funny",
+    "label the house stuff, will can read",
+    "passive aggressive labels for the dorm stuff"
+  ],
+  "dontUseWhen": [
+    "labeling moving boxes (use label-maker)",
+    "who owns what in the fridge, mapped by shelf (use fridge-map)",
+    "chores and who does them (use chore-wheel)",
+    "quiet hours or real house rules (use quiet-hours-dm)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "place": { "type": "string", "description": "Whose place, e.g. '412 Pine'" },
+      "things": { "type": "array", "description": "3 to 6 things on the wall", "items": { "type": "object", "properties": { "name": { "type": "string", "description": "The thing" }, "kind": { "type": "string", "description": "Drawing: fridge, cooker, shower, speaker, clock, binder, plant or door" }, "label": { "type": "string", "description": "The label already on it, up to 24 characters, or omitted" }, "by": { "type": "string", "description": "Who stuck that label" } }, "required": ["name", "kind"] } }
+    },
+    "required": ["things"]
+  },
+  "height": 390
+}

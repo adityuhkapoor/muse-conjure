@@ -1,0 +1,79 @@
+{
+ "id": "after-vote-1",
+ "ask": "bracket this",
+ "kind": "after-vote",
+ "family": "coord",
+ "surface": "event",
+ "sentence": "A two-round knockout vote that narrows four options to one winner, with everyone voting in each match and the host closing it.",
+ "use_when": [
+  "The group needs to pick one of four places or options by head-to-head votes",
+  "Deciding where to go after an event",
+  "A plain poll feels too loose and a bracket would settle it faster",
+  "One person should call the end of each round"
+ ],
+ "dont_use_when": [
+  "The choice has more or fewer than four options",
+  "Votes should be ranked or scored instead of head-to-head",
+  "Everyone needs to vote on a single question with no rounds",
+  "The group needs to split a bill or schedule a time"
+ ],
+ "keywords": [
+  "bracket",
+  "knockout",
+  "tournament",
+  "vote",
+  "after party",
+  "where to go",
+  "head to head",
+  "decide place",
+  "elimination",
+  "semifinal",
+  "final",
+  "group decision"
+ ],
+ "members": {
+  "min": 2,
+  "max": 12,
+  "original": 5
+ },
+ "mutation_score": 0.89,
+ "height": 364,
+ "params": {
+  "names": [
+   "Dre"
+  ],
+  "options": [
+   "Waffle House",
+   "Neon Pelican karaoke",
+   "Dre's apartment",
+   "Starlite"
+  ],
+  "blanks": [
+   "25 min",
+   "24hr"
+  ],
+  "numbers": []
+ },
+ "fact_bound": true,
+ "origin": {
+  "title": "spring formal 2026 afterparty plans",
+  "members": [
+   "Maya",
+   "Leo",
+   "Dre",
+   "June",
+   "Mia"
+  ],
+  "text": "ok formal ends at 11 so where are we going after\nwaffle house obviously\nwaffle house is always the answer lol but im down\ncan we do something other than waffle house for once\ni vote karaoke at Neon Pelican, its open til 2\nkaraoke is 15 cover tho rn\nngl i would pay 15 for karaoke\nwhat about just going back to my apartment, i have the speaker and a bunch of snacks\ndres place is chill but its like 25 min from the venue\nalso theres that 24hr diner Starlite on 5th\nstarlite has the good cheese fries\nok so waffle house, neon pelican karaoke, dres apartment, starlite\nthats 4 now\nid be ok w karaoke or starlite honestly\nkaraoke or starlite i guess, my feet hurt tho so no more walking\nboth are close to venue fyi, like 5 min\ni literally cant decide lmao\nsame, too many options\nsomeone just pick pls\nmuse bracket this"
+ },
+ "seconds": 143.1,
+ "attempts": 1,
+ "created": "2026-11-13T02:54:05.137Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 6,
+  "restHash": "9e322732273786ce",
+  "playedHash": "9ec037a12d3ec25e"
+ }
+}

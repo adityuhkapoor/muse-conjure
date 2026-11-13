@@ -1,0 +1,77 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"nobody is on both teams or twice\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a start time is set exactly when the round has begun\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"a reset happens only from done and zeroes the taps\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"actions never change the teams or the length of the round\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.3,
+  "typecheck": 74.5,
+  "static": 3.1,
+  "determinism": 49.4,
+  "invariants": 138.1,
+  "mutation": 197.7,
+  "render": 970,
+  "copy": 2,
+  "render.browser": 0,
+  "render.mount": 33,
+  "render.taps": 290,
+  "render.lint": 902,
+  "render.axe": 959,
+  "render.total": 970,
+  "total": 1025.3
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 13,
+  "inert": 2,
+  "killed": 13,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "nobody is on both teams or twice": 0,
+   "the two teams are exactly the people in the chat": 1,
+   "taps are kept for team members only, as whole numbers from 0": 2,
+   "the winner is set only when done and matches the totals": 1,
+   "a start time is set exactly when the round has begun": 0,
+   "a tap adds one to the actor's own count, while running and before time is up": 2,
+   "a start needs a ready card, stamps the time and begins at zero": 1,
+   "a finish happens only after time is up and keeps every tap": 5,
+   "a reset happens only from done and zeroes the taps": 0,
+   "actions never change the teams or the length of the round": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "nobody is on both teams or twice",
+  "a start time is set exactly when the round has begun",
+  "a reset happens only from done and zeroes the taps",
+  "actions never change the teams or the length of the round"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

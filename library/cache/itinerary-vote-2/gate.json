@@ -1,0 +1,66 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"four slots with unique ids, each with two options with unique ids\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"an unpicked slot has no spinner and no time, a picked slot has a time\" caught none of 13 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1.2,
+  "typecheck": 73.9,
+  "static": 3,
+  "determinism": 143.8,
+  "invariants": 356.3,
+  "mutation": 378.9,
+  "render": 956.8,
+  "copy": 1.9,
+  "render.browser": 0,
+  "render.mount": 37,
+  "render.taps": 259,
+  "render.lint": 873,
+  "render.axe": 933,
+  "render.total": 957,
+  "total": 1015.7
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 13,
+  "inert": 5,
+  "killed": 13,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "four slots with unique ids, each with two options with unique ids": 0,
+   "a picked value is one of the slot's own options": 1,
+   "an unpicked slot has no spinner and no time, a picked slot has a time": 0,
+   "every lean is for an existing slot and one of its options": 1,
+   "leans and spinners are in the chat": 6,
+   "a lean changes only the actor's entry for that unpicked slot": 2,
+   "a spin changes only that slot, to the seeded pick, by the actor, at the action time": 4,
+   "a reset clears only a picked slot, and only for the one who spun it": 1,
+   "once picked, a slot changes only through a reset": 2,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "four slots with unique ids, each with two options with unique ids",
+  "an unpicked slot has no spinner and no time, a picked slot has a time"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

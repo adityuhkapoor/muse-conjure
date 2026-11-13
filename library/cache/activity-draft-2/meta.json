@@ -1,0 +1,74 @@
+{
+ "id": "activity-draft-2",
+ "ask": "muse mkae a draft so evryone gets a pick plz",
+ "kind": "activity-draft",
+ "family": "coord",
+ "surface": "chat",
+ "sentence": "Group members take turns picking from a shared list of options in a random snake order (1 2 3, then 3 2 1) until the pick limit is reached or the list is empty.",
+ "use_when": [
+  "A group needs to split up a list of options fairly, with everyone getting turns to pick",
+  "Choosing activities, spots, or tasks for a trip or event one pick at a time",
+  "People want a random turn order that reverses each round so no one always goes first",
+  "Dividing a small set of items among chat members"
+ ],
+ "dont_use_when": [
+  "The group just wants to vote on one option or find the most popular choice (use a poll)",
+  "Picks need ranking, bidding, or points instead of turns",
+  "Only one person is deciding, or the list has more than 8 items"
+ ],
+ "keywords": [
+  "draft",
+  "snake draft",
+  "take turns",
+  "pick order",
+  "random order",
+  "everyone gets a pick",
+  "split list",
+  "trip planning",
+  "choose activities",
+  "turn based",
+  "fair picks",
+  "assign items"
+ ],
+ "members": {
+  "min": 2,
+  "max": 8,
+  "original": 5
+ },
+ "mutation_score": 0.85,
+ "height": 292,
+ "params": {
+  "names": [],
+  "options": [
+   "Barton Springs",
+   "Franklin BBQ",
+   "Bat bridge at sunset",
+   "South Congress thrifting",
+   "Kayaking on Lady Bird Lake"
+  ],
+  "blanks": [],
+  "numbers": []
+ },
+ "fact_bound": false,
+ "origin": {
+  "title": "spring break crew",
+  "members": [
+   "Mia",
+   "Bea",
+   "Mina",
+   "Ty",
+   "Gabe"
+  ],
+  "text": "ok austin spring break, we have 4 days and like 100 ideas\nbarton springs is non negotiable for me\nfranklin bbq but the line is like 4 hrs\nwe can send one person at 7am lol\ni wanna do the bat bridge at sunset\ni want south congress thrifting\nalso kayaking on lady bird lake??\nok thats 6 things and we can prob do 5\nlast trip mia and bea picked all of it and i did nothing i wanted\nok fair that was kinda true\nwe should take turns picking, like fair\nyeah but not just in order, the first person always wins\nya the order thing matters a lot\nmuse mkae a draft so evryone gets a pick plz"
+ },
+ "seconds": 161.2,
+ "attempts": 1,
+ "created": "2026-11-13T03:40:05.902Z",
+ "second_look": {
+  "endStep": null,
+  "endReason": null,
+  "controls": 3,
+  "restHash": "bf946a911b68c46e",
+  "playedHash": "b73f33e2ccc8c0c8"
+ }
+}

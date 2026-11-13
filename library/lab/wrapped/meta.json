@@ -1,0 +1,11 @@
+{
+  "id": "wrapped",
+  "name": "Group chat wrapped",
+  "origin": { "crate": "apps5", "id": "wrapped" },
+  "surface": "story",
+  "summary": "A tap-through story recap of the group chat itself: messages sent, top emoji, most active hour, the running saga and the MVP.",
+  "useWhen": ["end of a year or semester and the chat wants a recap of itself", "someone asks for the chat's wrapped, its stats, who talks most"],
+  "dontUseWhen": ["a recap of a trip (use trip-story)", "a semester recap as cards to collect (use semester-wrapped)", "no real counts were given: never invent stats"],
+  "params": { "chat": "chat name, e.g. 'Apt 4B'", "year": "e.g. '2026'", "tagline": "one line for the cover", "total": "messages sent", "perDay": "one line under the bar race", "people": "1-6 {name, sent}", "top": "{kind: skull|sob|pan|other, emoji, count, note}", "runners": "0-2 {kind, emoji, count, label}", "hour": "0-23", "hist": "24 counts 0-10 by hour", "hourNote": "", "hourQuote": "", "sagaTitle": "", "saga": "2-5 {date, text}", "status": "", "mvp": "{name, line}", "quote": "{who, text} a reaction shown once pinned", "watched": "names who already watched" },
+  "height": 582
+}

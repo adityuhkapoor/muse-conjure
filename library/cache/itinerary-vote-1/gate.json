@@ -1,0 +1,77 @@
+{
+ "ok": true,
+ "stage": "done",
+ "failures": [],
+ "warnings": [
+  {
+   "rule": "weak-invariant",
+   "message": "\"three slots with unique ids, each with two non-empty options\" caught none of 17 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"an open slot has no draw time\" caught none of 17 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"the Friday text and option labels match the chat\" caught none of 17 reducer mutants. It may be always true, or guard a field reduce never changes."
+  },
+  {
+   "rule": "weak-invariant",
+   "message": "\"names, options and the Friday text never change\" caught none of 17 reducer mutants. It may be always true, or guard a field reduce never changes."
+  }
+ ],
+ "timings": {
+  "compile": 1,
+  "typecheck": 56.6,
+  "static": 2.3,
+  "determinism": 52.3,
+  "invariants": 188.7,
+  "mutation": 191.5,
+  "render": 928.5,
+  "copy": 1.6,
+  "render.browser": 0,
+  "render.mount": 49,
+  "render.taps": 264,
+  "render.lint": 877,
+  "render.axe": 920,
+  "render.total": 928,
+  "total": 969.1
+ },
+ "mutation": {
+  "total": 20,
+  "observable": 17,
+  "inert": 2,
+  "killed": 17,
+  "score": 1,
+  "threshold": 0.8,
+  "kills": {
+   "three slots with unique ids, each with two non-empty options": 0,
+   "every pick is open, 0 or 1": 2,
+   "an open slot has no draw time": 0,
+   "draw credits belong to picked slots and to people in the chat": 8,
+   "the Friday text and option labels match the chat": 0,
+   "a draw fills only that open slot with the seed's pick, the time and the actor": 7,
+   "a draw all fills exactly the open slots in order from one seed": 4,
+   "a reset clears only that slot and only for the person who drew it": 4,
+   "a draw never changes a slot that already has a pick": 7,
+   "names, options and the Friday text never change": 0,
+   "only people in the chat change anything": 2
+  },
+  "survivors": []
+ },
+ "weak": [
+  "three slots with unique ids, each with two non-empty options",
+  "an open slot has no draw time",
+  "the Friday text and option labels match the chat",
+  "names, options and the Friday text never change"
+ ],
+ "ran": [
+  "typecheck",
+  "static",
+  "determinism",
+  "invariants",
+  "mutation",
+  "render",
+  "copy"
+ ]
+}

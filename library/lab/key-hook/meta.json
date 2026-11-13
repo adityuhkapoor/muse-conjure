@@ -1,0 +1,28 @@
+{
+  "id": "key-hook",
+  "name": "Key hook",
+  "surface": "messenger",
+  "summary": "The pegboard by the apartment door with the shared stuff drawn on hooks (car keys, the good umbrella, the HDMI cable); whatever is out shows an empty hook with the borrower's face and how long it's been gone, tap a thing to take it or hang it back and it swings off or on, and ask for something that's out to queue for it next.",
+  "useWhen": [
+    "who has the sube keys",
+    "whoever took the good umbrella please return it",
+    "where is the hdmi cable, movie night is in an hour",
+    "can we track who has the shared stuff",
+    "i need the bike lock tomorrow, who has it"
+  ],
+  "dontUseWhen": [
+    "lending or selling to strangers (use marketplace tools)",
+    "splitting what shared things cost (use split-purchase)",
+    "a chore rotation (use chore-wheel)"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": { "type": "string", "description": "Card title" },
+      "place": { "type": "string", "description": "Where the board hangs, e.g. '412 Pine'" },
+      "items": { "type": "array", "items": { "type": "object", "properties": { "name": { "type": "string", "description": "Short name, sentence case" }, "kind": { "type": "string", "enum": ["carkey", "key", "umbrella", "cable", "lock", "card", "charger", "speaker"], "description": "The picture on the hook" }, "holder": { "type": "string", "description": "Who has it now; empty if it's on the hook" }, "since": { "type": "string", "description": "How long it's been out, as said: 'since Tuesday'" }, "said": { "type": "string", "description": "What the holder said about it, in their words" }, "wants": { "type": "array", "items": { "type": "string" }, "description": "Who asked for it next" } }, "required": ["name", "kind"] }, "description": "3 to 8 shared things" }
+    },
+    "required": ["items"]
+  },
+  "height": 340
+}

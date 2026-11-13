@@ -1,0 +1,114 @@
+{
+  "id": "shifts",
+  "name": "Sign-up grid (shifts or jobs by time, each needs n people)",
+  "use_when": [
+    "jobs or shifts at set hours that each take a crew: move-in, booth shifts, volunteer slots, setup and cleanup",
+    "'signup sheet', 'volunteer signups', 'booth shifts', 'can anyone help carry'",
+    "anyone can take several, and the gaps stay visible"
+  ],
+  "dont_use_when": [
+    "named seats or beds where each person gets exactly one (use slots)",
+    "things to bring, with no times (use claims)",
+    "finding a time that works for everyone (use overlap)"
+  ],
+  "keywords": [
+    "sign",
+    "signup",
+    "signups",
+    "volunteer",
+    "volunteers",
+    "volunteering",
+    "booth",
+    "shifts",
+    "move",
+    "moving",
+    "help",
+    "helpers",
+    "setup",
+    "cleanup",
+    "sheet",
+    "staff",
+    "coverage",
+    "short"
+  ],
+  "guarantees": [
+    "a row never has more people than it needs; a person is on a row once",
+    "people sign up for as many rows as they like, up to the per-person cap when one is set",
+    "a row is marked full exactly when its last spot is taken; rows still short are counted at the top",
+    "a leaver comes off every row and those rows open up; a late joiner can take any open spot"
+  ],
+  "params": {
+    "type": "object",
+    "properties": {
+      "title": {
+        "type": "string",
+        "description": "Card title, e.g. 'Move-in day' or 'Club fair booth'"
+      },
+      "shifts": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "properties": {
+            "label": {
+              "type": "string",
+              "description": "The job or shift, e.g. 'Couch and bed frames'"
+            },
+            "time": {
+              "type": "string",
+              "description": "When, short, e.g. '9:30' or '10-12'"
+            },
+            "need": {
+              "type": "integer",
+              "description": "People it takes, 1 to 6"
+            }
+          },
+          "required": [
+            "label",
+            "time",
+            "need"
+          ],
+          "additionalProperties": false
+        },
+        "description": "Rows in time order, 1 to 8"
+      },
+      "perPerson": {
+        "type": "integer",
+        "description": "Most rows one person can take, 0 for no limit"
+      }
+    },
+    "required": [
+      "title",
+      "shifts",
+      "perPerson"
+    ],
+    "additionalProperties": false
+  },
+  "examples": [
+    {
+      "title": "Climbing club booth at the activities fair",
+      "shifts": [
+        {
+          "label": "Setup and banner",
+          "time": "9:30",
+          "need": 2
+        },
+        {
+          "label": "Booth",
+          "time": "10-12",
+          "need": 2
+        },
+        {
+          "label": "Booth",
+          "time": "12-2",
+          "need": 2
+        },
+        {
+          "label": "Teardown",
+          "time": "2:00",
+          "need": 3
+        }
+      ],
+      "perPerson": 2
+    }
+  ]
+}
