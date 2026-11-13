@@ -1,0 +1,4805 @@
+{
+ "01d980977da33c57824b3e34": {
+  "offers": [
+   {
+    "tool": "price-check",
+    "label": "Check if $60 is fair",
+    "read": "the $60 asking price against the $40 to $90 sold nearby.",
+    "confidence": 0.6,
+    "params": {
+     "item": "Folding futon",
+     "listed": "listed this week",
+     "seller": "Kofi",
+     "askCents": 6000,
+     "comps": [
+      {
+       "label": "Sold nearby",
+       "cents": 4000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 5500
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 7000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 9000
+      }
+     ],
+     "fairLowCents": 4500,
+     "fairHighCents": 5500,
+     "pins": [
+      {
+       "name": "⟨maya⟩",
+       "cents": 5000
+      },
+      {
+       "name": "⟨priya⟩",
+       "cents": 4500
+      },
+      {
+       "name": "⟨dev⟩",
+       "cents": 5500
+      }
+     ],
+     "quote": "⟨maya⟩: “offer 50”",
+     "pickup": "this week"
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:23:47.225Z"
+ },
+ "0281018c20bf61493d25b3f4": {
+  "offers": [],
+  "nothing": true,
+  "model": "recorded",
+  "at": "2026-11-13T07:17:20.025Z"
+ },
+ "02c0c699ceddef5fd0a47854": {
+  "offers": [
+   {
+    "tool": "host-board",
+    "label": "Check who's actually coming",
+    "read": "23 going and 12 interested for Will's 21st at Apt 4B, and you're hosting.",
+    "confidence": 0.6,
+    "params": {
+     "title": "Will's 21st",
+     "when": "Fri Nov 20, 9pm",
+     "host": "⟨me⟩",
+     "cap": 40,
+     "door": "⟨dev⟩",
+     "going": [
+      "⟨me⟩",
+      "⟨maya⟩",
+      "⟨dev⟩"
+     ],
+     "maybe": [
+      "⟨jonah⟩",
+      "⟨theo⟩"
+     ],
+     "othersGoing": 20,
+     "othersMaybe": 10,
+     "guests": [],
+     "plus": 1,
+     "rate": 1
+    },
+    "leakRetry": true
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:16:51.780Z"
+ },
+ "02db0816cc9818109025508b": {
+  "offers": [
+   {
+    "tool": "squad-lock",
+    "label": "See who's actually going",
+    "read": "maya and arun already here, and 84 going out of 1403 interested",
+    "confidence": 0.7,
+    "params": {
+     "title": "See who's actually going",
+     "sub": "Juniper Hale live · Meridian Hall · 1.4K interested",
+     "date": "FRI, NOV 13 AT 8 PM",
+     "tickets": "Balcony $38 · Floor GA $52 · Front rows $74",
+     "host": "⟨me⟩",
+     "threshold": 3,
+     "going": [
+      {
+       "name": "⟨maya⟩",
+       "note": "Already here, I'm in"
+      },
+      {
+       "name": "⟨theo⟩",
+       "note": "Count me in"
+      }
+     ],
+     "maybe": [
+      "⟨priya⟩"
+     ]
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:16:29.272Z"
+ },
+ "067e0c7503353b948e6cd8f6": {
+  "offers": [
+   {
+    "tool": "room-fit",
+    "label": "Check if it fits Unit 4B",
+    "read": "the $25 bookshelf and the 104, 80 and 62 inch walls in unit 4b",
+    "confidence": 0.6,
+    "params": {
+     "room": "Unit 4B",
+     "cols": 9,
+     "rows": 7,
+     "fixed": [
+      {
+       "label": "Bed",
+       "kind": "bed",
+       "x": 6,
+       "y": 0,
+       "w": 3,
+       "h": 6
+      }
+     ],
+     "finds": [
+      {
+       "name": "Bookshelf",
+       "priceCents": 2500,
+       "w": 3,
+       "h": 1,
+       "by": "⟨me⟩",
+       "at": null
+      }
+     ]
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:24:31.147Z"
+ },
+ "0a8e3ecc80ecf092ad716efc": {
+  "offers": [
+   {
+    "tool": "concert",
+    "label": "Pick a section together",
+    "read": "the Juniper Hale show with ⟨maya⟩, ⟨theo⟩ and ⟨priya⟩ already on it and three ticket tiers to choose from.",
+    "confidence": 0.6,
+    "params": {
+     "title": "Juniper Hale live",
+     "when": "Fri, Nov 13, 8 PM",
+     "venue": "Meridian Hall",
+     "floor": {
+      "priceCents": 5200,
+      "together": 6
+     },
+     "lower": [
+      {
+       "label": "101",
+       "priceCents": 7400,
+       "together": 4
+      },
+      {
+       "label": "102",
+       "priceCents": 7400,
+       "together": 3
+      },
+      {
+       "label": "103",
+       "priceCents": 7400,
+       "together": 5
+      },
+      {
+       "label": "104",
+       "priceCents": 7400,
+       "together": 4
+      },
+      {
+       "label": "105",
+       "priceCents": 7400,
+       "together": 2
+      }
+     ],
+     "upper": [
+      {
+       "label": "201",
+       "priceCents": 3800,
+       "together": 8
+      },
+      {
+       "label": "202",
+       "priceCents": 3800,
+       "together": 6
+      },
+      {
+       "label": "203",
+       "priceCents": 3800,
+       "together": 10
+      },
+      {
+       "label": "204",
+       "priceCents": 3800,
+       "together": 6
+      },
+      {
+       "label": "205",
+       "priceCents": 3800,
+       "together": 8
+      }
+     ],
+     "claimed": "203",
+     "people": [
+      {
+       "name": "⟨maya⟩",
+       "status": "in"
+      },
+      {
+       "name": "⟨theo⟩",
+       "status": "in"
+      },
+      {
+       "name": "⟨priya⟩",
+       "status": "maybe"
+      }
+     ],
+     "note": {
+      "who": "⟨priya⟩",
+      "text": "balcony works for me"
+     }
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:16:27.451Z"
+ },
+ "0d132998e60c50a65636506a": {
+  "offers": [
+   {
+    "tool": "price-check",
+    "label": "Check if $180 is fair",
+    "read": "the $180 ask against sold couches nearby at $95 to $240.",
+    "confidence": 0.7,
+    "params": {
+     "item": "Grey sectional couch",
+     "listed": "moving out, gone by Sunday",
+     "seller": "Marco",
+     "askCents": 18000,
+     "comps": [
+      {
+       "label": "Sold nearby",
+       "cents": 9500
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 15000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 16000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 21000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 24000
+      }
+     ],
+     "fairLowCents": 14000,
+     "fairHighCents": 17000,
+     "pins": [
+      {
+       "name": "⟨maya⟩",
+       "cents": 15000
+      },
+      {
+       "name": "⟨priya⟩",
+       "cents": 16000
+      },
+      {
+       "name": "⟨dev⟩",
+       "cents": 14000
+      }
+     ],
+     "quote": "⟨maya⟩: “offer 150, he needs it gone”",
+     "pickup": "by Sunday"
+    },
+    "leakRetry": false
+   },
+   {
+    "tool": "room-fit",
+    "label": "See if it fits the long wall",
+    "read": "the 92 in couch against Unit 4B's 104 in long wall.",
+    "confidence": 0.55,
+    "params": {
+     "room": "Unit 4B",
+     "cols": 9,
+     "rows": 7,
+     "fixed": [
+      {
+       "label": "Bed",
+       "kind": "bed",
+       "x": 6,
+       "y": 0,
+       "w": 3,
+       "h": 4
+      },
+      {
+       "label": "Closet",
+       "kind": "closet",
+       "x": 0,
+       "y": 0,
+       "w": 2,
+       "h": 1
+      }
+     ],
+     "finds": [
+      {
+       "name": "Couch",
+       "priceCents": 18000,
+       "w": 6,
+       "h": 3,
+       "by": "⟨me⟩",
+       "at": null
+      }
+     ]
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:16:59.370Z"
+ },
+ "0e9adef1bf4f85316ba725a1": {
+  "offers": [
+   {
+    "tool": "price-check",
+    "label": "Check if $120 is fair",
+    "read": "the $80 to $150 sold nearby and the $120 you just saved",
+    "confidence": 0.7,
+    "params": {
+     "item": "Green velvet loveseat",
+     "listed": "listed in Eastfield",
+     "seller": "Ruth",
+     "askCents": 12000,
+     "comps": [
+      {
+       "label": "Sold nearby",
+       "cents": 8000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 11000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 12000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 15000
+      }
+     ],
+     "fairLowCents": 10000,
+     "fairHighCents": 12000,
+     "pins": [
+      {
+       "name": "⟨maya⟩",
+       "cents": 10000
+      },
+      {
+       "name": "⟨priya⟩",
+       "cents": 11000
+      },
+      {
+       "name": "⟨dev⟩",
+       "cents": 9500
+      }
+     ],
+     "quote": "⟨maya⟩: “offer 100, it's like new”",
+     "pickup": "any evening"
+    },
+    "leakRetry": false
+   },
+   {
+    "tool": "room-fit",
+    "label": "See if it fits Unit 4B",
+    "read": "the 58 in loveseat against your 62 in by-the-door wall",
+    "confidence": 0.6,
+    "params": {
+     "room": "Unit 4B",
+     "cols": 9,
+     "rows": 7,
+     "fixed": [
+      {
+       "label": "Bed",
+       "kind": "bed",
+       "x": 6,
+       "y": 0,
+       "w": 3,
+       "h": 5
+      },
+      {
+       "label": "Closet",
+       "kind": "closet",
+       "x": 0,
+       "y": 0,
+       "w": 2,
+       "h": 1
+      }
+     ],
+     "finds": [
+      {
+       "name": "Loveseat",
+       "priceCents": 12000,
+       "w": 5,
+       "h": 3,
+       "by": "⟨me⟩",
+       "at": null
+      }
+     ]
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:23:50.180Z"
+ },
+ "0f037e7ac1a3d98cec4ad7ed": {
+  "offers": [],
+  "nothing": true,
+  "model": "recorded",
+  "at": "2026-11-13T07:24:30.039Z"
+ },
+ "10eb559a3538965039020418": {
+  "offers": [
+   {
+    "tool": "move-in-day",
+    "label": "Sign up for a moving slot",
+    "read": "the couch, mattress and TV that each need hands, plus the 9am truck on sunday.",
+    "confidence": 0.7,
+    "params": {
+     "title": "Move-in day",
+     "sub": "Sun · 2 blocks away",
+     "stops": [
+      {
+       "time": "9:00",
+       "label": "Truck"
+      },
+      {
+       "time": "9:20",
+       "label": "Load"
+      },
+      {
+       "time": "10:00",
+       "label": "Haul"
+      },
+      {
+       "time": "10:30",
+       "label": "Carry in"
+      },
+      {
+       "time": "12:00",
+       "label": "Pizza"
+      }
+     ],
+     "stage": 0,
+     "items": [
+      {
+       "name": "Couch",
+       "need": 3,
+       "note": "Needs three people",
+       "cuft": 110,
+       "kind": "couch",
+       "hands": [
+        "⟨maya⟩",
+        "⟨jonah⟩"
+       ]
+      },
+      {
+       "name": "Mattress",
+       "need": 2,
+       "note": "Two people to carry",
+       "cuft": 60,
+       "kind": "mattress",
+       "hands": [
+        "⟨theo⟩"
+       ]
+      },
+      {
+       "name": "TV",
+       "need": 1,
+       "note": "Someone careful",
+       "cuft": 30,
+       "kind": "tv",
+       "hands": []
+      }
+     ],
+     "boxes": {
+      "label": "Boxes still being counted",
+      "cuft": 0
+     },
+     "truckCuft": 300,
+     "after": "Pizza after, on Wes"
+    },
+    "leakRetry": true
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:16:09.020Z"
+ },
+ "111c98d4cda1f2670ea1e4d3": {
+  "offers": [
+   {
+    "tool": "price-check",
+    "label": "Check if $60 is fair",
+    "read": "the $60 ask against sold nearby at $40, $55, $70 and $90, fair condition.",
+    "confidence": 0.6,
+    "params": {
+     "item": "Futon, folds flat",
+     "listed": "pickup this week",
+     "seller": "Kofi",
+     "askCents": 6000,
+     "comps": [
+      {
+       "label": "Sold nearby",
+       "cents": 4000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 5500
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 7000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 9000
+      }
+     ],
+     "fairLowCents": 4500,
+     "fairHighCents": 5500,
+     "pins": [
+      {
+       "name": "⟨maya⟩",
+       "cents": 5000
+      },
+      {
+       "name": "⟨priya⟩",
+       "cents": 4500
+      },
+      {
+       "name": "⟨dev⟩",
+       "cents": 5500
+      }
+     ],
+     "quote": "⟨maya⟩: “offer 50, it's fair condition”",
+     "pickup": "this week"
+    },
+    "leakRetry": false
+   },
+   {
+    "tool": "room-fit",
+    "label": "See if it fits Unit 4B",
+    "read": "the 78 in futon against the 80 in window wall and the 104 in long wall.",
+    "confidence": 0.55,
+    "params": {
+     "room": "Unit 4B",
+     "cols": 9,
+     "rows": 7,
+     "fixed": [
+      {
+       "label": "Closet",
+       "kind": "closet",
+       "x": 0,
+       "y": 0,
+       "w": 2,
+       "h": 1
+      }
+     ],
+     "finds": [
+      {
+       "name": "Futon",
+       "priceCents": 6000,
+       "w": 6,
+       "h": 3,
+       "by": "⟨me⟩",
+       "at": null
+      }
+     ]
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:24:18.043Z"
+ },
+ "14f45ce3f787de725dc2de61": {
+  "offers": [
+   {
+    "tool": "host-board",
+    "label": "Check headcount and snacks",
+    "read": "23 going and 12 interested for Apt 4B on Friday, so the house needs a headcount and snack plan.",
+    "confidence": 0.7,
+    "params": {
+     "title": "Will's 21st",
+     "when": "Fri, Nov 20, 9 PM",
+     "host": "⟨me⟩",
+     "cap": 40,
+     "door": "⟨jonah⟩",
+     "going": [
+      "⟨me⟩",
+      "⟨maya⟩",
+      "⟨jonah⟩"
+     ],
+     "maybe": [
+      "⟨dev⟩",
+      "⟨theo⟩"
+     ],
+     "othersGoing": 20,
+     "othersMaybe": 10,
+     "guests": [],
+     "plus": 1,
+     "rate": 1
+    },
+    "leakRetry": true
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:16:48.681Z"
+ },
+ "183aa18897fe6da0f07572a0": {
+  "offers": [
+   {
+    "tool": "friends-plans",
+    "label": "See the weekend plans",
+    "read": "maya's three locked plans for the weekend, with spots left in each",
+    "confidence": 0.8,
+    "params": {
+     "sub": "This weekend",
+     "days": [
+      {
+       "day": "Fri",
+       "date": "13"
+      },
+      {
+       "day": "Sat",
+       "date": "14"
+      },
+      {
+       "day": "Sun",
+       "date": "15"
+      }
+     ],
+     "plans": [
+      {
+       "day": 0,
+       "title": "Dumpling night, Chinatown",
+       "meta": "7:30 PM · 3 stops · ⟨maya⟩'s plan",
+       "icon": "taco",
+       "host": "⟨maya⟩",
+       "going": [
+        "⟨jonah⟩",
+        "⟨priya⟩"
+       ],
+       "cap": 6,
+       "seat": "spot",
+       "reply": "come hungry, we saved you a seat"
+      },
+      {
+       "day": 1,
+       "title": "Ridge trail hike",
+       "meta": "8 AM · ⟨dev⟩ driving",
+       "icon": "hike",
+       "host": "⟨dev⟩",
+       "going": [
+        "⟨theo⟩",
+        "⟨priya⟩",
+        "⟨jonah⟩"
+       ],
+       "cap": 4,
+       "seat": "seat",
+       "reply": "one seat left, it's yours"
+      },
+      {
+       "day": 2,
+       "title": "Park picnic and card games",
+       "meta": "1 PM · bring a snack · ⟨theo⟩'s plan",
+       "icon": "picnic",
+       "host": "⟨theo⟩",
+       "going": [
+        "⟨maya⟩",
+        "⟨dev⟩"
+       ],
+       "cap": 0,
+       "seat": "spot",
+       "reply": "just bring a snack and a blanket"
+      }
+     ]
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:15:55.048Z"
+ },
+ "1e0b69f2c4f8803c26b662da": {
+  "offers": [],
+  "nothing": true,
+  "model": "recorded",
+  "at": "2026-11-13T07:24:27.697Z"
+ },
+ "1efc7e63ba3a72cde6b7af2c": {
+  "offers": [
+   {
+    "tool": "event-carpool",
+    "label": "Sort rides to Sibley ridge",
+    "read": "the hike winner, Sibley ridge at Sat 9 AM, and four friends who all need a way there",
+    "confidence": 0.56,
+    "params": {
+     "title": "Rides to Sibley ridge",
+     "place": "Sibley ridge trail · Sat 9 AM",
+     "cars": [
+      {
+       "driver": "⟨me⟩",
+       "model": "⟨me⟩'s car",
+       "seats": 4,
+       "leaves": "8:15",
+       "from": "Home",
+       "costCents": 1000,
+       "costLabel": "Trailhead lot",
+       "riders": [
+        "⟨maya⟩"
+       ]
+      },
+      {
+       "driver": "⟨priya⟩",
+       "model": "⟨priya⟩'s car",
+       "seats": 5,
+       "leaves": "8:20",
+       "from": "Campus",
+       "costCents": 1000,
+       "costLabel": "Trailhead lot",
+       "riders": [
+        "⟨theo⟩"
+       ]
+      }
+     ]
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:17:30.402Z"
+ },
+ "2206beca9caf42efa637434b": {
+  "offers": [
+   {
+    "tool": "sublet-finder",
+    "label": "Filter sublets under $1,000",
+    "read": "the june sublet question asked 23 times and the $600 to $950 listings in the feed",
+    "confidence": 0.65,
+    "params": {
+     "group": "Eastfield sublets and housing",
+     "posts": 7,
+     "swiped": 0,
+     "budgets": [
+      80000,
+      95000,
+      110000
+     ],
+     "listings": [
+      {
+       "hood": "Dwight",
+       "city": "Eastfield",
+       "priceCents": 95000,
+       "dates": "Jun – Aug",
+       "perk": "2br · furnished",
+       "via": "⟨maya⟩'s friend",
+       "viaWho": "⟨maya⟩",
+       "mutuals": 2,
+       "view": 2,
+       "x": 0.45,
+       "y": 0.4
+      },
+      {
+       "hood": "Channing",
+       "city": "Eastfield",
+       "priceCents": 110000,
+       "dates": "May 20 – Aug 15",
+       "perk": "1br · quiet block",
+       "via": "",
+       "viaWho": "",
+       "mutuals": 0,
+       "view": 1,
+       "x": 0.52,
+       "y": 0.48
+      },
+      {
+       "hood": "Near campus",
+       "city": "Eastfield",
+       "priceCents": 78000,
+       "dates": "Jun – Jul",
+       "perk": "room in a 4br house",
+       "via": "⟨jonah⟩'s classmate",
+       "viaWho": "⟨jonah⟩",
+       "mutuals": 3,
+       "view": 3,
+       "x": 0.3,
+       "y": 0.3
+      },
+      {
+       "hood": "Telegraph",
+       "city": "Eastfield",
+       "priceCents": 125000,
+       "dates": "Jun – Aug",
+       "perk": "studio · utilities included",
+       "via": "",
+       "viaWho": "",
+       "mutuals": 0,
+       "view": 0,
+       "x": 0.6,
+       "y": 0.6
+      },
+      {
+       "hood": "Hearst",
+       "city": "Eastfield",
+       "priceCents": 89000,
+       "dates": "Jun – Aug",
+       "perk": "3br lease takeover",
+       "via": "⟨theo⟩'s housemate",
+       "viaWho": "⟨theo⟩",
+       "mutuals": 1,
+       "view": 2,
+       "x": 0.35,
+       "y": 0.18
+      },
+      {
+       "hood": "College Ave",
+       "city": "Eastfield",
+       "priceCents": 60000,
+       "dates": "Jun – Aug",
+       "perk": "shared room · girls only",
+       "via": "⟨priya⟩'s cousin",
+       "viaWho": "⟨priya⟩",
+       "mutuals": 1,
+       "view": 1,
+       "x": 0.68,
+       "y": 0.72
+      },
+      {
+       "hood": "Derby",
+       "city": "Eastfield",
+       "priceCents": 105000,
+       "dates": "Jun – Aug",
+       "perk": "1br · parking spot",
+       "via": "⟨dev⟩'s teammate",
+       "viaWho": "⟨dev⟩",
+       "mutuals": 2,
+       "view": 3,
+       "x": 0.78,
+       "y": 0.35
+      }
+     ],
+     "people": [
+      {
+       "name": "⟨maya⟩",
+       "saved": [
+        "Dwight",
+        "Hearst"
+       ],
+       "passed": []
+      },
+      {
+       "name": "⟨jonah⟩",
+       "saved": [
+        "Near campus"
+       ],
+       "passed": [
+        "Telegraph"
+       ]
+      },
+      {
+       "name": "⟨theo⟩",
+       "saved": [
+        "Hearst"
+       ],
+       "passed": [
+        "Channing"
+       ]
+      }
+     ],
+     "labels": [
+      {
+       "name": "Campus",
+       "x": 0.3,
+       "y": 0.25
+      },
+      {
+       "name": "Telegraph",
+       "x": 0.6,
+       "y": 0.55
+      },
+      {
+       "name": "Dwight",
+       "x": 0.45,
+       "y": 0.34
+      },
+      {
+       "name": "Derby",
+       "x": 0.8,
+       "y": 0.3
+      }
+     ]
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:16:50.716Z"
+ },
+ "25a940b4c3d267bcc0ae0c99": {
+  "offers": [
+   {
+    "tool": "bday-pool",
+    "label": "Sign ⟨priya⟩'s card",
+    "read": "will turning 21 on friday and calvin saying we have to do something",
+    "confidence": 0.62,
+    "params": {
+     "who": "⟨priya⟩",
+     "heading": "Happy 21st, ⟨priya⟩",
+     "candles": "21",
+     "when": "on Friday",
+     "notes": [
+      {
+       "by": "⟨jonah⟩",
+       "text": "21 at last, we are doing something"
+      },
+      {
+       "by": "⟨maya⟩",
+       "text": "happy birthday, ⟨priya⟩"
+      },
+      {
+       "by": "⟨theo⟩",
+       "text": "first round is on you, legally now"
+      }
+     ],
+     "lines": [
+      "happy 21st, ⟨priya⟩",
+      "see you friday night",
+      "officially old enough, congrats"
+     ],
+     "gift": {
+      "name": "Weekend trip fund",
+      "goalCents": 12000,
+      "buyer": "⟨jonah⟩"
+     },
+     "pot": [
+      {
+       "by": "⟨jonah⟩",
+       "cents": 2000
+      },
+      {
+       "by": "⟨maya⟩",
+       "cents": 1500
+      }
+     ],
+     "amounts": [
+      1000,
+      2000
+     ]
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:16:03.481Z"
+ },
+ "277806ce6c796fbf2fe9c67b": {
+  "offers": [
+   {
+    "tool": "room-fit",
+    "label": "Check if it fits 4B",
+    "read": "the 92 in couch against your 104 in long wall",
+    "confidence": 0.62,
+    "params": {
+     "room": "Unit 4B",
+     "cols": 9,
+     "rows": 7,
+     "fixed": [
+      {
+       "label": "Bed",
+       "kind": "bed",
+       "x": 6,
+       "y": 0,
+       "w": 3,
+       "h": 4
+      },
+      {
+       "label": "Closet",
+       "kind": "closet",
+       "x": 0,
+       "y": 0,
+       "w": 2,
+       "h": 1
+      }
+     ],
+     "finds": [
+      {
+       "name": "Sectional",
+       "priceCents": 18000,
+       "w": 8,
+       "h": 3,
+       "by": "⟨me⟩",
+       "at": null
+      },
+      {
+       "name": "Bookcase",
+       "priceCents": 4500,
+       "w": 2,
+       "h": 1,
+       "by": "⟨maya⟩",
+       "at": null
+      },
+      {
+       "name": "Armchair",
+       "priceCents": 6000,
+       "w": 3,
+       "h": 3,
+       "by": "⟨priya⟩",
+       "at": null
+      },
+      {
+       "name": "Side table",
+       "priceCents": 2000,
+       "w": 1,
+       "h": 1,
+       "by": "⟨dev⟩",
+       "at": null
+      }
+     ]
+    },
+    "leakRetry": true
+   },
+   {
+    "tool": "pickup-run",
+    "label": "Plan the Sunday pickup",
+    "read": "marco's sunday deadline and the 92 in couch that needs a car",
+    "confidence": 0.58,
+    "params": {
+     "title": "Sectional pickup run",
+     "sub": "92″ couch · has to go by Sunday",
+     "item": "couch",
+     "route": {
+      "from": "Unit 4B",
+      "to": "Seller · Eastfield",
+      "dist": "4.1 mi · 12 min"
+     },
+     "cars": [
+      {
+       "driver": "⟨maya⟩",
+       "car": "Golf",
+       "kind": "hatch",
+       "fits": 0,
+       "seats": "4 seats"
+      },
+      {
+       "driver": "⟨priya⟩",
+       "car": "Ranger",
+       "kind": "truck",
+       "fits": 2,
+       "seats": "3 seats + open bed"
+      },
+      {
+       "driver": "⟨dev⟩",
+       "car": "Forester",
+       "kind": "wagon",
+       "fits": 1,
+       "seats": "4 seats + roof bars"
+      }
+     ],
+     "slots": [
+      {
+       "label": "Sat 11:00",
+       "free": [
+        "⟨maya⟩",
+        "⟨priya⟩"
+       ]
+      },
+      {
+       "label": "Sat 3:30",
+       "free": [
+        "⟨maya⟩",
+        "⟨priya⟩",
+        "⟨dev⟩",
+        "⟨me⟩"
+       ]
+      },
+      {
+       "label": "Sun 10:00",
+       "free": [
+        "⟨priya⟩",
+        "⟨me⟩",
+        "⟨dev⟩"
+       ]
+      }
+     ],
+     "crew": 4,
+     "lifting": [
+      "⟨me⟩"
+     ],
+     "need": 2
+    },
+    "leakRetry": true
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:17:07.082Z"
+ },
+ "28cdc228191f89c9a917f330": {
+  "offers": [
+   {
+    "tool": "price-check",
+    "label": "Check if $45 is fair",
+    "read": "the $45 asking price against sold mini fridges nearby at $30 to $60",
+    "confidence": 0.6,
+    "params": {
+     "item": "Mini fridge",
+     "listed": "Used - good, Eastfield",
+     "seller": "Sam",
+     "askCents": 4500,
+     "comps": [
+      {
+       "label": "Sold nearby",
+       "cents": 3000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 4000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 5000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 6000
+      }
+     ],
+     "fairLowCents": 3500,
+     "fairHighCents": 4500,
+     "pins": [
+      {
+       "name": "⟨maya⟩",
+       "cents": 3500
+      },
+      {
+       "name": "⟨priya⟩",
+       "cents": 4000
+      },
+      {
+       "name": "⟨dev⟩",
+       "cents": 4000
+      }
+     ],
+     "quote": "⟨maya⟩: “offer 35, freezer works”",
+     "pickup": "any time"
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:17:08.800Z"
+ },
+ "2ac3c72b47f0e90ec16602b7": {
+  "offers": [],
+  "nothing": true,
+  "model": "recorded",
+  "at": "2026-11-13T07:17:21.879Z"
+ },
+ "2ed1fa1acb7858611a64b193": {
+  "offers": [
+   {
+    "tool": "concert",
+    "label": "Pick a section together",
+    "read": "the Balcony $38, Floor GA $52 and Front rows $74 tiers, with you, ⟨maya⟩, ⟨theo⟩ and ⟨priya⟩ already going.",
+    "confidence": 0.6,
+    "params": {
+     "title": "Juniper Hale live",
+     "when": "Fri, Nov 13, 8 PM",
+     "venue": "Meridian Hall",
+     "floor": {
+      "priceCents": 5200,
+      "together": 0
+     },
+     "lower": [
+      {
+       "label": "101",
+       "priceCents": 7400,
+       "together": 0
+      },
+      {
+       "label": "102",
+       "priceCents": 7400,
+       "together": 0
+      },
+      {
+       "label": "103",
+       "priceCents": 7400,
+       "together": 0
+      },
+      {
+       "label": "104",
+       "priceCents": 7400,
+       "together": 0
+      },
+      {
+       "label": "105",
+       "priceCents": 7400,
+       "together": 0
+      }
+     ],
+     "upper": [
+      {
+       "label": "201",
+       "priceCents": 3800,
+       "together": 0
+      },
+      {
+       "label": "202",
+       "priceCents": 3800,
+       "together": 0
+      },
+      {
+       "label": "203",
+       "priceCents": 3800,
+       "together": 0
+      },
+      {
+       "label": "204",
+       "priceCents": 3800,
+       "together": 0
+      },
+      {
+       "label": "205",
+       "priceCents": 3800,
+       "together": 0
+      }
+     ],
+     "claimed": "103",
+     "people": [
+      {
+       "name": "⟨me⟩",
+       "status": "in"
+      },
+      {
+       "name": "⟨maya⟩",
+       "status": "in"
+      },
+      {
+       "name": "⟨theo⟩",
+       "status": "in"
+      },
+      {
+       "name": "⟨priya⟩",
+       "status": "in"
+      }
+     ],
+     "note": {
+      "who": "⟨maya⟩",
+      "text": "Front rows would be worth it, let's sit together"
+     }
+    },
+    "leakRetry": false
+   },
+   {
+    "tool": "pregame-vote",
+    "label": "Pick where to pregame",
+    "read": "Lupe's, The Copper Room and Campus Row Cafe all within a 6 min walk of Meridian Hall before the 8 PM show.",
+    "confidence": 0.56,
+    "params": {
+     "title": "Pregame before Juniper Hale",
+     "sub": "Show 8:00 · 84 going",
+     "venue": "Meridian Hall",
+     "doorsMin": 1200,
+     "spots": [
+      {
+       "name": "Lupe's Tacos",
+       "walk": 4,
+       "x": 0.25,
+       "y": 0.45,
+       "voters": [
+        "⟨maya⟩",
+        "⟨me⟩"
+       ]
+      },
+      {
+       "name": "The Copper Room",
+       "walk": 6,
+       "x": 0.5,
+       "y": 0.72,
+       "voters": [
+        "⟨theo⟩"
+       ]
+      },
+      {
+       "name": "Campus Row Cafe",
+       "walk": 2,
+       "x": 0.68,
+       "y": 0.4,
+       "voters": [
+        "⟨priya⟩"
+       ]
+      }
+     ],
+     "times": [
+      {
+       "label": "6:00 PM",
+       "voters": [
+        "⟨theo⟩"
+       ]
+      },
+      {
+       "label": "6:30 PM",
+       "voters": [
+        "⟨maya⟩",
+        "⟨me⟩",
+        "⟨priya⟩"
+       ]
+      },
+      {
+       "label": "7:00 PM",
+       "voters": []
+      }
+     ],
+     "streets": [
+      {
+       "name": "Campus Row",
+       "x": 0.3,
+       "y": 0.82
+      }
+     ]
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:16:40.839Z"
+ },
+ "2f506fe09559672d5c7ad536": {
+  "offers": [],
+  "nothing": true,
+  "model": "recorded",
+  "at": "2026-11-13T07:24:31.311Z"
+ },
+ "2fd9e29b81b0a2fafe9b9bcf": {
+  "offers": [
+   {
+    "tool": "price-check",
+    "label": "Check if $150 is fair",
+    "read": "the $150 standing desk against sold nearby prices of $110 to $200",
+    "confidence": 0.62,
+    "params": {
+     "item": "Standing desk",
+     "listed": "listed in Eastfield",
+     "seller": "Ines",
+     "askCents": 15000,
+     "comps": [
+      {
+       "label": "Sold nearby",
+       "cents": 11000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 14000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 16000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 20000
+      }
+     ],
+     "fairLowCents": 13000,
+     "fairHighCents": 16000,
+     "pins": [
+      {
+       "name": "⟨maya⟩",
+       "cents": 13000
+      },
+      {
+       "name": "⟨priya⟩",
+       "cents": 14000
+      },
+      {
+       "name": "⟨dev⟩",
+       "cents": 15000
+      }
+     ],
+     "quote": "⟨maya⟩: “offer 130”",
+     "pickup": "weekends"
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:17:15.124Z"
+ },
+ "3103296beaeb8cbe07a51d94": {
+  "offers": [],
+  "nothing": true,
+  "model": "recorded",
+  "at": "2026-11-13T07:17:18.462Z"
+ },
+ "3136db73e432d70c9e8db3dc": {
+  "offers": [
+   {
+    "tool": "bracket-post",
+    "label": "Vote in the semis",
+    "read": "arun's late night food bracket with the semis live and a final still to crown",
+    "confidence": 0.7,
+    "params": {
+     "title": "Late night food bracket",
+     "left": "4h left",
+     "teams": [
+      {
+       "name": "Noodle Hut",
+       "food": "ramen"
+      },
+      {
+       "name": "Dumpling Den",
+       "food": "dumplings"
+      },
+      {
+       "name": "Fire Wings",
+       "food": "wings"
+      },
+      {
+       "name": "Pho 24",
+       "food": "pho"
+      },
+      {
+       "name": "Dog House",
+       "food": "hot dog"
+      },
+      {
+       "name": "Toasty Melt",
+       "food": "sandwich"
+      },
+      {
+       "name": "Congee Corner",
+       "food": "congee"
+      },
+      {
+       "name": "Lo Mein Express",
+       "food": "noodles"
+      }
+     ],
+     "quarters": [
+      0,
+      1,
+      1,
+      0
+     ],
+     "semis": [
+      [
+       0,
+       0
+      ],
+      [
+       0,
+       0
+      ]
+     ],
+     "final": [
+      0,
+      0
+     ],
+     "people": [
+      {
+       "name": "⟨maya⟩",
+       "picks": [
+        "Noodle Hut",
+        "Congee Corner"
+       ]
+      },
+      {
+       "name": "⟨dev⟩",
+       "picks": [
+        "Pho 24"
+       ]
+      },
+      {
+       "name": "⟨jonah⟩",
+       "picks": [
+        "Noodle Hut",
+        "Toasty Melt"
+       ]
+      },
+      {
+       "name": "⟨priya⟩",
+       "picks": [
+        "Congee Corner"
+       ]
+      },
+      {
+       "name": "⟨theo⟩",
+       "picks": [
+        "Pho 24",
+        "Toasty Melt"
+       ]
+      }
+     ]
+    },
+    "leakRetry": true
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:16:32.848Z"
+ },
+ "366a90f5375b98cc59bd5d5a": {
+  "offers": [
+   {
+    "tool": "split-purchase",
+    "label": "Go in on the projector",
+    "read": "the $240 projector and 100 in screen Sam is selling in Eastfield",
+    "confidence": 0.55,
+    "params": {
+     "title": "Go in on the projector",
+     "item": "Projector and 100 in screen",
+     "priceCents": 24000,
+     "seller": "from Sam · Eastfield",
+     "owners": [
+      "⟨me⟩",
+      "⟨maya⟩",
+      "⟨priya⟩",
+      "⟨dev⟩"
+     ],
+     "weeks": [
+      "Nov 16",
+      "23",
+      "30",
+      "Dec 7",
+      "14",
+      "21"
+     ],
+     "holders": [
+      0,
+      1,
+      2,
+      3,
+      0,
+      1
+     ],
+     "pickup": "",
+     "note": "⟨me⟩'s first · screen fits the long wall"
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:24:27.160Z"
+ },
+ "373935fd9fb27f426fb54bdb": {
+  "offers": [
+   {
+    "tool": "price-check",
+    "label": "Check if $120 is fair",
+    "read": "the $120 asking price against sold nearby at $80 to $150",
+    "confidence": 0.6,
+    "params": {
+     "item": "Green velvet loveseat",
+     "listed": "pickup any evening",
+     "seller": "Ruth",
+     "askCents": 12000,
+     "comps": [
+      {
+       "label": "Sold nearby",
+       "cents": 8000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 11000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 12000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 15000
+      }
+     ],
+     "fairLowCents": 10000,
+     "fairHighCents": 12000,
+     "pins": [
+      {
+       "name": "⟨maya⟩",
+       "cents": 10000
+      },
+      {
+       "name": "⟨priya⟩",
+       "cents": 11000
+      },
+      {
+       "name": "⟨dev⟩",
+       "cents": 10500
+      }
+     ],
+     "quote": "⟨maya⟩: “offer 100, it's like new”",
+     "pickup": "any evening"
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:16:58.188Z"
+ },
+ "3b4ba001c57cdbc1af954ba9": {
+  "offers": [
+   {
+    "tool": "bracket-post",
+    "label": "Vote in the semis",
+    "read": "the late night food bracket with semis live and ⟨theo⟩ asking everyone to vote.",
+    "confidence": 0.6,
+    "params": {
+     "title": "Best late night food",
+     "left": "4h left",
+     "teams": [
+      {
+       "name": "Midnight Ramen House",
+       "food": "ramen"
+      },
+      {
+       "name": "Dumpling Alley",
+       "food": "dumpling"
+      },
+      {
+       "name": "Late Lane Wings",
+       "food": "wings"
+      },
+      {
+       "name": "Pho 24",
+       "food": "pho"
+      },
+      {
+       "name": "Corner Falafel",
+       "food": "falafel"
+      },
+      {
+       "name": "Neon Hot Dogs",
+       "food": "hotdog"
+      },
+      {
+       "name": "Salt Deli",
+       "food": "sandwich"
+      },
+      {
+       "name": "Moon Diner",
+       "food": "pancake"
+      }
+     ],
+     "quarters": [
+      0,
+      1,
+      1,
+      0
+     ],
+     "semis": [
+      [
+       8,
+       6
+      ],
+      [
+       5,
+       7
+      ]
+     ],
+     "final": [
+      0,
+      0
+     ],
+     "people": [
+      {
+       "name": "⟨theo⟩",
+       "picks": [
+        "Midnight Ramen House",
+        "Neon Hot Dogs"
+       ]
+      },
+      {
+       "name": "⟨maya⟩",
+       "picks": [
+        "Pho 24"
+       ]
+      },
+      {
+       "name": "⟨jonah⟩",
+       "picks": [
+        "Midnight Ramen House",
+        "Salt Deli"
+       ]
+      },
+      {
+       "name": "⟨priya⟩",
+       "picks": [
+        "Salt Deli"
+       ]
+      }
+     ]
+    },
+    "leakRetry": true
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:16:32.532Z"
+ },
+ "3d9eb7e4e96b18b22c876f19": {
+  "offers": [],
+  "nothing": true,
+  "model": "recorded",
+  "at": "2026-11-13T07:17:26.341Z"
+ },
+ "417062c36a2b59e6d11f6392": {
+  "offers": [],
+  "nothing": true,
+  "model": "recorded",
+  "at": "2026-11-13T07:17:24.842Z"
+ },
+ "456bf8a7c4de0576778fd604": {
+  "offers": [],
+  "nothing": true,
+  "model": "recorded",
+  "at": "2026-11-13T07:18:08.595Z"
+ },
+ "4b7165df613f9d45180668fd": {
+  "offers": [
+   {
+    "tool": "price-check",
+    "label": "Check if $30 is fair",
+    "read": "the $30 for 4 used intro econ books, with some highlighting",
+    "confidence": 0.55,
+    "params": {
+     "item": "Intro econ textbooks (4)",
+     "listed": "listed in Eastfield",
+     "seller": "Lena",
+     "askCents": 3000,
+     "comps": [
+      {
+       "label": "2 books, clean",
+       "cents": 1800
+      },
+      {
+       "label": "3 books, highlighted",
+       "cents": 2000
+      },
+      {
+       "label": "4 books, light notes",
+       "cents": 2500
+      },
+      {
+       "label": "4 books, clean",
+       "cents": 3500
+      }
+     ],
+     "fairLowCents": 2000,
+     "fairHighCents": 2500,
+     "pins": [
+      {
+       "name": "⟨maya⟩",
+       "cents": 2000
+      },
+      {
+       "name": "⟨priya⟩",
+       "cents": 2200
+      },
+      {
+       "name": "⟨dev⟩",
+       "cents": 2500
+      }
+     ],
+     "quote": "⟨priya⟩: “offer 22”",
+     "pickup": ""
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:17:28.621Z"
+ },
+ "5296d2bffd0fdfeac11c69f7": {
+  "offers": [],
+  "nothing": true,
+  "model": "recorded",
+  "at": "2026-11-13T07:17:24.092Z"
+ },
+ "53a32026ed4ec5ce7129979f": {
+  "offers": [],
+  "nothing": true,
+  "model": "recorded",
+  "at": "2026-11-13T07:24:22.996Z"
+ },
+ "56d9fff4343d8392aefcaacf": {
+  "offers": [
+   {
+    "tool": "price-check",
+    "label": "Check if $60 is fair",
+    "read": "the $60 ask against sold nearby at $40, $55, $70 and $90",
+    "confidence": 0.6,
+    "params": {
+     "item": "Futon, folds flat",
+     "listed": "pickup this week",
+     "seller": "Kofi",
+     "askCents": 6000,
+     "comps": [
+      {
+       "label": "Sold nearby",
+       "cents": 4000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 5500
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 7000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 9000
+      }
+     ],
+     "fairLowCents": 4500,
+     "fairHighCents": 5500,
+     "pins": [
+      {
+       "name": "⟨maya⟩",
+       "cents": 4500
+      },
+      {
+       "name": "⟨priya⟩",
+       "cents": 5000
+      },
+      {
+       "name": "⟨dev⟩",
+       "cents": 5500
+      }
+     ],
+     "quote": "⟨priya⟩: “thin mattress, offer 50”",
+     "pickup": "this week"
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:17:14.414Z"
+ },
+ "5ba319ed5d002dfee749b481": {
+  "offers": [
+   {
+    "tool": "host-board",
+    "label": "Track the guest list",
+    "read": "will's 21st at apt 4b with 23 going",
+    "confidence": 0.88,
+    "params": {
+     "title": "Will's 21st",
+     "when": "Fri, Nov 27, 9 PM",
+     "host": "⟨me⟩",
+     "cap": 27,
+     "door": "⟨me⟩",
+     "going": [
+      "⟨me⟩",
+      "⟨maya⟩",
+      "⟨dev⟩",
+      "⟨jonah⟩",
+      "⟨theo⟩"
+     ],
+     "maybe": [],
+     "othersGoing": 23,
+     "othersMaybe": 12,
+     "guests": [],
+     "plus": 1,
+     "rate": 1
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "muse:muse-ember-1.0:medium + muse:muse-spark-1.3-contributor:medium",
+  "at": "2026-11-13T13:12:32.641Z"
+ },
+ "6078a48e0895d84e467866d9": {
+  "offers": [
+   {
+    "tool": "feed-tier-list",
+    "label": "Rank the boba shops",
+    "read": "maya's six boba spots, from tea hut to kiki's tea truck, ranked wrong on purpose",
+    "confidence": 0.72,
+    "params": {
+     "title": "Rank the boba shops",
+     "author": "⟨maya⟩",
+     "items": [
+      {
+       "name": "Tea Hut",
+       "votes": [
+        6,
+        9,
+        5,
+        2,
+        1
+       ]
+      },
+      {
+       "name": "Boba Bliss",
+       "votes": [
+        3,
+        7,
+        8,
+        4,
+        1
+       ]
+      },
+      {
+       "name": "Milk & Moon",
+       "votes": [
+        8,
+        8,
+        4,
+        2,
+        0
+       ]
+      },
+      {
+       "name": "Bubble Lab",
+       "votes": [
+        2,
+        5,
+        9,
+        5,
+        2
+       ]
+      },
+      {
+       "name": "Union cafe boba",
+       "votes": [
+        0,
+        2,
+        6,
+        9,
+        6
+       ]
+      },
+      {
+       "name": "Kiki's Tea Truck",
+       "votes": [
+        7,
+        6,
+        5,
+        3,
+        1
+       ]
+      }
+     ],
+     "people": [
+      {
+       "name": "⟨dev⟩",
+       "tiers": [
+        "B",
+        "D",
+        "A",
+        "C",
+        "S",
+        "A"
+       ]
+      },
+      {
+       "name": "⟨jonah⟩",
+       "tiers": [
+        "S",
+        "B",
+        "A",
+        "C",
+        "D",
+        "B"
+       ]
+      },
+      {
+       "name": "⟨priya⟩",
+       "tiers": [
+        "C",
+        "A",
+        "B",
+        "S",
+        "D",
+        "A"
+       ]
+      }
+     ]
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:15:55.940Z"
+ },
+ "61fc25a41b8da3e751ab40e3": {
+  "offers": [],
+  "nothing": true,
+  "model": "recorded",
+  "at": "2026-11-13T07:17:21.658Z"
+ },
+ "6234d32c1d93487f3f6eb955": {
+  "offers": [
+   {
+    "tool": "price-check",
+    "label": "Check if $150 is fair",
+    "read": "the $150 ask against sold nearby at $110 to $200, plus Ines's $90 friends-only deal ending tomorrow 9am.",
+    "confidence": 0.6,
+    "params": {
+     "item": "Standing desk",
+     "listed": "listed this week",
+     "seller": "Ines",
+     "askCents": 15000,
+     "comps": [
+      {
+       "label": "Sold nearby",
+       "cents": 11000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 14000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 16000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 20000
+      }
+     ],
+     "fairLowCents": 11000,
+     "fairHighCents": 16000,
+     "pins": [
+      {
+       "name": "⟨maya⟩",
+       "cents": 12000
+      },
+      {
+       "name": "⟨priya⟩",
+       "cents": 13000
+      },
+      {
+       "name": "⟨dev⟩",
+       "cents": 14000
+      }
+     ],
+     "quote": "Ines: “$90 for friends till tomorrow 9am”",
+     "pickup": "weekend pickup"
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:24:15.780Z"
+ },
+ "638ec28e6a67d93eee28748a": {
+  "offers": [],
+  "nothing": true,
+  "model": "recorded",
+  "at": "2026-11-13T07:17:28.942Z"
+ },
+ "63adab5749b3521eb0e64097": {
+  "offers": [
+   {
+    "tool": "price-check",
+    "label": "Check if $120 is fair",
+    "read": "$120 against the $80 to $150 sold prices nearby",
+    "confidence": 0.6,
+    "params": {
+     "item": "Green velvet loveseat",
+     "listed": "listed in Eastfield",
+     "seller": "Ruth",
+     "askCents": 12000,
+     "comps": [
+      {
+       "label": "Sold nearby",
+       "cents": 8000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 11000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 12000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 15000
+      }
+     ],
+     "fairLowCents": 10000,
+     "fairHighCents": 12000,
+     "pins": [
+      {
+       "name": "⟨maya⟩",
+       "cents": 10000
+      },
+      {
+       "name": "⟨priya⟩",
+       "cents": 11000
+      },
+      {
+       "name": "⟨dev⟩",
+       "cents": 9500
+      }
+     ],
+     "quote": "⟨maya⟩: “offer 100”",
+     "pickup": "any evening"
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:23:47.884Z"
+ },
+ "69c08f15e1bfcd98987e53f9": {
+  "offers": [
+   {
+    "tool": "host-board",
+    "label": "Track the guest list",
+    "read": "will's 21st at apt 4b with 23 going and 12 interested",
+    "confidence": 0.85,
+    "params": {
+     "title": "Will's 21st",
+     "when": "Fri, Nov 27, 9 pm",
+     "host": "⟨me⟩",
+     "cap": 27,
+     "door": "⟨maya⟩",
+     "going": [
+      "⟨me⟩",
+      "⟨maya⟩"
+     ],
+     "maybe": [],
+     "othersGoing": 21,
+     "othersMaybe": 12,
+     "guests": [],
+     "plus": 1,
+     "rate": 1
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "muse:muse-ember-1.0:medium + muse:muse-spark-1.3-contributor:medium",
+  "at": "2026-11-13T13:12:30.819Z"
+ },
+ "69ca041f478907719588f69f": {
+  "offers": [],
+  "nothing": true,
+  "model": "recorded",
+  "at": "2026-11-13T07:17:26.558Z"
+ },
+ "6c9ac8ee864d6d4776eb4816": {
+  "offers": [],
+  "nothing": true,
+  "model": "recorded",
+  "at": "2026-11-13T07:24:30.394Z"
+ },
+ "7198f01a76164b04a6cd04d4": {
+  "offers": [
+   {
+    "tool": "room-fit",
+    "label": "Check where the lamp fits",
+    "read": "the 12 x 12 in lamp and the 62 to 104 in walls of unit 4B",
+    "confidence": 0.6,
+    "params": {
+     "room": "Unit 4B",
+     "cols": 9,
+     "rows": 7,
+     "fixed": [
+      {
+       "label": "Bed",
+       "kind": "bed",
+       "x": 6,
+       "y": 0,
+       "w": 3,
+       "h": 4
+      },
+      {
+       "label": "Closet",
+       "kind": "closet",
+       "x": 0,
+       "y": 0,
+       "w": 2,
+       "h": 1
+      }
+     ],
+     "finds": [
+      {
+       "name": "Floor lamp",
+       "priceCents": 1500,
+       "w": 1,
+       "h": 1,
+       "by": "⟨me⟩",
+       "at": null
+      }
+     ]
+    },
+    "leakRetry": true
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:17:35.251Z"
+ },
+ "71d314f16c49fa67e8af3f62": {
+  "offers": [
+   {
+    "tool": "price-check",
+    "label": "Check if $45 is fair",
+    "read": "the $45 asking price against sold nearby at $30 to $60, and a used-good dorm fridge",
+    "confidence": 0.6,
+    "params": {
+     "item": "Mini fridge",
+     "listed": "used, good condition",
+     "seller": "Sam",
+     "askCents": 4500,
+     "comps": [
+      {
+       "label": "Sold nearby",
+       "cents": 3000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 4000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 5000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 6000
+      }
+     ],
+     "fairLowCents": 3500,
+     "fairHighCents": 4500,
+     "pins": [
+      {
+       "name": "⟨maya⟩",
+       "cents": 3500
+      },
+      {
+       "name": "⟨priya⟩",
+       "cents": 4000
+      },
+      {
+       "name": "⟨dev⟩",
+       "cents": 4000
+      }
+     ],
+     "quote": "⟨maya⟩: “offer 35”",
+     "pickup": "any time"
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:17:09.397Z"
+ },
+ "7355df6b0b4ca28914180f04": {
+  "offers": [
+   {
+    "tool": "host-board",
+    "label": "Track the guest list",
+    "read": "will's 21st at apt 4b with 23 going and 12 interested",
+    "confidence": 0.86,
+    "params": {
+     "title": "Will's 21st",
+     "when": "Fri Nov 27 9 pm",
+     "host": "⟨me⟩",
+     "cap": 23,
+     "door": "⟨me⟩",
+     "going": [],
+     "maybe": [
+      "⟨me⟩"
+     ],
+     "othersGoing": 23,
+     "othersMaybe": 12,
+     "guests": [],
+     "plus": 0,
+     "rate": 0
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "muse:muse-ember-1.0:medium + muse:muse-spark-1.3-contributor:medium",
+  "at": "2026-11-13T13:12:32.588Z"
+ },
+ "7b4a9fc6227ad6b419579080": {
+  "offers": [
+   {
+    "tool": "public-challenge",
+    "label": "Join the climbing challenge",
+    "read": "maya's 30-day climbing challenge, now on day 12 with time left to join",
+    "confidence": 0.7,
+    "params": {
+     "title": "⟨maya⟩'s 30-day climbing challenge",
+     "host": "⟨maya⟩",
+     "hostLine": "day 12 and still time to join",
+     "today": 12,
+     "of": 30,
+     "others": 0,
+     "crew": [
+      {
+       "name": "⟨maya⟩",
+       "days": "xxxxxxxxxxxx"
+      },
+      {
+       "name": "⟨dev⟩",
+       "days": "xxx.xxxxxxxx"
+      },
+      {
+       "name": "⟨jonah⟩",
+       "days": "xx.xxxxx.xxx"
+      },
+      {
+       "name": "⟨priya⟩",
+       "days": "xxxxxxxx...."
+      },
+      {
+       "name": "⟨theo⟩",
+       "days": "    xx.xxxxx"
+      }
+     ]
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:16:11.002Z"
+ },
+ "8234372d0b2ec6b6e9a4bbb1": {
+  "offers": [],
+  "nothing": true,
+  "model": "recorded",
+  "at": "2026-11-13T07:24:33.386Z"
+ },
+ "83085eb8733bc014cc972992": {
+  "offers": [
+   {
+    "tool": "concert",
+    "label": "Pick seats together",
+    "read": "the $38 balcony, $52 floor and $74 front rows at meridian hall",
+    "confidence": 0.85,
+    "params": {
+     "title": "Juniper Hale live",
+     "when": "Fri, Nov 20, 8 PM",
+     "venue": "Meridian Hall",
+     "floor": {
+      "priceCents": 5200,
+      "together": 2
+     },
+     "lower": [
+      {
+       "label": "A",
+       "priceCents": 7400,
+       "together": 2
+      },
+      {
+       "label": "B",
+       "priceCents": 7400,
+       "together": 4
+      },
+      {
+       "label": "C",
+       "priceCents": 7400,
+       "together": 2
+      },
+      {
+       "label": "D",
+       "priceCents": 7400,
+       "together": 6
+      },
+      {
+       "label": "E",
+       "priceCents": 7400,
+       "together": 4
+      }
+     ],
+     "upper": [
+      {
+       "label": "F",
+       "priceCents": 3800,
+       "together": 2
+      },
+      {
+       "label": "G",
+       "priceCents": 3800,
+       "together": 4
+      },
+      {
+       "label": "H",
+       "priceCents": 3800,
+       "together": 2
+      },
+      {
+       "label": "I",
+       "priceCents": 3800,
+       "together": 6
+      },
+      {
+       "label": "J",
+       "priceCents": 3800,
+       "together": 4
+      }
+     ],
+     "claimed": "C",
+     "people": [
+      {
+       "name": "⟨me⟩",
+       "status": "in"
+      },
+      {
+       "name": "⟨maya⟩",
+       "status": "maybe"
+      },
+      {
+       "name": "⟨theo⟩",
+       "status": "maybe"
+      },
+      {
+       "name": "⟨priya⟩",
+       "status": "maybe"
+      }
+     ],
+     "note": {
+      "who": "",
+      "text": "meet at Campus Row Cafe"
+     }
+    },
+    "leakRetry": false
+   },
+   {
+    "tool": "pregame-vote",
+    "label": "Plan a pregame meetup",
+    "read": "lupe's tacos and the copper room near meridian hall",
+    "confidence": 0.7,
+    "params": {
+     "title": "Pregame before Meridian Hall",
+     "sub": "Doors 8 PM · 84 going",
+     "venue": "Meridian Hall",
+     "doorsMin": 1200,
+     "spots": [
+      {
+       "name": "Lupe's Tacos",
+       "voters": [
+        "⟨maya⟩"
+       ],
+       "walk": 4,
+       "x": 0.25,
+       "y": 0.6
+      },
+      {
+       "name": "The Copper Room",
+       "voters": [
+        "⟨theo⟩"
+       ],
+       "walk": 6,
+       "x": 0.45,
+       "y": 0.45
+      },
+      {
+       "name": "Campus Row Cafe",
+       "voters": [
+        "⟨priya⟩"
+       ],
+       "walk": 2,
+       "x": 0.62,
+       "y": 0.7
+      }
+     ],
+     "times": [
+      {
+       "label": "6 PM",
+       "voters": [
+        "⟨maya⟩",
+        "⟨priya⟩"
+       ]
+      },
+      {
+       "label": "4 PM",
+       "voters": [
+        "⟨theo⟩"
+       ]
+      }
+     ],
+     "streets": [
+      {
+       "name": "Campus Row",
+       "x": 0.32,
+       "y": 0.8
+      }
+     ]
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "muse:muse-ember-1.0:medium + muse:muse-spark-1.3-contributor:medium",
+  "at": "2026-11-13T13:11:55.391Z"
+ },
+ "83cc7110b928c713c5e48c1d": {
+  "offers": [
+   {
+    "tool": "bring-list",
+    "label": "Claim a dish to bring",
+    "read": "the seven bring items for saturday's friendsgiving and 6 going, with maya, aditya, calvin, will and arun not yet claimed",
+    "confidence": 0.6,
+    "params": {
+     "title": "Friendsgiving potluck",
+     "sub": "Sat, Nov 14, 6 PM · Apt 4B · 6 going",
+     "items": [
+      {
+       "label": "Mashed potatoes",
+       "kind": "other",
+       "by": []
+      },
+      {
+       "label": "Mac and cheese",
+       "kind": "mac",
+       "by": []
+      },
+      {
+       "label": "Green beans",
+       "kind": "salad",
+       "by": []
+      },
+      {
+       "label": "Pie",
+       "kind": "pie",
+       "by": []
+      },
+      {
+       "label": "Drinks",
+       "kind": "drinks",
+       "by": []
+      },
+      {
+       "label": "Rolls",
+       "kind": "other",
+       "by": []
+      },
+      {
+       "label": "Plates and cups",
+       "kind": "cups",
+       "by": []
+      }
+     ]
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:16:40.192Z"
+ },
+ "8609a2045e2335f0b6fff791": {
+  "offers": [
+   {
+    "tool": "concert",
+    "label": "Pick a section together",
+    "read": "tomorrow's juniper hale show and nico's \"rail or nothing\" call",
+    "confidence": 0.6,
+    "params": {
+     "title": "Juniper Hale · 7th show",
+     "when": "Tomorrow, 8:00 pm",
+     "venue": "The Foundry Hall",
+     "floor": {
+      "priceCents": 11000,
+      "together": 9
+     },
+     "lower": [
+      {
+       "label": "101",
+       "priceCents": 8500,
+       "together": 4
+      },
+      {
+       "label": "102",
+       "priceCents": 9800,
+       "together": 6
+      },
+      {
+       "label": "103",
+       "priceCents": 12000,
+       "together": 3
+      },
+      {
+       "label": "104",
+       "priceCents": 9800,
+       "together": 5
+      },
+      {
+       "label": "105",
+       "priceCents": 8500,
+       "together": 4
+      }
+     ],
+     "upper": [
+      {
+       "label": "201",
+       "priceCents": 5200,
+       "together": 8
+      },
+      {
+       "label": "202",
+       "priceCents": 6000,
+       "together": 6
+      },
+      {
+       "label": "203",
+       "priceCents": 6800,
+       "together": 4
+      },
+      {
+       "label": "204",
+       "priceCents": 6000,
+       "together": 7
+      },
+      {
+       "label": "205",
+       "priceCents": 5200,
+       "together": 8
+      }
+     ],
+     "claimed": "102",
+     "people": [
+      {
+       "name": "⟨me⟩",
+       "status": "in"
+      },
+      {
+       "name": "⟨nico⟩",
+       "status": "in"
+      }
+     ],
+     "note": {
+      "who": "⟨nico⟩",
+      "text": "rail or nothing"
+     }
+    },
+    "leakRetry": true
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:24:44.263Z"
+ },
+ "86f12b393d8e10a4c3f75b78": {
+  "offers": [
+   {
+    "tool": "split-purchase",
+    "label": "Co-own the projector with friends",
+    "read": "the $240 projector and 100 in screen, with ⟨maya⟩, ⟨priya⟩ and ⟨dev⟩ ready to split it.",
+    "confidence": 0.6,
+    "params": {
+     "title": "Co-own the projector",
+     "item": "Projector + 100 in screen",
+     "priceCents": 24000,
+     "seller": "from Sam · Eastfield",
+     "owners": [
+      "⟨me⟩",
+      "⟨maya⟩",
+      "⟨priya⟩",
+      "⟨dev⟩"
+     ],
+     "weeks": [
+      "Nov 16",
+      "23",
+      "30",
+      "Dec 7",
+      "14",
+      "21"
+     ],
+     "holders": [
+      0,
+      1,
+      2,
+      3,
+      0,
+      1
+     ],
+     "pickup": "Sat 11am · ⟨me⟩ picks up",
+     "note": "⟨me⟩'s first · screen stays in its stand"
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:24:16.319Z"
+ },
+ "8878198b6a0ffa2ffd7a5dfe": {
+  "offers": [],
+  "nothing": true,
+  "model": "recorded",
+  "at": "2026-11-13T07:24:29.090Z"
+ },
+ "8a285b95b9f542b2f1872bda": {
+  "offers": [
+   {
+    "tool": "best-of",
+    "label": "Build the used shoes answer",
+    "read": "the 'where do you get cheap used shoes' question, asked 6 times in this group.",
+    "confidence": 0.55,
+    "params": {
+     "group": "Eastfield climbing club",
+     "members": 312,
+     "question": "Cheap used climbing shoes",
+     "posts": 6,
+     "replies": 38,
+     "helped": 0,
+     "asks": [
+      {
+       "who": "Kofi",
+       "text": "where do you get cheap used shoes?",
+       "ago": "1d"
+      },
+      {
+       "who": "Cami",
+       "text": "cheap used climbing shoes, anyone?",
+       "ago": "1w"
+      },
+      {
+       "who": "⟨priya⟩",
+       "text": "where to find used shoes before the social",
+       "ago": "3w"
+      }
+     ],
+     "picks": [
+      {
+       "name": "Gym gear swap shelf",
+       "detail": "front desk · free to browse",
+       "mentions": 14,
+       "rating": 4.4,
+       "quotes": [
+        {
+         "who": "⟨maya⟩",
+         "text": "found a pair for $15, barely worn"
+        },
+        {
+         "who": "⟨jonah⟩",
+         "text": "check it after Tuesday sessions"
+        }
+       ]
+      },
+      {
+       "name": "Club shoe swap",
+       "detail": "every month · bring a pair",
+       "mentions": 11,
+       "rating": 4.6,
+       "quotes": [
+        {
+         "who": "⟨dev⟩",
+         "text": "swapped my old pair for a size up"
+        },
+        {
+         "who": "⟨theo⟩",
+         "text": "good for beginners, no pressure"
+        }
+       ]
+      },
+      {
+       "name": "Online resale groups",
+       "detail": "local listings · meet at the wall",
+       "mentions": 8,
+       "rating": 4,
+       "quotes": [
+        {
+         "who": "⟨priya⟩",
+         "text": "cheap but try them on first"
+        }
+       ]
+      }
+     ],
+     "plus": [
+      {
+       "name": "⟨maya⟩",
+       "pick": "Gym gear swap shelf"
+      },
+      {
+       "name": "⟨dev⟩",
+       "pick": "Club shoe swap"
+      },
+      {
+       "name": "⟨theo⟩",
+       "pick": "Club shoe swap"
+      }
+     ]
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:16:54.347Z"
+ },
+ "8b950e5f5bddd76f32a81fba": {
+  "offers": [
+   {
+    "tool": "bring-list",
+    "label": "Claim the open dishes",
+    "read": "the 7 dishes already listed and no turkey yet, with 6 going Saturday",
+    "confidence": 0.6,
+    "params": {
+     "title": "Friendsgiving potluck",
+     "sub": "Sat 6 PM · Apt 4B · 6 going",
+     "items": [
+      {
+       "label": "Mashed potatoes",
+       "kind": "other",
+       "by": [
+        "⟨maya⟩"
+       ]
+      },
+      {
+       "label": "Mac and cheese",
+       "kind": "mac",
+       "by": [
+        "⟨jonah⟩"
+       ]
+      },
+      {
+       "label": "Green beans",
+       "kind": "salad",
+       "by": [
+        "⟨priya⟩"
+       ]
+      },
+      {
+       "label": "Pie",
+       "kind": "pie",
+       "by": [
+        "⟨dev⟩"
+       ]
+      },
+      {
+       "label": "Drinks",
+       "kind": "drinks",
+       "by": [
+        "⟨theo⟩"
+       ]
+      },
+      {
+       "label": "Rolls",
+       "kind": "other",
+       "by": []
+      },
+      {
+       "label": "Plates and cups",
+       "kind": "cups",
+       "by": []
+      }
+     ]
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:16:38.314Z"
+ },
+ "8c1db2e0275d95a8fe69d525": {
+  "offers": [
+   {
+    "tool": "feed-tier-list",
+    "label": "Rank the boba shops",
+    "read": "maya's six boba spots, asking for wrong-answer tiers",
+    "confidence": 0.8,
+    "params": {
+     "title": "Rank the boba shops",
+     "author": "⟨maya⟩",
+     "items": [
+      {
+       "name": "Tea Hut",
+       "votes": [
+        6,
+        9,
+        5,
+        2,
+        1
+       ]
+      },
+      {
+       "name": "Boba Bliss",
+       "votes": [
+        2,
+        6,
+        10,
+        4,
+        2
+       ]
+      },
+      {
+       "name": "Milk & Moon",
+       "votes": [
+        8,
+        8,
+        4,
+        1,
+        0
+       ]
+      },
+      {
+       "name": "Bubble Lab",
+       "votes": [
+        3,
+        5,
+        9,
+        6,
+        2
+       ]
+      },
+      {
+       "name": "Union cafe boba",
+       "votes": [
+        1,
+        3,
+        6,
+        9,
+        5
+       ]
+      },
+      {
+       "name": "Kiki's Tea Truck",
+       "votes": [
+        7,
+        6,
+        5,
+        3,
+        1
+       ]
+      }
+     ],
+     "people": [
+      {
+       "name": "⟨dev⟩",
+       "tiers": [
+        "B",
+        "C",
+        "A",
+        "B",
+        "D",
+        "S"
+       ]
+      },
+      {
+       "name": "⟨jonah⟩",
+       "tiers": [
+        "S",
+        "B",
+        "A",
+        "C",
+        "D",
+        "A"
+       ]
+      },
+      {
+       "name": "⟨theo⟩",
+       "tiers": [
+        "A",
+        "C",
+        "S",
+        "B",
+        "C",
+        "B"
+       ]
+      }
+     ]
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:16:01.019Z"
+ },
+ "8d80667f80f61dcdf30352df": {
+  "offers": [
+   {
+    "tool": "room-fit",
+    "label": "Check if it fits Unit 4B",
+    "read": "the 58 x 32 in loveseat against the 62 in by-the-door wall and the 80 in window wall of unit 4B.",
+    "confidence": 0.7,
+    "params": {
+     "room": "Unit 4B",
+     "cols": 9,
+     "rows": 7,
+     "fixed": [],
+     "finds": [
+      {
+       "name": "Loveseat",
+       "priceCents": 12000,
+       "w": 5,
+       "h": 3,
+       "by": "⟨me⟩",
+       "at": null
+      }
+     ]
+    },
+    "leakRetry": false
+   },
+   {
+    "tool": "price-check",
+    "label": "Is $120 a fair price",
+    "read": "the $120 ask against sold nearby at $80, $110, $120 and $150.",
+    "confidence": 0.58,
+    "params": {
+     "item": "Green velvet loveseat",
+     "listed": "listed in Eastfield",
+     "seller": "Ruth",
+     "askCents": 12000,
+     "comps": [
+      {
+       "label": "Sold nearby",
+       "cents": 8000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 11000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 12000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 15000
+      }
+     ],
+     "fairLowCents": 10000,
+     "fairHighCents": 12000,
+     "pins": [
+      {
+       "name": "⟨maya⟩",
+       "cents": 10000
+      },
+      {
+       "name": "⟨priya⟩",
+       "cents": 11000
+      },
+      {
+       "name": "⟨dev⟩",
+       "cents": 11500
+      }
+     ],
+     "quote": "⟨maya⟩: “offer 100”",
+     "pickup": "any evening"
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:17:01.818Z"
+ },
+ "8e94157442c7d2d06ec81d02": {
+  "offers": [],
+  "nothing": true,
+  "model": "recorded",
+  "at": "2026-11-13T07:24:30.773Z"
+ },
+ "929bbc72c3f3406348f5ab77": {
+  "offers": [
+   {
+    "tool": "host-board",
+    "label": "See who's actually coming",
+    "read": "23 going to apt 4b and you're the host, so the headcount and snacks need checking",
+    "confidence": 0.6,
+    "params": {
+     "title": "Will's 21st",
+     "when": "Fri Nov 20, 9 PM",
+     "host": "⟨me⟩",
+     "cap": 30,
+     "door": "⟨jonah⟩",
+     "going": [
+      "⟨me⟩",
+      "⟨maya⟩",
+      "⟨dev⟩"
+     ],
+     "maybe": [
+      "⟨theo⟩"
+     ],
+     "othersGoing": 20,
+     "othersMaybe": 11,
+     "guests": [
+      "⟨jonah⟩"
+     ],
+     "plus": 1,
+     "rate": 1
+    },
+    "leakRetry": true
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:16:54.164Z"
+ },
+ "968d290bf59bbb40e7f1d3ac": {
+  "offers": [
+   {
+    "tool": "squad-lock",
+    "label": "See who's actually going",
+    "read": "juniper hale live on fri, nov 20 and maya, arun, will",
+    "confidence": 0.82,
+    "params": {
+     "title": "Juniper Hale live squad",
+     "sub": "Juniper Hale live · Meridian Hall · 1403 interested",
+     "date": "FRI, NOV 20 AT 8 PM",
+     "tickets": "Balcony $38; Floor GA $52; Front rows $74",
+     "host": "Meridian Hall",
+     "threshold": 4,
+     "going": [
+      {
+       "name": "⟨me⟩",
+       "note": ""
+      }
+     ],
+     "maybe": [
+      "⟨maya⟩",
+      "⟨theo⟩",
+      "⟨priya⟩"
+     ]
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "muse:muse-ember-1.0:medium + muse:muse-spark-1.3-contributor:medium",
+  "at": "2026-11-13T13:11:55.546Z"
+ },
+ "a0bdcfc614ed512ccbb4eabe": {
+  "offers": [
+   {
+    "tool": "bday-pool",
+    "label": "Sign ⟨priya⟩'s birthday card",
+    "read": "will turning 21 on friday and calvin saying we have to do something",
+    "confidence": 0.6,
+    "params": {
+     "who": "⟨priya⟩",
+     "heading": "Happy 21st, ⟨priya⟩",
+     "candles": "21",
+     "when": "on Friday",
+     "notes": [
+      {
+       "by": "⟨jonah⟩",
+       "text": "finally legal, let's do something"
+      },
+      {
+       "by": "⟨dev⟩",
+       "text": "first round is on us"
+      },
+      {
+       "by": "⟨maya⟩",
+       "text": "happy 21st ⟨priya⟩"
+      }
+     ],
+     "lines": [
+      "happy 21st, ⟨priya⟩",
+      "drinks are on me friday",
+      "you're officially old now"
+     ],
+     "gift": {
+      "name": "Nice bottle and glasses set",
+      "goalCents": 12000,
+      "buyer": "⟨me⟩"
+     },
+     "pot": [
+      {
+       "by": "⟨jonah⟩",
+       "cents": 2000
+      },
+      {
+       "by": "⟨maya⟩",
+       "cents": 1500
+      },
+      {
+       "by": "⟨dev⟩",
+       "cents": 1500
+      }
+     ],
+     "amounts": [
+      1000,
+      2000
+     ]
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:16:06.508Z"
+ },
+ "a1cb2cc2a86f8cf12236ad1f": {
+  "offers": [
+   {
+    "tool": "price-check",
+    "label": "Check if $220 is fair",
+    "read": "the $220 ask against sold nearby at $150 to $300",
+    "confidence": 0.6,
+    "params": {
+     "item": "Road bike, 54cm",
+     "listed": "listed this week",
+     "seller": "Marco",
+     "askCents": 22000,
+     "comps": [
+      {
+       "label": "Sold nearby",
+       "cents": 15000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 18000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 24000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 30000
+      }
+     ],
+     "fairLowCents": 18000,
+     "fairHighCents": 22000,
+     "pins": [
+      {
+       "name": "⟨maya⟩",
+       "cents": 18000
+      },
+      {
+       "name": "⟨priya⟩",
+       "cents": 20000
+      },
+      {
+       "name": "⟨dev⟩",
+       "cents": 21000
+      }
+     ],
+     "quote": "⟨priya⟩: “new tires, so offer 200”",
+     "pickup": "any evening"
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:17:18.825Z"
+ },
+ "a2da3b3aff971ae091e608d6": {
+  "offers": [
+   {
+    "tool": "squad-lock",
+    "label": "Mark who's going Friday",
+    "read": "maya asking who's going to juniper hale friday, so the squad can say going, maybe or can't go",
+    "confidence": 0.6,
+    "params": {
+     "title": "Go with friends",
+     "sub": "Juniper Hale · Friday night · 0 interested",
+     "date": "FRIDAY",
+     "tickets": "Tickets not on sale yet, check back soon",
+     "host": "⟨maya⟩",
+     "threshold": 4,
+     "going": [
+      {
+       "name": "⟨maya⟩",
+       "note": "Already asking around"
+      },
+      {
+       "name": "⟨me⟩",
+       "note": "Count me in"
+      }
+     ],
+     "maybe": [
+      "⟨jonah⟩"
+     ]
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:15:56.029Z"
+ },
+ "a43bb5da1e791f572f05a5bd": {
+  "offers": [
+   {
+    "tool": "bring-list",
+    "label": "Track who brings what",
+    "read": "the friendsgiving potluck at apt 4b",
+    "confidence": 0.88,
+    "params": {
+     "title": "Friendsgiving potluck at Apt 4B",
+     "sub": "Sat Nov 21 6 PM · Apt 4B · 6 going",
+     "items": [
+      {
+       "label": "Mashed potatoes",
+       "kind": "other",
+       "by": []
+      },
+      {
+       "label": "Mac and cheese",
+       "kind": "mac",
+       "by": []
+      },
+      {
+       "label": "Green beans",
+       "kind": "salad",
+       "by": []
+      },
+      {
+       "label": "Pie",
+       "kind": "pie",
+       "by": [
+        "⟨maya⟩"
+       ]
+      },
+      {
+       "label": "Drinks",
+       "kind": "drinks",
+       "by": [
+        "⟨dev⟩"
+       ]
+      },
+      {
+       "label": "Rolls",
+       "kind": "other",
+       "by": []
+      },
+      {
+       "label": "Plates and cups",
+       "kind": "cups",
+       "by": [
+        "⟨me⟩"
+       ]
+      }
+     ]
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "muse:muse-ember-1.0:medium + muse:muse-spark-1.3-contributor:medium",
+  "at": "2026-11-13T13:11:48.624Z"
+ },
+ "a6322e5299eeaa0366b710d8": {
+  "offers": [
+   {
+    "tool": "bring-list",
+    "label": "Claim what to bring",
+    "read": "the Sat 6 PM potluck with 6 going and 7 dishes still open to claim",
+    "confidence": 0.7,
+    "params": {
+     "title": "Friendsgiving potluck",
+     "sub": "Sat 6 PM · Apt 4B · 6 going",
+     "items": [
+      {
+       "label": "Mashed potatoes",
+       "kind": "other",
+       "by": []
+      },
+      {
+       "label": "Mac and cheese",
+       "kind": "mac",
+       "by": []
+      },
+      {
+       "label": "Green beans",
+       "kind": "salad",
+       "by": []
+      },
+      {
+       "label": "Pie",
+       "kind": "pie",
+       "by": []
+      },
+      {
+       "label": "Drinks",
+       "kind": "drinks",
+       "by": []
+      },
+      {
+       "label": "Rolls",
+       "kind": "other",
+       "by": []
+      },
+      {
+       "label": "Plates and cups",
+       "kind": "cups",
+       "by": []
+      }
+     ]
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:16:36.616Z"
+ },
+ "ad23ae4834c8e069d0494f38": {
+  "offers": [
+   {
+    "tool": "price-check",
+    "label": "Check if $150 is fair",
+    "read": "the $150 ask against sold desks nearby at $110 to $200, and Ines's $90 friends price ending tomorrow 9am.",
+    "confidence": 0.6,
+    "params": {
+     "item": "Standing desk",
+     "listed": "Eastfield, used like new",
+     "seller": "Ines",
+     "askCents": 15000,
+     "comps": [
+      {
+       "label": "Sold nearby",
+       "cents": 11000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 14000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 16000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 20000
+      }
+     ],
+     "fairLowCents": 11000,
+     "fairHighCents": 15000,
+     "pins": [
+      {
+       "name": "⟨maya⟩",
+       "cents": 12000
+      },
+      {
+       "name": "⟨priya⟩",
+       "cents": 13000
+      },
+      {
+       "name": "⟨dev⟩",
+       "cents": 14000
+      }
+     ],
+     "quote": "Ines: “$90 for friends till tomorrow 9am”",
+     "pickup": "weekends"
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:24:17.225Z"
+ },
+ "ae90367439a2d37c6176fb6c": {
+  "offers": [
+   {
+    "tool": "remix-card",
+    "label": "Remix this chore wheel",
+    "read": "aditya's post about stealing the den's chore wheel for your place",
+    "confidence": 0.65,
+    "params": {
+     "chores": [
+      "Kitchen reset",
+      "Recycling",
+      "Bathroom scrub",
+      "Sweep floors",
+      "Fridge clean-out"
+     ],
+     "groups": [
+      {
+       "name": "The Den",
+       "short": "The Den",
+       "badge": "D",
+       "members": [
+        "⟨dev⟩",
+        "⟨jonah⟩",
+        "⟨priya⟩"
+       ],
+       "note": "⟨dev⟩, ⟨jonah⟩ +1 spin it weekly"
+      },
+      {
+       "name": "⟨me⟩'s place",
+       "short": "Our place",
+       "badge": "TL",
+       "members": [
+        "⟨me⟩",
+        "⟨maya⟩",
+        "⟨theo⟩"
+       ],
+       "note": "Your place · 3 people"
+      }
+     ],
+     "base": 0,
+     "remixers": [
+      "⟨dev⟩",
+      "⟨maya⟩"
+     ]
+    },
+    "leakRetry": true
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:16:18.737Z"
+ },
+ "b9efaf1c4a82d63bf273e436": {
+  "offers": [
+   {
+    "tool": "price-check",
+    "label": "Check if $150 is fair",
+    "read": "the $150 ask against sold prices of $110 to $200 nearby",
+    "confidence": 0.6,
+    "params": {
+     "item": "Standing desk",
+     "listed": "listed in Eastfield",
+     "seller": "Ines",
+     "askCents": 15000,
+     "comps": [
+      {
+       "label": "Sold nearby",
+       "cents": 11000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 14000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 16000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 20000
+      }
+     ],
+     "fairLowCents": 13000,
+     "fairHighCents": 16000,
+     "pins": [
+      {
+       "name": "⟨maya⟩",
+       "cents": 13000
+      },
+      {
+       "name": "⟨priya⟩",
+       "cents": 14000
+      },
+      {
+       "name": "⟨dev⟩",
+       "cents": 15000
+      }
+     ],
+     "quote": "⟨maya⟩: “offer 130”",
+     "pickup": "weekends"
+    },
+    "leakRetry": false
+   },
+   {
+    "tool": "room-fit",
+    "label": "See where the desk fits",
+    "read": "the 48 in desk against the 104 in long wall and 80 in window wall of unit 4b",
+    "confidence": 0.56,
+    "params": {
+     "room": "Unit 4B",
+     "cols": 9,
+     "rows": 7,
+     "fixed": [
+      {
+       "label": "Bed",
+       "kind": "bed",
+       "x": 6,
+       "y": 0,
+       "w": 3,
+       "h": 6
+      },
+      {
+       "label": "Closet",
+       "kind": "closet",
+       "x": 0,
+       "y": 6,
+       "w": 3,
+       "h": 1
+      }
+     ],
+     "finds": [
+      {
+       "name": "Standing desk",
+       "priceCents": 15000,
+       "w": 4,
+       "h": 2,
+       "by": "⟨me⟩",
+       "at": null
+      },
+      {
+       "name": "Desk chair",
+       "priceCents": 3500,
+       "w": 1,
+       "h": 1,
+       "by": "⟨maya⟩",
+       "at": null
+      },
+      {
+       "name": "Bookshelf",
+       "priceCents": 4500,
+       "w": 2,
+       "h": 1,
+       "by": "⟨priya⟩",
+       "at": null
+      }
+     ]
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:17:17.019Z"
+ },
+ "c5a171aac3fd3ca782a549eb": {
+  "offers": [],
+  "nothing": true,
+  "model": "recorded",
+  "at": "2026-11-13T07:24:22.521Z"
+ },
+ "c697c9e4762576c13e5661fd": {
+  "offers": [],
+  "nothing": true,
+  "model": "recorded",
+  "at": "2026-11-13T07:17:30.810Z"
+ },
+ "cc6a72f6e97bf5c0903604c7": {
+  "offers": [
+   {
+    "tool": "remix-card",
+    "label": "Remix this chore wheel",
+    "read": "aditya's post about the den's chore wheel, shared as a rota you could run at your place",
+    "confidence": 0.6,
+    "params": {
+     "chores": [
+      "Kitchen reset",
+      "Recycling",
+      "Bathroom scrub",
+      "Floors",
+      "Laundry run"
+     ],
+     "groups": [
+      {
+       "name": "The Den",
+       "short": "The Den",
+       "badge": "D",
+       "members": [
+        "⟨dev⟩",
+        "⟨jonah⟩",
+        "⟨priya⟩"
+       ],
+       "note": "⟨dev⟩, ⟨jonah⟩ +1 spin it every Sunday"
+      },
+      {
+       "name": "⟨me⟩'s place",
+       "short": "Your place",
+       "badge": "TL",
+       "members": [
+        "⟨me⟩",
+        "⟨maya⟩",
+        "⟨theo⟩"
+       ],
+       "note": "Your place · 3 people"
+      }
+     ],
+     "base": 340,
+     "remixers": [
+      "⟨dev⟩",
+      "⟨maya⟩",
+      "⟨priya⟩"
+     ]
+    },
+    "leakRetry": true
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:16:15.405Z"
+ },
+ "cf750ae3de4a56f0468b8a69": {
+  "offers": [],
+  "nothing": true,
+  "model": "recorded",
+  "at": "2026-11-13T07:24:33.795Z"
+ },
+ "d1de4aca594984e152ad26bd": {
+  "offers": [
+   {
+    "tool": "public-challenge",
+    "label": "Join the climbing challenge",
+    "read": "maya's day 12 of 30 days of climbing, and she says there's still time to join",
+    "confidence": 0.8,
+    "params": {
+     "title": "⟨maya⟩'s 30 days of climbing",
+     "host": "⟨maya⟩",
+     "hostLine": "still time to join, come climb",
+     "today": 12,
+     "of": 30,
+     "others": 14,
+     "crew": [
+      {
+       "name": "⟨maya⟩",
+       "days": "xxxxxxxxxxxx"
+      },
+      {
+       "name": "⟨dev⟩",
+       "days": "xxx.xxxxxxxx"
+      },
+      {
+       "name": "⟨jonah⟩",
+       "days": "xx.xxxxx.xxx"
+      },
+      {
+       "name": "⟨priya⟩",
+       "days": "    xx.xxxxx"
+      },
+      {
+       "name": "⟨theo⟩",
+       "days": "xxxxxx.x...."
+      }
+     ]
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:16:08.201Z"
+ },
+ "d45797f14777814b0d6e8490": {
+  "offers": [
+   {
+    "tool": "trip-lock",
+    "label": "Lock in for Tahoe",
+    "read": "the Feb 7 to 9 cabin with 2 spots left and 8 beds",
+    "confidence": 0.55,
+    "params": {
+     "title": "Lock in for Tahoe",
+     "sub": "⟨jonah⟩'s cabin · sleeps 8",
+     "date": "Feb 7 at 9:00 AM",
+     "from": "The chat",
+     "to": "Lake Tahoe",
+     "details": "Feb 7–9 · 8 beds · 2 spots left",
+     "deadline": "Final headcount Jan 24",
+     "seats": [
+      {
+       "code": "B1",
+       "who": "⟨jonah⟩"
+      },
+      {
+       "code": "B2",
+       "who": "⟨maya⟩"
+      },
+      {
+       "code": "B3",
+       "who": "⟨dev⟩"
+      },
+      {
+       "code": "B4",
+       "who": "⟨priya⟩"
+      },
+      {
+       "code": "B5",
+       "who": "⟨theo⟩"
+      },
+      {
+       "code": "B6",
+       "who": "Plus one"
+      },
+      {
+       "code": "B7",
+       "who": ""
+      },
+      {
+       "code": "B8",
+       "who": ""
+      }
+     ],
+     "lockAt": 8
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:16:27.081Z"
+ },
+ "d94723b7ead6f64bf608ed34": {
+  "offers": [],
+  "nothing": true,
+  "model": "recorded",
+  "at": "2026-11-13T07:17:22.934Z"
+ },
+ "d95b3d1e624cf11db2b798a8": {
+  "offers": [
+   {
+    "tool": "room-fit",
+    "label": "Check if it fits Unit 4B",
+    "read": "the 92 in couch against your 104 in long wall and 3rd floor pickup",
+    "confidence": 0.6,
+    "params": {
+     "room": "Unit 4B",
+     "cols": 9,
+     "rows": 7,
+     "fixed": [
+      {
+       "label": "Bed",
+       "kind": "bed",
+       "x": 6,
+       "y": 0,
+       "w": 3,
+       "h": 4
+      },
+      {
+       "label": "Closet",
+       "kind": "closet",
+       "x": 0,
+       "y": 0,
+       "w": 2,
+       "h": 1
+      }
+     ],
+     "finds": [
+      {
+       "name": "Sectional",
+       "priceCents": 18000,
+       "w": 8,
+       "h": 3,
+       "by": "⟨me⟩",
+       "at": null
+      },
+      {
+       "name": "Bookcase",
+       "priceCents": 4500,
+       "w": 2,
+       "h": 1,
+       "by": "⟨priya⟩",
+       "at": null
+      },
+      {
+       "name": "Armchair",
+       "priceCents": 8000,
+       "w": 3,
+       "h": 3,
+       "by": "⟨dev⟩",
+       "at": null
+      },
+      {
+       "name": "Floor lamp",
+       "priceCents": 2500,
+       "w": 1,
+       "h": 1,
+       "by": "⟨maya⟩",
+       "at": null
+      }
+     ]
+    },
+    "leakRetry": true
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:23:59.081Z"
+ },
+ "e0cd457f7804c92634e5c78f": {
+  "offers": [
+   {
+    "tool": "friends-plans",
+    "label": "See this weekend's plans",
+    "read": "maya's three weekend plans and the spots left on each",
+    "confidence": 0.8,
+    "params": {
+     "sub": "This weekend",
+     "days": [
+      {
+       "day": "Fri",
+       "date": "13"
+      },
+      {
+       "day": "Sat",
+       "date": "14"
+      },
+      {
+       "day": "Sun",
+       "date": "15"
+      }
+     ],
+     "plans": [
+      {
+       "day": 0,
+       "title": "Dumpling night out",
+       "meta": "7:30 PM · 3 stops · ⟨maya⟩'s plan",
+       "icon": "taco",
+       "host": "⟨maya⟩",
+       "going": [
+        "⟨jonah⟩",
+        "⟨priya⟩"
+       ],
+       "cap": 5,
+       "seat": "spot",
+       "reply": "save a seat, I'm coming"
+      },
+      {
+       "day": 1,
+       "title": "Morning ridge hike",
+       "meta": "8 AM · ⟨theo⟩ driving",
+       "icon": "hike",
+       "host": "⟨theo⟩",
+       "going": [
+        "⟨dev⟩",
+        "⟨maya⟩"
+       ],
+       "cap": 4,
+       "seat": "seat",
+       "reply": "two seats left, grab one"
+      },
+      {
+       "day": 2,
+       "title": "Park picnic and card games",
+       "meta": "1 PM · bring a snack · ⟨priya⟩'s plan",
+       "icon": "picnic",
+       "host": "⟨priya⟩",
+       "going": [
+        "⟨jonah⟩",
+        "⟨dev⟩",
+        "⟨theo⟩"
+       ],
+       "cap": 0,
+       "seat": "spot",
+       "reply": "bring something to share"
+      }
+     ]
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:15:53.645Z"
+ },
+ "e161e2650e159ad48954e347": {
+  "offers": [
+   {
+    "tool": "squad-lock",
+    "label": "Say if you're going",
+    "read": "maya's juniper hale friday post asking who else is going",
+    "confidence": 0.7,
+    "params": {
+     "title": "Go with friends",
+     "sub": "Juniper Hale · Friday show · 0 interested",
+     "date": "FRIDAY",
+     "tickets": "Ticket details not posted yet",
+     "host": "⟨maya⟩",
+     "threshold": 4,
+     "going": [
+      {
+       "name": "⟨maya⟩",
+       "note": "Asked the group, I'm in"
+      },
+      {
+       "name": "⟨jonah⟩",
+       "note": "Count me in"
+      }
+     ],
+     "maybe": [
+      "⟨priya⟩",
+      "⟨theo⟩"
+     ]
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:15:52.748Z"
+ },
+ "e342bfdcb3ef0b8e11df3b6d": {
+  "offers": [],
+  "nothing": true,
+  "model": "recorded",
+  "at": "2026-11-13T07:24:33.599Z"
+ },
+ "e3636dac69f93153fc74172d": {
+  "offers": [
+   {
+    "tool": "bring-list",
+    "label": "Claim a dish to bring",
+    "read": "the friendsgiving potluck at apt 4b and your bring list",
+    "confidence": 0.88,
+    "params": {
+     "title": "Friendsgiving potluck at apt 4b",
+     "sub": "Sat nov 21 6 pm · apt 4b · 6 going",
+     "items": [
+      {
+       "label": "Mashed potatoes",
+       "kind": "other",
+       "by": []
+      },
+      {
+       "label": "Mac and cheese",
+       "kind": "mac",
+       "by": []
+      },
+      {
+       "label": "Green beans",
+       "kind": "salad",
+       "by": []
+      },
+      {
+       "label": "Pie",
+       "kind": "pie",
+       "by": []
+      },
+      {
+       "label": "Drinks",
+       "kind": "drinks",
+       "by": []
+      },
+      {
+       "label": "Rolls",
+       "kind": "other",
+       "by": []
+      },
+      {
+       "label": "Plates and cups",
+       "kind": "cups",
+       "by": []
+      }
+     ]
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "muse:muse-ember-1.0:medium + muse:muse-spark-1.3-contributor:medium",
+  "at": "2026-11-13T13:11:54.533Z"
+ },
+ "e648de0011974ec7ce1ac39f": {
+  "offers": [
+   {
+    "tool": "price-check",
+    "label": "Check if $35 is fair",
+    "read": "the $35 harness, used good, from Bea in Eastfield",
+    "confidence": 0.55,
+    "params": {
+     "item": "Climbing harness, size M",
+     "listed": "listed in Eastfield",
+     "seller": "Bea",
+     "askCents": 3500,
+     "comps": [
+      {
+       "label": "Harness, size S",
+       "cents": 2500
+      },
+      {
+       "label": "Harness, size M, 3 seasons",
+       "cents": 2800
+      },
+      {
+       "label": "Harness, size M",
+       "cents": 3000
+      },
+      {
+       "label": "Harness, size L, like new",
+       "cents": 4500
+      }
+     ],
+     "fairLowCents": 2600,
+     "fairHighCents": 3000,
+     "pins": [
+      {
+       "name": "⟨maya⟩",
+       "cents": 2500
+      },
+      {
+       "name": "⟨priya⟩",
+       "cents": 2800
+      },
+      {
+       "name": "⟨dev⟩",
+       "cents": 3000
+      }
+     ],
+     "quote": "⟨priya⟩: “offer 28”",
+     "pickup": ""
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:24:25.886Z"
+ },
+ "e7511fbc5755dfcedba1bc27": {
+  "offers": [],
+  "nothing": true,
+  "model": "recorded",
+  "at": "2026-11-13T07:17:31.444Z"
+ },
+ "e8c503a33b4169ed413c7143": {
+  "offers": [
+   {
+    "tool": "price-check",
+    "label": "Check if $220 is fair",
+    "read": "the $220 ask against $150 to $300 sold nearby, with lock included",
+    "confidence": 0.6,
+    "params": {
+     "item": "Road bike, 54cm",
+     "listed": "pickup any evening",
+     "seller": "Marco",
+     "askCents": 22000,
+     "comps": [
+      {
+       "label": "Sold nearby",
+       "cents": 15000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 18000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 24000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 30000
+      }
+     ],
+     "fairLowCents": 18000,
+     "fairHighCents": 24000,
+     "pins": [
+      {
+       "name": "⟨maya⟩",
+       "cents": 18500
+      },
+      {
+       "name": "⟨priya⟩",
+       "cents": 20000
+      },
+      {
+       "name": "⟨dev⟩",
+       "cents": 21000
+      }
+     ],
+     "quote": "",
+     "pickup": "any evening"
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:17:19.182Z"
+ },
+ "e99ceec5537887d5850a803c": {
+  "offers": [
+   {
+    "tool": "bring-list",
+    "label": "Track who brings what",
+    "read": "the friendsgiving potluck and its bring list",
+    "confidence": 0.85,
+    "params": {
+     "title": "Friendsgiving potluck",
+     "sub": "Sat, Nov 21, 6 PM · Apt 4B · 6 coming",
+     "items": [
+      {
+       "by": [],
+       "kind": "other",
+       "label": "Mashed potatoes"
+      },
+      {
+       "by": [
+        "⟨dev⟩"
+       ],
+       "kind": "mac",
+       "label": "Mac and cheese"
+      },
+      {
+       "by": [],
+       "kind": "other",
+       "label": "Green beans"
+      },
+      {
+       "by": [],
+       "kind": "pie",
+       "label": "Pie"
+      },
+      {
+       "by": [
+        "⟨priya⟩"
+       ],
+       "kind": "drinks",
+       "label": "Drinks"
+      },
+      {
+       "by": [],
+       "kind": "other",
+       "label": "Rolls"
+      },
+      {
+       "by": [
+        "⟨me⟩"
+       ],
+       "kind": "cups",
+       "label": "Plates and cups"
+      }
+     ]
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "muse:muse-ember-1.0:medium + muse:muse-spark-1.3-contributor:medium",
+  "at": "2026-11-13T13:12:14.079Z"
+ },
+ "eb7bc9c450a253538a87c72b": {
+  "offers": [
+   {
+    "tool": "price-check",
+    "label": "Check if $60 is fair",
+    "read": "the $60 futon against sold nearby prices of $40 to $90, used fair condition.",
+    "confidence": 0.62,
+    "params": {
+     "item": "Futon, folds flat",
+     "listed": "pickup this week",
+     "seller": "Kofi",
+     "askCents": 6000,
+     "comps": [
+      {
+       "label": "Sold nearby",
+       "cents": 4000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 5500
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 7000
+      },
+      {
+       "label": "Sold nearby",
+       "cents": 9000
+      }
+     ],
+     "fairLowCents": 4500,
+     "fairHighCents": 6000,
+     "pins": [
+      {
+       "name": "⟨maya⟩",
+       "cents": 5000
+      },
+      {
+       "name": "⟨priya⟩",
+       "cents": 4500
+      },
+      {
+       "name": "⟨dev⟩",
+       "cents": 5500
+      }
+     ],
+     "quote": "⟨maya⟩: “thin mattress, offer 50”",
+     "pickup": "this week"
+    },
+    "leakRetry": false
+   },
+   {
+    "tool": "room-fit",
+    "label": "See where the futon fits",
+    "read": "the 78 in futon against the 104 in long wall in unit 4B.",
+    "confidence": 0.56,
+    "params": {
+     "room": "Unit 4B",
+     "cols": 9,
+     "rows": 7,
+     "fixed": [
+      {
+       "label": "Bed",
+       "kind": "bed",
+       "x": 6,
+       "y": 0,
+       "w": 3,
+       "h": 4
+      },
+      {
+       "label": "Closet",
+       "kind": "closet",
+       "x": 0,
+       "y": 0,
+       "w": 2,
+       "h": 1
+      }
+     ],
+     "finds": [
+      {
+       "name": "Futon",
+       "priceCents": 6000,
+       "w": 6,
+       "h": 3,
+       "by": "⟨me⟩",
+       "at": null
+      }
+     ]
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:17:11.429Z"
+ },
+ "ee58ff1ce029d9d6387d624c": {
+  "offers": [
+   {
+    "tool": "room-fit",
+    "label": "Check if it fits",
+    "read": "the 92 in sectional against your 104 in long wall in Unit 4B.",
+    "confidence": 0.62,
+    "params": {
+     "room": "Unit 4B",
+     "cols": 9,
+     "rows": 7,
+     "fixed": [
+      {
+       "label": "Bed",
+       "kind": "bed",
+       "x": 6,
+       "y": 0,
+       "w": 3,
+       "h": 4
+      },
+      {
+       "label": "Closet",
+       "kind": "closet",
+       "x": 0,
+       "y": 0,
+       "w": 2,
+       "h": 1
+      }
+     ],
+     "finds": [
+      {
+       "name": "Sectional",
+       "priceCents": 18000,
+       "w": 6,
+       "h": 3,
+       "by": "⟨me⟩",
+       "at": null
+      }
+     ]
+    },
+    "leakRetry": false
+   },
+   {
+    "tool": "pickup-run",
+    "label": "Plan the couch pickup",
+    "read": "the Sunday deadline and the 3rd floor walk-up, so someone needs a car and hands.",
+    "confidence": 0.6,
+    "params": {
+     "title": "Sectional pickup run",
+     "sub": "92″ grey sectional · 3rd floor walk-up",
+     "item": "couch",
+     "route": {
+      "from": "Your place",
+      "to": "Marco · Eastfield",
+      "dist": "4.1 mi · 16 min"
+     },
+     "cars": [
+      {
+       "driver": "⟨priya⟩",
+       "car": "Ford F-150",
+       "kind": "truck",
+       "fits": 2,
+       "seats": "3 seats + bed"
+      },
+      {
+       "driver": "⟨maya⟩",
+       "car": "Honda Fit",
+       "kind": "hatch",
+       "fits": 0,
+       "seats": "4 seats"
+      },
+      {
+       "driver": "⟨dev⟩",
+       "car": "Subaru Forester",
+       "kind": "wagon",
+       "fits": 1,
+       "seats": "5 seats + roof bars"
+      }
+     ],
+     "slots": [
+      {
+       "label": "Fri 6:00 pm",
+       "free": [
+        "⟨priya⟩",
+        "⟨dev⟩"
+       ]
+      },
+      {
+       "label": "Sat 10:00 am",
+       "free": [
+        "⟨priya⟩",
+        "⟨maya⟩",
+        "⟨dev⟩",
+        "⟨me⟩"
+       ]
+      },
+      {
+       "label": "Sat 3:30 pm",
+       "free": [
+        "⟨maya⟩",
+        "⟨me⟩"
+       ]
+      }
+     ],
+     "crew": 4,
+     "lifting": [
+      "⟨me⟩"
+     ],
+     "need": 2
+    },
+    "leakRetry": true
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:23:52.282Z"
+ },
+ "f258bc10e081dd0c866a9267": {
+  "offers": [],
+  "nothing": true,
+  "model": "recorded",
+  "at": "2026-11-13T07:24:33.591Z"
+ },
+ "f50dbd8d35588356e8e248e6": {
+  "offers": [
+   {
+    "tool": "memory-redo",
+    "label": "Vote on a Big Sur redo",
+    "read": "the Big Sur trip from a year ago, with Nepenthe and McWay Falls the crew would want to repeat",
+    "confidence": 0.6,
+    "params": {
+     "place": "Big Sur",
+     "date": "Nov 12, 2025",
+     "mural": "McWay Falls, the short one",
+     "sharedBy": "⟨dev⟩",
+     "crew": [
+      "⟨dev⟩",
+      "⟨maya⟩",
+      "⟨priya⟩",
+      "⟨me⟩"
+     ],
+     "comments": [
+      {
+       "who": "⟨maya⟩",
+       "text": "Nepenthe again, I'm picking"
+      },
+      {
+       "who": "⟨priya⟩",
+       "text": "I still have 16 stories I never posted"
+      }
+     ],
+     "price": {
+      "was": 31200,
+      "now": 34800
+     },
+     "note": "Gas and a cabin split four ways",
+     "weekends": [
+      {
+       "dates": "Dec 4-6",
+       "why": "before the holidays",
+       "days": 22
+      },
+      {
+       "dates": "Jan 15-17",
+       "why": "long weekend",
+       "days": 64
+      },
+      {
+       "dates": "Feb 12-14",
+       "why": "waterfall should be full",
+       "days": 92
+      }
+     ],
+     "booker": "⟨dev⟩",
+     "votes": [
+      {
+       "name": "⟨dev⟩",
+       "wk": 1
+      },
+      {
+       "name": "⟨maya⟩",
+       "wk": 1
+      },
+      {
+       "name": "⟨priya⟩",
+       "wk": 0
+      }
+     ]
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:17:33.349Z"
+ },
+ "f69d816487c4375da95b8a89": {
+  "offers": [
+   {
+    "tool": "trip-lock",
+    "label": "Claim a spot in the cabin",
+    "read": "the tahoe cabin for 8, feb 7 to 9, and the 2 spots left",
+    "confidence": 0.6,
+    "params": {
+     "title": "Tahoe cabin weekend",
+     "sub": "⟨jonah⟩'s cabin · sleeps 8",
+     "date": "Feb 7 at 4:00 PM",
+     "from": "The Bay",
+     "to": "Lake Tahoe",
+     "details": "Feb 7–9 · 2 spots left · meet in the chat",
+     "deadline": "Final headcount Jan 24 at 5:00 PM",
+     "seats": [
+      {
+       "code": "1A",
+       "who": "⟨jonah⟩"
+      },
+      {
+       "code": "1B",
+       "who": "⟨maya⟩"
+      },
+      {
+       "code": "1C",
+       "who": "⟨dev⟩"
+      },
+      {
+       "code": "1D",
+       "who": "⟨priya⟩"
+      },
+      {
+       "code": "2A",
+       "who": "⟨theo⟩"
+      },
+      {
+       "code": "2B",
+       "who": "⟨jonah⟩'s +1"
+      },
+      {
+       "code": "2C",
+       "who": ""
+      },
+      {
+       "code": "2D",
+       "who": ""
+      }
+     ],
+     "lockAt": 7
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:16:21.242Z"
+ },
+ "f951839368cf62e41d48c1f8": {
+  "offers": [
+   {
+    "tool": "move-in-day",
+    "label": "Pick a load to help with",
+    "read": "the couch needing 3, the mattress needing 2, and the 9am truck",
+    "confidence": 0.7,
+    "params": {
+     "title": "Wes's move",
+     "sub": "Sunday · 2 blocks over",
+     "stops": [
+      {
+       "time": "9:00",
+       "label": "Truck"
+      },
+      {
+       "time": "9:30",
+       "label": "Haul out"
+      },
+      {
+       "time": "10:15",
+       "label": "Short hop"
+      },
+      {
+       "time": "10:45",
+       "label": "Carry in"
+      },
+      {
+       "time": "12:00",
+       "label": "Pizza"
+      }
+     ],
+     "stage": 0,
+     "items": [
+      {
+       "name": "Couch",
+       "need": 3,
+       "note": "Needs three people",
+       "cuft": 110,
+       "kind": "couch",
+       "hands": [
+        "⟨maya⟩"
+       ]
+      },
+      {
+       "name": "Mattress",
+       "need": 2,
+       "note": "Two to carry it",
+       "cuft": 60,
+       "kind": "mattress",
+       "hands": []
+      },
+      {
+       "name": "TV",
+       "need": 1,
+       "note": "Someone careful",
+       "cuft": 30,
+       "kind": "tv",
+       "hands": []
+      }
+     ],
+     "boxes": {
+      "label": "12 boxes",
+      "cuft": 90
+     },
+     "truckCuft": 300,
+     "after": "Pizza is on Wes"
+    },
+    "leakRetry": true
+   }
+  ],
+  "nothing": false,
+  "model": "recorded",
+  "at": "2026-11-13T07:16:09.034Z"
+ },
+ "f9dcbd742be32a061de9e33a": {
+  "offers": [
+   {
+    "tool": "ticket-split",
+    "label": "Split ticket costs together",
+    "read": "the $38, $52 and $74 tiers for juniper hale with maya, arun and will",
+    "confidence": 0.65,
+    "params": {
+     "venue": "Meridian Hall",
+     "date": "Fri, Nov 20, 8 PM",
+     "tiers": [
+      {
+       "name": "Balcony",
+       "kind": "rows",
+       "priceCents": 3800,
+       "feeCents": 0,
+       "left": 0,
+       "together": "Sit together"
+      },
+      {
+       "name": "Floor GA",
+       "kind": "lawn",
+       "priceCents": 5200,
+       "feeCents": 0,
+       "left": 0,
+       "together": "Stand together"
+      },
+      {
+       "name": "Front rows",
+       "kind": "rows",
+       "priceCents": 7400,
+       "feeCents": 0,
+       "left": 0,
+       "together": "Sit together near the front"
+      }
+     ],
+     "tier": 1,
+     "people": [
+      "⟨me⟩",
+      "⟨maya⟩",
+      "⟨theo⟩",
+      "⟨priya⟩"
+     ],
+     "payer": "⟨me⟩"
+    },
+    "leakRetry": false
+   },
+   {
+    "tool": "squad-lock",
+    "label": "See who's actually going",
+    "read": "the 84 going for juniper hale, including maya, arun and will",
+    "confidence": 0.6,
+    "params": {
+     "title": "See who's actually going",
+     "sub": "Juniper Hale live · Meridian Hall · 1403 interested",
+     "date": "FRI, NOV 20 AT 8 PM",
+     "tickets": "Balcony $38 · Floor GA $52 · Front rows $74",
+     "host": "Meridian Hall",
+     "threshold": 6,
+     "going": [
+      {
+       "name": "⟨maya⟩",
+       "note": ""
+      },
+      {
+       "name": "⟨theo⟩",
+       "note": ""
+      },
+      {
+       "name": "⟨priya⟩",
+       "note": ""
+      }
+     ],
+     "maybe": []
+    },
+    "leakRetry": false
+   }
+  ],
+  "nothing": false,
+  "model": "muse:muse-ember-1.0:medium + muse:muse-spark-1.3-contributor:medium",
+  "at": "2026-11-13T13:11:56.063Z"
+ }
+}
