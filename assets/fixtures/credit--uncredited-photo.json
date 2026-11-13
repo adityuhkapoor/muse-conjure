@@ -1,0 +1,10 @@
+{
+ "assets": {
+  "photo-from-nowhere": {
+   "id": "photo-from-nowhere", "kind": "photo", "who": "A photo nobody credited", "alt": "A photo with no credit row", "ratio": "4:3",
+   "sizes": [{ "w": 480, "h": 360, "bytes": 1000, "path": "img/photo/post-sink-missing-480.webp" }],
+   "color": "#808080", "placeholder": "data:image/webp;base64,UklGRkAAAABXRUJQVlA4IDQAAACwAQCdASoQAAkABIByJQBOgB0zZlFgAPyKdc+HtMOsFyoIcGtlOjzpZMPG+0ldAZ5K5wAA"
+  }
+ },
+ "map": {}
+}

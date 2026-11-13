@@ -1,0 +1,9 @@
+{
+  "name": "@muse/assets",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Generated, fictional images for the demo's made-up people and places.",
+  "exports": { ".": "./index.ts", "./manifest.json": "./manifest.json" },
+  "scripts": { "check": "bun selftest.ts" }
+}

@@ -1,0 +1,2665 @@
+{
+ "version": "c31e9be1",
+ "note": "Real photos only: the team's own profile photos (people/, with permission), the owner's own photos, and free photos from Unsplash and Pexels (img/photo/, credited in CREDITS.md). No AI-generated images. Paths are relative to this folder.",
+ "assets": {
+  "place-apt-living": {
+   "id": "place-apt-living",
+   "kind": "photo",
+   "slot": "post",
+   "who": "Sublet living room",
+   "alt": "Small living room with a grey couch by a big curtained window",
+   "ratio": "4:3",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 360,
+     "bytes": 8536,
+     "path": "img/photo/place-apt-living-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 720,
+     "bytes": 23092,
+     "path": "img/photo/place-apt-living-960.webp"
+    }
+   ],
+   "color": "#b9b2ae",
+   "placeholder": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAwAgCdASoQAAwABABoJYwCdADp9uVi1M3LAAD+3uhX362Sx2beY1cJbqF4gQiEOBVIh0UrbkFGkcqd2rJ1VkLpoiOpyAAA",
+   "source": "Pexels",
+   "credit": "artbovich (Pexels) on Pexels"
+  },
+  "place-apt-sink": {
+   "id": "place-apt-sink",
+   "kind": "photo",
+   "slot": "post",
+   "who": "Apartment kitchen sink",
+   "alt": "Kitchen sink heaped with dirty plates, pans and cutlery",
+   "ratio": "4:5",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 600,
+     "bytes": 17324,
+     "path": "img/photo/place-apt-sink-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 1200,
+     "bytes": 43496,
+     "path": "img/photo/place-apt-sink-960.webp"
+    }
+   ],
+   "color": "#6c5f52",
+   "placeholder": "data:image/webp;base64,UklGRpIAAABXRUJQVlA4IIYAAABQBACdASoQABQAPxFysFAsJqSisAgBgCIJQBdgA3UJfm+ztO/vXTpP+biAAP6e0HsYMimRewWBt7rbf5hRNh9UlOHiuT7r/gHX2/NTjs2TLxt8aAZyQ4WUv9h0hx67laCsRa3/A4SwdYW3eHAiig7seVHWcR2rdCzamvFwwzILyqmVrOAAAA==",
+   "source": "Pexels",
+   "credit": "gary-barnes (Pexels) on Pexels"
+  },
+  "place-dorm": {
+   "id": "place-dorm",
+   "kind": "photo",
+   "slot": "post",
+   "who": "Sublet room with a bunk bed",
+   "alt": "Empty room with a wooden bunk bed, a desk and a window",
+   "ratio": "4:3",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 360,
+     "bytes": 11674,
+     "path": "img/photo/place-dorm-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 720,
+     "bytes": 30778,
+     "path": "img/photo/place-dorm-960.webp"
+    }
+   ],
+   "color": "#b1a79f",
+   "placeholder": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAADwAQCdASoQAAwABABoJZACdAC7HqQsxWAA/vBInDWdaMR+082i0HcOgIaO//DR8S27G8Nnr2OrxzSRY6Vy2Wn2Sdi9djX/Tjbx4ZZmxUAAAA==",
+   "source": "Pexels",
+   "credit": "douglas-rafael-fonseca (Pexels) on Pexels"
+  },
+  "listing-couch": {
+   "id": "listing-couch",
+   "kind": "photo",
+   "slot": "listing",
+   "who": "Grey sectional couch",
+   "alt": "Used grey sectional couch with blue cushions in a carpeted living room",
+   "ratio": "1:1",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 360,
+     "bytes": 14470,
+     "path": "img/photo/listing-couch-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 720,
+     "bytes": 45748,
+     "path": "img/photo/listing-couch-720.webp"
+    }
+   ],
+   "color": "#a89480",
+   "placeholder": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAQAgCdASoQABAABABoJbACdAEVzw1HDbI0AP7HgbjpoZPbhXUWiiIQ8b9il31VE8ZQRsEu1IhKA/roBWW4MYlKQuntXt6TPt4koa5IU/cXSY7P3Y8ugAAA",
+   "source": "Pexels",
+   "credit": "curtis-adams (Pexels) on Pexels"
+  },
+  "listing-desk": {
+   "id": "listing-desk",
+   "kind": "photo",
+   "slot": "listing",
+   "who": "Standing desk",
+   "alt": "Height adjustable desk with a monitor and plants in a home office",
+   "ratio": "1:1",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 360,
+     "bytes": 13872,
+     "path": "img/photo/listing-desk-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 720,
+     "bytes": 31654,
+     "path": "img/photo/listing-desk-720.webp"
+    }
+   ],
+   "color": "#6c624d",
+   "placeholder": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAAAwAgCdASoQABAABABoJYgCdAdwB95UIojKgAD+2WkoSsL/u39LlVVmggBm3ZtDY6Xr5TcpBd6+f2Sc/Y9z6gDWI70AyABko55P33b/6Uw+sAHQtpLDW59BDrg3ob1xCxGF8bEAAAA=",
+   "source": "Pexels",
+   "credit": "alphaen (Pexels) on Pexels"
+  },
+  "listing-bike": {
+   "id": "listing-bike",
+   "kind": "photo",
+   "slot": "listing",
+   "who": "Road bike",
+   "alt": "Red road bike locked to a pole on a city sidewalk",
+   "ratio": "1:1",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 360,
+     "bytes": 19586,
+     "path": "img/photo/listing-bike-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 720,
+     "bytes": 58240,
+     "path": "img/photo/listing-bike-720.webp"
+    }
+   ],
+   "color": "#98948a",
+   "placeholder": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAwAgCdASoQABAABABoJZQC7AYwTna8w415AAD+hBxlVqLOVQexVPw2AN+h0bCsUET78BcXeBZN+LrRe2/OVovrtkoGTHVnrYuNCtRgAB1tAldKHkPE50f0caef8mD8dYmAAA==",
+   "source": "Pexels",
+   "credit": "vovaflame (Pexels) on Pexels"
+  },
+  "listing-mini-fridge": {
+   "id": "listing-mini-fridge",
+   "kind": "photo",
+   "slot": "listing",
+   "who": "Mini fridge",
+   "alt": "Small white mini fridge under the counter of a compact kitchenette",
+   "ratio": "1:1",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 360,
+     "bytes": 6988,
+     "path": "img/photo/listing-mini-fridge-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 720,
+     "bytes": 19726,
+     "path": "img/photo/listing-mini-fridge-720.webp"
+    }
+   ],
+   "color": "#675135",
+   "placeholder": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoQABAABABoJZACdACzZzaIAAD+0P+8Yj6RB17U9S597GMmWMLNctVrxCZtahcKdRInSejwaehBVKdsqQdj2uAA",
+   "source": "Pexels",
+   "credit": "rebornfilmes (Pexels) on Pexels"
+  },
+  "listing-lamp": {
+   "id": "listing-lamp",
+   "kind": "photo",
+   "slot": "listing",
+   "who": "Floor lamp",
+   "alt": "Tall floor lamp glowing in the corner of a dim room",
+   "ratio": "1:1",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 360,
+     "bytes": 2976,
+     "path": "img/photo/listing-lamp-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 720,
+     "bytes": 7290,
+     "path": "img/photo/listing-lamp-720.webp"
+    }
+   ],
+   "color": "#382719",
+   "placeholder": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAAAwAgCdASoQABAABABoJZACdAEPyRs7oeJqAAD+7oejEv/HTORb0a4NseesDqxxSqRZbM/qDlXA1vc7jbgAAA==",
+   "source": "Pexels",
+   "credit": "skylar-kang (Pexels) on Pexels"
+  },
+  "p-aditya": {
+   "id": "p-aditya",
+   "kind": "portrait",
+   "who": "Aditya Kapoor, profile photo",
+   "alt": "Aditya Kapoor",
+   "ratio": "1:1",
+   "owner": "aditya",
+   "sizes": [
+    {
+     "w": 96,
+     "h": 96,
+     "bytes": 1498,
+     "path": "people/aditya-96.webp",
+     "use": "avatar"
+    },
+    {
+     "w": 256,
+     "h": 256,
+     "bytes": 5184,
+     "path": "people/aditya-256.webp",
+     "use": "avatar"
+    },
+    {
+     "w": 512,
+     "h": 512,
+     "bytes": 16440,
+     "path": "people/aditya-512.webp",
+     "use": "avatar"
+    }
+   ],
+   "color": "#9b8a84",
+   "placeholder": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAwAgCdASoQABAAAsBMJQBOj+ACr6R5F3IP4AD2v/wNa9+xyVbgyXDYWQWaPRPpgz449cqZ0dwYZtlNtNgAz/Nj7H6sZbC0s/KIouYLT37lcZc/JypHlNlflakNxfiXCjxbxUAA",
+   "prompt": "Real photo supplied by the person for this private prototype.",
+   "source": "supplied"
+  },
+  "p-calvin": {
+   "id": "p-calvin",
+   "kind": "portrait",
+   "who": "Calvin Karthik, profile photo",
+   "alt": "Calvin Karthik",
+   "ratio": "1:1",
+   "owner": "calvin",
+   "sizes": [
+    {
+     "w": 96,
+     "h": 96,
+     "bytes": 1790,
+     "path": "people/calvin-96.webp",
+     "use": "avatar"
+    },
+    {
+     "w": 256,
+     "h": 256,
+     "bytes": 5574,
+     "path": "people/calvin-256.webp",
+     "use": "avatar"
+    }
+   ],
+   "color": "#655a55",
+   "placeholder": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAABwAgCdASoQABAAAsBMJYwCdH8AFwEE5DFeyToAAP6lG2RIMRdTCKJ0NLVo3tjseWEuP+BVe1+rcsRvOwNqkXgo74Bv+xhHOP2KKPMUAAA=",
+   "prompt": "Real photo supplied by the person for this private prototype.",
+   "source": "supplied"
+  },
+  "p-arun": {
+   "id": "p-arun",
+   "kind": "portrait",
+   "who": "Arun Vaithianathan, profile photo",
+   "alt": "Arun Vaithianathan",
+   "ratio": "1:1",
+   "owner": "arun",
+   "sizes": [
+    {
+     "w": 96,
+     "h": 96,
+     "bytes": 2112,
+     "path": "people/arun-96.webp",
+     "use": "avatar"
+    },
+    {
+     "w": 256,
+     "h": 256,
+     "bytes": 6628,
+     "path": "people/arun-256.webp",
+     "use": "avatar"
+    }
+   ],
+   "color": "#9b978d",
+   "placeholder": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAADQAQCdASoQABAAAsBMJQBOgBgNvq5EQAD++ZIMXTWnAPK2+27zLqDaNjJ2BwFZI2WFD4RGtO4azwDuvhn3ABGAvjVZ3VT1J3hv+rHB7XGpHJ36h+zz1vTAhBs/HColf939SBvLXukyBgAA",
+   "prompt": "Real photo supplied by the person for this private prototype.",
+   "source": "supplied"
+  },
+  "p-tsai": {
+   "id": "p-tsai",
+   "kind": "portrait",
+   "who": "Tsai Lin, profile photo",
+   "alt": "Tsai Lin",
+   "ratio": "1:1",
+   "owner": "tsai",
+   "sizes": [
+    {
+     "w": 96,
+     "h": 96,
+     "bytes": 2894,
+     "path": "people/tsai-96.webp",
+     "use": "avatar"
+    },
+    {
+     "w": 256,
+     "h": 256,
+     "bytes": 11982,
+     "path": "people/tsai-256.webp",
+     "use": "avatar"
+    }
+   ],
+   "color": "#85898d",
+   "placeholder": "data:image/webp;base64,UklGRooAAABXRUJQVlA4IH4AAAAwAgCdASoQABAABABoJaACdBPABUHdCxRtAAD+4DMFfyHaXGvEKYirnps3WlGtau9UIwHDSfyEnGtN75POkxPE4ATP8uufLWiHpj6fHwODjWVSpyVYGmFcore5eqK16CtdlldAtpxjVXBIXUk/Hx30040DZzVHmZ//UapQAAA=",
+   "prompt": "Real photo supplied by the person for this private prototype.",
+   "source": "supplied"
+  },
+  "p-will": {
+   "id": "p-will",
+   "kind": "portrait",
+   "who": "Will Li, profile photo",
+   "alt": "Will Li, profile photo",
+   "ratio": "1:1",
+   "owner": "will",
+   "sizes": [
+    {
+     "w": 96,
+     "h": 96,
+     "bytes": 2522,
+     "path": "people/will-96.webp",
+     "use": "avatar"
+    },
+    {
+     "w": 256,
+     "h": 256,
+     "bytes": 9708,
+     "path": "people/will-256.webp",
+     "use": "avatar"
+    }
+   ],
+   "color": "#725550",
+   "placeholder": "data:image/webp;base64,UklGRnAAAABXRUJQVlA4IGQAAAAwAgCdASoQABAABABoJbACdADdHoaamgSogAD8/RzMrCtq7JW5ay2+QJ9DDJjaLEvST7f28g1GJOoX2Rs5+Gg1lt9onkzD0cTRUzS1G8cvPWBqtjpT9bLf+x7RcsE+zdJTaAAA",
+   "prompt": "Real photo supplied by the person for this private prototype.",
+   "source": "supplied"
+  },
+  "own-hackathon": {
+   "id": "own-hackathon",
+   "kind": "photo",
+   "slot": "post",
+   "who": "Aditya at a hackathon",
+   "alt": "Aditya and a friend in front of an illustrated backdrop with balloon arches at a hackathon",
+   "ratio": "4:3",
+   "owner": "aditya",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 360,
+     "bytes": 23534,
+     "path": "img/photo/own-hackathon-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 720,
+     "bytes": 60508,
+     "path": "img/photo/own-hackathon-960.webp"
+    }
+   ],
+   "color": "#7e6d6f",
+   "placeholder": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAAAQAgCdASoQAAwABABoJQBYdsX/7aqUM2AAAOIx4Y1II7Bkol7YxfUWlhaUuwF158U+ukZsw3hH4pUnqbeuKlO1eY/XUg/dcYR8/g5VnoLzKRsc7OvqzB9UXLfSAKWAAAA=",
+   "source": "owner",
+   "credit": "owner"
+  },
+  "own-pastry": {
+   "id": "own-pastry",
+   "kind": "photo",
+   "slot": "post",
+   "who": "Half-eaten pastry on a paper plate",
+   "alt": "A hand holding a paper plate with a half-eaten chocolate pastry over the pavement",
+   "ratio": "4:3",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 360,
+     "bytes": 17224,
+     "path": "img/photo/own-pastry-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 720,
+     "bytes": 50380,
+     "path": "img/photo/own-pastry-960.webp"
+    }
+   ],
+   "color": "#a4855f",
+   "placeholder": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAwAgCdASoQAAwABABoJbACdAEC07I+Xl/4AADiWXPX+slvQ/KfFmNjtrN26f/facSKk/1lhfGNxZzwnKA/16dZEUmuq9Vr4rKr0igykKORD1MPLaa5IAAA",
+   "source": "owner",
+   "credit": "owner"
+  },
+  "own-chalkboard-1": {
+   "id": "own-chalkboard-1",
+   "kind": "photo",
+   "slot": "post",
+   "who": "Lecture chalkboard, rigid motions",
+   "alt": "Lecture hall chalkboard about rigid motions, seen over the backs of students' heads",
+   "ratio": "4:3",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 360,
+     "bytes": 9068,
+     "path": "img/photo/own-chalkboard-1-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 720,
+     "bytes": 22042,
+     "path": "img/photo/own-chalkboard-1-960.webp"
+    }
+   ],
+   "color": "#736f5f",
+   "placeholder": "data:image/webp;base64,UklGRjwAAABXRUJQVlA4IDAAAADwAQCdASoQAAwABABoJQBdgCHpWTAlyCAA/pG+VICLc9qzGIpnpe+pDDToPG1aAAA=",
+   "source": "owner",
+   "credit": "owner"
+  },
+  "own-chalkboard-2": {
+   "id": "own-chalkboard-2",
+   "kind": "photo",
+   "slot": "post",
+   "who": "Lecture chalkboard, Frenet equations",
+   "alt": "Chalkboard full of Frenet equations behind a row of students",
+   "ratio": "4:3",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 360,
+     "bytes": 12244,
+     "path": "img/photo/own-chalkboard-2-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 720,
+     "bytes": 32514,
+     "path": "img/photo/own-chalkboard-2-960.webp"
+    }
+   ],
+   "color": "#848075",
+   "placeholder": "data:image/webp;base64,UklGRkYAAABXRUJQVlA4IDoAAADQAQCdASoQAAwABABoJYwCw7EOuj32QAD+sjsYvszI+UVTGYA/Qa0YastgM0MOmIP2ZMm18KNgAAAA",
+   "source": "owner",
+   "credit": "owner"
+  },
+  "listing-couch-2": {
+   "id": "listing-couch-2",
+   "kind": "photo",
+   "slot": "listing",
+   "who": "Grey sectional couch, corner",
+   "alt": "Close view of the grey sectional's corner seat and cushions",
+   "ratio": "1:1",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 360,
+     "bytes": 12508,
+     "path": "img/photo/listing-couch-2-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 720,
+     "bytes": 33680,
+     "path": "img/photo/listing-couch-2-720.webp"
+    }
+   ],
+   "color": "#95867b",
+   "placeholder": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADQAQCdASoQABAABABoJbACdADbGcDAAAD+a5xYZRhNtJxvc7nHw0Up5/0boXSGoE5cGlmzuCJ4UtN+wf46BYC1bq2XBChrR6+q6jf52TQYYiGu6GgAAA==",
+   "source": "Pexels",
+   "credit": "curtis-adams (Pexels) on Pexels"
+  },
+  "listing-loveseat": {
+   "id": "listing-loveseat",
+   "kind": "photo",
+   "slot": "listing",
+   "who": "Green velvet loveseat",
+   "alt": "Small green velvet loveseat next to a wooden coffee table",
+   "ratio": "1:1",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 360,
+     "bytes": 6446,
+     "path": "img/photo/listing-loveseat-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 720,
+     "bytes": 15456,
+     "path": "img/photo/listing-loveseat-720.webp"
+    }
+   ],
+   "color": "#a19676",
+   "placeholder": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAAAwAgCdASoQABAABABoJagCdAELYnYZqjwQAAD+63YaNCENfuw1Hsoms8gh1TQKiImOa82lNrrOqFpqFnK47uaIrcCzIIyV9IcXf8Txi4Af9h/ho7ga7rp8AAA=",
+   "source": "Pexels",
+   "credit": "andreaedavis (Pexels) on Pexels"
+  },
+  "listing-loveseat-2": {
+   "id": "listing-loveseat-2",
+   "kind": "photo",
+   "slot": "listing",
+   "who": "Green velvet loveseat, detail",
+   "alt": "Close view of the green velvet loveseat's tufted back",
+   "ratio": "1:1",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 360,
+     "bytes": 3832,
+     "path": "img/photo/listing-loveseat-2-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 720,
+     "bytes": 9182,
+     "path": "img/photo/listing-loveseat-2-720.webp"
+    }
+   ],
+   "color": "#a59d81",
+   "placeholder": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAwAgCdASoQABAABABoJagCdAELYwL7LwAiQAD+5/OGwkqtPvyh6QLyPEaeeg+x5BbkP/p9786zEhWogatygjPlU+BCWb9NYeMbjq/y4AA=",
+   "source": "Pexels",
+   "credit": "andreaedavis (Pexels) on Pexels"
+  },
+  "listing-futon": {
+   "id": "listing-futon",
+   "kind": "photo",
+   "slot": "listing",
+   "who": "Futon",
+   "alt": "Worn futon with a wooden frame and a patterned bolster pillow",
+   "ratio": "1:1",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 360,
+     "bytes": 10488,
+     "path": "img/photo/listing-futon-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 720,
+     "bytes": 25484,
+     "path": "img/photo/listing-futon-720.webp"
+    }
+   ],
+   "color": "#88735e",
+   "placeholder": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADQAQCdASoQABAABABoJZACdAC5OaivQAD98AucD4xiDafhUYF8+nQrqFlLogKgN5QbIvdm2cL8jnGwuYD4pD3RbHpV5JB5nqG9i+aD4IiacAAA",
+   "source": "Pexels",
+   "credit": "charlotte-may (Pexels) on Pexels"
+  },
+  "listing-desk-2": {
+   "id": "listing-desk-2",
+   "kind": "photo",
+   "slot": "listing",
+   "who": "Standing desk, detail",
+   "alt": "Close view of the standing desk's surface and monitor arm",
+   "ratio": "1:1",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 360,
+     "bytes": 10196,
+     "path": "img/photo/listing-desk-2-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 720,
+     "bytes": 22232,
+     "path": "img/photo/listing-desk-2-720.webp"
+    }
+   ],
+   "color": "#847964",
+   "placeholder": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAwAgCdASoQABAABABoJQBOgCH5pO0+XiKLoAD+0JMG+KgA8GSzKwZ4+nv+A8vpbuzmy/K91bJNAZ06R14SwodXSuhv06jtd+eSTJiIIpz0LjSgyBKQ1lRI4oXT8YAA",
+   "source": "Pexels",
+   "credit": "alphaen (Pexels) on Pexels"
+  },
+  "listing-textbooks": {
+   "id": "listing-textbooks",
+   "kind": "photo",
+   "slot": "listing",
+   "who": "Intro econ textbooks",
+   "alt": "Stack of textbooks held over a desk with open notes",
+   "ratio": "1:1",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 360,
+     "bytes": 8828,
+     "path": "img/photo/listing-textbooks-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 720,
+     "bytes": 22210,
+     "path": "img/photo/listing-textbooks-720.webp"
+    }
+   ],
+   "color": "#c0a09e",
+   "placeholder": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAAAQAgCdASoQABAABABoJbACdAEClMnF4llAAP7rak9td7wn3dlGDnfBq9f/vl8eGMKlmJUl7F+Pp9U8sd8aLbL1kKjCMjrTUWYmepWuiYd1PhOfD1JgQndjB6DUUjF4lL9SEkeeAAA=",
+   "source": "Pexels",
+   "credit": "karola-g (Pexels) on Pexels"
+  },
+  "listing-projector": {
+   "id": "listing-projector",
+   "kind": "photo",
+   "slot": "listing",
+   "who": "Projector and screen",
+   "alt": "Living room with a pull-down projector screen behind a sofa",
+   "ratio": "1:1",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 360,
+     "bytes": 11906,
+     "path": "img/photo/listing-projector-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 720,
+     "bytes": 33340,
+     "path": "img/photo/listing-projector-720.webp"
+    }
+   ],
+   "color": "#695c48",
+   "placeholder": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAABQAgCdASoQABAABABoJbACdAEUrn9JvZSwS4AA/VNrOV6Uq74h89zRHpdv7S/UDlwTnp4iFusa+Vtrvs9a4Sk9Ej4YmphakoeOu+VZ2KqWXc6uKTC7AYq218ATLKAA",
+   "source": "Pexels",
+   "credit": "curt-hubner (Pexels) on Pexels"
+  },
+  "listing-projector-2": {
+   "id": "listing-projector-2",
+   "kind": "photo",
+   "slot": "listing",
+   "who": "Projector screen, detail",
+   "alt": "Close view of the pull-down projector screen",
+   "ratio": "1:1",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 360,
+     "bytes": 8400,
+     "path": "img/photo/listing-projector-2-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 720,
+     "bytes": 19004,
+     "path": "img/photo/listing-projector-2-720.webp"
+    }
+   ],
+   "color": "#777462",
+   "placeholder": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAAAQAgCdASoQABAABABoJZACdAD0NYleUXEAAPE5mTtPV3VFK1ts8kEGJqhKirZHqJToZ7aF2PKG9OxzJCX5E8foqT7wYce9Gs2MdX6uaaVnYAAA",
+   "source": "Pexels",
+   "credit": "curt-hubner (Pexels) on Pexels"
+  },
+  "listing-harness": {
+   "id": "listing-harness",
+   "kind": "photo",
+   "slot": "listing",
+   "who": "Climbing harness",
+   "alt": "Climbing harness with carabiners and quickdraws clipped on",
+   "ratio": "1:1",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 360,
+     "bytes": 19348,
+     "path": "img/photo/listing-harness-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 720,
+     "bytes": 49394,
+     "path": "img/photo/listing-harness-720.webp"
+    }
+   ],
+   "color": "#4e514b",
+   "placeholder": "data:image/webp;base64,UklGRm4AAABXRUJQVlA4IGIAAAAwAgCdASoQABAABABoJYgCdAYv/SUjsIYgAAD+6UmRpudIj42BkuaTo0aOQG0Bq2H0aO3qFIGUe+UE6DngoKFQJFMZo43i6oFwBGq6xtW2vIQXJJwRRER0FiqtigBZNvAAAA==",
+   "source": "Pexels",
+   "credit": "andreaproietti (Pexels) on Pexels"
+  },
+  "listing-bookshelf": {
+   "id": "listing-bookshelf",
+   "kind": "photo",
+   "slot": "listing",
+   "who": "White bookshelf",
+   "alt": "White bookshelf with books and a trailing plant against a wall",
+   "ratio": "1:1",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 360,
+     "bytes": 7228,
+     "path": "img/photo/listing-bookshelf-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 720,
+     "bytes": 18200,
+     "path": "img/photo/listing-bookshelf-720.webp"
+    }
+   ],
+   "color": "#a49d89",
+   "placeholder": "data:image/webp;base64,UklGRkgAAABXRUJQVlA4IDwAAACwAQCdASoQABAABABoJQBOgB0+C+JAAP5TKJZvfw2Tzdn04zJ+gCUWVqpPNfpIaUdAzhnk6m/ADiUAAAA=",
+   "source": "Pexels",
+   "credit": "leticia-alvares (Pexels) on Pexels"
+  },
+  "listing-mirror": {
+   "id": "listing-mirror",
+   "kind": "photo",
+   "slot": "listing",
+   "who": "Full length mirror",
+   "alt": "Full length mirror leaning against a wall in a sunlit room",
+   "ratio": "1:1",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 360,
+     "bytes": 8394,
+     "path": "img/photo/listing-mirror-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 720,
+     "bytes": 20766,
+     "path": "img/photo/listing-mirror-720.webp"
+    }
+   ],
+   "color": "#c6c0bc",
+   "placeholder": "data:image/webp;base64,UklGRkwAAABXRUJQVlA4IEAAAADQAQCdASoQABAABABoJZQAAuQKtOSUAAD+x9wpYh0G8AT6YTx8+RMrniYtLzqwZW05jysfqN61iwg5tzG8NkAA",
+   "source": "Pexels",
+   "credit": "kseniachernaya (Pexels) on Pexels"
+  },
+  "post-library-night": {
+   "id": "post-library-night",
+   "kind": "photo",
+   "slot": "post",
+   "who": "Library at night",
+   "alt": "Library tables at night seen through the window, a few students working far off",
+   "ratio": "4:5",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 600,
+     "bytes": 20158,
+     "path": "img/photo/post-library-night-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 1200,
+     "bytes": 44824,
+     "path": "img/photo/post-library-night-960.webp"
+    }
+   ],
+   "color": "#32281a",
+   "placeholder": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAADwAwCdASoQABQAPxFysFAsJqSisAgBgCIJQBdgBDwS/ldGNjsPjMJcAP7pUOLrSF2+gmT4oU5Dw7cJoh63WlzdFDsTmHnSZts/2MvWmzyozetRt8CZxAM2YAA=",
+   "source": "Pexels",
+   "credit": "eddie-oliveira (Pexels) on Pexels"
+  },
+  "post-brunch-table": {
+   "id": "post-brunch-table",
+   "kind": "photo",
+   "slot": "post",
+   "who": "Brunch table",
+   "alt": "Brunch table from above with pastries, coffee and hands reaching in",
+   "ratio": "4:5",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 600,
+     "bytes": 48312,
+     "path": "img/photo/post-brunch-table-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 1200,
+     "bytes": 134982,
+     "path": "img/photo/post-brunch-table-960.webp"
+    }
+   ],
+   "color": "#776f6a",
+   "placeholder": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAACQBACdASoQABQAPxFwsFAsJiSisAgBgCIJagCdIHEwAAUySpWduOvoHgezAMAA8TwPkOYHP12plOoM3Agjeg2wlslJyI+c0KkML3uZcqUuVIS4/Du3Ln0Im4Ron3AIgsNtbEJx7mXYlbRuRrH4cwp2GeAPUU07DKVjTUzrxlahButj0jaP/jhCdhpEM6QA",
+   "source": "Pexels",
+   "credit": "heart-rules (Pexels) on Pexels"
+  },
+  "post-tailgate": {
+   "id": "post-tailgate",
+   "kind": "photo",
+   "slot": "post",
+   "who": "Game-day tailgate",
+   "alt": "Cars with open trunks and small groups of people in a parking lot at sunset",
+   "ratio": "4:3",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 360,
+     "bytes": 23466,
+     "path": "img/photo/post-tailgate-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 720,
+     "bytes": 65256,
+     "path": "img/photo/post-tailgate-960.webp"
+    }
+   ],
+   "color": "#9d8c83",
+   "placeholder": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAQCdASoQAAwABABoJYwCdAD0Nj314GAA/vBsMIgtv94p1iliROtW4NR4WI4TdCsFHp2dAy8zGcDCCCuY80iZ6vQRmUhENWpbjQAA",
+   "source": "Pexels",
+   "credit": "wendywei (Pexels) on Pexels"
+  },
+  "post-quad-fog": {
+   "id": "post-quad-fog",
+   "kind": "photo",
+   "slot": "post",
+   "who": "Fog over the quad",
+   "alt": "Fog over a park lawn at dawn, a few people walking in the distance",
+   "ratio": "4:3",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 360,
+     "bytes": 20030,
+     "path": "img/photo/post-quad-fog-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 720,
+     "bytes": 55616,
+     "path": "img/photo/post-quad-fog-960.webp"
+    }
+   ],
+   "color": "#919782",
+   "placeholder": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADwAQCdASoQAAwABABoJQBdgCHb7/8uCAAA/go7NKlYcZLjANN+rVZryqVM6ps1XbYPwLLr18qCR7z9g97xw3xTSpj9AAAA",
+   "source": "Pexels",
+   "credit": "ekam-juneja (Pexels) on Pexels"
+  },
+  "post-ocean-cliff": {
+   "id": "post-ocean-cliff",
+   "kind": "photo",
+   "slot": "post",
+   "who": "Cliffs over the ocean",
+   "alt": "Stone wall at a coastal overlook above misty cliffs and the ocean",
+   "ratio": "4:3",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 360,
+     "bytes": 14816,
+     "path": "img/photo/post-ocean-cliff-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 720,
+     "bytes": 43196,
+     "path": "img/photo/post-ocean-cliff-960.webp"
+    }
+   ],
+   "color": "#8d8c92",
+   "placeholder": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAACwAQCdASoQAAwABABoJQBdgCK5NcEEAP6YXlzEEidm1/oTMTpr1aB5kr1ZLQfu0v9YJIHelo9U9vIxWIScgbd6oAA=",
+   "source": "Pexels",
+   "credit": "rachael-porter (Pexels) on Pexels"
+  },
+  "post-trail-sunset": {
+   "id": "post-trail-sunset",
+   "kind": "photo",
+   "slot": "post",
+   "who": "Trail at sunset",
+   "alt": "Dirt trail through pine trees in low golden light",
+   "ratio": "4:5",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 600,
+     "bytes": 66104,
+     "path": "img/photo/post-trail-sunset-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 1200,
+     "bytes": 168344,
+     "path": "img/photo/post-trail-sunset-960.webp"
+    }
+   ],
+   "color": "#705d4b",
+   "placeholder": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAABwAwCdASoQABQAPxFysFAsJqSisAgBgCIJQBadAh3j4FeqTMAA/p+2IdNUFoNEOiPQ4fcvoBhyHXiHdB7jdeQENTOfeyCR+V9wAAAA",
+   "source": "Pexels",
+   "credit": "thomas-gokie (Pexels) on Pexels"
+  },
+  "post-dining-tray": {
+   "id": "post-dining-tray",
+   "kind": "photo",
+   "slot": "post",
+   "who": "Dining hall tray",
+   "alt": "Yellow cafeteria tray with a salad bowl and a cup of tea",
+   "ratio": "4:3",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 360,
+     "bytes": 11966,
+     "path": "img/photo/post-dining-tray-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 720,
+     "bytes": 26668,
+     "path": "img/photo/post-dining-tray-960.webp"
+    }
+   ],
+   "color": "#b09d7a",
+   "placeholder": "data:image/webp;base64,UklGRnQAAABXRUJQVlA4IGgAAAAwAgCdASoQAAwABABoJbACsAYtzMP0w6DeEAD8rGPApCz95NcyZPfMTSmBf92BzYOsUn8VujUvz4sXa0RZslAH2QKdfV3jVO4ZOeyF3oudxLwyHjRdZGufAwF9fsiAMoITpa6WEAAAAA==",
+   "source": "Pexels",
+   "credit": "filirovska (Pexels) on Pexels"
+  },
+  "post-late-night-food": {
+   "id": "post-late-night-food",
+   "kind": "photo",
+   "slot": "post",
+   "who": "Late-night food cart",
+   "alt": "Street food cart steaming under warm lights at night",
+   "ratio": "4:5",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 600,
+     "bytes": 17346,
+     "path": "img/photo/post-late-night-food-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 1200,
+     "bytes": 45720,
+     "path": "img/photo/post-late-night-food-960.webp"
+    }
+   ],
+   "color": "#472f0a",
+   "placeholder": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAABwAwCdASoQABQAPxFysFAsJqSisAgBgCIJbAC06BjGr5HxOAAA/u8/wlBG9zqbIXRG/BdKwFfI0xQnAzkRv+IHJZFtWhhF3Zp0xRRN7ZKfWcgyS4U9JmlbeOQAAA==",
+   "source": "Pexels",
+   "credit": "hatice-dinc (Pexels) on Pexels"
+  },
+  "post-apartment-mess": {
+   "id": "post-apartment-mess",
+   "kind": "photo",
+   "slot": "post",
+   "who": "Apartment mess",
+   "alt": "Cluttered desk by a window with dishes, snacks, cables and an unmade bed",
+   "ratio": "4:3",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 360,
+     "bytes": 14516,
+     "path": "img/photo/post-apartment-mess-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 720,
+     "bytes": 33600,
+     "path": "img/photo/post-apartment-mess-960.webp"
+    }
+   ],
+   "color": "#716e63",
+   "placeholder": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAAAQAgCdASoQAAwABABoJZQC7AEKU8m7lnBgAP7JIqqjswXObwYOkGcvKgYeuXjnFWuUEZ8LN2tT4Kwdsh72Y9+EnJ/cX3k5G08cqG2DRscagAAA",
+   "source": "Pexels",
+   "credit": "bingqian-li (Pexels) on Pexels"
+  },
+  "post-road-trip-window": {
+   "id": "post-road-trip-window",
+   "kind": "photo",
+   "slot": "post",
+   "who": "Road trip",
+   "alt": "Country road through trees seen over a car dashboard",
+   "ratio": "4:5",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 600,
+     "bytes": 26120,
+     "path": "img/photo/post-road-trip-window-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 1200,
+     "bytes": 92026,
+     "path": "img/photo/post-road-trip-window-960.webp"
+    }
+   ],
+   "color": "#383d3a",
+   "placeholder": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAACwAwCdASoQABQAPxFysFAsJqSisAgBgCIJZwAAW0s/qNMaALcNAAD+7oMVjajUX8eAIkunWNn/YoUXFAHfCPTRr49FJr7m9gnhtU//Hs2oYwbBci5Y7o9UOaajRbY9iB3J0RDYNkHlpz5S/A0swAAA",
+   "source": "Pexels",
+   "credit": "yassin-doukhane (Pexels) on Pexels"
+  },
+  "post-concert-crowd": {
+   "id": "post-concert-crowd",
+   "kind": "photo",
+   "slot": "post",
+   "who": "Concert crowd",
+   "alt": "Concert crowd from behind holding up phones toward a lit stage",
+   "ratio": "4:3",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 360,
+     "bytes": 15116,
+     "path": "img/photo/post-concert-crowd-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 720,
+     "bytes": 34938,
+     "path": "img/photo/post-concert-crowd-960.webp"
+    }
+   ],
+   "color": "#345059",
+   "placeholder": "data:image/webp;base64,UklGRmAAAABXRUJQVlA4IFQAAABQAgCdASoQAAwABABoJZgCdAEYEmIpFwZepAAA/tt/wtpB6t7DHkbUN6FMnMMWIYVHYY3gWw58fZtQQBiKeWMpe8KQj1Qq5r7rYlP205Ww7HoAAAA=",
+   "source": "Pexels",
+   "credit": "tainah-ferreira (Pexels) on Pexels"
+  },
+  "post-climbing-wall": {
+   "id": "post-climbing-wall",
+   "kind": "photo",
+   "slot": "post",
+   "who": "Climbing wall",
+   "alt": "Climber seen from behind reaching for holds on a bouldering wall",
+   "ratio": "4:5",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 600,
+     "bytes": 19874,
+     "path": "img/photo/post-climbing-wall-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 1200,
+     "bytes": 56586,
+     "path": "img/photo/post-climbing-wall-960.webp"
+    }
+   ],
+   "color": "#769da0",
+   "placeholder": "data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAAAwBACdASoQABQAPxFysFAsJqSisAgBgCIJbAC7H8GGgC4HVr2oydwiXhQA/XB99rZwCm/mPcZpb1LlmiTwseM8RzjGyoWi3uGaeLYeGRClPxdlN1PAT0c0wu+c/0ONPXleEybADZy3uAwmQVudA8yEJvtikj55isoVsA8oYLsHQDSRNXyL797M0Ef83PfoU/GZD7MedbX/UwD7MeccAAAA",
+   "source": "Pexels",
+   "credit": "enric-cruz-lopez (Pexels) on Pexels"
+  },
+  "post-boba": {
+   "id": "post-boba",
+   "kind": "photo",
+   "slot": "post",
+   "who": "Boba",
+   "alt": "Hand holding a cup of milk tea with tapioca pearls against the sky",
+   "ratio": "4:5",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 600,
+     "bytes": 8070,
+     "path": "img/photo/post-boba-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 1200,
+     "bytes": 19448,
+     "path": "img/photo/post-boba-960.webp"
+    }
+   ],
+   "color": "#97948d",
+   "placeholder": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAAAQBACdASoQABQAPxFwsFAsJiSisAgBgCIJYgCdACG7auyjU/+sWB/kgAD9zQY8MmqIaR2gWWHbQ8V4Oi7O8zccXxBLKbJ9N2J0MS/31pTJYt4v69dpNDfbJmKJ+9NNzWv9wYdz6rB2rxLgAAA=",
+   "source": "Pexels",
+   "credit": "rdne (Pexels) on Pexels"
+  },
+  "post-moving-boxes": {
+   "id": "post-moving-boxes",
+   "kind": "photo",
+   "slot": "post",
+   "who": "Moving boxes",
+   "alt": "Cardboard moving boxes stacked by a sunny window",
+   "ratio": "4:5",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 600,
+     "bytes": 13202,
+     "path": "img/photo/post-moving-boxes-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 1200,
+     "bytes": 37104,
+     "path": "img/photo/post-moving-boxes-960.webp"
+    }
+   ],
+   "color": "#7c7465",
+   "placeholder": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAACQAwCdASoQABQAPxFysFAsJqSisAgBgCIJYwC7ABjdh0t5kBRgAP5rgUAstBVY7ROIa11dRtPI0DwiXw2Sim23xC08cVtEG+bpf9LcqdE5t9yRA1VugIb17eEjfAfEPMkV5zi0mOZ1hLZCyTtxZiAAAAA=",
+   "source": "Pexels",
+   "credit": "cottonbro (Pexels) on Pexels"
+  },
+  "post-couch-curb": {
+   "id": "post-couch-curb",
+   "kind": "photo",
+   "slot": "post",
+   "who": "Couch on the curb",
+   "alt": "Worn white couch left out on the street by a wall",
+   "ratio": "4:5",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 600,
+     "bytes": 38582,
+     "path": "img/photo/post-couch-curb-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 1200,
+     "bytes": 135224,
+     "path": "img/photo/post-couch-curb-960.webp"
+    }
+   ],
+   "color": "#635d53",
+   "placeholder": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADwAwCdASoQABQAPxFysFAsJqSisAgBgCIJZQC+SCHZmtGlp4bnt9N0AP7r8oAcLBHHSFdUvkKEUb6lbJAhLwaMBvb+KBuczANcOnzC07Z0WAAA",
+   "source": "Pexels",
+   "credit": "sami-aksu (Pexels) on Pexels"
+  },
+  "post-quad-fall": {
+   "id": "post-quad-fall",
+   "kind": "photo",
+   "slot": "post",
+   "who": "Campus in fall",
+   "alt": "Campus walkway under orange autumn trees",
+   "ratio": "4:3",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 360,
+     "bytes": 47630,
+     "path": "img/photo/post-quad-fall-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 720,
+     "bytes": 155716,
+     "path": "img/photo/post-quad-fall-960.webp"
+    }
+   ],
+   "color": "#8e664c",
+   "placeholder": "data:image/webp;base64,UklGRl4AAABXRUJQVlA4IFIAAADQAQCdASoQAAwABABoJbACdACy/QTLQADgDzduX3A0cJKuM9O+c7PES3QzP+W+I5p7wq27dm/FaZWBKdHmv+9vcq46JOFE83hh8itYb9T+UAAA",
+   "source": "Pexels",
+   "credit": "an-vuong (Pexels) on Pexels"
+  },
+  "post-potluck-table": {
+   "id": "post-potluck-table",
+   "kind": "photo",
+   "slot": "post",
+   "who": "Potluck table",
+   "alt": "Table crowded with salads and shared dishes from above",
+   "ratio": "4:3",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 360,
+     "bytes": 25070,
+     "path": "img/photo/post-potluck-table-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 720,
+     "bytes": 60090,
+     "path": "img/photo/post-potluck-table-960.webp"
+    }
+   ],
+   "color": "#7d885c",
+   "placeholder": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAADwAQCdASoQAAwABABoJbACdAYtU3+/AwAA/kmgFQmk/h0Xky89fNok9rSnOkywIz9YUq4ENW4DAnSUcIbjqZUQTgpeCqsL1zlnBSjhjlZZO6d2HhkLiV44hL4QGgAA",
+   "source": "Pexels",
+   "credit": "milan (Pexels) on Pexels"
+  },
+  "story-trail-sign": {
+   "id": "story-trail-sign",
+   "kind": "photo",
+   "slot": "story",
+   "who": "Trail sign",
+   "alt": "Wooden trail sign with arrows on a post in the woods",
+   "ratio": "9:16",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 640,
+     "bytes": 20648,
+     "path": "img/photo/story-trail-sign-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 1280,
+     "bytes": 59608,
+     "path": "img/photo/story-trail-sign-720.webp"
+    }
+   ],
+   "color": "#626555",
+   "placeholder": "data:image/webp;base64,UklGRqYAAABXRUJQVlA4IJoAAACQBACdASoQABwAPxFysFAsJqSisAgBgCIJagCsAywYeAglMYg+OgPmZMAndUAAzhRHL/oWd2RBtLpxJ7U3nM8U1lkMmIs6GwvTRnsQ/XPhowjkE4xrSGkAKKWf6WiWe9za65ulYhTRAeT5En5uQjt5DsuQBd7eH/TqxwsxUSV28TNpwsP2Ey3FGRDALpGqEQ5vHS+MwsNAAAAA",
+   "source": "Pexels",
+   "credit": "connorscottmcmanus (Pexels) on Pexels"
+  },
+  "story-library-lamp": {
+   "id": "story-library-lamp",
+   "kind": "photo",
+   "slot": "story",
+   "who": "Desk lamp over books",
+   "alt": "Desk lamp lighting a messy stack of books at night",
+   "ratio": "9:16",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 640,
+     "bytes": 10176,
+     "path": "img/photo/story-library-lamp-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 1280,
+     "bytes": 26680,
+     "path": "img/photo/story-library-lamp-720.webp"
+    }
+   ],
+   "color": "#26180c",
+   "placeholder": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAADQAwCdASoQABwAPxFwsFAsJiSisAgBgCIJYwC06Glfvb9stWdq0AAA/vz/bHz4JKIkEnzCn+5pI/mDVEWIFlsd2CPti9i3RH9WHSesUTLkb7zeBiFUUAAA",
+   "source": "Pexels",
+   "credit": "avneet-kaur (Pexels) on Pexels"
+  },
+  "story-sunrise-street": {
+   "id": "story-sunrise-street",
+   "kind": "photo",
+   "slot": "story",
+   "who": "Sunrise over the street",
+   "alt": "Early sun throwing long shadows across an empty street",
+   "ratio": "9:16",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 640,
+     "bytes": 30950,
+     "path": "img/photo/story-sunrise-street-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 1280,
+     "bytes": 120940,
+     "path": "img/photo/story-sunrise-street-720.webp"
+    }
+   ],
+   "color": "#7f736a",
+   "placeholder": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAABQBACdASoQABwAPxFysFAsJqSisAgBgCIJYgCw7B6XfKb3NXDoyz3APl1kAP7I5e8e2+91XVdN15v7lZQRNFX1bNn0evsCEnlzV26R7hWf2Lpl3fDUT47Cb9r/5qj4LL34QwWtJesvZs/SmmT/2Nm5Jx5+oqJ26xvLJxffXPKO9yiWwAA=",
+   "source": "Pexels",
+   "credit": "lukas-kosc (Pexels) on Pexels"
+  },
+  "story-big-sur-road": {
+   "id": "story-big-sur-road",
+   "kind": "photo",
+   "slot": "story",
+   "who": "Bixby Bridge from the road",
+   "alt": "Bixby Creek Bridge on a foggy day along the coast road",
+   "ratio": "9:16",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 640,
+     "bytes": 27144,
+     "path": "img/photo/story-big-sur-road-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 1280,
+     "bytes": 79880,
+     "path": "img/photo/story-big-sur-road-720.webp"
+    }
+   ],
+   "color": "#706e71",
+   "placeholder": "data:image/webp;base64,UklGRnwAAABXRUJQVlA4IHAAAADQAwCdASoQABwAPxFwsFAsJiSisAgBgCIJYwCuHGlYfRq5jSZ3VgAA/vgrgfftOU/7zgVrnZxWgra2ghLHDVRnT3dpCr5DUyCgUEtB2qbVRx0i18s+bPAJPUZ/2TzW7cfVxxCrPnT3cF07UayvMAAA",
+   "source": "Pexels",
+   "credit": "bobby-mc-gee (Pexels) on Pexels"
+  },
+  "story-record-player": {
+   "id": "story-record-player",
+   "kind": "photo",
+   "slot": "story",
+   "who": "Record player in the den",
+   "alt": "Record player on a stool in the corner of a sunny room",
+   "ratio": "9:16",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 640,
+     "bytes": 20564,
+     "path": "img/photo/story-record-player-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 1280,
+     "bytes": 65784,
+     "path": "img/photo/story-record-player-720.webp"
+    }
+   ],
+   "color": "#ac9a85",
+   "placeholder": "data:image/webp;base64,UklGRoAAAABXRUJQVlA4IHQAAAAQBACdASoQABwAPxFysFAsJqSisAgBgCIJZACdAGMjjbC+nERvY9tTgAD+3rscHgNCHK25t3/8W3imG7Qze8vta859zBDyd0uYM5dZooHW/ov3zO5R2f4+a+xq2ek3QM9saVE/RrUL/4Ed0mbSU+CxCAAAAA==",
+   "source": "Pexels",
+   "credit": "furknsaglam (Pexels) on Pexels"
+  },
+  "story-food-cart": {
+   "id": "story-food-cart",
+   "kind": "photo",
+   "slot": "story",
+   "who": "Food cart at night",
+   "alt": "Street food cart steaming under warm lights at night",
+   "ratio": "9:16",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 640,
+     "bytes": 16142,
+     "path": "img/photo/story-food-cart-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 1280,
+     "bytes": 40802,
+     "path": "img/photo/story-food-cart-720.webp"
+    }
+   ],
+   "color": "#4b330d",
+   "placeholder": "data:image/webp;base64,UklGRpAAAABXRUJQVlA4IIQAAADwAwCdASoQABwAPxFysFAsJqSisAgBgCIJbACdABulCvPF9u0ag5DgAP7l0j3ptn4UNH5/hnwtCVjM543j9/pgH0/t6/4lO+8Ws1jFX09EJzx/ciWowUiq1X15GftctX/ofw9bLLZUYe91c8OiE5IZEyMP43OySF9D8/OBdhrdeZJAAAA=",
+   "source": "Pexels",
+   "credit": "hatice-dinc (Pexels) on Pexels"
+  },
+  "story-rooftop-lights": {
+   "id": "story-rooftop-lights",
+   "kind": "photo",
+   "slot": "story",
+   "who": "String lights on a rooftop",
+   "alt": "String lights on a rooftop at dusk",
+   "ratio": "9:16",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 640,
+     "bytes": 8658,
+     "path": "img/photo/story-rooftop-lights-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 1280,
+     "bytes": 21394,
+     "path": "img/photo/story-rooftop-lights-720.webp"
+    }
+   ],
+   "color": "#4e4948",
+   "placeholder": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAADQAwCdASoQABwAPxFyslCsJqSisAgBgCIJYgCdAGlVWTP45se3WAAA/qJJEUaKsUkVyMuVfshuO+Yjl29MTt+0vydl61nDOq2oXPsPD1raQzT3tTWKakr80iZShHCJ4qggRYv3P/a2mtwOO0yAAA==",
+   "source": "Pexels",
+   "credit": "cottonbro (Pexels) on Pexels"
+  },
+  "story-rooftop-dusk": {
+   "id": "story-rooftop-dusk",
+   "kind": "photo",
+   "slot": "story",
+   "who": "Rooftop at dusk",
+   "alt": "Bulb lights strung over a rooftop ledge at dusk",
+   "ratio": "9:16",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 640,
+     "bytes": 14202,
+     "path": "img/photo/story-rooftop-dusk-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 1280,
+     "bytes": 40020,
+     "path": "img/photo/story-rooftop-dusk-720.webp"
+    }
+   ],
+   "color": "#766b65",
+   "placeholder": "data:image/webp;base64,UklGRpgAAABXRUJQVlA4IIwAAACQBACdASoQABwAPxFysFCsJqSisAgBgCIJaACdMoMYAOSlaB3/l2PfMxyyQAAA/lGY07KVhn8ECIbivESsOSohPuFcNad/1/ve8bgzIfeMOXg/PiIW8VNV3YCv3bA7Oz2QnXeYTRttf5YvGVkxP/RskyrbsPW2YM7TIO7ZJW4uUhRuPZdLIwNKHoAAAA==",
+   "source": "Pexels",
+   "credit": "cottonbro (Pexels) on Pexels"
+  },
+  "story-concert": {
+   "id": "story-concert",
+   "kind": "photo",
+   "slot": "story",
+   "who": "Concert phone lights",
+   "alt": "Crowd at a night concert holding up phone lights",
+   "ratio": "9:16",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 640,
+     "bytes": 7980,
+     "path": "img/photo/story-concert-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 1280,
+     "bytes": 19616,
+     "path": "img/photo/story-concert-720.webp"
+    }
+   ],
+   "color": "#1e1c1b",
+   "placeholder": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAACwAwCdASoQABwAPxF2sVCsJySisAgBgCIJZwABHusrlr/5jKKSkAD+/KYEDi1IFpTkNcJJpz8u0x1XrVTltlzWKn4630+/H6dX2IcMmSzeC30vX2uOGfHYEAAAAA==",
+   "source": "Pexels",
+   "credit": "andiravsanjani (Pexels) on Pexels"
+  },
+  "reel-dumplings": {
+   "id": "reel-dumplings",
+   "kind": "photo",
+   "slot": "reel",
+   "who": "Dumplings",
+   "alt": "Plate of pan-fried dumplings with dipping sauce on a restaurant table",
+   "ratio": "9:16",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 640,
+     "bytes": 12380,
+     "path": "img/photo/reel-dumplings-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 1280,
+     "bytes": 28362,
+     "path": "img/photo/reel-dumplings-720.webp"
+    }
+   ],
+   "color": "#8b7c6c",
+   "placeholder": "data:image/webp;base64,UklGRsIAAABXRUJQVlA4ILYAAACwAwCdASoQABwAPxFysFCsJqSisAgBgCIJbAAD5aAwbe7w91bHAAD+YOHv0r7si5BGZDG2AcdjaxdfgxzXyyYh2RllWgE9+2Uyzm8YdnedMPTbAyuGhaIeHp5IPmf9B7GHyRiwHrjrvdHVg5fxnGyjSF/j014PeP4aC/BwzZb9F1FreMF+1wHHS+sjxjvS0b7Jt16sr4CJ3DNoVtpGbAa1U7eOa/+buI/j3nPUHLDjqDQPgSAAAA==",
+   "source": "Pexels",
+   "credit": "picswithjer (Pexels) on Pexels"
+  },
+  "reel-hike": {
+   "id": "reel-hike",
+   "kind": "photo",
+   "slot": "reel",
+   "who": "Sunset hike",
+   "alt": "Dirt trail over a hill under a pink sunset sky",
+   "ratio": "9:16",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 640,
+     "bytes": 12772,
+     "path": "img/photo/reel-hike-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 1280,
+     "bytes": 46248,
+     "path": "img/photo/reel-hike-720.webp"
+    }
+   ],
+   "color": "#8e7e9b",
+   "placeholder": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAwBACdASoQABwAPxF4slEsJ6SisAgBgCIJaACdAGlgP4sIIJdTgtVJYAAA/u1YN9WK9ZZSO7/612kA57QR9fbb6o2RKZKJ1x8c+q/M3nFliAE4ilBmDCphoeXR0AAA",
+   "source": "Pexels",
+   "credit": "martin-alargent (Pexels) on Pexels"
+  },
+  "reel-tacos": {
+   "id": "reel-tacos",
+   "kind": "photo",
+   "slot": "reel",
+   "who": "Street tacos",
+   "alt": "Hand holding a paper plate of street tacos at night",
+   "ratio": "9:16",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 640,
+     "bytes": 11474,
+     "path": "img/photo/reel-tacos-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 1280,
+     "bytes": 29132,
+     "path": "img/photo/reel-tacos-720.webp"
+    }
+   ],
+   "color": "#3e2c1e",
+   "placeholder": "data:image/webp;base64,UklGRpoAAABXRUJQVlA4II4AAADQAwCdASoQABwAPxFyslCsJqSisAgBgCIJZAABHusHNt9ewy0eBAAA/v0BH/pf7a7hUsc/mA1dGjMePDw7zdb3d823Qd5sN9Urgn4Ot/1mgf4XpsJxBH2KbAKT1OBqL/K839lC9bPEf7/LSPaUIPRxQx7/+K/TKZza0y8JvBmPr2dwEAHVdmi5+Mp8AAAA",
+   "source": "Pexels",
+   "credit": "joyboy (Pexels) on Pexels"
+  },
+  "reel-cooking": {
+   "id": "reel-cooking",
+   "kind": "photo",
+   "slot": "reel",
+   "who": "Chili crisp noodles",
+   "alt": "Bowl of noodles and dumplings in chili oil",
+   "ratio": "9:16",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 640,
+     "bytes": 16746,
+     "path": "img/photo/reel-cooking-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 1280,
+     "bytes": 42080,
+     "path": "img/photo/reel-cooking-720.webp"
+    }
+   ],
+   "color": "#a17a47",
+   "placeholder": "data:image/webp;base64,UklGRpQAAABXRUJQVlA4IIgAAABQBACdASoQABwAPxFwsFAsJiSisAgBgCIJbACdMoRwABlp6+HU23lowdQAAPyqr2wovLbrCHNddk1IyV1lv2plhU9rXUoZ6lsuQV0EXnKmOXQ8conjcpH2JCb52kKmXlek2w+w+p5wYBhC2TumGTtH32p3UpNjiuDr9tj0kUWLBlVEdGOhoAAA",
+   "source": "Pexels",
+   "credit": "angielica-engcoy (Pexels) on Pexels"
+  },
+  "reel-juniper": {
+   "id": "reel-juniper",
+   "kind": "photo",
+   "slot": "reel",
+   "who": "Concert from the crowd",
+   "alt": "Concert crowd from behind holding phones up to a bright stage",
+   "ratio": "9:16",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 640,
+     "bytes": 15390,
+     "path": "img/photo/reel-juniper-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 1280,
+     "bytes": 41622,
+     "path": "img/photo/reel-juniper-720.webp"
+    }
+   ],
+   "color": "#464142",
+   "placeholder": "data:image/webp;base64,UklGRrQAAABXRUJQVlA4IKgAAAAQBACdASoQABwAPxFysFAsJqSisAgBgCIJQBibMZUb5KOYv0r4nEO8SAD+7D2fSuhPBDeXWVvxstI08XspCCXIQW8oqfxl7g6nGX/U4wdi8rPUnTx/OpvaXVIaTb/fqfB/OtqrQsD3b4F7FLKtt7gLctS0wzavQwAu/cAa7DXrvGCDsIV5WsoohLV/6kUMjpD9JRmx+uH0w3idzHHopnhoJGljSQsWzAA=",
+   "source": "Pexels",
+   "credit": "vizi-kata (Pexels) on Pexels"
+  },
+  "reel-crag": {
+   "id": "reel-crag",
+   "kind": "photo",
+   "slot": "reel",
+   "who": "Outdoor crag",
+   "alt": "Climber on top of a large sandstone boulder under a blue sky",
+   "ratio": "9:16",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 640,
+     "bytes": 49542,
+     "path": "img/photo/reel-crag-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 1280,
+     "bytes": 177050,
+     "path": "img/photo/reel-crag-720.webp"
+    }
+   ],
+   "color": "#808986",
+   "placeholder": "data:image/webp;base64,UklGRqwAAABXRUJQVlA4IKAAAAAQBACdASoQABwAPxFysFAsJqSisAgBgCIJaACdAYukiXVoI6VKUXlMgADUqZi20j+xqtlzBPQKUoNjXMTibJ8EmweOdWHleewr3I7YkG8XyKUF/1IB9r39d8Gk70P3yr6TBKQlPrllQ5yy53YtSC6940ojyc6vk4hsNvpBhDi91g0AEly1WKXJpOBhUGZPmd/X0uqeIjRy79viCIkpT4AA",
+   "source": "Pexels",
+   "credit": "refika-odabas (Pexels) on Pexels"
+  },
+  "reel-couch": {
+   "id": "reel-couch",
+   "kind": "photo",
+   "slot": "reel",
+   "who": "Green velvet couch",
+   "alt": "Green velvet couch next to a small gold side table",
+   "ratio": "9:16",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 640,
+     "bytes": 9556,
+     "path": "img/photo/reel-couch-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 1280,
+     "bytes": 28290,
+     "path": "img/photo/reel-couch-720.webp"
+    }
+   ],
+   "color": "#9d9e8d",
+   "placeholder": "data:image/webp;base64,UklGRoIAAABXRUJQVlA4IHYAAAAQBACdASoQABwAPxFysFAsJqSisAgBgCIJaAC06GlglwW9zXtdbi0CwAD++qmNull1WpRGTpAu3BU7l7v80a3tmmVLmwfIDmu3y/JJH7St4SRU0gSQFWfufXmSf7UMZUwhZapzMJtYd1VyMuEdPfdNk3iEAAAA",
+   "source": "Pexels",
+   "credit": "rachel-claire (Pexels) on Pexels"
+  },
+  "reel-ramen": {
+   "id": "reel-ramen",
+   "kind": "photo",
+   "slot": "reel",
+   "who": "Tonkotsu ramen",
+   "alt": "Bowl of tonkotsu ramen with grilled pork at a restaurant counter",
+   "ratio": "9:16",
+   "sizes": [
+    {
+     "w": 360,
+     "h": 640,
+     "bytes": 22176,
+     "path": "img/photo/reel-ramen-360.webp"
+    },
+    {
+     "w": 720,
+     "h": 1280,
+     "bytes": 54866,
+     "path": "img/photo/reel-ramen-720.webp"
+    }
+   ],
+   "color": "#89715f",
+   "placeholder": "data:image/webp;base64,UklGRtAAAABXRUJQVlA4IMQAAAAQBQCdASoQABwAPxFysFAsJqSisAgBgCIJbACdMoR4G8AVxO3HYeWkVqpo+LKAt4agAP1TBV5DKwT33FOcl7d1Df46Of7KpR+Ac2XLlTZO/aR1ZnsUfnOYZLuzVwS4EULbH+di9df/1hRDvykJIpsh3zVzbg3IlLQtl4eR5LAQwXAunW4/wvsgY7u6o3UP/Ms4DUfPi1I37BAoil8ez3AiDdgAsxZ4n11OXQeRp1dLCzxqwABGNNheBVpPWqUIRMHe4AAA",
+   "source": "Pexels",
+   "credit": "dbaler (Pexels) on Pexels"
+  },
+  "event-juniper-cover": {
+   "id": "event-juniper-cover",
+   "kind": "photo",
+   "slot": "event",
+   "who": "Juniper Hale live",
+   "alt": "Concert crowd in silhouette facing a stage washed in blue light",
+   "ratio": "16:9",
+   "sizes": [
+    {
+     "w": 640,
+     "h": 360,
+     "bytes": 24810,
+     "path": "img/photo/event-juniper-cover-640.webp"
+    },
+    {
+     "w": 1280,
+     "h": 720,
+     "bytes": 63808,
+     "path": "img/photo/event-juniper-cover-1280.webp"
+    }
+   ],
+   "color": "#566d7c",
+   "placeholder": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoQAAkABABoJQBOgCG+Dh6C0YAA/pwGP1f9OfYWJ0aieU3fLX43LGrNBhXE/gKQcaaj13F04PZTCJAngAA=",
+   "source": "Pexels",
+   "credit": "wendywei (Pexels) on Pexels"
+  },
+  "event-potluck-cover": {
+   "id": "event-potluck-cover",
+   "kind": "photo",
+   "slot": "event",
+   "who": "Friendsgiving potluck",
+   "alt": "Hands passing dishes across a table crowded with food",
+   "ratio": "16:9",
+   "sizes": [
+    {
+     "w": 640,
+     "h": 360,
+     "bytes": 26082,
+     "path": "img/photo/event-potluck-cover-640.webp"
+    },
+    {
+     "w": 1280,
+     "h": 720,
+     "bytes": 60190,
+     "path": "img/photo/event-potluck-cover-1280.webp"
+    }
+   ],
+   "color": "#b97764",
+   "placeholder": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADwAQCdASoQAAkABABoJbACdAEG9vOBuAAA3QBxVtoHgi7LNjPFNMXdy5OgaWtAhm7lGLM/+N1r3qIIrwZKBoHAIyc8gDLFvzUQ6apkY9N8iU9d1GB/uMGTNQFjxlpOaAA=",
+   "source": "Pexels",
+   "credit": "cedric-fauntleroy (Pexels) on Pexels"
+  },
+  "event-bday21-cover": {
+   "id": "event-bday21-cover",
+   "kind": "photo",
+   "slot": "event",
+   "who": "Birthday party",
+   "alt": "Two cupcakes with lit candles in front of pastel balloons",
+   "ratio": "16:9",
+   "sizes": [
+    {
+     "w": 640,
+     "h": 360,
+     "bytes": 4344,
+     "path": "img/photo/event-bday21-cover-640.webp"
+    },
+    {
+     "w": 1280,
+     "h": 720,
+     "bytes": 10624,
+     "path": "img/photo/event-bday21-cover-1280.webp"
+    }
+   ],
+   "color": "#d5c5b2",
+   "placeholder": "data:image/webp;base64,UklGRjgAAABXRUJQVlA4ICwAAABQAQCdASoQAAkABABoJQBOgCgAAP7txs1568SVPvbU69iBvzrGXlyLf5tgAA==",
+   "source": "Pexels",
+   "credit": "cup-of-couple (Pexels) on Pexels"
+  },
+  "event-crag-cover": {
+   "id": "event-crag-cover",
+   "kind": "photo",
+   "slot": "event",
+   "who": "Crag day",
+   "alt": "Large sandstone boulder with a climber on top under a blue sky",
+   "ratio": "16:9",
+   "sizes": [
+    {
+     "w": 640,
+     "h": 360,
+     "bytes": 57176,
+     "path": "img/photo/event-crag-cover-640.webp"
+    },
+    {
+     "w": 1280,
+     "h": 720,
+     "bytes": 203230,
+     "path": "img/photo/event-crag-cover-1280.webp"
+    }
+   ],
+   "color": "#737c76",
+   "placeholder": "data:image/webp;base64,UklGRmQAAABXRUJQVlA4IFgAAAAQAgCdASoQAAkABABoJZACdAEfZnjezKfgAPhFlgUUGAtwOS2kGd4yibhBL69oJ3cLpq0AS6ZBxKKtdZC3LoRKGeSimAaGBEwwYwwlEWWu/8r/coqy6AAA",
+   "source": "Pexels",
+   "credit": "refika-odabas (Pexels) on Pexels"
+  },
+  "cover-sublet-group": {
+   "id": "cover-sublet-group",
+   "kind": "photo",
+   "slot": "cover",
+   "who": "Housing group cover",
+   "alt": "Street of apartment blocks with balconies and bare trees",
+   "ratio": "16:9",
+   "sizes": [
+    {
+     "w": 640,
+     "h": 360,
+     "bytes": 40380,
+     "path": "img/photo/cover-sublet-group-640.webp"
+    },
+    {
+     "w": 1280,
+     "h": 720,
+     "bytes": 116642,
+     "path": "img/photo/cover-sublet-group-1280.webp"
+    }
+   ],
+   "color": "#60625a",
+   "placeholder": "data:image/webp;base64,UklGRk4AAABXRUJQVlA4IEIAAADwAQCdASoQAAkABABoJQBOgCIPb0Tf0AAA+FenxVFmmZ5YXddtaCefiZucvrvoZuRg2JW6xQugy3rjE22W0lnAAAA=",
+   "source": "Pexels",
+   "credit": "raihanul-amin (Pexels) on Pexels"
+  },
+  "cover-club": {
+   "id": "cover-club",
+   "kind": "photo",
+   "slot": "cover",
+   "who": "Climbing club cover",
+   "alt": "Indoor bouldering wall covered in colorful holds",
+   "ratio": "16:9",
+   "sizes": [
+    {
+     "w": 640,
+     "h": 360,
+     "bytes": 18114,
+     "path": "img/photo/cover-club-640.webp"
+    },
+    {
+     "w": 1280,
+     "h": 720,
+     "bytes": 46742,
+     "path": "img/photo/cover-club-1280.webp"
+    }
+   ],
+   "color": "#9fa6a6",
+   "placeholder": "data:image/webp;base64,UklGRjoAAABXRUJQVlA4IC4AAACQAQCdASoQAAkABABoJZQAAjIlLQAA/lXlp51hrpIckBRegC03OKMdv9vFwAAA",
+   "source": "Pexels",
+   "credit": "cottonbro (Pexels) on Pexels"
+  },
+  "cover-class27": {
+   "id": "cover-class27",
+   "kind": "photo",
+   "slot": "cover",
+   "who": "Class group cover",
+   "alt": "Campus quad with a bell tower behind autumn trees",
+   "ratio": "16:9",
+   "sizes": [
+    {
+     "w": 640,
+     "h": 360,
+     "bytes": 68086,
+     "path": "img/photo/cover-class27-640.webp"
+    },
+    {
+     "w": 1280,
+     "h": 720,
+     "bytes": 218646,
+     "path": "img/photo/cover-class27-1280.webp"
+    }
+   ],
+   "color": "#818e8f",
+   "placeholder": "data:image/webp;base64,UklGRlAAAABXRUJQVlA4IEQAAAAQAgCdASoQAAkABABoJQBOkCYiRml19qQAAP4DSKzzlJyD5MMESR2m923fqbaeDz43aLOimLVuKyuF0HTnmxqpwo0AAA==",
+   "source": "Pexels",
+   "credit": "garrison-gao (Pexels) on Pexels"
+  },
+  "game-chatdle": {
+   "id": "game-chatdle",
+   "kind": "photo",
+   "slot": "game",
+   "who": "Word puzzle",
+   "alt": "Pile of wooden letter tiles",
+   "ratio": "4:3",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 360,
+     "bytes": 32268,
+     "path": "img/photo/game-chatdle-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 720,
+     "bytes": 104330,
+     "path": "img/photo/game-chatdle-960.webp"
+    }
+   ],
+   "color": "#baa191",
+   "placeholder": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAAAQAgCdASoQAAwABABoJQBOgMVQpJumYeJoAP5Up0AKAUH4IG4nX594ZzQanHJpM4WZfcQHZBMGAEASeY9+6vZrptrCZFraVDEVhgkIoYt5EilaGq3jCMPYWUUT8AAA",
+   "source": "Pexels",
+   "credit": "pixabay (Pexels) on Pexels"
+  },
+  "game-trivia": {
+   "id": "game-trivia",
+   "kind": "photo",
+   "slot": "game",
+   "who": "Trivia",
+   "alt": "Clipboard, notepad and pencils on a table in striped sunlight",
+   "ratio": "4:3",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 360,
+     "bytes": 14680,
+     "path": "img/photo/game-trivia-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 720,
+     "bytes": 40926,
+     "path": "img/photo/game-trivia-960.webp"
+    }
+   ],
+   "color": "#7a6249",
+   "placeholder": "data:image/webp;base64,UklGRnIAAABXRUJQVlA4IGYAAABQAgCdASoQAAwABABoJYgCdAYp5vNQ1fMekAAA/upVfK2aVy1SrdrCzDd+X+zeyGJlAaNKZvLX3sPv1Q3Senzor51UsGI2fWYeLOBfQGjQJKqIURy8MdpAYQxizDu60iEEJ2MgAAA=",
+   "source": "Pexels",
+   "credit": "angela-roma (Pexels) on Pexels"
+  },
+  "game-trivia-night": {
+   "id": "game-trivia-night",
+   "kind": "photo",
+   "slot": "game",
+   "who": "Trivia night",
+   "alt": "Dim bar with a wooden table and stools under a lamp",
+   "ratio": "4:3",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 360,
+     "bytes": 8976,
+     "path": "img/photo/game-trivia-night-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 720,
+     "bytes": 27678,
+     "path": "img/photo/game-trivia-night-960.webp"
+    }
+   ],
+   "color": "#201713",
+   "placeholder": "data:image/webp;base64,UklGRjYAAABXRUJQVlA4ICoAAACQAQCdASoQAAwABABoJZV/2U0AiwAA/vDd1D8HEC5IttFVDjXYVZ4ldAA=",
+   "source": "Pexels",
+   "credit": "chris-f (Pexels) on Pexels"
+  },
+  "game-two-truths": {
+   "id": "game-two-truths",
+   "kind": "photo",
+   "slot": "game",
+   "who": "Card game",
+   "alt": "Playing cards scattered on a wicker table",
+   "ratio": "4:3",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 360,
+     "bytes": 21866,
+     "path": "img/photo/game-two-truths-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 720,
+     "bytes": 55550,
+     "path": "img/photo/game-two-truths-960.webp"
+    }
+   ],
+   "color": "#443934",
+   "placeholder": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAAAwAgCdASoQAAwABABoJYwC7AEN63F9wznGgAD+7RgBfBAJi+1Wp4ysoDhkPizkEYiWR/t766JFge6/v3ISBkL0pO51jTdwPUOokgQAAAA=",
+   "source": "Pexels",
+   "credit": "jasper-hale (Pexels) on Pexels"
+  },
+  "game-captions": {
+   "id": "game-captions",
+   "kind": "photo",
+   "slot": "game",
+   "who": "Instant photos",
+   "alt": "Instant photos spread on a wooden table",
+   "ratio": "4:3",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 360,
+     "bytes": 33362,
+     "path": "img/photo/game-captions-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 720,
+     "bytes": 95902,
+     "path": "img/photo/game-captions-960.webp"
+    }
+   ],
+   "color": "#908a89",
+   "placeholder": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAQCdASoQAAwABABoJYwC7ACVHsyLASgA+/hdhNQGmnsY9wbZ993PM50hERxQqD1op6Ux3f+7F7MuDetqVGWzoPU/9HMMdeeZhUXAND7+TzfrOL3AAA==",
+   "source": "Pexels",
+   "credit": "lindseygarrett (Pexels) on Pexels"
+  },
+  "game-lobby": {
+   "id": "game-lobby",
+   "kind": "photo",
+   "slot": "game",
+   "who": "Game night",
+   "alt": "Two game controllers on a coffee table in front of a couch",
+   "ratio": "4:3",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 360,
+     "bytes": 7512,
+     "path": "img/photo/game-lobby-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 720,
+     "bytes": 17356,
+     "path": "img/photo/game-lobby-960.webp"
+    }
+   ],
+   "color": "#694d33",
+   "placeholder": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADQAQCdASoQAAwABABoJbACdAEDleEAAAD+3au/jLOxAyKEr3EHeqSmpy/CvspgAQ2SM/6BDdfmbbdjxc1akoBXy/kzpGPqBZ5AAA==",
+   "source": "Pexels",
+   "credit": "cottonbro (Pexels) on Pexels"
+  },
+  "game-movie": {
+   "id": "game-movie",
+   "kind": "photo",
+   "slot": "game",
+   "who": "Movie night",
+   "alt": "Bowl of popcorn next to TV remotes",
+   "ratio": "4:3",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 360,
+     "bytes": 13188,
+     "path": "img/photo/game-movie-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 720,
+     "bytes": 30726,
+     "path": "img/photo/game-movie-960.webp"
+    }
+   ],
+   "color": "#986f60",
+   "placeholder": "data:image/webp;base64,UklGRmoAAABXRUJQVlA4IF4AAABQAgCdASoQAAwABABoJbACdAYs3KEP5ZMmrgAA9mt1UeNOdTykxUE8W9cLfarZEQOkmu+ehFTCOtMGppSMHb90e4nbt0gp6NmEVaBs43fzlHkQltxix0QxoXr5QAAA",
+   "source": "Pexels",
+   "credit": "towfiqu-barbhuiya (Pexels) on Pexels"
+  },
+  "gen-study-aerial": {
+   "id": "gen-study-aerial",
+   "kind": "photo",
+   "slot": "general",
+   "who": "Study table from above",
+   "alt": "Students at a long library table seen from directly above",
+   "ratio": "4:3",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 360,
+     "bytes": 20542,
+     "path": "img/photo/gen-study-aerial-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 720,
+     "bytes": 57030,
+     "path": "img/photo/gen-study-aerial-960.webp"
+    }
+   ],
+   "color": "#716965",
+   "placeholder": "data:image/webp;base64,UklGRmIAAABXRUJQVlA4IFYAAADwAQCdASoQAAwABABoJYwCdAEOzjPSTeAA/trUAQHtGAABVG6vT8rVrMR9EiT3F83QLxE1KNMtE2EOVCzFk+ggCJlcmoJzYUZhQdmX5c77tebmmFlwAA==",
+   "source": "Pexels",
+   "credit": "hashcode-error (Pexels) on Pexels"
+  },
+  "gen-dorm-closet": {
+   "id": "gen-dorm-closet",
+   "kind": "photo",
+   "slot": "general",
+   "who": "Lived-in dorm bunk",
+   "alt": "Bunk bed with clothes hanging off the rail and a striped duvet",
+   "ratio": "4:5",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 600,
+     "bytes": 17010,
+     "path": "img/photo/gen-dorm-closet-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 1200,
+     "bytes": 39344,
+     "path": "img/photo/gen-dorm-closet-960.webp"
+    }
+   ],
+   "color": "#aeb0b8",
+   "placeholder": "data:image/webp;base64,UklGRnYAAABXRUJQVlA4IGoAAADQAwCdASoQABQAPxFysFAsJqSisAgBgCIJZwDG9BwpnrA09MLSbQAA+Ngx3OPq0CLpI0QlECPhHxh/YKsx1JfWiVfIPZ+EKKkmTcUr7Q2p0y2d0x69v6yJM+6SqpvLzocRrpIzRE/hEgAA",
+   "source": "Pexels",
+   "credit": "cottonbro (Pexels) on Pexels"
+  },
+  "gen-campus-walk": {
+   "id": "gen-campus-walk",
+   "kind": "photo",
+   "slot": "general",
+   "who": "Walking to class",
+   "alt": "Two students with backpacks walking away down a campus path",
+   "ratio": "4:5",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 600,
+     "bytes": 55720,
+     "path": "img/photo/gen-campus-walk-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 1200,
+     "bytes": 152754,
+     "path": "img/photo/gen-campus-walk-960.webp"
+    }
+   ],
+   "color": "#787d7b",
+   "placeholder": "data:image/webp;base64,UklGRo4AAABXRUJQVlA4IIIAAADQAwCdASoQABQAPxFysFAsJqSisAgBgCIJZQDG9ywTmYedq4jwe9gA/a0r92voHxIjmiYfP+ST2m8C62WPHvFak1ILepO3QSp88tU2itN576tAJpN7MsXyUA2INPkra0L3Nt2vO1+L6t9E9UzOgWnpv9tVMVWvLIiXa2A5ZHfwtAAA",
+   "source": "Pexels",
+   "credit": "charlotte-may (Pexels) on Pexels"
+  },
+  "gen-campus-gate": {
+   "id": "gen-campus-gate",
+   "kind": "photo",
+   "slot": "general",
+   "who": "Campus gate",
+   "alt": "Students walking through an iron gate toward a brick campus building",
+   "ratio": "4:5",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 600,
+     "bytes": 49146,
+     "path": "img/photo/gen-campus-gate-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 1200,
+     "bytes": 151494,
+     "path": "img/photo/gen-campus-gate-960.webp"
+    }
+   ],
+   "color": "#8c8889",
+   "placeholder": "data:image/webp;base64,UklGRmwAAABXRUJQVlA4IGAAAADQAwCdASoQABQAPxFysFAsJqSisAgBgCIJZwAAW7upg7DgbZhwOAAA/sUJ4A8XGoZatfY+mIpivy5EJ0E6z1R0acLyGQaahoptq0uBlDg4tBQJ0VoSu6t3cQVrWebjAAA=",
+   "source": "Pexels",
+   "credit": "george-pak (Pexels) on Pexels"
+  },
+  "gen-campus-path": {
+   "id": "gen-campus-path",
+   "kind": "photo",
+   "slot": "general",
+   "who": "Campus sidewalk",
+   "alt": "Students with backpacks walking along a campus sidewalk",
+   "ratio": "4:3",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 360,
+     "bytes": 31146,
+     "path": "img/photo/gen-campus-path-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 720,
+     "bytes": 88318,
+     "path": "img/photo/gen-campus-path-960.webp"
+    }
+   ],
+   "color": "#93979c",
+   "placeholder": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAABwAQCdASoQAAwABABoJZQAAbNsgAD5P76WkrPeGLsrYzVE54m3yhaT1sZoB1YNFBTq/qXrVtzXkP0kRRO24zVQMTT/eTA5Jf2PIAAA",
+   "source": "Pexels",
+   "credit": "george-pak (Pexels) on Pexels"
+  },
+  "gen-campus-trees": {
+   "id": "gen-campus-trees",
+   "kind": "photo",
+   "slot": "general",
+   "who": "Campus courtyard",
+   "alt": "Shady campus courtyard with people walking far off",
+   "ratio": "4:3",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 360,
+     "bytes": 45102,
+     "path": "img/photo/gen-campus-trees-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 720,
+     "bytes": 155934,
+     "path": "img/photo/gen-campus-trees-960.webp"
+    }
+   ],
+   "color": "#7c7c64",
+   "placeholder": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAAAQAgCdASoQAAwABABoJQBdgB+LUpsHtmDYAP2TBHrI89cqSdahOMuTLXc1NN5SXQQmYZoXWNGJRkVXn4/J+laIUTEW2vQA",
+   "source": "Pexels",
+   "credit": "davegarcia (Pexels) on Pexels"
+  },
+  "gen-locker": {
+   "id": "gen-locker",
+   "kind": "photo",
+   "slot": "general",
+   "who": "Locker",
+   "alt": "Locker number 2026 with a blue combination padlock",
+   "ratio": "4:5",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 600,
+     "bytes": 10636,
+     "path": "img/photo/gen-locker-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 1200,
+     "bytes": 27600,
+     "path": "img/photo/gen-locker-960.webp"
+    }
+   ],
+   "color": "#968879",
+   "placeholder": "data:image/webp;base64,UklGRmgAAABXRUJQVlA4IFwAAADQAwCdASoQABQAPxFysVCsJqSisAgBgCIJQBOkCYhV5XVdYUClagAAyRiiC4QpRZygrvXgDk4fFHuWdBI0g9QxAPsVS4+voW3rrVl36Ay9I8/i3/O2oRGHNoAAAA==",
+   "source": "Pexels",
+   "credit": "hashcode-error (Pexels) on Pexels"
+  },
+  "gen-campus-autumn": {
+   "id": "gen-campus-autumn",
+   "kind": "photo",
+   "slot": "general",
+   "who": "Campus in autumn",
+   "alt": "Yellow trees beside a campus building and a footpath",
+   "ratio": "4:5",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 600,
+     "bytes": 72498,
+     "path": "img/photo/gen-campus-autumn-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 1200,
+     "bytes": 169448,
+     "path": "img/photo/gen-campus-autumn-960.webp"
+    }
+   ],
+   "color": "#9d804a",
+   "placeholder": "data:image/webp;base64,UklGRnoAAABXRUJQVlA4IG4AAAAQBACdASoQABQAPxFwsFAsJiSisAgBgCIJbACdMoADg7iSNfDdqQf/3ADftUEcUeuKvGU4vxxcjKlWG56XDbEzS6rgjRT2y2DpHEvTUesQOuwomEHPHm4T8M08+24DB5q6hH0zrUSygIlCLIAAAA==",
+   "source": "Pexels",
+   "credit": "claude-107470434 (Pexels) on Pexels"
+  },
+  "gen-boxes-door": {
+   "id": "gen-boxes-door",
+   "kind": "photo",
+   "slot": "general",
+   "who": "Boxes by the door",
+   "alt": "Moving boxes stacked against a white door",
+   "ratio": "4:5",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 600,
+     "bytes": 7780,
+     "path": "img/photo/gen-boxes-door-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 1200,
+     "bytes": 21076,
+     "path": "img/photo/gen-boxes-door-960.webp"
+    }
+   ],
+   "color": "#978872",
+   "placeholder": "data:image/webp;base64,UklGRmYAAABXRUJQVlA4IFoAAABwAwCdASoQABQAPxFysVAsJqSisAgBgCIJQBdgA185Xa1b7gAA/q9wVtNmPdbjbfHUPyCGLSdoYrxhjfKyV+2GkADtKDqs+OsH6OOyWX48Hv2dNE+KxmjjoAA=",
+   "source": "Pexels",
+   "credit": "cottonbro (Pexels) on Pexels"
+  },
+  "gen-drive-sunset": {
+   "id": "gen-drive-sunset",
+   "kind": "photo",
+   "slot": "general",
+   "who": "Drive at sunset",
+   "alt": "Mountains at sunset through a car windshield",
+   "ratio": "4:3",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 360,
+     "bytes": 5852,
+     "path": "img/photo/gen-drive-sunset-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 720,
+     "bytes": 15154,
+     "path": "img/photo/gen-drive-sunset-960.webp"
+    }
+   ],
+   "color": "#404540",
+   "placeholder": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAACwAQCdASoQAAwABABoJZwAAuLSGvKAAP6qHbsduLQLghPDC+jJz3dcMwH0zmcsifKU2yzUJDYL0BwgzX++rRVMBl4bM06plAc8MpkQAAA=",
+   "source": "Pexels",
+   "credit": "alialcantara (Pexels) on Pexels"
+  },
+  "gen-bike-guardrail": {
+   "id": "gen-bike-guardrail",
+   "kind": "photo",
+   "slot": "general",
+   "who": "Bike on a ride",
+   "alt": "Road bike leaning on a guardrail above a valley",
+   "ratio": "4:3",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 360,
+     "bytes": 31298,
+     "path": "img/photo/gen-bike-guardrail-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 720,
+     "bytes": 90184,
+     "path": "img/photo/gen-bike-guardrail-960.webp"
+    }
+   ],
+   "color": "#737b79",
+   "placeholder": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAAAQAgCdASoQAAwABABoJZQC7AEM17exPwgAAP6RbOzdnUi1BGT4IXvuihqQGL8OxQgjvR8iHfE6NQs7xCubROZxvtWWx8RHqAPgAA==",
+   "source": "Pexels",
+   "credit": "rdne (Pexels) on Pexels"
+  },
+  "gen-climbing-holds": {
+   "id": "gen-climbing-holds",
+   "kind": "photo",
+   "slot": "general",
+   "who": "Climbing holds",
+   "alt": "Colorful bouldering holds on a pale wall",
+   "ratio": "4:5",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 600,
+     "bytes": 28288,
+     "path": "img/photo/gen-climbing-holds-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 1200,
+     "bytes": 74402,
+     "path": "img/photo/gen-climbing-holds-960.webp"
+    }
+   ],
+   "color": "#7b847e",
+   "placeholder": "data:image/webp;base64,UklGRp4AAABXRUJQVlA4IJIAAABQBACdASoQABQAPxFysFAsJqSisAgBgCIJQBYhiZBwNpKSLiZAYpH98OAAAPPGYy/b5OPG1CzUJ6My2b7XJNT9pwFTOQQoT2IxCrXZPjEkuK0y13vrx/Z5Y9fyrmDT1sgfs42neVeBUdp9PshhzfsYU0gV4StKTf8YLH9Tlfxa078GmCoPUQ1gOs14NqDpJQAAAA==",
+   "source": "Pexels",
+   "credit": "cottonbro (Pexels) on Pexels"
+  },
+  "gen-coast-road": {
+   "id": "gen-coast-road",
+   "kind": "photo",
+   "slot": "general",
+   "who": "Coast road",
+   "alt": "Coast road bridge between rocky cliffs and the ocean",
+   "ratio": "4:3",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 360,
+     "bytes": 29190,
+     "path": "img/photo/gen-coast-road-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 720,
+     "bytes": 94028,
+     "path": "img/photo/gen-coast-road-960.webp"
+    }
+   ],
+   "color": "#80817b",
+   "placeholder": "data:image/webp;base64,UklGRlIAAABXRUJQVlA4IEYAAADQAQCdASoQAAwABABoJQBdgCIfmF1IwAD+61LGGWuErMNLMKCQGOyBOnv0yqhYqcCzPqlzamTvDLxHytDZQG9htHYFI0AA",
+   "source": "Pexels",
+   "credit": "nathan-moore (Pexels) on Pexels"
+  },
+  "gen-big-sur-cliffs": {
+   "id": "gen-big-sur-cliffs",
+   "kind": "photo",
+   "slot": "general",
+   "who": "Coastal cliffs",
+   "alt": "Cliffs and a beach along a blue ocean",
+   "ratio": "4:5",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 600,
+     "bytes": 40394,
+     "path": "img/photo/gen-big-sur-cliffs-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 1200,
+     "bytes": 143336,
+     "path": "img/photo/gen-big-sur-cliffs-960.webp"
+    }
+   ],
+   "color": "#507192",
+   "placeholder": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAAAwBACdASoQABQAPxFwsFAsJiSisAgBgCIJbACdMoRwACmuQNv0yy6d5MAA/Rp3eQFVBkxhQsmr4r1jG7YRHRhH+2WMg6ExH0fXxWX+zFh2KXaukS317bYXurGPCObtv0pcWsqNqfteQgAJs/Unq9pmCAA=",
+   "source": "Pexels",
+   "credit": "ashishdurgude (Pexels) on Pexels"
+  },
+  "gen-dumpling-steamer": {
+   "id": "gen-dumpling-steamer",
+   "kind": "photo",
+   "slot": "general",
+   "who": "Dumplings in a steamer",
+   "alt": "Dumplings in a bamboo steamer on a table",
+   "ratio": "4:5",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 600,
+     "bytes": 12898,
+     "path": "img/photo/gen-dumpling-steamer-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 1200,
+     "bytes": 31456,
+     "path": "img/photo/gen-dumpling-steamer-960.webp"
+    }
+   ],
+   "color": "#a49b86",
+   "placeholder": "data:image/webp;base64,UklGRngAAABXRUJQVlA4IGwAAADQAwCdASoQABQAPxFysFAsJqSisAgBgCIJYgC/OBsgxMTmncHf58AA+Lwmx2Lw0MewPG845THaf8Mvs3XVEzDb3KhsZvlzSU/jYDomSvwZoJcZmtEiDFoKmqLRW5hudLAEkOmnnQkaQyQAAAA=",
+   "source": "Pexels",
+   "credit": "angela-roma (Pexels) on Pexels"
+  },
+  "gen-noodles-lift": {
+   "id": "gen-noodles-lift",
+   "kind": "photo",
+   "slot": "general",
+   "who": "Noodles",
+   "alt": "Chopsticks lifting noodles from a bowl",
+   "ratio": "4:5",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 600,
+     "bytes": 12592,
+     "path": "img/photo/gen-noodles-lift-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 1200,
+     "bytes": 30174,
+     "path": "img/photo/gen-noodles-lift-960.webp"
+    }
+   ],
+   "color": "#8b7953",
+   "placeholder": "data:image/webp;base64,UklGRn4AAABXRUJQVlA4IHIAAACwAwCdASoQABQAPxFysFAsJqSisAgBgCIJbACw7CLjImkmRToosAD+7pzzHl4wFntf9VUYOVLYr8ovo+CY5oWHP2ASDGV5QlxD0hAde2VbbdlMLUNQ8Hy2zcPGg78swnl8Pn9h/0Hb8omhixR8T8I/oAA=",
+   "source": "Pexels",
+   "credit": "imvitordiniz (Pexels) on Pexels"
+  },
+  "gen-night-street": {
+   "id": "gen-night-street",
+   "kind": "photo",
+   "slot": "general",
+   "who": "Night street",
+   "alt": "Food cart lit up on a dark street at night",
+   "ratio": "4:5",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 600,
+     "bytes": 19012,
+     "path": "img/photo/gen-night-street-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 1200,
+     "bytes": 48836,
+     "path": "img/photo/gen-night-street-960.webp"
+    }
+   ],
+   "color": "#1b1817",
+   "placeholder": "data:image/webp;base64,UklGRlwAAABXRUJQVlA4IFAAAACwAwCdASoQABQAPxFysVAsJqSisAgBgCIJZwAAW+9sfp0CZRx2AAD+7pZtCCZZPX2MundGFBmOpDP/EEeXHZMOTLrD8MByeRj9Ur6dD7kAAA==",
+   "source": "Pexels",
+   "credit": "serap-sagbas (Pexels) on Pexels"
+  },
+  "gen-book-stacks": {
+   "id": "gen-book-stacks",
+   "kind": "photo",
+   "slot": "general",
+   "who": "Book stacks",
+   "alt": "Wall of stacked old books and papers",
+   "ratio": "4:3",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 360,
+     "bytes": 11050,
+     "path": "img/photo/gen-book-stacks-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 720,
+     "bytes": 26012,
+     "path": "img/photo/gen-book-stacks-960.webp"
+    }
+   ],
+   "color": "#6e6a52",
+   "placeholder": "data:image/webp;base64,UklGRkoAAABXRUJQVlA4ID4AAACwAQCdASoQAAwABABoJQBYdhdAIaeAAP1KuHfiBfUnMsAUp6EnMmKm+k9EThVvpZtUnBiSTdePAtaRBYQAAA==",
+   "source": "Pexels",
+   "credit": "ian-panelo (Pexels) on Pexels"
+  },
+  "gen-rooftop-dusk": {
+   "id": "gen-rooftop-dusk",
+   "kind": "photo",
+   "slot": "general",
+   "who": "Rooftop at dusk",
+   "alt": "Bulb lights strung over a rooftop ledge at dusk",
+   "ratio": "4:3",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 360,
+     "bytes": 12534,
+     "path": "img/photo/gen-rooftop-dusk-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 720,
+     "bytes": 34878,
+     "path": "img/photo/gen-rooftop-dusk-960.webp"
+    }
+   ],
+   "color": "#6a6462",
+   "placeholder": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADQAQCdASoQAAwABABoJbACdACpEKlYAAD4WuQW2idp9Ua5plaPBdaOF47dNnmX+xysp8Q+JwJe1oc57phgBVUPvjfcammghK4AAA==",
+   "source": "Pexels",
+   "credit": "cottonbro (Pexels) on Pexels"
+  },
+  "gen-party-snacks": {
+   "id": "gen-party-snacks",
+   "kind": "photo",
+   "slot": "general",
+   "who": "Party snacks",
+   "alt": "Snacks and drinks on a kitchen table before a party",
+   "ratio": "4:5",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 600,
+     "bytes": 20610,
+     "path": "img/photo/gen-party-snacks-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 1200,
+     "bytes": 48216,
+     "path": "img/photo/gen-party-snacks-960.webp"
+    }
+   ],
+   "color": "#a36b5a",
+   "placeholder": "data:image/webp;base64,UklGRqIAAABXRUJQVlA4IJYAAADQAwCdASoQABQAPxFwsFAsJiSisAgBgCIJbACdMoACfa2KWH9tEAAA/P6oFaUA3OBHhybh2aY4h0ofKlWO1xb/VQEwhmxzBQjLAj9GVVhzl+nMj3liqa34LAtmMSRVrg6uJiKy2yG6ApdpJpDfGDEVtHGWAWstuRATg+ibjnzIeVn/RbzTvwh6DlHSNpiFXm83hONsAAA=",
+   "source": "Pexels",
+   "credit": "golboo (Pexels) on Pexels"
+  },
+  "post-donuts": {
+   "id": "post-donuts",
+   "kind": "photo",
+   "slot": "post",
+   "who": "Box of glazed donuts",
+   "alt": "Cardboard box of six glazed donuts on a knitted blanket",
+   "ratio": "4:5",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 600,
+     "bytes": 28578,
+     "path": "img/photo/post-donuts-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 1200,
+     "bytes": 73790,
+     "path": "img/photo/post-donuts-960.webp"
+    }
+   ],
+   "color": "#9b7e62",
+   "placeholder": "data:image/webp;base64,UklGRqQAAABXRUJQVlA4IJgAAAAQBACdASoQABQAPxFysFAsJqSisAgBgCIJagCdBagR/AaTVbMTh8847ADmlmmMmAM9wnX/+JyTTy/eH0MOw6ynDG78POoR7ziTimuX60sN3TQ1OUu0e/MvCjmMQktb46zoQNZj1acXarvrcfkY/kjLl9GZ547khBFNyucnH5bOSRfhpwQ8KvSJQmLsxJmivb9rFFluLAAAAA==",
+   "source": "Pexels",
+   "credit": "happy-enough-lab (Pexels) on Pexels"
+  },
+  "post-frost-trail": {
+   "id": "post-frost-trail",
+   "kind": "photo",
+   "slot": "post",
+   "who": "Frost on the trail",
+   "alt": "Frosted grass beside a dirt track under pine trees at sunrise",
+   "ratio": "4:3",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 360,
+     "bytes": 43186,
+     "path": "img/photo/post-frost-trail-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 720,
+     "bytes": 149472,
+     "path": "img/photo/post-frost-trail-960.webp"
+    }
+   ],
+   "color": "#696c5f",
+   "placeholder": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAAAQAgCdASoQAAwABABoJQBOgBuLAX+ybdwAAPxoJMRtoe6aXL8RHyk9jmXQT0vHyfNxcOP8DFkZaflSyZhrNBi0XHiQTkOIClNPAAAA",
+   "source": "Pexels",
+   "credit": "tom-fisk (Pexels) on Pexels"
+  },
+  "post-empty-stage": {
+   "id": "post-empty-stage",
+   "kind": "photo",
+   "slot": "post",
+   "who": "Empty stage",
+   "alt": "Empty stage with drums, congas, microphones and a keyboard before a show",
+   "ratio": "4:3",
+   "sizes": [
+    {
+     "w": 480,
+     "h": 360,
+     "bytes": 16404,
+     "path": "img/photo/post-empty-stage-480.webp"
+    },
+    {
+     "w": 960,
+     "h": 720,
+     "bytes": 45418,
+     "path": "img/photo/post-empty-stage-960.webp"
+    }
+   ],
+   "color": "#37211d",
+   "placeholder": "data:image/webp;base64,UklGRlYAAABXRUJQVlA4IEoAAADwAQCdASoQAAwABABoJQBOgCKRNVXkZgAA/vd9EgeQsRsDag79uS0UmXHPvm5Gl6KHL9IiWVvteKThZp5n/vq+Cyxpckn0fWAAAA==",
+   "source": "Pexels",
+   "credit": "lucas-agustin (Pexels) on Pexels"
+  }
+ },
+ "map": {
+  "people": {
+   "aditya": {
+    "name": "Aditya Kapoor",
+    "avatar": "p-aditya",
+    "photos": [],
+    "posts": []
+   },
+   "calvin": {
+    "name": "Calvin Karthik",
+    "avatar": "p-calvin",
+    "photos": [],
+    "posts": []
+   },
+   "arun": {
+    "name": "Arun Vaithianathan",
+    "avatar": "p-arun",
+    "photos": [],
+    "posts": []
+   },
+   "tsai": {
+    "name": "Tsai Lin",
+    "avatar": "p-tsai",
+    "photos": [],
+    "posts": []
+   },
+   "will": {
+    "name": "Will Li",
+    "avatar": "p-will",
+    "photos": [],
+    "posts": []
+   }
+  },
+  "places": {
+   "apartment-4b": "place-apt-living",
+   "apartment-4b-sink": "place-apt-sink",
+   "dorm": "place-dorm"
+  },
+  "listings": {
+   "couch": "listing-couch",
+   "desk": "listing-desk",
+   "bike": "listing-bike",
+   "mini-fridge": "listing-mini-fridge",
+   "lamp": "listing-lamp"
+  },
+  "photos": {
+   "apt4b-m12": "place-apt-sink"
+  },
+  "gallery": {
+   "listing-couch": [
+    "listing-couch",
+    "listing-couch-2"
+   ],
+   "listing-loveseat": [
+    "listing-loveseat",
+    "listing-loveseat-2"
+   ],
+   "listing-desk": [
+    "listing-desk",
+    "listing-desk-2"
+   ],
+   "listing-projector": [
+    "listing-projector",
+    "listing-projector-2"
+   ]
+  }
+ }
+}

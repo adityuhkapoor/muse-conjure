@@ -1,0 +1,26 @@
+/* Muse Sans: metric-compatible stand-in for Optimistic. Outlines from Red Hat Text (SIL OFL 1.1), renamed.
+   See README.md. Import once, before the token sheet. Licence: dist/OFL.txt. */
+@font-face { font-family: "Muse Sans"; font-style: normal; font-weight: 400; font-display: swap;
+  src: url("./dist/MuseSans-Regular.woff2") format("woff2");
+  unicode-range: U+0020-007E, U+00A0-017F, U+02C6, U+02DA, U+02DC, U+2013-2014, U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A, U+20AC, U+2122, U+2191, U+2193, U+2212; }
+@font-face { font-family: "Muse Sans"; font-style: normal; font-weight: 500; font-display: swap;
+  src: url("./dist/MuseSans-Medium.woff2") format("woff2");
+  unicode-range: U+0020-007E, U+00A0-017F, U+02C6, U+02DA, U+02DC, U+2013-2014, U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A, U+20AC, U+2122, U+2191, U+2193, U+2212; }
+@font-face { font-family: "Muse Sans"; font-style: normal; font-weight: 600; font-display: swap;
+  src: url("./dist/MuseSans-SemiBold.woff2") format("woff2");
+  unicode-range: U+0020-007E, U+00A0-017F, U+02C6, U+02DA, U+02DC, U+2013-2014, U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A, U+20AC, U+2122, U+2191, U+2193, U+2212; }
+@font-face { font-family: "Muse Sans"; font-style: normal; font-weight: 700; font-display: swap;
+  src: url("./dist/MuseSans-Bold.woff2") format("woff2");
+  unicode-range: U+0020-007E, U+00A0-017F, U+02C6, U+02DA, U+02DC, U+2013-2014, U+2018-201A, U+201C-201E, U+2020-2022, U+2026, U+2030, U+2039-203A, U+20AC, U+2122, U+2191, U+2193, U+2212; }
+
+:root {
+  /* The font already carries Optimistic's x-height (0.500), cap height (0.700), advances, kerning and 1.288 line box,
+     so nothing needs tuning: no font-size-adjust, no letter-spacing, no size multiplier. */
+  --font-muse: "Muse Sans", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-muse-line: 1.288;
+  --font-muse-adjust: none;          /* kept as a token so a consumer can see it is deliberately off */
+  --font-muse-tracking: 0;
+  --font-muse-tnum: "tnum" 1;        /* opt-in tabular figures; default digits are proportional like the reference */
+  /* Weights map one to one: 400 Text Regular, 500 Text Medium, 600 SemiBold, 700 Text Bold. */
+  --font-system: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI Historic", "Segoe UI", Helvetica, Arial, sans-serif;
+}

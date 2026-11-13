@@ -1,0 +1,1 @@
+{ "assets": { "x": { "alt": "An image far over budget", "color": "#808080", "placeholder": "data:image/webp;base64,UklGRhoAAABXRUJQVlA4TA0AAAAvAAAAEAcQERGIiP4HAA==", "sizes": [{ "w": 100, "h": 100, "path": "index.ts", "bytes": 9000000 }] } }, "map": { "people": {} } }

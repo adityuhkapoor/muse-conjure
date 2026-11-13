@@ -1,0 +1,1 @@
+{ "assets": { "x": { "alt": "A file that does not exist", "color": "#808080", "placeholder": "data:image/webp;base64,UklGRhoAAABXRUJQVlA4TA0AAAAvAAAAEAcQERGIiP4HAA==", "sizes": [{ "w": 100, "h": 100, "path": "img/none/nope-100.webp", "bytes": 10 }] } }, "map": { "people": {} } }
