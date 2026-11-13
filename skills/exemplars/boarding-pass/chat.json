@@ -1,0 +1,27 @@
+{
+  "ask": "muse make a thing so people actually commit",
+  "surface": "chat",
+  "title": "senior spring break 🌴",
+  "members": [
+    { "id": "m_nia", "name": "Nia" },
+    { "id": "m_marcus", "name": "Marcus" },
+    { "id": "m_elena", "name": "Elena" },
+    { "id": "m_theo", "name": "Theo" },
+    { "id": "m_kofi", "name": "Kofi" },
+    { "id": "m_hana", "name": "Hana" }
+  ],
+  "messages": [
+    { "from": "Nia", "text": "ok nola for spring break. real proposal" },
+    { "from": "Nia", "text": "flights pit to msy are $128 roundtrip on spirit rn, out fri 3/13 back tue 3/17" },
+    { "from": "Theo", "text": "spirit 💀" },
+    { "from": "Nia", "text": "the airbnb in the marigny sleeps 6 and it's $342 total for the 4 nights" },
+    { "from": "Elena", "text": "so like $185 each if all 6 of us go" },
+    { "from": "Marcus", "text": "im in. been saying nola since freshman year" },
+    { "from": "Hana", "text": "in" },
+    { "from": "Kofi", "text": "need to check if i can get off work, give me till thurs" },
+    { "from": "Nia", "text": "if 4 people commit by friday i'm booking the airbnb" },
+    { "from": "Theo", "text": "whats it if only 4 go" },
+    { "from": "Elena", "text": "airbnb split 4 is 85.50 so 213.50 each" },
+    { "from": "Nia", "text": "muse make a thing so people actually commit" }
+  ]
+}

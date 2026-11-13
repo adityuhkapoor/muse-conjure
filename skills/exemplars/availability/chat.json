@@ -1,0 +1,23 @@
+{
+  "ask": "muse when are we all free",
+  "surface": "group",
+  "title": "orgo 2 study grp 🧪",
+  "members": [
+    { "id": "m_tess", "name": "Tess" },
+    { "id": "m_jamal", "name": "Jamal" },
+    { "id": "m_mei", "name": "Mei" },
+    { "id": "m_rafa", "name": "Rafa" },
+    { "id": "m_lena", "name": "Lena" }
+  ],
+  "messages": [
+    { "from": "Mei", "text": "orgo final is friday 9am. we need at least one real study session this week" },
+    { "from": "Tess", "text": "agreed. im free basically every night after 6 except tues" },
+    { "from": "Jamal", "text": "lab mon and wed till 6, free after that. thursday i work 4 to 8" },
+    { "from": "Rafa", "text": "tues and thurs anytime. monday i have practice till 10" },
+    { "from": "Lena", "text": "only thursday after 8 works for me, sorry" },
+    { "from": "Mei", "text": "mon to wed i'm free 4 to 10. thursday i have a review session till 9, free after" },
+    { "from": "Jamal", "text": "can we do it on the library 3rd floor, they have whiteboards" },
+    { "from": "Rafa", "text": "the library closes at midnight fyi" },
+    { "from": "Tess", "text": "muse when are we all free" }
+  ]
+}

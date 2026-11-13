@@ -1,0 +1,10 @@
+node_modules
+/dist
+/*/dist
+/*/*/dist
+!/design/fonts/dist
+target
+data
+.cache
+*.sqlite
+.DS_Store

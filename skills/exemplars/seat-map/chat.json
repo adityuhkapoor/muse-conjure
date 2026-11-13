@@ -1,0 +1,30 @@
+{
+  "ask": "muse can you make a seat thing so we stop doing this in the chat",
+  "surface": "chat",
+  "title": "mirror lake 3/7 🎟️",
+  "members": [
+    { "id": "m_jess", "name": "Jess" },
+    { "id": "m_dani", "name": "Dani" },
+    { "id": "m_priya", "name": "Priya" },
+    { "id": "m_omar", "name": "Omar" },
+    { "id": "m_lily", "name": "Lily" },
+    { "id": "m_mateo", "name": "Mateo" },
+    { "id": "m_sofia", "name": "Sofia" },
+    { "id": "m_ren", "name": "Ren" }
+  ],
+  "messages": [
+    { "from": "Dani", "text": "MIRROR LAKE TICKETS?? did we get them" },
+    { "from": "Jess", "text": "ok tickets are BOUGHT. section 214, rows K and L, seats 5-8 in both" },
+    { "from": "Jess", "text": "$62 each w fees, venmo me whenever" },
+    { "from": "Priya", "text": "jess ur a hero" },
+    { "from": "Dani", "text": "wait which seats are good" },
+    { "from": "Jess", "text": "K is in front of L. L8 is the aisle seat" },
+    { "from": "Omar", "text": "i need the aisle pls i will be getting drinks all night" },
+    { "from": "Priya", "text": "dani and i are sitting together no matter what" },
+    { "from": "Lily", "text": "can i be in front, i'm short and L is behind" },
+    { "from": "Mateo", "text": "doors 7 show 8 right?" },
+    { "from": "Jess", "text": "yes sat 3/7, doors 7 show 8" },
+    { "from": "Sofia", "text": "i'll take whatever's left honestly" },
+    { "from": "Ren", "text": "muse can you make a seat thing so we stop doing this in the chat" }
+  ]
+}

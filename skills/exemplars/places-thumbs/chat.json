@@ -1,0 +1,27 @@
+{
+  "ask": "muse help us pick, friday 7:30",
+  "surface": "chat",
+  "title": "done w finals 🍜",
+  "members": [
+    { "id": "m_zoe", "name": "Zoe" },
+    { "id": "m_arjun", "name": "Arjun" },
+    { "id": "m_bea", "name": "Bea" },
+    { "id": "m_caleb", "name": "Caleb" },
+    { "id": "m_ines", "name": "Ines" },
+    { "id": "m_wes", "name": "Wes" }
+  ],
+  "messages": [
+    { "from": "Zoe", "text": "dinner friday to celebrate being done?? where" },
+    { "from": "Arjun", "text": "menya koji. ramen's like $16 and it's a 10 min walk" },
+    { "from": "Bea", "text": "tacos la palma!! $11 and it's right by the dorms" },
+    { "from": "Caleb", "text": "if we're celebrating can we do bella notte, it's like $28 a plate but it's nice" },
+    { "from": "Ines", "text": "bella notte is a 15 min drive tho, who has a car" },
+    { "from": "Caleb", "text": "i can drive 4" },
+    { "from": "Wes", "text": "golden dumpling house is $14 and 0.8 mi" },
+    { "from": "Zoe", "text": "i'm down for ramen or dumplings" },
+    { "from": "Bea", "text": "tacos tacos tacos" },
+    { "from": "Arjun", "text": "bella notte doesn't do walk ins on fridays fyi" },
+    { "from": "Ines", "text": "honestly fine w anything" },
+    { "from": "Zoe", "text": "muse help us pick, friday 7:30" }
+  ]
+}

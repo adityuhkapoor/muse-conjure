@@ -1,0 +1,9 @@
+{
+  "name": "@muse/spec",
+  "private": true,
+  "type": "module",
+  "scripts": {},
+  "devDependencies": {
+    "@informalsystems/quint": "^0.33.1"
+  }
+}

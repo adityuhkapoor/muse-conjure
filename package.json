@@ -1,0 +1,23 @@
+{
+  "name": "closer-together",
+  "private": true,
+  "type": "module",
+  "workspaces": [
+    "packages/*",
+    "apps/*",
+    "tools/*",
+    "library",
+    "assets",
+    "services/*",
+    "e2e-demo"
+  ],
+  "scripts": {
+    "test": "bun test",
+    "check": "tsc -b",
+    "demo": "bun services/demo/start.ts",
+    "demo:stop": "bun services/demo/stop.ts",
+    "e2e:demo": "bun e2e-demo/run.ts",
+    "sheet": "bun e2e-demo/sheet.ts",
+    "taste": "cd apps/taste && bun run taste"
+  }
+}
